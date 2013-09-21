@@ -1,0 +1,43 @@
+<html>
+<head>
+<title>Primitive data types</title>
+<link rel="stylesheet" href="semanualstyles.css" type="text/css">
+<style type="text/css">
+ p { margin-top: 0; margin-bottom: 0; }
+</style>
+<script language="JavaScript" src="TrueHelp.js"></script>
+</head>
+<body onload="thload()">
+<div id=ienav>
+<ilayer id=nsnav>
+<br>
+<center>
+<p class=normal><a href="seisdkc-toc.htm" target="left">contents</a> &nbsp; <a href="seisdkc-index.htm" target="left">index</a> &nbsp; <a href="TH_429.htm">previous</a> &nbsp; <a href="TH_431.htm">next</a></p>
+</center>
+<br>
+<hr noshade size=1>
+</ilayer>
+</div>
+<p class=heading-3>Primitive data types</p>
+<p class=heading-3-p>&nbsp;</p>
+<p class=senormalpara>Variables that have primitive data types pass<span class=truehelp-xe></span> their data by value<span class=truehelp-xe></span>, by actually copying the data to the new location. The following fragment illustrates:</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=secodelinesindented>var&nbsp;a&nbsp;=&nbsp;"abc";</p>
+<p class=secodelinesindented>var&nbsp;b&nbsp;=&nbsp;ReturnValue(a);</p>
+<p class=secodelinesindented>&nbsp;</p>
+<p class=secodelinesindented>function&nbsp;ReturnValue(c)</p>
+<p class=secodelinesindented>{</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;return&nbsp;c;</p>
+<p class=secodelinesindented>}</p>
+<p class=secodelinesindented>&nbsp;</p>
+<p class=senormalpara>After "abc" is assigned to variable a, two copies of the string "abc" exist, the original literal and the copy in the variable a. While the function ReturnValue is active, the parameter/variable c has a copy, and three copies of the string "abc" exist. If c were to be changed in such a function, variable a, which was passed as an argument to the function, would remain unchanged. After the function ReturnValue is finished, a copy of "abc" is in the variable b, but the copy in the variable c in the function is gone because the function is finished. During the execution of the fragment, as many as three copies of "abc" exist at one time.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>The primitive data types are: Number, Boolean, and String.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<hr noshade size=1>
+<p class=normal><a href="TH_431.htm"><img src="button.png" border=0></a><a href="TH_431.htm" style="text-decoration:none;">Number type</a></p>
+<p class=normal><a href="TH_439.htm"><img src="button.png" border=0></a><a href="TH_439.htm" style="text-decoration:none;">Boolean type</a></p>
+<p class=normal><a href="TH_440.htm"><img src="button.png" border=0></a><a href="TH_440.htm" style="text-decoration:none;">String type</a></p>
+<p>
+</body>
+</html>

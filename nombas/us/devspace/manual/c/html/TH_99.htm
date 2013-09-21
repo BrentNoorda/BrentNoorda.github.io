@@ -1,0 +1,182 @@
+<html>
+<head>
+<title>The seContextParams Structure</title>
+<link rel="stylesheet" href="semanualstyles.css" type="text/css">
+<style type="text/css">
+ p { margin-top: 0; margin-bottom: 0; }
+</style>
+<script language="JavaScript" src="TrueHelp.js"></script>
+</head>
+<body onload="thload()">
+<div id=ienav>
+<ilayer id=nsnav>
+<br>
+<center>
+<p class=normal><a href="seisdkc-toc.htm" target="left">contents</a> &nbsp; <a href="seisdkc-index.htm" target="left">index</a> &nbsp; <a href="TH_98.htm">previous</a> &nbsp; next</p>
+</center>
+<br>
+<hr noshade size=1>
+</ilayer>
+</div>
+<p class=heading-3>The seContextParams Structure </p>
+<p class=heading-3-p>&nbsp;</p>
+<p class=senormalpara>The <span class=secodephrase>seContextParams</span> structure contains a number of members which you must initialize. Most of them can be <span class=secodephrase>NULL</span> to indicate no interest in that member. However, the <span class=secodephrase>sePrintErrorFunc</span> member is a required member. Each member is listed in the order it appears in the structure along with a description of it. For members that are callback functions, the function&#8217;s prototype is given. The member of the <span class=secodephrase>seContextParams</span> structure must be filled in with a pointer to a function that matches that prototype.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>For many of these functions, you can find a sample implementation in the <span class=secodephrase>src\app</span> directory of the ScriptEase distribution which you may use or modify.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;SE_CALLBACK(&nbsp;void&nbsp;)</p>
+<p class=secodelines>sePrintErrorFunc(secontext&nbsp;context,&nbsp;seconstcharptr&nbsp;text);</p>
+<p class=secodelinesindented>&nbsp;</p>
+<p class=senormalpara>This function is called by the core to print an error to the user.  This happens when a script generates an error that is not trapped by a <span class=secodephrase>try/catch</span> handler. The error needs to be displayed to the user. This is the function that is called by ScriptEase to do so. This parameter is not optional, you must include an <span class=secodephrase>sePrintErrorFunc</span> in your parameters. </p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;SE_CALLBACK(&nbsp;void&nbsp;)</p>
+<p class=secodelines>seAtErrorFunc(secontext&nbsp;context,&nbsp;struct&nbsp;seAtErrorInfo&nbsp;*info);</p>
+<p class=secodelines>&nbsp;</p>
+<p class=senormalpara>This optional callback is invoked whenever a script generates an error, at the point of error. This will occur for any error, even if the error is trapped via a <span class=secodephrase>try/catch</span> handler. Note that some scripts will throw errors as a valid part of their program such as to indicate an error return from a function which will be trapped higher up in the script. This is why normally you do not care about an error until it comes back to you via the <span class=secodephrase>sePrintErrorFunc</span>, indicating it never is trapped. Getting an immediate notification is primarily useful in implementing a debugger for which the user may want to stop anytime an error is generated even if it will be handled, in order to step through the handling code.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>The <span class=secodephrase>seAtErrorFunc</span> is passed an informational structure about the error. Here is the definition: </p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=secodelinesindented>struct&nbsp;seAtErrorStruct</p>
+<p class=secodelinesindented>{</p>
+<p class=secodelinesindented>sebool&nbsp;trapped;</p>
+<p class=secodelinesindented>};</p>
+<p class=secodelinesindented>&nbsp;</p>
+<p class=senormalpara>Currently, the structure has only a single member. The boolean <span class=secodephrase>trapped</span> is <span class=secodephrase>TRUE</span> if the error will be trapped and <span class=secodephrase>FALSE</span> if the <span class=secodephrase>sePrintErrorFunc</span> will be called on it.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>The actual value of the error is set up in the <span class=secodephrase>SE_RETURN</span> object which is described fully in "<span class=sejumptopic><a href="TH_371.htm">SE_RETURN EXPLAINED</a></span>". For an error, the value is an <span class=secodephrase>Error</span> object as described by the ECMAScript specification. Since working with variables and return values is not described until later chapters, you should revisit this description once you have read those chapters.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;SE_CALLBACK(&nbsp;void&nbsp;)</p>
+<p class=secodelines>seContinueFunc(secontext&nbsp;se);</p>
+<p class=secodelines>&nbsp;</p>
+<p class=senormalpara>This optional function is called by the ScriptEase interpreter after every statement while evaluating scripts. It is useful to perform periodic work, such as checking Windows messages in a Windows ScriptEase application. It is also useful in implementing a debugger to regain control after each statement is executed.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>When evaluating scripts using <span class=secodephrase>seEval</span> (described in "<span class=sejumptopic><a href="TH_223.htm">Using seEval</a></span>"), you can pass the <span class=secodephrase>SE_INFREQUENT_CONT</span> flag to have the continue function called much less frequently than once per statement. If all you need to do is an occasional Windows Message processing, calling this function after every statement wastes a lot of processing which is when this flag is most useful.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>You use the standard ScriptEase wrapper return rules to control execution using this function. You can return an error in the normal way which will abort script execution but can be trapped like any other error. Alternately, you can use set the object,member pair <span class=secodephrase>SE_RETURN,SE_EXIT</span> to <span class=secodephrase>TRUE</span> in order to force the program to abort completely. Returning a non error value does nothing, it is ignored. Either you generate an error in order to abort script execution, or you return nothing and the script continues as normal.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;SE_CALLBACK(&nbsp;sebool&nbsp;)</p>
+<p class=secodelines>seFindFileFunc(secontext&nbsp;se,&nbsp;seconstcharptr&nbsp;fileName,</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;secharptr&nbsp;fileResults,</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;sememcount&nbsp;fileResultSize,</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;sebool&nbsp;lookForExtlib);</p>
+<p class=secodelines>&nbsp;</p>
+<p class=senormalpara>This optional function is used by ScriptEase when looking for source files. The filenames being looked for are the filenames passed to the <span class=secodephrase>#include</span> and <span class=secodephrase>#link</span> directives. The parameter <span class=secodephrase>lookForExtlib</span> tells you which kind if being looked for: <span class=secodephrase>TRUE</span> for a <span class=secodephrase>#link</span> extlib, <span class=secodephrase>FALSE</span> for a <span class=secodephrase>#include</span> include file.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>If you do not implement this function, then files are looked for directly, meaning that the filename given must appear exactly as specified in the current directory. By implementing this function, you can handle looking for these files with various extensions in various directories. You are passed <span class=secodephrase>fileName</span>, the file to be looked for. This is the text that appears in the directive exactly as the user entered it. You fill in the <span class=secodephrase>fileResults</span> buffer (the parameter <span class=secodephrase>fileResultSize</span> tells you how big the buffer is) with the translated filename and return <span class=secodephrase>TRUE</span> to indicate the file is found. If you return <span class=secodephrase>FALSE</span>, you specify the file as not found.  See the <span class=secodephrase>seGetSourceFunc</span> below for more file-related behavior.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;SE_CALLBACK(&nbsp;sebool&nbsp;)</p>
+<p class=secodelines>seGetSourceFunc(secontext&nbsp;se,&nbsp;struct&nbsp;seSourceInfo&nbsp;*info,</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;uint&nbsp;mode);</p>
+<p class=secodelines>&nbsp;</p>
+<p class=senormalpara>This optional callback is used to read script files. If you do not provide the callback, files are read using the normal C I/O  functions; <span class=secodephrase>fopen</span>, <span class=secodephrase>fgets</span>, <span class=secodephrase>fclose</span>. By defining this function and the <span class=secodephrase>seFindFileFunc</span> above, you can completely virtualize your files. Although you can handle the virtualizing of files in this function alone, error reporting is based on the filename returned from <span class=secodephrase>seFindFileFunc</span> so implementing it is recommended for the user's ease. In addition, you will need to implement <span class=secodephrase>seFindFileFunc</span> to locate extlibs, which once located are loaded by a system call.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>The <span class=secodephrase>mode</span> parameter tells you what the call is intended to do. It can be one of these values:</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=secodelinesindented>seSourceOpen		open&nbsp;a&nbsp;new&nbsp;file</p>
+<p class=secodelinesindented>seSourceGetLine		get&nbsp;the&nbsp;next&nbsp;line&nbsp;from&nbsp;the&nbsp;file</p>
+<p class=secodelinesindented>seSourceClose		close&nbsp;the&nbsp;file</p>
+<p class=normal>&nbsp;</p>
+<p class=senormalpara>The <span class=secodephrase>info</span> parameter points to a structure that you fill in accomplish these calls. Note that each file will be given its own <span class=secodephrase>seSourceInfo</span> structure to work with. In each case, the <span class=secodephrase>seSourceOpen</span><span class=sejumptopic> </span>routine is called. Returning <span class=secodephrase>FALSE</span> results in an 'unable to open file' error in the script. Next the <span class=secodephrase>seSourceGetLine</span><span class=sejumptopic> </span>is called repeatedly to get the individual lines of the source until you return <span class=secodephrase>FALSE</span> to indicate no more lines. Finally, <span class=secodephrase>seSourceClose</span> is called to close down the file.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>The <span class=secodephrase>seSourceInfo</span> structure is as follows:</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=secodelinesindented>struct&nbsp;seSourceInfo</p>
+<p class=secodelinesindented>{</p>
+<p class=secodelinesindented>secharptr					lineText;</p>
+<p class=secodelinesindented>const&nbsp;seconstcharptr	filename;</p>
+<p class=secodelinesindented>uint						lineNum;</p>
+<p class=secodelinesindented>void&nbsp;*						userdata;</p>
+<p class=secodelinesindented>};</p>
+<p class=normal>&nbsp;</p>
+<p class=senormalpara><span class=secodephrase>filename</span> is preset by ScriptEase and should not be modified. It is the result of the <span class=secodephrase>seFindFileFunc</span>. <span class=secodephrase>lineText</span> is where the application should return the successive lines of the file including the newline character on each line. It is a pointer to a buffer that the application will allocate and presumably free in the <span class=secodephrase>seSourceClose</span> processing. <span class=secodephrase>lineNum</span> is the line number of the file which the application should update as it returns lines. Finally, the <span class=secodephrase>userdata</span> is where the application keeps whatever information it needs to process the file. A simple implementation would use a <span class=secodephrase>FILE *</span> for userdata, but a more complex one might need to point to a structure keeping necessary data.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;SE_CALLBACK(&nbsp;sebool&nbsp;)</p>
+<p class=secodelines>seGetResourceFunc(secontext&nbsp;se,&nbsp;sint&nbsp;id,</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;secharptr&nbsp;buf,</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;sememcount&nbsp;buflen);</p>
+<p class=secodelines>&nbsp;</p>
+<p class=senormalpara>ScriptEase uses a number of text string resources, which it has internal string values for. You can use this optional callback function to override those values. This is useful for internalization, to translate the text strings into whatever language is appropriate. The <span class=secodephrase>id</span> parameter indicates which resource ScriptEase is trying to access. You fill in the <span class=secodephrase>buf</span> with the text you'd like to give the resource. The <span class=secodephrase>buflen</span> tells you how much space <span class=secodephrase>buf</span> points to.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>The list of identifier numbers and the English strings corresponding to them can be found in <span class=secodephrase>src\core\rsrccore.h</span> and <span class=secodephrase>src\lib\common\rsrclib.h</span>.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;SE_CALLBACK(&nbsp;void&nbsp;)</p>
+<p class=secodelines>sePrepareContextFunc(secontext&nbsp;se);</p>
+<p class=secodelines>&nbsp;</p>
+<p class=senormalpara>After <span class=secodephrase>seCreateContext</span> has finished preparing a new context, it invokes this function. You can do any final setup on your context here, such as adding your application specific wrapper tables (see "<span class=sejumptopic><a href="TH_372.htm">Wrapper functions</a></span>"). If you do the final preparation here instead of in your code after calling <span class=secodephrase>seCreateContext</span> then all calls to <span class=secodephrase>seCreateContext</span> will do that same preparation. This is useful if you are using utility libraries that create new contexts with <span class=secodephrase>seCreateContext</span>.  It ensures those contexts are properly set up for your application. Nombas has no utility routines that use <span class=secodephrase>seCreateContext</span>. However, some may be created in the future.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=secodelines>uword32&nbsp;seOptions;</p>
+<p class=secodelines>&nbsp;</p>
+<p class=senormalpara>The options parameter is a flags parameter, you can use any combination of the following <span class=secodephrase>|</span>'ed together:</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>SE_DEFAULT</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>Default behavior</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>SE_OPT_REQUIREVAR</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>All variables must be declared using the <span class=secodephrase>var</span> keyword. If this flag is not used, the normal JavaScript behavior is in effect. When you write to an undeclared variable, the variable is automatically created as a global variable. Reading from an undeclared variable always results in an error.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>SE_OPT_DEFAULTLOCAL</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>Variables used without declaring them with the <span class=secodephrase>var</span> keyword are declared automatically as global variables as described above under <span class=secodephrase>SE_OPT_REQUIREVAR</span>. This flag makes them declared as local variables instead. JavaScript standard behavior is to create the variables as global variables.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>SE_OPT_WARNBADMATH</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>If any math operation involves NaN, an error will be flagged. Normally, JavaScript allows NaN to be used in an operation and defines specific results.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>SE_OPT_EXTRAPARAMS</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>Wrapper functions indicate the maximum number of parameters they can take, and extras will cause an error. This flag causes all library functions to take any number of parameters, ignoring excess parameters. It is normally useful to leave out this option, as extra parameters usually signal an incorrect usage of these functions.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>SE_OPT_TOBOOLOBJECTS</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>JavaScript states that any object converted to a Boolean results in <span class=secodephrase>TRUE</span>. If this flag is on, objects are first converted to a primitive then to a boolean. For instance, without this flag the object <span class=secodephrase>new Boolean(False)</span> or <span class=secodephrase>new Number(0)</span> will convert to <span class=secodephrase>TRUE</span>, but with the flag they become <span class=secodephrase>FALSE</span>.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>SE_OPT_DEBUGGER</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>A debugger is in use, so ignore <span class=secodephrase>SE_INFREQUENT_CONT</span> for all <span class=secodephrase>seEval</span> calls.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>SE_OPT_NO_LIBRARIES</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>Creates the context but does not initialize the libraries into it. Useful when sharing libraries via the global <span class=secodephrase>_prototype</span>.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>SE_OPT_REQ_SEMICOLON</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>Disables the EcmaScript rules of automatic semicolon insertion, as described in section 7.9 of the EcmaScript Language Specification.  With this flag set errors will be generated on any statement that is not terminated with a semicolon.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>Here is the example from above extended to create a single context:</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=secodelinesindented>&nbsp;</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;SE_CALLBACK(&nbsp;void&nbsp;)</p>
+<p class=secodelinesindented>my_error_printer(secontext&nbsp;se,seconstcharptr&nbsp;text)</p>
+<p class=secodelinesindented>{</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;printf_sechar(UNISTR("Error&nbsp;encountered:&nbsp;%s\n"),text);</p>
+<p class=secodelinesindented>}</p>
+<p class=secodelinesindented>&nbsp;</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;void</p>
+<p class=secodelinesindented>main(int&nbsp;argc,char&nbsp;**argv)</p>
+<p class=secodelinesindented>{</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;secontext&nbsp;se;</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;struct&nbsp;seContextParams&nbsp;params;</p>
+<p class=secodelinesindented>&nbsp;</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;seInitialize();</p>
+<p class=secodelinesindented>&nbsp;</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;memset(params,0,sizeof(params));</p>
+<p class=secodelinesindented>&nbsp;</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;/*&nbsp;The&nbsp;print&nbsp;error&nbsp;function&nbsp;is&nbsp;the&nbsp;one&nbsp;required&nbsp;function.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;&nbsp;*/</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;params.sePrintErrorFunc&nbsp;=&nbsp;my_error_printer;</p>
+<p class=secodelinesindented>&nbsp;</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;se&nbsp;=&nbsp;seCreateContext(&amp;params,MY_JSE_USER_KEY);</p>
+<p class=secodelinesindented>&nbsp;</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;/*&nbsp;your&nbsp;application,&nbsp;including&nbsp;scripting&nbsp;using&nbsp;'se'</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;as&nbsp;the&nbsp;scripting&nbsp;context.</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;&nbsp;*/</p>
+<p class=secodelinesindented>&nbsp;</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;seDestroyContext(se);</p>
+<p class=secodelinesindented>&nbsp;</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;seTerminate();&nbsp;</p>
+<p class=secodelinesindented>}</p>
+<p>
+</body>
+</html>

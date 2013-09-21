@@ -1,0 +1,33 @@
+<html>
+<head>
+<title>Automatic array allocation</title>
+<link rel="stylesheet" href="semanualstyles.css" type="text/css">
+<style type="text/css">
+ p { margin-top: 0; margin-bottom: 0; }
+</style>
+<script language="JavaScript" src="TrueHelp.js"></script>
+</head>
+<body onload="thload()">
+<div id=ienav>
+<ilayer id=nsnav>
+<br>
+<center>
+<p class=normal><a href="seisdkc-toc.htm" target="left">contents</a> &nbsp; <a href="seisdkc-index.htm" target="left">index</a> &nbsp; <a href="TH_508.htm">previous</a> &nbsp; <a href="TH_510.htm">next</a></p>
+</center>
+<br>
+<hr noshade size=1>
+</ilayer>
+</div>
+<p class=heading-2>Automatic array allocation</p>
+<p class=heading-2-p>&nbsp;</p>
+<p class=senormalpara>Arrays are dynamic, and any index, positive or negative, into an array is always valid. If an element of an array is referenced, then ScriptEase ensures that such an element exists. For example, if a statement in a script is:</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=secodelinesindented>var&nbsp;foo[4]&nbsp;=&nbsp;7;</p>
+<p class=secodelinesindented>&nbsp;</p>
+<p class=senormalpara>then ScriptEase makes an array of 5 integers referenced by the variable foo. If a later statement refers to foo[6] then ScriptEase expands foo, if necessary, to ensure that the element foo[6] exists. The same is <span class=secodephrase>true</span> for negative indices. When foo[10] is referenced, foo is grown in the negative direction if necessary, but foo[4] still refers to the initial 7. Arrays can be of any order of dimensions, thus foo[6][7][34][1][4] is a valid variable or array.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<hr noshade size=1>
+<p class=normal><a href="TH_510.htm"><img src="button.png" border=0></a><a href="TH_510.htm" style="text-decoration:none;">Automatic and JavaScript Arrays</a></p>
+<p>
+</body>
+</html>

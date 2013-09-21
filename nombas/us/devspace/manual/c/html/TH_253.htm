@@ -1,0 +1,31 @@
+<html>
+<head>
+<title>USING SE_START</title>
+<link rel="stylesheet" href="semanualstyles.css" type="text/css">
+<style type="text/css">
+ p { margin-top: 0; margin-bottom: 0; }
+</style>
+<script language="JavaScript" src="TrueHelp.js"></script>
+</head>
+<body onload="thload()">
+<div id=ienav>
+<ilayer id=nsnav>
+<br>
+<center>
+<p class=normal><a href="seisdkc-toc.htm" target="left">contents</a> &nbsp; <a href="seisdkc-index.htm" target="left">index</a> &nbsp; <a href="TH_252.htm">previous</a> &nbsp; <a href="TH_254.htm">next</a></p>
+</center>
+<br>
+<hr noshade size=1>
+</ilayer>
+</div>
+<p class=sereffunclevel2>USING SE_START</p>
+<p class=sereffunclevel2-p>&nbsp;</p>
+<p class=senormalpara>As was mentioned, each fiber group has the limitation that only one of the fibers can be running at the same time. If you use <span class=secodephrase>seEval</span> to evaluate a script in one fiber, you must wait for it to complete before evaluating another script in a different fiber. To get around this limitation, <span class=secodephrase>seEval</span> has the <span class=secodephrase>SE_START</span> flag option.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara><span class=secodephrase>SE_START</span> initializes an eval and then returns. Successive lines of the script are run using the ScriptEase <span class=secodephrase>seExec</span> API call. Using this method, when you initialize each fiber you begin the script it is to run using <span class=secodephrase>seEval</span> and <span class=secodephrase>SE_START</span>, which then returns to you quickly. You do the same for each fiber. Now you can execute a single line of each script using <span class=secodephrase>seExec</span>. Typically, you keep evaluating one line on each fiber in a round-robin fashion in this way. As each fiber completes its task, it is removed from the list of fibers to execute in this way. New fibers can be created and added into the list easily.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<hr noshade size=1>
+<p class=normal><a href="TH_254.htm"><img src="button.png" border=0></a><a href="TH_254.htm" style="text-decoration:none;">GLOBAL MANIPULATION</a></p>
+<p>
+</body>
+</html>

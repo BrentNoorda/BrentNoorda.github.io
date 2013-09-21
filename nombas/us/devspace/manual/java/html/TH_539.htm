@@ -1,0 +1,63 @@
+<html>
+<head>
+<title>Character classification</title>
+<link rel="stylesheet" href="semanualstyles.css" type="text/css">
+<style type="text/css">
+ p { margin-top: 0; margin-bottom: 0; }
+</style>
+<script language="JavaScript" src="TrueHelp.js"></script>
+</head>
+<body onload="thload()">
+<div id=ienav>
+<ilayer id=nsnav>
+<br>
+<center>
+<p class=normal><a href="seisdkj-toc.htm" target="left">contents</a> &nbsp; <a href="seisdkj-index.htm" target="left">index</a> &nbsp; <a href="TH_538.htm">previous</a> &nbsp; <a href="TH_540.htm">next</a></p>
+</center>
+<br>
+<hr noshade size=1>
+</ilayer>
+</div>
+<p class=heading-3>Character classification</p>
+<p class=heading-3-p>&nbsp;</p>
+<p class=senormalpara>JavaScript does not have a true character type. For the character classification routines, a chr is actually a single character string. Thus, actual programming usage is very much like C. For example, in the following fragment both <span class=sepopuptopic><a href="TH_540.htm" onClick="return thwindow('TH_540.htm', 'GenPopup')">Clib.isalnum()</a></span> statements work properly.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=secodelinesindented>var&nbsp;t&nbsp;=&nbsp;Clib.isalnum('a');</p>
+<p class=secodelinesindented>Screen.writeln(t);</p>
+<p class=secodelinesindented>&nbsp;</p>
+<p class=secodelinesindented>var&nbsp;s&nbsp;=&nbsp;'a';</p>
+<p class=secodelinesindented>var&nbsp;t&nbsp;=&nbsp;Clib.isalnum(s);</p>
+<p class=secodelinesindented>Screen.writeln(t);</p>
+<p class=secodelinesindented>&nbsp;</p>
+<p class=senormalpara>This fragment displays the following.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=secodelinesindented>true</p>
+<p class=secodelinesindented>true</p>
+<p class=secodelinesindented>&nbsp;</p>
+<p class=senormalpara>In the following fragment, both <span class=sepopuptopic><a href="TH_540.htm" onClick="return thwindow('TH_540.htm', 'GenPopup')">Clib.isalnum()</a></span> statements cause errors since the arguments to them are strings with more than one character.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=secodelinesindented>var&nbsp;t&nbsp;=&nbsp;Clib.isalnum('ab');</p>
+<p class=secodelinesindented>Screen.writeln(t);</p>
+<p class=secodelinesindented>&nbsp;</p>
+<p class=secodelinesindented>var&nbsp;s&nbsp;=&nbsp;'ab';</p>
+<p class=secodelinesindented>var&nbsp;t&nbsp;=&nbsp;Clib.isalnum(s);</p>
+<p class=secodelinesindented>Screen.writeln(t);</p>
+<p class=secodelinesindented>&nbsp;</p>
+<p class=senormalpara>All character classification methods return booleans: <span class=secodephrase>true</span> or <span class=secodephrase>false</span>.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<hr noshade size=1>
+<p class=normal><a href="TH_540.htm"><img src="button.png" border=0></a><a href="TH_540.htm" style="text-decoration:none;">Clib.isalnum()</a></p>
+<p class=normal><a href="TH_541.htm"><img src="button.png" border=0></a><a href="TH_541.htm" style="text-decoration:none;">Clib.isalpha()</a></p>
+<p class=normal><a href="TH_542.htm"><img src="button.png" border=0></a><a href="TH_542.htm" style="text-decoration:none;">Clib.isascii()</a></p>
+<p class=normal><a href="TH_543.htm"><img src="button.png" border=0></a><a href="TH_543.htm" style="text-decoration:none;">Clib.iscntrl()</a></p>
+<p class=normal><a href="TH_544.htm"><img src="button.png" border=0></a><a href="TH_544.htm" style="text-decoration:none;">Clib.isdigit()</a></p>
+<p class=normal><a href="TH_545.htm"><img src="button.png" border=0></a><a href="TH_545.htm" style="text-decoration:none;">Clib.isgraph()</a></p>
+<p class=normal><a href="TH_546.htm"><img src="button.png" border=0></a><a href="TH_546.htm" style="text-decoration:none;">Clib.islower()</a></p>
+<p class=normal><a href="TH_547.htm"><img src="button.png" border=0></a><a href="TH_547.htm" style="text-decoration:none;">Clib.isprint()</a></p>
+<p class=normal><a href="TH_548.htm"><img src="button.png" border=0></a><a href="TH_548.htm" style="text-decoration:none;">Clib.ispunct()</a></p>
+<p class=normal><a href="TH_549.htm"><img src="button.png" border=0></a><a href="TH_549.htm" style="text-decoration:none;">Clib.isspace()</a></p>
+<p class=normal><a href="TH_550.htm"><img src="button.png" border=0></a><a href="TH_550.htm" style="text-decoration:none;">Clib.isupper()</a></p>
+<p class=normal><a href="TH_551.htm"><img src="button.png" border=0></a><a href="TH_551.htm" style="text-decoration:none;">Clib.isxdigit()</a></p>
+<p>
+</body>
+</html>

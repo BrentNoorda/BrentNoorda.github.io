@@ -1,0 +1,468 @@
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 FINAL//EN">
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=ISO-8859-1">
+<TITLE>ScriptEase Tips - Language migration from Python</TITLE>
+<!-- begin metaTags -->
+<META NAME="keywords" CONTENT="javascript,ecmascript,ecma,scriptease,jscript,scripting,nombas,isdk,sedesk,web application development,embedded devices,distributed computing,peer-to-peer,p2p,peer,data mining,javascript.com,cycletraders,integrated sdk,script ease,java,c++,c,simplicity,power,palm,windows ce,integration: sdk,integration:sdk,scriptease:desktop,scriptease: desktop,se:desktop,se:desk,se:isdk, se: isdk,development tools,devtools">
+<META HTTP-EQUIV="DESCRIPTION" CONTENT="Nombas delivers simplicity and power through scripting by providing market-leading development tools and software for JavaScript and ECMAScript.">
+<!-- end metaTags --> <!-- begin navbar includes -->
+<SCRIPT language=JavaScript1.2>
+  navbarPath = '../../';
+</SCRIPT>
+<SCRIPT language=JavaScript1.2 SRC="../../navbarData.js"></SCRIPT>
+<SCRIPT language=JavaScript1.2 SRC="../../navbarMenu.js"></SCRIPT>
+<SCRIPT language=JavaScript SRC="../../imgRollover.js"></SCRIPT>
+<!-- end navbar includes --> <!-- begin style and icon definition -->
+<LINK REL="SHORTCUT ICON" HREF="../../nombas.ico">
+<STYLE type=text/css>
+pre.example { BORDER-RIGHT: medium none; PADDING-RIGHT: 0.5em; BORDER-TOP: medium none; PADDING-LEFT: 0.5em; FONT-SIZE: 75%; PADDING-BOTTOM: 0.5em; MARGIN-LEFT: 0px; BORDER-LEFT: medium none; WIDTH: 100%; PADDING-TOP: 0.5em; BORDER-BOTTOM: medium none; FONT-FAMILY: "Courier New", Courier, mono; WHITE-SPACE: pre; BACKGROUND-COLOR: #CCCCFF}
+.unnamed1 {  font-family: Verdana, Arial, Helvetica, sans-serif}
+</STYLE>
+<!-- end style and icon definition -->
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-1754630-10']);
+  _gaq.push(['_trackPageview']);
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+</HEAD>
+<BODY BGCOLOR="#06086F" LINK="#0000FF" VLINK="#800080" TEXT="#000000" TOPMARGIN=0 LEFTMARGIN=0 MARGINWIDTH=0 MARGINHEIGHT=0>
+<TABLE BORDER=0 CELLSPACING=0 CELLPADDING=0 WIDTH=213>
+  <TR VALIGN=TOP ALIGN=LEFT>
+    <TD WIDTH=28 HEIGHT=4><IMG SRC="../../clearpixel.gif" WIDTH=28 HEIGHT=1 BORDER=0></TD>
+    <TD></TD>
+  </TR>
+  <TR VALIGN=TOP ALIGN=LEFT>
+    <TD HEIGHT=60></TD>
+    <TD WIDTH=185 ALIGN=LEFT VALIGN=TOP><A HREF="../../index.htm"><IMG ID="Picture1" HEIGHT=60 WIDTH=185 SRC="../../logo.gif" BORDER=0></A></TD>
+  </TR>
+</TABLE>
+    <div id="nombas-legacy"></div>
+<TABLE BORDER=0 CELLSPACING=0 CELLPADDING=0>
+  <TR VALIGN=TOP ALIGN=LEFT>
+    <TD WIDTH=30 HEIGHT=10><IMG SRC="../../clearpixel.gif" WIDTH=30 HEIGHT=1 BORDER=0></TD>
+    <TD></TD>
+  </TR>
+  <TR VALIGN=TOP ALIGN=LEFT>
+    <TD></TD>
+    <TD WIDTH=582>
+      <TABLE ID="Table1" BORDER=0 CELLSPACING=0 CELLPADDING=0 WIDTH=582>
+        <TR>
+          <TD WIDTH=97>
+            <P><A HREF="../../scripting/scripting.htm"
+                            onmouseover="changeImages('scripting', '../../htab_scripting.gif'); popUp('elMenu1',event); return true;"
+onmouseout="changeImages('scripting', '../../tab_scripting.gif'); popDown('elMenu1'); return true;"
+><IMG
+                             ID="scripting" HEIGHT=21 WIDTH=97 SRC="../../tab_scripting.gif" VSPACE=0 HSPACE=0 ALIGN="TOP" BORDER=0 name="scripting"></A>
+          </TD>
+          <TD WIDTH=97>
+            <P><A HREF="../../products/products.htm"
+                            onmouseover="changeImages('products', '../../htab_products.gif'); popUp('elMenu2',event); return true;"
+onmouseout="changeImages('products', '../../tab_products.gif'); popDown('elMenu2'); return true;"><IMG ID="products"
+                             HEIGHT=21 WIDTH=97 SRC="../../tab_products.gif" VSPACE=0 HSPACE=0 ALIGN="TOP" BORDER=0 name=products></A>
+          </TD>
+          <TD WIDTH=97>
+            <P><A HREF="../../purchase/purchase.htm" onmouseover="changeImages('purchase', '../../htab_purchase.gif');return true;"
+onmouseout="changeImages('purchase', '../../tab_purchase.gif');return true;"><IMG ID="purchase"
+                             HEIGHT=21 WIDTH=97 SRC="../../tab_purchase.gif" VSPACE=0 HSPACE=0 ALIGN="TOP" BORDER=0 name=purchase></A>
+          </TD>
+          <TD WIDTH=97>
+            <P><A HREF="../../download/ndownload.htm" onmouseover="changeImages('download', '../../htab_download.gif');return true;"
+onmouseout="changeImages('download', '../../tab_download.gif');return true;"><IMG ID="download"
+                             HEIGHT=21 WIDTH=97 SRC="../../tab_download.gif" VSPACE=0 HSPACE=0 ALIGN="TOP" BORDER=0 name=download></A>
+          </TD>
+          <TD WIDTH=97>
+            <P><a target="support" href="http://support.nombas.com/" onmouseover="changeImages('support', '../../htab_support.gif'); return true;"
+onmouseout="changeImages('support', '../../tab_support.gif'); return true;"><IMG ID="support"
+                             HEIGHT=21 WIDTH=97 SRC="../../tab_support.gif" VSPACE=0 HSPACE=0 ALIGN="TOP" BORDER=0 name=support></A>
+          </TD>
+          <TD WIDTH=97>
+            <P><A HREF="../../company/company.htm"
+                            onmouseover="changeImages('company', '../../htab_company.gif'); popUp('elMenu6',event); return true;"
+onmouseout="changeImages('company', '../../tab_company.gif'); popDown('elMenu6'); return true;"><IMG ID="company"
+                             HEIGHT=21 WIDTH=97 SRC="../../tab_company.gif" VSPACE=0 HSPACE=0 ALIGN="TOP" BORDER=0 name=company></A>
+          </TD>
+        </TR>
+      </TABLE>
+    </TD>
+  </TR>
+</TABLE>
+<TABLE BORDER=0 CELLSPACING=0 CELLPADDING=0 WIDTH=637>
+  <TR VALIGN=TOP ALIGN=LEFT>
+    <TD WIDTH=5 HEIGHT=20><IMG SRC="../../clearpixel.gif" WIDTH=5 HEIGHT=1 BORDER=0></TD>
+    <TD WIDTH=632>
+      <TABLE BORDER=0 CELLSPACING=0 CELLPADDING=0 WIDTH=632 HEIGHT=20 bgcolor="#FFFFFF">
+        <TR ALIGN=LEFT VALIGN=TOP>
+          <TD>
+            <TABLE BORDER=0 CELLSPACING=0 CELLPADDING=0 WIDTH=632>
+              <TR VALIGN=TOP ALIGN=LEFT>
+                <TD WIDTH=20 HEIGHT=20 ALIGN=LEFT VALIGN=TOP><IMG ID="Picture12" HEIGHT=20 WIDTH=20 SRC="../../curve_topleft.gif" BORDER=0></TD>
+                <TD WIDTH=592><IMG SRC="../../clearpixel.gif" WIDTH=592 HEIGHT=1 BORDER=0></TD>
+                <TD WIDTH=20 ALIGN=LEFT VALIGN=TOP><IMG ID="Picture10" HEIGHT=20 WIDTH=20 SRC="../../curve_top.gif" BORDER=0></TD>
+              </TR>
+            </TABLE>
+          </TD>
+        </TR>
+      </TABLE>
+    </TD>
+  </TR>
+</TABLE>
+<TABLE BORDER=0 CELLSPACING=0 CELLPADDING=0 WIDTH=637>
+  <TR VALIGN=TOP ALIGN=LEFT>
+    <TD HEIGHT=245></TD>
+    <TD WIDTH=632 COLSPAN=2 height="245">
+      <TABLE BORDER=0 CELLSPACING=0 CELLPADDING=0 WIDTH=632 HEIGHT=200 bgcolor="#FFFFFF">
+        <TR ALIGN=LEFT VALIGN=TOP>
+          <TD height="236">
+            <TABLE BORDER=0 CELLSPACING=0 CELLPADDING=0 WIDTH=600>
+              <TR VALIGN=TOP ALIGN=LEFT>
+                <TD WIDTH=14 HEIGHT=1><IMG SRC="../../clearpixel.gif" WIDTH=13 HEIGHT=1 BORDER=0></TD>
+                <TD WIDTH=586><IMG SRC="../../clearpixel.gif" WIDTH=316 HEIGHT=1 BORDER=0></TD>
+              </TR>
+              <TR VALIGN=TOP ALIGN=LEFT>
+                <TD width="14"></TD>
+                <TD WIDTH=586>
+                  <P ALIGN=LEFT><A HREF="../../index.htm"><FONT SIZE="-2" FACE="Verdana,Tahoma,Arial,Helvetica">Nombas</FONT></A><FONT SIZE="-2" FACE="Verdana,Tahoma,Arial,Helvetica"> 
+                    &gt; <a href="../index.htm">SE:ISDK DevSpace</a> &gt; <a href="../tips/index.htm">Tips</a> 
+                    &gt; Python Equivalents</FONT> 
+                </TD>
+              </TR>
+            </TABLE>
+            <TABLE BORDER=0 CELLSPACING=0 CELLPADDING=0 WIDTH=615>
+              <TR VALIGN=TOP ALIGN=LEFT>
+                <TD WIDTH=15 HEIGHT=5><IMG SRC="../../clearpixel.gif" WIDTH=15 HEIGHT=1 BORDER=0></TD>
+                <TD></TD>
+              </TR>
+              <TR VALIGN=TOP ALIGN=LEFT>
+                <TD HEIGHT=80></TD>
+                <TD WIDTH=600 ALIGN=LEFT VALIGN=TOP><IMG ID="Picture14" HEIGHT=80 WIDTH=600 SRC="../../devspace/bnr_devspace.gif" BORDER=0></TD>
+              </TR>
+              <TR VALIGN=TOP ALIGN=LEFT>
+                <TD HEIGHT=135></TD>
+                <TD WIDTH=600 ALIGN=LEFT VALIGN=TOP height="135">
+                  <table width="100%" border="0">
+                    <tr>
+                      <td colspan="1" height="9"><img SRC="../../clearpixel.gif" width="1" height="1"></td>
+                    </tr>
+                    <tr>
+                      <td width="1" height="100%">&nbsp;</td>
+                      <td valign="top" width="100%"> 
+                        <h1><font face="Verdana, Arial, Helvetica, sans-serif" size="4">Language 
+                          Migration from Python<br>
+                          </font><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><i><font size="3">EcmaScript 
+                          Equivalents for those migrating from Python</font></i></font></h1>
+                        <p>This document is an introduction to the JavaScript 
+                          language (aka EcmaScript AKA ScriptEase) for those who 
+                          are already familiar with the Python scripting language.</p>
+                        <p>Python and JavaScript are very similar languages: they 
+                          both closely follow most of the syntax and control flow 
+                          of the 'C' programming language, they both extend that 
+                          syntax into an object-oriented and extensible script 
+                          language, and they both are designed to be embedded 
+                          within C/C++/Java applications as an extension or command 
+                          language for that application. In most cases the differences 
+                          are only in terminology.</p>
+                        <p>Because the languages are so similar, this document 
+                          will be brief. It will cover only those areas where 
+                          a Python script writer may have difficulty finding the 
+                          equivalent capability in JavaScript. (If you are a Python 
+                          user, moving to JavaScript, and have issues that you 
+                          think should be added to this document then please visit 
+                          <a href="http://support.nombas.com/">http://support.nombas.com/</a> 
+                          Please do not send Dr. Scripter flames about &quot;why 
+                          my embedded script language is so much better than yours!!!&quot;--the 
+                          Doctor is only interested in helping, and is not interested 
+                          in entering into holy language wars)</p>
+                        <pre>   ---------- Revision History for this document --------------
+   Mar 11 2003 - Initial document
+   ------------------------------------------------------------</pre>
+                        <h2>Topics</h2>
+                        <ul>
+                          <li><b><font size="+1"><a href="#dictionaries">dictionaries</a></font></b></li>
+                          <li><a href="#lists"><b><font size="+1">lists</font></b></a></li>
+                          <li><b><font size="+1"><a href="#tuples">tuples</a></font></b></li>
+                          <li><b><font size="+1"><a href="#gotchas">gotchas</a></font></b></li>
+                        </ul>
+                        <hr align="center" width="96%">
+                        <h3><a name="dictionaries"></a>dictionaries</h3>
+                        <p>A Python &quot;dictionary&quot; is an unordered set 
+                          of <i>key:value</i> pairs. The equivalent concept in 
+                          JavaScript is the &quot;associative array&quot; or, 
+                          more simply, the Object. The syntax for using a Python 
+                          dictionary is part of the standard behavior for a JavaScript 
+                          Object (and all objects which inherit from Object, i.e. 
+                          all objects).</p>
+                        <pre><font face="Courier New, Courier, mono"> Python code:
+
+   </font><font face="Courier New, Courier, mono">emp = { 'name':'john',  'sal':50000 }
+   emp['food'] = 'pie'
+
+ JavaScript equivalent code:
+
+   </font><font face="Courier New, Courier, mono">emp = { 'name':'john',  'sal':50000 }
+   emp['food'] = 'pie'
+      or
+   emp = { name:'john', sal:50000 }
+   emp.food = 'pie'  // note that emp.food==emp['food']</font></pre>
+                        <p>other common Python dictionary syntax involves <i>keys()</i> 
+                          to enumerate, <i>del</i> to delete, and <i>has_key()</i> 
+                          to determine if a key exists, as demonstrated in this 
+                          code</p>
+                        <pre><font face="Courier New, Courier, mono"> Python code:
+
+   emp = { 'name':'john', 'sal':50000, 'food':'pie' }
+   del emp['sal']
+</font>   k = emp.keys()          # k = ['name', 'food' ]
+   h = emp.has_key('sal')  # h = 0
+
+ JavaScript equivalent code
+
+   emp = { 'name':'john', 'sal':50000, 'food':'pie' }
+   delete emp[sal]       // or delete emp.sal
+   for ( m in emp )      // for(...in...) enumerates members
+      k = m;             // k='name' then k='food'
+   h = 'sal' in emp      // h = false<font face="Courier New, Courier, mono"></font></pre>
+                        <p>In Python a key can be any immutable data, which including 
+                          <a href="#tuples">tuples</a>. Using a tuple as a key 
+                          does not have a direct JavaScript equivalent, although 
+                          it would be very close to use the toString() or toSource() 
+                          method on the JavaScript Array (similar to tuple) to 
+                          represent the member name (i.e. key). </p>
+                        <hr align="center" width="96%">
+                        <h3><a name="lists"></a>lists</h3>
+                        <p>A Python <i>list</i> is equivalent to a JavaScript 
+                          <i>Array</i> object. The syntax for initializing them 
+                          can even be the same, e.g.:</p>
+                        <pre><font face="Courier New, Courier, mono"> Python code:
+
+   a = [ 'blue', 42, [1,2,3], 'dog' ]
+   b = a[1]       # b = 42
+   c = a[2][1]    # c = 2
+   l = len(a)     # l = 4
+   l = len(l[2])  # l = 3
+</font>
+ JavaScript equivalent code
+
+<font face="Courier New, Courier, mono">   a = [ 'blue', 42, [1,2,3], 'dog' ]
+   b = a[1]         # b = 42
+   c = a[2][1]      # c = 2
+   l = a.length     // l = 4
+   l = l[2].length  // l = 3</font></pre>
+                        <p>Except for the difference in determining length (a 
+                          Python len() function vs a JavaScript Array property), 
+                          these scripts are identical, including nesting of lists 
+                          within lists (Arrays within Arrays).</p>
+                        <p>Python lists differ from JavaScript Arrays in that 
+                          operations on lists (e.g. replace, remove, insert) are 
+                          part of the Python language syntax (e.g., a[0:2]), whereas 
+                          the same operations on Arrays are instance methods of 
+                          the Array object (e.g. a.slice(), a.join(), etc...)). 
+                          (This difference goes along with a standard design philosophy 
+                          behind EcmaScript that instead of adding language syntax 
+                          or more data types, it is preferable to extend the capabilities 
+                          through defining new object types and methods, and inheriting 
+                          from those.)</p>
+                        <p>Functionally, the capabilities of Python lists and 
+                          JavaScript Arrays are equivalent--the difference being 
+                          that a slice of a list is part of the Python language 
+                          syntax, but a slice of an array is a method of that 
+                          array. (Note: with the ScriptEase capabilities of making 
+                          all operators on objects dynamic, and operator overloading 
+                          on those objects, it would be possible to implement 
+                          the python-like a[1:2]=[blah] syntax, but that would 
+                          probably be confusing to someone with a pure-javascript 
+                          background who later came across the unfamiliar-looking 
+                          script.)</p>
+                        <hr align="center" width="96%">
+                        <h3><a name="tuples"></a>tuples</h3>
+                        <p>A Python <i>tuple</i> is just like a Python <i><a href="#lists">list</a></i> 
+                          except that the elements of a tuple are immutable. Python 
+                          tuples also differ from lists in that tuples are initialized 
+                          with the parenthesis instead of square brackets. i.e.</p>
+                        <pre><font face="Courier New, Courier, mono"> Python code:
+   a = [ 'blue', 42, 'dog' ]  # a is a list
+   b = ( 'blue', 42, 'dog' )  # b is a tuple</font></pre>
+                        <p><font face="Courier New, Courier, mono"> </font>There 
+                          is no inherent language feature of JavaScript that maps 
+                          directly to a tuple. The most direct JavaScript equivalent 
+                          of a tuple would be an Array where each member of that 
+                          array has its DONTDELETE and READONLY attributes set. 
+                          There could be many ways to accomplish the creation 
+                          of a tuple with ScriptEase, most of which would involve 
+                          creating an array and applying the DONTDELETE and READONLY 
+                          attributes to each element (the other option would be 
+                          to disable the put callback after the array has been 
+                          created).</p>
+                        <p>One interesting approach, done through the script language 
+                          itself, would be to add a tuple() method to instances 
+                          of the Array object, so that after an array was created 
+                          it could then be turned into a tuple. Here's an example 
+                          of what the script may look like:</p>
+                        <pre><font face="Courier New, Courier, mono">   function Array.prototype.tuple()
+   {
+      // for each element in this, apply readonly and dontdelete
+      for ( var i = 0; i &lt; this.length; i++ )
+         setAttributes(this[i],DONT_DELETE | READ_ONLY );
+   }</font></pre>
+                        <p>The above approach could be applied in a javascript 
+                          script such as this:</p>
+                        <pre><font face="Courier New, Courier, mono"> JavaScript code
+   a = [ 'blue', 42, 'dog' ]          // a is an Array
+   b = [ 'blue', 42, 'dog' ].tuple()  // b is a tuple</font><font face="Courier New, Courier, mono"> </font></pre>
+                        <p>The approach I would prefer, if you really want the 
+                          concept of a tuple in the language, would just be to 
+                          create a tuple() function that would take all of its 
+                          arguments and put them into an array while making each 
+                          member dont_delete and disabling further put() functions 
+                          so that no members can be added or changed. The C code 
+                          for such a tuple() method, using the ScriptEase ISDK/C, 
+                          would look like this:</p>
+                        <pre><font face="Courier New, Courier, mono"> C code for implementing the tuple() functions
+
+   // create callbacks so that no put can happen to a tuple
+   sebool JSE_CFUNC FAR_CALL tuple_put(secontext se,sestring prop)
+   {
+      // do nothing; do not allow any puts to this object
+      return True;
+   }
+   struct seObjectCallbacks tuple_callbacks =
+   { NULL, tuple_put, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL };
+
+   // this C code is called from script calling tuple(parm1,parm2,parm3,...)
+   SE_CALLBACK(void) tuple(secontext se, sememcount argc)
+   {
+      seobject ret;
+      sememcount i;
+
+      // create an array object
+      ret = seMakeObject(se);
+      seSetArray(se,ret,0);  // shortcut to calling the Array constructor
+
+      // for each argument to this function, set dontdelete element of array object
+      for ( i = 0; i < argc; i++ )
+      {
+         seAssign( se, ret,SE_NUM(i), SE_ARGS,SE_INDEX(i) );
+         seSetAttribs( se, ret,SE_NUM(i), SE_READONLY|SE_DONTDELETE );
+      }
+
+      // set the do-nothing put function so no additions can be made
+      seSetCallbacks(se, ret,SE_VALUE, &tuple_callbacks);
+
+      // return our new object from this function
+      sePutObject(se,SE_RETURN,SE_VALUE,ret);
+   }</font><font face="Courier New, Courier, mono"> </font></pre>
+                        <p>With this tuple() method now added, the following JavaScript 
+                          will show the difference between making a tuple and 
+                          a plain Array.</p>
+                        <pre><font face="Courier New, Courier, mono"> JavaScript code
+   a = [ 'blue', 42, 'dog' ]          // a is an Array
+   b = tuple( 'blue', 42, 'dog' )     // b is a tuple</font><font face="Courier New, Courier, mono"> </font></pre>
+                        <p>(Should we provide a better version of tuple? A complete 
+                          tuple class or a better version of the above tuple wrapper 
+                          function? Maybe we're missing some need. If you have 
+                          ideas on this then please tell <a href="http://support.nombas.com/">http://support.nombas.com/</a>)</p>
+                        <hr align="center" width="96%">
+                        <p></p>
+                        <h3><a name="gotchas"></a>gotchas</h3>
+                        <p>In moving from Python to JavaScript, these are a few 
+                          items to watch out for:</p>
+                        <ul>
+                          <li><b>default global variables</b> - According to the 
+                            EcmaScript specification, a variable that is not labeled 
+                            within a method with the <i>var</i> keyword is automatically 
+                            assumed to be a global variable. This can often lead 
+                            to problems when two methods both use the same variable 
+                            name (such as if one method looping through <i>i</i> 
+                            calls another method looping through its own <i>i</i> 
+                            variable, with neither declaring <i>var i</i>.<br>
+                            <br>
+                            With the ScriptEase ISDK there are a couple of ways 
+                            to ease around this problem. The first is to use the 
+                            SE_OPT_DEFAULTLOCAL flag in the seContextParam seOptions 
+                            field. SE_OPT_DEFAULTLOCAL reverses the EcmaScript 
+                            standard so that variables not declared globally are 
+                            assumed to be local variables. The other option is 
+                            to use the SE_OPT_REQUIREVAR flag instead (although 
+                            both flags may be used together). SE_OPT_REQUIREVAR 
+                            tells the engine to create an error whenever it encounters 
+                            a variable that has not been declared with the <i>var</i> 
+                            keyword, and so if any variable is used without declaring 
+                            it first an exception will be generated specifying 
+                            the error, variable, script, and line number. We prefer 
+                            the SE_OPT_REQUIREVAR flag because 1) the default-local-var 
+                            option is non-standard and so may lead your users 
+                            to be confused when reading standards-compliant scripts, 
+                            and 2) the SE_OPT_REQUIREVAR flag has the added benefit 
+                            of helping to catch typographical errors such as using 
+                            a variable <i>Count</i> when it was declared as <i>count</i>.</li>
+                        </ul>
+                        <hr align="center" width="96%">
+                        <p>If you have comments about this document, or what should 
+                          be added to this document, write to <a href="http://support.nombas.com/">http://support.nombas.com/</a>.</p>
+                      
+                    </table></td>
+                    </tr>
+                  </table>
+                </TD>
+              </TR>
+            </TABLE>
+          </TD>
+        </TR>
+      </TABLE>
+
+
+  <TR VALIGN=TOP ALIGN=LEFT>
+    <TD HEIGHT=2></TD>
+    <TD WIDTH=632 COLSPAN=2 height="2">
+      <TABLE BORDER=0 CELLSPACING=0 CELLPADDING=0 WIDTH=632 HEIGHT=20 bgcolor="#FFFFFF">
+        <TR ALIGN=LEFT VALIGN=TOP>
+          <TD>
+            <TABLE BORDER=0 CELLSPACING=0 CELLPADDING=0 WIDTH=632>
+              <TR VALIGN=TOP ALIGN=LEFT>
+                <TD WIDTH=20 HEIGHT=2 ALIGN=LEFT VALIGN=TOP><IMG ID="Picture13" HEIGHT=20 WIDTH=20 SRC="../../curve_botleft.gif" BORDER=0></TD>
+                <TD WIDTH=592 height="2"><IMG SRC="../../clearpixel.gif" WIDTH=592 HEIGHT=1 BORDER=0></TD>
+                <TD WIDTH=20 ALIGN=LEFT VALIGN=TOP height="2"><IMG ID="Picture11" HEIGHT=20 WIDTH=20 SRC="../../curve_bot.gif" BORDER=0></TD>
+              </TR>
+            </TABLE>
+          </TD>
+        </TR>
+      </TABLE>
+    </TD>
+  </TR>
+  <TR VALIGN=TOP ALIGN=LEFT>
+    <TD WIDTH=5 HEIGHT=6><IMG SRC="../../clearpixel.gif" WIDTH=5 HEIGHT=1 BORDER=0></TD>
+    <TD WIDTH=613><IMG SRC="../../clearpixel.gif" WIDTH=613 HEIGHT=1 BORDER=0></TD>
+    <TD WIDTH=19><IMG SRC="../../clearpixel.gif" WIDTH=19 HEIGHT=1 BORDER=0></TD>
+  </TR>
+  <TR VALIGN=TOP ALIGN=LEFT>
+    <TD WIDTH=618 COLSPAN=2>
+      <P ALIGN=RIGHT><A HREF="../../index.htm"><FONT COLOR="#FFFFFF" SIZE="-2" FACE="Verdana,Tahoma,Arial,Helvetica">Home</FONT></A><FONT COLOR="#FFFFFF" SIZE="-2" FACE="Verdana,Tahoma,Arial,Helvetica">
+        | </FONT><A
+                 HREF="../../scripting/scripting.htm"><FONT COLOR="#FFFFFF" SIZE="-2" FACE="Verdana,Tahoma,Arial,Helvetica">Scripting</FONT></A><FONT COLOR="#FFFFFF" SIZE="-2" FACE="Verdana,Tahoma,Arial,Helvetica">
+        | </FONT><A
+                 HREF="../../products/products.htm"><FONT COLOR="#FFFFFF" SIZE="-2" FACE="Verdana,Tahoma,Arial,Helvetica">Products</FONT></A><FONT COLOR="#FFFFFF" SIZE="-2" FACE="Verdana,Tahoma,Arial,Helvetica">
+        | </FONT><A
+                 HREF="../../purchase/purchase.htm"><FONT COLOR="#FFFFFF" SIZE="-2" FACE="Verdana,Tahoma,Arial,Helvetica">Purchase</FONT></A><FONT COLOR="#FFFFFF" SIZE="-2" FACE="Verdana,Tahoma,Arial,Helvetica">
+        | </FONT><A
+                 HREF="../../download/ndownload.htm"><FONT COLOR="#FFFFFF" SIZE="-2" FACE="Verdana,Tahoma,Arial,Helvetica">Download</FONT></A><FONT COLOR="#FFFFFF" SIZE="-2" FACE="Verdana,Tahoma,Arial,Helvetica">
+        | </FONT><A
+                 HREF="http://support.nombas.com/"><FONT COLOR="#FFFFFF" SIZE="-2" FACE="Verdana,Tahoma,Arial,Helvetica">Support</FONT></A><FONT COLOR="#FFFFFF" SIZE="-2" FACE="Verdana,Tahoma,Arial,Helvetica">
+        | </FONT><A HREF="../../company/company.htm"> <FONT COLOR="#FFFFFF" SIZE="-2" FACE="Verdana,Tahoma,Arial,Helvetica">Company</FONT></A><FONT COLOR="#FFFFFF" SIZE="-2" FACE="Verdana,Tahoma,Arial,Helvetica"><BR>
+        <BR>
+        Copyright &#169;2001, Nombas, Inc. All Rights Reserved.<BR>
+        Questions? Visit </FONT><A HREF="http://support.nombas.com/"><FONT COLOR="#FFFFFF" SIZE="-2" FACE="Verdana,Tahoma,Arial,Helvetica">http://support.nombas.com/</FONT></A>
+    </TD>
+    <TD></TD>
+  </TR>
+<SCRIPT language=JavaScript1.2>
+  display_nombas_legacy_message();
+</SCRIPT>
+
+</BODY>
+</HTML>

@@ -1,0 +1,368 @@
+<html>
+<head>
+<title>Routines for date/time</title>
+<link rel="stylesheet" href="semanualstyles.css" type="text/css">
+<style type="text/css">
+ p { margin-top: 0; margin-bottom: 0; }
+</style>
+<script language="JavaScript" src="TrueHelp.js"></script>
+</head>
+<body onload="thload()">
+<div id=ienav>
+<ilayer id=nsnav>
+<br>
+<center>
+<p class=normal><a href="seisdkj-toc.htm" target="left">contents</a> &nbsp; <a href="seisdkj-index.htm" target="left">index</a> &nbsp; <a href="TH_279.htm">previous</a> &nbsp; <a href="TH_281.htm">next</a></p>
+</center>
+<br>
+<hr noshade size=1>
+</ilayer>
+</div>
+<p class=heading-3>Routines for date/time</p>
+<p class=heading-3-p>&nbsp;</p>
+<table cellpadding=0>
+<tr>
+<td valign=top style="width: 1.68819in">
+<p class=normal><span class=sejumptopic><a href="TH_480.htm">Clib.asctime()</a></span></p></td>
+<td valign=top style="width: 3.38681in">
+<p class=normal>Converts data and time to an ASCII string.</p></td>
+</tr>
+<tr>
+<td valign=top style="width: 1.68819in">
+<p class=normal><span class=sejumptopic><a href="TH_481.htm">Clib.clock()</a></span></p></td>
+<td valign=top style="width: 3.38681in">
+<p class=normal>Gets processor time.</p></td>
+</tr>
+<tr>
+<td valign=top style="width: 1.68819in">
+<p class=normal><span class=sejumptopic><a href="TH_482.htm">Clib.ctime()</a></span></p></td>
+<td valign=top style="width: 3.38681in">
+<p class=normal>Converts date-time to an ASCII string.</p></td>
+</tr>
+<tr>
+<td valign=top style="width: 1.68819in">
+<p class=normal><span class=sejumptopic><a href="TH_483.htm">Clib.difftime()</a></span></p></td>
+<td valign=top style="width: 3.38681in">
+<p class=normal>Computes difference between two times.</p></td>
+</tr>
+<tr>
+<td valign=top style="width: 1.68819in">
+<p class=normal><span class=sejumptopic><a href="TH_484.htm">Clib.gmtime()</a></span></p></td>
+<td valign=top style="width: 3.38681in">
+<p class=normal>Converts data and time to GMT.</p></td>
+</tr>
+<tr>
+<td valign=top style="width: 1.68819in">
+<p class=normal><span class=sejumptopic><a href="TH_485.htm">Clib.localtime()</a></span></p></td>
+<td valign=top style="width: 3.38681in">
+<p class=normal>Converts date/time to a structure.</p></td>
+</tr>
+<tr>
+<td valign=top style="width: 1.68819in">
+<p class=normal><span class=sejumptopic><a href="TH_486.htm">Clib.mktime()</a></span></p></td>
+<td valign=top style="width: 3.38681in">
+<p class=normal>Converts time structure to calendar time.</p></td>
+</tr>
+<tr>
+<td valign=top style="width: 1.68819in">
+<p class=normal><span class=sejumptopic><a href="TH_487.htm">Clib.strftime()</a></span></p></td>
+<td valign=top style="width: 3.38681in">
+<p class=normal>Formatted write of date/time to a string.</p></td>
+</tr>
+<tr>
+<td valign=top style="width: 1.68819in">
+<p class=normal><span class=sejumptopic><a href="TH_488.htm">Clib.time()</a></span></p></td>
+<td valign=top style="width: 3.38681in">
+<p class=normal>Gets current time.</p></td>
+</tr>
+</table>
+<p class=normal>&nbsp;</p>
+<table cellpadding=0>
+<tr>
+<td valign=top style="width: 1.81806in">
+<p class=normal><span class=sejumptopic><a href="TH_634.htm">Date getDate()</a></span></p></td>
+<td valign=top style="width: 3.25694in">
+<p class=normal>Returns the day of the month.</p></td>
+</tr>
+<tr>
+<td valign=top style="width: 1.81806in">
+<p class=normal><span class=sejumptopic><a href="TH_635.htm">Date getDay()</a></span></p></td>
+<td valign=top style="width: 3.25694in">
+<p class=normal>Returns the day of the week.</p></td>
+</tr>
+<tr>
+<td valign=top style="width: 1.81806in">
+<p class=normal><span class=sejumptopic><a href="TH_636.htm">Date getFullYear()</a></span></p></td>
+<td valign=top style="width: 3.25694in">
+<p class=normal>Returns the year with four digits.</p></td>
+</tr>
+<tr>
+<td valign=top style="width: 1.81806in">
+<p class=normal><span class=sejumptopic><a href="TH_637.htm">Date getHours()</a></span></p></td>
+<td valign=top style="width: 3.25694in">
+<p class=normal>Returns the hour.</p></td>
+</tr>
+<tr>
+<td valign=top style="width: 1.81806in">
+<p class=normal><span class=sejumptopic><a href="TH_638.htm">Date getMilliseconds()</a></span></p></td>
+<td valign=top style="width: 3.25694in">
+<p class=normal>Returns the millisecond.</p></td>
+</tr>
+<tr>
+<td valign=top style="width: 1.81806in">
+<p class=normal><span class=sejumptopic><a href="TH_639.htm">Date getMinutes()</a></span></p></td>
+<td valign=top style="width: 3.25694in">
+<p class=normal>Returns the minute.</p></td>
+</tr>
+<tr>
+<td valign=top style="width: 1.81806in">
+<p class=normal><span class=sejumptopic><a href="TH_640.htm">Date getMonth()</a></span></p></td>
+<td valign=top style="width: 3.25694in">
+<p class=normal>Returns the month.</p></td>
+</tr>
+<tr>
+<td valign=top style="width: 1.81806in">
+<p class=normal><span class=sejumptopic><a href="TH_641.htm">Date getSeconds()</a></span></p></td>
+<td valign=top style="width: 3.25694in">
+<p class=normal>Returns the second.</p></td>
+</tr>
+<tr>
+<td valign=top style="width: 1.81806in">
+<p class=normal><span class=sejumptopic><a href="TH_642.htm">Date getTime()</a></span></p></td>
+<td valign=top style="width: 3.25694in">
+<p class=normal>Returns date/time, milliseconds, in Date object.</p></td>
+</tr>
+<tr>
+<td valign=top style="width: 1.81806in">
+<p class=normal><span class=sejumptopic><a href="TH_643.htm">Date getTimezoneOffset()</a></span></p></td>
+<td valign=top style="width: 3.25694in">
+<p class=normal>Returns difference, in minutes, from GMT.</p></td>
+</tr>
+<tr>
+<td valign=top style="width: 1.81806in">
+<p class=normal><span class=sejumptopic><a href="TH_644.htm">Date getUTCDate()</a></span></p></td>
+<td valign=top style="width: 3.25694in">
+<p class=normal>Returns the UTC day of the month.</p></td>
+</tr>
+<tr>
+<td valign=top style="width: 1.81806in">
+<p class=normal><span class=sejumptopic><a href="TH_645.htm">Date getUTCDay()</a></span></p></td>
+<td valign=top style="width: 3.25694in">
+<p class=normal>Returns the UTC day of the week.</p></td>
+</tr>
+<tr>
+<td valign=top style="width: 1.81806in">
+<p class=normal><span class=sejumptopic><a href="TH_646.htm">Date getUTCFullYear()</a></span></p></td>
+<td valign=top style="width: 3.25694in">
+<p class=normal>Returns the UTC year with four digits.</p></td>
+</tr>
+<tr>
+<td valign=top style="width: 1.81806in">
+<p class=normal><span class=sejumptopic><a href="TH_647.htm">Date getUTCHours()</a></span></p></td>
+<td valign=top style="width: 3.25694in">
+<p class=normal>Returns the UTC hour.</p></td>
+</tr>
+<tr>
+<td valign=top style="width: 1.81806in">
+<p class=normal><span class=sejumptopic><a href="TH_648.htm">Date getUTCMilliseconds()</a></span></p></td>
+<td valign=top style="width: 3.25694in">
+<p class=normal>Returns the UTC millisecond.</p></td>
+</tr>
+<tr>
+<td valign=top style="width: 1.81806in">
+<p class=normal><span class=sejumptopic><a href="TH_649.htm">Date getUTCMinutes()</a></span></p></td>
+<td valign=top style="width: 3.25694in">
+<p class=normal>Returns the UTC minute.</p></td>
+</tr>
+<tr>
+<td valign=top style="width: 1.81806in">
+<p class=normal><span class=sejumptopic><a href="TH_650.htm">Date getUTCMonth()</a></span></p></td>
+<td valign=top style="width: 3.25694in">
+<p class=normal>Returns the UTC month.</p></td>
+</tr>
+<tr>
+<td valign=top style="width: 1.81806in">
+<p class=normal><span class=sejumptopic><a href="TH_651.htm">Date getUTCSeconds()</a></span></p></td>
+<td valign=top style="width: 3.25694in">
+<p class=normal>Returns the UTC second.</p></td>
+</tr>
+<tr>
+<td valign=top style="width: 1.81806in">
+<p class=normal><span class=sejumptopic><a href="TH_652.htm">Date getYear()</a></span></p></td>
+<td valign=top style="width: 3.25694in">
+<p class=normal>Returns the year with two digits.</p></td>
+</tr>
+<tr>
+<td valign=top style="width: 1.81806in">
+<p class=normal><span class=sejumptopic><a href="TH_653.htm">Date setDate()</a></span></p></td>
+<td valign=top style="width: 3.25694in">
+<p class=normal>Set day of the month.</p></td>
+</tr>
+<tr>
+<td valign=top style="width: 1.81806in">
+<p class=normal><span class=sejumptopic><a href="TH_654.htm">Date setFullYear()</a></span></p></td>
+<td valign=top style="width: 3.25694in">
+<p class=normal>Sets the year with four digits.</p></td>
+</tr>
+<tr>
+<td valign=top style="width: 1.81806in">
+<p class=normal><span class=sejumptopic><a href="TH_655.htm">Date setHours()</a></span></p></td>
+<td valign=top style="width: 3.25694in">
+<p class=normal>Sets the hour.</p></td>
+</tr>
+<tr>
+<td valign=top style="width: 1.81806in">
+<p class=normal><span class=sejumptopic><a href="TH_656.htm">Date setMilliseconds()</a></span></p></td>
+<td valign=top style="width: 3.25694in">
+<p class=normal>Sets the millisecond.</p></td>
+</tr>
+<tr>
+<td valign=top style="width: 1.81806in">
+<p class=normal><span class=sejumptopic><a href="TH_657.htm">Date setMinutes()</a></span></p></td>
+<td valign=top style="width: 3.25694in">
+<p class=normal>Sets the minute.</p></td>
+</tr>
+<tr>
+<td valign=top style="width: 1.81806in">
+<p class=normal><span class=sejumptopic><a href="TH_658.htm">Date setMonth()</a></span></p></td>
+<td valign=top style="width: 3.25694in">
+<p class=normal>Sets the month.</p></td>
+</tr>
+<tr>
+<td valign=top style="width: 1.81806in">
+<p class=normal><span class=sejumptopic><a href="TH_659.htm">Date setSeconds()</a></span></p></td>
+<td valign=top style="width: 3.25694in">
+<p class=normal>Sets the second.</p></td>
+</tr>
+<tr>
+<td valign=top style="width: 1.81806in">
+<p class=normal><span class=sejumptopic><a href="TH_660.htm">Date setTime()</a></span></p></td>
+<td valign=top style="width: 3.25694in">
+<p class=normal>Sets date/time, in milliseconds, in Date object.</p></td>
+</tr>
+<tr>
+<td valign=top style="width: 1.81806in">
+<p class=normal><span class=sejumptopic><a href="TH_661.htm">Date setUTCDate()</a></span></p></td>
+<td valign=top style="width: 3.25694in">
+<p class=normal>Sets the UTC day of the month.</p></td>
+</tr>
+<tr>
+<td valign=top style="width: 1.81806in">
+<p class=normal><span class=sejumptopic><a href="TH_662.htm">Date setUTCFullYear()</a></span></p></td>
+<td valign=top style="width: 3.25694in">
+<p class=normal>Sets the UTC year with four digits.</p></td>
+</tr>
+<tr>
+<td valign=top style="width: 1.81806in">
+<p class=normal><span class=sejumptopic><a href="TH_663.htm">Date setUTCHours()</a></span></p></td>
+<td valign=top style="width: 3.25694in">
+<p class=normal>Sets the UTC hour.</p></td>
+</tr>
+<tr>
+<td valign=top style="width: 1.81806in">
+<p class=normal><span class=sejumptopic><a href="TH_664.htm">Date setUTCMilliseconds()</a></span></p></td>
+<td valign=top style="width: 3.25694in">
+<p class=normal>Sets the UTC millisecond.</p></td>
+</tr>
+<tr>
+<td valign=top style="width: 1.81806in">
+<p class=normal><span class=sejumptopic><a href="TH_665.htm">Date setUTCMinutes()</a></span></p></td>
+<td valign=top style="width: 3.25694in">
+<p class=normal>Sets the UTC minute.</p></td>
+</tr>
+<tr>
+<td valign=top style="width: 1.81806in">
+<p class=normal><span class=sejumptopic><a href="TH_666.htm">Date setUTCMonth()</a></span></p></td>
+<td valign=top style="width: 3.25694in">
+<p class=normal>Sets the UTC month.</p></td>
+</tr>
+<tr>
+<td valign=top style="width: 1.81806in">
+<p class=normal><span class=sejumptopic><a href="TH_667.htm">Date setUTCSeconds()</a></span></p></td>
+<td valign=top style="width: 3.25694in">
+<p class=normal>Sets the UTC second.</p></td>
+</tr>
+<tr>
+<td valign=top style="width: 1.81806in">
+<p class=normal><span class=sejumptopic><a href="TH_668.htm">Date setYear()</a></span></p></td>
+<td valign=top style="width: 3.25694in">
+<p class=normal>Sets the year with two digits.</p></td>
+</tr>
+<tr>
+<td valign=top style="width: 1.81806in">
+<p class=normal><span class=sejumptopic><a href="TH_669.htm">Date toDateString()</a></span></p></td>
+<td valign=top style="width: 3.25694in">
+<p class=normal>Returns the date portion of current date as string.</p></td>
+</tr>
+<tr>
+<td valign=top style="width: 1.81806in">
+<p class=normal><span class=sejumptopic><a href="TH_670.htm">Date toGMTString()</a></span></p></td>
+<td valign=top style="width: 3.25694in">
+<p class=normal>Converts a Date object to a string.</p></td>
+</tr>
+<tr>
+<td valign=top style="width: 1.81806in">
+<p class=normal><span class=sejumptopic><a href="TH_671.htm">Date toLocaleDateString()</a></span></p></td>
+<td valign=top style="width: 3.25694in">
+<p class=normal>Same as date.toDateString using local time.</p></td>
+</tr>
+<tr>
+<td valign=top style="width: 1.81806in">
+<p class=normal><span class=sejumptopic><a href="TH_672.htm">Date toLocaleString()</a></span></p></td>
+<td valign=top style="width: 3.25694in">
+<p class=normal>Returns a string for local date and time.</p></td>
+</tr>
+<tr>
+<td valign=top style="width: 1.81806in">
+<p class=normal><span class=sejumptopic><a href="TH_673.htm">Date toLocaleTimeString()</a></span></p></td>
+<td valign=top style="width: 3.25694in">
+<p class=normal>Same as date.toTimeString using local time.</p></td>
+</tr>
+<tr>
+<td valign=top style="width: 1.81806in">
+<p class=normal><span class=sejumptopic><a href="TH_675.htm">Date toSystem()</a></span></p></td>
+<td valign=top style="width: 3.25694in">
+<p class=normal>Converts a Date object to a system time.</p></td>
+</tr>
+<tr>
+<td valign=top style="width: 1.81806in">
+<p class=normal><span class=sejumptopic><a href="TH_676.htm">Date toTimeString()</a></span></p></td>
+<td valign=top style="width: 3.25694in">
+<p class=normal>Returns the time portion of current date as string.</p></td>
+</tr>
+<tr>
+<td valign=top style="width: 1.81806in">
+<p class=normal><span class=sejumptopic><a href="TH_677.htm">Date toUTCString()()</a></span></p></td>
+<td valign=top style="width: 3.25694in">
+<p class=normal>Returns a string that represents the UTC date.</p></td>
+</tr>
+</table>
+<p class=normal>&nbsp;</p>
+<table cellpadding=0>
+<tr>
+<td valign=top style="width: 1.68819in">
+<p class=normal><span class=sejumptopic><a href="TH_680.htm">Date.fromSystem()</a></span></p></td>
+<td valign=top style="width: 3.38681in">
+<p class=normal>Converts system time to Date object time.</p></td>
+</tr>
+<tr>
+<td valign=top style="width: 1.68819in">
+<p class=normal><span class=sejumptopic><a href="TH_681.htm">Date.parse()</a></span></p></td>
+<td valign=top style="width: 3.38681in">
+<p class=normal>Converts a Date string to a Date object.</p></td>
+</tr>
+<tr>
+<td valign=top style="width: 1.68819in">
+<p class=normal><span class=sejumptopic><a href="TH_682.htm">Date.UTC()</a></span></p></td>
+<td valign=top style="width: 3.38681in">
+<p class=normal>Returns date/time, milliseconds, use parameters.</p></td>
+</tr>
+</table>
+<p class=normal>&nbsp;</p>
+<p class=normal>datetime.jsh - date and time</p>
+<p class=normal>&nbsp;</p>
+<hr noshade size=1>
+<p class=normal><a href="TH_281.htm"><img src="button.png" border=0></a><a href="TH_281.htm" style="text-decoration:none;">Routines for diagnostic/error</a></p>
+<p>
+</body>
+</html>

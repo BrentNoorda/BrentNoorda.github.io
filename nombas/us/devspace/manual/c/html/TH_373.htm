@@ -1,0 +1,31 @@
+<html>
+<head>
+<title>THE FUNCTION HEADER</title>
+<link rel="stylesheet" href="semanualstyles.css" type="text/css">
+<style type="text/css">
+ p { margin-top: 0; margin-bottom: 0; }
+</style>
+<script language="JavaScript" src="TrueHelp.js"></script>
+</head>
+<body onload="thload()">
+<div id=ienav>
+<ilayer id=nsnav>
+<br>
+<center>
+<p class=normal><a href="seisdkc-toc.htm" target="left">contents</a> &nbsp; <a href="seisdkc-index.htm" target="left">index</a> &nbsp; <a href="TH_372.htm">previous</a> &nbsp; <a href="TH_374.htm">next</a></p>
+</center>
+<br>
+<hr noshade size=1>
+</ilayer>
+</div>
+<p class=sereffunclevel2>THE FUNCTION HEADER</p>
+<p class=sereffunclevel2-p>&nbsp;</p>
+<p class=senormalpara>Starting with the definition of the function, notice that the return value is <span class=secodephrase>SE_CALLBACK( void )</span>. The wrapper function returns a <span class=secodephrase>void</span> result because it uses the ScriptEase API functions to indicate its return value which will of course be some ScriptEase value. Therefore, the C return value is not used for a wrapper function. The <span class=secodephrase>SE_CALLBACK</span> macro takes as its parameter a C type, <span class=secodephrase>void</span>. The macro itself is used to define functions that will be called from the ScriptEase engine rather than from your code. Some systems have special requirements to be able to do this, and the <span class=secodephrase>SE_CALLBACK</span> macro fills those requirements for your system.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>Wrapper functions are usually called during an <span class=secodephrase>seEval</span> ScriptEase API function call. <span class=secodephrase>seEval</span> evaluates a script, and if that script invokes any of your functions that are implemented via a wrapper function, that wrapper function will be called by ScriptEase. Wrapper functions receives two parameters. The first is the <span class=secodephrase>secontext</span> that is doing the callback. A wrapper function can be added to several contexts, and it needs to know which one is doing the callback. You should use this provided context in any calls to ScriptEase API functions inside your wrapper function. You can compare the returned pointer against any you might have to determine which context is being called back, but doing so is frowned upon. It is better to store any needed data along with each context using the <span class=secodephrase>SE_SERVICES</span> object and retrieve it in your wrapper function. The second argument is simply a numeric count of the number of ScriptEase parameters passed to your function. ScriptEase wrapper functions can take varying number of arguments depending on how you define them as we will see later. If your wrapper function takes a fixed number of arguments, you can ignore this parameter. </p>
+<p class=senormalpara-p>&nbsp;</p>
+<hr noshade size=1>
+<p class=normal><a href="TH_374.htm"><img src="button.png" border=0></a><a href="TH_374.htm" style="text-decoration:none;">THE ARGUMENTS</a></p>
+<p>
+</body>
+</html>

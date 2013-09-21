@@ -1,0 +1,43 @@
+<html>
+<head>
+<title>with</title>
+<link rel="stylesheet" href="semanualstyles.css" type="text/css">
+<style type="text/css">
+ p { margin-top: 0; margin-bottom: 0; }
+</style>
+<script language="JavaScript" src="TrueHelp.js"></script>
+</head>
+<body onload="thload()">
+<div id=ienav>
+<ilayer id=nsnav>
+<br>
+<center>
+<p class=normal><a href="seisdkj-toc.htm" target="left">contents</a> &nbsp; <a href="seisdkj-index.htm" target="left">index</a> &nbsp; <a href="TH_381.htm">previous</a> &nbsp; <a href="TH_383.htm">next</a></p>
+</center>
+<br>
+<hr noshade size=1>
+</ilayer>
+</div>
+<p class=heading-3>with</p>
+<p class=heading-3-p>&nbsp;</p>
+<p class=senormalpara>The <span class=secodephrase>with</span> statement is used to save time when working with objects. It lets you assign a default object to a statement block, so you need not put the object name in front of its properties and methods. The object is automatically supplied by the interpreter. The following fragment illustrates using the <span class=sepopuptopic><a href="TH_466.htm" onClick="return thwindow('TH_466.htm', 'GenPopup')">Clib object</a></span>.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=secodelinesindented>with&nbsp;(Clib)</p>
+<p class=secodelinesindented>{</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;printf("I&nbsp;am&nbsp;a&nbsp;camera");</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;srand();</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;xxx&nbsp;=&nbsp;rand()&nbsp;%&nbsp;5;</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;putchar(xxx);</p>
+<p class=secodelinesindented>}</p>
+<p class=secodelinesindented>&nbsp;</p>
+<p class=senormalpara>The <span class=secodephrase>Clib</span> methods, <span class=sepopuptopic><a href="TH_468.htm" onClick="return thwindow('TH_468.htm', 'GenPopup')">Clib.printf()</a></span>, <span class=sepopuptopic><a href="TH_621.htm" onClick="return thwindow('TH_621.htm', 'GenPopup')">Clib.srand()</a></span>, <span class=sepopuptopic><a href="TH_617.htm" onClick="return thwindow('TH_617.htm', 'GenPopup')">Clib.rand()</a></span>, and <span class=sepopuptopic><a href="TH_474.htm" onClick="return thwindow('TH_474.htm', 'GenPopup')">Clib.putchar()</a></span>, in the sample above are called as if they had been written with <span class=secodephrase>Clib</span> prefixed.  All code in the block following a with statement seems to be treated as if the methods associated with the object named by the with statement were global functions. Global functions are still treated normally, that is, you do not need to prefix "global." to them unless you are distinguishing between two likenamed functions common to both objects.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>If you were to jump, from within a with statement, to another part of a script, the with statement would no longer apply. In other words, the with statement only applies to the code within its own block, regardless of how the interpreter accesses or leaves the block.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>You may not use <span class=sepopuptopic><a href="TH_364.htm" onClick="return thwindow('TH_364.htm', 'GenPopup')">goto and labels</a></span> to jump into or out of the middle of a <span class=secodephrase>with</span> statement block.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<hr noshade size=1>
+<p class=normal><a href="TH_383.htm"><img src="button.png" border=0></a><a href="TH_383.htm" style="text-decoration:none;">_construct(...)</a></p>
+<p>
+</body>
+</html>

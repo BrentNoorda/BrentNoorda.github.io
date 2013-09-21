@@ -1,0 +1,61 @@
+<html>
+<head>
+<title>jseSecurityGuard</title>
+<link rel="stylesheet" href="semanualstyles.css" type="text/css">
+<style type="text/css">
+ p { margin-top: 0; margin-bottom: 0; }
+</style>
+<script language="JavaScript" src="TrueHelp.js"></script>
+</head>
+<body onload="thload()">
+<div id=ienav>
+<ilayer id=nsnav>
+<br>
+<center>
+<p class=normal><a href="seisdkj-toc.htm" target="left">contents</a> &nbsp; <a href="seisdkj-index.htm" target="left">index</a> &nbsp; <a href="TH_388.htm">previous</a> &nbsp; <a href="TH_390.htm">next</a></p>
+</center>
+<br>
+<hr noshade size=1>
+</ilayer>
+</div>
+<p class=heading-3>jseSecurityGuard</p>
+<p class=heading-3-p>&nbsp;</p>
+<p class=senormalpara>Usually it is enough to specify which functions you want to allow to be called in the <span class=secodephrase>jseSecurityInit</span> function and leave it at that. There can be cases in which you want to allow a function to be called with certain parameters but reject it with others. For instance, you may want to limit creating sockets to certain ports or limit opening files to certain filenames. You specify <span class=secodephrase>jseSecureGuard</span> for the <span class=secodephrase>setSecurity()</span> options for these functions, and before they can be called, your <span class=secodephrase>jseSecurityGuard</span> function will first be called to validate this call. </p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>Here is an example:</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=secodelinesindented>function&nbsp;jseSecurityGuard(security_var,&nbsp;func,&nbsp;filename)</p>
+<p class=secodelinesindented>{</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;if(&nbsp;func==Clib.fopen&nbsp;)</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;{</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/*&nbsp;get&nbsp;the&nbsp;full&nbsp;path&nbsp;so&nbsp;the&nbsp;user&nbsp;can't&nbsp;trick&nbsp;us&nbsp;with</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;something&nbsp;like:&nbsp;'c:\\temp\\..\\windows\\win.ini'</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*/</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;var&nbsp;actualname&nbsp;=&nbsp;SElib.fullpath(filename);</p>
+<p class=secodelinesindented>&nbsp;</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/*&nbsp;We&nbsp;only&nbsp;want&nbsp;to&nbsp;allow&nbsp;files&nbsp;in&nbsp;this&nbsp;directory</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*to&nbsp;be&nbsp;opened.</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*/</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;Clib.strnicmp("c:\\temp\\",actualname,8)==0;</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;}</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;else</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;{</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;false;</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;}</p>
+<p class=secodelinesindented>}</p>
+<p class=secodelines>&nbsp;</p>
+<p class=senormalpara>This function, like the other two, gets the security variable as its first parameter. Again, we will describe that shortly. The second parameter is the actual function being called. In this example, we compare it to <span class=secodephrase>Clib.fopen()</span> so that we can validate a call to <span class=secodephrase>Clib.fopen()</span>. The security guard function must return <span class=secodephrase>true</span> to allow the call or <span class=secodephrase>false</span> to disallow it. In this case, we return <span class=secodephrase>false</span> if it is not <span class=secodephrase>Clib.fopen()</span>. Presumably, we only label <span class=secodephrase>Clib.fopen()</span> as <span class=secodephrase>jseSecureGuard</span>, so only <span class=secodephrase>Clib.fopen()</span> will be using this guard function. </p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>We include the else clause because it is always a good idea to cover all bases. If it is something we do not expect, we just say no. This is good programming practice in general. If the parameters are not what you expect, even if you think it is impossible for them not to be, still do something sensible even if that turns out not to be the case.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>Notice that this function has a third parameter, <span class=secodephrase>filename</span>. All of the parameters that are being passed to the called function are also passed to the security guard function after the two parameters it always gets. The first parameter to the called function is the third to security guard, the second we receive as our fourth, and so on. This allows us to examine the parameters that the function will get when deciding if we want to allow the call. In fact, there would be little point in not examining the parameters. If we are always going to reject or accept a particular call regardless of the parameters, we can instead just set that up in the <span class=secodephrase>jseSecurityInit</span> function.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara> Perceptive readers will note that <span class=secodephrase>Clib.fopen()</span> actually takes two parameters, but we have only named one of them. In JavaScript, you can pass extra parameters to script functions, more than are named in the parameter list. These parameters are still there and can be accessed using the <span class=secodephrase>arguments</span> object. In this case, <span class=secodephrase>filename</span> is the same as <span class=secodephrase>arguments[2]</span>, and we could have referred to it that way. The file mode parameter to <span class=secodephrase>Clib.fopen()</span> will also be passed to us. We can refer to it as <span class=secodephrase>arguments[3]</span>, or we can name it in the parameter list if we need to check it as well.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>This example checks the name and only allows file access in the <i>C:\temp\</i> directory. We could limit it in any way we choose, this is just one possibility.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<hr noshade size=1>
+<p class=normal><a href="TH_390.htm"><img src="button.png" border=0></a><a href="TH_390.htm" style="text-decoration:none;">securityVariable</a></p>
+<p>
+</body>
+</html>

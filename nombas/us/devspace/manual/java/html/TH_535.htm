@@ -1,0 +1,107 @@
+<html>
+<head>
+<title>Clib.qsort()</title>
+<link rel="stylesheet" href="semanualstyles.css" type="text/css">
+<style type="text/css">
+ p { margin-top: 0; margin-bottom: 0; }
+</style>
+<script language="JavaScript" src="TrueHelp.js"></script>
+</head>
+<body onload="thload()">
+<div id=ienav>
+<ilayer id=nsnav>
+<br>
+<center>
+<p class=normal><a href="seisdkj-toc.htm" target="left">contents</a> &nbsp; <a href="seisdkj-index.htm" target="left">index</a> &nbsp; <a href="TH_534.htm">previous</a> &nbsp; <a href="TH_536.htm">next</a></p>
+</center>
+<br>
+<hr noshade size=1>
+</ilayer>
+</div>
+<p class=sereffunclevel4>Clib.qsort()</p>
+<table cellpadding=0>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>syntax:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=sesyntax>Clib.qsort(<span class=truehelp-xe></span>array[,&nbsp;elementCount],</p>
+<p class=sesyntax>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;compareFunction)</p></td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>where:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>array - array to sort.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>elementCount - number of elements to sort. Default is the entire array.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>compareFunction - function used to compare key with each element searched in the array.</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>return:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>void.</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>description:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>This method sorts elements in an array, starting from index 0 to elementCount1. If elementCount is not supplied, then it will sort the entire array. This method differs from the <span class=sepopuptopic><a href="TH_430.htm" onClick="return thwindow('TH_430.htm', 'GenPopup')">Array sort()</a></span> method in that it can sort automatically created arrays, whereas Array <span class=secodephrase>sort()</span> only works with arrays explicitly created with a <span class=secodephrase>new Array()</span> statement.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>The value of elementCount is limited to 64K</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>see:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara><span class=sejumptopic><a href="TH_534.htm">Clib.bsearch()</a></span>, <span class=sejumptopic><a href="TH_422.htm">Array()</a></span></p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>example:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=secodelines>//&nbsp;Create&nbsp;a&nbsp;list&nbsp;of&nbsp;color&nbsp;names,</p>
+<p class=secodelines>//&nbsp;sort&nbsp;the&nbsp;list&nbsp;in&nbsp;reverse&nbsp;alphabetical&nbsp;order,</p>
+<p class=secodelines>//&nbsp;case&nbsp;insensitive,&nbsp;and&nbsp;display&nbsp;the&nbsp;list.</p>
+<p class=secodelines>&nbsp;</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;//&nbsp;initialize&nbsp;an&nbsp;array&nbsp;of&nbsp;colors</p>
+<p class=secodelines>var&nbsp;colors&nbsp;=&nbsp;{"yellow",&nbsp;"Blue",&nbsp;"GREEN",&nbsp;"purple",</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"RED",&nbsp;"BLACK",&nbsp;"white",&nbsp;"orange"};</p>
+<p class=secodelines>&nbsp;</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;//&nbsp;sort&nbsp;the&nbsp;list&nbsp;ReverseColorSorter&nbsp;function</p>
+<p class=secodelines>Clib.qsort(colors,&nbsp;ReverseColorSorter);</p>
+<p class=secodelines>&nbsp;</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;//&nbsp;display&nbsp;the&nbsp;sorted&nbsp;colors</p>
+<p class=secodelines>for&nbsp;(var&nbsp;i&nbsp;=&nbsp;0;&nbsp;i&nbsp;&lt;&nbsp;getArrayLength(colors);&nbsp;i++)</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;Clib.puts(colors[i]);</p>
+<p class=secodelines>&nbsp;</p>
+<p class=secodelines>function&nbsp;ReverseColorSorter(color1,color2)</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;//&nbsp;do&nbsp;a&nbsp;simple&nbsp;case&nbsp;insensitive&nbsp;string</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;//&nbsp;comparison,&nbsp;and&nbsp;reverse&nbsp;the&nbsp;results&nbsp;too</p>
+<p class=secodelines>{</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;var&nbsp;CompareResult&nbsp;=&nbsp;Clib.stricmp(color1,color2)</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;return&nbsp;-CompareResult;</p>
+<p class=secodelines>}</p>
+<p class=secodelines>&nbsp;</p>
+<p class=secodelines>//&nbsp;The&nbsp;output&nbsp;is:</p>
+<p class=secodelines>//&nbsp;&nbsp;yellow&nbsp;</p>
+<p class=secodelines>//&nbsp;&nbsp;white&nbsp;</p>
+<p class=secodelines>//&nbsp;&nbsp;RED</p>
+<p class=secodelines>//&nbsp;&nbsp;purple&nbsp;</p>
+<p class=secodelines>//&nbsp;&nbsp;orange&nbsp;</p>
+<p class=secodelines>//&nbsp;&nbsp;GREEN&nbsp;</p>
+<p class=secodelines>//&nbsp;&nbsp;Blue&nbsp;</p>
+<p class=secodelines>//&nbsp;&nbsp;BLACK</p></td>
+</tr>
+</table>
+<p class=normal>&nbsp;</p>
+<hr noshade size=1>
+<p class=normal><a href="TH_536.htm"><img src="button.png" border=0></a><a href="TH_536.htm" style="text-decoration:none;">Environment variables</a></p>
+<p>
+</body>
+</html>

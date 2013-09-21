@@ -1,0 +1,84 @@
+<html>
+<head>
+<title>Automatic and JavaScript Arrays</title>
+<link rel="stylesheet" href="semanualstyles.css" type="text/css">
+<style type="text/css">
+ p { margin-top: 0; margin-bottom: 0; }
+</style>
+<script language="JavaScript" src="TrueHelp.js"></script>
+</head>
+<body onload="thload()">
+<div id=ienav>
+<ilayer id=nsnav>
+<br>
+<center>
+<p class=normal><a href="seisdkc-toc.htm" target="left">contents</a> &nbsp; <a href="seisdkc-index.htm" target="left">index</a> &nbsp; <a href="TH_509.htm">previous</a> &nbsp; <a href="TH_511.htm">next</a></p>
+</center>
+<br>
+<hr noshade size=1>
+</ilayer>
+</div>
+<p class=heading-2>Automatic and JavaScript Arrays</p>
+<p class=heading-2-p>&nbsp;</p>
+<p class=senormalpara>C style automatic arrays have just been discussed. Perhaps some simple and direct comparisons of the two different kinds of arrays would be helpful.<span class=truehelp-xe></span></p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>The following lines of code create an automatic array of 3 elements:</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=secodelinesindented>var&nbsp;a;</p>
+<p class=secodelinesindented>a[0]&nbsp;=&nbsp;0;</p>
+<p class=secodelinesindented>a[1]&nbsp;=&nbsp;"one";</p>
+<p class=secodelinesindented>a[2]&nbsp;=&nbsp;2;</p>
+<p class=secodelinesindented>&nbsp;</p>
+<p class=senormalpara>The following line of code creates an automatic array consisting of objects that have information about files in the root directory of drive C. See <span class=sepopuptopic><a href="TH_929.htm" onClick="return thwindow('TH_929.htm', 'GenPopup')">SElib.directory()</a></span>. Several functions from the C library objects, Clib and SElib, return automatic arrays.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=secodelinesindented>var&nbsp;a&nbsp;=&nbsp;SElib.directory("c:\\*.*");</p>
+<p class=secodelinesindented>&nbsp;</p>
+<p class=senormalpara>The following two lines of code both produce identical JavaScript arrays of 3 elements each.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=secodelinesindented>var&nbsp;a&nbsp;=&nbsp;new&nbsp;Array(0,&nbsp;"one",&nbsp;2);</p>
+<p class=secodelinesindented>var&nbsp;a&nbsp;=&nbsp;[0,&nbsp;"one",&nbsp;2];</p>
+<p class=secodelinesindented>&nbsp;</p>
+<p class=senormalpara>The following lines of code also produce a JavaScript array which is identical to the two immediately preceding arrays:</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=secodelinesindented>var&nbsp;a&nbsp;=&nbsp;new&nbsp;Array();</p>
+<p class=secodelinesindented>a[0]&nbsp;=&nbsp;0;</p>
+<p class=secodelinesindented>a[1]&nbsp;=&nbsp;"one";</p>
+<p class=secodelinesindented>a[2]&nbsp;=&nbsp;2;</p>
+<p class=secodelinesindented>&nbsp;</p>
+<p class=senormalpara>The elements of automatic and JavaScript arrays are accessed in the same way using indices, for example:</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=secodelinesindented>a[3]&nbsp;=&nbsp;"three";</p>
+<p class=secodelinesindented>Screen.writeln(a[3]);</p>
+<p class=secodelinesindented>&nbsp;</p>
+<p class=senormalpara>These lines behave the same for both automatic and JavaScript arrays. But what are some of the differences? The following fragment:</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=secodelinesindented>var&nbsp;aa;</p>
+<p class=secodelinesindented>aa[0]&nbsp;=&nbsp;0;</p>
+<p class=secodelinesindented>aa[1]&nbsp;=&nbsp;"one";</p>
+<p class=secodelinesindented>&nbsp;</p>
+<p class=secodelinesindented>var&nbsp;ja&nbsp;=&nbsp;[0,&nbsp;"one"];</p>
+<p class=secodelinesindented>&nbsp;</p>
+<p class=secodelinesindented>Screen.writeln(typeof(aa));</p>
+<p class=secodelinesindented>Screen.writeln(typeof(ja));</p>
+<p class=secodelinesindented>&nbsp;</p>
+<p class=secodelinesindented>Screen.writeln(aa._class);</p>
+<p class=secodelinesindented>Screen.writeln(ja._class);</p>
+<p class=secodelinesindented>&nbsp;</p>
+<p class=senormalpara>results in the following display:</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=secodelinesindented>object</p>
+<p class=secodelinesindented>object</p>
+<p class=secodelinesindented>Object</p>
+<p class=secodelinesindented>Array</p>
+<p class=secodelinesindented>&nbsp;</p>
+<p class=senormalpara>which shows that both automatic and JavaScript arrays are of type <span class=secodephrase>object</span>. But automatic arrays belong to the Object class<span class=truehelp-xe></span> and JavaScript arrays belong to the Array class<span class=truehelp-xe></span>. See array.jsh - arrays and objects for more information on the differences. The Array class inherits the properties of the Object class but the Object class<span class=truehelp-xe></span> does not have the properties of the Array class. What does that mean? </p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>Instances of both automatic arrays and JavaScript arrays may use the properties and methods of the Object class, but only JavaScript arrays may use the properties of the Array class. For example and using the two arrays defined immediately above, the <span class=secodephrase>length</span> property of the Array class may only be used with the JavaScript array <span class=secodephrase>ja</span>, that is, <span class=secodephrase>var len = ja.length</span> is valid but <span class=secodephrase>var len = aa.length</span> is an error. To get the length of <span class=secodephrase>aa</span>, an automatic array, the function <span class=sepopuptopic><a href="TH_821.htm" onClick="return thwindow('TH_821.htm', 'GenPopup')">global.getArrayLength()</a></span> must be used with it. As just explained, the JavaScript array <span class=secodephrase>ja</span> may also be used with the function. That is, both of the following are valid: <span class=secodephrase>getArrrayLength</span><span class=truehelp-xe></span><span class=secodephrase>(aa)</span> and <span class=secodephrase>getArrrayLength(ja)</span>.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>Having both types of arrays is a result of providing the C standard library in the Clib and SElib objects. If you want to simplify matters use the Object convert() method to convert arrays from one class to the other. In general, if you convert<span class=truehelp-xe></span> automatic arrays to JavaScript arrays and work only with JavaScript arrays, your scripting will be simpler and more powerful. But, remember, if you are only going to do simple things with arrays, then working with either class of array is quick and simple.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<hr noshade size=1>
+<p class=normal><a href="TH_511.htm"><img src="button.png" border=0></a><a href="TH_511.htm" style="text-decoration:none;">Literal strings</a></p>
+<p>
+</body>
+</html>

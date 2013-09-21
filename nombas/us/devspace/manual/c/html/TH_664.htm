@@ -1,0 +1,90 @@
+<html>
+<head>
+<title>Clib.rsprintf()</title>
+<link rel="stylesheet" href="semanualstyles.css" type="text/css">
+<style type="text/css">
+ p { margin-top: 0; margin-bottom: 0; }
+</style>
+<script language="JavaScript" src="TrueHelp.js"></script>
+</head>
+<body onload="thload()">
+<div id=ienav>
+<ilayer id=nsnav>
+<br>
+<center>
+<p class=normal><a href="seisdkc-toc.htm" target="left">contents</a> &nbsp; <a href="seisdkc-index.htm" target="left">index</a> &nbsp; <a href="TH_663.htm">previous</a> &nbsp; <a href="TH_665.htm">next</a></p>
+</center>
+<br>
+<hr noshade size=1>
+</ilayer>
+</div>
+<p class=sereffunclevel4>Clib.rsprintf()</p>
+<table cellpadding=0>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>syntax:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=sesyntax>Clib.rsprintf(<span class=truehelp-xe></span>formatString[,&nbsp;variables&nbsp;...])</p></td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>where:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>formatString - string that specifies the final format.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>variables - values to be converted to and formatted as a string.</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>return:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>string - formatted according to formatString using any variables passed.</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>description:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>This method returns a formatted string. It is similar to <span class=sepopuptopic><a href="TH_579.htm" onClick="return thwindow('TH_579.htm', 'GenPopup')">Clib.printf()</a></span>, except that a string is returned instead of printed.</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>see:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara><span class=sejumptopic><a href="TH_579.htm">Clib.printf()</a></span></p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>example:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=secodelines>//&nbsp;If&nbsp;in&nbsp;a&nbsp;script&nbsp;you&nbsp;had&nbsp;a&nbsp;line:</p>
+<p class=secodelines>&nbsp;</p>
+<p class=secodelines>Clib.printf("%s&nbsp;has&nbsp;seen&nbsp;%s&nbsp;%d&nbsp;times.\n",&nbsp;name,</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;movie,&nbsp;timesSeen);</p>
+<p class=secodelines>&nbsp;</p>
+<p class=secodelines>//&nbsp;and&nbsp;you&nbsp;wanted&nbsp;to&nbsp;pass&nbsp;the&nbsp;resulting&nbsp;string</p>
+<p class=secodelines>//&nbsp;as&nbsp;a&nbsp;parameter&nbsp;to&nbsp;a&nbsp;function,&nbsp;you&nbsp;could&nbsp;do&nbsp;it</p>
+<p class=secodelines>//&nbsp;as&nbsp;follows.</p>
+<p class=secodelines>&nbsp;</p>
+<p class=secodelines>func(Clib.rsprintf("%s&nbsp;has&nbsp;seen&nbsp;%s&nbsp;%d&nbsp;times.\n",</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;name,&nbsp;movie,&nbsp;timesSeen));</p>
+<p class=secodelines>&nbsp;</p>
+<p class=secodelines>//&nbsp;The&nbsp;following&nbsp;lines&nbsp;of&nbsp;code&nbsp;achieve</p>
+<p class=secodelines>//&nbsp;the&nbsp;same&nbsp;result,&nbsp;that&nbsp;is,&nbsp;create</p>
+<p class=secodelines>//&nbsp;a&nbsp;string&nbsp;variable&nbsp;named&nbsp;word&nbsp;that&nbsp;contains</p>
+<p class=secodelines>//&nbsp;the&nbsp;string&nbsp;"Who&nbsp;is&nbsp;#1?".</p>
+<p class=secodelines>&nbsp;</p>
+<p class=secodelines>var&nbsp;word</p>
+<p class=secodelines>word&nbsp;=&nbsp;Clib.rsprintf("Who&nbsp;is&nbsp;#%d?",&nbsp;3-2);&nbsp;</p>
+<p class=secodelines>Clib.sprintf(word,&nbsp;"Who&nbsp;is&nbsp;#%d?",&nbsp;3-2);</p></td>
+</tr>
+</table>
+<p class=normal>&nbsp;</p>
+<hr noshade size=1>
+<p class=normal><a href="TH_665.htm"><img src="button.png" border=0></a><a href="TH_665.htm" style="text-decoration:none;">Clib.rvsprintf()</a></p>
+<p>
+</body>
+</html>

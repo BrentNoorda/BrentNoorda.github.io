@@ -1,0 +1,49 @@
+<html>
+<head>
+<title>interface: SEHasPropCallback</title>
+<link rel="stylesheet" href="semanualstyles.css" type="text/css">
+<style type="text/css">
+ p { margin-top: 0; margin-bottom: 0; }
+</style>
+<script language="JavaScript" src="TrueHelp.js"></script>
+</head>
+<body onload="thload()">
+<div id=ienav>
+<ilayer id=nsnav>
+<br>
+<center>
+<p class=normal><a href="seisdkj-toc.htm" target="left">contents</a> &nbsp; <a href="seisdkj-index.htm" target="left">index</a> &nbsp; <a href="TH_196.htm">previous</a> &nbsp; <a href="TH_198.htm">next</a></p>
+</center>
+<br>
+<hr noshade size=1>
+</ilayer>
+</div>
+<p class=heading-3>interface: SEHasPropCallback</p>
+<p class=heading-3-p>&nbsp;</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;public&nbsp;int&nbsp;hasProp(SEContext&nbsp;se,int&nbsp;prop);</p>
+<p class=secodelines>&nbsp;</p>
+<p class=senormalpara>This callback is used when searching for a variable. ScriptEase maintains an internal list of objects to search when resolving a variable reference. This list is called the scope chain, and is described fully in the Execution chapter. This list usually consists of the Activation Object, where local variables are stored, followed by the Global Object. It is easy to add objects to the list by using the <span class=secodephrase>with</span> statement. If your object is on this list, this callback will be used to determine if your object contains any property being searched for.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>The return value can one of the following:</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=secodelinesindented>SE.HP_HAS</p>
+<p class=secodelinesindented>&nbsp;</p>
+<p class=senormalpara>The object has the property.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=secodelinesindented>SE.HP_HASNOT</p>
+<p class=secodelinesindented>&nbsp;</p>
+<p class=senormalpara>The object does not have the property.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=secodelinesindented>SE.HP_CHECK</p>
+<p class=secodelinesindented>&nbsp;</p>
+<p class=senormalpara>Disregard this callback and check in the normal way. The normal way involves calling your dynamic <span class=secodephrase>get</span> callback if you have one.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=secodelinesindented>SE.HP_DIRECTCHECK</p>
+<p class=secodelinesindented>&nbsp;</p>
+<p class=senormalpara>Disregard this callback and check for the property in the object's internal storage only, do not call the <span class=secodephrase>get</span> callback.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<hr noshade size=1>
+<p class=normal><a href="TH_198.htm"><img src="button.png" border=0></a><a href="TH_198.htm" style="text-decoration:none;">interface: SECanPutCallback</a></p>
+<p>
+</body>
+</html>

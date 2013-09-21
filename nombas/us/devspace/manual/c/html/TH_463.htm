@@ -1,0 +1,61 @@
+<html>
+<head>
+<title>in operator</title>
+<link rel="stylesheet" href="semanualstyles.css" type="text/css">
+<style type="text/css">
+ p { margin-top: 0; margin-bottom: 0; }
+</style>
+<script language="JavaScript" src="TrueHelp.js"></script>
+</head>
+<body onload="thload()">
+<div id=ienav>
+<ilayer id=nsnav>
+<br>
+<center>
+<p class=normal><a href="seisdkc-toc.htm" target="left">contents</a> &nbsp; <a href="seisdkc-index.htm" target="left">index</a> &nbsp; <a href="TH_462.htm">previous</a> &nbsp; <a href="TH_464.htm">next</a></p>
+</center>
+<br>
+<hr noshade size=1>
+</ilayer>
+</div>
+<p class=heading-3>in operator</p>
+<p class=heading-3-p>&nbsp;</p>
+<p class=senormalpara>The <span class=secodephrase>in</span> operator determines if a property exists in an object. The following script fragment illustrates for the discussion in this section:</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=secodelinesindented>var&nbsp;isProp;</p>
+<p class=secodelinesindented>var&nbsp;obj&nbsp;=&nbsp;{one:111,&nbsp;two:222,&nbsp;Three:333};</p>
+<p class=secodelinesindented>var&nbsp;test&nbsp;=&nbsp;'one';</p>
+<p class=secodelinesindented>&nbsp;</p>
+<p class=secodelinesindented>isProp&nbsp;=&nbsp;test&nbsp;in&nbsp;obj;</p>
+<p class=secodelinesindented>&nbsp;</p>
+<p class=secodelinesindented>if&nbsp;(isProp)</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;Screen.writeln(isProp);</p>
+<p class=secodelinesindented>Screen.writeln('two'&nbsp;in&nbsp;obj);</p>
+<p class=secodelinesindented>Screen.writeln('three'&nbsp;in&nbsp;obj);</p>
+<p class=secodelinesindented>&nbsp;</p>
+<p class=secodelinesindented>/********************************</p>
+<p class=secodelinesindented>Display&nbsp;is:</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;true</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;true</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;false</p>
+<p class=secodelinesindented>********************************/</p>
+<p class=secodelinesindented>&nbsp;</p>
+<p class=senormalpara>The script above defines an object, <span class=secodephrase>obj</span>, with three properties: "one", "two", and "Three" (note the capitalization). The <span class=secodephrase>in</span> operator is used three times to see if the following strings are properties in <span class=secodephrase>obj</span>: "one", "two", "three" (note the capitalization). The first two uses of <span class=secodephrase>in</span> result in <span class=secodephrase>true</span> and the third in <span class=secodephrase>false</span>. Look at the expression "<span class=secodephrase>test in obj</span>". The expression to the left, in this case <span class=secodephrase>test</span>, of the <span class=secodephrase>in</span> operator must be a string or be able to convert to a string (since properties of objects are represented as strings). The expression to the right must be an object or array. </p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>ScriptEase JavaScript has a <span class=sepopuptopic><a href="TH_816.htm" onClick="return thwindow('TH_816.htm', 'GenPopup')">global.defined()</a></span> function which is useful. The <span class=secodephrase>in</span> operator may be used in a similar way. In the following fragment, both <span class=secodephrase>in</span> and <span class=secodephrase>defined()</span> result in <span class=secodephrase>true</span>, and the display is:</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=secodelinesindented>true</p>
+<p class=secodelinesindented>true</p>
+<p class=secodelinesindented>&nbsp;</p>
+<p class=senormalpara>The fragment is:</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=secodelinesindented>var&nbsp;test&nbsp;=&nbsp;'TEST';</p>
+<p class=secodelinesindented>&nbsp;</p>
+<p class=secodelinesindented>Screen.writeln('test'&nbsp;in&nbsp;global);</p>
+<p class=secodelinesindented>Screen.writeln(defined(test));</p>
+<p class=secodelinesindented>&nbsp;</p>
+<hr noshade size=1>
+<p class=normal><a href="TH_464.htm"><img src="button.png" border=0></a><a href="TH_464.htm" style="text-decoration:none;">instanceof operator</a></p>
+<p>
+</body>
+</html>

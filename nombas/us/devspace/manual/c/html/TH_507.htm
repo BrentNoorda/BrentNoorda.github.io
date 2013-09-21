@@ -1,0 +1,57 @@
+<html>
+<head>
+<title>Automatic type declaration</title>
+<link rel="stylesheet" href="semanualstyles.css" type="text/css">
+<style type="text/css">
+ p { margin-top: 0; margin-bottom: 0; }
+</style>
+<script language="JavaScript" src="TrueHelp.js"></script>
+</head>
+<body onload="thload()">
+<div id=ienav>
+<ilayer id=nsnav>
+<br>
+<center>
+<p class=normal><a href="seisdkc-toc.htm" target="left">contents</a> &nbsp; <a href="seisdkc-index.htm" target="left">index</a> &nbsp; <a href="TH_506.htm">previous</a> &nbsp; <a href="TH_508.htm">next</a></p>
+</center>
+<br>
+<hr noshade size=1>
+</ilayer>
+</div>
+<p class=heading-2>Automatic type declaration</p>
+<p class=heading-2-p>&nbsp;</p>
+<p class=senormalpara>There are no type declarations nor type castings as found in C. Types are determined from context. In the statement, <span class=secodephrase>var i = 6</span>, the variable i is a number type. For example, the following C code: </p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=secodelinesindented>int&nbsp;max(int&nbsp;a,&nbsp;int&nbsp;b)</p>
+<p class=secodelinesindented>{</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;int&nbsp;result;</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;result&nbsp;=&nbsp;(a&nbsp;&lt;&nbsp;b)&nbsp;?&nbsp;b&nbsp;:&nbsp;a;</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;return&nbsp;result;</p>
+<p class=secodelinesindented>}</p>
+<p class=secodelinesindented>&nbsp;</p>
+<p class=senormalpara>could be converted to the following ScriptEase code:</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=secodelinesindented>Clib.max(a,&nbsp;b)</p>
+<p class=secodelinesindented>{</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;var&nbsp;result&nbsp;=&nbsp;(a&nbsp;&lt;&nbsp;b)&nbsp;?&nbsp;b&nbsp;:&nbsp;a;</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;return&nbsp;result;</p>
+<p class=secodelinesindented>}</p>
+<p class=secodelinesindented>&nbsp;</p>
+<p class=senormalpara>The code could be made even more like C by using a with statement as in the following fragment.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=secodelinesindented>with&nbsp;(Clib)</p>
+<p class=secodelinesindented>{</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;max(a,&nbsp;b)</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;{</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;var&nbsp;result&nbsp;=&nbsp;(a&nbsp;&lt;&nbsp;b)&nbsp;?&nbsp;b&nbsp;:&nbsp;a;</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;result;</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;}</p>
+<p class=secodelinesindented>}</p>
+<p class=secodelinesindented>&nbsp;</p>
+<p class=senormalpara>A with statement can be used with large blocks of code which would allow Clib and SElib methods to be called like C functions. C programmers will appreciate this ability. Other users who decide to use the extra power of C functions will come to appreciate this ability.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<hr noshade size=1>
+<p class=normal><a href="TH_508.htm"><img src="button.png" border=0></a><a href="TH_508.htm" style="text-decoration:none;">Array representation</a></p>
+<p>
+</body>
+</html>

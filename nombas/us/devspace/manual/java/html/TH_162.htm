@@ -1,0 +1,67 @@
+<html>
+<head>
+<title>PARAMS</title>
+<link rel="stylesheet" href="semanualstyles.css" type="text/css">
+<style type="text/css">
+ p { margin-top: 0; margin-bottom: 0; }
+</style>
+<script language="JavaScript" src="TrueHelp.js"></script>
+</head>
+<body onload="thload()">
+<div id=ienav>
+<ilayer id=nsnav>
+<br>
+<center>
+<p class=normal><a href="seisdkj-toc.htm" target="left">contents</a> &nbsp; <a href="seisdkj-index.htm" target="left">index</a> &nbsp; <a href="TH_161.htm">previous</a> &nbsp; <a href="TH_163.htm">next</a></p>
+</center>
+<br>
+<hr noshade size=1>
+</ilayer>
+</div>
+<p class=heading-3>PARAMS</p>
+<p class=heading-3-p>&nbsp;</p>
+<p class=normal>This parameter is a object that contains several access methods. You use the access methods to set the various option variables in the object.  You can pass <span class=secodephrase>null</span> if you do not want to specify any of them.  Here are the access methods of the SEEvalParams class:</p>
+<p class=normal>&nbsp;</p>
+<p class=secodelines>public&nbsp;SEObject&nbsp;getScopeStart();</p>
+<p class=secodelines>public&nbsp;void&nbsp;setScopeStart(SEObject&nbsp;scopestart);</p>
+<p class=secodelines>public&nbsp;SEObject&nbsp;getScopeEnd();</p>
+<p class=secodelines>public&nbsp;void&nbsp;setScopeEnd(SEObject&nbsp;scopeend);</p>
+<p class=normal>&nbsp;</p>
+<p class=senormalpara>The scope chain is how ScriptEase determines what a variable name is referring to. The scope chain is a list of objects. For a typical function, the list contains the activation object in which local variables are stored and the global object in which global variables are stored. The variables themselves are members of the object they are a part of. As a result, for a typical function, the local variables are first search for a variable name followed by the global variables. You can specify your own objects to be added to the list.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>The <span class=secodephrase>scopestart</span> and <span class=secodephrase>scopeend</span> members of the <span class=secodephrase>params</span> object are SEObjects created using the <span class=secodephrase>seMakeStack</span> API call. The members of these objects should be objects to be added to the scope chain. These objects are added at the start or end of the scope chain respectively. Those added at the start are searched first.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=normal>Adding objects to the start of the scope chain is analogous to a script execution inside a <span class=secodephrase>with</span> statement. A <span class=secodephrase>with</span> statement adds a single object to the start of the scope chain. <span class=secodephrase>setScopeStart</span> allows you to add a list of objects, but the same principle applies. <span class=secodephrase>setScopeEnd</span> works similarly but adds objects to be searched after all other places to search for a variable name.</p>
+<p class=normal>&nbsp;</p>
+<p class=secodelines>public&nbsp;SEObject&nbsp;getGlobal();</p>
+<p class=secodelines>public&nbsp;void&nbsp;setGlobal(SEObject&nbsp;global);</p>
+<p class=secodelines>&nbsp;</p>
+<p class=normal>Indicates a new global variable to evaluate the script using.</p>
+<p class=normal>&nbsp;</p>
+<p class=secodelines>public&nbsp;SEObject&nbsp;getDefaultThis();</p>
+<p class=secodelines>public&nbsp;void&nbsp;setDefaultThis(SEObject&nbsp;default_this);</p>
+<p class=normal>&nbsp;</p>
+<p class=normal>The <span class=secodephrase>default_this</span> parameter allows you to determine which object will be the <span class=secodephrase>this</span> variable for the executed script or function. For a script, the <span class=secodephrase>null</span> value is traditionally used which makes the global variable the default <span class=secodephrase>this</span> for the evaluated script as well. For a function, if the function is being invoked as a member of some object, that object should be passed as the <span class=secodephrase>default_this</span> variable instead.</p>
+<p class=normal>&nbsp;</p>
+<p class=secodelines>public&nbsp;SEObject&nbsp;getSecurityInit();</p>
+<p class=secodelines>public&nbsp;void&nbsp;setSecurityInit(SEObject&nbsp;security_init);</p>
+<p class=secodelines>public&nbsp;SEObject&nbsp;getSecurityTerm();</p>
+<p class=secodelines>public&nbsp;void&nbsp;setSecurityInit(SEObject&nbsp;security_term);</p>
+<p class=secodelines>public&nbsp;SEObject&nbsp;getSecurityGuard();</p>
+<p class=secodelines>public&nbsp;void&nbsp;setSecurityGuard(SEObject&nbsp;security_guard);</p>
+<p class=secodelines>public&nbsp;SEObject&nbsp;getSecurityObject();</p>
+<p class=secodelines>public&nbsp;void&nbsp;setSecurityObject(SEObject&nbsp;security_object);</p>
+<p class=normal>&nbsp;</p>
+<p class=normal>These are the standard security functions as described in the ScriptEase language manual chapter on security. These objects work exactly the same in the ScriptEase ISDK as they do for any other ScriptEase security application.</p>
+<p class=secodelines>&nbsp;</p>
+<p class=secodelines>public&nbsp;String&nbsp;getFileName();</p>
+<p class=secodelines>public&nbsp;void&nbsp;setFileName(String&nbsp;filename);</p>
+<p class=secodelines>public&nbsp;int&nbsp;getLineNum();</p>
+<p class=secodelines>public&nbsp;void&nbsp;setLineNum(int&nbsp;linenum);</p>
+<p class=secodelines>&nbsp;</p>
+<p class=normal>These parameters are used when the <span class=secodephrase>SE.TEXT</span> form of script is executed. They specify the virtual filename and starting line number for the script text. This is helpful in reporting errors that might occur in the script text.</p>
+<hr noshade size=1>
+<p class=normal><a href="TH_163.htm"><img src="button.png" border=0></a><a href="TH_163.htm" style="text-decoration:none;">FUNCTION GLOBALS</a></p>
+<p>
+</body>
+</html>

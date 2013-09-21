@@ -1,0 +1,42 @@
+<html>
+<head>
+<title>Object operator</title>
+<link rel="stylesheet" href="semanualstyles.css" type="text/css">
+<style type="text/css">
+ p { margin-top: 0; margin-bottom: 0; }
+</style>
+<script language="JavaScript" src="TrueHelp.js"></script>
+</head>
+<body onload="thload()">
+<div id=ienav>
+<ilayer id=nsnav>
+<br>
+<center>
+<p class=normal><a href="seisdkc-toc.htm" target="left">contents</a> &nbsp; <a href="seisdkc-index.htm" target="left">index</a> &nbsp; <a href="TH_453.htm">previous</a> &nbsp; <a href="TH_455.htm">next</a></p>
+</center>
+<br>
+<hr noshade size=1>
+</ilayer>
+</div>
+<p class=heading-3>Object operator</p>
+<p class=heading-3-p>&nbsp;</p>
+<p class=senormalpara>The object operator is a period, "<span class=secodephrase>.</span>". This operator allows properties and methods of an object to be accessed and used. For example, <span class=sepopuptopic><a href="TH_853.htm" onClick="return thwindow('TH_853.htm', 'GenPopup')">Math.abs()</a></span> is a method of the <span class=sepopuptopic><a href="TH_842.htm" onClick="return thwindow('TH_842.htm', 'GenPopup')">Math object</a></span>. It may be accessed as follows:</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=secodelinesindented>var&nbsp;AbsNum&nbsp;=&nbsp;Math.abs(-3)</p>
+<p class=secodelinesindented>&nbsp;</p>
+<p class=senormalpara>The variable AbsNum now equals 3. The variable AbsNum is an instance of the Number object, not an instance of the Math object. Why? It is assigned the number 3 which is the return of the <span class=secodephrase>Math.abs()</span> method.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>The <span class=secodephrase>Math.abs()</span> method is a static method, that is, it is used directly with the Math object instead of an instance of the object. Many methods are instance methods, that is, they are used with instances of an object instead of the object itself. The <span class=sepopuptopic><a href="TH_977.htm" onClick="return thwindow('TH_977.htm', 'GenPopup')">String substring()</a></span> method is an instance method of the <span class=sepopuptopic><a href="TH_955.htm" onClick="return thwindow('TH_955.htm', 'GenPopup')">String object</a></span>. An instance method is not used with an object itself but only with instances of an object. The <span class=secodephrase>String substring()</span> method is never used with the String object as <span class=secodephrase>String.substring()</span>. The following fragment declares and initializes a string variable, which is an instance of the String object, and then uses the <span class=secodephrase>String substring()</span> method with this instance by using the object operator.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=secodelinesindented>var&nbsp;s&nbsp;=&nbsp;"One&nbsp;Two&nbsp;Three";</p>
+<p class=secodelinesindented>var&nbsp;new&nbsp;=&nbsp;s.substring(4,7);</p>
+<p class=secodelinesindented>&nbsp;</p>
+<p class=senormalpara>The variable s is an instance of the String object since it is initialized as a string. The variable new now equals "Two" and is also an instance of the String object since the <span class=secodephrase>String substring()</span> method returns a string.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>The main point here is that the period "<span class=secodephrase>.</span>" is an object operator that may be used with both static and instance methods and properties. A method or property is simply attached to an appropriate identifier using the object operator, which then accesses the method or property.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<hr noshade size=1>
+<p class=normal><a href="TH_455.htm"><img src="button.png" border=0></a><a href="TH_455.htm" style="text-decoration:none;">Mathematical operators</a></p>
+<p>
+</body>
+</html>

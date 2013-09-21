@@ -1,0 +1,73 @@
+<html>
+<head>
+<title>seSetCallbacks</title>
+<link rel="stylesheet" href="semanualstyles.css" type="text/css">
+<style type="text/css">
+ p { margin-top: 0; margin-bottom: 0; }
+</style>
+<script language="JavaScript" src="TrueHelp.js"></script>
+</head>
+<body onload="thload()">
+<div id=ienav>
+<ilayer id=nsnav>
+<br>
+<center>
+<p class=normal><a href="seisdkc-toc.htm" target="left">contents</a> &nbsp; <a href="seisdkc-index.htm" target="left">index</a> &nbsp; <a href="TH_63.htm">previous</a> &nbsp; <a href="TH_65.htm">next</a></p>
+</center>
+<br>
+<hr noshade size=1>
+</ilayer>
+</div>
+<p class=sereffunclevel3>seSetCallbacks</p>
+<p class=sereffunclevel3-p>&nbsp;</p>
+<table cellpadding=0>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>syntax:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=sesyntax>&nbsp;&nbsp;&nbsp;sebool</p>
+<p class=sesyntax>seSetCallbacks(secontext&nbsp;se,</p>
+<p class=sesyntax>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;seobject&nbsp;obj,</p>
+<p class=sesyntax>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;semember&nbsp;mem,</p>
+<p class=sesyntax>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;const&nbsp;struct&nbsp;seObjectCallbacks&nbsp;*cbs);</p></td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>where:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara><span class=secodephrase>se</span> the context the object is a part of</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara><span class=secodephrase>obj</span> the object half of the Object,Member pair</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara><span class=secodephrase>mem</span> the member half of the Object,Member pair</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara><span class=secodephrase>cbs</span> a pointer to the callbacks structure</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>return:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>True.  This will only return non-TRUE if compiling with JSE_MIN_OBJ_SIZE and if there is a non-recoverable memory allocation error.</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>description:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>This routine sets the object callbacks for an object. If the variable is not an object, nothing is done. Otherwise, the internal table of object callbacks for the object is changed to point to the given table. See <span class=sejumptopic><a href="TH_282.htm">DYNAMIC OBJECTS</a></span> for a complete discussion of dynamic objects and object callbacks.</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>see:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara><span class=sepopuptopic><a href="TH_65.htm" onClick="return thwindow('TH_65.htm', 'GenPopup')">seEnableDynamicMethod</a></span></p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+</table>
+<hr noshade size=1>
+<p class=normal><a href="TH_65.htm"><img src="button.png" border=0></a><a href="TH_65.htm" style="text-decoration:none;">seEnableDynamicMethod</a></p>
+<p>
+</body>
+</html>

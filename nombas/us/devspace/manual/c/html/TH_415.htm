@@ -1,0 +1,47 @@
+<html>
+<head>
+<title>Prototype property</title>
+<link rel="stylesheet" href="semanualstyles.css" type="text/css">
+<style type="text/css">
+ p { margin-top: 0; margin-bottom: 0; }
+</style>
+<script language="JavaScript" src="TrueHelp.js"></script>
+</head>
+<body onload="thload()">
+<div id=ienav>
+<ilayer id=nsnav>
+<br>
+<center>
+<p class=normal><a href="seisdkc-toc.htm" target="left">contents</a> &nbsp; <a href="seisdkc-index.htm" target="left">index</a> &nbsp; <a href="TH_414.htm">previous</a> &nbsp; next</p>
+</center>
+<br>
+<hr noshade size=1>
+</ilayer>
+</div>
+<p class=heading-3>Prototype property</p>
+<p class=heading-3-p>&nbsp;</p>
+<p class=senormalpara>For the technically inclined, objects have a prototype property. Instance properties and methods are attached to the prototype property of an object. As an illustration, assume that two new methods and two new properties are added to the String object. The instance property and method are added to the prototype property of the String object, whereas, the static property and method are added to the String object itself. </p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>The following two declaration lines illustrate an instance property and an instance method:</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=secodelinesindented>String.prototype.newInstanceProperty</p>
+<p class=secodelinesindented>String.prototype.newInstanceMethod()</p>
+<p class=secodelinesindented>&nbsp;</p>
+<p class=senormalpara>The following two declaration lines illustrate a static property and a static method:</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=secodelinesindented>String.newStaticProperty</p>
+<p class=secodelinesindented>String.newStaticMethod()</p>
+<p class=secodelinesindented>&nbsp;</p>
+<p class=normal>&nbsp;</p>
+<p class=normal>The following code fragment illustrates the differences in using these properties and methods.</p>
+<p class=normal>&nbsp;</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;//&nbsp;Begin&nbsp;an&nbsp;instance&nbsp;of&nbsp;a&nbsp;String&nbsp;object</p>
+<p class=secodelinesindented>var&nbsp;newStr&nbsp;=&nbsp;"an&nbsp;example&nbsp;string";</p>
+<p class=secodelinesindented>var&nbsp;instVal&nbsp;=&nbsp;newStr.newInstanceProperty;</p>
+<p class=secodelinesindented>newStr.newInstanceMethod();</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;//&nbsp;Use&nbsp;the&nbsp;static&nbsp;property&nbsp;and&nbsp;method&nbsp;directly</p>
+<p class=secodelinesindented>var&nbsp;statVal&nbsp;=&nbsp;String.newStaticProperty;</p>
+<p class=secodelinesindented>String.newStaticMethod();</p>
+<p>
+</body>
+</html>

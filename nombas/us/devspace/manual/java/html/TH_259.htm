@@ -1,0 +1,36 @@
+<html>
+<head>
+<title>THE FUNCTION HEADER</title>
+<link rel="stylesheet" href="semanualstyles.css" type="text/css">
+<style type="text/css">
+ p { margin-top: 0; margin-bottom: 0; }
+</style>
+<script language="JavaScript" src="TrueHelp.js"></script>
+</head>
+<body onload="thload()">
+<div id=ienav>
+<ilayer id=nsnav>
+<br>
+<center>
+<p class=normal><a href="seisdkj-toc.htm" target="left">contents</a> &nbsp; <a href="seisdkj-index.htm" target="left">index</a> &nbsp; <a href="TH_258.htm">previous</a> &nbsp; <a href="TH_260.htm">next</a></p>
+</center>
+<br>
+<hr noshade size=1>
+</ilayer>
+</div>
+<p class=sereffunclevel2>THE FUNCTION HEADER</p>
+<p class=sereffunclevel2-p>&nbsp;</p>
+<p class=senormalpara>There are two methods used to define wrapper functions in Java, the inner class method and the reflection method. The above example uses the inner class method. The <span class=secodephrase>print</span> method in the example creates a new inner class that implements the <span class=secodephrase>SEWrapper</span> interface. The <span class=secodephrase>SEWrapper</span> interface defines a single public method called <span class=secodephrase>wrapperFunction</span>, which is where the code for your wrapper function is placed.  The <span class=secodephrase>wrapperFunction</span> method takes two parameters, the scripting context and the number of arguments passed to the wrapper function.</p>
+<p class=senormalpara>The reflection method is a little more straight-forward. You simply define a public method which has the same signature as the <span class=secodephrase>wraperFunction</span> method of the <span class=secodephrase>SEWrapper</span> interface. For example, we could have defined the above print wrapper function like so:</p>
+<p class=secodelinesindented>public&nbsp;void&nbsp;print(SEContext&nbsp;se,&nbsp;int&nbsp;argc)</p>
+<p class=secodelinesindented>{</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;&#133;</p>
+<p class=secodelinesindented>}</p>
+<p class=senormalpara>&nbsp;</p>
+<p class=senormalpara>Wrapper functions defined using the inner class method as typically faster than those defined using the reflection method, but they also tend to take up more memory. Regardless of how it is defined, a wrapper function returns a <span class=secodephrase>void</span> result because it uses the ScriptEase API functions to indicate its return value, which will of course be some ScriptEase value. Therefore, the Java return value is not used for a wrapper function. </p>
+<p class=senormalpara>Wrapper functions are usually called during an <span class=secodephrase>seEval</span> ScriptEase API function call. <span class=secodephrase>seEval</span> evaluates a script, and if that script invokes any of your functions that are implemented via a wrapper function, that wrapper function will be called back by ScriptEase. Wrapper functions receives two parameters. The first is the <span class=secodephrase>SEContext</span> that is doing the callback. A wrapper function can be added to several contexts and it needs to know which one is doing the callback. You should use this provided context in any calls to ScriptEase API functions inside your wrapper function. You can compare the returned reference against any you might have to determine which context is being called back, but it is frowned upon. It is better to store any needed data along with each context using the <span class=secodephrase>SE.SERVICES</span> object and retrieve it in your wrapper function. The second argument is simply a numeric count of the number of ScriptEase parameters passed to your function. ScriptEase wrapper functions can take varying number of arguments depending on how you define them as we will see later. If your wrapper function takes a fixed number of arguments, you can ignore this parameter. </p>
+<hr noshade size=1>
+<p class=normal><a href="TH_260.htm"><img src="button.png" border=0></a><a href="TH_260.htm" style="text-decoration:none;">THE ARGUMENTS</a></p>
+<p>
+</body>
+</html>

@@ -1,0 +1,41 @@
+<html>
+<head>
+<title>SE.STACK_INFO(depth)</title>
+<link rel="stylesheet" href="semanualstyles.css" type="text/css">
+<style type="text/css">
+ p { margin-top: 0; margin-bottom: 0; }
+</style>
+<script language="JavaScript" src="TrueHelp.js"></script>
+</head>
+<body onload="thload()">
+<div id=ienav>
+<ilayer id=nsnav>
+<br>
+<center>
+<p class=normal><a href="seisdkj-toc.htm" target="left">contents</a> &nbsp; <a href="seisdkj-index.htm" target="left">index</a> &nbsp; <a href="TH_238.htm">previous</a> &nbsp; <a href="TH_240.htm">next</a></p>
+</center>
+<br>
+<hr noshade size=1>
+</ilayer>
+</div>
+<p class=heading-4>SE.STACK_INFO(depth)</p>
+<p class=senormalpara>These objects contain information about all function calls currently being executed. <span class=secodephrase>SE.STACK_INFO(0)</span> represents info on the wrapper function you are in, <span class=secodephrase>SE.STACK_INFO(1)</span> is the function that called you, and so forth. The maximum depth you can look back is determined by the compile-time constant <span class=secodephrase>SE.MAX_STACK_INFO_DEPTH</span> which defaults to 64. Thus, by default, you may use <span class=secodephrase>SE.STACK_INFO(0)</span> to <span class=secodephrase>SE.STACK_INFO(63)</span>.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>Here are the members of each stack info object and what that information is. These members are all read-only:</p>
+<p class=senormalpara-p>&nbsp;</p>
+<hr noshade size=1>
+<p class=normal><a href="TH_240.htm"><img src="button.png" border=0></a><a href="TH_240.htm" style="text-decoration:none;">SE.SI_WRAPPER</a></p>
+<p class=normal><a href="TH_241.htm"><img src="button.png" border=0></a><a href="TH_241.htm" style="text-decoration:none;">SE.SI_FUNCTION</a></p>
+<p class=normal><a href="TH_242.htm"><img src="button.png" border=0></a><a href="TH_242.htm" style="text-decoration:none;">SE.SI_FUNCNAME</a></p>
+<p class=normal><a href="TH_243.htm"><img src="button.png" border=0></a><a href="TH_243.htm" style="text-decoration:none;">SE.SI_TRAPPED</a></p>
+<p class=normal><a href="TH_244.htm"><img src="button.png" border=0></a><a href="TH_244.htm" style="text-decoration:none;">SE.SI_GLOBAL</a></p>
+<p class=normal><a href="TH_245.htm"><img src="button.png" border=0></a><a href="TH_245.htm" style="text-decoration:none;">SE.SI_THIS</a></p>
+<p class=normal><a href="TH_246.htm"><img src="button.png" border=0></a><a href="TH_246.htm" style="text-decoration:none;">SE.SI_DATA</a></p>
+<p class=normal><a href="TH_247.htm"><img src="button.png" border=0></a><a href="TH_247.htm" style="text-decoration:none;">SE.SI_FILENAME</a></p>
+<p class=normal><a href="TH_248.htm"><img src="button.png" border=0></a><a href="TH_248.htm" style="text-decoration:none;">SE.SI_LINENUM</a></p>
+<p class=normal><a href="TH_249.htm"><img src="button.png" border=0></a><a href="TH_249.htm" style="text-decoration:none;">SE.SI_ACTIVATION</a></p>
+<p class=normal><a href="TH_250.htm"><img src="button.png" border=0></a><a href="TH_250.htm" style="text-decoration:none;">SE.SI_SCOPECHAIN</a></p>
+<p class=normal><a href="TH_251.htm"><img src="button.png" border=0></a><a href="TH_251.htm" style="text-decoration:none;">SE.SI_DEPTH</a></p>
+<p>
+</body>
+</html>

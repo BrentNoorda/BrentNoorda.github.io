@@ -1,0 +1,1351 @@
+ 
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 FINAL//EN">
+<HTML><!-- #BeginTemplate "/us/Templates/erratapage.dwt" -->
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=ISO-8859-1">
+<!-- #BeginEditable "doctitle" --> 
+<TITLE>ScriptEase ISDK DevSpace</TITLE>
+<!-- #EndEditable --> <!-- begin metaTags --> 
+<META NAME="keywords" CONTENT="javascript,ecmascript,ecma,scriptease,jscript,scripting,nombas,isdk,sedesk,web application development,embedded devices,distributed computing,peer-to-peer,p2p,peer,data mining,javascript.com,cycletraders,integrated sdk,script ease,java,c++,c,simplicity,power,palm,windows ce,integration: sdk,integration:sdk,scriptease:desktop,scriptease: desktop,se:desktop,se:desk,se:isdk, se: isdk,development tools,devtools">
+<META HTTP-EQUIV="DESCRIPTION" CONTENT="Nombas delivers simplicity and power through scripting by providing market-leading development tools and software for JavaScript and ECMAScript.">
+<!-- end metaTags -->
+<!-- begin navbar includes -->
+<SCRIPT language=JavaScript1.2>
+  navbarPath = '../../../'; 
+</SCRIPT>
+<SCRIPT language=JavaScript1.2 SRC="../../../navbarData.js"></SCRIPT>
+<SCRIPT language=JavaScript1.2 SRC="../../../navbarMenu.js"></SCRIPT>
+<SCRIPT language=JavaScript SRC="../../../imgRollover.js"></SCRIPT>
+<!-- end navbar includes -->
+<!-- begin style and icon definition -->
+<LINK REL="SHORTCUT ICON" HREF="../../../nombas.ico">
+<STYLE> 
+A:hover { color:#941810;} 
+</STYLE>
+<!-- end style and icon definition -->
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-1754630-10']);
+  _gaq.push(['_trackPageview']);
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+</HEAD>
+<BODY BGCOLOR="#06086F" LINK="#0000FF" VLINK="#800080" TEXT="#000000" TOPMARGIN=0 LEFTMARGIN=0 MARGINWIDTH=0 MARGINHEIGHT=0>
+<table width="632" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td>
+<TABLE BORDER=0 CELLSPACING=0 CELLPADDING=0 WIDTH=213>
+  <TR VALIGN=TOP ALIGN=LEFT> 
+    <TD WIDTH=28 HEIGHT=4><IMG SRC="../../../clearpixel.gif" WIDTH=28 HEIGHT=1 BORDER=0></TD>
+    <TD></TD>
+  </TR>
+  <TR VALIGN=TOP ALIGN=LEFT> 
+    <TD HEIGHT=60></TD>
+          <TD WIDTH=185 ALIGN=LEFT VALIGN=TOP><A HREF="../../../index.htm"><IMG ID="Picture1" HEIGHT=60 WIDTH=185 SRC="../../../logo.gif" BORDER=0 alt="Nombas Homepage"></A></TD>
+  </TR>
+</TABLE>
+    <div id="nombas-legacy"></div>
+<TABLE BORDER=0 CELLSPACING=0 CELLPADDING=0>
+  <TR VALIGN=TOP ALIGN=LEFT> 
+    <TD WIDTH=30 HEIGHT=10><IMG SRC="../../../clearpixel.gif" WIDTH=30 HEIGHT=1 BORDER=0></TD>
+    <TD></TD>
+  </TR>
+  <TR VALIGN=TOP ALIGN=LEFT> 
+    <TD></TD>
+    <TD WIDTH=582> 
+      <TABLE ID="Table1" BORDER=0 CELLSPACING=0 CELLPADDING=0 WIDTH=582>
+        <TR> 
+          <TD WIDTH=97> 
+                  <P><A HREF="../../../scripting/scripting.htm" 
+                            onmouseover="changeImages('scripting', '../../../htab_scripting.gif'); popUp('elMenu1',event); return true;" 
+onmouseout="changeImages('scripting', '../../../tab_scripting.gif'); popDown('elMenu1'); return true;"
+><IMG
+                             ID="scripting" HEIGHT=21 WIDTH=97 SRC="../../../tab_scripting.gif" VSPACE=0 HSPACE=0 ALIGN="TOP" BORDER=0 name="scripting" alt="Scripting"></A> 
+                </TD>
+          <TD WIDTH=97> 
+                  <P><A HREF="../../../products/products.htm" 
+                            onmouseover="changeImages('products', '../../../htab_products.gif'); popUp('elMenu2',event); return true;" 
+onmouseout="changeImages('products', '../../../tab_products.gif'); popDown('elMenu2'); return true;"><IMG ID="products"
+                             HEIGHT=21 WIDTH=97 SRC="../../../tab_products.gif" VSPACE=0 HSPACE=0 ALIGN="TOP" BORDER=0 name=products alt="Products"></A> 
+                </TD>
+          <TD WIDTH=97> 
+                  <P><A HREF="../../../purchase/purchase.htm" onmouseover="changeImages('purchase', '../../../htab_purchase.gif');return true;" 
+onmouseout="changeImages('purchase', '../../../tab_purchase.gif');return true;"><IMG ID="purchase"
+                             HEIGHT=21 WIDTH=97 SRC="../../../tab_purchase.gif" VSPACE=0 HSPACE=0 ALIGN="TOP" BORDER=0 name=purchase alt="Purchase"></A> 
+                </TD>
+          <TD WIDTH=97> 
+                  <P><A HREF="../../../download/ndownload.htm" onmouseover="changeImages('download', '../../../htab_download.gif');return true;" 
+onmouseout="changeImages('download', '../../../tab_download.gif');return true;"><IMG ID="download"
+                             HEIGHT=21 WIDTH=97 SRC="../../../tab_download.gif" VSPACE=0 HSPACE=0 ALIGN="TOP" BORDER=0 name=download alt="Download"></A> 
+                </TD>
+          <TD WIDTH=97> 
+                  <P><A target="support" HREF="http://support.nombas.com/" onmouseover="changeImages('support', '../../../htab_support.gif'); return true;" 
+onmouseout="changeImages('support', '../../../tab_support.gif'); return true;"><IMG ID="support"
+                             HEIGHT=21 WIDTH=97 SRC="../../../tab_support.gif" VSPACE=0 HSPACE=0 ALIGN="TOP" BORDER=0 name=support alt="Support"></A> 
+                </TD>
+          <TD WIDTH=97> 
+                  <P><A HREF="../../../company/company.htm" 
+                            onmouseover="changeImages('company', '../../../htab_company.gif'); popUp('elMenu6',event); return true;" 
+onmouseout="changeImages('company', '../../../tab_company.gif'); popDown('elMenu6'); return true;"><IMG ID="company"
+                             HEIGHT=21 WIDTH=97 SRC="../../../tab_company.gif" VSPACE=0 HSPACE=0 ALIGN="TOP" BORDER=0 name=company alt="Company"></A> 
+                </TD>
+        </TR>
+      </TABLE>
+    </TD>
+  </TR>
+</TABLE>
+      <TABLE BORDER=0 CELLSPACING=0 CELLPADDING=0 WIDTH=100%>
+        <TR VALIGN=TOP ALIGN=LEFT> 
+    <TD WIDTH=5 HEIGHT=20><IMG SRC="../../../clearpixel.gif" WIDTH=5 HEIGHT=1 BORDER=0></TD>
+          <TD> 
+            <TABLE BORDER=0 CELLSPACING=0 CELLPADDING=0 WIDTH=100% HEIGHT=20 bgcolor="#FFFFFF">
+              <TR ALIGN=LEFT VALIGN=TOP> 
+          <TD> 
+                  <TABLE BORDER=0 CELLSPACING=0 CELLPADDING=0 WIDTH=100%>
+                    <TR VALIGN=TOP ALIGN=LEFT> 
+                <TD WIDTH=20 HEIGHT=20 ALIGN=LEFT VALIGN=TOP><IMG ID="Picture12" HEIGHT=20 WIDTH=20 SRC="../../../curve_topleft.gif" BORDER=0></TD>
+                      <TD><IMG SRC="../../../clearpixel.gif" WIDTH=592 HEIGHT=1 BORDER=0></TD>
+                <TD WIDTH=20 ALIGN=LEFT VALIGN=TOP><IMG ID="Picture10" HEIGHT=20 WIDTH=20 SRC="../../../curve_top.gif" BORDER=0></TD>
+              </TR>
+            </TABLE>
+          </TD>
+        </TR>
+      </TABLE>
+    </TD>
+  </TR>
+</TABLE>
+<TABLE BORDER=0 CELLSPACING=0 CELLPADDING=0 WIDTH=637>
+  <TR VALIGN=TOP ALIGN=LEFT> 
+    <TD HEIGHT=471 width="5"></TD>
+    <TD COLSPAN=2 height="471"> 
+      <TABLE BORDER=0 CELLSPACING=0 CELLPADDING=0 WIDTH=632 HEIGHT=200 bgcolor="#FFFFFF">
+        <TR ALIGN=LEFT VALIGN=TOP> 
+          <TD height="471"> 
+            <TABLE BORDER=0 CELLSPACING=0 CELLPADDING=0 WIDTH=516>
+              <TR VALIGN=TOP ALIGN=LEFT> 
+                <TD WIDTH=14 HEIGHT=1><IMG SRC="../../../clearpixel.gif" WIDTH=13 HEIGHT=1 BORDER=0></TD>
+                <TD WIDTH=502><IMG SRC="../../../clearpixel.gif" WIDTH=316 HEIGHT=1 BORDER=0></TD>
+              </TR>
+              <TR VALIGN=TOP ALIGN=LEFT> 
+                <TD width="14"></TD>
+                <TD WIDTH=502><!-- #BeginEditable "hier" --> 
+                        <P ALIGN=LEFT><A HREF="../../../index.htm"><FONT SIZE="-2" FACE="Verdana,Tahoma,Arial,Helvetica">Nombas</FONT></A><FONT SIZE="-2" FACE="Verdana,Tahoma,Arial,Helvetica"> 
+                          &gt; <a HREF="../../index.htm">SE:ISDK DevSpace</a> 
+                          &gt; <a href="../index.htm">Errata</a> &gt; Standard 
+                          Obj/Function Library Errata</FONT> 
+                        <!-- #EndEditable --></TD>
+              </TR>
+            </TABLE>
+            <TABLE BORDER=0 CELLSPACING=0 CELLPADDING=0 WIDTH=300>
+              <TR VALIGN=TOP ALIGN=LEFT> 
+                <TD WIDTH=15 HEIGHT=5><IMG SRC="../../../clearpixel.gif" WIDTH=15 HEIGHT=1 BORDER=0></TD>
+                <TD></TD>
+              </TR>
+              <TR VALIGN=TOP ALIGN=LEFT> 
+                <TD HEIGHT=80></TD>
+                <TD WIDTH=600 ALIGN=LEFT VALIGN=TOP><IMG ID="Picture14" HEIGHT=80 WIDTH=600 SRC="../../bnr_devspace.gif" BORDER=0></TD>
+              </TR>
+              <TR VALIGN=TOP ALIGN=LEFT> 
+                <TD HEIGHT=368></TD>
+                <TD WIDTH=600 ALIGN=LEFT VALIGN=TOP height="368"> 
+                  <table width="100%" border="0">
+                    <tr> 
+                      <td colspan="4" height="9"><img SRC="../../../clearpixel.gif" width="1" height="1"></td>
+                    </tr>
+                    <tr> 
+                      <td width="1" height="326">&nbsp;</td>
+                      <td valign="top" height="326"><!-- #BeginEditable "main" --> 
+                              <p><font size=5><b><font face="Verdana, Arial, Helvetica, sans-serif" size="4">Standard 
+                                Objects and Function Library Errata</font></b></font><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><br>
+                                <b><i>Problems with the objects and function library 
+                                will effect all of the products</i></b></font><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><br>
+                                </font></p>
+                              <p> 
+                              <ul>
+                                <li><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><a href="#v440d">4.40d</a> 
+                                  </font> 
+                                <li><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><a href="#v440c">4.40c</a></font> 
+                              </ul>
+                              <ul>
+                                <li><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><a href="#v430e">4.30e</a> 
+                                  </font> 
+                                <li><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><a href="#v430d">4.30d</a> 
+                                  </font> 
+                                <li><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><a href="#v430c">4.30c</a> 
+                                  </font> 
+                                <li><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><a href="#v430b">4.30b</a> 
+                                  </font> 
+                                <li><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><a href="#v430a">4.30a</a> 
+                                  </font> 
+                                <li><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><a href="#v420d">4.20d</a> 
+                                  </font> 
+                                <li><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><a href="#v420c">4.20c</a> 
+                                  </font> 
+                                <li><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><a href="#v410b">4.10b</a> 
+                                  </font> 
+                                <li> <font face="Verdana, Arial, Helvetica, sans-serif" size="2"><a href="#v410b">4.03c</a> 
+                                  </font> 
+                                <li> <font face="Verdana, Arial, Helvetica, sans-serif" size="2"><a href="#v403c">4.03c</a> 
+                                  </font> 
+                                <li> <font face="Verdana, Arial, Helvetica, sans-serif" size="2"><a href="#v403b">4.03b</a> 
+                                  </font> 
+                                <li> <font face="Verdana, Arial, Helvetica, sans-serif" size="2"><a href="#v403a">4.03a</a> 
+                                  </font> 
+                                <li> <font face="Verdana, Arial, Helvetica, sans-serif" size="2"><a href="#v402">4.02</a> 
+                                  </font> 
+                                <li> <font face="Verdana, Arial, Helvetica, sans-serif" size="2"><a href="#v401">4.01</a> 
+                                  </font> 
+                              </ul>
+                              <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><b><a name="v440d"></a>&nbsp;&nbsp;Version 
+                                4.40D errata </b></font></p>
+                              <ul>
+                                <p> 
+                                <p> 
+                                <p> 
+                                <li><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><b><a name="4ptclw"></a></b><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><b>RegExp.prototype._class 
+                                  wrong</b></font><b><br>
+                                  </b> (for ISDK/C 440d)</font> 
+                                  <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                                    Bug: RegExp.prototype._class, and so (new 
+                                    RegExp)._class, should be defined as &quot;RegExp&quot; 
+                                    but is instead defined as the number NaN.</font></p>
+                                  <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><b>Fix</b>: 
+                                    In srclib/ecma/seregexp.c, in the definition 
+                                    of RegExpFunctionTable, at about line 817, 
+                                    replace this line:</font></p>
+                                </li>
+                                <pre><font face="Courier New, Courier, mono" size="2">   JSE_VARSTRING( JseStr(jsecontext,prototype__class), JseStr(jsecontext,RegExp), jseDontEnum)</font></pre>
+                              </ul>
+                              <blockquote> 
+                                <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2">with 
+                                  this</font></p>
+                                <pre><font face="Courier New, Courier, mono" size="2">   JSE_VARSTRING( JseStr(jsecontext,prototype__class), UNISTR(&quot;\&quot;RegExp\&quot;&quot;), jseDontEnum)</font></pre>
+                              </blockquote>
+                              <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><b><a name="v440c"></a>&nbsp;&nbsp;Version 
+                                4.40C errata </b></font></p>
+                              <font face="Courier New, Courier, mono" size="2"></font><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                              <ul>
+                                <li><b><a name="dtglb"></a><font face="Verdana, Arial, Helvetica, sans-serif" size="2">global 
+                                  C variable in Date object conflict for multiple 
+                                  threads</font><br>
+                                  </b>(for ISDK/C 440c)</li>
+                              </ul>
+                              </font> 
+                              <ul>
+                                <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                                  Bug: The Ecma Date library contains globals 
+                                  which should be initialized only once, but in 
+                                  multiple threads may be initialized many times, 
+                                  potentially leading to invalid data or crashes. 
+                                  </font></p>
+                                <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><b>Fix</b>: 
+                                  In srclib/ecma/sedate.c, remove &quot;static&quot; 
+                                  and &quot;VAR_DATA&quot; from the two variable 
+                                  definitions at the beginning of millisec_from_gmtime(), 
+                                  at about line 378, so they read:</font></p>
+                                <pre><font face="Courier New, Courier, mono" size="2">   jsebool first_time = True;
+   jsenumber diff;</font></pre>
+                              </ul>
+                              <ul>
+                                <p> 
+                              </ul>
+                              <ul>
+                                <p> 
+                                <p> 
+                                <p> 
+                                <li><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><b><a name="440cztos"></a>toString(radix) 
+                                  not returing correct value for 0<br>
+                                  </b> (for ISDK/C 440c)</font> 
+                                  <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                                    Bug: The following simple script should return 
+                                    "0", but does is not: </font></p>
+                                  <pre><font face="Courier New, Courier, mono" size="2">   var z = (0).toString(10);</font></pre>
+                                  <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><b>Fix</b>: 
+                                    In srclib/ecma/seobject.c, function EcmaNumberToStringWithRadix(), 
+                                    near the beginning of the function before 
+                                    the test jseIsNegative(val) (at about line 
+                                    2056), add this code:</font></p>
+                                </li>
+                                <pre><font face="Courier New, Courier, mono" size="2">   if ( jseIsZero(val) )
+   {
+      strcpy_jsechar((jsecharptr)buf,UNISTR(&quot;0&quot;));
+      return;
+   }</font></pre>
+                              </ul>
+                              <ul>
+                                <p> 
+                                <p> 
+                                <p> 
+                                <li><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><b><a name="440cgtnvso"></a>Unix 
+                                  version of SElib.dynamicLink not locating shared 
+                                  object path</b><br>
+                                  (for ISDK/C 440c)</font> 
+                                  <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                                    Bug: On unix systems, when calling SElib.dynamicLink(), 
+                                    that shared object may not be located via 
+                                    LD_ELF_LIBRARY_PATH or LD_LIBRARY_PATH.</font></p>
+                                  <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><b>Fix</b>: 
+                                    In srclib/common/sedynlib.c change both instances 
+                                    of GetEnvironment(UNISTR("blah")) to getenv(&quot;blah&quot;). 
+                                    Specifically, these two calls:</font></p>
+                                </li>
+                                <pre><font face="Courier New, Courier, mono" size="2">   const jsecharptr libpath = GetEnvironment(UNISTR("LD_ELF_LIBRARY_PATH"));
+   libpath = GetEnvironment(UNISTR("LD_LIBRARY_PATH"));</font></pre>
+                                <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2">become 
+                                  these</font></p>
+                                <pre><font face="Courier New, Courier, mono" size="2">   const jsecharptr libpath = getenv("LD_ELF_LIBRARY_PATH");
+   </font><font face="Courier New, Courier, mono" size="2">libpath = getenv("LD_LIBRARY_PATH");</font></pre>
+                                <li><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><b><a name="440cbufgetstr"></a>buffer.getString 
+                                  not stopping at the null character</b><br>
+                                  (for ISDK/C 4.40c)</font> 
+                                  <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                                    Bug: Buffer.prototype.getString() is not terminating 
+                                    strings at the first null character, as specified 
+                                    in the documentation.</font></p>
+                                  <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><b>Fix</b>: 
+                                    This will be fixed with the 4.40d release.</font></p>
+                                </li>
+                              </ul>
+                              <p>&nbsp;</p>
+                              <blockquote> 
+                                <blockquote> 
+                                  <p> 
+                                </blockquote>
+                              </blockquote>
+                              <ul>
+                                <li><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><b><a name="arrcat"></a>array.concat 
+                                  adds extra null item on initial element</b><br>
+                                  (for ISDK/C 4.40c)</font> 
+                                  <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                                    Bug: If Array.prototype.concat is used on 
+                                    an initialy empty array, and extra element 
+                                    is added at the beginning. For example, this 
+                                    code:</font></p>
+                                </li>
+                                <blockquote> 
+                                  <pre><font face="Verdana, Arial, Helvetica, sans-serif" size="2">var foo = new Array();
+foo = foo.concat(&quot;one&quot;);
+foo = foo.concat(&quot;two&quot;);
+display(&quot;foo = &quot; + foo);</font></pre>
+                                </blockquote>
+                              </ul>
+                              <blockquote> 
+                                <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2">will 
+                                  produce this incorrect output:</font></p>
+                                <blockquote> 
+                                  <pre><font face="Verdana, Arial, Helvetica, sans-serif" size="2">foo = ,one,two
+</font></pre>
+                                </blockquote>
+                                <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><b>Fix</b>: 
+                                  In srclib/ecma/seobject.c, function Ecma_Array_concat(), 
+                                  at about line 1204 change these lines:</font></p>
+                                <blockquote> 
+                                  <pre><font face="Verdana, Arial, Helvetica, sans-serif" size="2">NULL != (temp = jseMemberEx(jsecontext,param,JseStr(jsecontext,_class),
+                            jseTypeUndefined,jseCreateVar|jseDontCreateMember)) &amp;&amp;</font></pre>
+                                </blockquote>
+                                <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2">to 
+                                  these:</font></p>
+                                <blockquote> 
+                                  <pre><font face="Verdana, Arial, Helvetica, sans-serif" size="2">NULL != (temp = jseGetMemberEx(jsecontext,param,JseStr(jsecontext,_class),
+                               jseCreateVar)) &amp;&amp;</font></pre>
+                                </blockquote>
+                              </blockquote>
+                              <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><b><a name="v430e"></a>&nbsp;&nbsp;Version 
+                                4.30E errata (may apply to earlier versions)</b></font></p>
+                              <p> 
+                              <p> 
+                              <p> 
+                              <ul>
+                                <p> 
+                                <p> 
+                                <p> 
+                                <p> 
+                                <p> 
+                                <p> 
+                                <li><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><b><a name="3ptclw"></a></b><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><b>RegExp.prototype._class 
+                                  wrong</b></font><b><br>
+                                  </b> (for ISDK/C 430e)</font> 
+                                  <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                                    Bug: RegExp.prototype._class should be defined 
+                                    as &quot;RegExp&quot; but is instead defined 
+                                    as the number NaN.</font></p>
+                                  <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><b>Fix</b>: 
+                                    In srclib/ecma/seregexp.c, in the definition 
+                                    of RegExpFunctionTable, at about line 817, 
+                                    replace this line:</font></p>
+                                </li>
+                                <pre><font face="Courier New, Courier, mono" size="2">   JSE_VARSTRING( PROTOCLASS_PROPERTIES, REGEXP_PROPERTY, jseDontEnum),</font></pre>
+                              </ul>
+                              <blockquote> 
+                                <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2">with 
+                                  this</font></p>
+                                <pre><font face="Courier New, Courier, mono" size="2">   JSE_VARSTRING( PROTOCLASS_PROPERTIES, UNISTR(&quot;\&quot;RegExp\&quot;&quot;), jseDontEnum),</font></pre>
+                              </blockquote>
+                              <p> 
+                              <p> 
+                              <p> 
+                              <p> <font face="Verdana, Arial, Helvetica, sans-serif" size="2"><b><a name="v430d"></a>&nbsp;&nbsp;Version 
+                                4.30D errata (may apply to earlier versions)</b></font></p>
+                              <p> 
+                              <p> 
+                              <p> 
+                              <ul>
+                                <li><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><b><a name="ecglb"></a></b><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><b>global 
+                                  C variables conflict for multiple threads</b></font><br>
+                                  (for ISDK/C 4.30d)</font> 
+                                  <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                                    Bug: The Ecma libraries contain globals which 
+                                    should be initialized only once, but in multiple 
+                                    threads may be initialized many times, potentially 
+                                    leading to invalid data or crashes.</font></p>
+                                  <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><b>Fix</b>: 
+                                    These variables(first_time and diff in sedate.c; 
+                                    seInfinity, seNegInfinity, and SeNaN in ecmamisc.c) 
+                                    have been made thread-safe with the 4.30e 
+                                    release. If you need fixes for earlier released 
+                                    contact <a href="http://support.nombas.com/">http://support.nombas.com/</a>.</font></p>
+                                </li>
+                              </ul>
+                              <p> 
+                              <p> 
+                              <p> 
+                              <ul>
+                                <li><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><b><a name="430dgtnvso"></a>Unix 
+                                  version of SElib.dynamicLink not locating shared 
+                                  object path</b><br>
+                                  (for ISDK/C 4.30d)</font> 
+                                  <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                                    Bug: On unix systems, when calling SElib.dynamicLink(), 
+                                    that shared object may not be located via 
+                                    LD_ELF_LIBRARY_PATH or LD_LIBRARY_PATH.</font></p>
+                                  <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><b>Fix</b>: 
+                                    In srclib/common/sedynlib.c change both instances 
+                                    of GetEnvironment(UNISTR("blah")) to getenv(&quot;blah&quot;). 
+                                    Specifically, these two calls:</font></p>
+                                </li>
+                                <pre><font face="Courier New, Courier, mono" size="2">   const jsecharptr libpath = GetEnvironment(UNISTR("LD_ELF_LIBRARY_PATH"));
+   libpath = GetEnvironment(UNISTR("LD_LIBRARY_PATH"));</font></pre>
+                                <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2">become 
+                                  these</font></p>
+                                <pre><font face="Courier New, Courier, mono" size="2">   const jsecharptr libpath = getenv("LD_ELF_LIBRARY_PATH");
+   </font><font face="Courier New, Courier, mono" size="2">libpath = getenv("LD_LIBRARY_PATH");</font></pre>
+                              </ul>
+                              <ul>
+                                <li><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><b><a name="430dbufgetstr"></a>buffer.getString 
+                                  not stopping at the null character</b><br>
+                                  (for ISDK/C 4.30d)</font> 
+                                  <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                                    Bug: Buffer.prototype.getString() is not terminating 
+                                    strings at the first null character, as specified 
+                                    in the documentation.</font></p>
+                                  <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><b>Fix</b>: 
+                                    This will be fixed with the 4.30e release.</font></p>
+                                </li>
+                              </ul>
+                              <p>&nbsp;</p>
+                              <blockquote> 
+                                <blockquote> 
+                                  <p> 
+                                </blockquote>
+                              </blockquote>
+                              <ul>
+                                <li><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><a name="cursend"></a>Error:SEDBC: 
+                                  When a cursor object is asked for a field and 
+                                  it's at the end of the record, the field is 
+                                  not found, although it should be. For example: 
+                                  </font> 
+                                  <blockquote> 
+                                    <pre><font face="Verdana, Arial, Helvetica, sans-serif" size="2">#link &quot;sedbc&quot;
+   
+var db = new Database();
+var err = db.connect(&quot;ODBC&quot;, &quot;one_record_db&quot;, &quot;ADMIN&quot;,          &quot;&quot;);
+var cur = db.cursor(&quot;Select approver From Invoices Where invoice_number='12345'&quot;,          db.dynaset);
+Screen.writeln(cur[0]);</font></pre>
+                                  </blockquote>
+                                  <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2">In 
+                                    the above example, if there is only one entry 
+                                    in the database, the call to Screen.writeln() 
+                                    will print &quot;undefined&quot;, because 
+                                    cur[0] will not be found.</font></p>
+                                  <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><b>Fix</b>: 
+                                    Around line 122 of the file se430\srclib\sedbc\cursor_f.c, 
+                                    replace the following statements:</font></p>
+                                  <blockquote> 
+                                    <pre><font face="Verdana, Arial, Helvetica, sans-serif" size="2">if(jseRecordset_IsEOF(This) || jseRecordset_IsBOF(This))
+   return NULL;</font></pre>
+                                  </blockquote>
+                                  <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                                    with these:</font></p>
+                                  <blockquote> 
+                                    <pre><font face="Verdana, Arial, Helvetica, sans-serif" size="2">
+/* Changed from ||. This statement checks for an empty record. */
+if(jseRecordset_IsEOF(This) &amp;&amp; jseRecordset_IsBOF(This))
+   return NULL;</font></pre>
+                                  </blockquote>
+                              </ul>
+                              <p></p>
+                              <ul>
+                                <li><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><a name="lennoenum"></a>Error: 
+                                  The &quot;length&quot; property on instances 
+                                  of Array objects is not jseDontEnum and jseDontDelete, 
+                                  so it will sho up in error when enumerating 
+                                  instances of array objects. </font> 
+                                  <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><b>Fix</b>: 
+                                    In srccore/var.c, function seobjMakeEcmaArray(), 
+                                    at about line 1332, add a line setting the 
+                                    jseDontEnum and jseDontDelete attributes. 
+                                    So that these lines:</font></p>
+                                  <blockquote> 
+                                    <pre><font face="Verdana, Arial, Helvetica, sans-serif" size="2">/* make sure it has a length */
+mem = seobjNewMember(call,obj,call->Global->global_strings[length_entry],&found);
+SEVAR_INIT_NUMBER(&(mem->value),jseZero);</font></pre>
+                                  </blockquote>
+                              </ul>
+                              <blockquote> 
+                                <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2">become 
+                                  these:</font></p>
+                              </blockquote>
+                              <ul>
+                                <blockquote> 
+                                  <pre><font face="Verdana, Arial, Helvetica, sans-serif" size="2">/* make sure it has a length */
+mem = seobjNewMember(call,obj,call->Global->global_strings[length_entry],&found);
+/* length property is DontEnum and DontDelete */
+mem->attributes = jseDontEnum | jseDontDelete;
+SEVAR_INIT_NUMBER(&(mem->value),jseZero);</font></pre>
+                                </blockquote>
+                                <li><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><a name="strrepreg"></a> 
+                                  String.prototype.replace() function auto-converts 
+                                  first parameter to a Regular Expression object 
+                                  if it's not one already, then performs replacement 
+                                  based on that. Instead, if the first parameter 
+                                  isn't a Regular Expression object it should 
+                                  auto-convert it to a string, then perform a 
+                                  simple search and replace for that string in 
+                                  the current &quot;this&quot; variable. The additional 
+                                  code required for the fix, as well as instructions 
+                                  on how to do so can be found at <a href="ftp://ftp.nombas.com/pub/isdkeval/se430/replace.txt">ftp://ftp.nombas.com/pub/isdkeval/se430/replace.txt</a> 
+                                  </font></li>
+                              </ul>
+                              <ul>
+                                <li><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><a name="lastindexofneg"></a>Error: 
+                                  string.lastIndexOf does not handle offset (the 
+                                  optional second parameter) correctly if it is 
+                                  negative. For example, in this script </font></li>
+                                <blockquote> 
+                                  <pre><font face="Verdana, Arial, Helvetica, sans-serif" size="2">var str = new String("Hello, World&quot;);
+var idx = str.lastIndexOf("H",-1);</font></pre>
+                                </blockquote>
+                              </ul>
+                              <blockquote> 
+                                <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2">the 
+                                  value of idx would be -1, when it should be 
+                                  0.</font></p>
+                                <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><b>Fix</b>: 
+                                  In srclib/ecma/seobject.c, function Ecma_String_lastIndexOf, 
+                                  at about line 3275, change this code:</font></p>
+                                <blockquote> 
+                                  <pre><font face="Verdana, Arial, Helvetica, sans-serif" size="2">if ( start &lt; 0 )
+   start = -1;</font></pre>
+                                </blockquote>
+                                <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2">to 
+                                  this:</font></p>
+                                <blockquote> 
+                                  <pre><font face="Verdana, Arial, Helvetica, sans-serif" size="2">if ( start &lt; 0 )
+   start = 0;</font></pre>
+                                </blockquote>
+                              </blockquote>
+                              <ul>
+                                <li> 
+                                  <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2">:The 
+                                    locale functions for an instance of the date 
+                                    object (toLocaleString, toLocaleDateString, 
+                                    and toLocaleTimeString) are doing nothing 
+                                    differently than the standard non-locale functions 
+                                    (toString, toDateString, and toTimeString). 
+                                    Because the ECMA standard is very non-specific 
+                                    about what toLocaleString() does for any function, 
+                                    and because the platforms and compilers we 
+                                    support are so varied in their locale implementations, 
+                                    we have so far avoided the issue. </font></p>
+                                  <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><b>Fix</b>: 
+                                    A new version of SEDATE.C is available via 
+                                    ftp (<a href="ftp://ftp.nombas.com/pub/isdkeval/se430/sedate_with_tolocale.c">download 
+                                    here</a>) which will use the JSE_TOLOCALEDATE_FUNCTION 
+                                    macro, if defined, to manage locales for the 
+                                    date function. In the comments, at the top 
+                                    of that file, is also a description for how 
+                                    one </font></p>
+                                <li><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><a name="tolocale"></a>Problem: 
+                                  The locale functions for an instance of the 
+                                  date object (toLocaleString, toLocaleDateString, 
+                                  and toLocaleTimeString) are doing nothing differently 
+                                  than the standard non-locale functions (toString, 
+                                  toDateString, and toTimeString). Because the 
+                                  ECMA standard is very non-specific about what 
+                                  toLocaleString() does for any function, and 
+                                  because the platforms and compilers we support 
+                                  are so varied in their locale implementations, 
+                                  we have so far avoided the issue. </font></li>
+                              </ul>
+                              <blockquote> 
+                                <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><b>Fix</b>: 
+                                  A new version of SEDATE.C is available via ftp 
+                                  (<a href="ftp://ftp.nombas.com/pub/isdkeval/se430/sedate_with_tolocale.c">download 
+                                  here</a>) which will use the JSE_TOLOCALEDATE_FUNCTION 
+                                  macro, if defined, to manage locales for the 
+                                  date function. In the comments, at the top of 
+                                  that file, is also a description for how one 
+                                  may add a JSE_TOLOCALEDATE_FUNCTION if your 
+                                  C library supports the standard strftime() function.</font></p>
+                              </blockquote>
+                              <p> 
+                              <p> 
+                              <p> 
+                              <ul>
+                                <li><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><a name="ftimetz"></a>Problem: 
+                                  Date object TimeZone calculation may be inefficient 
+                                  or incorrect. </font> 
+                                  <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><b>Fix</b>: 
+                                    If the system makes an ftime() function available, 
+                                    then use it. In srclib/ecma/sedate.c, function 
+                                    millisec_from_gmtime(), at about line 412 
+                                    replace this code:</font></p>
+                                  <blockquote> 
+                                    <pre><font face="Verdana, Arial, Helvetica, sans-serif" size="2">#     else
+      {
+         /* Difference between time here and GMT. This computation</font></pre>
+                                  </blockquote>
+                                  <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2">with 
+                                    this conditional change</font></p>
+                                  <blockquote> 
+                                    <pre><font face="Verdana, Arial, Helvetica, sans-serif" size="2">#     elif defined(__JSE_MAC__) || defined(__JSE_VXWORKS__) || defined(__DEFAULT_TIME_C_FUNCTION__)
+      {
+         /* Difference between time here and GMT. This computation</font></pre>
+                                  </blockquote>
+                                  <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2">and 
+                                    then at line 454 replace this code:</font></p>
+                                  <blockquote> 
+                                    <pre><font face="Verdana, Arial, Helvetica, sans-serif" size="2">      }
+#     endif </font></pre>
+                                  </blockquote>
+                                  <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2">with 
+                                    this</font></p>
+                                  <blockquote> 
+                                    <pre><font face="Verdana, Arial, Helvetica, sans-serif" size="2">      }
+#     else
+         /* if ftime is supported then use it directly */
+         struct timeb tb;
+         ftime(&amp;tb);
+         diff = JSE_FP_MUL(JSE_FP_CAST_FROM_SLONG(-tb.timezone),msPerMinute);
+#     endif</font></pre>
+                                  </blockquote>
+                              </ul>
+                              <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><b><a name="v430c"></a>&nbsp;&nbsp;Version 
+                                4.30C errata (may apply to earlier versions)</b></font></p>
+                              <p> 
+                              <p> 
+                              <p> 
+                              <ul>
+                                <li><font face="Verdana, Arial, Helvetica, sans-serif" size="2">Error: 
+                                  Calling decodeURI, decodeURIComponent, encodeURI, 
+                                  or encodeURIComponent on empty strings results 
+                                  in an &quot;invalid string&quot; error. </font> 
+                                  <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><b>Fix</b>: 
+                                    In srclib/ecma/ecmamisc.c, function URIDecode, 
+                                    line 527, replace:</font></p>
+                              </ul>
+                              <blockquote> 
+                                <blockquote> 
+                                  <pre><font face="Verdana, Arial, Helvetica, sans-serif" size="2">jsecharptr decodedURIStr = NULL;</font></pre>
+                                </blockquote>
+                                <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2">with</font></p>
+                                <blockquote> 
+                                  <pre><font face="Verdana, Arial, Helvetica, sans-serif" size="2">jsecharptr decodedURIStr = StrCpyMalloc(UNISTR(&quot;\0&quot;));</font></pre>
+                                </blockquote>
+                                <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2">and, 
+                                  in srclib/ecma/ecmamisc.c, function URIEncode, 
+                                  line 934, replace:</font></p>
+                                <blockquote> 
+                                  <pre><font face="Verdana, Arial, Helvetica, sans-serif" size="2">jsecharptr encodedURIStr = NULL;</font></pre>
+                                </blockquote>
+                                <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2">with</font></p>
+                              </blockquote>
+                              <ul>
+                                <blockquote> 
+                                  <pre><font face="Verdana, Arial, Helvetica, sans-serif" size="2">jsecharptr encodedURIStr = StrCpyMalloc(UNISTR(&quot;\0&quot;));      </font></pre>
+                                </blockquote>
+                                <li><font face="Verdana, Arial, Helvetica, sans-serif" size="2">Error: 
+                                  Calling decodeURI on a string that contains 
+                                  an escaped character that should not be unescaped 
+                                  results in garbage values.<br>
+                                  <br>
+                                  <b>Fix</b>: In srclib/ecma/ecmamisc.c, function 
+                                  URIDecode, line 718, replace: </font></li>
+                              </ul>
+                              <ul>
+                                <blockquote> 
+                                  <pre><font face="Verdana, Arial, Helvetica, sans-serif" size="2">{
+   assert( JSECHARPTR_DIFF(currCharPtr,start)&gt;0 );
+   assert( JSECHARPTR_DIFF(currCharPtr,start)&lt;URIDECODE_COPY_BUFFER_SIZE          );
+         
+   strncpy_jsechar((jsecharptr)s,start,(size_t)JSECHARPTR_DIFF(currCharPtr,start));
+}</font></pre>
+                                </blockquote>
+                              </ul>
+                              <blockquote> 
+                                <pre><font face="Verdana, Arial, Helvetica, sans-serif" size="2">with</font></pre>
+                              </blockquote>
+                              <ul>
+                                <blockquote> 
+                                  <pre><font face="Verdana, Arial, Helvetica, sans-serif" size="2">{
+   jsecharptr nextCharPtr = JSECHARPTR_NEXT(currCharPtr);
+         
+   assert( JSECHARPTR_DIFF(nextCharPtr,start)&gt;0 );
+   assert( JSECHARPTR_DIFF(nextCharPtr,start)&lt;URIDECODE_COPY_BUFFER_SIZE          );
+         
+   strncpy_jsechar((jsecharptr)s,start,(size_t)JSECHARPTR_DIFF(nextCharPtr,start));
+         
+   JSECHARPTR_PUTC(JSECHARPTR_OFFSET((jsecharptr)s,3),'\0');
+}       </font></pre>
+                                </blockquote>
+                                <li><font face="Verdana, Arial, Helvetica, sans-serif" size="2">Some 
+                                  functions for the buffer object and for the 
+                                  DSP (distributed scripting) library are wrongly 
+                                  marked as insecure. The forces unneeded calls 
+                                  to the security manager. </font> 
+                                  <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2">Fix: 
+                                    In sebuffer.c, the jseMemberWrapperFunction 
+                                    calls for the dynamic _get and _put (2 of 
+                                    each) should be marked as jseFunc_Secure. 
+                                    Also, in sedsp.c, all of the functions both 
+                                    in the table and in jseMemberWrapperFunction 
+                                    calls should be made secure, as only the transport 
+                                    and the called functions are possibly insecure, 
+                                    DSP itself is secure. </font></p>
+                                </li>
+                              </ul>
+                              <ul>
+                                <li><font face="Verdana, Arial, Helvetica, sans-serif" size="2">When 
+                                  Function.call() fails to call the function, 
+                                  for any reasons (such as it isn't really a function) 
+                                  the engine will crash. The fix in srclib/ecma/seobject.c 
+                                  at line 444 is to add </font> 
+                                  <blockquote> 
+                                    <pre><font face="Verdana, Arial, Helvetica, sans-serif" size="2">if( returnVar!=NULL )</font></pre>
+                                  </blockquote>
+                                  <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2">before:</font></p>
+                                  <blockquote> 
+                                    <pre><font face="Verdana, Arial, Helvetica, sans-serif" size="2">jseReturnVar(jsecontext,returnVar,jseRetCopyToTempVar);</font></pre>
+                                  </blockquote>
+                              </ul>
+                              <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><b>&nbsp; 
+                                <a name="v430b"></a>&nbsp;Version 4.30B errata 
+                                (may apply to earlier versions)</b></font></p>
+                              <p> 
+                              <ul>
+                                <li><font face="Verdana, Arial, Helvetica, sans-serif" size="2">String.prototype.slice() 
+                                  function is not auto-converting all types to 
+                                  numerical. To fix this, in srclib/ecma/seobject.c 
+                                  function Ecma_String_slice, change the two instances 
+                                  of JSE_VN_NUMBER to be JSE_VN_CONVERT(JSE_VN_ANY,JSE_VN_NUMBER)</font> 
+                              </ul>
+                              <ul>
+                                <li><font face="Verdana, Arial, Helvetica, sans-serif" size="2">String.prototype.substring 
+                                  and String.prototype.substr are both calling 
+                                  the same wrapper-function code. These two functions 
+                                  should have differing behaviors according to 
+                                  the ECMAScript specification. The update for 
+                                  this code in srclib/ecma/seobject.c may be found 
+                                  at <a href="ftp://ftp.nombas.com/pub/isdkeval/se430/substr.c">ftp://ftp.nombas.com/pub/isdkeval/se430/substr.c</a> 
+                                  </font></li>
+                              </ul>
+                              <ul>
+                                <li><font face="Verdana, Arial, Helvetica, sans-serif" size="2">Undefined 
+                                  types are generating errors when assigned to 
+                                  the well-defined window properties in the browser 
+                                  framework library. Fix this in the Windowput() 
+                                  routine of sebrowse.c; find the following three 
+                                  if tests: </font> 
+                                  <blockquote> 
+                                    <pre><font face="Verdana, Arial, Helvetica, sans-serif" size="2">if( strcmp_jsechar(prop,location_PROPERTY)==0 )
+{
+   /* assigning to location means something like:
+    * window.location = &quot;http://...&quot;;
+    */
+   JSE_FUNC_VAR_NEED(url,jsecontext,1,JSE_VN_STRING);
+   text = jseGetString(jsecontext,url,NULL);
+   browserGotoURL(jsecontext,browserGetLocation(jsecontext,bw),text,False);
+}
+else if( strcmp_jsechar(prop,defaultStatus_PROPERTY)==0 )
+{
+   JSE_FUNC_VAR_NEED(url,jsecontext,1,JSE_VN_STRING);
+   text = jseGetString(jsecontext,url,NULL);
+   browserSetDefaultStatus(jsecontext,bw,text);
+}
+else if( strcmp_jsechar(prop,status_PROPERTY)==0 )
+{
+   JSE_FUNC_VAR_NEED(url,jsecontext,1,JSE_VN_STRING);
+   text = jseGetString(jsecontext,url,NULL);
+   browserSetStatus(jsecontext,bw,text);
+}</font></pre>
+                                  </blockquote>
+                                  <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2">Put 
+                                    the block of all three if-tests inside this 
+                                    if-test:</font></p>
+                                  <blockquote> 
+                                    <pre><font face="Verdana, Arial, Helvetica, sans-serif" size="2">if( jseGetType(jsecontext,jseFuncVar(jsecontext,1))!=jseTypeUndefined                )
+{
+   &lt;the stuff above goes here&gt;
+}</font></pre>
+                                  </blockquote>
+                              </ul>
+                              <ul>
+                                <li><font face="Verdana, Arial, Helvetica, sans-serif" size="2">Error: 
+                                  In browserSetUpWindowObject, ~line 1165, a freed 
+                                  variable is being accessed. The existing code 
+                                  frees 'vvv', then tries to get a member of it. 
+                                  The fix is to change this code: </font> 
+                                  <blockquote> 
+                                    <pre><font face="Verdana, Arial, Helvetica, sans-serif" size="2">jseSetAttributes(jsecontext,vvv,jseReadOnly | jseDontDelete);
+jseDestroyVariable(jsecontext,tmp);<br>jseDestroyVariable(jsecontext,vvv);<br>jseDestroyVariable(jsecontext,tmp2);<br>    <br>/* Get the images array from the document object */<br>vvv = jseGetMemberEx(jsecontext,vvv,images_PROPERTY,jseCreateVar);<br>
+/* and link the images in directly by name */ </font></pre>
+                                  </blockquote>
+                              </ul>
+                              <blockquote> 
+                                <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2">to 
+                                  this code</font></p>
+                                <blockquote> 
+                                  <pre><font face="Verdana, Arial, Helvetica, sans-serif" size="2">jseSetAttributes(jsecontext,vvv,jseReadOnly | jseDontDelete);<br>jseDestroyVariable(jsecontext,tmp);<br>jseDestroyVariable(jsecontext,tmp2);
+
+/* Get the images array from the document object */<br>tmp2 = jseGetMemberEx(jsecontext,vvv,images_PROPERTY,jseCreateVar)<br>jseDestroyVariable(jsecontext,vvv);<br>vvv = tmp2;<br>
+/* and link the images in directly by name */</font></pre>
+                                </blockquote>
+                              </blockquote>
+                              <ul>
+                                <li><font face="Verdana, Arial, Helvetica, sans-serif" size="2">Error: 
+                                  In sebrowse.c some of the types are initialized 
+                                  using the "_prototype" member instead of "prototype", 
+                                  and so instances of those types are not inheriting. 
+                                  To fix this in brwsrlib\sebrowse.c every instance 
+                                  of UNISTR("XXX._prototype.YYY") should be replaced 
+                                  with UNISTR("XXX._prototype.YYY"). In your editor 
+                                  this could be accomplished by replacing every 
+                                  "._prototype" with ".prototype". Note that this 
+                                  does NOT apply to the window section, which 
+                                  has '_prototype.alert', and so forth. Just the 
+                                  ones that are 'XXX._prototype.YYY' where "XXX" 
+                                  is the 5 cases is "location", "history", "document", 
+                                  "form", or "Element". </font> 
+                              </ul>
+                              <p> <font face="Verdana, Arial, Helvetica, sans-serif" size="2"><b><a name="v430a"></a>&nbsp;&nbsp;Version 
+                                4.30A errata (may apply to earlier versions)</b></font></p>
+                              <p> 
+                              <ul>
+                                <li><font face="Verdana, Arial, Helvetica, sans-serif" size="2">Variables 
+                                  are destroyed twice while creating element array 
+                                  in the browser library. Fix this in sebrowse.c:2399 
+                                  function browserCreateElementArray(), the 'jseIndexMember' 
+                                  call should be 'jseIndexMemberEx' with 'jseCreateVar' 
+                                  as the last parameter. </font> 
+                                <li><font face="Verdana, Arial, Helvetica, sans-serif" size="2">SELib.dynamicLink() 
+                                  release modules too many times. During cleanup, 
+                                  SELib.dynamicLink() releases each module twice 
+                                  instead of once. This can cause a crash if your 
+                                  application requires a lock on the module. To 
+                                  fix this: In srclib/common/sedynlib.c function 
+                                  dynamiclibraryUnloadModules() are three lines 
+                                  calling dynamiclibraryCloseModule(); remove 
+                                  the third such call. </font> 
+                                <li><font face="Verdana, Arial, Helvetica, sans-serif" size="2">Characters 
+                                  represents by values greater than 0xFF are not 
+                                  accepted by some xprintf() functions. The fix 
+                                  is to change rclib/clib/sefmtio.c, line 254 
+                                  which reads:<br>
+                                  &nbsp;<br>
+                                  &nbsp;&nbsp;&nbsp;if ( NULL == (NextVar = fmtioXGetNextVar(&amp;(This-&gt;fmtio),jsecontext,<br>
+                                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;JSE_VN_BYTE|JSE_VN_STRING|JSE_VN_BUFFER|<br>
+                                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;JSE_VN_COPYCONVERT|JSE_VN_LOCKREAD)))<br>
+                                  &nbsp;<br>
+                                  change this to:<br>
+                                  &nbsp;<br>
+                                  &nbsp;&nbsp;&nbsp;#if JSE_UNICODE!=0 || JSE_MBCS!=0<br>
+                                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if ( NULL 
+                                  == (NextVar = fmtioXGetNextVar(&amp;(This-&gt;fmtio),jsecontext,<br>
+                                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;JSE_VN_INT|JSE_VN_STRING|JSE_VN_BUFFER|<br>
+                                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;JSE_VN_COPYCONVERT|JSE_VN_LOCKREAD)))<br>
+                                  &nbsp;&nbsp;&nbsp;#else<br>
+                                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if ( NULL 
+                                  == (NextVar = fmtioXGetNextVar(&amp;(This-&gt;fmtio),jsecontext,<br>
+                                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;JSE_VN_BYTE|JSE_VN_STRING|JSE_VN_BUFFER|<br>
+                                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;JSE_VN_COPYCONVERT|JSE_VN_LOCKREAD)))<br>
+                                  &nbsp;&nbsp;&nbsp;#endif</font> 
+                                <li><font face="Verdana, Arial, Helvetica, sans-serif" size="2">Variable 
+                                  leak in SEBROWSE.C. The fis in sebrowse.c, at 
+                                  about line 1837, is after this comment:<br>
+                                  &nbsp;<br>
+                                  &nbsp;&nbsp;&nbsp;/* Create and assign a blank 
+                                  array to these three items.<br>
+                                  &nbsp;<br>
+                                  the variable &quot;v&quot; is then created with 
+                                  CreateNewObject(), and then<br>
+                                  used for 3 AssignVarToProperty() statements, 
+                                  but is never destroyed.<br>
+                                  After the three AssignVarToProperty() statements 
+                                  add this line:<br>
+                                  &nbsp;<br>
+                                  &nbsp;&nbsp;&nbsp;jseDestroyVariable(jsecontext,v);<br>
+                                  &nbsp;</font> 
+                              </ul>
+                              <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><a name="v420d"></a>&nbsp;&nbsp;Version 
+                                4.20D errata (may apply to earlier versions)</font></p>
+                              <p> 
+                              <ul>
+                                <li><font face="Verdana, Arial, Helvetica, sans-serif" size="2">ECMA 
+                                  escape/unescape functions don't correctly handle 
+                                  characters above 0xFF. When using the ECMA escape 
+                                  function on strings containing Unicode characters 
+                                  with code point values greater than 0xFF, those 
+                                  characters are not encoded correctly. The correct 
+                                  encoding should be '%uABCD', where ABCD is the 
+                                  four-digit code point value. In addition, the 
+                                  ECMA unescape function will not correctly unescape 
+                                  four-digit code point values. The fix is to 
+                                  download updated versions of ECMAMISC.C's Ecma_escape 
+                                  and Ecma_unescape functions <a href="ftp://ftp.nombas.com/pub/isdkeval/se420/bugfix.txt">ftp://ftp.nombas.com/pub/isdkeval/se420/bugfix.txt</a>. 
+                                  </font> 
+                                <li><font face="Verdana, Arial, Helvetica, sans-serif" size="2">The 
+                                  Date() function is not ignoring parameters. 
+                                  According to the ECMAScript specification Date(year,month,day,etc...) 
+                                  should be ignoring all parameters and always 
+                                  return a string representation of the current 
+                                  time. In 4.30 file SEDATE.C DateCall() will 
+                                  be modified to ignore all input parameters. 
+                                  </font> 
+                                <li> 
+                                  <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                                    Date.prototype.setTime() is not returning 
+                                    any value. The fix is in SEDATE.C function 
+                                    Ecma_Date_setTime() add this as the last line: 
+                                    &nbsp;&nbsp;&nbsp;jseReturnNumber(jsecontext,t);</font> 
+                                <li><font face="Verdana, Arial, Helvetica, sans-serif" size="2">Clib.f____() 
+                                  file routines can truncate files in MBCS builds. 
+                                  To fix this, replace the line (652) in function 
+                                  Clib.fopen() in file \srclib\clib\sestdio.c<br>
+                                  &nbsp;&nbsp;&nbsp;static jseLibFunc(Clib_fopen)<br>
+                                  &nbsp;&nbsp;&nbsp;{<br>
+                                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;...<br>
+                                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;jsechar 
+                                  buffer[1];<br>
+                                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;...<br>
+                                  &nbsp;&nbsp;&nbsp;}<br>
+                                  with<br>
+                                  &nbsp;&nbsp;&nbsp;static jseLibFunc(Clib_fopen)<br>
+                                  &nbsp;&nbsp;&nbsp;{<br>
+                                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;...<br>
+                                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;jsecharptrdatum 
+                                  buffer[1];<br>
+                                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;assert( 
+                                  sizeof(buffer[0]) == sizeof_jsechar('\x1A') 
+                                  );<br>
+                                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;...<br>
+                                  &nbsp;&nbsp;&nbsp;}</font> 
+                              </ul>
+                              <p> <font face="Verdana, Arial, Helvetica, sans-serif" size="2"><b><a name="v420c"></a>&nbsp;&nbsp;Version 
+                                4.20C errata (may apply to earlier versions)</b></font></p>
+                              <p> 
+                              <ul>
+                                <li><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                                  Calling the ECMA <i>escape</i> function on characters 
+                                  in the range <i>0x80</i> to <i>0xFF</i> gives 
+                                  the value <i>%FF</i>. Fix: In function <i>Ecma_escape</i> 
+                                  in ECMAMISC.C, change line 270 from:<br>
+                                  &nbsp;&nbsp;sprintf_jsechar((jsecharptr)buffer,UNISTR("%c%02X"), 
+                                  '%',c);<br>
+                                  to<br>
+                                  &nbsp;&nbsp;sprintf_jsechar((jsecharptr)buffer,UNISTR("%c%02X"), 
+                                  '%',(ujsechar)c); </font> 
+                                <li><font face="Verdana, Arial, Helvetica, sans-serif" size="2">The 
+                                  code for ToSource(), and implementations for 
+                                  various object methods for .toSource(), have 
+                                  been rewritten to use some of the new ECMAScript 
+                                  language features. These allow better handling 
+                                  of all object types and of recursive object 
+                                  links. If you're using ToSource or toSource 
+                                  you'll want the new code in 4.20d, and especially 
+                                  the helper functions added to SEOBJFUN.C. </font> 
+                              </ul>
+                              <p> <font face="Verdana, Arial, Helvetica, sans-serif" size="2"><b><a name="v410b"></a>&nbsp;&nbsp;Version 
+                                4.10B errata (may apply to earlier versions)</b></font></p>
+                              <p> 
+                              <ul>
+                                <li><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><i>Date.fromSystem()</i> 
+                                  makes assumptions about system time that are 
+                                  not valid for all compilers. This is fixed in 
+                                  4.10C. </font> 
+                                <li> <font face="Verdana, Arial, Helvetica, sans-serif" size="2"><i>getArrayLength()</i> 
+                                  has many errors when changing the length of 
+                                  Arrays and other objects. These are all fixed 
+                                  in 4.10C. </font> 
+                                <li> <font face="Verdana, Arial, Helvetica, sans-serif" size="2"><i>Ecma_Date_setUTCMinutes()</i> 
+                                  in SEDATE.C should be changed to:<br>
+                                  <tt>&nbsp;&nbsp;&nbsp;&nbsp;SetHourMinSecMilli(jsecontext,3,False);</tt> 
+                                  </font> 
+                                <li><font face="Verdana, Arial, Helvetica, sans-serif" size="2">There 
+                                  were numerous problems with <i>Clib.bsearch()</i> 
+                                  and <i>Clib.qsort()</i>.&nbsp; <i>bsearch</i> 
+                                  returned <tt>0</tt> instead of <tt>null</tt>.&nbsp; 
+                                  Neither of them handled strings as they were 
+                                  supposed to.&nbsp; Both of them had some bad 
+                                  asserts (since the errorFlag is now reset after 
+                                  calling a function).&nbsp; All of this has been 
+                                  fixed now, but there are too many fixes to list.&nbsp; 
+                                  Suffice it to say that these two functions have 
+                                  been fixed. </font> 
+                                <li> <font face="Verdana, Arial, Helvetica, sans-serif" size="2"><i>Clib.strtol()</i> 
+                                  and <i>Clib.strtod()</i> were not being passed 
+                                  by reference, which prevented the updating of 
+                                  the second parameter.&nbsp; The fix is to add 
+                                  <i>jseFunc_PassByReference</i> to the function 
+                                  flags in SESTDLIB.C. </font> 
+                                <li> <font face="Verdana, Arial, Helvetica, sans-serif" size="2"><i>Clib.fgetc()</i> 
+                                  returned <tt>0</tt> instead of <tt>EOF</tt> 
+                                  if read failed. Fix in 4.10C. </font> 
+                                <li> <font face="Verdana, Arial, Helvetica, sans-serif" size="2"><i>CreateNewObject()</i> 
+                                  in SEOBJECT.C should use <i>strcmp_jsechar()</i> 
+                                  instead of direct pointer comparisons to <i>ARRAY_PROPERTY</i> 
+                                  and <i>OBJECT_PROPERTY</i>. This allows more 
+                                  flexibility fo calling this useful function. 
+                                  </font> 
+                                <li> <font face="Verdana, Arial, Helvetica, sans-serif" size="2"><i>parseFloat()</i> 
+                                  may return negative results for positive numbers. 
+                                  This is fixed in 4.10C. The fix is in ECMAMISC.C 
+                                  function <i>Ecma_parseFloat()</i> to initialize 
+                                  the <i>neg</i> variable to <i>False</i>. </font> 
+                                <li> <font face="Verdana, Arial, Helvetica, sans-serif" size="2"><i>Math.random()</i> 
+                                  is not very random--very biased toward high 
+                                  numbers. Fixed in 4.10C. The fix in MATHOBJ.C 
+                                  is to bitwise-and the five &quot;random&quot; 
+                                  initializers with <i>0x7FFF</i>. For example, 
+                                  change <tt>r1=rand()</tt> to <tt>r1=rand()&amp;0x7fff</tt>, 
+                                  and so on with <i>r2</i> through <i>r</i>5. 
+                                  </font> 
+                                <li> <font face="Verdana, Arial, Helvetica, sans-serif" size="2"><i>Clib.perror()</i> 
+                                  crashes with <i>null</i> or no input parameter. 
+                                  Fixed in 4.10C. Workaround is to set <tt>s=UNISTR(&quot;&quot;)</tt> 
+                                  instead of <tt>s=NULL</tt> in <i>Clib_perror()</i> 
+                                  </font> 
+                                <li><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                                  Buffer Object will set jseApi warnings on creation. 
+                                  This is fixed in 4.10C. The fix in SEBUFFER.C 
+                                  is to replace <i>jsePutByte()</i> calls with 
+                                  <i>jsePutBoolean()</i> when the created variable 
+                                  is create with <i>jseTypeBoolean</i>. Many other 
+                                  Buffer Object bugs and inconsistencies have 
+                                  also big fixed and verified for 4.10C. </font> 
+                                <li> <font face="Verdana, Arial, Helvetica, sans-serif" size="2"><i>Clib.getenv()</i> 
+                                  with no parameters is only returning the name 
+                                  of the last environment variable. Fixed in 4.10C. 
+                                  The fix is to move this line out of its <tt>for(;;)</tt> 
+                                  statement in function <i>Clib_getenv</i> of 
+                                  SESTDLIB.C<br>
+                                  <tt>&nbsp;&nbsp;&nbsp;ulong EVarCount = 0;</tt> 
+                                  </font> 
+                                <li><font face="Verdana, Arial, Helvetica, sans-serif" size="2">Bug 
+                                  fixes in SRCLIB\LANG directory, all fixed in 
+                                  4.03C: </font> 
+                                  <ul>
+                                    <li><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><i>define()</i> 
+                                      is returning an integer instead of a boolean 
+                                      value. Fixed in 4.03C. </font> 
+                                    <li> <font face="Verdana, Arial, Helvetica, sans-serif" size="2"><i>getArrayLength()</i> 
+                                      did not pass by reference, so the optional 
+                                      <i>minIndex</i> was never updated correctly. 
+                                      Fixed in 4.03C. </font> 
+                                    <li> <font face="Verdana, Arial, Helvetica, sans-serif" size="2"><i>setAttributes()</i> 
+                                      incorrectly tried to get the first parameter 
+                                      instead of the second parameter, causing 
+                                      it to expect a number as the first parameter. 
+                                      Fixed in 4.03C. </font> 
+                                    <li> <font face="Verdana, Arial, Helvetica, sans-serif" size="2"><i>getAttributes()</i> 
+                                      did not pass by reference, so any attributes 
+                                      of the variable were lost when a copy was 
+                                      made to pass to the function. Fixed in 4.03C. 
+                                      </font> 
+                                  </ul>
+                              </ul>
+                              <p> <font face="Verdana, Arial, Helvetica, sans-serif" size="2"><b><a name="v403c"></a>&nbsp;&nbsp;Version 
+                                4.03C errata (may apply to earlier versions)</b></font></p>
+                              <p> 
+                              <ul>
+                                <li><font face="Verdana, Arial, Helvetica, sans-serif" size="2">The 
+                                  Date object has many discrepencies with the 
+                                  way the similar object works in Netscape's and 
+                                  Microsoft's browsers. Many changes have been 
+                                  made to match the behavior of those browsers 
+                                  and these will all be updated with version 4.10. 
+                                  If you use this object and need changes fixes 
+                                  before 4.10 is released contact <a href="http://support.nombas.com/">http://support.nombas.com/</a> 
+                                  and ask for the latest version of SEDATE.C. 
+                                  </font> 
+                                <li><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                                  BooleanCall wrongly tries to use the second 
+                                  parameter passed to it, instead of the first 
+                                  parameter. For example &quot;<tt>var a = Boolean(true)</tt>&quot; 
+                                  will wrongly indicate the a parameter is missing. 
+                                  This is fixed in 4.10. The fix for this in SEOBJECT.C, 
+                                  function <i>InternalLibFunc(BooleanCall)</i>, 
+                                  is to adjust &quot;<tt>jseFuncVar(jsecontext,1)</tt>&quot; 
+                                  to &quot;<tt>jseFuncVar(jsecontext,0)</tt>&quot;. 
+                                  </font> 
+                                <li> <font face="Verdana, Arial, Helvetica, sans-serif" size="2"><i>Function()</i> 
+                                  with no parameters will crash with some compilers. 
+                                  This is fixed in 4.10. The workaround is in 
+                                  SEOBJECT.C function <i>InternalLibFunc(FunctionConstruct)</i> 
+                                  is to perform the &quot;<tt>for(x=0;x&lt;=num-1;x++)</tt>&quot; 
+                                  block only if &quot;<tt>num!=0</tt>&quot;. </font> 
+                              </ul>
+                              <p> <font face="Verdana, Arial, Helvetica, sans-serif" size="2"><b><a name="v403b"></a>&nbsp;&nbsp;Version 
+                                4.03B errata (may apply to earlier versions)</b></font></p>
+                              <p> 
+                              <ul>
+                                <li><font face="Verdana, Arial, Helvetica, sans-serif" size="2">The 
+                                  <i>Buffer</i> object has been simplified (the 
+                                  buffer object is a Nombas extension to ECMAScript 
+                                  to allow direct byte manipulation of binary 
+                                  data). See Buffer Object description. </font> 
+                                <li><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                                  SElib.segment() and SElib.offset() functions 
+                                  do not get correct pointers for string types, 
+                                  only for buffer types. This will be corrected 
+                                  with 4.03C. The simple fix in SEDOS.C function 
+                                  <i>SegmentOrOffset()</i> is to call<i> jseGetString()</i> 
+                                  instead of jseGetBuffer() if <i>SegmentOrOffsetVar</i> 
+                                  is <i>jseTypeString</i> </font> 
+                                <li><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                                  The <i>Math.min()</i> and <i>Math.max()</i> 
+                                  functions always return the first argument, 
+                                  and no comparison is done. This will be corrected 
+                                  with version 4.03C. To get around this problem, 
+                                  use <i>Clib.min()</i> instead. </font> 
+                                <li> <font face="Verdana, Arial, Helvetica, sans-serif" size="2"><i>SElib.interpret()</i> 
+                                  sets the error message to 0 instead of null 
+                                  if there is no error. This will be fixed with 
+                                  4.03C. </font> 
+                                <li> <font face="Verdana, Arial, Helvetica, sans-serif" size="2"><i>SElib.tokenizeScript()</i> 
+                                  returns 0 instead of null on error. This will 
+                                  be fixed with 4.03C. </font> 
+                                <li> <font face="Verdana, Arial, Helvetica, sans-serif" size="2"><i>SElib.fullpath()</i> 
+                                  incorrectly appends a terminating null to the 
+                                  string. This will be fixed with 4.03C. </font> 
+                                <li><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                                  The strcat family of functions (<i>Clib.strcat</i> 
+                                  and <i>Clib.strncat</i>) do not set the length 
+                                  of the string correctly if there are null bytes 
+                                  present within the string. They incorrectly 
+                                  use the entire length of the string, rather 
+                                  than the length to the first null byte. This 
+                                  will be fixed in 4.03C. To get around this do 
+                                  the following:<br>
+                                  </font> 
+                                  <ul>
+                                    <font face="Verdana, Arial, Helvetica, sans-serif" size="2"><tt>Clib.strcat(foo,&quot;goo&quot;);</tt><br>
+                                    <tt>SElib.setArrayLength(foo,Clib.strlen(foo))</tt><br>
+                                    </font> 
+                                  </ul>
+                                <li><font face="Verdana, Arial, Helvetica, sans-serif" size="2">The 
+                                  <i>Clib.memset()</i> function writes past the 
+                                  end of the buffer without extending it if the 
+                                  third parameter passed is greater than the length 
+                                  of the buffer. This will be fixed with 4.03C 
+                                  </font> 
+                                <li><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                                  Browser libraries <i>Imageget</i> and <i>Imageput</i>&nbsp;functions 
+                                  will be fixed for 4.03C in the following ways: 
+                                  </font> 
+                                  <ul>
+                                    <li><font face="Verdana, Arial, Helvetica, sans-serif" size="2">Imageget 
+                                      now does 'the regular thing' if it doesn't 
+                                      recognize the field name as special just 
+                                      as the other get functions do. </font> 
+                                    <li><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                                      This change fixes Imageput. </font> 
+                                    <li><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                                      Imageget wasn't returning the 'complete' 
+                                      field - always was returned as if undefined. 
+                                      </font> 
+                                    <li><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                                      Several of the put functions where accessing 
+                                      the value as if it was its first parameter, 
+                                      when it is the second parameter (a number 
+                                      of JSE_FUNC_VAR_NEED()s with '0' as the 
+                                      parameter where changed to '1'.) </font> 
+                                  </ul>
+                                <li><font face="Verdana, Arial, Helvetica, sans-serif" size="2">Bug 
+                                  reports from the field, and a more-exhaustive 
+                                  test suite, has shown that the comparison operators 
+                                  (<i>&lt;</i>,<i>&gt;</i>,<i>&lt;=</i>,<i>&gt;=</i>,<i>=</i>,<i>!=</i>) 
+                                  do not exactly meet the ecamscript specification 
+                                  in many subtle ways. We have redone the comparison 
+                                  operators and will release the fix with 4.03C. 
+                                  </font> 
+                                <li> <font face="Verdana, Arial, Helvetica, sans-serif" size="2"><i>escape()</i> 
+                                  function stops at null characters and crashes 
+                                  if called with a zero-length string. These problems 
+                                  are update with version 4.03C. </font> 
+                                <li><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                                  Calls to <i>Clib.tmpfile()</i> crash. Fixed 
+                                  in version 4.03C </font> 
+                                <li> <font face="Verdana, Arial, Helvetica, sans-serif" size="2"><i>isNan</i> 
+                                  and <i>isFinite</i> return <i>1</i> or <i>0</i> 
+                                  instead of <i>true</i> or <i>false</i>. This 
+                                  is corrected in 4.03C. </font> 
+                                <li><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                                  Global ECMA objects (e.g. <i>Number()</i>) do 
+                                  not appear in new levels of <i>jseInterpret()</i> 
+                                  if the <i>jseNewFunctions</i> option is declared. 
+                                  This is fixed with version 4.03C. </font> 
+                              </ul>
+                              <p> <font face="Verdana, Arial, Helvetica, sans-serif" size="2"><b><a name="v403a"></a>&nbsp;&nbsp;Version 
+                                4.03A errata (may apply to earlier versions)</b></font></p>
+                              <p> 
+                              <ul>
+                                <li><font face="Verdana, Arial, Helvetica, sans-serif" size="2">The 
+                                  sprintf family of functions (<i>Clib.sprintf</i>,<i>Clib.rsprintf</i>) 
+                                  incorrectly appended a null byte to the string. 
+                                  This has been fixed with 4.03B. </font> 
+                                <li><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                                  The Number() call incorrectly expected a second 
+                                  parameter, when in fact there is only one parameter. 
+                                  For example, 'foo = Number(&quot;4&quot;);' 
+                                  would generate an error. This has been fixed 
+                                  in version 4.03B. In order to work around this 
+                                  in earlier versions, do the following:<br>
+                                  </font> 
+                                  <ul>
+                                    <font face="Verdana, Arial, Helvetica, sans-serif" size="2"><tt>foo 
+                                    = new Number(&quot;4&quot;);</tt><br>
+                                    <tt>foo = foo.valueOf();</tt><br>
+                                    </font> 
+                                  </ul>
+                                <li><font face="Verdana, Arial, Helvetica, sans-serif" size="2">Some 
+                                  of the Clib string functions (<i>Clib.strpbrk</i>, 
+                                  <i>Clib.strrchr</i>) returned 0 instead of null. 
+                                  This has been fixed in version 4.03B.<a name="extlib"></a> 
+                                  </font> 
+                                <li><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                                  The macro <i>toAnsiTime()</i> in <i>ECMALIB/SEDATE.C</i> 
+                                  is in error. This should be defined (as it is 
+                                  in 4.03B) to:<br>
+                                  <tt>&nbsp;&nbsp;#&nbsp;&nbsp;define toAnsiTime(t) 
+                                  ((time_t)((t)/msPerSecond))</tt> </font> 
+                              </ul>
+                              <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><b><a name="v402"></a>&nbsp;&nbsp;Version 
+                                4.02 errata (may apply to earlier versions)</b></font></p>
+                              <p> 
+                              <ul>
+                                <li><font face="Verdana, Arial, Helvetica, sans-serif" size="2">The 
+                                  Date object had some problems with dates before 
+                                  1970. These are fixed in se403. </font> 
+                                <li><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                                  strcat() appends an extra NULL character to 
+                                  end of string </font> 
+                                <li><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                                  The Date object did not adjust correctly for 
+                                  daylight-savings time in version 402. This is 
+                                  fixed in 403. The fix for this is to change 
+                                  the function <i>DaylightSavingTA()</i> to replace 
+                                  <i>fmtim(&amp;now)</i> with <i>localtime(&amp;now)</i>. 
+                                  </font> 
+                              </ul>
+                              <p> <font face="Verdana, Arial, Helvetica, sans-serif" size="2"><b><a name="v401"></a>&nbsp;&nbsp;Version 
+                                4.01 errata (may apply to earlier versions)</b></font></p>
+                              <p> 
+                              <ul>
+                                <li><font face="Verdana, Arial, Helvetica, sans-serif" size="2">For 
+                                  arrays created with new Array(), the 'put' method 
+                                  and the 'length' property were not correctly 
+                                  set to not enumerate. This has been fixed for 
+                                  se402. </font> 
+                                <li><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                                  For the text output when using Function.toString(), 
+                                  the space between the function keyword and the 
+                                  name of the function was missing. It has been 
+                                  restored for se402. </font> 
+                                <li><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                                  For the toString() method of the Number object, 
+                                  numbers that have ending zeroes (such as 50) 
+                                  came out with the zeroes missing (as '5'). This 
+                                  is fixed in se402.<!--BEGIN_FOOTER--> </font> 
+                              </ul>
+                              <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"></font></p>
+                              <!-- #EndEditable --></td>
+                    </tr>
+                    <tr> 
+                      <td width="1">&nbsp;</td>
+                      <td width="460">&nbsp;</td>
+                    </tr>
+                  </table>
+                  </TD>
+              </TR>
+            </TABLE>
+          </TD>
+        </TR>
+      </TABLE>
+    </TD>
+  </TR>
+  <TR VALIGN=TOP ALIGN=LEFT> 
+    <TD HEIGHT=2 width="5"></TD>
+    <TD COLSPAN=2 height="2"> 
+            <TABLE BORDER=0 CELLSPACING=0 CELLPADDING=0 WIDTH=100% HEIGHT=20 bgcolor="#FFFFFF">
+              <TR ALIGN=LEFT VALIGN=TOP> 
+          <TD> 
+                  <TABLE BORDER=0 CELLSPACING=0 CELLPADDING=0 WIDTH=100%>
+                    <TR VALIGN=TOP ALIGN=LEFT> 
+                <TD WIDTH=20 HEIGHT=2 ALIGN=LEFT VALIGN=TOP><IMG ID="Picture13" HEIGHT=20 WIDTH=20 SRC="../../../curve_botleft.gif" BORDER=0></TD>
+                      <TD height="2"><IMG SRC="../../../clearpixel.gif" WIDTH=592 HEIGHT=1 BORDER=0></TD>
+                <TD WIDTH=20 ALIGN=LEFT VALIGN=TOP height="2"><IMG ID="Picture11" HEIGHT=20 WIDTH=20 SRC="../../../curve_bot.gif" BORDER=0></TD>
+              </TR>
+            </TABLE>
+          </TD>
+        </TR>
+      </TABLE>
+    </TD>
+  </TR>
+  <TR VALIGN=TOP ALIGN=LEFT> 
+    <TD WIDTH=5 HEIGHT=6><IMG SRC="../../../clearpixel.gif" WIDTH=5 HEIGHT=1 BORDER=0></TD>
+    <TD WIDTH=613><IMG SRC="../../../clearpixel.gif" WIDTH=613 HEIGHT=1 BORDER=0></TD>
+    <TD WIDTH=22><IMG SRC="../../../clearpixel.gif" WIDTH=19 HEIGHT=1 BORDER=0></TD>
+  </TR>
+  <TR VALIGN=TOP ALIGN=LEFT> 
+    <TD COLSPAN=2> 
+            <P ALIGN=RIGHT><A HREF="../../../index.htm"><FONT COLOR="#FFFFFF" SIZE="-2" FACE="Verdana,Tahoma,Arial,Helvetica">Home</FONT></A><FONT COLOR="#FFFFFF" SIZE="-2" FACE="Verdana,Tahoma,Arial,Helvetica"> 
+              | </FONT><A
+                 HREF="../../../scripting/scripting.htm"><FONT COLOR="#FFFFFF" SIZE="-2" FACE="Verdana,Tahoma,Arial,Helvetica">Scripting</FONT></A><FONT COLOR="#FFFFFF" SIZE="-2" FACE="Verdana,Tahoma,Arial,Helvetica"> 
+              | </FONT><A
+                 HREF="../../../products/products.htm"><FONT COLOR="#FFFFFF" SIZE="-2" FACE="Verdana,Tahoma,Arial,Helvetica">Products</FONT></A><FONT COLOR="#FFFFFF" SIZE="-2" FACE="Verdana,Tahoma,Arial,Helvetica"> 
+              | </FONT><A
+                 HREF="../../../purchase/purchase.htm"><FONT COLOR="#FFFFFF" SIZE="-2" FACE="Verdana,Tahoma,Arial,Helvetica">Purchase</FONT></A><FONT COLOR="#FFFFFF" SIZE="-2" FACE="Verdana,Tahoma,Arial,Helvetica"> 
+              | </FONT><A
+                 HREF="../../../download/ndownload.htm"><FONT COLOR="#FFFFFF" SIZE="-2" FACE="Verdana,Tahoma,Arial,Helvetica">Download</FONT></A><FONT COLOR="#FFFFFF" SIZE="-2" FACE="Verdana,Tahoma,Arial,Helvetica"> 
+              | </FONT><A
+                 target="support" HREF="http://support.nombas.com/"><FONT COLOR="#FFFFFF" SIZE="-2" FACE="Verdana,Tahoma,Arial,Helvetica">Support</FONT></A><FONT COLOR="#FFFFFF" SIZE="-2" FACE="Verdana,Tahoma,Arial,Helvetica"> 
+              | </FONT><A HREF="../../../company/company.htm"> <FONT COLOR="#FFFFFF" SIZE="-2" FACE="Verdana,Tahoma,Arial,Helvetica">Company</FONT></A><FONT COLOR="#FFFFFF" SIZE="-2" FACE="Verdana,Tahoma,Arial,Helvetica"><BR>
+        <BR>
+        Copyright &#169;2001, Nombas, Inc. All Rights Reserved.<BR>
+        Questions? Visit </FONT><A HREF="http://support.nombas.com/"><FONT COLOR="#FFFFFF" SIZE="-2" FACE="Verdana,Tahoma,Arial,Helvetica">http://support.nombas.com/</FONT></A> 
+    </TD>
+    <TD width="22"></TD>
+  </TR>
+</TABLE>
+</td>
+  </tr>
+</table>
+<SCRIPT language=JavaScript1.2>
+  display_nombas_legacy_message();
+</SCRIPT>
+</BODY>
+<!-- #EndTemplate --></HTML>

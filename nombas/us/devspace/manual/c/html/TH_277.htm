@@ -1,0 +1,31 @@
+<html>
+<head>
+<title>Jsememreport</title>
+<link rel="stylesheet" href="semanualstyles.css" type="text/css">
+<style type="text/css">
+ p { margin-top: 0; margin-bottom: 0; }
+</style>
+<script language="JavaScript" src="TrueHelp.js"></script>
+</head>
+<body onload="thload()">
+<div id=ienav>
+<ilayer id=nsnav>
+<br>
+<center>
+<p class=normal><a href="seisdkc-toc.htm" target="left">contents</a> &nbsp; <a href="seisdkc-index.htm" target="left">index</a> &nbsp; <a href="TH_276.htm">previous</a> &nbsp; next</p>
+</center>
+<br>
+<hr noshade size=1>
+</ilayer>
+</div>
+<p class=heading-3>Jsememreport</p>
+<p class=heading-3-p>&nbsp;</p>
+<p class=senormalpara>Although pointer-bounds problems will be caught on exit, many times this mistake will cause the program to crash long before exit. If you suspect the problem may be due to memory corruption, put this line in your code before the crash:</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=secodelinesindented>jseMemReport(False);</p>
+<p class=normal>&nbsp;</p>
+<p class=senormalpara>Try to make it as close to the crash as possible. This causes all of the bounds checks described above to be made so it is a very slow call, too slow to call frequently even in a debug build. However, if memory has been corrupted, this call will usually find it. It is another good tool to help find memory corruption problems.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p>
+</body>
+</html>

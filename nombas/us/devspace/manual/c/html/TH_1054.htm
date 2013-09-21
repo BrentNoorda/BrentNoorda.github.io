@@ -1,0 +1,78 @@
+<html>
+<head>
+<title>GD setPixel()</title>
+<link rel="stylesheet" href="semanualstyles.css" type="text/css">
+<style type="text/css">
+ p { margin-top: 0; margin-bottom: 0; }
+</style>
+<script language="JavaScript" src="TrueHelp.js"></script>
+</head>
+<body onload="thload()">
+<div id=ienav>
+<ilayer id=nsnav>
+<br>
+<center>
+<p class=normal><a href="seisdkc-toc.htm" target="left">contents</a> &nbsp; <a href="seisdkc-index.htm" target="left">index</a> &nbsp; <a href="TH_1053.htm">previous</a> &nbsp; <a href="TH_1055.htm">next</a></p>
+</center>
+<br>
+<hr noshade size=1>
+</ilayer>
+</div>
+<p class=sereffunclevel4>GD setPixel()</p>
+<table cellpadding=0>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>syntax:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=sesyntax>gd.setPixel(<span class=truehelp-xe></span>x,&nbsp;y,&nbsp;color)</p>
+<p class=sesyntax>gd.setPixel(point,&nbsp;color)</p></td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>where:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>x - horizontal position of pixel, measured from left</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>y - vertical position of pixel, measured from top</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>point - A point specification.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>color - index into color table</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>return:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>void.</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>description:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>This method sets the designated pixel to the appropriate color.  If either <span class=secodephrase>x</span> or <span class=secodephrase>y</span> is out of bounds, or if <span class=secodephrase>color</span> is not a valid color index, then nothing is done.</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>see:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara><span class=secodephrase>#link &lt;gd&gt;</span>, <span class=sejumptopic><a href="TH_1044.htm">GD getPixel()</a></span>, <span class=sejumptopic><a href="TH_1029.htm">GD colorAllocate()</a></span></p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>example:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=secodelines>var&nbsp;gd&nbsp;=&nbsp;new&nbsp;GD(4,4);</p>
+<p class=secodelines>var&nbsp;black&nbsp;=&nbsp;gd.colorAllocate(0,0,0);</p>
+<p class=secodelines>gd.setPixel(0,0,black);</p></td>
+</tr>
+</table>
+<p class=normal>&nbsp;</p>
+<hr noshade size=1>
+<p class=normal><a href="TH_1055.htm"><img src="button.png" border=0></a><a href="TH_1055.htm" style="text-decoration:none;">GD setStyle()</a></p>
+<p>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<html>
+<head>
+<title>SE.STR(int)</title>
+<link rel="stylesheet" href="semanualstyles.css" type="text/css">
+<style type="text/css">
+ p { margin-top: 0; margin-bottom: 0; }
+</style>
+<script language="JavaScript" src="TrueHelp.js"></script>
+</head>
+<body onload="thload()">
+<div id=ienav>
+<ilayer id=nsnav>
+<br>
+<center>
+<p class=normal><a href="seisdkj-toc.htm" target="left">contents</a> &nbsp; <a href="seisdkj-index.htm" target="left">index</a> &nbsp; <a href="TH_213.htm">previous</a> &nbsp; <a href="TH_215.htm">next</a></p>
+</center>
+<br>
+<hr noshade size=1>
+</ilayer>
+</div>
+<p class=heading-4>SE.STR(int)</p>
+<p class=senormalpara>Access a member using an internalized string handle that was received from the ScriptEase API. You can generate such string handles using the <span class=secodephrase>seInternalizeString</span> API call, and member names passed to your callback functions are in this format.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>An internal string handle is faster to use than a string literal member name. When you pass a member name using <span class=secodephrase>SE_MEM</span>, it has to be converted into an internal string internally before continuing. Therefore, doing it once and referring to members using the resulting handle is faster. In addition, you can compare handles for equality using the <span class=secodephrase>== </span>operator, which is much faster than the <span class=secodephrase>String.equals</span> needed to compare text strings.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<hr noshade size=1>
+<p class=normal><a href="TH_215.htm"><img src="button.png" border=0></a><a href="TH_215.htm" style="text-decoration:none;">SE.INDEX(num)</a></p>
+<p>
+</body>
+</html>

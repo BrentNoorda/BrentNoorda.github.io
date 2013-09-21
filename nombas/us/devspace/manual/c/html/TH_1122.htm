@@ -1,0 +1,91 @@
+<html>
+<head>
+<title>SimpleDataset addRecord()</title>
+<link rel="stylesheet" href="semanualstyles.css" type="text/css">
+<style type="text/css">
+ p { margin-top: 0; margin-bottom: 0; }
+</style>
+<script language="JavaScript" src="TrueHelp.js"></script>
+</head>
+<body onload="thload()">
+<div id=ienav>
+<ilayer id=nsnav>
+<br>
+<center>
+<p class=normal><a href="seisdkc-toc.htm" target="left">contents</a> &nbsp; <a href="seisdkc-index.htm" target="left">index</a> &nbsp; <a href="TH_1121.htm">previous</a> &nbsp; <a href="TH_1123.htm">next</a></p>
+</center>
+<br>
+<hr noshade size=1>
+</ilayer>
+</div>
+<p class=sereffunclevel4>SimpleDataset addRecord()</p>
+<table cellpadding=0>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>syntax:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=sesyntax>simpledataset.addRecord(<span class=truehelp-xe></span>record)</p></td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>where:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>record - Object whose properties contain the values of the fields of the record to be added to the database table.</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>return:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>boolean - value indicating success.  In the case that the operation failed, use the <span class=secodephrase>getLastErrorCode()</span> and <span class=secodephrase>getLastError()</span> methods to determine the reason for the failure.</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>description:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>This method inserts the specified record into the <span class=secodephrase>SimpleDataset</span> and its associated database table.  The record to be inserted will have the field values indicated by the properties of the object passed into <span class=secodephrase>addRecord</span>. After inserting a new record, the current record is left unchanged.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>Note that no guarantees are made about the position of the inserted record within the <span class=secodephrase>SimpleDataset</span>.</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>see:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara><span class=secodephrase>#include &lt;smdtset.jsh&gt;</span>, <span class=sejumptopic><a href="TH_1123.htm">SimpleDataset deleteRecord()</a></span>, <span class=sejumptopic><a href="TH_1124.htm">SimpleDataset deleteAll()</a></span></p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>example:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=secodelines>//&nbsp;The&nbsp;following&nbsp;function&nbsp;opens&nbsp;a&nbsp;SimpleDataset,</p>
+<p class=secodelines>//&nbsp;adds&nbsp;the&nbsp;city</p>
+<p class=secodelines>//&nbsp;Boston,&nbsp;Massachusetts&nbsp;to&nbsp;it,</p>
+<p class=secodelines>//&nbsp;and&nbsp;then&nbsp;closes&nbsp;it&nbsp;down</p>
+<p class=secodelines>function&nbsp;add_city(db,&nbsp;table,&nbsp;user,&nbsp;passwd)</p>
+<p class=secodelines>{</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;var&nbsp;ds&nbsp;=&nbsp;new&nbsp;SimpleDataset(db,&nbsp;table,&nbsp;user,</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;passwd&nbsp;);</p>
+<p class=secodelines>&nbsp;</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;//&nbsp;set&nbsp;up&nbsp;the&nbsp;field&nbsp;values</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;//&nbsp;of&nbsp;the&nbsp;item&nbsp;to&nbsp;be&nbsp;added</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;var&nbsp;record;</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;record.city&nbsp;=&nbsp;"Boston";</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;record.country&nbsp;=&nbsp;"USA";</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;record.state&nbsp;=&nbsp;"Massachusetts";</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;record.population&nbsp;=&nbsp;500000;</p>
+<p class=secodelines>&nbsp;</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;//&nbsp;add&nbsp;the&nbsp;item&nbsp;and&nbsp;clean&nbsp;up</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;ds.addRecord(&nbsp;record&nbsp;);</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;ds.close();</p>
+<p class=secodelines>}</p></td>
+</tr>
+</table>
+<p class=normal>&nbsp;</p>
+<hr noshade size=1>
+<p class=normal><a href="TH_1123.htm"><img src="button.png" border=0></a><a href="TH_1123.htm" style="text-decoration:none;">SimpleDataset deleteRecord()</a></p>
+<p>
+</body>
+</html>

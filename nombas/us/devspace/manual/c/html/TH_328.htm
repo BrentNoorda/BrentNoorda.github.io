@@ -1,0 +1,32 @@
+<html>
+<head>
+<title>SE_INDEX(num)</title>
+<link rel="stylesheet" href="semanualstyles.css" type="text/css">
+<style type="text/css">
+ p { margin-top: 0; margin-bottom: 0; }
+</style>
+<script language="JavaScript" src="TrueHelp.js"></script>
+</head>
+<body onload="thload()">
+<div id=ienav>
+<ilayer id=nsnav>
+<br>
+<center>
+<p class=normal><a href="seisdkc-toc.htm" target="left">contents</a> &nbsp; <a href="seisdkc-index.htm" target="left">index</a> &nbsp; <a href="TH_327.htm">previous</a> &nbsp; <a href="TH_329.htm">next</a></p>
+</center>
+<br>
+<hr noshade size=1>
+</ilayer>
+</div>
+<p class=heading-4>SE_INDEX(num)</p>
+<p class=senormalpara>Internally, all objects members are stored in slots. They are contiguous starting from <span class=secodephrase>0</span>. <span class=secodephrase>SE_INDEX</span> lets you access a member by its slot.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>The usual use for this method of accessing members is to iterate over all members of an object. The ScriptEase API call <span class=secodephrase>seObjectMemberCount</span> will tell you how many members an object has and thus how many slots it is using. Those slots are numbered from <span class=secodephrase>0</span> to one less than the number of slots.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>Note that the slot a particular member uses will changes as members are added to or removed from an object. Do not try to use <span class=secodephrase>SE_INDEX</span> to access regular members or assume they occupy any particular slot.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<hr noshade size=1>
+<p class=normal><a href="TH_329.htm"><img src="button.png" border=0></a><a href="TH_329.htm" style="text-decoration:none;">SE_STRUCT(memdesc)</a></p>
+<p>
+</body>
+</html>

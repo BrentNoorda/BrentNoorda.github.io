@@ -1,0 +1,93 @@
+<html>
+<head>
+<title>Clib.vscanf()</title>
+<link rel="stylesheet" href="semanualstyles.css" type="text/css">
+<style type="text/css">
+ p { margin-top: 0; margin-bottom: 0; }
+</style>
+<script language="JavaScript" src="TrueHelp.js"></script>
+</head>
+<body onload="thload()">
+<div id=ienav>
+<ilayer id=nsnav>
+<br>
+<center>
+<p class=normal><a href="seisdkc-toc.htm" target="left">contents</a> &nbsp; <a href="seisdkc-index.htm" target="left">index</a> &nbsp; <a href="TH_588.htm">previous</a> &nbsp; <a href="TH_590.htm">next</a></p>
+</center>
+<br>
+<hr noshade size=1>
+</ilayer>
+</div>
+<p class=sereffunclevel4>Clib.vscanf()</p>
+<table cellpadding=0>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>syntax:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=sesyntax>Clib.vscanf(<span class=truehelp-xe></span>formatString,&nbsp;valist)</p></td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>where:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>formatString - string that specifies the final format.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>valist - a variable list of arguments to be used according to formatString.</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>return:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>number - input items assigned. This number may be fewer than the number of parameters requested if there is a matching failure during input.</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>description:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>This method gets formatted input from the standard input stream, the keyboard, using a variable number of arguments. This method is similar to <span class=secodephrase>Clib.scanf()</span> except that it takes a variable argument list. See <span class=sepopuptopic><a href="TH_587.htm" onClick="return thwindow('TH_587.htm', 'GenPopup')">Clib.scanf()</a></span> and <span class=sepopuptopic><a href="TH_738.htm" onClick="return thwindow('TH_738.htm', 'GenPopup')">Clib.va_start()</a></span> for more information.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>The method <span class=sepopuptopic><a href="TH_589.htm" onClick="return thwindow('TH_589.htm', 'GenPopup')">Clib.vscanf()</a></span> modifies any number of parameters following formatString, setting the parameters to data according to the specifications of the format string.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>This method returns the number of input items assigned. This number may be fewer than the number of parameters requested if there is a matching failure during input.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>The example function behaves like <span class=secodephrase>Clib.scanf()</span>, including taking a variable number of input arguments, except that it beeps and tries again if there are zero matches:</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>see:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara><span class=sejumptopic><a href="TH_587.htm">Clib.scanf()</a></span></p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>example:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=secodelines>function&nbsp;Must_scanf(FormatString[,arg1&nbsp;...)</p>
+<p class=secodelines>{</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;Clib.va_start(valist,&nbsp;FormatString);</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//&nbsp;creates&nbsp;variable&nbsp;arg&nbsp;list&nbsp;</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;do&nbsp;</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;{&nbsp;&nbsp;//&nbsp;mimic&nbsp;original&nbsp;scanf()&nbsp;call</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;var&nbsp;count&nbsp;=&nbsp;Clib.vscanf(FormatString,</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;valist);&nbsp;</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;(&nbsp;0&nbsp;==&nbsp;count&nbsp;)&nbsp;//&nbsp;if&nbsp;no&nbsp;match,&nbsp;beep&nbsp;</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Screen.write("\a");&nbsp;</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;}&nbsp;while(&nbsp;0&nbsp;==&nbsp;count&nbsp;);</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//&nbsp;if&nbsp;not&nbsp;match,&nbsp;try&nbsp;again&nbsp;</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;Clib.va_end(valist);</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//&nbsp;end&nbsp;using&nbsp;valist&nbsp;(optional)&nbsp;</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;return(count);</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//&nbsp;return&nbsp;as&nbsp;scanf()&nbsp;would&nbsp;</p>
+<p class=secodelines>}</p></td>
+</tr>
+</table>
+<p class=normal>&nbsp;</p>
+<hr noshade size=1>
+<p class=normal><a href="TH_590.htm"><img src="button.png" border=0></a><a href="TH_590.htm" style="text-decoration:none;">Time functions</a></p>
+<p>
+</body>
+</html>

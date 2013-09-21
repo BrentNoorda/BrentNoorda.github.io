@@ -1,0 +1,47 @@
+<html>
+<head>
+<title>SE.FUNCS_ONLY</title>
+<link rel="stylesheet" href="semanualstyles.css" type="text/css">
+<style type="text/css">
+ p { margin-top: 0; margin-bottom: 0; }
+</style>
+<script language="JavaScript" src="TrueHelp.js"></script>
+</head>
+<body onload="thload()">
+<div id=ienav>
+<ilayer id=nsnav>
+<br>
+<center>
+<p class=normal><a href="seisdkj-toc.htm" target="left">contents</a> &nbsp; <a href="seisdkj-index.htm" target="left">index</a> &nbsp; <a href="TH_149.htm">previous</a> &nbsp; <a href="TH_151.htm">next</a></p>
+</center>
+<br>
+<hr noshade size=1>
+</ilayer>
+</div>
+<p class=heading-4>SE.FUNCS_ONLY</p>
+<p class=senormalpara>A script is executed in two parts. First, any function defined in it are extracted and created. Likewise, any variables defined using the <span class=secodephrase>var</span> keyword are initialized as undefined. This happens at the very start of the script. The second part executes any code in the script. For instance, consider this script:</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=secodelinesindented>function&nbsp;foo()</p>
+<p class=secodelinesindented>{</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;return&nbsp;10;</p>
+<p class=secodelinesindented>}</p>
+<p class=secodelinesindented>&nbsp;</p>
+<p class=secodelinesindented>var&nbsp;a&nbsp;=&nbsp;10;</p>
+<p class=secodelinesindented>&nbsp;</p>
+<p class=senormalpara>A normal evaluation creates a function <span class=secodephrase>foo</span> in the global object as well as a variable <span class=secodephrase>a</span> as the undefined value. Then the code in the script is run, assigning <span class=secodephrase>a</span> to be 10. If you specify the <span class=secodephrase>SE.FUNCS_ONLY</span> flag, only the first part is executed. In this case, the function <span class=secodephrase>foo</span> and the variable <span class=secodephrase>a</span> are created, but the the script body is not run, so the assignment to <span class=secodephrase>a</span> is not executed.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>Understanding this behavior also is helpful in understanding a subtle ECMAScript rule, that all variables defined with the <span class=secodephrase>var</span> keyword are extracted and initialized before any code is run to be the undefined value. In this script example, ECMAScript treats the script as if you wrote instead:</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=secodelinesindented>var&nbsp;a;</p>
+<p class=secodelinesindented>&nbsp;</p>
+<p class=secodelinesindented>function&nbsp;foo()</p>
+<p class=secodelinesindented>{</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;return&nbsp;10;</p>
+<p class=secodelinesindented>}</p>
+<p class=secodelinesindented>&nbsp;</p>
+<p class=secodelinesindented>a&nbsp;=&nbsp;10;</p>
+<hr noshade size=1>
+<p class=normal><a href="TH_151.htm"><img src="button.png" border=0></a><a href="TH_151.htm" style="text-decoration:none;">SE.EXIT_LEVEL</a></p>
+<p>
+</body>
+</html>

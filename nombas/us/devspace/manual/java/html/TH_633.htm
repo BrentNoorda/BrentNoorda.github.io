@@ -1,0 +1,100 @@
+<html>
+<head>
+<title>Date()</title>
+<link rel="stylesheet" href="semanualstyles.css" type="text/css">
+<style type="text/css">
+ p { margin-top: 0; margin-bottom: 0; }
+</style>
+<script language="JavaScript" src="TrueHelp.js"></script>
+</head>
+<body onload="thload()">
+<div id=ienav>
+<ilayer id=nsnav>
+<br>
+<center>
+<p class=normal><a href="seisdkj-toc.htm" target="left">contents</a> &nbsp; <a href="seisdkj-index.htm" target="left">index</a> &nbsp; <a href="TH_632.htm">previous</a> &nbsp; <a href="TH_634.htm">next</a></p>
+</center>
+<br>
+<hr noshade size=1>
+</ilayer>
+</div>
+<p class=sereffunclevel4>Date()</p>
+<table cellpadding=0>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>syntax:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=sesyntax>new&nbsp;Date()</p>
+<p class=sesyntax>new&nbsp;Date(milliseconds)</p>
+<p class=sesyntax>new&nbsp;Date(string)</p>
+<p class=sesyntax>new&nbsp;Date(year,&nbsp;month[,&nbsp;day[,&nbsp;hour[,</p>
+<p class=sesyntax>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;minute[,&nbsp;second[,&nbsp;millisecond]]]]])</p></td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>where:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>milliseconds - number of milliseconds since midnight January 1, 1970 GMT, as returned by <span class=sepopuptopic><a href="TH_681.htm" onClick="return thwindow('TH_681.htm', 'GenPopup')">Date.parse()</a></span>.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>string - a string with date information. The string should be in the following format: <span class=secodephrase>Friday, October 31, 1998 15:30:00 GMT</span>, or a substring of this format. The string accepted by <span class=secodephrase>Date()</span> is the same as for <span class=sepopuptopic><a href="TH_681.htm" onClick="return thwindow('TH_681.htm', 'GenPopup')">Date.parse()</a></span>.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>year - four digit year, see Date setYear(). If <span class=secodephrase>year</span> is passed alone, it is recognized as <span class=secodephrase>milliseconds</span>.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>month - number, 0 - 11, month of year, see <span class=sepopuptopic><a href="TH_658.htm" onClick="return thwindow('TH_658.htm', 'GenPopup')">Date setMonth()</a></span>.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>day - number, 1 - 31, day of month, see <span class=sepopuptopic><a href="TH_653.htm" onClick="return thwindow('TH_653.htm', 'GenPopup')">Date setDate()</a></span>.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>hour - number, 0 - 24, hour of day, see <span class=sepopuptopic><a href="TH_655.htm" onClick="return thwindow('TH_655.htm', 'GenPopup')">Date setHours()</a></span>.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>minute - number, 0 - 59, minute of hour, see <span class=sepopuptopic><a href="TH_657.htm" onClick="return thwindow('TH_657.htm', 'GenPopup')">Date setMinutes()</a></span>.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>second - number, 0 - 59, second of minute, see <span class=sepopuptopic><a href="TH_659.htm" onClick="return thwindow('TH_659.htm', 'GenPopup')">Date setSeconds()</a></span>.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>millisecond - number, 0 - 999, millisecond of second, see <span class=sepopuptopic><a href="TH_656.htm" onClick="return thwindow('TH_656.htm', 'GenPopup')">Date setMilliseconds()</a></span>.</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>return:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>object - a Date object set according to the arguments passed. If no arguments are passed, then the current date and time are set. </p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>description:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>ScriptEase JavaScript has a rich set of methods for working with dates and times. The JavaScript Date object is a variable type that is different from the Clib date and time methods. The <span class=sepopuptopic><a href="TH_680.htm" onClick="return thwindow('TH_680.htm', 'GenPopup')">Date.fromSystem()</a></span> and <span class=sepopuptopic><a href="TH_675.htm" onClick="return thwindow('TH_675.htm', 'GenPopup')">Date toSystem()</a></span> methods allow conversion from and to the C style methods. See the <span class=sepopuptopic><a href="TH_631.htm" onClick="return thwindow('TH_631.htm', 'GenPopup')">Date Object</a></span> for a complete description of the Date() function.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>If the <span class=secodephrase>new</span>  operator is used, for example, <span class=secodephrase>new Date(1999, 2)</span>, then a Date object is created using any parameters passed to the <span class=secodephrase>Date()</span> constructor. However, if the <span class=secodephrase>new</span> operator is not used, then all parameters are ignored and <span class=secodephrase>Date()</span> returns a string representation of the current date and time, for example, "Wed Sep  4 11:54:16 2002".</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>see:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara><span class=sejumptopic><a href="TH_631.htm">Date Object</a></span>, <span class=sejumptopic><a href="TH_675.htm">Date toSystem()</a></span>, <span class=sejumptopic><a href="TH_680.htm">Date.fromSystem()</a></span>, <span class=sejumptopic><a href="TH_632.htm">Date object instance methods</a></span>, <span class=sejumptopic><a href="TH_679.htm">Date object static methods</a></span>, <span class=sejumptopic><a href="TH_488.htm">Clib.time()</a></span>, <span class=sejumptopic><a href="TH_484.htm">Clib.gmtime()</a></span>, <span class=sejumptopic><a href="TH_485.htm">Clib.localtime()</a></span>, <span class=sejumptopic><a href="TH_486.htm">Clib.mktime()</a></span></p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>example:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=secodelines>var&nbsp;d&nbsp;=&nbsp;new&nbsp;Date()&nbsp;&nbsp;&nbsp;//&nbsp;date&nbsp;in&nbsp;a&nbsp;Date&nbsp;object</p>
+<p class=secodelines>//&nbsp;d&nbsp;==&nbsp;Mon&nbsp;Aug&nbsp;20&nbsp;16:29:53&nbsp;2001&nbsp;//&nbsp;ie,&nbsp;current</p>
+<p class=secodelines>//&nbsp;typeof(d)&nbsp;==&nbsp;object</p>
+<p class=secodelines>//&nbsp;d._class&nbsp;==&nbsp;Date</p>
+<p class=secodelines>var&nbsp;d&nbsp;=&nbsp;Date()&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//&nbsp;date&nbsp;as&nbsp;a&nbsp;String</p>
+<p class=secodelines>//&nbsp;d&nbsp;==&nbsp;Mon&nbsp;Aug&nbsp;20&nbsp;16:29:53&nbsp;2001&nbsp;//&nbsp;ie,&nbsp;current</p>
+<p class=secodelines>//&nbsp;typeof(d)&nbsp;==&nbsp;string</p>
+<p class=secodelines>//&nbsp;d._class&nbsp;==&nbsp;String</p>
+<p class=secodelines>var&nbsp;d&nbsp;=&nbsp;new&nbsp;Date().getDay()</p>
+<p class=secodelines>//&nbsp;d&nbsp;==&nbsp;1&nbsp;//&nbsp;which&nbsp;is&nbsp;Monday</p></td>
+</tr>
+</table>
+<p class=normal>&nbsp;</p>
+<hr noshade size=1>
+<p class=normal><a href="TH_634.htm"><img src="button.png" border=0></a><a href="TH_634.htm" style="text-decoration:none;">Date getDate()</a></p>
+<p>
+</body>
+</html>

@@ -1,0 +1,37 @@
+<html>
+<head>
+<title>Add ScriptEase compiler options</title>
+<link rel="stylesheet" href="semanualstyles.css" type="text/css">
+<style type="text/css">
+ p { margin-top: 0; margin-bottom: 0; }
+</style>
+<script language="JavaScript" src="TrueHelp.js"></script>
+</head>
+<body onload="thload()">
+<div id=ienav>
+<ilayer id=nsnav>
+<br>
+<center>
+<p class=normal><a href="seisdkc-toc.htm" target="left">contents</a> &nbsp; <a href="seisdkc-index.htm" target="left">index</a> &nbsp; <a href="TH_269.htm">previous</a> &nbsp; <a href="TH_271.htm">next</a></p>
+</center>
+<br>
+<hr noshade size=1>
+</ilayer>
+</div>
+<p class=heading-4>Add ScriptEase compiler options</p>
+<p class=senormalpara>The next step is to alter your application&#8217;s compiler settings to correctly work with ScriptEase. The only option required is to set your compiler&#8217;s include paths so it can find the ScriptEase header files as well as the <span class=secodephrase>lib/jseopt.h</span> file. If you move your <span class=secodephrase>lib/jseopt.h</span> file to an alternate location, you must include its directory in your include path, before any other ScriptEase directories. Then include the following directories. Recall, all directories are relative to the directory you installed ScriptEase in:</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=secodelinesindented>lib</p>
+<p class=secodelinesindented>.</p>
+<p class=secodelinesindented>src/misc</p>
+<p class=secodelinesindented>src/lib</p>
+<p class=secodelinesindented>src/app</p>
+<p class=secodelinesindented>src/include</p>
+<p class=secodelinesindented>&nbsp;</p>
+<p class=senormalpara>Each compiler has some way to specify additional include directories to search for include files. When using a graphical IDE, you will find a field to put additional directories in. When using a command line version, a particular command-line switch will add them, usually <span class=secodephrase>-I</span>. Please consult your compiler's documentation if you are unsure how to add include directories to your project.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<hr noshade size=1>
+<p class=normal><a href="TH_271.htm"><img src="button.png" border=0></a><a href="TH_271.htm" style="text-decoration:none;">Program your application to invoke ScriptEase</a></p>
+<p>
+</body>
+</html>

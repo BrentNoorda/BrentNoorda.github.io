@@ -1,0 +1,756 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 FINAL//EN">
+<HTML><!-- #BeginTemplate "/us/Templates/normalpage.dwt" -->
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=ISO-8859-1">
+<!-- #BeginEditable "doctitle" --> 
+<TITLE>ScriptEase Integrated SDK Performance</TITLE>
+<!-- #EndEditable --> <!-- begin metaTags --> 
+<META NAME="keywords" CONTENT="javascript,ecmascript,ecma,scriptease,jscript,scripting,nombas,isdk,sedesk,web application development,embedded devices,distributed computing,peer-to-peer,p2p,peer,data mining,javascript.com,cycletraders,integrated sdk,script ease,java,c++,c,simplicity,power,palm,windows ce,integration: sdk,integration:sdk,scriptease:desktop,scriptease: desktop,se:desktop,se:desk,se:isdk, se: isdk,development tools,devtools">
+<META HTTP-EQUIV="DESCRIPTION" CONTENT="Nombas delivers simplicity and power through scripting by providing market-leading development tools and software for JavaScript and ECMAScript.">
+<!-- end metaTags -->
+
+<!-- begin navbar includes -->
+<SCRIPT language=JavaScript1.2>
+  navbarPath = '../'; 
+</SCRIPT> 
+<SCRIPT language=JavaScript1.2 src="../navbarData.js"></SCRIPT>
+<SCRIPT language=JavaScript1.2 src="../navbarMenu.js"></SCRIPT>
+<SCRIPT language=JavaScript src="../imgRollover.js"></SCRIPT>
+<!-- end navbar includes -->
+
+<!-- begin style and icon definition -->
+<LINK REL="SHORTCUT ICON" HREF="../nombas.ico"> 
+<STYLE> 
+A:hover { color:#941810;} 
+</STYLE>
+<!-- end style and icon definition -->
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-1754630-10']);
+  _gaq.push(['_trackPageview']);
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+</HEAD>
+<BODY BGCOLOR="#06086F" LINK="#0000FF" VLINK="#800080" TEXT="#000000" TOPMARGIN=0 LEFTMARGIN=0 MARGINWIDTH=0 MARGINHEIGHT=0>
+    <TABLE BORDER=0 CELLSPACING=0 CELLPADDING=0 WIDTH=213>
+        <TR VALIGN=TOP ALIGN=LEFT>
+            <TD WIDTH=28 HEIGHT=4><IMG SRC="../clearpixel.gif" WIDTH=28 HEIGHT=1 BORDER=0></TD>
+            <TD></TD>
+        </TR>
+        <TR VALIGN=TOP ALIGN=LEFT>
+            <TD HEIGHT=60></TD>
+            
+    <TD WIDTH=185 ALIGN=LEFT VALIGN=TOP><A HREF="../index.htm"><IMG ID="Picture1" HEIGHT=60 WIDTH=185 SRC="../logo.gif" BORDER=0 alt="Nombas Logo: Simplicity and Power Through Scripting"></A></TD>
+        </TR>
+    </TABLE>
+    <div id="nombas-legacy"></div>
+    <TABLE BORDER=0 CELLSPACING=0 CELLPADDING=0>
+        <TR VALIGN=TOP ALIGN=LEFT>
+            <TD WIDTH=30 HEIGHT=10><IMG SRC="../clearpixel.gif" WIDTH=30 HEIGHT=1 BORDER=0></TD>
+            <TD></TD>
+        </TR>
+        <TR VALIGN=TOP ALIGN=LEFT>
+            <TD></TD>
+            <TD WIDTH=582>
+                <TABLE ID="Table1" BORDER=0 CELLSPACING=0 CELLPADDING=0 WIDTH=582>
+                    <TR>
+                        <TD WIDTH=97>
+            <P><A HREF="../scripting/scripting.htm" 
+                            onmouseover="changeImages('scripting', '../htab_scripting.gif'); popUp('elMenu1',event); return true;" 
+onmouseout="changeImages('scripting', '../tab_scripting.gif'); popDown('elMenu1'); return true;"
+><IMG
+                             ID="scripting" HEIGHT=21 WIDTH=97 SRC="../tab_scripting.gif" VSPACE=0 HSPACE=0 ALIGN="TOP" BORDER=0 name="scripting" alt="Scripting"></A>
+          </TD>
+                        <TD WIDTH=97>
+            <P><A HREF="../products/products.htm" 
+                            onmouseover="changeImages('products', '../htab_products.gif'); popUp('elMenu2',event); return true;" 
+onmouseout="changeImages('products', '../tab_products.gif'); popDown('elMenu2'); return true;"><IMG ID="products"
+                             HEIGHT=21 WIDTH=97 SRC="../tab_products.gif" VSPACE=0 HSPACE=0 ALIGN="TOP" BORDER=0 name=products alt="Products"></A>
+          </TD>
+                        <TD WIDTH=97>
+            <P><A href="/cgi-bin/WebObjects/DynamicLicense.woa" target="isdkbuy" onmouseover="changeImages('purchase', '../htab_purchase.gif');return true;" 
+onmouseout="changeImages('purchase', '../tab_purchase.gif');return true;"><IMG ID="purchase"
+                             HEIGHT=21 WIDTH=97 SRC="../tab_purchase.gif" VSPACE=0 HSPACE=0 ALIGN="TOP" BORDER=0 name=purchase alt="Purchase"></A>
+          </TD>
+                        <TD WIDTH=97>
+            <P><A HREF="../download/ndownload.htm" onmouseover="changeImages('download', '../htab_download.gif');return true;" 
+onmouseout="changeImages('download', '../tab_download.gif');return true;"><IMG ID="download"
+                             HEIGHT=21 WIDTH=97 SRC="../tab_download.gif" VSPACE=0 HSPACE=0 ALIGN="TOP" BORDER=0 name=download alt="Download"></A>
+          </TD>
+                        <TD WIDTH=97>
+            <P><A target="support" HREF="http://support.nombas.com/" onmouseover="changeImages('support', '../htab_support.gif'); return true;" 
+onmouseout="changeImages('support', '../tab_support.gif'); return true;"><IMG ID="support"
+                             HEIGHT=21 WIDTH=97 SRC="../tab_support.gif" VSPACE=0 HSPACE=0 ALIGN="TOP" BORDER=0 name=support alt="Support"></A>
+          </TD>
+                        <TD WIDTH=97>
+            <P><A HREF="../company/company.htm" 
+                            onmouseover="changeImages('company', '../htab_company.gif'); popUp('elMenu6',event); return true;" 
+onmouseout="changeImages('company', '../tab_company.gif'); popDown('elMenu6'); return true;"><IMG ID="company"
+                             HEIGHT=21 WIDTH=97 SRC="../tab_company.gif" VSPACE=0 HSPACE=0 ALIGN="TOP" BORDER=0 name=company alt="Company"></A>
+          </TD>
+                    </TR>
+                </TABLE>
+            </TD>
+        </TR>
+    </TABLE>
+    <TABLE BORDER=0 CELLSPACING=0 CELLPADDING=0 WIDTH=637>
+        <TR VALIGN=TOP ALIGN=LEFT>
+            <TD WIDTH=5 HEIGHT=20><IMG SRC="../clearpixel.gif" WIDTH=5 HEIGHT=1 BORDER=0></TD>
+            <TD WIDTH=632>
+                <TABLE BORDER=0 CELLSPACING=0 CELLPADDING=0 WIDTH=632 HEIGHT=20 bgcolor="#FFFFFF">
+                    <TR ALIGN=LEFT VALIGN=TOP>
+                        <TD>
+                            <TABLE BORDER=0 CELLSPACING=0 CELLPADDING=0 WIDTH=632>
+                                <TR VALIGN=TOP ALIGN=LEFT>
+                                    <TD WIDTH=20 HEIGHT=20 ALIGN=LEFT VALIGN=TOP><IMG ID="Picture12" HEIGHT=20 WIDTH=20 SRC="../curve_topleft.gif" BORDER=0></TD>
+                                    <TD WIDTH=592><IMG SRC="../clearpixel.gif" WIDTH=592 HEIGHT=1 BORDER=0></TD>
+                                    <TD WIDTH=20 ALIGN=LEFT VALIGN=TOP><IMG ID="Picture10" HEIGHT=20 WIDTH=20 SRC="../curve_top.gif" BORDER=0></TD>
+                                </TR>
+                            </TABLE>
+                        </TD>
+                    </TR>
+                </TABLE>
+            </TD>
+        </TR>
+    </TABLE>
+    <TABLE BORDER=0 CELLSPACING=0 CELLPADDING=0 WIDTH=637>
+        <TR VALIGN=TOP ALIGN=LEFT>
+            
+    <TD HEIGHT=490></TD>
+            
+    <TD WIDTH=632 COLSPAN=2 height="490"> 
+      <TABLE BORDER=0 CELLSPACING=0 CELLPADDING=0 WIDTH=632 HEIGHT=200 bgcolor="#FFFFFF">
+        <TR ALIGN=LEFT VALIGN=TOP>
+                        
+          <TD height="494"> 
+            <TABLE BORDER=0 CELLSPACING=0 CELLPADDING=0 WIDTH=450>
+              <TR VALIGN=TOP ALIGN=LEFT>
+                                    <TD WIDTH=13 HEIGHT=1><IMG SRC="../clearpixel.gif" WIDTH=13 HEIGHT=1 BORDER=0></TD>
+                                    
+                <TD WIDTH=396><IMG SRC="../clearpixel.gif" WIDTH=316 HEIGHT=1 BORDER=0></TD>
+                                </TR>
+                                <TR VALIGN=TOP ALIGN=LEFT>
+                                    
+                <TD width="13"></TD>
+                                    
+                <TD WIDTH=396> 
+                  <P ALIGN=LEFT><!-- #BeginEditable "hierarchy" --><A HREF="../index.htm"><FONT SIZE="-2" FACE="Verdana,Tahoma,Arial,Helvetica">Nombas</FONT></A><FONT SIZE="-2" FACE="Verdana,Tahoma,Arial,Helvetica"> 
+                    &gt; <a href="../products/products.htm">Products</a> &gt; 
+                    <a href="index.htm">ScriptEase ISDK</a> &gt; Faster &amp; 
+                    Smaller </FONT><!-- #EndEditable -->
+                </TD>
+                                </TR>
+                            </TABLE>
+                            
+            <TABLE BORDER=0 CELLSPACING=0 CELLPADDING=0 WIDTH=615>
+              <TR VALIGN=TOP ALIGN=LEFT> 
+                <TD WIDTH=15 HEIGHT=5><IMG SRC="../clearpixel.gif" WIDTH=15 HEIGHT=1 BORDER=0></TD>
+                <TD></TD>
+              </TR>
+              <TR VALIGN=TOP ALIGN=LEFT> 
+                <TD HEIGHT=80></TD>
+                <TD WIDTH=600 ALIGN=LEFT VALIGN=TOP><!-- #BeginEditable "banner" --><IMG ID="Picture14" HEIGHT=80 WIDTH=600 SRC="bnr_seisdk.gif" BORDER=0><!-- #EndEditable --></TD>
+              </TR>
+              <TR VALIGN=TOP ALIGN=LEFT>
+                <TD HEIGHT=80></TD>
+                <TD WIDTH=600 ALIGN=LEFT VALIGN=TOP><!-- #BeginEditable "text" -->
+                  <table width="100%" border="0">
+                    <tr> 
+                      <td colspan="4" height="9"><img src="../clearpixel.gif" width="1" height="1"></td>
+                    </tr>
+                    <tr> 
+                      <td width="0" height="3488">&nbsp;</td>
+                      <td valign="top" height="3488" width="0"> 
+                        <table width="100%" border="0" cellpadding="5">
+                          <tr> 
+                            <td align="left" valign="top" width="9%" height="3446"> 
+                              <p><img src="notgoodenf.gif" width="148" height="131"></p>
+                            </td>
+                            <td valign="top" width="0" height="3446"> 
+                              <p><img src="bnr_fastersmaller.gif" width="300" height="30"></p>
+                              <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><b><i>ScriptEase 
+                                JavaScript engine runs 2x faster than Microsoft 
+                                and Netscape and uses up to 66% less memory. </i></b></font></p>
+                              <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2">The 
+                                Nombas engineers are a difficult bunch to please. 
+                                Other groups would have been satisfied to have 
+                                produced the most useful, compliant, configurable 
+                                script-integration SDK available. But that wasn't 
+                                good enough for us; we wanted the ScriptEase Integration 
+                                SDK to be both smaller and faster than any of 
+                                the competition. And we did it. </font></p>
+                              <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2">We 
+                                have done some recent comparison of the latest 
+                                JavaScript interpreters from code from Nombas 
+                                (ScriptEase), from Mozilla (JS32), and from Microsoft 
+                                (WSH). </font></p>
+                              <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                                <b>Speed </b></font></p>
+                              <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2">Running 
+                                a script that is a balance of the types of operations 
+                                a normal script would run, resulted in these times:</font></p>
+                              <p align="center"><font face="Verdana, Arial, Helvetica, sans-serif" size="1"><b>Interpreter 
+                                Execution Time<br>
+                                (Smaller Is Better)</b></font></p>
+                              <table width="100%" border="1">
+                                <tr> 
+                                  <td width="41%"><font face="Verdana, Arial, Helvetica, sans-serif" size="1">Interpreter</font></td>
+                                  <td width="59%"><font face="Verdana, Arial, Helvetica, sans-serif" size="1">Duration 
+                                    (in seconds)</font></td>
+                                </tr>
+                                <tr> 
+                                  <td width="41%"><font face="Verdana, Arial, Helvetica, sans-serif" size="1">Mozilla</font></td>
+                                  <td width="59%"><font face="Verdana, Arial, Helvetica, sans-serif" size="1">174.5 
+                                    seconds</font></td>
+                                </tr>
+                                <tr> 
+                                  <td width="41%"><font face="Verdana, Arial, Helvetica, sans-serif" size="1">Microsoft</font></td>
+                                  <td width="59%"><font face="Verdana, Arial, Helvetica, sans-serif" size="1">141.5 
+                                    seconds</font></td>
+                                </tr>
+                                <tr> 
+                                  <td width="41%"><font face="Verdana, Arial, Helvetica, sans-serif" size="1">Nombas 
+                                    </font></td>
+                                  <td width="59%"><font face="Verdana, Arial, Helvetica, sans-serif" size="1">79.0 
+                                    seconds</font></td>
+                                </tr>
+                              </table>
+                              <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2">In 
+                                the detailed results you can see how each interpreter 
+                                compares doing various types of operations, but 
+                                the overall results are that Nombas ScriptEase 
+                                is 1.8 times faster than Microsoft and a blazing 
+                                2.2 times faster than Mozilla.</font></p>
+                              <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><b>Memory 
+                                Usage</b> </font></p>
+                              <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2">The 
+                                primary use of memory while interpreting JavaScript 
+                                is used to manage objects. And so to compare the 
+                                amount of memory used by each interpreter we created 
+                                a simple script that creates many objects, and 
+                                because objects generally have properties we also 
+                                test when the objects have properties. To get 
+                                the numbers we ran within an NT environment using 
+                                the NT performance tools to determine how much 
+                                memory each program was using when it reached 
+                                stasis. These are the results of that run-time 
+                                memory test:</font></p>
+                              <p align="center"><font face="Verdana, Arial, Helvetica, sans-serif" size="1"><b>Memory 
+                                Used <br>
+                                (Smaller Is Better)</b></font></p>
+                              <table width="100%" border="1">
+                                <tr> 
+                                  <td width="33%"><font face="Verdana, Arial, Helvetica, sans-serif" size="1">Test</font></td>
+                                  <td width="24%"><font face="Verdana, Arial, Helvetica, sans-serif" size="1">Mozilla</font></td>
+                                  <td width="22%"><font face="Verdana, Arial, Helvetica, sans-serif" size="1">Microsoft</font></td>
+                                  <td width="21%"><font face="Verdana, Arial, Helvetica, sans-serif" size="1">Nombas</font></td>
+                                </tr>
+                                <tr> 
+                                  <td width="33%"><font face="Verdana, Arial, Helvetica, sans-serif" size="1">Create 
+                                    10,000 objects</font></td>
+                                  <td width="24%"><font face="Verdana, Arial, Helvetica, sans-serif" size="1">1,292k</font></td>
+                                  <td width="22%"><font face="Verdana, Arial, Helvetica, sans-serif" size="1">1,656k</font></td>
+                                  <td width="21%"><font face="Verdana, Arial, Helvetica, sans-serif" size="1">620k</font></td>
+                                </tr>
+                                <tr> 
+                                  <td width="33%"><font face="Verdana, Arial, Helvetica, sans-serif" size="1">Create 
+                                    20,000 objects</font></td>
+                                  <td width="24%"><font face="Verdana, Arial, Helvetica, sans-serif" size="1">2,588k</font></td>
+                                  <td width="22%"><font face="Verdana, Arial, Helvetica, sans-serif" size="1">3,264k</font></td>
+                                  <td width="21%"><font face="Verdana, Arial, Helvetica, sans-serif" size="1">1,204k</font></td>
+                                </tr>
+                                <tr> 
+                                  <td width="33%"><font face="Verdana, Arial, Helvetica, sans-serif" size="1">Create 
+                                    30,000 objects</font></td>
+                                  <td width="24%"><font face="Verdana, Arial, Helvetica, sans-serif" size="1">3,932k</font></td>
+                                  <td width="22%"><font face="Verdana, Arial, Helvetica, sans-serif" size="1">4,872k</font></td>
+                                  <td width="21%"><font face="Verdana, Arial, Helvetica, sans-serif" size="1">1,924k</font></td>
+                                </tr>
+                                <tr> 
+                                  <td width="33%"><font face="Verdana, Arial, Helvetica, sans-serif" size="1">Create 
+                                    10,000 objects w/50 properties each</font></td>
+                                  <td width="24%"><font face="Verdana, Arial, Helvetica, sans-serif" size="1">45,952k</font></td>
+                                  <td width="22%"><font face="Verdana, Arial, Helvetica, sans-serif" size="1">41,108k</font></td>
+                                  <td width="21%"><font face="Verdana, Arial, Helvetica, sans-serif" size="1">20,172k</font></td>
+                                </tr>
+                              </table>
+                              <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2">Nombas' 
+                                ScriptEase:ISDK has been deployed on many embedded 
+                                systems, where footprint can be critical, and 
+                                so we have put much effort into maximizing the 
+                                efficiency of memory use (while continuing to 
+                                maximize performance--these two goals are often 
+                                mutually exclusive). </font></p>
+                              <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2">Memory 
+                                features not included in this report are compile-time 
+                                options to use JSE_MIN_MEMORY, the ability to 
+                                remove all or any part of unused objects, and 
+                                the ability to override memory types (handle-based 
+                                options). </font></p>
+                              <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2">The 
+                                above numbers were for the 4.30 release. With 
+                                the 4.40 release Nombas has concentrated on reducing 
+                                the run-time size of the engine for use in smaller 
+                                platforms, or for many instances on a single platform. 
+                                For example, where in 4.30 each object may have 
+                                required an average of 100 bytes for the ScriptEase 
+                                engine (162 bytes for MS and 131 for Mozilla), 
+                                the 4.40 engine can use just 36 bytes per object. 
+                                memory use for virtual bytecodes, strings, and 
+                                variable names have all been greatly reduced as 
+                                well--and for all types 4.40 adds an options to 
+                                use extended or moveable memory for these data 
+                                types.</font></p>
+                              <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2">Additionally, 
+                                for our 4.40 release, <a href="isdk_device_intro.htm">Device 
+                                JavaScript</a> on the PalmOS, a complete initialization 
+                                of the engine and all of the standard ECMAScript 
+                                object requires less than 10K of heap space (system 
+                                overhead included) and a reasonable sized script 
+                                allocated 1000 objects never uses more than 12K 
+                                beyond that.</font></p>
+                              <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2">For 
+                                complete details on the tests shown above, <a target="support" href="http://nombas.custhelp.com/cgi-bin/nombas.cfg/php/enduser/std_adp.php?p_faqid=134&amp;p_created=966644143">click 
+                                here</a>. </font></p>
+                              <p></p>
+                              <hr>
+                              <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><b>More 
+                                Statistical Data (From Version 4.02) </b></font></p>
+                              <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2">As 
+                                the following tables will show, ScriptEase ISDK 
+                                delivers the <b>highest performance</b> and <b>smallest 
+                                footprint</b> of any JavaScript engine.</font></p>
+                              <p><font size="2" face="Verdana, Arial, Helvetica, sans-serif"><b>Performance</b></font></p>
+                              <p><font size="2" face="Verdana, Arial, Helvetica, sans-serif">The 
+                                following Sieve and Sort tests, except for the 
+                                JavaScript tests, were taken from Programming 
+                                Language Benchmarks performed by Paul R. Clements 
+                                Jr. at the Department of Computer Science at the 
+                                University of South Carolina at Columbia, SC.</font> 
+                              </p>
+                              <p><font size="2" face="Verdana, Arial, Helvetica, sans-serif">Because 
+                                these tests were not all performed on the same 
+                                system the relative values are not exact. We will 
+                                provide the scripts to anyone wishing to perform 
+                                similar tests.</font> 
+                              <p align=RIGHT>
+                              <div align=RIGHT> </div>
+                              <p></p>
+                              <p align=CENTER> 
+                              <center>
+                                <table width=100% cellpadding=2 cellspacing=0 border=1>
+                                  <tr> 
+                                    <td width=20% valign=TOP> 
+                                      <p> <font size="1" face="Verdana, Arial, Helvetica, sans-serif"><b>Interpreter</b></font>
+                                    </td>
+                                    <td
+       width=20% valign=TOP> 
+                                      <p> <font size="1" face="Verdana, Arial, Helvetica, sans-serif"><b>Sort 
+                                        Time</b><br>
+                                        <b>min:sec.hun</b></font>
+                                    </td>
+                                    <td
+       width=20% valign=TOP> 
+                                      <p> <font size="1" face="Verdana, Arial, Helvetica, sans-serif"><b>Sieve 
+                                        Time</b><br>
+                                        <b>min:sec.hun</b></font>
+                                    </td>
+                                  </tr>
+                                  <tr> 
+                                    <td width=20% valign=TOP> 
+                                      <p> <font size="1" face="Verdana, Arial, Helvetica, sans-serif">gcc 
+                                        v2.7.2</font>
+                                    </td>
+                                    <td
+       width=20% valign=TOP> 
+                                      <p> <font size="1" face="Verdana, Arial, Helvetica, sans-serif">00:02.62</font>
+                                    </td>
+                                    <td
+       width=20% valign=TOP> 
+                                      <p> <font size="1" face="Verdana, Arial, Helvetica, sans-serif">00:00.17</font>
+                                    </td>
+                                  </tr>
+                                  <tr> 
+                                    <td width=20% valign=TOP> 
+                                      <p> <font size="1" face="Verdana, Arial, Helvetica, sans-serif">gawk 
+                                        v2.15.6</font>
+                                    </td>
+                                    <td
+       width=20% valign=TOP> 
+                                      <p> <font size="1" face="Verdana, Arial, Helvetica, sans-serif">02:29.94</font>
+                                    </td>
+                                    <td
+       width=20% valign=TOP> 
+                                      <p> <font size="1" face="Verdana, Arial, Helvetica, sans-serif">02:37.76</font>
+                                    </td>
+                                  </tr>
+                                  <tr> 
+                                    <td width=20% valign=TOP> 
+                                      <p> <font size="1" face="Verdana, Arial, Helvetica, sans-serif">javac 
+                                        v1.0.2</font>
+                                    </td>
+                                    <td
+       width=20% valign=TOP> 
+                                      <p> <font size="1" face="Verdana, Arial, Helvetica, sans-serif">02:24.04</font>
+                                    </td>
+                                    <td
+       width=20% valign=TOP> 
+                                      <p> <font size="1" face="Verdana, Arial, Helvetica, sans-serif">00:09.95</font>
+                                    </td>
+                                  </tr>
+                                  <tr> 
+                                    <td width=20% valign=TOP> 
+                                      <p> <font size="1" face="Verdana, Arial, Helvetica, sans-serif">mawk 
+                                        v1.3.3</font>
+                                    </td>
+                                    <td
+       width=20% valign=TOP> 
+                                      <p> <font size="1" face="Verdana, Arial, Helvetica, sans-serif">00:46.52</font>
+                                    </td>
+                                    <td
+       width=20% valign=TOP> 
+                                      <p> <font size="1" face="Verdana, Arial, Helvetica, sans-serif">00:31.13</font>
+                                    </td>
+                                  </tr>
+                                  <tr> 
+                                    <td width=20% valign=TOP> 
+                                      <p> <font size="1" face="Verdana, Arial, Helvetica, sans-serif">perl 
+                                        v5.001</font>
+                                    </td>
+                                    <td
+       width=20% valign=TOP> 
+                                      <p> <font size="1" face="Verdana, Arial, Helvetica, sans-serif">00:37.51</font>
+                                    </td>
+                                    <td
+       width=20% valign=TOP> 
+                                      <p> <font size="1" face="Verdana, Arial, Helvetica, sans-serif">00:50.24</font>
+                                    </td>
+                                  </tr>
+                                  <tr> 
+                                    <td width=20% valign=TOP> 
+                                      <p> <font size="1" face="Verdana, Arial, Helvetica, sans-serif">tcl 
+                                        v7.4</font>
+                                    </td>
+                                    <td
+       width=20% valign=TOP> 
+                                      <p> <font size="1" face="Verdana, Arial, Helvetica, sans-serif">21:00:00</font>
+                                    </td>
+                                    <td
+       width=20% valign=TOP> 
+                                      <p> <font size="1" face="Verdana, Arial, Helvetica, sans-serif">09:36.00</font>
+                                    </td>
+                                  </tr>
+                                  <tr> 
+                                    <td width=20% valign=TOP> 
+                                      <p> <font size="1" face="Verdana, Arial, Helvetica, sans-serif">tcl 
+                                        v8.0</font>
+                                    </td>
+                                    <td
+       width=20% valign=TOP> 
+                                      <p> <font size="1" face="Verdana, Arial, Helvetica, sans-serif">05:18.00</font>
+                                    </td>
+                                    <td
+       width=20% valign=TOP> 
+                                      <p> <font size="1" face="Verdana, Arial, Helvetica, sans-serif">03:24.00</font>
+                                    </td>
+                                  </tr>
+                                  <tr> 
+                                    <td height=4 width=20% valign=TOP> 
+                                      <p> <font size="1" face="Verdana, Arial, Helvetica, sans-serif"><sup>*</sup></font>
+                                    </td>
+                                    <td
+       height=4 width=20% valign=TOP><font face="Verdana, Arial, Helvetica, sans-serif" size="1"></font> 
+                                    </td>
+                                    <td height=4 width=20% valign=TOP><font face="Verdana, Arial, Helvetica, sans-serif" size="1"></font> 
+                                    </td>
+                                  </tr>
+                                  <tr> 
+                                    <td width=20% valign=TOP> 
+                                      <p> <font size="1" face="Verdana, Arial, Helvetica, sans-serif">Navigator 
+                                        4.04</font>
+                                    </td>
+                                    <td
+       width=20% valign=TOP> 
+                                      <p> <font size="1" face="Verdana, Arial, Helvetica, sans-serif">09:53.00</font>
+                                    </td>
+                                    <td
+       width=20% valign=TOP> 
+                                      <p> <font size="1" face="Verdana, Arial, Helvetica, sans-serif">06:27.00</font>
+                                    </td>
+                                  </tr>
+                                  <tr> 
+                                    <td width=20% valign=TOP> 
+                                      <p> <font size="1" face="Verdana, Arial, Helvetica, sans-serif">IE 
+                                        3.03<sup>1</sup></font>
+                                    </td>
+                                    <td
+       width=20% valign=TOP> 
+                                      <p> <font size="1" face="Verdana, Arial, Helvetica, sans-serif">&nbsp;NA<sup>2</sup></font>
+                                    </td>
+                                    <td
+       width=20% valign=TOP> 
+                                      <p> <font size="1" face="Verdana, Arial, Helvetica, sans-serif">02:50.00</font>
+                                    </td>
+                                  </tr>
+                                  <tr> 
+                                    <td width=20% valign=TOP> 
+                                      <p> <font size="1" face="Verdana, Arial, Helvetica, sans-serif">ScriptEase 
+                                        4.02</font>
+                                    </td>
+                                    <td
+       width=20% valign=TOP> 
+                                      <p> <font size="1" face="Verdana, Arial, Helvetica, sans-serif">02:46.00</font>
+                                    </td>
+                                    <td
+       width=20% valign=TOP> 
+                                      <p> <font size="1" face="Verdana, Arial, Helvetica, sans-serif">01:26.00</font>
+                                    </td>
+                                  </tr>
+                                  <tr> 
+                                    <td height=5 width=20% valign=TOP><font face="Verdana, Arial, Helvetica, sans-serif" size="1"></font> 
+                                    </td>
+                                    <td height=5 width=20% valign=TOP><font face="Verdana, Arial, Helvetica, sans-serif" size="1"></font> 
+                                    </td>
+                                    <td height=5 width=20% valign=TOP><font face="Verdana, Arial, Helvetica, sans-serif" size="1"></font> 
+                                    </td>
+                                  </tr>
+                                  <tr> 
+                                    <td colspan=3 width=20% valign=TOP> 
+                                      <p> <font size="1" face="Verdana, Arial, Helvetica, sans-serif"><sup>*</sup> 
+                                        JavaScript tests on a Pentium Pro 200 
+                                        NT 4.0. Original tests on Pentium 100 
+                                        running Linux.<br>
+                                        <sup>1</sup> Internet Explorer 4 has been 
+                                        optimized to run faster. When we get numbers 
+                                        on an identical machine we'll post those.<br>
+                                        <sup>2</sup> Internet Explorer unable 
+                                        to complete test</font>
+                                    </td>
+                                  </tr>
+                                </table>
+                                <center>
+                                </center>
+                                <p></p>
+                                <p align="left">&nbsp; </p>
+                                <p align="left"><font size="2" face="Verdana, Arial, Helvetica, sans-serif"><b>Size</b></font></p>
+                                <p align="left"><font face="Verdana, Arial, Helvetica, sans-serif" size="2">Size 
+                                  is a critical issue for the embedded market, 
+                                  and the requirements vary between systems and 
+                                  vendor needs. We have made the ScriptEase:Integration 
+                                  SDK source code flexible to allow each ISV to 
+                                  choose what is important to them: speed, code 
+                                  size, data size, object models, or compliance-to-standards.</font></p>
+                                <p align="left"> <font face="Verdana, Arial, Helvetica, sans-serif" size="2"><a name="smalljse"></a><b>Example:</b> 
+                                  The following example, SMALLJSE <a href="ftp://ftp.nombas.com/bbs/isdkeval/smalljse.zip">(available 
+                                  for download</a>), is a DOS C++ application, 
+                                  built with the small model (near pointers, near 
+                                  code) and the following SE:ISDK options (these 
+                                  are by no means all of the options available):</font></p>
+                                <p align="left"> 
+                                <div align="left">
+                                  <ul>
+                                    <li><font face="Verdana, Arial, Helvetica, sans-serif" size="2">DOS16</font> 
+                                    <li><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                                      No huge pointers/data sizes</font> 
+                                    <li><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                                      Buffer data-type added</font> 
+                                    <li><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                                      16-bit pointer size</font> 
+                                    <li><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                                      No floating-point support</font> 
+                                    <li><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                                      Include parser and compiler</font> 
+                                    <li><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                                      Turn off faster memory pooling</font> 
+                                  </ul>
+                                </div>
+                                <p align="left"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                                  Statistics <i>for this particular example</i>&nbsp;(approximate 
+                                  values):</font></p>
+                                <p align=RIGHT> 
+                                <div align=RIGHT> 
+                                  <table width=100% cellpadding=2 cellspacing=0 border=1>
+                                    <tr> 
+                                      <td width=50% valign=TOP> 
+                                        <p> <font size="1" face="Verdana, Arial, Helvetica, sans-serif">Total 
+                                          Executable Size</font>
+                                      </td>
+                                      <td
+            width=50% valign=TOP> 
+                                        <p> <font size="1" face="Verdana, Arial, Helvetica, sans-serif">62K</font> 
+                                      </td>
+                                    </tr>
+                                    <tr> 
+                                      <td width=50% valign=TOP> 
+                                        <p> <font size="1" face="Verdana, Arial, Helvetica, sans-serif">&nbsp;-&nbsp;SE:ISDK 
+                                          code</font> 
+                                      </td>
+                                      <td
+            width=50% valign=TOP> 
+                                        <p> <font size="1" face="Verdana, Arial, Helvetica, sans-serif">41K</font> 
+                                      </td>
+                                    </tr>
+                                    <tr> 
+                                      <td width=50% valign=TOP> 
+                                        <p> <font size="1" face="Verdana, Arial, Helvetica, sans-serif">&nbsp;-&nbsp;optional 
+                                          error strings</font> 
+                                      </td>
+                                      <td
+            width=50% valign=TOP> 
+                                        <p> <font size="1" face="Verdana, Arial, Helvetica, sans-serif">3K</font> 
+                                      </td>
+                                    </tr>
+                                    <tr> 
+                                      <td width=50% valign=TOP> 
+                                        <p> <font size="1" face="Verdana, Arial, Helvetica, sans-serif">&nbsp;- 
+                                          sample app code</font> 
+                                      </td>
+                                      <td
+            width=50% valign=TOP> 
+                                        <p> <font size="1" face="Verdana, Arial, Helvetica, sans-serif">6K</font> 
+                                      </td>
+                                    </tr>
+                                    <tr> 
+                                      <td width=50% valign=TOP> 
+                                        <p> <font size="1" face="Verdana, Arial, Helvetica, sans-serif">&nbsp;- 
+                                          app &amp; C librray data</font> 
+                                      </td>
+                                      <td
+            width=50% valign=TOP> 
+                                        <p> <font size="1" face="Verdana, Arial, Helvetica, sans-serif">3K</font> 
+                                      </td>
+                                    </tr>
+                                    <tr> 
+                                      <td width=50% valign=TOP> 
+                                        <p> <font size="1" face="Verdana, Arial, Helvetica, sans-serif">&nbsp;- 
+                                          C library and supporting libs</font> 
+                                      </td>
+                                      <td
+            width=50% valign=TOP> 
+                                        <p> <font size="1" face="Verdana, Arial, Helvetica, sans-serif">8K</font> 
+                                      </td>
+                                    </tr>
+                                    <tr> 
+                                      <td width=50% valign=TOP> 
+                                        <p> <font size="1" face="Verdana, Arial, Helvetica, sans-serif">Maximum 
+                                          Dynamic Data used by SE:ISDK</font> 
+                                      </td>
+                                      <td
+            width=50% valign=TOP> 
+                                        <p> <font size="1" face="Verdana, Arial, Helvetica, sans-serif">4060 
+                                          bytes</font> 
+                                      </td>
+                                    </tr>
+                                    <tr> 
+                                      <td width=50% valign=TOP> 
+                                        <p> <font size="1" face="Verdana, Arial, Helvetica, sans-serif">&nbsp;&nbsp;- 
+                                          to initialize engine and library</font> 
+                                      </td>
+                                      <td
+            width=50% valign=TOP> 
+                                        <p> <font size="1" face="Verdana, Arial, Helvetica, sans-serif">2292 
+                                          bytes</font> 
+                                      </td>
+                                    </tr>
+                                    <tr> 
+                                      <td width=50% valign=TOP> 
+                                        <p> <font size="1" face="Verdana, Arial, Helvetica, sans-serif">&nbsp;&nbsp;- 
+                                          for script execution</font> 
+                                      </td>
+                                      <td
+            width=50% valign=TOP> 
+                                        <p> <font size="1" face="Verdana, Arial, Helvetica, sans-serif">1768 
+                                          bytes</font> 
+                                      </td>
+                                    </tr>
+                                  </table>
+                                </div>
+                                <p align=left>
+                                <p align="left">&nbsp;</p>
+                                <p align="left"><font face="Verdana, Arial, Helvetica, sans-serif" size="2">For 
+                                  more information, pricing, and details, e-mail Sales at <a href="mailto:sales@nombas.com">sales@nombas.com</a>. 
+                                  </font></p>
+                              </center>
+                              </td>
+                          </tr>
+                          <tr>
+                            <td align="left" valign="top" width="9%">&nbsp;</td>
+                            <td valign="top" width="91%">&nbsp;</td>
+                          </tr>
+                        </table>
+                        
+                      </td>
+                      <td width="0" valign="top" background="../horline_bk.jpg" height="3488">&nbsp;</td>
+                      <td width="0" valign="top" height="3488"><img src="linkbar.gif" align="top" border="0" usemap="#links"> 
+                        <map name="links"><area shape="rect" coords="2,2,113,15" href="isdkdownload.htm"><area shape="rect" coords="3,19,112,36" href="/cgi-bin/WebObjects/DynamicLicense.woa" target="isdkbuy"><area shape="rect" coords="2,39,112,56" href="se_isdk_overview.htm"><area shape="rect" coords="0,60,112,77" href="se_isdk_techview.htm"><area shape="rect" coords="2,79,113,94" href="v4lic.htm"><area shape="rect" coords="1,97,113,115" href="sertex.htm"><area shape="rect" coords="2,114,112,134" href="../devspace/index.htm"></map></td>
+                    </tr>
+                    <tr> 
+                      <td width="1">&nbsp;</td>
+                      <td width="5">&nbsp;</td>
+                      <td width="10">&nbsp;</td>
+                      <td width="114">&nbsp;</td>
+                    </tr>
+                  </table>
+                  <!-- #EndEditable --></TD>
+              </TR>
+            </TABLE>
+                            
+          </TD>
+                    </TR>
+                </TABLE>
+            </TD>
+        </TR>
+        <TR VALIGN=TOP ALIGN=LEFT>
+            
+    <TD HEIGHT=2></TD>
+            
+    <TD WIDTH=632 COLSPAN=2 height="2"> 
+      <TABLE BORDER=0 CELLSPACING=0 CELLPADDING=0 WIDTH=632 HEIGHT=20 bgcolor="#FFFFFF">
+                    <TR ALIGN=LEFT VALIGN=TOP>
+                        <TD>
+                            <TABLE BORDER=0 CELLSPACING=0 CELLPADDING=0 WIDTH=632>
+                                <TR VALIGN=TOP ALIGN=LEFT>
+                                    <TD WIDTH=20 HEIGHT=20 ALIGN=LEFT VALIGN=TOP><IMG ID="Picture13" HEIGHT=20 WIDTH=20 SRC="../curve_botleft.gif" BORDER=0></TD>
+                                    <TD WIDTH=592><IMG SRC="../clearpixel.gif" WIDTH=592 HEIGHT=1 BORDER=0></TD>
+                                    <TD WIDTH=20 ALIGN=LEFT VALIGN=TOP><IMG ID="Picture11" HEIGHT=20 WIDTH=20 SRC="../curve_bot.gif" BORDER=0></TD>
+                                </TR>
+                            </TABLE>
+                        </TD>
+                    </TR>
+                </TABLE>
+            </TD>
+        </TR>
+        <TR VALIGN=TOP ALIGN=LEFT>
+            <TD WIDTH=5 HEIGHT=6><IMG SRC="../clearpixel.gif" WIDTH=5 HEIGHT=1 BORDER=0></TD>
+            <TD WIDTH=613><IMG SRC="../clearpixel.gif" WIDTH=613 HEIGHT=1 BORDER=0></TD>
+            <TD WIDTH=19><IMG SRC="../clearpixel.gif" WIDTH=19 HEIGHT=1 BORDER=0></TD>
+        </TR>
+        <TR VALIGN=TOP ALIGN=LEFT>
+            <TD WIDTH=618 COLSPAN=2>
+      <P ALIGN=RIGHT><A HREF="../index.htm"><FONT COLOR="#FFFFFF" SIZE="-2" FACE="Verdana,Tahoma,Arial,Helvetica">Home</FONT></A><FONT COLOR="#FFFFFF" SIZE="-2" FACE="Verdana,Tahoma,Arial,Helvetica"> 
+        | </FONT><A
+                 HREF="../scripting/scripting.htm"><FONT COLOR="#FFFFFF" SIZE="-2" FACE="Verdana,Tahoma,Arial,Helvetica">Scripting</FONT></A><FONT COLOR="#FFFFFF" SIZE="-2" FACE="Verdana,Tahoma,Arial,Helvetica"> 
+        | </FONT><A
+                 HREF="../products/products.htm"><FONT COLOR="#FFFFFF" SIZE="-2" FACE="Verdana,Tahoma,Arial,Helvetica">Products</FONT></A><FONT COLOR="#FFFFFF" SIZE="-2" FACE="Verdana,Tahoma,Arial,Helvetica"> 
+        | </FONT><A
+                 href="/cgi-bin/WebObjects/DynamicLicense.woa" target="isdkbuy"><FONT COLOR="#FFFFFF" SIZE="-2" FACE="Verdana,Tahoma,Arial,Helvetica">Purchase</FONT></A><FONT COLOR="#FFFFFF" SIZE="-2" FACE="Verdana,Tahoma,Arial,Helvetica"> 
+        | </FONT><A
+                 HREF="../download/ndownload.htm"><FONT COLOR="#FFFFFF" SIZE="-2" FACE="Verdana,Tahoma,Arial,Helvetica">Download</FONT></A><FONT COLOR="#FFFFFF" SIZE="-2" FACE="Verdana,Tahoma,Arial,Helvetica"> 
+        | </FONT><A
+                 target="support" HREF="http://support.nombas.com/"><FONT COLOR="#FFFFFF" SIZE="-2" FACE="Verdana,Tahoma,Arial,Helvetica">Support</FONT></A><FONT COLOR="#FFFFFF" SIZE="-2" FACE="Verdana,Tahoma,Arial,Helvetica"> 
+        | </FONT><A HREF="../company/company.htm"> <FONT COLOR="#FFFFFF" SIZE="-2" FACE="Verdana,Tahoma,Arial,Helvetica">Company</FONT></A><FONT COLOR="#FFFFFF" SIZE="-2" FACE="Verdana,Tahoma,Arial,Helvetica"><BR>
+        <BR>Copyright &#169;2001, Nombas, Inc. All Rights Reserved.<BR>
+                Questions? Visit </FONT><A HREF="http://support.nombas.com/"><FONT COLOR="#FFFFFF" SIZE="-2" FACE="Verdana,Tahoma,Arial,Helvetica">http://support.nombas.com/</FONT></A></TD>
+            <TD></TD>
+        </TR>
+    </TABLE>
+<SCRIPT language=JavaScript1.2>
+  display_nombas_legacy_message();
+</SCRIPT>
+</BODY>
+<!-- #EndTemplate --></HTML>
+ 

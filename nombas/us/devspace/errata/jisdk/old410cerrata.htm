@@ -1,0 +1,667 @@
+ 
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 FINAL//EN">
+<HTML><!-- #BeginTemplate "/us/Templates/erratapage.dwt" -->
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=ISO-8859-1">
+<!-- #BeginEditable "doctitle" --> 
+<TITLE>ScriptEase ISDK DevSpace</TITLE>
+<!-- #EndEditable --> <!-- begin metaTags --> 
+<META NAME="keywords" CONTENT="javascript,ecmascript,ecma,scriptease,jscript,scripting,nombas,isdk,sedesk,web application development,embedded devices,distributed computing,peer-to-peer,p2p,peer,data mining,javascript.com,cycletraders,integrated sdk,script ease,java,c++,c,simplicity,power,palm,windows ce,integration: sdk,integration:sdk,scriptease:desktop,scriptease: desktop,se:desktop,se:desk,se:isdk, se: isdk,development tools,devtools">
+<META HTTP-EQUIV="DESCRIPTION" CONTENT="Nombas delivers simplicity and power through scripting by providing market-leading development tools and software for JavaScript and ECMAScript.">
+<!-- end metaTags -->
+<!-- begin navbar includes -->
+<SCRIPT language=JavaScript1.2>
+  navbarPath = '../../../'; 
+</SCRIPT>
+<SCRIPT language=JavaScript1.2 SRC="../../../navbarData.js"></SCRIPT>
+<SCRIPT language=JavaScript1.2 SRC="../../../navbarMenu.js"></SCRIPT>
+<SCRIPT language=JavaScript SRC="../../../imgRollover.js"></SCRIPT>
+<!-- end navbar includes -->
+<!-- begin style and icon definition -->
+<LINK REL="SHORTCUT ICON" HREF="../../../nombas.ico">
+<STYLE> 
+A:hover { color:#941810;} 
+</STYLE>
+<!-- end style and icon definition -->
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-1754630-10']);
+  _gaq.push(['_trackPageview']);
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+</HEAD>
+<BODY BGCOLOR="#06086F" LINK="#0000FF" VLINK="#800080" TEXT="#000000" TOPMARGIN=0 LEFTMARGIN=0 MARGINWIDTH=0 MARGINHEIGHT=0>
+<table width="632" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td>
+<TABLE BORDER=0 CELLSPACING=0 CELLPADDING=0 WIDTH=213>
+  <TR VALIGN=TOP ALIGN=LEFT> 
+    <TD WIDTH=28 HEIGHT=4><IMG SRC="../../../clearpixel.gif" WIDTH=28 HEIGHT=1 BORDER=0></TD>
+    <TD></TD>
+  </TR>
+  <TR VALIGN=TOP ALIGN=LEFT> 
+    <TD HEIGHT=60></TD>
+          <TD WIDTH=185 ALIGN=LEFT VALIGN=TOP><A HREF="../../../index.htm"><IMG ID="Picture1" HEIGHT=60 WIDTH=185 SRC="../../../logo.gif" BORDER=0 alt="Nombas Homepage"></A></TD>
+  </TR>
+</TABLE>
+    <div id="nombas-legacy"></div>
+<TABLE BORDER=0 CELLSPACING=0 CELLPADDING=0>
+  <TR VALIGN=TOP ALIGN=LEFT> 
+    <TD WIDTH=30 HEIGHT=10><IMG SRC="../../../clearpixel.gif" WIDTH=30 HEIGHT=1 BORDER=0></TD>
+    <TD></TD>
+  </TR>
+  <TR VALIGN=TOP ALIGN=LEFT> 
+    <TD></TD>
+    <TD WIDTH=582> 
+      <TABLE ID="Table1" BORDER=0 CELLSPACING=0 CELLPADDING=0 WIDTH=582>
+        <TR> 
+          <TD WIDTH=97> 
+                  <P><A HREF="../../../scripting/scripting.htm" 
+                            onmouseover="changeImages('scripting', '../../../htab_scripting.gif'); popUp('elMenu1',event); return true;" 
+onmouseout="changeImages('scripting', '../../../tab_scripting.gif'); popDown('elMenu1'); return true;"
+><IMG
+                             ID="scripting" HEIGHT=21 WIDTH=97 SRC="../../../tab_scripting.gif" VSPACE=0 HSPACE=0 ALIGN="TOP" BORDER=0 name="scripting" alt="Scripting"></A> 
+                </TD>
+          <TD WIDTH=97> 
+                  <P><A HREF="../../../products/products.htm" 
+                            onmouseover="changeImages('products', '../../../htab_products.gif'); popUp('elMenu2',event); return true;" 
+onmouseout="changeImages('products', '../../../tab_products.gif'); popDown('elMenu2'); return true;"><IMG ID="products"
+                             HEIGHT=21 WIDTH=97 SRC="../../../tab_products.gif" VSPACE=0 HSPACE=0 ALIGN="TOP" BORDER=0 name=products alt="Products"></A> 
+                </TD>
+          <TD WIDTH=97> 
+                  <P><A HREF="../../../purchase/purchase.htm" onmouseover="changeImages('purchase', '../../../htab_purchase.gif');return true;" 
+onmouseout="changeImages('purchase', '../../../tab_purchase.gif');return true;"><IMG ID="purchase"
+                             HEIGHT=21 WIDTH=97 SRC="../../../tab_purchase.gif" VSPACE=0 HSPACE=0 ALIGN="TOP" BORDER=0 name=purchase alt="Purchase"></A> 
+                </TD>
+          <TD WIDTH=97> 
+                  <P><A HREF="../../../download/ndownload.htm" onmouseover="changeImages('download', '../../../htab_download.gif');return true;" 
+onmouseout="changeImages('download', '../../../tab_download.gif');return true;"><IMG ID="download"
+                             HEIGHT=21 WIDTH=97 SRC="../../../tab_download.gif" VSPACE=0 HSPACE=0 ALIGN="TOP" BORDER=0 name=download alt="Download"></A> 
+                </TD>
+          <TD WIDTH=97> 
+                  <P><A target="support" HREF="http://support.nombas.com/" onmouseover="changeImages('support', '../../../htab_support.gif'); return true;" 
+onmouseout="changeImages('support', '../../../tab_support.gif'); return true;"><IMG ID="support"
+                             HEIGHT=21 WIDTH=97 SRC="../../../tab_support.gif" VSPACE=0 HSPACE=0 ALIGN="TOP" BORDER=0 name=support alt="Support"></A> 
+                </TD>
+          <TD WIDTH=97> 
+                  <P><A HREF="../../../company/company.htm" 
+                            onmouseover="changeImages('company', '../../../htab_company.gif'); popUp('elMenu6',event); return true;" 
+onmouseout="changeImages('company', '../../../tab_company.gif'); popDown('elMenu6'); return true;"><IMG ID="company"
+                             HEIGHT=21 WIDTH=97 SRC="../../../tab_company.gif" VSPACE=0 HSPACE=0 ALIGN="TOP" BORDER=0 name=company alt="Company"></A> 
+                </TD>
+        </TR>
+      </TABLE>
+    </TD>
+  </TR>
+</TABLE>
+      <TABLE BORDER=0 CELLSPACING=0 CELLPADDING=0 WIDTH=100%>
+        <TR VALIGN=TOP ALIGN=LEFT> 
+    <TD WIDTH=5 HEIGHT=20><IMG SRC="../../../clearpixel.gif" WIDTH=5 HEIGHT=1 BORDER=0></TD>
+          <TD> 
+            <TABLE BORDER=0 CELLSPACING=0 CELLPADDING=0 WIDTH=100% HEIGHT=20 bgcolor="#FFFFFF">
+              <TR ALIGN=LEFT VALIGN=TOP> 
+          <TD> 
+                  <TABLE BORDER=0 CELLSPACING=0 CELLPADDING=0 WIDTH=100%>
+                    <TR VALIGN=TOP ALIGN=LEFT> 
+                <TD WIDTH=20 HEIGHT=20 ALIGN=LEFT VALIGN=TOP><IMG ID="Picture12" HEIGHT=20 WIDTH=20 SRC="../../../curve_topleft.gif" BORDER=0></TD>
+                      <TD><IMG SRC="../../../clearpixel.gif" WIDTH=592 HEIGHT=1 BORDER=0></TD>
+                <TD WIDTH=20 ALIGN=LEFT VALIGN=TOP><IMG ID="Picture10" HEIGHT=20 WIDTH=20 SRC="../../../curve_top.gif" BORDER=0></TD>
+              </TR>
+            </TABLE>
+          </TD>
+        </TR>
+      </TABLE>
+    </TD>
+  </TR>
+</TABLE>
+<TABLE BORDER=0 CELLSPACING=0 CELLPADDING=0 WIDTH=637>
+  <TR VALIGN=TOP ALIGN=LEFT> 
+    <TD HEIGHT=471 width="5"></TD>
+    <TD COLSPAN=2 height="471"> 
+      <TABLE BORDER=0 CELLSPACING=0 CELLPADDING=0 WIDTH=632 HEIGHT=200 bgcolor="#FFFFFF">
+        <TR ALIGN=LEFT VALIGN=TOP> 
+          <TD height="471"> 
+            <TABLE BORDER=0 CELLSPACING=0 CELLPADDING=0 WIDTH=516>
+              <TR VALIGN=TOP ALIGN=LEFT> 
+                <TD WIDTH=14 HEIGHT=1><IMG SRC="../../../clearpixel.gif" WIDTH=13 HEIGHT=1 BORDER=0></TD>
+                <TD WIDTH=502><IMG SRC="../../../clearpixel.gif" WIDTH=316 HEIGHT=1 BORDER=0></TD>
+              </TR>
+              <TR VALIGN=TOP ALIGN=LEFT> 
+                <TD width="14"></TD>
+                <TD WIDTH=502><!-- #BeginEditable "hier" --> 
+                        <P ALIGN=LEFT><A HREF="../../../index.htm"><FONT SIZE="-2" FACE="Verdana,Tahoma,Arial,Helvetica">Nombas</FONT></A><FONT SIZE="-2" FACE="Verdana,Tahoma,Arial,Helvetica"> 
+                          &gt; <a HREF="../../index.htm">SE:ISDK DevSpace</a> 
+                          &gt; <a href="../index.htm">Errata</a> &gt; Integration 
+                          SDK 4.10c Errata</FONT> 
+                        <!-- #EndEditable --></TD>
+              </TR>
+            </TABLE>
+            <TABLE BORDER=0 CELLSPACING=0 CELLPADDING=0 WIDTH=300>
+              <TR VALIGN=TOP ALIGN=LEFT> 
+                <TD WIDTH=15 HEIGHT=5><IMG SRC="../../../clearpixel.gif" WIDTH=15 HEIGHT=1 BORDER=0></TD>
+                <TD></TD>
+              </TR>
+              <TR VALIGN=TOP ALIGN=LEFT> 
+                <TD HEIGHT=80></TD>
+                <TD WIDTH=600 ALIGN=LEFT VALIGN=TOP><IMG ID="Picture14" HEIGHT=80 WIDTH=600 SRC="../../bnr_devspace.gif" BORDER=0></TD>
+              </TR>
+              <TR VALIGN=TOP ALIGN=LEFT> 
+                <TD HEIGHT=368></TD>
+                <TD WIDTH=600 ALIGN=LEFT VALIGN=TOP height="368"> 
+                  <table width="100%" border="0">
+                    <tr> 
+                      <td colspan="4" height="9"><img SRC="../../../clearpixel.gif" width="1" height="1"></td>
+                    </tr>
+                    <tr> 
+                      <td width="1" height="326">&nbsp;</td>
+                      <td valign="top" height="326"><!-- #BeginEditable "main" --> 
+                        <p><font size="4" face="Verdana, Arial, Helvetica, sans-serif"><b>Integration 
+                          SDK 4.10c Errata</b></font><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><br>
+                          </font> <i><b><font face="Verdana, Arial, Helvetica, sans-serif" size="2">Fixes 
+                          affecting users of the ScriptEase ISDKs</font></b></i> 
+                        </p>
+                        <p> 
+                        <ul>
+                          <li><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><a href="#candjava">4.10c, 
+                            both ISDK/C and ISDK/Java</a> - latest update: September 
+                            29, 2000</font> <font face="Verdana, Arial, Helvetica, sans-serif" size="2"><br>
+                            </font>
+                        </ul>
+                        <hr width="100%" align="left" size="8">
+                        <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><a name="candjava"></a>&nbsp;&nbsp;For 
+                          Both ISDK/C and ISDK/Java, <b>version 4.10c</b></font></p>
+                        <ul>
+                          <li><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><a href="#410candjnullptrput">Null-pointer 
+                            exception when using _put on global variable </a> 
+                            </font>
+                          <li><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><a href="#410candjjavafptoken">Error 
+                            reading pre-compiled floating-points </a> </font>
+                          <li><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><a href="#410candjjavaparsenofunc">Functions 
+                            not callable after parsing error </a> </font>
+                          <li><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><a href="#candj7">Problems 
+                            executing pre-compiled code</a> </font>
+                          <li><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><a href="#candj6">incorrect 
+                            error message for wrong number of parameters</a> </font>
+                          <li><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><a href="#candj5">Invalid 
+                            line numbers or breakpoints</a> </font>
+                          <li><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><a href="#candj4">Parsing 
+                            errors</a> </font>
+                          <li><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><a href="#candj3">ISDK 
+                            incrementing dynamic object</a> </font>
+                          <li><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><a href="#candj2">Using 
+                            "Delete" Operator</a> On Non-Reference Var </font>
+                          <li><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><a href="#candj1">Changing 
+                            The Global Object</a> </font>
+                        </ul>
+                        <hr size="8">
+                        <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><b>The 
+                          Details</b> </font></p>
+                        <font size="2" face="Verdana, Arial, Helvetica, sans-serif">&nbsp; 
+                        </font> 
+                        <hr>
+                        <p><font size="2" face="Verdana, Arial, Helvetica, sans-serif"> 
+                          For <b>both</b> ISDK/C and ISDK/Java, version 4.10c</font></p>
+                        <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><a name="410candjnullptrput"></a></font></p>
+                        <ul>
+                          <li><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><b>Null-pointer 
+                            exception when using _put on global variable </b> 
+                            </font> 
+                            <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                              Bug: When trying to assign a value to a member of 
+                              an undefined variable, and there is an dynamic _put 
+                              method assigned to the global variable, a null-pointer 
+                              exception will be thrown. (SE:ISDK/Java 4.10c) </font>
+                            <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><b>Fix</b>: 
+                              In Operator.java at line 323 (in method do_op_structureMember), 
+                              remove the line which reads:</font></p>
+                            <blockquote> 
+                              <pre><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> orig.VAR_REMOVE_USER(call);</font></pre>
+                            </blockquote>
+                            <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                              and in Var.java at line 93 (in method GET_READABLE_VAR), 
+                              change this line:</font></p>
+                            <blockquote> 
+                              <pre><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> if ( membername==0 )</font></pre>
+                            </blockquote>
+                            <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                              to</font></p>
+                            <blockquote> 
+                              <pre><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> if ( VAR_HAS_DATA() )</font></pre>
+                            </blockquote>
+                        </ul>
+                        <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><a name="410candjjavafptoken"></a></font></p>
+                        <ul>
+                          <li><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><b>Error 
+                            reading pre-compiled floating-points </b> </font> 
+                            <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2">Bug: 
+                              In SE:ISDK/Java 4.10 floating-point values may not 
+                              be read correctly from pre-compiled bytecodes (i.e. 
+                              bytes created with jseCreateCodeTokenBuffer). </font>
+                            <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><b>Fix</b>: 
+                              In TokenDst.java method ReadNumber() change this 
+                              line<br>
+                              &nbsp;&nbsp;&nbsp;val = 256*val+buf.at(ByteCount-i-1);<br>
+                              to<br>
+                              &nbsp;&nbsp;&nbsp;val = ( val << 8 ) | (buf.at(ByteCount-i-1) 
+                              & 255); </font> 
+                        </ul>
+                        <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><a name="410candjjavaparsenofunc"></a></font></p>
+                        <ul>
+                          <li><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><b>ISDK/Java 
+                            parsing error leaves function in uncallable state 
+                            </b> </font> 
+                            <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2">Bug: 
+                              In SE:ISDK/Java 4.10 if there is a parsing error 
+                              while compiling a function that function is left 
+                              in an uncallable state. </font>
+                            <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><b>Fix</b>: 
+                              The following code change will remove the function 
+                              if compilation fails. In <i>FunctionParms.java</i>, 
+                              near the end of method <i>Delete()</i> change this 
+                              code: </font>
+                            <pre><font face="Verdana, Arial, Helvetica, sans-serif" size="2">   if ( !lfunc.ResolveVariableNames(pCall) )
+
+      pSuccessFlag[0] = false;
+
+</font></pre>
+                            <font face="Verdana, Arial, Helvetica, sans-serif" size="2">to 
+                            this: </font> 
+                            <pre><font face="Verdana, Arial, Helvetica, sans-serif" size="2">   if ( !lfunc.ResolveVariableNames(pCall) )
+
+   {
+
+      // function failed; so delete the variable that is this function
+
+      VarRead funcVar = VarUtil.GetDotNamedVar(call,
+
+               call.session.GlobalVariable,
+
+               call.GetStringTableEntry(GetName()),
+
+               true);
+
+      funcVar.VAR_REMOVE_USER(call);
+
+      pSuccessFlag[0] = false;
+
+   }
+
+</font></pre>
+                        </ul>
+                        <p> 
+                        <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><a name="candj7"></a></font></p>
+                        <ul>
+                          <li><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><b>Problems 
+                            executing pre-compiled code </b> </font> 
+                            <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2">Problem: 
+                              When executing pre-compiled code, some scripts will 
+                              run incorrectly or hang. </font>
+                            <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><b>Fix</b>: 
+                              in SECODE.JAVA change this line: </font>
+                            <pre><font face="Verdana, Arial, Helvetica, sans-serif" size="2">   int ag = AbsoluteGotoFromRelative(This.opcodes,
+
+                                     This.opcodes[idx]);
+
+</font></pre>
+                            <font face="Verdana, Arial, Helvetica, sans-serif" size="2">to 
+                            this: </font> 
+                            <pre><font face="Verdana, Arial, Helvetica, sans-serif" size="2">   int ag = AbsoluteGotoFromRelative(This.opcodes,
+
+                                     This.opcodes[idx+1]);
+
+</font></pre>
+                        </ul>
+                        <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><br>
+                          </font>
+                        <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><a name="candj6"></a></font></p>
+                        <ul>
+                          <li><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><b>incorrect 
+                            error message for wrong number of parameters</b> </font> 
+                            <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2">(ISDK/Java 
+                              4.10) <br>
+                              Problem: error message not printing correctly for 
+                              wrong number of parameters to a function. </font>
+                            <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><b>Fix</b>: 
+                              In srccore/Call.java, line 3474, add the method: 
+                              </font>
+                            <pre><font face="Verdana, Arial, Helvetica, sans-serif" size="2">     void Quit(String text,int num,String text2)
+
+     {
+
+        Error(text,num,text2);
+
+     }
+
+</font></pre>
+                            <font face="Verdana, Arial, Helvetica, sans-serif" size="2">In 
+                            srccore/LibraryFunction.java, line 115, changes to: 
+                            </font> 
+                            <pre><font face="Verdana, Arial, Helvetica, sans-serif" size="2">           call.Quit(TextCore.INVALID_PARAMETER_COUNT,
+
+                     VarCount,GetName(call));
+
+</font></pre>
+                            <font face="Verdana, Arial, Helvetica, sans-serif" size="2">(This 
+                            is approximately the 4th line in the Execute() method.) 
+                            </font>
+                        </ul>
+                        <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><br>
+                          </font>
+                        <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><a name="candj5"></a><br>
+                          </font></p>
+                        <ul>
+                          <li><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><b>Invalid 
+                            line numbers or breakpoints</b> </font> 
+                            <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2">(for 
+                              ISDK/Java 4.10c) <br>
+                              Error: When interpreting from source text (instead 
+                              of from file) the text in the first line is ignored. 
+                              This can manifest as line numbers being invalid, 
+                              breakpoints being off, or the script just acting 
+                              wacky. </font>
+                            <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2">Fix: 
+                              In the file Source.java, method "Source(Source PrevSB, 
+                              BytePtr SourceText)", delete these lines: </font>
+                            <pre><font face="Verdana, Arial, Helvetica, sans-serif" size="2">
+
+  if ( MemoryPtr.cursor > 0 ){
+
+     MemoryPtr.shift(-1).setCharAt(0,'\0') ;
+
+  }
+
+  /* start at line 1 not 0 */
+
+  pLine++;
+
+</font></pre>
+                            <font face="Verdana, Arial, Helvetica, sans-serif" size="2">and 
+                            replace these lines: </font> 
+                            <pre><font face="Verdana, Arial, Helvetica, sans-serif" size="2">
+
+  int len = CStringLib.strlen(SourceText)+1 ;
+
+  MemoryPtr = new BytePtr( len ) ;
+
+  CStringLib.strcpy(MemoryPtr,SourceText);
+
+</font></pre>
+                            <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2">with 
+                              these: </font>
+                            <pre><font face="Verdana, Arial, Helvetica, sans-serif" size="2">
+
+  int len = CStringLib.strlen(SourceText)+1+1/*beginning null*/ ;
+
+  MemoryPtr = new BytePtr( len ) ;
+
+  MemoryPtr.setCharAt(0,'\n');
+
+    /* always for first line to be read */
+
+  CStringLib.strcpy(MemoryPtr.plus(1),SourceText);
+
+</font></pre>
+                            <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><a name="candj4"></a><br>
+                              </font>
+                          <li><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><b>Parsing 
+                            errors</b> </font> 
+                            <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><b>Problem</b>: 
+                              Statements such as (SomeFunction)(); generate a 
+                              parsing error. </font>
+                            <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><b>Fix</b>: 
+                              In CODE.C function CompileFromText(), "case '('", 
+                              at about line 389, replace this statement: </font>
+                            <pre><font face="Verdana, Arial, Helvetica, sans-serif" size="2">
+
+   || EndFunctionCall == Type ) {
+
+</font></pre>
+                            <font face="Verdana, Arial, Helvetica, sans-serif" size="2">with 
+                            this statement: </font> 
+                            <pre><font face="Verdana, Arial, Helvetica, sans-serif" size="2">
+
+   || EndFunctionCall == Type
+
+   || EndEvaluationGroup == Type ) {
+
+</font></pre>
+                            <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2">The 
+                              fix is nearly identical in the <b>Java</b> version 
+                              of CODE.JAVA.</font></p>
+                            <font face="Verdana, Arial, Helvetica, sans-serif" size="2"><a name="candj3"></a> 
+                            </font>
+                          <li><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><b>ISDK 
+                            incrementing dynamic object</b> </font> 
+                            <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><b>Problem</b>: 
+                              Using the increment or decrement operators on a 
+                              property of a dynamic object (i.e., and object with 
+                              _get or _put methods) may result in the variable 
+                              being replaced by an undefined value. For instance, 
+                              this script: </font>
+                            <pre><font face="Verdana, Arial, Helvetica, sans-serif" size="2">
+
+var foo.x = 0;
+
+ printf("foo.x++ = " + foo.x++);
+
+ printf(" foo.x = " + foo.x);
+
+</font></pre>
+                            <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2">will 
+                              print "0 undefined" if foo._get() returns a newly-created, 
+                              temporary variable. </font>
+                            <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><b>Fix</b>:<br>
+                              in SE:ISDK/<b>C</b> -- </font>
+                            <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2">..is 
+                              in SECODE.C about 5 lines after the statement: </font>
+                            <pre><font face="Verdana, Arial, Helvetica, sans-serif" size="2">
+
+ case opPreDecrement:
+
+</font></pre>
+                            <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2">replace: 
+                              </font>
+                            <pre><font face="Verdana, Arial, Helvetica, sans-serif" size="2">
+
+if ( VNumber == lVar->varmem->data.vall.dataType )
+
+</font></pre>
+                            <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2">with: 
+                              </font>
+                            <pre><font face="Verdana, Arial, Helvetica, sans-serif" size="2">
+
+ if ( wVar == lVar /* no dynamic obj happening */
+
+ && VNumber == lVar->varmem->data.vall.dataType )
+
+</font></pre>
+                            <font face="Verdana, Arial, Helvetica, sans-serif" size="2">* 
+                            * * * * </font> 
+                            <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><b>Fix</b>: 
+                              <br>
+                              in SE:ISDK/<b>Java</b> 4.10c -- </font>
+                            <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2">The 
+                              replacement is similar. In secode.java: </font>
+                            <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2">replace: 
+                              </font>
+                            <pre><font face="Verdana, Arial, Helvetica, sans-serif" size="2">
+
+ if ( VNumber == lVar.varmem.dataType )
+
+ </font></pre>
+                            <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2">with: 
+                              </font>
+                            <pre><font face="Verdana, Arial, Helvetica, sans-serif" size="2">
+
+ if ( wVar == lVar /* no dynamic obj */
+
+ && VNumber == lVar.varmem.dataType )
+
+</font></pre>
+                            <font face="Verdana, Arial, Helvetica, sans-serif" size="2"><a name="candj2"></a> 
+                            </font>
+                          <li><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><b>Using 
+                            "Delete" Operator On Non-Reference Var</b> </font> 
+                            <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><b>Problem</b>: 
+                              the "delete" operator used on a non-reference variable 
+                              (e.g. "delete 0", "delete global") will crash the 
+                              engine. </font>
+                            <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><b>Fix</b>: 
+                              <br>
+                              for ISDK/<b>C</b> -- </font>
+                            <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                              In the do_op_delete() function of OPERATOR.C, after 
+                              reporting the message BAD_DELETE_VAR replace this 
+                              line: </font>
+                            <pre><font face="Verdana, Arial, Helvetica, sans-serif" size="2">
+
+ return NULL;
+
+</font></pre>
+                            <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2">with 
+                              this: </font>
+                            <pre><font face="Verdana, Arial, Helvetica, sans-serif" size="2">
+
+ return constructVarRead(call,VBoolean);
+
+</font></pre>
+                            <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><b>Fix</b>: 
+                              <br>
+                              for ISDK/<b>Java</b> -- </font>
+                            <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2">In 
+                              the do_op_delete() method of Operator.java, after 
+                              reporting the message BAD_DELETE_VAR, replace this 
+                              line: </font>
+                            <pre><font face="Verdana, Arial, Helvetica, sans-serif" size="2">
+
+ return null;
+
+</font></pre>
+                            <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2">with 
+                              this: </font>
+                            <pre><font face="Verdana, Arial, Helvetica, sans-serif" size="2">
+
+return Var.constructVarRead(call,VBoolean);
+
+</font></pre>
+                            <font face="Verdana, Arial, Helvetica, sans-serif" size="2"><a name="candj1"></a> 
+                            </font>
+                          <li><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><b>Changing 
+                            The Global Object</b> </font> 
+                            <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2">(In 
+                              v4.10c for both ISDK/<b>C</b> and ISDK/<b>Java</b>) 
+                              </font>
+                            <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2">Problem: 
+                              user can change the global object from a script, 
+                              rendering the entire script object tree invalid 
+                              and inevitably leading to a crash. For example, 
+                              this script, with "global" being the name of the 
+                              global object, will crash the interpreter, probably 
+                              in cleanup: </font>
+                            <pre><font face="Verdana, Arial, Helvetica, sans-serif" size="2">
+
+global = 4;
+
+</font></pre>
+                            <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2">The 
+                              solution is to make the global object a Read-Only 
+                              variable. This can be fixed from within your application, 
+                              after jseInitializeExternalLink(), by setting the 
+                              read-only attribute on for the global object. </font>
+                            <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2">Fix: 
+                              in the core engine for ISDK/<b>C</b>: </font>
+                            <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2">In 
+                              the NewGlobalVariable() function in UTIL.C add the 
+                              following statement after "varAddUser(newGlobalVariable);" 
+                              </font>
+                            <pre><font face="Verdana, Arial, Helvetica, sans-serif" size="2">
+
+varSetAttributes(newGlobalVariable,jseReadOnly);
+
+</font></pre>
+                            <font face="Verdana, Arial, Helvetica, sans-serif" size="2">= 
+                            = = = = = = </font> 
+                            <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2">Fix: 
+                              in the core engine for ISDK/<b>Java</b> </font>
+                            <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2">In 
+                              the NewGlobalVariable() method of Call.java, add 
+                              the following statement after "newGlobalVariable.SetLvalue(true);" 
+                              </font>
+                            <pre><font face="Verdana, Arial, Helvetica, sans-serif" size="2">
+
+ newGlobalVariable.SetAttributes(jseReadOnly);
+
+</font></pre>
+                            <p>&nbsp;</p>
+                        </ul>
+                        <!-- #EndEditable --></td>
+                    </tr>
+                    <tr> 
+                      <td width="1">&nbsp;</td>
+                      <td width="460">&nbsp;</td>
+                    </tr>
+                  </table>
+                  </TD>
+              </TR>
+            </TABLE>
+          </TD>
+        </TR>
+      </TABLE>
+    </TD>
+  </TR>
+  <TR VALIGN=TOP ALIGN=LEFT> 
+    <TD HEIGHT=2 width="5"></TD>
+    <TD COLSPAN=2 height="2"> 
+            <TABLE BORDER=0 CELLSPACING=0 CELLPADDING=0 WIDTH=100% HEIGHT=20 bgcolor="#FFFFFF">
+              <TR ALIGN=LEFT VALIGN=TOP> 
+          <TD> 
+                  <TABLE BORDER=0 CELLSPACING=0 CELLPADDING=0 WIDTH=100%>
+                    <TR VALIGN=TOP ALIGN=LEFT> 
+                <TD WIDTH=20 HEIGHT=2 ALIGN=LEFT VALIGN=TOP><IMG ID="Picture13" HEIGHT=20 WIDTH=20 SRC="../../../curve_botleft.gif" BORDER=0></TD>
+                      <TD height="2"><IMG SRC="../../../clearpixel.gif" WIDTH=592 HEIGHT=1 BORDER=0></TD>
+                <TD WIDTH=20 ALIGN=LEFT VALIGN=TOP height="2"><IMG ID="Picture11" HEIGHT=20 WIDTH=20 SRC="../../../curve_bot.gif" BORDER=0></TD>
+              </TR>
+            </TABLE>
+          </TD>
+        </TR>
+      </TABLE>
+    </TD>
+  </TR>
+  <TR VALIGN=TOP ALIGN=LEFT> 
+    <TD WIDTH=5 HEIGHT=6><IMG SRC="../../../clearpixel.gif" WIDTH=5 HEIGHT=1 BORDER=0></TD>
+    <TD WIDTH=613><IMG SRC="../../../clearpixel.gif" WIDTH=613 HEIGHT=1 BORDER=0></TD>
+    <TD WIDTH=22><IMG SRC="../../../clearpixel.gif" WIDTH=19 HEIGHT=1 BORDER=0></TD>
+  </TR>
+  <TR VALIGN=TOP ALIGN=LEFT> 
+    <TD COLSPAN=2> 
+            <P ALIGN=RIGHT><A HREF="../../../index.htm"><FONT COLOR="#FFFFFF" SIZE="-2" FACE="Verdana,Tahoma,Arial,Helvetica">Home</FONT></A><FONT COLOR="#FFFFFF" SIZE="-2" FACE="Verdana,Tahoma,Arial,Helvetica"> 
+              | </FONT><A
+                 HREF="../../../scripting/scripting.htm"><FONT COLOR="#FFFFFF" SIZE="-2" FACE="Verdana,Tahoma,Arial,Helvetica">Scripting</FONT></A><FONT COLOR="#FFFFFF" SIZE="-2" FACE="Verdana,Tahoma,Arial,Helvetica"> 
+              | </FONT><A
+                 HREF="../../../products/products.htm"><FONT COLOR="#FFFFFF" SIZE="-2" FACE="Verdana,Tahoma,Arial,Helvetica">Products</FONT></A><FONT COLOR="#FFFFFF" SIZE="-2" FACE="Verdana,Tahoma,Arial,Helvetica"> 
+              | </FONT><A
+                 HREF="../../../purchase/purchase.htm"><FONT COLOR="#FFFFFF" SIZE="-2" FACE="Verdana,Tahoma,Arial,Helvetica">Purchase</FONT></A><FONT COLOR="#FFFFFF" SIZE="-2" FACE="Verdana,Tahoma,Arial,Helvetica"> 
+              | </FONT><A
+                 HREF="../../../download/ndownload.htm"><FONT COLOR="#FFFFFF" SIZE="-2" FACE="Verdana,Tahoma,Arial,Helvetica">Download</FONT></A><FONT COLOR="#FFFFFF" SIZE="-2" FACE="Verdana,Tahoma,Arial,Helvetica"> 
+              | </FONT><A
+                 target="support" HREF="http://support.nombas.com/"><FONT COLOR="#FFFFFF" SIZE="-2" FACE="Verdana,Tahoma,Arial,Helvetica">Support</FONT></A><FONT COLOR="#FFFFFF" SIZE="-2" FACE="Verdana,Tahoma,Arial,Helvetica"> 
+              | </FONT><A HREF="../../../company/company.htm"> <FONT COLOR="#FFFFFF" SIZE="-2" FACE="Verdana,Tahoma,Arial,Helvetica">Company</FONT></A><FONT COLOR="#FFFFFF" SIZE="-2" FACE="Verdana,Tahoma,Arial,Helvetica"><BR>
+        <BR>
+        Copyright &#169;2001, Nombas, Inc. All Rights Reserved.<BR>
+        Questions? Visit </FONT><A HREF="http://support.nombas.com/"><FONT COLOR="#FFFFFF" SIZE="-2" FACE="Verdana,Tahoma,Arial,Helvetica">http://support.nombas.com/</FONT></A> 
+    </TD>
+    <TD width="22"></TD>
+  </TR>
+</TABLE>
+</td>
+  </tr>
+</table>
+<SCRIPT language=JavaScript1.2>
+  display_nombas_legacy_message();
+</SCRIPT>
+</BODY>
+<!-- #EndTemplate --></HTML>

@@ -1,0 +1,77 @@
+<html>
+<head>
+<title>GD getPixel()</title>
+<link rel="stylesheet" href="semanualstyles.css" type="text/css">
+<style type="text/css">
+ p { margin-top: 0; margin-bottom: 0; }
+</style>
+<script language="JavaScript" src="TrueHelp.js"></script>
+</head>
+<body onload="thload()">
+<div id=ienav>
+<ilayer id=nsnav>
+<br>
+<center>
+<p class=normal><a href="seisdkc-toc.htm" target="left">contents</a> &nbsp; <a href="seisdkc-index.htm" target="left">index</a> &nbsp; <a href="TH_1043.htm">previous</a> &nbsp; <a href="TH_1045.htm">next</a></p>
+</center>
+<br>
+<hr noshade size=1>
+</ilayer>
+</div>
+<p class=sereffunclevel4>GD getPixel()</p>
+<table cellpadding=0>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>syntax:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=sesyntax>gd.getPixel(<span class=truehelp-xe></span>x,&nbsp;y)</p>
+<p class=sesyntax>gd.getPixel(point)</p></td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>where:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>x - horizontal position of pixel, measured from left</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>y - vertical position of pixel, measured from top</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>point - A point specification.</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>return:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>number - a color index indicating the color at the selected pixel.</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>description:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>This method accesses the pixel at position (<span class=secodephrase>x</span>, <span class=secodephrase>y</span>), and returns the color of that pixel.  If the pixel coordinates are out of bounds, then zero is returned.</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>see:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara><span class=secodephrase>#link &lt;gd&gt;</span>, <span class=sejumptopic><a href="TH_1054.htm">GD SetPixel()</a></span></p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>example:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=secodelines>var&nbsp;gd&nbsp;=&nbsp;GD.fromGif("test.gif");</p>
+<p class=secodelines>gd.getPixel(0,0);</p>
+<p class=secodelines>gd.getPixel(&nbsp;[0,0]&nbsp;);</p>
+<p class=secodelines>gd.getPixel(&nbsp;{x:0,y:0}&nbsp;);</p></td>
+</tr>
+</table>
+<p class=normal>&nbsp;</p>
+<hr noshade size=1>
+<p class=normal><a href="TH_1045.htm"><img src="button.png" border=0></a><a href="TH_1045.htm" style="text-decoration:none;">GD getTransparent()</a></p>
+<p>
+</body>
+</html>

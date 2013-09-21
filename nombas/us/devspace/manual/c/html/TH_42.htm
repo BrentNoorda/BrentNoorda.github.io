@@ -1,0 +1,97 @@
+<html>
+<head>
+<title>seGetAttribs</title>
+<link rel="stylesheet" href="semanualstyles.css" type="text/css">
+<style type="text/css">
+ p { margin-top: 0; margin-bottom: 0; }
+</style>
+<script language="JavaScript" src="TrueHelp.js"></script>
+</head>
+<body onload="thload()">
+<div id=ienav>
+<ilayer id=nsnav>
+<br>
+<center>
+<p class=normal><a href="seisdkc-toc.htm" target="left">contents</a> &nbsp; <a href="seisdkc-index.htm" target="left">index</a> &nbsp; <a href="TH_41.htm">previous</a> &nbsp; <a href="TH_43.htm">next</a></p>
+</center>
+<br>
+<hr noshade size=1>
+</ilayer>
+</div>
+<p class=sereffunclevel3>seGetAttribs</p>
+<p class=sereffunclevel3-p>&nbsp;</p>
+<table cellpadding=0>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>syntax:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=sesyntax>&nbsp;&nbsp;&nbsp;seAttributes</p>
+<p class=sesyntax>seGetAttribs(secontext,seobject&nbsp;object,</p>
+<p class=sesyntax>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;semember&nbsp;member);</p></td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>where:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara><span class=secodephrase>se</span> the context the member is in</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara><span class=secodephrase>object</span> the Object half of an Object,Member pair</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara><span class=secodephrase>member</span> the Member half of an Object,Member pair</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>return:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>The attributes of the member</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>description:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>This function gets a member's attributes. The attributes a member has can be one or more of the following flags, <span class=secodephrase>|</span>'d togethor:</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara><span class=secodephrase>SE_DEFAULT</span></p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>No special attributes </p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara><span class=secodephrase>SE_DONTENUM</span></p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>The member is not enumerated when the <span class=secodephrase>for..in</span> statement is used on this object.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara><span class=secodephrase>SE_DONTDELETE</span></p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>Using the <span class=secodephrase>delete</span> operator on this member is ignored.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara><span class=secodephrase>SE_READONLY</span></p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>Attempts to write to the member are ignored.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara><span class=secodephrase>SE_IMPLICIT_THIS</span></p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>Only objects can have this attribute, it has no meaning for a non-object member. When the object is called as a function, the <span class=secodephrase>this</span> variable is added to the function's scope chain. See the <span class=sejumptopic><a href="TH_246.htm">SCOPING</a></span> section for more information.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara><span class=secodephrase>SE_IMPLICIT_THIS</span></p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>Only objects can have this attribute, it has no meaning for a non-object member. When the object is called as a function, the <span class=secodephrase>this</span> variable's parents are added to the function's scope chain. See the <span class=sejumptopic><a href="TH_246.htm">SCOPING</a></span> section for more information.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara><span class=secodephrase>SE_DYNA_UNDEF</span></p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>Only objects can have this attribute, it has no meaning for a non-object member. Dynamic callbacks of the object are only invoked if the object does not have the member being worked on in its internal store. See <span class=sejumptopic><a href="TH_282.htm">DYNAMIC OBJECTS</a></span> for more information.</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>see:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara><span class=sepopuptopic><a href="TH_67.htm" onClick="return thwindow('TH_67.htm', 'GenPopup')">seSetAttribs</a></span></p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+</table>
+<hr noshade size=1>
+<p class=normal><a href="TH_43.htm"><img src="button.png" border=0></a><a href="TH_43.htm" style="text-decoration:none;">seCompare</a></p>
+<p>
+</body>
+</html>

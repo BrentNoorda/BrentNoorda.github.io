@@ -1,0 +1,145 @@
+<html>
+<head>
+<title>SElib.directory()</title>
+<link rel="stylesheet" href="semanualstyles.css" type="text/css">
+<style type="text/css">
+ p { margin-top: 0; margin-bottom: 0; }
+</style>
+<script language="JavaScript" src="TrueHelp.js"></script>
+</head>
+<body onload="thload()">
+<div id=ienav>
+<ilayer id=nsnav>
+<br>
+<center>
+<p class=normal><a href="seisdkc-toc.htm" target="left">contents</a> &nbsp; <a href="seisdkc-index.htm" target="left">index</a> &nbsp; <a href="TH_928.htm">previous</a> &nbsp; <a href="TH_930.htm">next</a></p>
+</center>
+<br>
+<hr noshade size=1>
+</ilayer>
+</div>
+<p class=sereffunclevel4>SElib.directory()</p>
+<table cellpadding=0>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>syntax:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=sesyntax>SElib.directory([filespec[,&nbsp;subdirs[,</p>
+<p class=sesyntax>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;includeAttr[,&nbsp;requireAttr]]]])</p></td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>where:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>filespec - string specification for files to find. The specification must be consistent with the operating system being used and may include wildcard characters. A file specification may include path specifications, both full and partial.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>subdirs - a boolean as to whether or not to include subdirectories in file search. The default is <span class=secodephrase>false</span>, which limits the search for filespec to the current directory.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>includeAttr - specify the file attributes to include in the file search. Only files with one of the attributes specified will be included in the array of file names and information retrieved. Attribute flags that do not apply to an operating system are ignored. If includeAttr is 0, only files with no attributes are included. The default value is:</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=secodelinesindented>FATTR_RDONLY|FATTR_SUBDIR|</p>
+<p class=secodelinesindented>FATTR_ARCHIVE|FATTR_NORMAL</p>
+<p class=secodelinesindented>&nbsp;</p>
+<p class=senormalpara>File attributes are set using the following values:</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=secodelinesindented>FATTR_RDONLY&nbsp;&nbsp;&nbsp;Read-only&nbsp;file</p>
+<p class=secodelinesindented>FATTR_HIDDEN&nbsp;&nbsp;&nbsp;Hidden&nbsp;file</p>
+<p class=secodelinesindented>FATTR_SYSTEM&nbsp;&nbsp;&nbsp;System&nbsp;file</p>
+<p class=secodelinesindented>FATTR_SUBDIR&nbsp;&nbsp;&nbsp;Directory</p>
+<p class=secodelinesindented>FATTR_ARCHIVE&nbsp;&nbsp;Archive&nbsp;file</p>
+<p class=secodelinesindented>&nbsp;</p>
+<p class=senormalpara>More than one file attribute can be specified by using the bitwise or operator, "|". For example, to find files with the hidden or system attributes set, use the following expression: </p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=secodelinesindented>FATTR_HIDDEN&nbsp;|&nbsp;FATTR_SYSTEM</p>
+<p class=secodelinesindented>&nbsp;</p>
+<p class=senormalpara>A file attribute may be excluded from array of files returned by using the bitwise not operator, "~". For example, to exclude subdirectories, use the following expression:</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=secodelinesindented>~FATTR_SUBDIR</p>
+<p class=secodelinesindented>&nbsp;</p>
+<p class=senormalpara>requireAttr - specify attributes that files are required to have to be included in the array of file names and information retrieved. Files must have at least these attributes. The difference between the two file attributes specifications is that files must have at least one of the attributes specified by includeAttr but must have all the attributes specified by requireAttr. The default value is 0.</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>return:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>array - an array of objects with information about the file names retrieved. If no files or directories match the specifications of the parameters, a <span class=secodephrase>null</span> is returned. Each element of the array has the following properties:</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=secodelinesindented>.name&nbsp;&nbsp;&nbsp;&nbsp;Full&nbsp;file&nbsp;name,&nbsp;including&nbsp;filespec&nbsp;path.</p>
+<p class=secodelinesindented>.attrib&nbsp;&nbsp;File&nbsp;flags,&nbsp;as&nbsp;defined&nbsp;in&nbsp;IncAttr,&nbsp;number.</p>
+<p class=secodelinesindented>.size&nbsp;&nbsp;&nbsp;&nbsp;Size&nbsp;of&nbsp;file,&nbsp;number&nbsp;in&nbsp;bytes,&nbsp;number.</p>
+<p class=secodelinesindented>.access&nbsp;&nbsp;Date&nbsp;and&nbsp;time&nbsp;of&nbsp;last&nbsp;file&nbsp;access,&nbsp;number.</p>
+<p class=secodelinesindented>.write&nbsp;&nbsp;&nbsp;Date&nbsp;and&nbsp;time&nbsp;of&nbsp;last&nbsp;write,&nbsp;number.</p>
+<p class=secodelinesindented>.create&nbsp;&nbsp;Date&nbsp;and&nbsp;time&nbsp;of&nbsp;file&nbsp;creation,&nbsp;number.</p>
+<p class=secodelinesindented>&nbsp;</p>
+<p class=senormalpara>For example, if you use the following line of code:</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=secodelinesindented>var&nbsp;FileList&nbsp;=&nbsp;SElib.directory("*.*");</p>
+<p class=secodelinesindented>&nbsp;</p>
+<p class=senormalpara>The information for the first file retrieved is accessed using:</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=secodelinesindented>FileList[0].name</p>
+<p class=secodelinesindented>FileList[0].attrib</p>
+<p class=secodelinesindented>FileList[0].size</p>
+<p class=secodelinesindented>FileList[0].access</p>
+<p class=secodelinesindented>FileList[0].write</p>
+<p class=secodelinesindented>FileList[0].create</p>
+<p class=secodelinesindented>&nbsp;</p>
+<p class=senormalpara>The information for the second file is accessed using:</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=secodelinesindented>FileList[1].name</p>
+<p class=secodelinesindented>...</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>description:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>Find files in a directory</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara> or subtree that match path and file specifications and have specified file attributes set. Remember the directory names are treated like file names and have the <span class=secodephrase>FATTR_SUBDIR</span> attribute set. Matching files and information about them are retrieved and returned in an array of objects. These objects are also structures.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>This method may be used in many ways. One way, besides the obvious way of getting information about files, is to test for the existence of a file or file specification. If the file specified does not exist, the return is <span class=secodephrase>null</span>. </p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>see:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara><span class=sejumptopic><a href="TH_931.htm">SElib.fullpath()</a></span>, <span class=sejumptopic><a href="TH_946.htm">SElib.splitFilename()</a></span>, File object in <i>fileobj.jsh</i> </p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>example:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=secodelines>&nbsp;&nbsp;&nbsp;//&nbsp;The&nbsp;following&nbsp;routine&nbsp;lists</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;//&nbsp;all&nbsp;files&nbsp;matching&nbsp;FileSpec,</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;//&nbsp;except&nbsp;subdirectory&nbsp;entries,</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;//&nbsp;in&nbsp;the&nbsp;current&nbsp;directory&nbsp;of&nbsp;a&nbsp;script.</p>
+<p class=secodelines>function&nbsp;ListDirectory(FileSpec)</p>
+<p class=secodelines>{</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;var&nbsp;FileList&nbsp;=&nbsp;SElib.directory(FileSpec,&nbsp;False,</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;~FATTR_SUBDIR)</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;if&nbsp;(null&nbsp;==&nbsp;FileList)</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Clib.printf(</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"No&nbsp;files&nbsp;found&nbsp;for&nbsp;search&nbsp;spec&nbsp;\"%s\".\n",</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;FileSpec)</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;else</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;{</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;var&nbsp;FileCount&nbsp;=&nbsp;getArrayLength(FileList);</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;for&nbsp;(var&nbsp;i&nbsp;=&nbsp;0;&nbsp;i&nbsp;&lt;&nbsp;FileCount;&nbsp;i++)</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Clib.printf(</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"%s\tsize&nbsp;=&nbsp;%d\tCreate&nbsp;date/time&nbsp;=&nbsp;%s\n",</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;FileList[i].name,&nbsp;FileList[i].size,</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Clib.ctime(FileList[i].Create));</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;}</p>
+<p class=secodelines>}</p></td>
+</tr>
+</table>
+<p class=normal>&nbsp;</p>
+<hr noshade size=1>
+<p class=normal><a href="TH_930.htm"><img src="button.png" border=0></a><a href="TH_930.htm" style="text-decoration:none;">SElib.doWindows()</a></p>
+<p>
+</body>
+</html>

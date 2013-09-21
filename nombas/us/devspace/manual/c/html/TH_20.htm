@@ -1,0 +1,73 @@
+<html>
+<head>
+<title>seGetInternalString</title>
+<link rel="stylesheet" href="semanualstyles.css" type="text/css">
+<style type="text/css">
+ p { margin-top: 0; margin-bottom: 0; }
+</style>
+<script language="JavaScript" src="TrueHelp.js"></script>
+</head>
+<body onload="thload()">
+<div id=ienav>
+<ilayer id=nsnav>
+<br>
+<center>
+<p class=normal><a href="seisdkc-toc.htm" target="left">contents</a> &nbsp; <a href="seisdkc-index.htm" target="left">index</a> &nbsp; <a href="TH_19.htm">previous</a> &nbsp; <a href="TH_21.htm">next</a></p>
+</center>
+<br>
+<hr noshade size=1>
+</ilayer>
+</div>
+<p class=sereffunclevel3>seGetInternalString</p>
+<p class=sereffunclevel3-p>&nbsp;</p>
+<table cellpadding=0>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>syntax:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=sesyntax>&nbsp;&nbsp;&nbsp;seconstcharptr</p>
+<p class=sesyntax>seGetInternalString(secontext&nbsp;se,</p>
+<p class=sesyntax>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;sestring&nbsp;str,</p>
+<p class=sesyntax>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;sememcount&nbsp;*len);</p></td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>where:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara><span class=secodephrase>se</span> the context the string is part of</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara><span class=secodephrase>str</span> the <span class=secodephrase>sestring</span> to get the text of</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara><span class=secodephrase>len</span> an output parameter filled in with the length of the string's text in characters (len may be <span class=secodephrase>NULL</span>)</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>return:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>The text of the string</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>description:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>Retrieves the text of a member described by an <span class=secodephrase>sestring</span>. The <span class=secodephrase>len</span> parameter (if not NULL) is filled in with the length of the returned string in characters. The value returned by this call follows the same lifetime rules as <span class=sepopuptopic><a href="TH_30.htm" onClick="return thwindow('TH_30.htm', 'GenPopup')">seGetString</a></span>, and the string returned by seGetInternalString may in all other ways be treated as one returned by <span class=sepopuptopic><a href="TH_30.htm" onClick="return thwindow('TH_30.htm', 'GenPopup')">seGetString</a></span>.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>Note: Prior to the se501a release, the value returned by this call could be stored in a temporary location and was only guaranteed to be valid until the next call into the script-engine API.  This older behavior may be defining SE_GETINTERNALSTRING_NO_LIFETIME in your jseopt.h file.</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>see:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara><span class=sepopuptopic><a href="TH_16.htm" onClick="return thwindow('TH_16.htm', 'GenPopup')">seInternalizeString</a></span>, <span class=sepopuptopic><a href="TH_17.htm" onClick="return thwindow('TH_17.htm', 'GenPopup')">seInternalizeStringHidden</a></span>,<span class=sepopuptopic><a href="TH_18.htm" onClick="return thwindow('TH_18.htm', 'GenPopup')">seCloneInternalString</a></span>, <span class=sepopuptopic><a href="TH_19.htm" onClick="return thwindow('TH_19.htm', 'GenPopup')">seFreeInternalString</a></span>, <span class=sepopuptopic><a href="TH_30.htm" onClick="return thwindow('TH_30.htm', 'GenPopup')">seGetString</a></span>, <span class=sepopuptopic><a href="TH_33.htm" onClick="return thwindow('TH_33.htm', 'GenPopup')">seFreeString</a></span></p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+</table>
+<p class=normal>&nbsp;</p>
+<hr noshade size=1>
+<p class=normal><a href="TH_21.htm"><img src="button.png" border=0></a><a href="TH_21.htm" style="text-decoration:none;">VARIABLE READING</a></p>
+<p>
+</body>
+</html>

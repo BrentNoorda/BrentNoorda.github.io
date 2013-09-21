@@ -1,0 +1,144 @@
+<html>
+<head>
+<title>Assignment arithmetic</title>
+<link rel="stylesheet" href="semanualstyles.css" type="text/css">
+<style type="text/css">
+ p { margin-top: 0; margin-bottom: 0; }
+</style>
+<script language="JavaScript" src="TrueHelp.js"></script>
+</head>
+<body onload="thload()">
+<div id=ienav>
+<ilayer id=nsnav>
+<br>
+<center>
+<p class=normal><a href="seisdkc-toc.htm" target="left">contents</a> &nbsp; <a href="seisdkc-index.htm" target="left">index</a> &nbsp; <a href="TH_456.htm">previous</a> &nbsp; <a href="TH_458.htm">next</a></p>
+</center>
+<br>
+<hr noshade size=1>
+</ilayer>
+</div>
+<p class=heading-4>Assignment arithmetic</p>
+<p class=senormalpara>Each of the above operators can be combined with the assignment operator, =, as a shortcut for performing operations. Such assignments use the value to the right of the assignment operator to perform an operation with the value to the left. The result of the operation is then assigned to the value on the left.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<table cellpadding=0>
+<tr>
+<td valign=top style="width: 1.16875in">
+<p class=normal><span class=secodephrase>=</span></p></td>
+<td valign=top style="width: 1.68819in">
+<p class=normal>assignment</p></td>
+<td valign=top style="width: 2.21806in">
+<p class=normal>assigns a value to a variable</p></td>
+</tr>
+<tr>
+<td valign=top style="width: 1.16875in">
+<p class=normal><span class=secodephrase>+=</span></p></td>
+<td valign=top style="width: 1.68819in">
+<p class=normal>assign addition</p></td>
+<td valign=top style="width: 2.21806in">
+<p class=normal>adds a value to a variable</p></td>
+</tr>
+<tr>
+<td valign=top style="width: 1.16875in">
+<p class=normal><span class=secodephrase>-=</span></p></td>
+<td valign=top style="width: 1.68819in">
+<p class=normal>assign subtraction</p></td>
+<td valign=top style="width: 2.21806in">
+<p class=normal>subtracts a value from a variable</p></td>
+</tr>
+<tr>
+<td valign=top style="width: 1.16875in">
+<p class=normal><span class=secodephrase>*=</span></p></td>
+<td valign=top style="width: 1.68819in">
+<p class=normal>assign multiplication</p></td>
+<td valign=top style="width: 2.21806in">
+<p class=normal>multiplies a variable by a value</p></td>
+</tr>
+<tr>
+<td valign=top style="width: 1.16875in">
+<p class=normal><span class=secodephrase>/=</span></p></td>
+<td valign=top style="width: 1.68819in">
+<p class=normal>assign division</p></td>
+<td valign=top style="width: 2.21806in">
+<p class=normal>divides a variable by a value</p></td>
+</tr>
+<tr>
+<td valign=top style="width: 1.16875in">
+<p class=normal><span class=secodephrase>%=</span></p></td>
+<td valign=top style="width: 1.68819in">
+<p class=normal>assign remainder</p></td>
+<td valign=top style="width: 2.21806in">
+<p class=normal>returns a remainder after division</p></td>
+</tr>
+</table>
+<p class=secodelinesindented>&nbsp;</p>
+<p class=senormalpara>The following lines are examples using assignment arithmetic.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<table cellpadding=0>
+<tr>
+<td valign=top style="width: 1.16875in">
+<p class=normal><span class=secodephrase>var i;</span></p></td>
+</td>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 1.16875in">
+<p class=normal><span class=secodephrase>i  = 2;</span></p></td>
+<td valign=top style="width: 1.68819in">
+<p class=normal>i is now  2</p></td>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 1.16875in">
+<p class=normal><span class=secodephrase>i += 3;</span></p></td>
+<td valign=top style="width: 1.68819in">
+<p class=normal>i is now  5, (<span class=secodephrase>2+3</span>)</p></td>
+<td valign=top style="width: 2.21806in">
+<p class=normal>same as <span class=secodephrase>i = i + 3</span></p></td>
+</tr>
+<tr>
+<td valign=top style="width: 1.16875in">
+<p class=normal><span class=secodephrase>i -= 3;</span></p></td>
+<td valign=top style="width: 1.68819in">
+<p class=normal>i is now  2, (<span class=secodephrase>5-3</span>) </p></td>
+<td valign=top style="width: 2.21806in">
+<p class=normal>same as <span class=secodephrase>i = i - 3</span></p></td>
+</tr>
+<tr>
+<td valign=top style="width: 1.16875in">
+<p class=normal><span class=secodephrase>i *= 5;</span></p></td>
+<td valign=top style="width: 1.68819in">
+<p class=normal>i is now 10, (<span class=secodephrase>2*5</span>)</p></td>
+<td valign=top style="width: 2.21806in">
+<p class=normal>same as <span class=secodephrase>i = i * 5</span></p></td>
+</tr>
+<tr>
+<td valign=top style="width: 1.16875in">
+<p class=normal><span class=secodephrase>i /= 3;</span></p></td>
+<td valign=top style="width: 1.68819in">
+<p class=normal>i is now  3, (<span class=secodephrase>10/3</span>)</p></td>
+<td valign=top style="width: 2.21806in">
+<p class=normal>same as <span class=secodephrase>i = i / 3</span></p></td>
+</tr>
+<tr>
+<td valign=top style="width: 1.16875in">
+<p class=normal><span class=secodephrase>i  = 10;</span></p></td>
+<td valign=top style="width: 1.68819in">
+<p class=normal>i is now 10</p></td>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 1.16875in">
+<p class=normal><span class=secodephrase>i %= 3;</span></p></td>
+<td valign=top style="width: 1.68819in">
+<p class=normal>i is now  1, (<span class=secodephrase>10%3</span>)</p></td>
+<td valign=top style="width: 2.21806in">
+<p class=normal>same as <span class=secodephrase>i = i % 3</span></p></td>
+</tr>
+</table>
+<p class=secodelinesindented>&nbsp;</p>
+<hr noshade size=1>
+<p class=normal><a href="TH_458.htm"><img src="button.png" border=0></a><a href="TH_458.htm" style="text-decoration:none;">Auto-increment (++) and auto-decrement (--)</a></p>
+<p>
+</body>
+</html>

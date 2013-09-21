@@ -1,0 +1,262 @@
+ 
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 FINAL//EN">
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=ISO-8859-1">
+<TITLE>ScriptEase ISDK DevSpace Manuals</TITLE>
+<!-- begin metaTags -->
+<META NAME="keywords" CONTENT="javascript,ecmascript,ecma,scriptease,jscript,scripting,nombas,isdk,sedesk,web application development,embedded devices,distributed computing,peer-to-peer,p2p,peer,data mining,javascript.com,cycletraders,integrated sdk,script ease,java,c++,c,simplicity,power,palm,windows ce,integration: sdk,integration:sdk,scriptease:desktop,scriptease: desktop,se:desktop,se:desk,se:isdk, se: isdk,development tools,devtools">
+<META HTTP-EQUIV="DESCRIPTION" CONTENT="Nombas delivers simplicity and power through scripting by providing market-leading development tools and software for JavaScript and ECMAScript.">
+<!-- end metaTags -->
+<!-- begin navbar includes -->
+<SCRIPT language=JavaScript1.2>
+  navbarPath = '../../'; 
+</SCRIPT>
+<SCRIPT language=JavaScript1.2 SRC="../../navbarData.js"></SCRIPT>
+<SCRIPT language=JavaScript1.2 SRC="../../navbarMenu.js"></SCRIPT>
+<SCRIPT language=JavaScript SRC="../../imgRollover.js"></SCRIPT>
+<!-- end navbar includes -->
+<!-- begin style and icon definition -->
+<LINK REL="SHORTCUT ICON" HREF="../../nombas.ico">
+<STYLE> 
+A:hover { color:#941810;} 
+</STYLE>
+<!-- end style and icon definition -->
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-1754630-10']);
+  _gaq.push(['_trackPageview']);
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+</HEAD>
+<BODY BGCOLOR="#06086F" LINK="#0000FF" VLINK="#800080" TEXT="#000000" TOPMARGIN=0 LEFTMARGIN=0 MARGINWIDTH=0 MARGINHEIGHT=0>
+<TABLE BORDER=0 CELLSPACING=0 CELLPADDING=0 WIDTH=213>
+  <TR VALIGN=TOP ALIGN=LEFT> 
+    <TD WIDTH=28 HEIGHT=4><IMG SRC="../../clearpixel.gif" WIDTH=28 HEIGHT=1 BORDER=0></TD>
+    <TD></TD>
+  </TR>
+  <TR VALIGN=TOP ALIGN=LEFT> 
+    <TD HEIGHT=60></TD>
+    <TD WIDTH=185 ALIGN=LEFT VALIGN=TOP><A HREF="../../index.htm"><IMG ID="Picture1" HEIGHT=60 WIDTH=185 SRC="../../logo.gif" BORDER=0></A></TD>
+  </TR>
+</TABLE>
+    <div id="nombas-legacy"></div>
+<TABLE BORDER=0 CELLSPACING=0 CELLPADDING=0>
+  <TR VALIGN=TOP ALIGN=LEFT> 
+    <TD WIDTH=30 HEIGHT=10><IMG SRC="../../clearpixel.gif" WIDTH=30 HEIGHT=1 BORDER=0></TD>
+    <TD></TD>
+  </TR>
+  <TR VALIGN=TOP ALIGN=LEFT> 
+    <TD></TD>
+    <TD WIDTH=582> 
+      <TABLE ID="Table1" BORDER=0 CELLSPACING=0 CELLPADDING=0 WIDTH=582>
+        <TR> 
+          <TD WIDTH=97> 
+            <P><A HREF="../../scripting/scripting.htm" 
+                            onmouseover="changeImages('scripting', '../../htab_scripting.gif'); popUp('elMenu1',event); return true;" 
+onmouseout="changeImages('scripting', '../../tab_scripting.gif'); popDown('elMenu1'); return true;"
+><IMG
+                             ID="scripting" HEIGHT=21 WIDTH=97 SRC="../../tab_scripting.gif" VSPACE=0 HSPACE=0 ALIGN="TOP" BORDER=0 name="scripting"></A> 
+          </TD>
+          <TD WIDTH=97> 
+            <P><A HREF="../../products/products.htm" 
+                            onmouseover="changeImages('products', '../../htab_products.gif'); popUp('elMenu2',event); return true;" 
+onmouseout="changeImages('products', '../../tab_products.gif'); popDown('elMenu2'); return true;"><IMG ID="products"
+                             HEIGHT=21 WIDTH=97 SRC="../../tab_products.gif" VSPACE=0 HSPACE=0 ALIGN="TOP" BORDER=0 name=products></A> 
+          </TD>
+          <TD WIDTH=97> 
+            <P><A HREF="../../purchase/purchase.htm" onmouseover="changeImages('purchase', '../../htab_purchase.gif');return true;" 
+onmouseout="changeImages('purchase', '../../tab_purchase.gif');return true;"><IMG ID="purchase"
+                             HEIGHT=21 WIDTH=97 SRC="../../tab_purchase.gif" VSPACE=0 HSPACE=0 ALIGN="TOP" BORDER=0 name=purchase></A> 
+          </TD>
+          <TD WIDTH=97> 
+            <P><A HREF="../../download/ndownload.htm" onmouseover="changeImages('download', '../../htab_download.gif');return true;" 
+onmouseout="changeImages('download', '../../tab_download.gif');return true;"><IMG ID="download"
+                             HEIGHT=21 WIDTH=97 SRC="../../tab_download.gif" VSPACE=0 HSPACE=0 ALIGN="TOP" BORDER=0 name=download></A> 
+          </TD>
+          <TD WIDTH=97> 
+            <P><a target="support" href="http://support.nombas.com/" onmouseover="changeImages('support', '../../htab_support.gif'); return true;" 
+onmouseout="changeImages('support', '../../tab_support.gif'); return true;"><IMG ID="support"
+                             HEIGHT=21 WIDTH=97 SRC="../../tab_support.gif" VSPACE=0 HSPACE=0 ALIGN="TOP" BORDER=0 name=support></A> 
+          </TD>
+          <TD WIDTH=97> 
+            <P><A HREF="../../company/company.htm" 
+                            onmouseover="changeImages('company', '../../htab_company.gif'); popUp('elMenu6',event); return true;" 
+onmouseout="changeImages('company', '../../tab_company.gif'); popDown('elMenu6'); return true;"><IMG ID="company"
+                             HEIGHT=21 WIDTH=97 SRC="../../tab_company.gif" VSPACE=0 HSPACE=0 ALIGN="TOP" BORDER=0 name=company></A> 
+          </TD>
+        </TR>
+      </TABLE>
+    </TD>
+  </TR>
+</TABLE>
+<TABLE BORDER=0 CELLSPACING=0 CELLPADDING=0 WIDTH=637>
+  <TR VALIGN=TOP ALIGN=LEFT> 
+    <TD WIDTH=5 HEIGHT=20><IMG SRC="../../clearpixel.gif" WIDTH=5 HEIGHT=1 BORDER=0></TD>
+    <TD WIDTH=632> 
+      <TABLE BORDER=0 CELLSPACING=0 CELLPADDING=0 WIDTH=632 HEIGHT=20 bgcolor="#FFFFFF">
+        <TR ALIGN=LEFT VALIGN=TOP> 
+          <TD> 
+            <TABLE BORDER=0 CELLSPACING=0 CELLPADDING=0 WIDTH=632>
+              <TR VALIGN=TOP ALIGN=LEFT> 
+                <TD WIDTH=20 HEIGHT=20 ALIGN=LEFT VALIGN=TOP><IMG ID="Picture12" HEIGHT=20 WIDTH=20 SRC="../../curve_topleft.gif" BORDER=0></TD>
+                <TD WIDTH=592><IMG SRC="../../clearpixel.gif" WIDTH=592 HEIGHT=1 BORDER=0></TD>
+                <TD WIDTH=20 ALIGN=LEFT VALIGN=TOP><IMG ID="Picture10" HEIGHT=20 WIDTH=20 SRC="../../curve_top.gif" BORDER=0></TD>
+              </TR>
+            </TABLE>
+          </TD>
+        </TR>
+      </TABLE>
+    </TD>
+  </TR>
+</TABLE>
+<TABLE BORDER=0 CELLSPACING=0 CELLPADDING=0 WIDTH=637>
+  <TR VALIGN=TOP ALIGN=LEFT> 
+    <TD HEIGHT=490></TD>
+    <TD WIDTH=632 COLSPAN=2 height="490"> 
+      <TABLE BORDER=0 CELLSPACING=0 CELLPADDING=0 WIDTH=632 HEIGHT=200 bgcolor="#FFFFFF">
+        <TR ALIGN=LEFT VALIGN=TOP> 
+          <TD height="494"> 
+            <TABLE BORDER=0 CELLSPACING=0 CELLPADDING=0 WIDTH=450>
+              <TR VALIGN=TOP ALIGN=LEFT> 
+                <TD WIDTH=13 HEIGHT=1><IMG SRC="../../clearpixel.gif" WIDTH=13 HEIGHT=1 BORDER=0></TD>
+                <TD WIDTH=396><IMG SRC="../../clearpixel.gif" WIDTH=316 HEIGHT=1 BORDER=0></TD>
+              </TR>
+              <TR VALIGN=TOP ALIGN=LEFT> 
+                <TD width="13"></TD>
+                <TD WIDTH=396> 
+                  <P ALIGN=LEFT><A HREF="../../index.htm"><FONT SIZE="-2" FACE="Verdana,Tahoma,Arial,Helvetica">Nombas</FONT></A><FONT SIZE="-2" FACE="Verdana,Tahoma,Arial,Helvetica"> 
+                    &gt; <a HREF="../../devspace/index.htm">ScriptEase ISDK DevSpace</a> 
+                    &gt; Manuals</FONT> 
+                </TD>
+              </TR>
+            </TABLE>
+            <TABLE BORDER=0 CELLSPACING=0 CELLPADDING=0 WIDTH=615>
+              <TR VALIGN=TOP ALIGN=LEFT> 
+                <TD WIDTH=15 HEIGHT=5><IMG SRC="../../clearpixel.gif" WIDTH=15 HEIGHT=1 BORDER=0></TD>
+                <TD></TD>
+              </TR>
+              <TR VALIGN=TOP ALIGN=LEFT> 
+                <TD HEIGHT=80></TD>
+                <TD WIDTH=600 ALIGN=LEFT VALIGN=TOP><IMG ID="Picture14" HEIGHT=80 WIDTH=600 SRC="../bnr_devspace.gif" BORDER=0></TD>
+              </TR>
+              <TR VALIGN=TOP ALIGN=LEFT> 
+                <TD HEIGHT=80></TD>
+                <TD WIDTH=600 ALIGN=LEFT VALIGN=TOP> 
+                  <table width="100%" border="0">
+                    <tr> 
+                      <td colspan="4" height="9"><img SRC="../../clearpixel.gif" width="1" height="1"></td>
+                    </tr>
+                    <tr> 
+                      <td width="1" height="425">&nbsp;</td>
+                      <td valign="top" height="425"> 
+                        <p><img src="bnr_manual.gif" width="300" height="30"></p>
+                        <p><font size=4><b><font face="Verdana, Arial, Helvetica, sans-serif" size="2">ScriptEase 
+                          ISDK for C/C++ </font></b><font face="Verdana, Arial, Helvetica, sans-serif" size="2">5.01</font></font><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                          manual available in these formats</font></p>
+                        <blockquote> 
+                          <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><a href="c/manual/seisdkc.pdf" target="pdfmanual">PDF</a> 
+                            (Adobe Acrobat)</font></p>
+                          <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><a href="c/html/index.htm" target="browsermanual">Browser-neutral 
+                            HTML</a></font></p>
+                          <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><strike>Microsoft 
+                            HTML Help</strike> (requires Internet Explorer 3.0 or higher)</font></p>
+                          <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><strike>32-bit 
+                            Windows Help</strike> (on Windows system unzip into any 
+                            directory and view ISDKC.HLP)</font></p>
+                        </blockquote>
+                        <p><font size=4><b><font face="Verdana, Arial, Helvetica, sans-serif" size="2">ScriptEase 
+                          ISDK for Java </font></b><font face="Verdana, Arial, Helvetica, sans-serif" size="2">5.00</font></font><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                          manual available in these formats</font></p>
+                        <blockquote> 
+                          <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><a href="java/manual/seisdkj.pdf" target="pdfmanual">PDF</a> 
+                            (Adobe Acrobat)</font></p>
+                          <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><a href="java/html/index.htm" target="browsermanual">Browser-neutral 
+                            HTML</a></font></p>
+                          <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><strike>Microsoft 
+                            HTML Help</strike> (requires Internet Explorer 3.0 or higher)</font></p>
+                          <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><strike>32-bit 
+                            Windows Help</strike> (on Windows system unzip into any 
+                            directory and view ISDKC.HLP)</font><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                            </font></p>
+                          </blockquote>
+                        <blockquote>&nbsp;</blockquote>
+                      </td>
+                      <td width="7" valign="top" background="/us/horline_bk.jpg" height="425">&nbsp;</td>
+                      <td width="114" valign="top" height="425"> 
+                        <p><img src="../navbar_devspace.gif" width="90" height="155" usemap="#nbdevspace" border="0"><map name="nbdevspace"><area shape="rect" coords="0,0,89,20" href="index.htm"><area shape="rect" coords="2,21,88,40" href="http://support.nombas.com/"><area shape="rect" coords="3,40,92,60" href="../errata/index.htm"><area shape="rect" coords="1,60,89,79" href="http://support.nombas.com/"><area shape="rect" coords="2,79,88,96" href="../tips/index.htm"><area shape="rect" coords="3,96,91,116" href="../samples/index.htm"><area shape="rect" coords="85,73,86,76" href="#"><area shape="rect" coords="2,116,90,136" href="../newsletters/index.htm"><area shape="rect" coords="3,137,91,156" href="../links/index.htm"></map></p>
+                        <p><font face="Verdana, Arial, Helvetica, sans-serif" size="1"><b><a href="http://www.nombas.com/us/cgi-bin/sewse.exe/us/search/search.jse">Search</a></b><br>
+                          Search our site.</font></p>
+                        <p><font face="Verdana, Arial, Helvetica, sans-serif" size="1"><b><a href="http://support.nombas.com/">Feedback</a></b><br>
+                          Provide feedback to us.</font></p>
+                        <p align="left">&nbsp;</p>
+                      </td>
+                    </tr>
+                    <tr> 
+                      <td width="1">&nbsp;</td>
+                      <td width="460">&nbsp;</td>
+                      <td width="10">&nbsp;</td>
+                      <td width="114">&nbsp;</td>
+                    </tr>
+                  </table>
+                  </TD>
+              </TR>
+            </TABLE>
+          </TD>
+        </TR>
+      </TABLE>
+    </TD>
+  </TR>
+  <TR VALIGN=TOP ALIGN=LEFT> 
+    <TD HEIGHT=2></TD>
+    <TD WIDTH=632 COLSPAN=2 height="2"> 
+      <TABLE BORDER=0 CELLSPACING=0 CELLPADDING=0 WIDTH=632 HEIGHT=20 bgcolor="#FFFFFF">
+        <TR ALIGN=LEFT VALIGN=TOP> 
+          <TD> 
+            <TABLE BORDER=0 CELLSPACING=0 CELLPADDING=0 WIDTH=632>
+              <TR VALIGN=TOP ALIGN=LEFT> 
+                <TD WIDTH=20 HEIGHT=20 ALIGN=LEFT VALIGN=TOP><IMG ID="Picture13" HEIGHT=20 WIDTH=20 SRC="../../curve_botleft.gif" BORDER=0></TD>
+                <TD WIDTH=592><IMG SRC="../../clearpixel.gif" WIDTH=592 HEIGHT=1 BORDER=0></TD>
+                <TD WIDTH=20 ALIGN=LEFT VALIGN=TOP><IMG ID="Picture11" HEIGHT=20 WIDTH=20 SRC="../../curve_bot.gif" BORDER=0></TD>
+              </TR>
+            </TABLE>
+          </TD>
+        </TR>
+      </TABLE>
+    </TD>
+  </TR>
+  <TR VALIGN=TOP ALIGN=LEFT> 
+    <TD WIDTH=5 HEIGHT=6><IMG SRC="../../clearpixel.gif" WIDTH=5 HEIGHT=1 BORDER=0></TD>
+    <TD WIDTH=613><IMG SRC="../../clearpixel.gif" WIDTH=613 HEIGHT=1 BORDER=0></TD>
+    <TD WIDTH=19><IMG SRC="../../clearpixel.gif" WIDTH=19 HEIGHT=1 BORDER=0></TD>
+  </TR>
+  <TR VALIGN=TOP ALIGN=LEFT> 
+    <TD WIDTH=618 COLSPAN=2> 
+      <P ALIGN=RIGHT><A HREF="../../index.htm"><FONT COLOR="#FFFFFF" SIZE="-2" FACE="Verdana,Tahoma,Arial,Helvetica">Home</FONT></A><FONT COLOR="#FFFFFF" SIZE="-2" FACE="Verdana,Tahoma,Arial,Helvetica"> 
+        | </FONT><A
+                 HREF="../../scripting/scripting.htm"><FONT COLOR="#FFFFFF" SIZE="-2" FACE="Verdana,Tahoma,Arial,Helvetica">Scripting</FONT></A><FONT COLOR="#FFFFFF" SIZE="-2" FACE="Verdana,Tahoma,Arial,Helvetica"> 
+        | </FONT><A
+                 HREF="../../products/products.htm"><FONT COLOR="#FFFFFF" SIZE="-2" FACE="Verdana,Tahoma,Arial,Helvetica">Products</FONT></A><FONT COLOR="#FFFFFF" SIZE="-2" FACE="Verdana,Tahoma,Arial,Helvetica"> 
+        | </FONT><A
+                 HREF="../../purchase/purchase.htm"><FONT COLOR="#FFFFFF" SIZE="-2" FACE="Verdana,Tahoma,Arial,Helvetica">Purchase</FONT></A><FONT COLOR="#FFFFFF" SIZE="-2" FACE="Verdana,Tahoma,Arial,Helvetica"> 
+        | </FONT><A
+                 HREF="../../download/ndownload.htm"><FONT COLOR="#FFFFFF" SIZE="-2" FACE="Verdana,Tahoma,Arial,Helvetica">Download</FONT></A><FONT COLOR="#FFFFFF" SIZE="-2" FACE="Verdana,Tahoma,Arial,Helvetica"> 
+        | </FONT><A
+                 HREF="http://support.nombas.com/"><FONT COLOR="#FFFFFF" SIZE="-2" FACE="Verdana,Tahoma,Arial,Helvetica">Support</FONT></A><FONT COLOR="#FFFFFF" SIZE="-2" FACE="Verdana,Tahoma,Arial,Helvetica"> 
+        | </FONT><A HREF="../../company/company.htm"> <FONT COLOR="#FFFFFF" SIZE="-2" FACE="Verdana,Tahoma,Arial,Helvetica">Company</FONT></A><FONT COLOR="#FFFFFF" SIZE="-2" FACE="Verdana,Tahoma,Arial,Helvetica"><BR>
+        <BR>
+        Copyright &#169;2001, Nombas, Inc. All Rights Reserved.<BR>
+        Questions? Visit </FONT><A HREF="http://support.nombas.com/"><FONT COLOR="#FFFFFF" SIZE="-2" FACE="Verdana,Tahoma,Arial,Helvetica">http://support.nombas.com/</FONT></A> 
+    </TD>
+    <TD></TD>
+  </TR>
+</TABLE>
+<SCRIPT language=JavaScript1.2>
+  display_nombas_legacy_message();
+</SCRIPT>
+</BODY>
+</HTML>

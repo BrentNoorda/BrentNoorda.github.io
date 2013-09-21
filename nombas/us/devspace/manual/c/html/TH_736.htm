@@ -1,0 +1,106 @@
+<html>
+<head>
+<title>Clib.va_arg()</title>
+<link rel="stylesheet" href="semanualstyles.css" type="text/css">
+<style type="text/css">
+ p { margin-top: 0; margin-bottom: 0; }
+</style>
+<script language="JavaScript" src="TrueHelp.js"></script>
+</head>
+<body onload="thload()">
+<div id=ienav>
+<ilayer id=nsnav>
+<br>
+<center>
+<p class=normal><a href="seisdkc-toc.htm" target="left">contents</a> &nbsp; <a href="seisdkc-index.htm" target="left">index</a> &nbsp; <a href="TH_735.htm">previous</a> &nbsp; <a href="TH_737.htm">next</a></p>
+</center>
+<br>
+<hr noshade size=1>
+</ilayer>
+</div>
+<p class=sereffunclevel4>Clib.va_arg()</p>
+<table cellpadding=0>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>syntax:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=sesyntax>Clib.va_arg(<span class=truehelp-xe></span>[valist[,&nbsp;offset])</p>
+<p class=sesyntax>Clib.va_arg(offset)</p>
+<p class=sesyntax>Clib.va_arg()</p></td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>where:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>valist - a variable list of arguments passed to a function.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>offset - index of a particular argument.</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>return:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>value - parameter being retrieved. If no parameters, the number of parameters.</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>description:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>The method <span class=secodephrase>Clib.va_arg()</span> provides an alternate way to retrieve a function's parameters. It's most often used when the number of parameters passed  to the function is not constant. This method covers the same territory as the <span class=sepopuptopic><a href="TH_482.htm" onClick="return thwindow('TH_482.htm', 'GenPopup')">Function property arguments[]</a></span> and is provided for those who prefer C functions for handling variable arguments.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>When called with no parameters, it returns the number of parameters passed to the current function. If an offset is supplied, it returns the input variable at index: offset. <span class=secodephrase>Clib.va_arg(0)</span> is the first parameter passed, <span class=secodephrase>Clib.va_arg(1)</span> the second, etc. It is a fatal error to retrieve an argument offset beyond the number of parameters in the function or the valist.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>The valist form, with an optional offset, uses a valist variable that has been previously initialized with <span class=sepopuptopic><a href="TH_738.htm" onClick="return thwindow('TH_738.htm', 'GenPopup')">Clib.va_start()</a></span>. Each call to <span class=secodephrase>Clib.va_arg(valist)</span> returns the next parameter passed to a function. If an offset is passed in the variable at that offset from the original starting place of the valist will be returned.</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>see:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara><span class=sejumptopic><a href="TH_738.htm">Clib.va_start()</a></span>, <span class=sejumptopic><a href="TH_737.htm">Clib.va_end()</a></span>, <span class=sejumptopic><a href="TH_739.htm">Clib.vfprintf()</a></span>, <span class=sejumptopic><a href="TH_740.htm">Clib.vfscanf()</a></span>, <span class=sejumptopic><a href="TH_588.htm">Clib.vprintf()</a></span>, <span class=sejumptopic><a href="TH_589.htm">Clib.vscanf()</a></span>, <span class=sejumptopic><a href="TH_694.htm">Clib.vsprintf()</a></span>, <span class=sejumptopic><a href="TH_741.htm">Clib.vsscanf()</a></span></p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>example:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=secodelines>//&nbsp;The&nbsp;following&nbsp;script:</p>
+<p class=secodelines>&nbsp;</p>
+<p class=secodelines>function&nbsp;main()</p>
+<p class=secodelines>{</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;lips(0,&nbsp;1,&nbsp;2,&nbsp;3,&nbsp;4)</p>
+<p class=secodelines>}</p>
+<p class=secodelines>&nbsp;</p>
+<p class=secodelines>lips()</p>
+<p class=secodelines>{</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;Clib.va_start(valist)</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;Clib.printf("va_arg(0)&nbsp;=&nbsp;%d\n",&nbsp;va_arg(0));</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;Clib.printf("va_arg(1)&nbsp;=&nbsp;%d\n",&nbsp;va_arg(1));</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;Clib.printf("va_arg(valist)&nbsp;=&nbsp;%d\n",</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;va_arg(valist));</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;Clib.printf("va_arg(valist,&nbsp;2)&nbsp;=&nbsp;%d\n",</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;va_arg(valist,&nbsp;2));</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;Clib.printf("va_arg(valist,&nbsp;2)&nbsp;=&nbsp;%d\n",</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;va_arg(valist,&nbsp;2));&nbsp;&nbsp;</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;Clib.printf("va_arg(valist)&nbsp;=&nbsp;%d\n",</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;va_arg(valist));</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;Clib.getch()&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
+<p class=secodelines>}</p>
+<p class=secodelines>&nbsp;</p>
+<p class=secodelines>//&nbsp;produces&nbsp;the&nbsp;following&nbsp;output:</p>
+<p class=secodelines>//&nbsp;&nbsp;va_arg(0)&nbsp;=&nbsp;0</p>
+<p class=secodelines>//&nbsp;&nbsp;va_arg(1)&nbsp;=&nbsp;1</p>
+<p class=secodelines>//&nbsp;&nbsp;va_arg(valist)&nbsp;=&nbsp;0</p>
+<p class=secodelines>//&nbsp;&nbsp;va_arg(valist,&nbsp;2)&nbsp;=&nbsp;3</p>
+<p class=secodelines>//&nbsp;&nbsp;va_arg(valist,&nbsp;2)&nbsp;=&nbsp;3</p>
+<p class=secodelines>//&nbsp;&nbsp;va_arg(valist)&nbsp;=&nbsp;1</p></td>
+</tr>
+</table>
+<p class=normal>&nbsp;</p>
+<hr noshade size=1>
+<p class=normal><a href="TH_737.htm"><img src="button.png" border=0></a><a href="TH_737.htm" style="text-decoration:none;">Clib.va_end()</a></p>
+<p>
+</body>
+</html>

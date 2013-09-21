@@ -1,0 +1,35 @@
+<html>
+<head>
+<title>SE_RETURN</title>
+<link rel="stylesheet" href="semanualstyles.css" type="text/css">
+<style type="text/css">
+ p { margin-top: 0; margin-bottom: 0; }
+</style>
+<script language="JavaScript" src="TrueHelp.js"></script>
+</head>
+<body onload="thload()">
+<div id=ienav>
+<ilayer id=nsnav>
+<br>
+<center>
+<p class=normal><a href="seisdkc-toc.htm" target="left">contents</a> &nbsp; <a href="seisdkc-index.htm" target="left">index</a> &nbsp; <a href="TH_344.htm">previous</a> &nbsp; <a href="TH_346.htm">next</a></p>
+</center>
+<br>
+<hr noshade size=1>
+</ilayer>
+</div>
+<p class=heading-4>SE_RETURN</p>
+<p class=senormalpara>This is the place in which the return value from your wrapper function is to be stored. This discussion will only be minimal for now, a more complete discussion of this object can be found later in the chapter. <span class=secodephrase>SE_RETURN</span> mainly works with the <span class=secodephrase>SE_VALUE</span> member. For the return, the <span class=secodephrase>SE_VALUE</span> is the value to be returned. That is to say, if you want to return the value 10, you would write:</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=secodelinesindented>sePutNumber(se,&nbsp;SE_RETURN,SE_VALUE,&nbsp;10);</p>
+<p class=secodelinesindented>&nbsp;</p>
+<p class=senormalpara>The object has four secondary members, all of which are booleans.You set one (and only one) of them to <span class=secodephrase>TRUE</span> to indicate a special return condition. They are:</p>
+<p class=senormalpara-p>&nbsp;</p>
+<hr noshade size=1>
+<p class=normal><a href="TH_346.htm"><img src="button.png" border=0></a><a href="TH_346.htm" style="text-decoration:none;">SE_ERROR</a></p>
+<p class=normal><a href="TH_347.htm"><img src="button.png" border=0></a><a href="TH_347.htm" style="text-decoration:none;">SE_EXIT</a></p>
+<p class=normal><a href="TH_348.htm"><img src="button.png" border=0></a><a href="TH_348.htm" style="text-decoration:none;">SE_YIELD</a></p>
+<p class=normal><a href="TH_349.htm"><img src="button.png" border=0></a><a href="TH_349.htm" style="text-decoration:none;">SE_SUSPEND</a></p>
+<p>
+</body>
+</html>

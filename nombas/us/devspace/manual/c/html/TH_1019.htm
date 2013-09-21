@@ -1,0 +1,37 @@
+<html>
+<head>
+<title>Point specifications</title>
+<link rel="stylesheet" href="semanualstyles.css" type="text/css">
+<style type="text/css">
+ p { margin-top: 0; margin-bottom: 0; }
+</style>
+<script language="JavaScript" src="TrueHelp.js"></script>
+</head>
+<body onload="thload()">
+<div id=ienav>
+<ilayer id=nsnav>
+<br>
+<center>
+<p class=normal><a href="seisdkc-toc.htm" target="left">contents</a> &nbsp; <a href="seisdkc-index.htm" target="left">index</a> &nbsp; <a href="TH_1018.htm">previous</a> &nbsp; <a href="TH_1020.htm">next</a></p>
+</center>
+<br>
+<hr noshade size=1>
+</ilayer>
+</div>
+<p class=heading-4>Point specifications</p>
+<p class=senormalpara>A number of GD routines expect a Point Specification as one of the parameters. This is a pseudo-type that can take one of several forms. It is either an object with two members, 'x' and 'y', representing the two coordinates of the point, or an array with two members, element 0 being the x coordinate and element 1 being the y coordinate. All of the following are equivalent:</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=secodelinesindented>var&nbsp;point1&nbsp;=&nbsp;{x:1,&nbsp;y:2};</p>
+<p class=secodelinesindented>var&nbsp;point2&nbsp;=&nbsp;[1,&nbsp;2];</p>
+<p class=secodelinesindented>&nbsp;</p>
+<p class=senormalpara>Note also that every routine can also have the x and y coordinates passed as separate parameters, so these are equivalent:</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=secodelinesindented>gd.getPixel(&nbsp;1,&nbsp;2&nbsp;);</p>
+<p class=secodelinesindented>gd.getPixel(&nbsp;[1,2]&nbsp;);</p>
+<p class=secodelinesindented>&nbsp;</p>
+<p class=normal>As such, the Point object is really just a matter of convenience to help distinguish points as a unit.</p>
+<hr noshade size=1>
+<p class=normal><a href="TH_1020.htm"><img src="button.png" border=0></a><a href="TH_1020.htm" style="text-decoration:none;">Font specifications</a></p>
+<p>
+</body>
+</html>

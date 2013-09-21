@@ -1,0 +1,47 @@
+<html>
+<head>
+<title>Literal strings and comparisons</title>
+<link rel="stylesheet" href="semanualstyles.css" type="text/css">
+<style type="text/css">
+ p { margin-top: 0; margin-bottom: 0; }
+</style>
+<script language="JavaScript" src="TrueHelp.js"></script>
+</head>
+<body onload="thload()">
+<div id=ienav>
+<ilayer id=nsnav>
+<br>
+<center>
+<p class=normal><a href="seisdkj-toc.htm" target="left">contents</a> &nbsp; <a href="seisdkj-index.htm" target="left">index</a> &nbsp; <a href="TH_401.htm">previous</a> &nbsp; <a href="TH_403.htm">next</a></p>
+</center>
+<br>
+<hr noshade size=1>
+</ilayer>
+</div>
+<p class=heading-3>Literal strings and comparisons</p>
+<p class=heading-3-p>&nbsp;</p>
+<p class=senormalpara>If both sides of a comparison operator are strings, and at least one of them is a literal string, then the comparison is performed as if <span class=sepopuptopic><a href="TH_559.htm" onClick="return thwindow('TH_559.htm', 'GenPopup')">Clib.strcmp()</a></span> were being used. If one or both variables are literal strings, then the following translation of the comparison operation is performed.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=secodelinesindented>lvar&nbsp;operator&nbsp;rvar		Clib.strcmp(lvar,&nbsp;rvar)&nbsp;operator&nbsp;0</p>
+<p class=secodelinesindented>&nbsp;</p>
+<p class=senormalpara>The following examples demonstrate how literal strings follow the logic of <span class=secodephrase>Clib.strcmp()</span>.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=secodelinesindented>if&nbsp;(animal&nbsp;==&nbsp;"dog")&nbsp;&nbsp;//&nbsp;if&nbsp;(Clib.strcmp(animal,&nbsp;"dog")&nbsp;==&nbsp;0)</p>
+<p class=secodelinesindented>if&nbsp;(animal&nbsp;&lt;&nbsp;&nbsp;"dog")&nbsp;&nbsp;//&nbsp;if&nbsp;(Clib.strcmp(animal,&nbsp;"dog")&nbsp;&lt;&nbsp;&nbsp;0)</p>
+<p class=secodelinesindented>if&nbsp;("dog"&nbsp;&lt;=&nbsp;animal)&nbsp;&nbsp;//&nbsp;if&nbsp;(Clib.strcmp("dog",&nbsp;animal)&nbsp;&lt;=&nbsp;0)</p>
+<p class=secodelinesindented>&nbsp;</p>
+<p class=senormalpara>In ScriptEase, the following fragment:</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=secodelinesindented>var&nbsp;animal&nbsp;=&nbsp;"dog";</p>
+<p class=secodelinesindented>if&nbsp;(animal&nbsp;==&nbsp;"dog")</p>
+<p class=secodelinesindented>Clib.puts("hush&nbsp;puppy");</p>
+<p class=secodelinesindented>&nbsp;</p>
+<p class=senormalpara>displays:</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=secodelinesindented>"hush&nbsp;puppy"</p>
+<p class=secodelinesindented>&nbsp;</p>
+<hr noshade size=1>
+<p class=normal><a href="TH_403.htm"><img src="button.png" border=0></a><a href="TH_403.htm" style="text-decoration:none;">Literal strings and parameters</a></p>
+<p>
+</body>
+</html>

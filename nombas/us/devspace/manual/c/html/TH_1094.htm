@@ -1,0 +1,71 @@
+<html>
+<head>
+<title>Database connected()</title>
+<link rel="stylesheet" href="semanualstyles.css" type="text/css">
+<style type="text/css">
+ p { margin-top: 0; margin-bottom: 0; }
+</style>
+<script language="JavaScript" src="TrueHelp.js"></script>
+</head>
+<body onload="thload()">
+<div id=ienav>
+<ilayer id=nsnav>
+<br>
+<center>
+<p class=normal><a href="seisdkc-toc.htm" target="left">contents</a> &nbsp; <a href="seisdkc-index.htm" target="left">index</a> &nbsp; <a href="TH_1093.htm">previous</a> &nbsp; <a href="TH_1095.htm">next</a></p>
+</center>
+<br>
+<hr noshade size=1>
+</ilayer>
+</div>
+<p class=sereffunclevel4>Database connected()</p>
+<table cellpadding=0>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>syntax:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=sesyntax>database.connected()<span class=truehelp-xe></span></p></td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>return:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>boolean - <span class=secodephrase>true</span> if the Database object is currently connected to a data source, <span class=secodephrase>false</span> otherwise.</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>description:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>This method returns <span class=secodephrase>true</span> if the Database object is currently connected to a database.  If <span class=secodephrase>connected</span> returns <span class=secodephrase>false</span>, reconnect the database before performing any further database actions, otherwise the actions will result in errors.</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>see:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara><span class=secodephrase>#link &lt;sedbc&gt;</span>, <span class=sejumptopic><a href="TH_1093.htm">Database connect()</a></span>, <span class=sejumptopic><a href="TH_1096.htm">Database disconnect()</a></span></p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>example:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=secodelines>//&nbsp;This&nbsp;example&nbsp;first&nbsp;checks&nbsp;to&nbsp;see</p>
+<p class=secodelines>//&nbsp;if&nbsp;the&nbsp;database&nbsp;is</p>
+<p class=secodelines>//&nbsp;connected&nbsp;to&nbsp;a&nbsp;data&nbsp;source.&nbsp;&nbsp;If&nbsp;not,</p>
+<p class=secodelines>//&nbsp;it&nbsp;connects&nbsp;it&nbsp;to&nbsp;the</p>
+<p class=secodelines>//&nbsp;database&nbsp;named&nbsp;"CLIENTS"&nbsp;using</p>
+<p class=secodelines>//&nbsp;the&nbsp;username&nbsp;"ADMIN"&nbsp;and&nbsp;the</p>
+<p class=secodelines>//&nbsp;password&nbsp;"admin-password"</p>
+<p class=secodelines>if&nbsp;(!db.connected())</p>
+<p class=secodelines>&nbsp;&nbsp;err&nbsp;=&nbsp;db.connect(&nbsp;"ODBC",&nbsp;"CLIENTS",</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"ADMIN",&nbsp;"admin-passwd"&nbsp;);</p></td>
+</tr>
+</table>
+<p class=normal>&nbsp;</p>
+<hr noshade size=1>
+<p class=normal><a href="TH_1095.htm"><img src="button.png" border=0></a><a href="TH_1095.htm" style="text-decoration:none;">Database cursor()</a></p>
+<p>
+</body>
+</html>

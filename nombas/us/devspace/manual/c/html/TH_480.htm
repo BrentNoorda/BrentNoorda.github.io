@@ -1,0 +1,53 @@
+<html>
+<head>
+<title>Passing information to functions</title>
+<link rel="stylesheet" href="semanualstyles.css" type="text/css">
+<style type="text/css">
+ p { margin-top: 0; margin-bottom: 0; }
+</style>
+<script language="JavaScript" src="TrueHelp.js"></script>
+</head>
+<body onload="thload()">
+<div id=ienav>
+<ilayer id=nsnav>
+<br>
+<center>
+<p class=normal><a href="seisdkc-toc.htm" target="left">contents</a> &nbsp; <a href="seisdkc-index.htm" target="left">index</a> &nbsp; <a href="TH_479.htm">previous</a> &nbsp; <a href="TH_481.htm">next</a></p>
+</center>
+<br>
+<hr noshade size=1>
+</ilayer>
+</div>
+<p class=heading-3>Passing information to functions</p>
+<p class=heading-3-p>&nbsp;</p>
+<p class=senormalpara>JavaScript uses different methods to pass variables to functions, depending on the type of variable being passed. Such distinctions ensure that information gets to functions in the most complete and logical ways. To be technically correct, the data that is passed to a function are called arguments, and the variables in a function definition that receive the data are called parameters.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>Primitive types, namely, strings, numbers, and booleans, are passed by value. The value of theses variables are passed to a function. If a function changes one of these variables, the changes will not be visible outside of the function where the change took place.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>Composite types, objects and arrays, are passed by reference. Instead of passing the value of the object, that is, the values of each property,  a reference to the object is passed. The reference indicates where in a computer's memory that values of an object's properties are stored. If you make a change in a property of an object passed by reference, that change will be reflected throughout in the calling routine.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>In ScriptEase it is possible to pass primitive types by reference instead of by value, which is the default. When a function is defined, an ampersand, &amp;, may be put in front of one or more of its parameters. Thus, when the function is called, an argument, corresponding  to a parameter with an ampersand, is passed by reference instead of by value. The following fragment illustrates.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=secodelinesindented>var&nbsp;num1&nbsp;=&nbsp;4;</p>
+<p class=secodelinesindented>var&nbsp;num2&nbsp;=&nbsp;4;</p>
+<p class=secodelinesindented>var&nbsp;num3;</p>
+<p class=secodelinesindented>SetNumbers(num1,&nbsp;num2,&nbsp;num3,&nbsp;6)</p>
+<p class=secodelinesindented>&nbsp;</p>
+<p class=secodelinesindented>function&nbsp;SetNumbers(&amp;n1,&nbsp;n2,&nbsp;&amp;n3,&nbsp;&amp;n4)</p>
+<p class=secodelinesindented>{</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;n1&nbsp;=&nbsp;n2&nbsp;=&nbsp;n3&nbsp;=&nbsp;n4&nbsp;=&nbsp;5;</p>
+<p class=secodelinesindented>}</p>
+<p class=secodelinesindented>&nbsp;</p>
+<p class=senormalpara>After executing this code, the values of variables is:</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=secodelinesindented>num1&nbsp;==&nbsp;5</p>
+<p class=secodelinesindented>num2&nbsp;==&nbsp;4</p>
+<p class=secodelinesindented>num3&nbsp;==&nbsp;5</p>
+<p class=secodelinesindented>&nbsp;</p>
+<p class=senormalpara>The variable num1 was passed by reference to parameter n1. When n1 was set to 5, num1 was actually set to 5 since n1 merely pointed to num1. The variable num2 was passed by value to parameter n2. When n2, which received an actual value of 4, was set to 5, num2 remained unchanged. The variable num3 was <span class=secodephrase>undefined</span> when passed by reference to parameter n3. When n3, which pointed to num3, was set to 5, num3 was actually set to 5 and defined as an integer type. The literal value 6 was passed to parameter n4, but not by reference since 6 is not a variable that can be changed. Though n4 has an ampersand, the literal value 6 was passed by value to n4 which, in this example, becomes merely a local variable for the function SetNumbers().</p>
+<p class=senormalpara-p>&nbsp;</p>
+<hr noshade size=1>
+<p class=normal><a href="TH_481.htm"><img src="button.png" border=0></a><a href="TH_481.htm" style="text-decoration:none;">Simulated named parameters</a></p>
+<p>
+</body>
+</html>

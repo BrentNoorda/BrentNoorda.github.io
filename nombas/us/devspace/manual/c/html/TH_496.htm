@@ -1,0 +1,36 @@
+<html>
+<head>
+<title>Security</title>
+<link rel="stylesheet" href="semanualstyles.css" type="text/css">
+<style type="text/css">
+ p { margin-top: 0; margin-bottom: 0; }
+</style>
+<script language="JavaScript" src="TrueHelp.js"></script>
+</head>
+<body onload="thload()">
+<div id=ienav>
+<ilayer id=nsnav>
+<br>
+<center>
+<p class=normal><a href="seisdkc-toc.htm" target="left">contents</a> &nbsp; <a href="seisdkc-index.htm" target="left">index</a> &nbsp; previous &nbsp; <a href="TH_497.htm">next</a></p>
+</center>
+<br>
+<hr noshade size=1>
+</ilayer>
+</div>
+<p class=heading-1>Security</p>
+<p class=heading-1-p>&nbsp;</p>
+<p class=senormalpara>As a scripting language, ScriptEase provides the power to completely control a computer system. But there are times when this power can be dangerous. Many applications, such as those using distributed scripting, might need to run scripts that you do not want to have access to all of the power of ScriptEase. You do not want these scripts to delete files on your machine, read and transmit important data to a remote machine, execute arbitrary system programs, or any other such activities. ScriptEase security allows you to limit scripts so they cannot do these things.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>ScriptEase security works by dividing functions on the system into <b>secure functions,</b> those which can perform no dangerous actions, and <b>insecure functions,</b> those which can perform dangerous activities. When you execute a script, you can attach a security manager to it. This manager will determine which insecure functions can be called. </p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>If the script tries to call an insecure function which the manager does not allow, it will not call the function but will generate a security error. By using ScriptEase security, you can run scripts you trust and give them full access to dangerous functions, such as <span class=secodephrase>Clib.system()</span> and <span class=secodephrase>Clib.remove()</span>, while denying access to these same functions to other scripts you do not trust. </p>
+<p class=senormalpara-p>&nbsp;</p>
+<hr noshade size=1>
+<p class=normal><a href="TH_497.htm"><img src="button.png" border=0></a><a href="TH_497.htm" style="text-decoration:none;">Writing a Security Manager</a></p>
+<p class=normal><a href="TH_502.htm"><img src="button.png" border=0></a><a href="TH_502.htm" style="text-decoration:none;">Specifying Security</a></p>
+<p class=normal><a href="TH_503.htm"><img src="button.png" border=0></a><a href="TH_503.htm" style="text-decoration:none;">Wrapper Functions And Security</a></p>
+<p class=normal><a href="TH_504.htm"><img src="button.png" border=0></a><a href="TH_504.htm" style="text-decoration:none;">Sample Script</a></p>
+<p>
+</body>
+</html>

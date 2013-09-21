@@ -1,0 +1,36 @@
+<html>
+<head>
+<title>Color styles</title>
+<link rel="stylesheet" href="semanualstyles.css" type="text/css">
+<style type="text/css">
+ p { margin-top: 0; margin-bottom: 0; }
+</style>
+<script language="JavaScript" src="TrueHelp.js"></script>
+</head>
+<body onload="thload()">
+<div id=ienav>
+<ilayer id=nsnav>
+<br>
+<center>
+<p class=normal><a href="seisdkc-toc.htm" target="left">contents</a> &nbsp; <a href="seisdkc-index.htm" target="left">index</a> &nbsp; <a href="TH_1020.htm">previous</a> &nbsp; <a href="TH_1022.htm">next</a></p>
+</center>
+<br>
+<hr noshade size=1>
+</ilayer>
+</div>
+<p class=heading-4>Color styles</p>
+<p class=senormalpara>In addition to simple color indexes, all drawing routines can also take a color stype, which is a special string value that allows for more complex fills and shapes.  The valid types are:</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara><i>"styled"</i> - Use the style specified with <span class=sepopuptopic><a href="TH_1055.htm" onClick="return thwindow('TH_1055.htm', 'GenPopup')">GD setStyle()</a></span>.  A style is a sequence of colors to be used when drawing lines.  It is only valid for line-drawing routines, and is used to make dashed lines.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara><i>"brushed"</i> - Use the brush specified with <span class=sepopuptopic><a href="TH_1053.htm" onClick="return thwindow('TH_1053.htm', 'GenPopup')">GD setBrush()</a></span>.  A brush is another GD image which is drawn instead of a regular pixel. Using transparent colors, it is possible to create a brush of any size.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara><i>"styledBrushed"</i> - A combination of both "styled" and "brushed".  The brush is used, but is only drawn when non-transparent pixels are encountered in the style.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara><i>"tiled"</i> - Use the tile specified with <span class=sepopuptopic><a href="TH_1056.htm" onClick="return thwindow('TH_1056.htm', 'GenPopup')">GD setTile()</a></span>.  This style can only be used with fill routines.  It uses the current tile, which can be any GD image, and fills the region with that tile, laying the images side-by-side sequentially.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<hr noshade size=1>
+<p class=normal><a href="TH_1022.htm"><img src="button.png" border=0></a><a href="TH_1022.htm" style="text-decoration:none;">GD object instance methods</a></p>
+<p>
+</body>
+</html>

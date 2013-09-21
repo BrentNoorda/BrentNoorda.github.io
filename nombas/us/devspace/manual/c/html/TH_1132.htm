@@ -1,0 +1,73 @@
+<html>
+<head>
+<title>Stproc instance properties</title>
+<link rel="stylesheet" href="semanualstyles.css" type="text/css">
+<style type="text/css">
+ p { margin-top: 0; margin-bottom: 0; }
+</style>
+<script language="JavaScript" src="TrueHelp.js"></script>
+</head>
+<body onload="thload()">
+<div id=ienav>
+<ilayer id=nsnav>
+<br>
+<center>
+<p class=normal><a href="seisdkc-toc.htm" target="left">contents</a> &nbsp; <a href="seisdkc-index.htm" target="left">index</a> &nbsp; <a href="TH_1131.htm">previous</a> &nbsp; <a href="TH_1133.htm">next</a></p>
+</center>
+<br>
+<hr noshade size=1>
+</ilayer>
+</div>
+<p class=heading-3>Stproc instance properties</p>
+<p class=heading-3-p>&nbsp;</p>
+<p class=senormalpara>The properties of Stproc objects vary from instance to instance.  Each Stproc object has a property for each parameter in the stored procedure or SQL statement.  Thus, when an Stproc object is created, it acquires a property for each of its parameters.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>Parameters of an Stproc object may also be referred to as elements of an array.  The 0-index array element corresponds to the first parameter, the 1-index array element corresponds to the second parameter, and so forth.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>The following example demonstrates how to call a stored procedure using named parameter properties. A <span class=secodephrase>GetCityArea</span> procedure might be defined in a MS Access database as follows:</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=secodelinesindented>/*</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;PARAMETERS&nbsp;AreaParam&nbsp;Text,&nbsp;CityParam&nbsp;Text;</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;SELECT&nbsp;Table3.*&nbsp;FROM&nbsp;Table3</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;WHERE&nbsp;((Table3.Area=[AreaParam])&nbsp;AND</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(Table3.City=[CityParam]));</p>
+<p class=secodelinesindented>*/</p>
+<p class=secodelinesindented>&nbsp;</p>
+<p class=secodelinesindented>//&nbsp;Recall&nbsp;the&nbsp;Stproc&nbsp;object&nbsp;'GetCityArea'&nbsp;from&nbsp;the&nbsp;database</p>
+<p class=secodelinesindented>sp&nbsp;=&nbsp;db.storedProc("GetCityArea");</p>
+<p class=secodelinesindented>&nbsp;</p>
+<p class=secodelinesindented>//&nbsp;Set&nbsp;the&nbsp;parameter&nbsp;values</p>
+<p class=secodelinesindented>sp.AreaParam&nbsp;=&nbsp;"Europe";</p>
+<p class=secodelinesindented>sp.CityParam&nbsp;=&nbsp;"Paris";</p>
+<p class=secodelinesindented>&nbsp;</p>
+<p class=secodelinesindented>//&nbsp;Execute&nbsp;the&nbsp;stored&nbsp;procedure</p>
+<p class=secodelinesindented>citySet&nbsp;=&nbsp;sp.cursor();</p>
+<p class=secodelinesindented>&nbsp;</p>
+<p class=secodelinesindented>//&nbsp;Clean&nbsp;up</p>
+<p class=secodelinesindented>citySet.close();</p>
+<p class=secodelinesindented>sp.close();</p>
+<p class=secodelinesindented>&nbsp;</p>
+<p class=secodelinesindented>/*</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;This&nbsp;example&nbsp;uses&nbsp;the&nbsp;same&nbsp;procedure,&nbsp;but&nbsp;accesses&nbsp;the</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;parameters&nbsp;through&nbsp;array&nbsp;indexes.</p>
+<p class=secodelinesindented>*/</p>
+<p class=secodelinesindented>&nbsp;</p>
+<p class=secodelinesindented>//&nbsp;Recall&nbsp;the&nbsp;Stproc&nbsp;object&nbsp;'GetCityArea'&nbsp;from&nbsp;the&nbsp;database</p>
+<p class=secodelinesindented>sp&nbsp;=&nbsp;database.storedProc("GetCityArea");</p>
+<p class=secodelinesindented>&nbsp;</p>
+<p class=secodelinesindented>//&nbsp;Set&nbsp;the&nbsp;parameter&nbsp;values</p>
+<p class=secodelinesindented>sp[0]&nbsp;=&nbsp;"Europe";</p>
+<p class=secodelinesindented>sp[1]&nbsp;=&nbsp;"Paris";</p>
+<p class=secodelinesindented>&nbsp;</p>
+<p class=secodelinesindented>//&nbsp;Execute&nbsp;the&nbsp;stored&nbsp;procedure</p>
+<p class=secodelinesindented>citySet&nbsp;=&nbsp;sp.cursor();</p>
+<p class=secodelinesindented>&nbsp;</p>
+<p class=secodelinesindented>//&nbsp;Clean&nbsp;up</p>
+<p class=secodelinesindented>citySet.close();</p>
+<p class=secodelinesindented>sp.close();</p>
+<p class=secodelinesindented>&nbsp;</p>
+<hr noshade size=1>
+<p class=normal><a href="TH_1133.htm"><img src="button.png" border=0></a><a href="TH_1133.htm" style="text-decoration:none;">Stproc instance methods</a></p>
+<p>
+</body>
+</html>

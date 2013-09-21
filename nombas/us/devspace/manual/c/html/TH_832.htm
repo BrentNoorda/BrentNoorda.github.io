@@ -1,0 +1,78 @@
+<html>
+<head>
+<title>global.ToNumber()</title>
+<link rel="stylesheet" href="semanualstyles.css" type="text/css">
+<style type="text/css">
+ p { margin-top: 0; margin-bottom: 0; }
+</style>
+<script language="JavaScript" src="TrueHelp.js"></script>
+</head>
+<body onload="thload()">
+<div id=ienav>
+<ilayer id=nsnav>
+<br>
+<center>
+<p class=normal><a href="seisdkc-toc.htm" target="left">contents</a> &nbsp; <a href="seisdkc-index.htm" target="left">index</a> &nbsp; <a href="TH_831.htm">previous</a> &nbsp; <a href="TH_833.htm">next</a></p>
+</center>
+<br>
+<hr noshade size=1>
+</ilayer>
+</div>
+<p class=sereffunclevel4>global.ToNumber()</p>
+<table cellpadding=0>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>syntax:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=sesyntax>ToNumber(<span class=truehelp-xe></span>value)</p></td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>where:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>value - to be cast as a number.</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>return:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>number - conversion of value.</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>description:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara><span class=truehelp-xe></span>The following table lists how different data types are converted by this function.	</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=list-bullet>&#8226;</p><p class=list-bullet-tab1><span class=secodephrase>Boolean</span><br>
++0, if value is <span class=secodephrase>false</span>, else 1</p>
+<p class=list-bullet>&#8226;</p><p class=list-bullet-tab1><span class=secodephrase>Buffer</span><br>
+same as for String</p>
+<p class=list-bullet>&#8226;</p><p class=list-bullet-tab1><span class=secodephrase>null</span><br>
++0</p>
+<p class=list-bullet>&#8226;</p><p class=list-bullet-tab1><span class=secodephrase>Number</span><br>
+same as value</p>
+<p class=list-bullet>&#8226;</p><p class=list-bullet-tab1><span class=secodephrase>Object</span><br>
+first, call ToPrimitive(), then call ToNumber() and return result</p>
+<p class=list-bullet>&#8226;</p><p class=list-bullet-tab1><span class=secodephrase>String</span><br>
+number, if successful, else <span class=secodephrase>NaN</span></p>
+<p class=list-bullet>&#8226;</p><p class=list-bullet-tab1><span class=secodephrase>undefined</span><br>
+<span class=secodephrase>NaN</span></p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>see:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara><span class=sejumptopic><a href="TH_831.htm">global.ToInteger()</a></span>, <span class=sejumptopic><a href="TH_830.htm">global.ToInt32()</a></span></p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+</table>
+<p class=normal>&nbsp;</p>
+<hr noshade size=1>
+<p class=normal><a href="TH_833.htm"><img src="button.png" border=0></a><a href="TH_833.htm" style="text-decoration:none;">global.ToObject()</a></p>
+<p>
+</body>
+</html>

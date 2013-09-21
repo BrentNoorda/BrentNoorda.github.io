@@ -1,0 +1,77 @@
+<html>
+<head>
+<title>Object propertyIsEnumerable()</title>
+<link rel="stylesheet" href="semanualstyles.css" type="text/css">
+<style type="text/css">
+ p { margin-top: 0; margin-bottom: 0; }
+</style>
+<script language="JavaScript" src="TrueHelp.js"></script>
+</head>
+<body onload="thload()">
+<div id=ienav>
+<ilayer id=nsnav>
+<br>
+<center>
+<p class=normal><a href="seisdkj-toc.htm" target="left">contents</a> &nbsp; <a href="seisdkj-index.htm" target="left">index</a> &nbsp; <a href="TH_771.htm">previous</a> &nbsp; <a href="TH_773.htm">next</a></p>
+</center>
+<br>
+<hr noshade size=1>
+</ilayer>
+</div>
+<p class=sereffunclevel4>Object propertyIsEnumerable()</p>
+<table cellpadding=0>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>syntax:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=sesyntax>object.propertyIsEnumerable(<span class=truehelp-xe></span>propertyName)</p></td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>where:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>property - name of the property about which to query.</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>return:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>boolean - <span class=secodephrase>true</span> if the current object has an enumerable property of the specified name, otherwise <span class=secodephrase>false</span>.</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>description:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>If the current object has no property of the specified name, then <span class=secodephrase>false</span> is immediately returned.  If the property has the <span class=secodephrase>DontEnum</span> attribute set, then <span class=secodephrase>false</span> is returned.  Otherwise, <span class=secodephrase>true</span> is returned. </p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>example:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=secodelines>function&nbsp;Atest()</p>
+<p class=secodelines>{</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;this.name&nbsp;=&nbsp;"";</p>
+<p class=secodelines>}&nbsp;//&nbsp;Test</p>
+<p class=secodelines>&nbsp;</p>
+<p class=secodelines>Atest.prototype.city&nbsp;=&nbsp;"Fort&nbsp;Worth";</p>
+<p class=secodelines>&nbsp;</p>
+<p class=secodelines>var&nbsp;t&nbsp;=&nbsp;new&nbsp;Atest();</p>
+<p class=secodelines>&nbsp;</p>
+<p class=secodelines>//&nbsp;Fort&nbsp;Worth</p>
+<p class=secodelines>Screen.writeln(t.city);</p>
+<p class=secodelines>&nbsp;</p>
+<p class=secodelines>//&nbsp;true</p>
+<p class=secodelines>Screen.writeln(t.propertyIsEnumerable("name"));</p>
+<p class=secodelines>//&nbsp;true</p>
+<p class=secodelines>Screen.writeln(t.propertyIsEnumerable("city"));</p></td>
+</tr>
+</table>
+<p class=normal>&nbsp;</p>
+<hr noshade size=1>
+<p class=normal><a href="TH_773.htm"><img src="button.png" border=0></a><a href="TH_773.htm" style="text-decoration:none;">Object toLocaleString()</a></p>
+<p>
+</body>
+</html>

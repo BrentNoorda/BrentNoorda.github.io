@@ -1,0 +1,63 @@
+<html>
+<head>
+<title>Initializers for arrays and objects</title>
+<link rel="stylesheet" href="semanualstyles.css" type="text/css">
+<style type="text/css">
+ p { margin-top: 0; margin-bottom: 0; }
+</style>
+<script language="JavaScript" src="TrueHelp.js"></script>
+</head>
+<body onload="thload()">
+<div id=ienav>
+<ilayer id=nsnav>
+<br>
+<center>
+<p class=normal><a href="seisdkj-toc.htm" target="left">contents</a> &nbsp; <a href="seisdkj-index.htm" target="left">index</a> &nbsp; <a href="TH_417.htm">previous</a> &nbsp; <a href="TH_419.htm">next</a></p>
+</center>
+<br>
+<hr noshade size=1>
+</ilayer>
+</div>
+<p class=heading-4>Initializers for arrays and objects</p>
+<p class=senormalpara>Variables may be initialized as objects and arrays using lists inside of "<span class=secodephrase>{}</span>" and "<span class=secodephrase>[]</span>". By using these initializers, instances of Objects and Arrays may be created without using the <span class=secodephrase>new</span> constructor. Objects may be initialized using syntax similar to the following:</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=secodelinesindented>var&nbsp;o&nbsp;=&nbsp;{a:1,&nbsp;b:2,&nbsp;c:3};</p>
+<p class=secodelines>&nbsp;</p>
+<p class=senormalpara>This line creates a new object with the properties a, b, and c set to the values shown. The properties may be used with normal object syntax, for example, <span class=secodephrase>o.a == 1</span>.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>Arrays may be initialized using syntax similar to the following:</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=secodelinesindented>var&nbsp;a&nbsp;=&nbsp;[1,&nbsp;2,&nbsp;3];</p>
+<p class=secodelines>&nbsp;</p>
+<p class=senormalpara>This line creates a new array with three elements set to 1, 2, and 3. The elements may be used with normal array syntax, for example, <span class=secodephrase>a[0] == 1</span>.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>The distinction between Object and Array initializer might be a bit confusing when using a line with syntax similar to the following:</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=secodelinesindented>var&nbsp;a&nbsp;=&nbsp;{1,&nbsp;2,&nbsp;3};</p>
+<p class=secodelines>&nbsp;</p>
+<p class=senormalpara>This line also creates a new array with three elements set to 1, 2, and 3. The line differs from the first line, Object initializer, in that there are no property identifiers and differs from the second line, Array initializer, in that it uses "<span class=secodephrase>{}</span>" instead of "<span class=secodephrase>[]</span>". In fact, the second and third lines produce the same results. The elements may be used with normal array syntax, for example, <span class=secodephrase>a[0] == 1</span>.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>The following code fragment shows the differences.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=secodelinesindented>var&nbsp;o&nbsp;=&nbsp;{a:1,&nbsp;b:2,&nbsp;c:3};</p>
+<p class=secodelinesindented>Screen.writeln(typeof&nbsp;o&nbsp;+"&nbsp;|&nbsp;"+&nbsp;o._class&nbsp;+"&nbsp;|&nbsp;"+&nbsp;o);</p>
+<p class=secodelines>&nbsp;</p>
+<p class=secodelinesindented>var&nbsp;a&nbsp;=&nbsp;[1,&nbsp;2,&nbsp;3];</p>
+<p class=secodelinesindented>Screen.writeln(typeof&nbsp;a&nbsp;+"&nbsp;|&nbsp;"+&nbsp;a._class&nbsp;+"&nbsp;|&nbsp;"+&nbsp;a);</p>
+<p class=secodelinesindented>&nbsp;</p>
+<p class=secodelinesindented>var&nbsp;a=&nbsp;{1,&nbsp;2,&nbsp;3};</p>
+<p class=secodelinesindented>Screen.writeln(typeof&nbsp;a&nbsp;+"&nbsp;|&nbsp;"+&nbsp;a._class&nbsp;+"&nbsp;|&nbsp;"+&nbsp;a);</p>
+<p class=secodelinesindented>&nbsp;</p>
+<p class=senormalpara>The display from this code is:</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=secodelinesindented>object&nbsp;|&nbsp;Object&nbsp;|&nbsp;[object&nbsp;Object]</p>
+<p class=secodelinesindented>object&nbsp;|&nbsp;Array&nbsp;|&nbsp;1,2,3</p>
+<p class=secodelinesindented>object&nbsp;|&nbsp;Array&nbsp;|&nbsp;1,2,3</p>
+<p class=secodelines>&nbsp;</p>
+<p class=senormalpara>As shown in the first display line, the variable <span class=secodephrase>o</span> is created and initialized as an Object. The second and third lines both initialize the variable <span class=secodephrase>a</span> as an Array. Notice that in all cases the <span class=secodephrase>typeof</span> the variable is object, but the class, which corresponds to the particular object and which is reflected in the <span class=secodephrase>_class</span> property, shows which specific object is created and initialized.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<hr noshade size=1>
+<p class=normal><a href="TH_419.htm"><img src="button.png" border=0></a><a href="TH_419.htm" style="text-decoration:none;">Array object instance properties</a></p>
+<p>
+</body>
+</html>

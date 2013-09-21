@@ -1,0 +1,40 @@
+<html>
+<head>
+<title>Automatic type conversion</title>
+<link rel="stylesheet" href="semanualstyles.css" type="text/css">
+<style type="text/css">
+ p { margin-top: 0; margin-bottom: 0; }
+</style>
+<script language="JavaScript" src="TrueHelp.js"></script>
+</head>
+<body onload="thload()">
+<div id=ienav>
+<ilayer id=nsnav>
+<br>
+<center>
+<p class=normal><a href="seisdkc-toc.htm" target="left">contents</a> &nbsp; <a href="seisdkc-index.htm" target="left">index</a> &nbsp; <a href="TH_448.htm">previous</a> &nbsp; <a href="TH_450.htm">next</a></p>
+</center>
+<br>
+<hr noshade size=1>
+</ilayer>
+</div>
+<p class=heading-2>Automatic type conversion</p>
+<p class=heading-2-p>&nbsp;</p>
+<p class=senormalpara><span class=truehelp-xe></span>When a variable is used in a context where it makes sense to convert it to a different type, ScriptEase automatically converts the variable to the appropriate type. Such conversions most commonly happen with numbers and strings. For example:</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=secodelinesindented>"dog"&nbsp;+&nbsp;"house"&nbsp;==&nbsp;"doghouse"&nbsp;&nbsp;&nbsp;//&nbsp;two&nbsp;strings&nbsp;are&nbsp;joined</p>
+<p class=secodelinesindented>"dog"&nbsp;+&nbsp;4&nbsp;==&nbsp;&nbsp;"dog4"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//&nbsp;a&nbsp;number&nbsp;is&nbsp;converted</p>
+<p class=secodelinesindented>4&nbsp;+&nbsp;"4"&nbsp;==&nbsp;"44"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//&nbsp;to&nbsp;a&nbsp;string</p>
+<p class=secodelinesindented>4&nbsp;+&nbsp;4&nbsp;==&nbsp;8&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//&nbsp;two&nbsp;numbers&nbsp;are&nbsp;added</p>
+<p class=secodelinesindented>23&nbsp;&nbsp;"17"&nbsp;==&nbsp;6&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//&nbsp;a&nbsp;string&nbsp;is&nbsp;converted</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//&nbsp;to&nbsp;a&nbsp;number</p>
+<p class=secodelinesindented>&nbsp;</p>
+<p class=senormalpara>Converting numbers to strings is fairly straightforward. However, when converting strings to numbers there are several limitations. While subtracting a string from a number or a number from a string converts the string to a number and subtracts the two, adding the two converts the number to a string and concatenates them. String always convert to a base 10 number and must not contain any characters other than digits. The string "110n" will not convert to a number, because the ScriptEase interpreter does not know what to make of the "n" character.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>You can specify more stringent conversions by using the global methods, <span class=sepopuptopic><a href="TH_824.htm" onClick="return thwindow('TH_824.htm', 'GenPopup')">global.parseInt()</a></span> and <span class=sepopuptopic><a href="TH_823.htm" onClick="return thwindow('TH_823.htm', 'GenPopup')">global.parseFloat()</a></span> methods. Further, ScriptEase has many global functions to cast data as a specific type, functions that are not part of the ECMAScript standard. These functions are described in the section on global functions that are specific to ScriptEase.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<hr noshade size=1>
+<p class=normal><a href="TH_450.htm"><img src="button.png" border=0></a><a href="TH_450.htm" style="text-decoration:none;">Properties and methods of basic data types</a></p>
+<p>
+</body>
+</html>

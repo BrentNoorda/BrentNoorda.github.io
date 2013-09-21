@@ -1,0 +1,53 @@
+<html>
+<head>
+<title>Sample Script</title>
+<link rel="stylesheet" href="semanualstyles.css" type="text/css">
+<style type="text/css">
+ p { margin-top: 0; margin-bottom: 0; }
+</style>
+<script language="JavaScript" src="TrueHelp.js"></script>
+</head>
+<body onload="thload()">
+<div id=ienav>
+<ilayer id=nsnav>
+<br>
+<center>
+<p class=normal><a href="seisdkj-toc.htm" target="left">contents</a> &nbsp; <a href="seisdkj-index.htm" target="left">index</a> &nbsp; <a href="TH_392.htm">previous</a> &nbsp; next</p>
+</center>
+<br>
+<hr noshade size=1>
+</ilayer>
+</div>
+<p class=heading-2>Sample Script</p>
+<p class=heading-2-p>&nbsp;</p>
+<p class=senormalpara>Here is a sample ScriptEase Desktop security script. If you use it, then the desktop scripts will not be allowed to use any insecure functions except a few file-related ones. In addition, <span class=secodephrase>Clib.fopen()</span> will only be allowed to open files in the <i>C:\temp\</i> directory.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=secodelinesindented>function&nbsp;jseSecurityInit(security_var)</p>
+<p class=secodelinesindented>{</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;/*&nbsp;allow&nbsp;basic&nbsp;file&nbsp;manipulations,&nbsp;but&nbsp;nothing&nbsp;fancy,&nbsp;and&nbsp;</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;*&nbsp;make&nbsp;sure&nbsp;to&nbsp;examine&nbsp;all&nbsp;open&nbsp;calls&nbsp;very&nbsp;carefully.</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;*/</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;Clib.fopen.setSecurity(jseSecureGuard);</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;Clib.fclose.setSecurity(jseSecureAllow);</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;Clib.fprintf.setSecurity(jseSecureAllow);</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;Clib.fread.setSecurity(jseSecureAllow);</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;Clib.fwrite.setSecurity(jseSecureAllow);</p>
+<p class=secodelinesindented>}</p>
+<p class=secodelinesindented>&nbsp;</p>
+<p class=secodelinesindented>function&nbsp;jseSecurityGuard(security_var,&nbsp;func,&nbsp;filename)</p>
+<p class=secodelinesindented>{</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;/*&nbsp;we&nbsp;only&nbsp;guard&nbsp;the&nbsp;fopen&nbsp;call,&nbsp;so&nbsp;this&nbsp;should&nbsp;be&nbsp;it&nbsp;*/</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;Clib.assert(&nbsp;security_var==Clib.fopen&nbsp;);</p>
+<p class=secodelinesindented>&nbsp;</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;/*&nbsp;get&nbsp;the&nbsp;full&nbsp;path&nbsp;so&nbsp;the&nbsp;user&nbsp;can't&nbsp;trick&nbsp;us&nbsp;with&nbsp;something</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;*&nbsp;like:&nbsp;'c:\\temp\\..\\windows\\win.ini'</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;*/</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;var&nbsp;actualname&nbsp;=&nbsp;SElib.fullpath(filename);</p>
+<p class=secodelinesindented>&nbsp;</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;/*&nbsp;We&nbsp;only&nbsp;want&nbsp;to&nbsp;allow&nbsp;files&nbsp;in&nbsp;this&nbsp;directory&nbsp;to&nbsp;be&nbsp;opened.</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;*/</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;return&nbsp;Clib.strnicmp("c:\\temp\\",actualname,8)==0;</p>
+<p class=secodelinesindented>}</p>
+<p>
+</body>
+</html>

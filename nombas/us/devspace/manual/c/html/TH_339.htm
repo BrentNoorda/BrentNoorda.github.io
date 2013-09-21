@@ -1,0 +1,38 @@
+<html>
+<head>
+<title>SE_THIS</title>
+<link rel="stylesheet" href="semanualstyles.css" type="text/css">
+<style type="text/css">
+ p { margin-top: 0; margin-bottom: 0; }
+</style>
+<script language="JavaScript" src="TrueHelp.js"></script>
+</head>
+<body onload="thload()">
+<div id=ienav>
+<ilayer id=nsnav>
+<br>
+<center>
+<p class=normal><a href="seisdkc-toc.htm" target="left">contents</a> &nbsp; <a href="seisdkc-index.htm" target="left">index</a> &nbsp; <a href="TH_338.htm">previous</a> &nbsp; <a href="TH_340.htm">next</a></p>
+</center>
+<br>
+<hr noshade size=1>
+</ilayer>
+</div>
+<p class=heading-4>SE_THIS</p>
+<p class=senormalpara>Whenever a function is called, it has a <span class=secodephrase>this</span> variable associated with it. For instance, when you call a function such as:</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=secodelinesindented>foo.func();</p>
+<p class=secodelinesindented>&nbsp;</p>
+<p class=senormalpara><span class=secodephrase>foo</span> is the <span class=secodephrase>this</span> variable for the function call to <span class=secodephrase>func()</span>. When you don't specify an explicit <span class=secodephrase>this</span> variable, such as:</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=secodelinesindented>func();</p>
+<p class=secodelinesindented>&nbsp;</p>
+<p class=senormalpara>The <span class=secodephrase>this</span> variable is implicitly the global object. You can access the <span class=secodephrase>this</span> variable for your wrapper function, which is always an object, and its members by using the <span class=secodephrase>SE_THIS</span> stock object. If you use <span class=secodephrase>SE_THIS</span> outside of a wrapper function, it is always the global object.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>You cannot write to <span class=secodephrase>SE_THIS,SE_VALUE</span>, it is read-only.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<hr noshade size=1>
+<p class=normal><a href="TH_340.htm"><img src="button.png" border=0></a><a href="TH_340.htm" style="text-decoration:none;">SE_SCOPE</a></p>
+<p>
+</body>
+</html>

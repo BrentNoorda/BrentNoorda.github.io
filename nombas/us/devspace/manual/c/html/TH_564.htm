@@ -1,0 +1,94 @@
+<html>
+<head>
+<title>Buffer()</title>
+<link rel="stylesheet" href="semanualstyles.css" type="text/css">
+<style type="text/css">
+ p { margin-top: 0; margin-bottom: 0; }
+</style>
+<script language="JavaScript" src="TrueHelp.js"></script>
+</head>
+<body onload="thload()">
+<div id=ienav>
+<ilayer id=nsnav>
+<br>
+<center>
+<p class=normal><a href="seisdkc-toc.htm" target="left">contents</a> &nbsp; <a href="seisdkc-index.htm" target="left">index</a> &nbsp; <a href="TH_563.htm">previous</a> &nbsp; <a href="TH_565.htm">next</a></p>
+</center>
+<br>
+<hr noshade size=1>
+</ilayer>
+</div>
+<p class=sereffunclevel4>Buffer()</p>
+<table cellpadding=0>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>syntax:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=sesyntax>new&nbsp;Buffer([size[,&nbsp;unicode[,&nbsp;bigEndian]]])</p>
+<p class=sesyntax>new&nbsp;Buffer(string[,&nbsp;unicode[,&nbsp;bigEndian]]])</p>
+<p class=sesyntax>new&nbsp;Buffer(buffer[,&nbsp;unicode[,&nbsp;bigEndian]]])</p>
+<p class=sesyntax>new&nbsp;Buffer(bufferObject)</p></td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>where:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>size - size of buffer to be created.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>string - string of characters from which to create a buffer.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>buffer - buffer of characters from which to create another buffer.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>bufferObject - buffer to be duplicated.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>unicode - boolean flag for the initial state of the <span class=sepopuptopic><a href="TH_561.htm" onClick="return thwindow('TH_561.htm', 'GenPopup')">Buffer unicode</a></span> property of this buffer.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>bigEndian - numeric description of the initial state of the <span class=sepopuptopic><a href="TH_558.htm" onClick="return thwindow('TH_558.htm', 'GenPopup')">Buffer bigEndian</a></span> property of this buffer.</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>return:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>object - the new Buffer object created.</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>description:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>To create a <span class=sepopuptopic><a href="TH_556.htm" onClick="return thwindow('TH_556.htm', 'GenPopup')">Buffer object</a></span>, use syntax as shown by the following:</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=secodelinesindented>new&nbsp;Buffer([size[,&nbsp;unicode[,&nbsp;bigEndian]]]);</p>
+<p class=secodelinesindented>&nbsp;</p>
+<p class=senormalpara>A line of code following this syntax creates a new Buffer object. If size is specified, then the new buffer is created with the specified size, filled with <span class=secodephrase>null</span> bytes. If no size is specified, then the buffer is created with a size of 0, though it can be extended dynamically later. The unicode parameter is an optional boolean flag describing the initial state of the .unicode flag of the object. Similarly, bigEndian describes the initial state of the bigEndian parameter of the buffer. If unspecified, these parameters default to the values described below.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=secodelinesindented>new&nbsp;Buffer(string[,&nbsp;unicode[,&nbsp;bigEndian]]]);</p>
+<p class=secodelinesindented>&nbsp;</p>
+<p class=senormalpara>A line of code following this syntax creates a new Buffer object from the string provided. If string is a unicode string (unicode is enabled within the application), then the buffer is created as a unicode string. This behavior can be overridden by specifying <span class=secodephrase>true</span> or <span class=secodephrase>false</span> with the optional boolean unicode parameter. If this parameter is set to <span class=secodephrase>false</span>, then the buffer is created as an ASCII string, regardless of whether or not the original string was in unicode or not. Similarly, specifying <span class=secodephrase>true</span> will ensure that the buffer is created as a unicode string. The size of the buffer is the length of the string (twice the length if it is unicode). This constructor does not add a terminating <span class=secodephrase>null</span> byte at the end of the string. The bigEndian flag behaves the same way as in the first constructor.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=secodelinesindented>new&nbsp;Buffer(buffer[,&nbsp;unicode[,&nbsp;bigEndian]])</p>
+<p class=secodelinesindented>&nbsp;</p>
+<p class=senormalpara>A line of code following this syntax creates a new Buffer object from the buffer provided. The contents of the buffer are copied as is into the new Buffer object. The unicode and bigEndian parameters do not affect this conversion, though they do set the relevant flags for future use.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=secodelinesindented>new&nbsp;Buffer(bufferObject);</p>
+<p class=secodelinesindented>&nbsp;</p>
+<p class=senormalpara>A line of code following this syntax creates a new Buffer object from another Buffer object. Everything is duplicated exactly from the other bufferObject, including the <span class=sepopuptopic><a href="TH_559.htm" onClick="return thwindow('TH_559.htm', 'GenPopup')">Buffer cursor</a></span> location and the <span class=sepopuptopic><a href="TH_560.htm" onClick="return thwindow('TH_560.htm', 'GenPopup')">Buffer size</a></span>.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>All of the Buffer construction calls above may be done without the <span class=secodephrase>new</span> constructor starting with ScriptEase 5.00.</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>see:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara><span class=sejumptopic><a href="TH_545.htm">Blob object</a></span></p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+</table>
+<p class=normal>&nbsp;</p>
+<hr noshade size=1>
+<p class=normal><a href="TH_565.htm"><img src="button.png" border=0></a><a href="TH_565.htm" style="text-decoration:none;">Buffer getString()</a></p>
+<p>
+</body>
+</html>

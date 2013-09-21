@@ -1,0 +1,48 @@
+<html>
+<head>
+<title>Using the Preprocessor</title>
+<link rel="stylesheet" href="semanualstyles.css" type="text/css">
+<style type="text/css">
+ p { margin-top: 0; margin-bottom: 0; }
+</style>
+<script language="JavaScript" src="TrueHelp.js"></script>
+</head>
+<body onload="thload()">
+<div id=ienav>
+<ilayer id=nsnav>
+<br>
+<center>
+<p class=normal><a href="seisdkj-toc.htm" target="left">contents</a> &nbsp; <a href="seisdkj-index.htm" target="left">index</a> &nbsp; <a href="TH_186.htm">previous</a> &nbsp; <a href="TH_188.htm">next</a></p>
+</center>
+<br>
+<hr noshade size=1>
+</ilayer>
+</div>
+<p class=heading-3>Using the Preprocessor</p>
+<p class=heading-3-p>&nbsp;</p>
+<p class=senormalpara>The Preprocessor.jar file is located in the &#8216;Tools&#8217; directory of the distribution.  A simple example of its usage follows:</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=secodelinesindented>java&nbsp;-jar&nbsp;Tools\Preprocessor.jar&nbsp;Foo.jsrc</p>
+<p class=senormalpara>This example would preprocess the file Foo.jsrc (assuming it exists) and output<br>
+Foo.java.  The preprocessor accepts the following command line parameters:</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=secodelinesindented>-I&nbsp;&lt;dir&gt;&nbsp;:&nbsp;adds&nbsp;the&nbsp;&lt;dir&gt;&nbsp;to&nbsp;the&nbsp;Preprocessor's&nbsp;include&nbsp;path.&nbsp;&nbsp;</p>
+<p class=secodelinesindented>-O&nbsp;&lt;dir&gt;&nbsp;:&nbsp;places&nbsp;the&nbsp;output&nbsp;files&nbsp;into&nbsp;&lt;dir&gt;</p>
+<p class=senormalpara>To preprocess all of the Nombas source files, run the following commands from<br>
+the root of the distribution:</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=secodelinesindented>java&nbsp;-jar&nbsp;Tools\Preprocessor.jar&nbsp;-I&nbsp;Include&nbsp;COM/Nombas/jse/Isdk/*.jsrc</p>
+<p class=secodelinesindented>&nbsp;</p>
+<p class=secodelinesindented>java&nbsp;-jar&nbsp;Tools\Preprocessor.jar&nbsp;-I&nbsp;Include&nbsp;COM/Nombas/jse/utilities/*.jsrc</p>
+<p class=secodelinesindented>&nbsp;</p>
+<p class=secodelinesindented>java&nbsp;-jar&nbsp;Tools\Preprocessor.jar&nbsp;-I&nbsp;Include&nbsp;COM/Nombas/jse/libraries/*.jsrc</p>
+<p class=senormalpara>Since no output directory was specified, the preprocessed .java files are placed in the same directory where the corresponding .jsrc files were found.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>&nbsp;</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=normal>&nbsp;</p>
+<hr noshade size=1>
+<p class=normal><a href="TH_188.htm"><img src="button.png" border=0></a><a href="TH_188.htm" style="text-decoration:none;">Advanced Integration - Debugging</a></p>
+<p>
+</body>
+</html>

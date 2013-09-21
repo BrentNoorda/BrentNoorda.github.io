@@ -1,0 +1,423 @@
+<HTML>
+ <HEAD>
+ 
+
+        <META NAME="VPSiteProject" CONTENT="file:///c|/visualpage/Nombas.vpp"><TITLE>Regexpn Documentation</TITLE>
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-1754630-10']);
+  _gaq.push(['_trackPageview']);
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+ </HEAD>
+ 
+<BODY BACKGROUND="../deskback.gif" LINK=#FF0000 VLINK=#FF0000>
+<A NAME="top"></A>
+<P>
+  <TABLE CELLPADDING=1 CELLSPACING=2 BORDER=0>
+   <TR>
+    <TD WIDTH=150 VALIGN=CENTER><P>
+    <IMG SRC="../../spacers/sp150w.gif" ALIGN=BOTTOM BORDER=0 VSPACE=0 HSPACE=0><BR>
+    <A HREF="../../index.htm"><IMG SRC="/us/images/logo49b.gif" ALT="Nombas Logo" ALIGN=BOTTOM WIDTH=107 HEIGHT=49 BORDER=0 VSPACE=0 HSPACE=0></A><BR>
+    </TD>
+    <TD WIDTH=10 VALIGN=CENTER>
+    </TD>
+    <TD WIDTH=540 VALIGN=TOP><P>
+    <IMG SRC="../../spacers/space17h.gif" ALT=" " ALIGN=BOTTOM WIDTH=2 HEIGHT=17 BORDER=0 VSPACE=0 HSPACE=0><BR>
+
+   </TR>
+   <TR>
+    <TD WIDTH=150 VALIGN=TOP><P>
+    <FONT SIZE=5><FONT COLOR=#FF0000><B>Regexpsn</B></FONT></FONT></TD><TD
+     WIDTH=10 VALIGN=CENTER>
+    </TD>
+    <TD WIDTH=540 VALIGN=TOP><P>
+    <FONT SIZE=5>The regexpsn library allows you to perform complicated search routines with regular expressions (as in UNIX or Perl).</FONT></P><P>The
+     process is pretty complicated. First you must allocate a space in memory with <A HREF="#reggethandle">regGetHandle</A>(), and then compile a search string pattern to search for with <A HREF="#regcomp">RegComp</A>(). <A HREF="#regexec">RegExec</A>() is the function that actually performs the search.<BR>
+    <IMG SRC="../../download/rb_bar.gif" ALIGN=BOTTOM WIDTH=356 HEIGHT=6 BORDER=0 VSPACE=0 HSPACE=0><BR>
+    The following operators have special meaning in search strings:<TABLE
+      CELLPADDING=1 CELLSPACING=2 BORDER=0>
+      <TR>
+       <TD WIDTH=47 VALIGN=CENTER>
+       </TD>
+       <TD WIDTH=80 VALIGN=CENTER><P>
+       .</TD>
+       <TD WIDTH=386 VALIGN=CENTER><P>
+       matches any single character except new line</TD>
+      </TR>
+      <TR>
+       <TD WIDTH=47 VALIGN=CENTER>
+       </TD>
+       <TD WIDTH=80 VALIGN=CENTER><P>
+       x*</TD>
+       <TD WIDTH=386 VALIGN=CENTER><P>
+       matches zero or more occurrences of the character x</TD>
+      </TR>
+      <TR>
+       <TD WIDTH=47 VALIGN=CENTER>
+       </TD>
+       <TD WIDTH=80 VALIGN=CENTER><P>
+       x+</TD>
+       <TD WIDTH=386 VALIGN=CENTER><P>
+       matches one or more occurrences of the character x</TD>
+      </TR>
+      <TR>
+       <TD WIDTH=47 VALIGN=CENTER>
+       </TD>
+       <TD WIDTH=80 VALIGN=CENTER><P>
+       x?</TD>
+       <TD WIDTH=386 VALIGN=CENTER><P>
+       matches zero or one occurrence of the character x</TD>
+      </TR>
+      <TR>
+       <TD WIDTH=47 VALIGN=CENTER>
+       </TD>
+       <TD WIDTH=80 VALIGN=CENTER><P>
+       [&ldots;]</TD>
+       <TD WIDTH=386 VALIGN=CENTER><P>
+       matches any of the characters inside the brackets</TD>
+      </TR>
+      <TR>
+       <TD WIDTH=47 VALIGN=CENTER>
+       </TD>
+       <TD WIDTH=80 VALIGN=CENTER><P>
+       x{n}</TD>
+       <TD WIDTH=386 VALIGN=CENTER><P>
+       matches exactly n occurrences of the character x</TD>
+      </TR>
+      <TR>
+       <TD WIDTH=47 VALIGN=CENTER>
+       </TD>
+       <TD WIDTH=80 VALIGN=CENTER><P>
+       x{n,}</TD>
+       <TD WIDTH=386 VALIGN=CENTER><P>
+       matches n or more occurrences of the character x</TD>
+      </TR>
+      <TR>
+       <TD WIDTH=47 VALIGN=CENTER>
+       </TD>
+       <TD WIDTH=80 VALIGN=CENTER><P>
+       x{,m}</TD>
+       <TD WIDTH=386 VALIGN=CENTER><P>
+       matches zero or at most m occurrences of the character x</TD>
+      </TR>
+      <TR>
+       <TD WIDTH=47 VALIGN=CENTER>
+       </TD>
+       <TD WIDTH=80 VALIGN=CENTER><P>
+       x{n,m}</TD>
+       <TD WIDTH=386 VALIGN=CENTER><P>
+       matches at least n occurrences, but no more than m occurrences of the character x</TD>
+      </TR>
+      <TR>
+       <TD WIDTH=47 VALIGN=CENTER>
+       </TD>
+       <TD WIDTH=80 VALIGN=CENTER><P>
+       $</TD>
+       <TD WIDTH=386 VALIGN=CENTER><P>
+       matches the end of a line</TD>
+      </TR>
+      <TR>
+       <TD WIDTH=47 VALIGN=CENTER>
+       </TD>
+       <TD WIDTH=80 VALIGN=CENTER><P>
+       \0</TD>
+       <TD WIDTH=386 VALIGN=CENTER><P>
+       matches the null character</TD>
+      </TR>
+      <TR>
+       <TD WIDTH=47 VALIGN=CENTER>
+       </TD>
+       <TD WIDTH=80 VALIGN=CENTER><P>
+       \b</TD>
+       <TD WIDTH=386 VALIGN=CENTER><P>
+       matches a backspace</TD>
+      </TR>
+      <TR>
+       <TD WIDTH=47 VALIGN=CENTER>
+       </TD>
+       <TD WIDTH=80 VALIGN=CENTER><P>
+       \B</TD>
+       <TD WIDTH=386 VALIGN=CENTER><P>
+       matches any character that's not at the beginning or at the end of a word</TD>
+      </TR>
+      <TR>
+       <TD WIDTH=47 VALIGN=CENTER>
+       </TD>
+       <TD WIDTH=80 VALIGN=CENTER><P>
+       \b</TD>
+       <TD WIDTH=386 VALIGN=CENTER><P>
+       matches the beginning or end of a word (when not inside brackets)</TD>
+      </TR>
+      <TR>
+       <TD WIDTH=47 VALIGN=CENTER>
+       </TD>
+       <TD WIDTH=80 VALIGN=CENTER><P>
+       \c<I>X</I></TD>
+       <TD WIDTH=386 VALIGN=CENTER><P>
+       matches Ctrl - <I>X</I></TD>
+      </TR>
+      <TR>
+       <TD WIDTH=47 VALIGN=CENTER>
+       </TD>
+       <TD WIDTH=80 VALIGN=CENTER><P>
+       \d</TD>
+       <TD WIDTH=386 VALIGN=CENTER><P>
+       matches a single digit</TD>
+      </TR>
+      <TR>
+       <TD WIDTH=47 VALIGN=CENTER>
+       </TD>
+       <TD WIDTH=80 VALIGN=CENTER><P>
+       \D</TD>
+       <TD WIDTH=386 VALIGN=CENTER><P>
+       matches a non-digit character</TD>
+      </TR>
+      <TR>
+       <TD WIDTH=47 VALIGN=CENTER>
+       </TD>
+       <TD WIDTH=80 VALIGN=CENTER><P>
+       \f</TD>
+       <TD WIDTH=386 VALIGN=CENTER><P>
+       matches a form feed</TD>
+      </TR>
+      <TR>
+       <TD WIDTH=47 VALIGN=CENTER>
+       </TD>
+       <TD WIDTH=80 VALIGN=CENTER><P>
+       \n</TD>
+       <TD WIDTH=386 VALIGN=CENTER><P>
+       matches a newline (line-feed) character</TD>
+      </TR>
+      <TR>
+       <TD WIDTH=47 VALIGN=CENTER>
+       </TD>
+       <TD WIDTH=80 VALIGN=CENTER><P>
+       \ooo</TD>
+       <TD WIDTH=386 VALIGN=CENTER><P>
+       matches an octal value specified by the digits ooo (where each o is a digit between 0 and 7)</TD>
+      </TR>
+      <TR>
+       <TD WIDTH=47 VALIGN=CENTER>
+       </TD>
+       <TD WIDTH=80 VALIGN=CENTER><P>
+       \r</TD>
+       <TD WIDTH=386 VALIGN=CENTER><P>
+       matches a carriage return</TD>
+      </TR>
+      <TR>
+       <TD WIDTH=47 VALIGN=CENTER>
+       </TD>
+       <TD WIDTH=80 VALIGN=CENTER><P>
+       \S</TD>
+       <TD WIDTH=386 VALIGN=CENTER><P>
+       matches a non-white-space character</TD>
+      </TR>
+      <TR>
+       <TD WIDTH=47 VALIGN=CENTER>
+       </TD>
+       <TD WIDTH=80 VALIGN=CENTER><P>
+       \s</TD>
+       <TD WIDTH=386 VALIGN=CENTER><P>
+       matches a white-space character (space, tab, or newline)</TD>
+      </TR>
+      <TR>
+       <TD WIDTH=47 VALIGN=CENTER>
+       </TD>
+       <TD WIDTH=80 VALIGN=CENTER><P>
+       \t</TD>
+       <TD WIDTH=386 VALIGN=CENTER><P>
+       matches a tab</TD>
+      </TR>
+      <TR>
+       <TD WIDTH=47 VALIGN=CENTER>
+       </TD>
+       <TD WIDTH=80 VALIGN=CENTER><P>
+       \W</TD>
+       <TD WIDTH=386 VALIGN=CENTER><P>
+       matches a non-alphanumeric character</TD>
+      </TR>
+      <TR>
+       <TD WIDTH=47 VALIGN=CENTER>
+       </TD>
+       <TD WIDTH=80 VALIGN=CENTER><P>
+       \w</TD>
+       <TD WIDTH=386 VALIGN=CENTER><P>
+       matches an alphanumeric character</TD>
+      </TR>
+      <TR>
+       <TD WIDTH=47 VALIGN=CENTER>
+       </TD>
+       <TD WIDTH=80 VALIGN=CENTER><P>
+       \xhh</TD>
+       <TD WIDTH=386 VALIGN=CENTER><P>
+       matches the hexadecimal value specified by the digits hh (where each h is a digit between 0 and f)</TD>
+      </TR>
+      <TR>
+       <TD WIDTH=47 VALIGN=CENTER>
+       </TD>
+       <TD WIDTH=80 VALIGN=CENTER><P>
+       ^</TD>
+       <TD WIDTH=386 VALIGN=CENTER><P>
+       matches the beginning of a line</TD>
+      </TR>
+     </TABLE><P>
+    In addition, since the characters $, |, *, ^, [, ], / and \ have special meanings in code strings, you must put a backslash before them if you want to search for the character itself. In other words, to search for the * character, you would search for /*.<TABLE
+      CELLPADDING=1 CELLSPACING=2 BORDER=0>
+      <TR>
+       <TD COLSPAN=2 WIDTH=494 VALIGN=CENTER><P>
+       <A NAME="reggethandle"></A><FONT SIZE=4><B>regGethandle</B></FONT></TD></TR>
+      <TR>
+       <TD COLSPAN=2 WIDTH=494 VALIGN=CENTER><P>
+       Allocates memory for a search pattern</TD>
+      </TR>
+      <TR>
+       <TD WIDTH=96 VALIGN=TOP><P>
+       <FONT SIZE=2><B>SYNTAX:</B></FONT></TD><TD
+        WIDTH=398 VALIGN=CENTER><P>
+       int RegGetHandle(void);</TD>
+      </TR>
+      <TR>
+       <TD WIDTH=96 VALIGN=TOP><P>
+       <FONT SIZE=2><B>COMMENTS</B></FONT></TD><TD
+        WIDTH=398 VALIGN=CENTER><P>
+       This function must be called first to initialize memory for the search string. The handle that is returned must then be used in subsequent calls to RegComp, RegExec, and RegError. The memory should be freed with a call to RegFree when you are done using it.</TD>
+      </TR>
+      <TR>
+       <TD WIDTH=96 VALIGN=TOP><P>
+       <FONT SIZE=2><B>RETURN</B></FONT></TD><TD
+        WIDTH=398 VALIGN=CENTER><P>
+       Returns a handle to an area in memory.</TD>
+      </TR>
+     </TABLE>
+    <HR ALIGN=CENTER WIDTH=100% SIZE=2>
+    <!--fnavbar--><A HREF="#top">To the Top of Page</A> <IMG SRC="../../spacers/space25w.gif" ALIGN=BOTTOM WIDTH=13 HEIGHT=2 BORDER=0 VSPACE=0 HSPACE=0> <A HREF="../../index.htm">Nombas' homepage</A> <IMG SRC="../../spacers/space25w.gif" ALIGN=BOTTOM WIDTH=13 HEIGHT=2 BORDER=0 VSPACE=0 HSPACE=0> <A HREF="index.htm">#link libraries</A><HR
+     ALIGN=CENTER WIDTH=100% SIZE=2>
+     <TABLE CELLPADDING=1 CELLSPACING=2 BORDER=0>
+      <TR>
+       <TD COLSPAN=2 WIDTH=590 VALIGN=CENTER><P>
+       <A NAME="regcomp"></A><FONT SIZE=4><B>RegComp</B></FONT></TD><TD
+        VALIGN=CENTER>
+       </TD>
+      </TR>
+      <TR>
+       <TD COLSPAN=2 WIDTH=590 VALIGN=CENTER><P>
+       Compiles search pattern</TD>
+       <TD VALIGN=CENTER>
+       </TD>
+      </TR>
+      <TR>
+       <TD WIDTH=96 VALIGN=TOP><P>
+       <FONT SIZE=2><B>SYNTAX:</B></FONT></TD><TD
+        COLSPAN=2 WIDTH=494 VALIGN=CENTER><P>
+       int RegComp(int handle, string searchpattern, int flags);</TD>
+      </TR>
+      <TR>
+       <TD WIDTH=96 VALIGN=TOP><P>
+       <FONT SIZE=2><B>COMMENTS</B></FONT></TD><TD
+        WIDTH=398 VALIGN=CENTER><P>
+       handle is the handle returned by RegGetHandle.</P>
+       <P>
+       Searchpattern is the string to be searched for. It may contain characters and operators as described in this section.</TD>
+       <TD VALIGN=CENTER>
+       </TD>
+      </TR>
+      <TR>
+       <TD WIDTH=96 VALIGN=TOP><P>
+       <FONT SIZE=2><B>RETURN</B></FONT></TD><TD
+        WIDTH=398 VALIGN=CENTER><P>
+       0 if successful; otherwise, returns an integer which corresponds to an error message. This error message may be accessed with a call to RegError</TD>
+       <TD VALIGN=CENTER>
+       </TD>
+      </TR>
+     </TABLE>
+    <HR ALIGN=CENTER WIDTH=100% SIZE=2>
+    <!--fnavbar--><A HREF="#top">To the Top of Page</A> <IMG SRC="../../spacers/space25w.gif" ALIGN=BOTTOM WIDTH=13 HEIGHT=2 BORDER=0 VSPACE=0 HSPACE=0> <A HREF="../../index.htm">Nombas' homepage</A> <IMG SRC="../../spacers/space25w.gif" ALIGN=BOTTOM WIDTH=13 HEIGHT=2 BORDER=0 VSPACE=0 HSPACE=0> <A HREF="index.htm">#link libraries</A><HR
+     ALIGN=CENTER WIDTH=100% SIZE=2>
+     <TABLE CELLPADDING=1 CELLSPACING=2 BORDER=0>
+      <TR>
+       <TD COLSPAN=2 WIDTH=494 VALIGN=CENTER><P>
+       <A NAME="regexec"></A><FONT SIZE=4><B>RegExec</B></FONT></TD></TR>
+      <TR>
+       <TD COLSPAN=2 WIDTH=494 VALIGN=CENTER><P>
+       Executes search</TD>
+      </TR>
+      <TR>
+       <TD WIDTH=96 VALIGN=TOP><P>
+       <FONT SIZE=2><B>SYNTAX:</B></FONT></TD><TD
+        WIDTH=398 VALIGN=CENTER><P>
+       int RegExec(int handle, string searchtext, int numberOfMatches, matchArray, int flags);</TD>
+      </TR>
+      <TR>
+       <TD WIDTH=96 VALIGN=TOP><P>
+       <FONT SIZE=2><B>COMMENTS</B></FONT></TD><TD
+        WIDTH=398 VALIGN=CENTER><P>
+       This function executes a search. The string pattern to search for must have been previously compiled with calls to RegGetHandle and RegComp.</P>
+       <P>
+       handle is the handle returned by RegGetHandle and passed as the first parameter to RegComp.</P>
+       <P>
+       searchtext is the string to be scanned for matching substrings</P>
+       <P>
+       numberOfMatches is the number of matches to display. This should always be set to one.</TD>
+      </TR>
+      <TR>
+       <TD WIDTH=96 VALIGN=TOP><P>
+       <FONT SIZE=2><B>RETURN</B></FONT></TD><TD
+        WIDTH=398 VALIGN=CENTER><P>
+       0 if successful; otherwise, returns an integer which corresponds to an error message. This error message may be accessed with a call to RegError</TD>
+      </TR>
+     </TABLE>
+    <!--fnavbar--><A HREF="#top">To the Top of Page</A> <IMG SRC="../../spacers/space25w.gif" ALIGN=BOTTOM WIDTH=13 HEIGHT=2 BORDER=0 VSPACE=0 HSPACE=0> <A HREF="../../index.htm">Nombas' homepage</A> <IMG SRC="../../spacers/space25w.gif" ALIGN=BOTTOM WIDTH=13 HEIGHT=2 BORDER=0 VSPACE=0 HSPACE=0> <A HREF="index.htm">#link libraries</A><HR
+     ALIGN=CENTER WIDTH=100% SIZE=2>
+     <TABLE CELLPADDING=1 CELLSPACING=2 BORDER=0>
+      <TR>
+       <TD COLSPAN=2 WIDTH=494 VALIGN=CENTER><P>
+       <FONT SIZE=4><B>RegError</B></FONT></TD></TR>
+      <TR>
+       <TD COLSPAN=2 WIDTH=494 VALIGN=CENTER><P>
+       Gets Error string</TD>
+      </TR>
+      <TR>
+       <TD WIDTH=96 VALIGN=TOP><P>
+       <FONT SIZE=2><B>SYNTAX:</B></FONT></TD><TD
+        WIDTH=398 VALIGN=CENTER><P>
+       void RegError(int errornumber, int handle, string message [,messagesize])</TD>
+      </TR>
+      <TR>
+       <TD WIDTH=96 VALIGN=TOP><P>
+       <FONT SIZE=2><B>COMMENTS</B></FONT></TD><TD
+        WIDTH=398 VALIGN=CENTER><P>
+       This message takes an error number (as returned by RegExec or RegComp) and translates it into a string describing said error. The message will be stored in the string message).</TD>
+      </TR>
+     </TABLE>
+    <HR ALIGN=CENTER WIDTH=100% SIZE=2>
+    <!--fnavbar--><A HREF="#top">To the Top of Page</A> <IMG SRC="../../spacers/space25w.gif" ALIGN=BOTTOM WIDTH=13 HEIGHT=2 BORDER=0 VSPACE=0 HSPACE=0> <A HREF="../../index.htm">Nombas' homepage</A> <IMG SRC="../../spacers/space25w.gif" ALIGN=BOTTOM WIDTH=13 HEIGHT=2 BORDER=0 VSPACE=0 HSPACE=0> <A HREF="index.htm">#link libraries</A><HR
+     ALIGN=CENTER WIDTH=100% SIZE=2>
+     <TABLE CELLPADDING=1 CELLSPACING=2 BORDER=0>
+      <TR>
+       <TD COLSPAN=2 WIDTH=494 VALIGN=CENTER><P>
+       <FONT SIZE=4><B>RegFree</B></FONT></TD><TD
+        WIDTH=96 VALIGN=TOP>
+       </TD>
+      </TR>
+      <TR>
+       <TD COLSPAN=2 WIDTH=494 VALIGN=CENTER><P>
+       Frees memory allocated by RegGetHandle</TD>
+       <TD WIDTH=96 VALIGN=TOP>
+       </TD>
+      </TR>
+      <TR>
+       <TD WIDTH=96 VALIGN=TOP><P>
+       <FONT SIZE=2><B>SYNTAX:</B></FONT></TD><TD
+        COLSPAN=2 WIDTH=494 VALIGN=CENTER><P>
+       void RegFree(handle)</TD>
+      </TR>
+     </TABLE>
+      <A HREF="../../index.htm"><FONT SIZE=1>Home</FONT></A></TD>
+  </TR>
+  </TABLE>
+ </BODY></HTML>

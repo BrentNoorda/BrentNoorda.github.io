@@ -1,0 +1,71 @@
+<html>
+<head>
+<title>seSetArray</title>
+<link rel="stylesheet" href="semanualstyles.css" type="text/css">
+<style type="text/css">
+ p { margin-top: 0; margin-bottom: 0; }
+</style>
+<script language="JavaScript" src="TrueHelp.js"></script>
+</head>
+<body onload="thload()">
+<div id=ienav>
+<ilayer id=nsnav>
+<br>
+<center>
+<p class=normal><a href="seisdkc-toc.htm" target="left">contents</a> &nbsp; <a href="seisdkc-index.htm" target="left">index</a> &nbsp; <a href="TH_49.htm">previous</a> &nbsp; <a href="TH_51.htm">next</a></p>
+</center>
+<br>
+<hr noshade size=1>
+</ilayer>
+</div>
+<p class=sereffunclevel3>seSetArray</p>
+<p class=sereffunclevel3-p>&nbsp;</p>
+<table cellpadding=0>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>syntax:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=sesyntax>&nbsp;&nbsp;&nbsp;sebool</p>
+<p class=sesyntax>seSetArray(secontext&nbsp;se,seobject&nbsp;object,&nbsp;</p>
+<p class=sesyntax>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;sememcount&nbsp;length);</p></td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>where:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara><span class=secodephrase>se</span> the context the object belongs to</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara><span class=secodephrase>object</span> the object to adjust</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara><span class=secodephrase>length</span> one more than the new max element</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>return:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>This function returns <span class=secodephrase>TRUE</span> if the object was adjusted, <span class=secodephrase>FALSE</span> if it was already an <span class=secodephrase>Array</span> and no elements were eliminated.</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>description:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>This call turns an object into an ECMA <span class=secodephrase>Array</span> and adjust its elements. Any numbered element greater than or equal to the <span class=secodephrase>length</span> is deleted. In addition, the object is permanently marked as an ECMA <span class=secodephrase>Array</span> object. This means that its <span class=secodephrase>length</span> element corresponds to the numbered elements and adjusting either adjusts the other just as for an <span class=secodephrase>Array</span>.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>If you want to turn an object into an <span class=secodephrase>Array</span> without altering any elements, use <span class=secodephrase>SE_MAX_INDEX</span> as the <span class=secodephrase>length</span> parameters.</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>see:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara><span class=sepopuptopic><a href="TH_49.htm" onClick="return thwindow('TH_49.htm', 'GenPopup')">seIsArray</a></span></p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+</table>
+<hr noshade size=1>
+<p class=normal><a href="TH_51.htm"><img src="button.png" border=0></a><a href="TH_51.htm" style="text-decoration:none;">seShareReadObject</a></p>
+<p>
+</body>
+</html>

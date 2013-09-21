@@ -1,0 +1,31 @@
+<html>
+<head>
+<title>JSE_FP_EMULATOR (off)</title>
+<link rel="stylesheet" href="semanualstyles.css" type="text/css">
+<style type="text/css">
+ p { margin-top: 0; margin-bottom: 0; }
+</style>
+<script language="JavaScript" src="TrueHelp.js"></script>
+</head>
+<body onload="thload()">
+<div id=ienav>
+<ilayer id=nsnav>
+<br>
+<center>
+<p class=normal><a href="seisdkc-toc.htm" target="left">contents</a> &nbsp; <a href="seisdkc-index.htm" target="left">index</a> &nbsp; <a href="TH_187.htm">previous</a> &nbsp; <a href="TH_189.htm">next</a></p>
+</center>
+<br>
+<hr noshade size=1>
+</ilayer>
+</div>
+<p class=heading-3>JSE_FP_EMULATOR (off)</p>
+<p class=heading-3-p>&nbsp;</p>
+<p class=senormalpara>You can completely redefine all of the floating-point types and operations by compiling with <span class=secodephrase>JSE_FP_EMULATOR</span> defined.  If this flag is defined, then you must implement, through macros or function calls, all of the basic and extended math operations.  Even such a simple operations as adding two numbers or converting a number to an integer must be defined by your macros and functions.  Those macros and functions are all defined in the file <span class=semonospaced>src/include/sefp.h</span>.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>One example has been provided for using <span class=secodephrase>JSE_FP_EMULATOR</span>.  If the tester (<span class=semonospaced>tests/testers/config/fpemul.h</span>) header file is used, it defines <span class=secodephrase>JSE_FP_EMULATOR</span> and includes a sample implementation of all the math routines as found in <span class=semonospaced>src/app/fpemul.*</span>.  This example is built for systems that need floating-point support but which have very slow FP emulation. The goal is to make numbers be kept as integers as long as possible and only converted to floats when they cannot be represented accurately as integers&#8212;the resulting code matches the ECMAScript specification but with optimal speed on a slow-FP system. Note that this is just one sample implementation; different platforms will have different schemes for FP emulation.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<hr noshade size=1>
+<p class=normal><a href="TH_189.htm"><img src="button.png" border=0></a><a href="TH_189.htm" style="text-decoration:none;">MEMORY EXTENSIONS</a></p>
+<p>
+</body>
+</html>

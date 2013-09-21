@@ -1,0 +1,78 @@
+<html>
+<head>
+<title>Dos.asm()</title>
+<link rel="stylesheet" href="semanualstyles.css" type="text/css">
+<style type="text/css">
+ p { margin-top: 0; margin-bottom: 0; }
+</style>
+<script language="JavaScript" src="TrueHelp.js"></script>
+</head>
+<body onload="thload()">
+<div id=ienav>
+<ilayer id=nsnav>
+<br>
+<center>
+<p class=normal><a href="seisdkj-toc.htm" target="left">contents</a> &nbsp; <a href="seisdkj-index.htm" target="left">index</a> &nbsp; <a href="TH_685.htm">previous</a> &nbsp; <a href="TH_687.htm">next</a></p>
+</center>
+<br>
+<hr noshade size=1>
+</ilayer>
+</div>
+<p class=sereffunclevel4>Dos.asm()</p>
+<table cellpadding=0>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>syntax:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=sesyntax>Dos.asm(<span class=truehelp-xe></span>buf[,&nbsp;ax[,&nbsp;bx[,&nbsp;cx[,&nbsp;dx[,&nbsp;si[,&nbsp;di[,</p>
+<p class=sesyntax>&nbsp;&nbsp;&nbsp;ds[,&nbsp;es]]]]]]]])</p></td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>where:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>buf - a byte buffer.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>ax, bx, cx, dx, si, di, ds, es - registers.</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>return:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>number - long value for whatever is in DX:AX when buf returns.</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>description:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>Make a far call to the routine that you have coded into buf. ax, bx, cx, dx, si, di, ds, and es are optional; if some or all are supplied, then the ax, bx, cx, etc... will be set to these values when the code at buf is called. The code in buf will be executed with a far call to that address, and is responsible for returning via retf or other means.  The ScriptEase calling code will restore ALL registers except ss, sp, ax, bx, cx, and dx. If es or ds are supplied, then they must be valid values or 0, if 0 then the current value will be used.</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>example:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=secodelines>//&nbsp;The&nbsp;following&nbsp;example&nbsp;uses&nbsp;80x86&nbsp;assembly&nbsp;code</p>
+<p class=secodelines>//&nbsp;to&nbsp;rotate&nbsp;memory&nbsp;bits:</p>
+<p class=secodelines>&nbsp;</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;//&nbsp;return&nbsp;value&nbsp;of&nbsp;byte&nbsp;b&nbsp;rotate&nbsp;count&nbsp;byte</p>
+<p class=secodelines>function&nbsp;RotateByteRight(b,&nbsp;count)</p>
+<p class=secodelines>{</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;assert(&nbsp;0&nbsp;&lt;=&nbsp;b&nbsp;&amp;&amp;&nbsp;b&nbsp;&lt;=&nbsp;0xFF&nbsp;);</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;assert(&nbsp;0&nbsp;&lt;=&nbsp;count&nbsp;&amp;&amp;&nbsp;count&nbsp;&lt;=&nbsp;8&nbsp;)</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;return&nbsp;asm(`\xD2\xC8\xCB',b,0,count,0);</p>
+<p class=secodelines>&nbsp;</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;//&nbsp;assembly&nbsp;code&nbsp;for&nbsp;would&nbsp;look&nbsp;as&nbsp;follows:</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;//&nbsp;ror&nbsp;al,&nbsp;cl&nbsp;D2C8</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;//&nbsp;retf&nbsp;CB</p>
+<p class=secodelines>}</p></td>
+</tr>
+</table>
+<p class=normal>&nbsp;</p>
+<hr noshade size=1>
+<p class=normal><a href="TH_687.htm"><img src="button.png" border=0></a><a href="TH_687.htm" style="text-decoration:none;">Dos.inport()</a></p>
+<p>
+</body>
+</html>

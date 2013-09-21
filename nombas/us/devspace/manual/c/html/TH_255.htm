@@ -1,0 +1,35 @@
+<html>
+<head>
+<title>YIELDING AND SUSPENDING</title>
+<link rel="stylesheet" href="semanualstyles.css" type="text/css">
+<style type="text/css">
+ p { margin-top: 0; margin-bottom: 0; }
+</style>
+<script language="JavaScript" src="TrueHelp.js"></script>
+</head>
+<body onload="thload()">
+<div id=ienav>
+<ilayer id=nsnav>
+<br>
+<center>
+<p class=normal><a href="seisdkc-toc.htm" target="left">contents</a> &nbsp; <a href="seisdkc-index.htm" target="left">index</a> &nbsp; <a href="TH_254.htm">previous</a> &nbsp; <a href="TH_256.htm">next</a></p>
+</center>
+<br>
+<hr noshade size=1>
+</ilayer>
+</div>
+<p class=sereffunclevel2>YIELDING AND SUSPENDING</p>
+<p class=sereffunclevel2-p>&nbsp;</p>
+<p class=senormalpara>At times, you may want to control the behavior of your fiber execution more than the simple control provided by executing a single statement at a time. Two methods are provided for you to do so. Both methods are invoked by a wrapper function to affect the execution of the fiber the wrapper functions is within.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>When a wrapper function is ready to return, it sets up its value in the <span class=secodephrase>SE_RETURN</span> object. Two members of the object, <span class=secodephrase>SE_YIELD</span> and <span class=secodephrase>SE_SUSPEND</span>, can likewise be set. Both are boolean members and are set <span class=secodephrase>TRUE</span> to invoke their relevent behavior.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>First is <span class=secodephrase>SE_YIELD</span>. By yielding, the fiber ensures that the current <span class=secodephrase>seExec</span> statement is immediately ended. Recall that the <span class=secodephrase>SE_INFREQUENT_CONT</span> option to <span class=secodephrase>seEval</span> means that several statements are executed for each call to <span class=secodephrase>seExec</span>. If a wrapper function yields, the <span class=secodephrase>seExec</span> returns immediately. The return value for the wrapper function is still treated normally. The next time the fiber is executed using <span class=secodephrase>seExec</span>, execution resumes with the code that called the wrapper function getting that value as the return.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>The second option is <span class=secodephrase>SE_SUSPEND</span>. Suspending functions is similar to yielding in that the calling <span class=secodephrase>seExec</span> finishes immediately. However, the fiber is put into a suspended state. This means that further calls to <span class=secodephrase>seExec</span> will immediately return without executing any code of the fiber. It is the job of your application to determine when the fiber is ready to be restored and remove its suspended state. This is done by assigning <span class=secodephrase>FALSE</span> to the fiber&#8217;s <span class=secodephrase>SE_RETURN,SE_SUSPEND</span> member. After the suspend is removed, the application can also change the return value to be returned by the wrapper function before again executing any code. It does this by assigning the new value to the <span class=secodephrase>SE_RETURN,SE_VALUE</span> member as normal. If it does not, the value returned by the wrapper function is used. This is useful if the value to be returned is unknown when the wrapper function suspended, perhaps that is why it needed to be suspended. Remember, though, that the <span class=secodephrase>SE_RETURN,SE_VALUE</span> member is read-only as long as any of the boolean members are <span class=secodephrase>TRUE</span> including the <span class=secodephrase>SE_SUSPEND</span> member. You must turn the suspension off before you are allowed to write a new return value. Of course, you must do it also before you call <span class=secodephrase>seExec</span> on the fiber after it is unsuspended.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<hr noshade size=1>
+<p class=normal><a href="TH_256.htm"><img src="button.png" border=0></a><a href="TH_256.htm" style="text-decoration:none;">OTHER CONSIDERATIONS</a></p>
+<p>
+</body>
+</html>

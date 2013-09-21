@@ -1,0 +1,48 @@
+<html>
+<head>
+<title>Literal strings and assignments</title>
+<link rel="stylesheet" href="semanualstyles.css" type="text/css">
+<style type="text/css">
+ p { margin-top: 0; margin-bottom: 0; }
+</style>
+<script language="JavaScript" src="TrueHelp.js"></script>
+</head>
+<body onload="thload()">
+<div id=ienav>
+<ilayer id=nsnav>
+<br>
+<center>
+<p class=normal><a href="seisdkc-toc.htm" target="left">contents</a> &nbsp; <a href="seisdkc-index.htm" target="left">index</a> &nbsp; <a href="TH_511.htm">previous</a> &nbsp; <a href="TH_513.htm">next</a></p>
+</center>
+<br>
+<hr noshade size=1>
+</ilayer>
+</div>
+<p class=heading-3>Literal strings and assignments</p>
+<p class=heading-3-p>&nbsp;</p>
+<p class=senormalpara>When a literal string is assigned to a variable, a copy is made of the string, and the variable is assigned the copy of the literal string. For example, the following code:</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=secodelinesindented>for&nbsp;(var&nbsp;i&nbsp;=&nbsp;0;&nbsp;i&nbsp;&lt;&nbsp;3;&nbsp;i++)&nbsp;</p>
+<p class=secodelinesindented>{</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;var&nbsp;str&nbsp;=&nbsp;"dog";</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;Clib.strcat(str,&nbsp;"house");</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;Clib.puts(str);</p>
+<p class=secodelinesindented>}</p>
+<p class=secodelinesindented>&nbsp;</p>
+<p class=senormalpara>results in the following output:</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=secodelinesindented>doghouse</p>
+<p class=secodelinesindented>doghouse</p>
+<p class=secodelinesindented>doghouse</p>
+<p class=secodelinesindented>&nbsp;</p>
+<p class=senormalpara>A strict C interpretation of this code would not only overwrite memory, but would also generate the following output:</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=secodelinesindented>doghouse</p>
+<p class=secodelinesindented>doghousehouse</p>
+<p class=secodelinesindented>doghousehousehouse</p>
+<p class=secodelinesindented>&nbsp;</p>
+<hr noshade size=1>
+<p class=normal><a href="TH_513.htm"><img src="button.png" border=0></a><a href="TH_513.htm" style="text-decoration:none;">Literal strings and comparisons</a></p>
+<p>
+</body>
+</html>

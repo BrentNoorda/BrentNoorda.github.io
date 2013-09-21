@@ -1,0 +1,63 @@
+<html>
+<head>
+<title>Stproc close()</title>
+<link rel="stylesheet" href="semanualstyles.css" type="text/css">
+<style type="text/css">
+ p { margin-top: 0; margin-bottom: 0; }
+</style>
+<script language="JavaScript" src="TrueHelp.js"></script>
+</head>
+<body onload="thload()">
+<div id=ienav>
+<ilayer id=nsnav>
+<br>
+<center>
+<p class=normal><a href="seisdkc-toc.htm" target="left">contents</a> &nbsp; <a href="seisdkc-index.htm" target="left">index</a> &nbsp; <a href="TH_1133.htm">previous</a> &nbsp; <a href="TH_1135.htm">next</a></p>
+</center>
+<br>
+<hr noshade size=1>
+</ilayer>
+</div>
+<p class=sereffunclevel4>Stproc close()</p>
+<table cellpadding=0>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>syntax:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=sesyntax>stproc.close()<span class=truehelp-xe></span></p></td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>return:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>number - 0 if the call was successful; otherwise, a nonzero status code based on the error message produced by the database.  If the method returns a nonzero status code, use the associated Database's <span class=secodephrase>majorErrorCode</span> and <span class=secodephrase>majorErrorMessage</span> methods to interpret the meaning of the error.</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>description:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>This method closes an <span class=secodephrase>Stproc</span> object and releases the memory it uses. If an <span class=secodephrase>Stproc</span> object is not explicitly closed with the <span class=secodephrase>close</span> method, the runtime engine automatically it when the corresponding <span class=secodephrase>database</span> object goes out of scope.</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>see:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara><span class=secodephrase>#link &lt;sedbc&gt;</span>, <span class=sejumptopic><a href="TH_1098.htm">Database majorErrorCode()</a></span>, <span class=sejumptopic><a href="TH_1100.htm">Database minorErrorCode()</a></span></p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>example:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=secodelines>//&nbsp;Close&nbsp;down&nbsp;the&nbsp;Stproc</p>
+<p class=secodelines>err&nbsp;=&nbsp;sp.close();</p></td>
+</tr>
+</table>
+<p class=normal>&nbsp;</p>
+<hr noshade size=1>
+<p class=normal><a href="TH_1135.htm"><img src="button.png" border=0></a><a href="TH_1135.htm" style="text-decoration:none;">Stproc parameterName()</a></p>
+<p>
+</body>
+</html>

@@ -1,0 +1,58 @@
+<html>
+<head>
+<title>SElib.inSecurity()</title>
+<link rel="stylesheet" href="semanualstyles.css" type="text/css">
+<style type="text/css">
+ p { margin-top: 0; margin-bottom: 0; }
+</style>
+<script language="JavaScript" src="TrueHelp.js"></script>
+</head>
+<body onload="thload()">
+<div id=ienav>
+<ilayer id=nsnav>
+<br>
+<center>
+<p class=normal><a href="seisdkj-toc.htm" target="left">contents</a> &nbsp; <a href="seisdkj-index.htm" target="left">index</a> &nbsp; <a href="TH_821.htm">previous</a> &nbsp; <a href="TH_823.htm">next</a></p>
+</center>
+<br>
+<hr noshade size=1>
+</ilayer>
+</div>
+<p class=sereffunclevel4>SElib.inSecurity()</p>
+<table cellpadding=0>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>syntax:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=sesyntax>SElib.inSecurity(infoVar)</p></td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>where:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>infoVar - variable to be passed to the ScriptEase security filter. Your application and its security filter may use it however you choose.</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>return:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>boolean - <span class=secodephrase>true</span> if there is a security filter, else <span class=secodephrase>false</span>.</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>description:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>Calls the security manager's initialization routine and is the only way your application can directly interact with the security filter. It is provided so you can reinitialize the security system, probably to change the security level of a script.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>Typically, you use this method when executing a particularly insecure piece of code, such as a script received over a network, to downgrade the security level, restoring it when the script completes.</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+</table>
+<p class=normal>&nbsp;</p>
+<hr noshade size=1>
+<p class=normal><a href="TH_823.htm"><img src="button.png" border=0></a><a href="TH_823.htm" style="text-decoration:none;">SElib.instance()</a></p>
+<p>
+</body>
+</html>

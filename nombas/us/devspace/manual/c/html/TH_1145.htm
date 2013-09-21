@@ -1,0 +1,63 @@
+<html>
+<head>
+<title>Socket blocking()</title>
+<link rel="stylesheet" href="semanualstyles.css" type="text/css">
+<style type="text/css">
+ p { margin-top: 0; margin-bottom: 0; }
+</style>
+<script language="JavaScript" src="TrueHelp.js"></script>
+</head>
+<body onload="thload()">
+<div id=ienav>
+<ilayer id=nsnav>
+<br>
+<center>
+<p class=normal><a href="seisdkc-toc.htm" target="left">contents</a> &nbsp; <a href="seisdkc-index.htm" target="left">index</a> &nbsp; <a href="TH_1144.htm">previous</a> &nbsp; <a href="TH_1146.htm">next</a></p>
+</center>
+<br>
+<hr noshade size=1>
+</ilayer>
+</div>
+<p class=sereffunclevel4>Socket blocking()</p>
+<table cellpadding=0>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>syntax:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=sesyntax>socket.blocking(<span class=truehelp-xe></span>flag)</p></td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>where:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>flag - A boolean value indicating whether this socket is to be blocking or non-blocking.</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>return:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>boolean - Whether the operation was successful.</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>description:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>This method sets the state of the socket to be blocking if <span class=secodephrase>flag</span> is <span class=secodephrase>true</span>, and non-blocking otherwise.  A blocking socket will wait indefinitely for data on reads, while a non-blocking socket will immediately exit with an error indicating that there is no data to be read.  By default, all sockets are blocking when they are created.</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>see:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara><span class=secodephrase>#link &lt;sesock&gt;</span>, <span class=sejumptopic><a href="TH_1157.htm">Socket select()</a></span>, <span class=sejumptopic><a href="TH_1148.htm">Socket read()</a></span></p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+</table>
+<p class=normal>&nbsp;</p>
+<hr noshade size=1>
+<p class=normal><a href="TH_1146.htm"><img src="button.png" border=0></a><a href="TH_1146.htm" style="text-decoration:none;">Socket close()</a></p>
+<p>
+</body>
+</html>

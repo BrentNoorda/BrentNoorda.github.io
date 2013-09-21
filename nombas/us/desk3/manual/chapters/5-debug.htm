@@ -1,0 +1,393 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML EXPERIMENTAL 970324//EN">
+<HTML>
+<HEAD>
+<META NAME="GENERATOR" CONTENT="Adobe FrameMaker 5.5/HTML Export Filter">
+<LINK REL="STYLESHEET" HREF="desk3man.css">
+<TITLE>ScriptEase:Desktop v3 Manual: The Integrated Debugging Environment</TITLE>
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-1754630-10']);
+  _gaq.push(['_trackPageview']);
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+</HEAD>
+<BODY BACKGROUND="desk3pat.gif">
+<TABLE WIDTH="225" BORDER="0" CELLSPACING="0" CELLPADDING="0">
+  <TR>
+    <TD WIDTH="71"><a href="4-exe.htm"><IMG SRC="prev.gif" WIDTH="71" height="18" border="0"></a></TD>
+    <TD WIDTH="80"><a href="../index.htm"><IMG SRC="tocidx.gif" WIDTH="80" height="18" border="0"></a></TD>
+    <TD WIDTH="74"><a href="6-stdlib.htm"><IMG SRC="next.gif" WIDTH="74" height="18" border="0"></a></TD>
+  </TR>
+</TABLE>
+
+<H1 CLASS="Title">
+The Integrated Debugging Environment</H1>
+<P CLASS="Abstract">
+This chapter describes how to install and use the Integrated Debugger Environment(IDE).</P>
+<P CLASS="Body">
+The ScriptEase Debugger makes it easy to follow what happens as the processor interprets a script, letting you watch it as it moves through each line of the script. You can open windows that will keep track of the variables in the script, allowing you to see their values and how and when they change. With the debugger, you can find the bugs that are tripping up your script in just a fraction of the time it would take without it.</P>
+<P CLASS="Body">
+<A NAME="997172">
+ </A>
+The <A NAME="997183">
+ </A>
+IDE debugger is only available for Windows 3.x (the executable is sedbgw16.exe) and Windows `NT and `95 (sedbgw32.exe). The debugger must be in the same directory as the ScriptEase processor (the ScriptEase installation process will put it in the correct place). Open the debugger by double clicking on its icon, dragging a script to its icon, or with the Window's Run command. If the debugger is already open, you can open a script in it with the Open command from the File menu, or by dragging a script directly to the debugger. The text of the script will appear in a window inside the debugger. The script window will have a white background, indicating that the debugger is in `text editor' mode. You can make and save changes to the script in the debugger when it is in this mode.</P>
+<P CLASS="Body">
+The Debugger and the ScriptEase processor work together to debug the script: the processor does the actual maneuvering through and interpretation of the script, whereas the debugger is like a window, letting you see what happens. Because of this close relationship between debugger and processor, the two must be kept in the same directory. At the very least, a shortcut or alias to the debugger must be in the same directory as the processor.</P>
+<P CLASS="Body">
+You can send a script to the debugger by dragging it to the debugger or its icon, or by opening the script from the debugger's File menu. Select Start from the Debug menu. The window background changes from white to grey, indicating you have gone into debugging mode. You cannot edit the script while it is in debugging mode, but all of the debugging options (described in this chapter) become available to you.</P>
+<DIV>
+<H2 CLASS="Topic">
+Using the ScriptEase Debugger (IDE)</H2>
+<P CLASS="Body">
+The ScriptEase Debugger has the following components: the menu bar, the tool bar, source windows, the watch window, the global variable window, the local variable window and the status bar. These features combine to allow you to control the flow of a debugging session, find out information about script that is running, and make any changes necessary to correct problems found.</P>
+<DIV>
+<H3 CLASS="SubTopic">
+Menu bar</H3>
+<P CLASS="Body">
+The Menu Bar contains the following nine menus:</P>
+<P CLASS="Flag-Subtabel">
+File - Commands for Opening, closing, saving, and printing files</P>
+<P CLASS="Flag-Subtabel">
+Edit - Commands for cutting, pasting, and undoing changes in a file</P>
+<P CLASS="Flag-Subtabel">
+View - Used to hide or display the tool bar and the status bar</P>
+<P CLASS="Flag-Subtabel">
+Search - Search and search and replace</P>
+<P CLASS="Flag-Subtabel">
+Options - Set Options for the Debugger</P>
+<P CLASS="Flag-Subtabel">
+Run - Use to Stop or Go</P>
+<P CLASS="Flag-Subtabel">
+Debug - All of the debug commands</P>
+<P CLASS="Flag-Subtabel">
+Window - Commands to arrange and select windows</P>
+<P CLASS="Flag-Subtabel">
+Help - Display help, and the about box</P>
+<P CLASS="Body">
+The File, Edit, View, Search, and Help menus are all standard Windows menus and should be self-explanatory. The Options, Run, Debug, and Window menu are described in further detail below.</P>
+</DIV>
+<DIV>
+<H3 CLASS="SubTopic">
+Tool Bar</H3>
+<P CLASS="Body">
+The tool bar is displayed directly below the menu bar and has icons representing many of the most common debugger commands. Instead of selecting a command from a menu, you can click on the corresponding icon. Many of these same commands are also available as control key sequences and function keys(F1, F2, etc.).</P>
+</DIV>
+<DIV>
+<H3 CLASS="SubTopic">
+<A NAME="997186">
+ </A>
+Source Windows</H3>
+<P CLASS="Body">
+Source windows are used by the IDE to display the source for the script that is currently being debugged. When the debugger is in text edit mode, the background of the source window will be white and you are able to edit and save files. When the window has a grey background, the debugger is in debug mode and you cannot change the text of the script.</P>
+</DIV>
+<DIV>
+<H3 CLASS="SubTopic">
+Watch, Local, and Global Windows<A NAME="997184">
+ </A>
+</H3>
+<P CLASS="Body">
+The watch, local, and global windows display information about the data in your program. The global window shows all the known global variables. The local window shows all the known local variables. The watch window allows you to specify the exact variables you want to watch, and how you want to display them. You can also specify watch statements that will cause the script to stop when certain values are reached. These windows are opened from the <EM CLASS="Menu-name">
+Window</EM>
+ menu.</P>
+</DIV>
+<DIV>
+<H3 CLASS="SubTopic">
+<A NAME="997185">
+ </A>
+Status Bar</H3>
+<P CLASS="Body">
+The status bar at the bottom of the main window displays information about the active window of the IDE. It shows the current cursor position, and the state of the lock keys on your keyboard. It also gives information about the current state of the debugger.</P>
+</DIV>
+<DIV>
+<H3 CLASS="SubTopic">
+<A NAME="997187">
+ </A>
+The Source Mark and the Cursor</H3>
+<P CLASS="Body">
+The source mark is used to show the currently executing line in a ScriptEase script. You can set it to an image you like using the <EM CLASS="Menu-name">
+Options</EM>
+ menu. It shows you what line the debugger is on in the currently loaded script. </P>
+<P CLASS="Body">
+The source mark should not be confused with the cursor. The cursor is used to select another line in a source window for the purpose of setting or clearing a breakpoint or stepping to a specific line number. The cursor is also used when the IDE is running in edit mode to select the insertion point in the script and to select text.</P>
+</DIV>
+</DIV>
+<DIV>
+<H2 CLASS="Topic">
+<A NAME="997188">
+ </A>
+The Options Menu</H2>
+<P CLASS="Body">
+The <EM CLASS="Menu-name">
+Options</EM>
+ menu has four options: Font, Tabs, Parameters, and <A NAME="997475">
+ </A>
+Source Mark. Font lets you choose what font will be used to display text in the debugger's windows. Tabs allows you to set the number of spaces the debugger will insert when you hit the Tab key in text edit mode. <A NAME="997474">
+ </A>
+Parameters allows you to load command line parameters into a script that is already in the debugger. Source Mark lets you change the appearance of the symbol used to mark your place in the script. </P>
+</DIV>
+<DIV>
+<H2 CLASS="Topic">
+<A NAME="997473">
+ </A>
+The Run Menu</H2>
+<P CLASS="Body">
+Use the Run menu to execute the script currently active in the debugger. When you use the <EM CLASS="Menu-name">
+Run</EM>
+ menu, you are just executing the script; no other debugging features are possible. There are only two options on the Run menu: Stop and Go. Go executes the script; Stop terminates execution. </P>
+<P CLASS="Body">
+If you wish to run the script while in debugging mode, use the Stop and Go options on the <EM CLASS="Menu-name">
+Debug</EM>
+ menu. If you want to run a script without selecting Start from the <EM CLASS="Menu-name">
+Debug</EM>
+ menu first, you can do it this way; once you select Start from the <EM CLASS="Menu-name">
+Debug</EM>
+ menu, however, the Run menu options will be greyed out and you must use the <EM CLASS="Menu-name">
+Debug</EM>
+ menu to select Go.</P>
+</DIV>
+<DIV>
+<H2 CLASS="Topic">
+<A NAME="997191">
+ </A>
+The Debug Menu</H2>
+<DIV>
+<H3 CLASS="SubTopic">
+Go and Trace Go: watching a script run</H3>
+<P CLASS="Body">
+The red and green buttons on the toolbar are the Stop and Go buttons. Clicking on these buttons is equivalent to selecting Stop or Go from the <EM CLASS="Menu-name">
+Debug</EM>
+ menu. Once you have selected Go, the script executes until it ends; reaches any breakpoints or watchpoints that have been set (see the sections on Breakpoints, below); encounters an error that suspends operation of the script; or receives a Stop command. You can pause execution of the script by hitting the red Stop button on the toolbar, or by selecting Stop from the <EM CLASS="Menu-name">
+Debug</EM>
+ menu.</P>
+<P CLASS="Body">
+To watch the script as it runs, set the Trace Go option from the <EM CLASS="Menu-name">
+Debug</EM>
+ menu. When you select Go button, with the Trace Go option checked the script will run as before, but you can watch the code scroll through the debugger window, with a red marker pointing to the line currently being executed. The script will stop at any breakpoints. You can stop execution of the script by hitting the red Stop button on the toolbar, or by selecting Stop from the <EM CLASS="Menu-name">
+Debug</EM>
+ menu.</P>
+</DIV>
+<DIV>
+<H3 CLASS="SubTopic">
+Stepping through and over functions</H3>
+<P CLASS="Body">
+Some parts of the script you will want to look at in greater detail than others. For example, an error message may have told you that the problem occurs in line 352. In this case, you'll want to run the script up to the point where the error occurred, and then stop it so that you can go through the lines step by step, watching what happens.</P>
+<P CLASS="Body">
+To go to a specific line in a script, select Step to Cursor from the <EM CLASS="Menu-name">
+Debug</EM>
+ menu. The script will then run up until the point where the cursor is set, and then stop and wait for you to give it instructions on how to proceed. If the line that you select is never reached, the script will run to completion. To use the Step to Cursor command you must have the Trace Go option on the <EM CLASS="Menu-name">
+Debug</EM>
+ menu checked, and the line the cursor is on must contain a statement - a line with just a semi-colon is OK, but a line with just a closing brace is not.</P>
+<P CLASS="Body">
+To step through a script line by line, use the Step Into option from the <EM CLASS="Menu-name">
+Debug</EM>
+ menu. The debugger will execute the line that the cursor is on and move to the next line. Selecting Step Into again will execute that line, and so on. By going line by line like this you have a chance to stop and make sure that everything is working correctly before going through the next step. To see the values of the variables in the script, enter the variable into the Watch window or use the local or global watch windows(this is described in detail in a later section).</P>
+<P CLASS="Body">
+When the debugger comes to a line with a function call and you tell it to Step Into (via any of the three methods), it will jump to the first line of the function and continue stepping through the function. The variables listed in the watch window may change values if they aren't global variables and aren't passed to the function - remember, variables only have meaning within the functions in which they are created or passed to. (Global variables are always available to the functions in a script).</P>
+<P CLASS="Body">
+Note that the debugger will NOT step into functions that are a part of the ScriptEase libraries, (i.e., the functions that are not written in the script or included with .hmm files). These functions (such as GetArraySpan() and strftime()) have already been extensively tested by Nombas and are free of errors. Stepping into internal functions is the same as stepping over them.</P>
+<P CLASS="Body">
+If you are debugging a script and come to a line with a function call for a function that you don't want to step through, you can bypass it with the Step Over option from the <EM CLASS="Menu-name">
+Debug</EM>
+ menu. The debugger will execute the function automatically and put the cursor on the next line following the function call, waiting for your instructions.</P>
+<P CLASS="Body">
+The remaining command for navigating through scripts is the Step Out option. The script will run automatically until the current function is finished, stopping on the next line after the function call. This is useful when you may have accidentally stepped into a function and simply want to return to where you started from.</P>
+</DIV>
+<DIV>
+<H3 CLASS="SubTopic">
+<A NAME="997192">
+ </A>
+Navigating with Toolbar icons and Keyboard shortcuts</H3>
+<P CLASS="Body">
+The following key codes and toolbar icons can be used to execute navigation commands in the debugger:</P>
+<TABLE BORDER="1">
+<TR>
+<TH>
+<H6 CLASS="cHead">
+Command</H6>
+</TH>
+<TH>
+<H6 CLASS="cHead">
+Key</H6>
+</TH>
+<TH>
+<H6 CLASS="cHead">
+Icon</H6>
+</TH>
+</TR>
+<TR>
+<TD>
+<P CLASS="cbIconTable">
+Step Into</P>
+</TD>
+<TD>
+<P CLASS="cbIconTable">
+F7</P>
+</TD>
+<TD>
+<P CLASS="cb">
+&nbsp;</P>
+<DIV>
+<IMG SRC="dbg1.gif">
+</DIV>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="cbIconTable">
+Step Over</P>
+</TD>
+<TD>
+<P CLASS="cbIconTable">
+F8</P>
+</TD>
+<TD>
+<P CLASS="cb">
+&nbsp;</P>
+<DIV>
+<IMG SRC="dbg2.gif">
+</DIV>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="cbIconTable">
+Step Out</P>
+</TD>
+<TD>
+<P CLASS="cbIconTable">
+F9</P>
+</TD>
+<TD>
+<P CLASS="cb">
+&nbsp;</P>
+<DIV>
+<IMG SRC="dbg3.gif">
+</DIV>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="cbIconTable">
+Step to Cursor</P>
+</TD>
+<TD>
+<P CLASS="cbIconTable">
+F10</P>
+</TD>
+<TD>
+<P CLASS="cb">
+&nbsp;</P>
+<DIV>
+<IMG SRC="dbg4.gif">
+</DIV>
+</TD>
+</TR>
+</TABLE>
+</DIV>
+</DIV>
+<DIV>
+<H2 CLASS="Topic">
+<A NAME="997194">
+ </A>
+The Window Menu</H2>
+<DIV>
+<H3 CLASS="SubTopic">
+Setting watches</H3>
+<P CLASS="Body">
+You can watch variables change values as the script runs by listing them in a watch window. These windows let you keep track of the values of the variables used in your script, and watch them change while your script runs. The watch windows are controlled from the <EM CLASS="Menu-name">
+Window</EM>
+ menu.</P>
+<P CLASS="Body">
+There are three watch windows: a global window, (lists all of a script's global variables and their values); a local window, (lists the variables and values available to whatever function the debugger is currently working in); and a general watch window, (keeps track of a user-specified list of variables). The watch windows are opened from the Window menu. Select Local to see a list of the local variables currently in use by your script, Global for a list of global variables, and Watch to open the user-specified watch window. </P>
+<P CLASS="Body">
+To register a variable in the user-specified watch window, either click on the `W' icon on the button bar, or open the <EM CLASS="Menu-name">
+Watch</EM>
+-&gt;Add/Remove option from the Debug menu. Enter the variable name in the variable name window, and the way you want it displayed in the `View Expression As' window. The format used in the `View Expression As' window is the same as that for the sprintf statement, (e.g. %s for a string, %d for a decimal number, etc.). When you have entered in the variable name and the `View Expression As' format click on the `Add' button to add the watch to the variable list. When you close the `Add/Remove' Watch window you will see the variable you just entered listed in the Watch window. As the debugger steps through the script, you will be able to see the values for that variable as it changes while the script runs.</P>
+<P CLASS="Body">
+The `W' icon with a red circle/slash on it will clear the watch window. You can also do this from the <EM CLASS="Menu-name">
+Debug</EM>
+ menu, selecting `Kill All' selection from the menu on the `Watches' option.</P>
+</DIV>
+<DIV>
+<H3 CLASS="SubTopic">
+<A NAME="997195">
+ </A>
+Setting Breakpoints</H3>
+<P CLASS="Body">
+Sometimes when you run a script through the debugger you will want the script to run until it reaches a certain point. You may be interested in a certain function, and want to let the script run without intervention until it hits the line before that function, so you can watch the debugger step through the function in question. If you're not quite sure which part of a script is causing a problem, you can set multiple breakpoints in the hope that you might guess one of the places the script might reach while executing.</P>
+<P CLASS="Body">
+To do this, put your cursor on the line where you want the script to stop and click on the large B button on the toolbar. The line will be marked with a red octagon to indicate the line has a breakpoint. Alternately, the menu option Breakpoint on the <EM CLASS="Menu-name">
+Debug</EM>
+ menu will open a window where you can set a breakpoint by line number.</P>
+<P CLASS="Body">
+Make sure the Trace Go option on the <EM CLASS="Menu-name">
+Debug</EM>
+ menu is checked. Now start the script: select the Start option from the <EM CLASS="Menu-name">
+Debug</EM>
+ menu, and then the Go option from the same menu. The script will run without intervention until it hits the line you marked. It will then wait for you to give it instructions for stepping through the script marking the line with the source mark.</P>
+<P CLASS="Body">
+You can have as many breakpoints as you want in a script, allowing you to skip over and stop numerous times.</P>
+</DIV>
+<DIV>
+<H3 CLASS="SubTopic">
+<A NAME="997196">
+ </A>
+Clearing Breakpoints</H3>
+<P CLASS="Body">
+The `B' button with superimposed red circle/slash will clear all of the breakpoints you have set, leaving your script breakpoint free.</P>
+<P CLASS="Body">
+If you only want to clear one breakpoint of several you may have set, put the cursor on the line containing the breakpoint and click on the `B' button on the toolbar. This will clear the breakpoint on that line. Alternately, you can open the breakpoints window (the Breakpoint option of the Debug Menu. The bottom portion of the window contains a box listing the breakpoints you have set. Select the one you wish to remove and click on Remove.</P>
+</DIV>
+<DIV>
+<H3 CLASS="SubTopic">
+<A NAME="997197">
+ </A>
+Setting a breakpoint when a variable reaches a certain value</H3>
+<P CLASS="Body">
+Sometimes you want to set a breakpoint when a variable reaches a certain value. For example, if you had a big loop, and wanted to look at what happened on the 200th iteration of the loop. Instead of having to step through the first 199 iterations, you can set a breakpoint for when the loop-counting variable reaches a certain value. The script will run automatically until the breakpoint is met, and then the debugger will take over and let you step through the script.</P>
+<P CLASS="Body">
+Setting variable-dependent breakpoints is done in the same window as setting watches. For example, suppose the loop mentioned above is initialized with a for statement:</P>
+<P CLASS="ciBody">
+for (x=0;x&lt;500;x++)</P>
+<P CLASS="Body">
+We want the debugger to stop when x is equal to 199. In the expressions window (where we put the variable we wanted to watch) we'd instead put an expression, x==200, and in the breakpoint section to the right we click on `Is True'. Click on the `Add' button and close the window, and start the script Start and then Go from the <EM CLASS="Menu-name">
+Debug</EM>
+ menu). The script will run as before, stopping when the value of x reaches 200. </P>
+<P CLASS="Body">
+Similarly, you can set the variable to break when the expression evaluates as false by checking the `Is False' button in the `Add/Remove' Watch window. Or you can put a variable name in the window and check `Changes' to break every time the value of a variable changes.</P>
+</DIV>
+<DIV>
+<H3 CLASS="SubTopic">
+<A NAME="997198">
+ </A>
+Changing a variable's value while debugging</H3>
+<P CLASS="Body">
+You can go in and change a variable's value while the debugger is at work by using the Variable option from the <EM CLASS="Menu-name">
+Debug</EM>
+ menu. A window will open where you can enter the name of the variable you want to change, followed by an equals sign, and the value you want to change the variable to. When the script resumes execution, the variable will have been adjusted according to what you entered.</P>
+</DIV>
+<DIV>
+<H3 CLASS="SubTopic">
+<A NAME="997199">
+ </A>
+Correcting errors found with the debugger</H3>
+<P CLASS="Body">
+In order to edit and save text in the debugger, it must be in text editor mode (the script will have a white background) and not in debug mode (the script will have a grey background). To exit debugging mode without closing the debugger, select Abort from the Debug menu to abort the debugging and return the debugger to text editor mode. The background color of the script will change from gray to white. You can now make changes to your script and save them. </P>
+<P CLASS="Body">
+&nbsp;</P>
+</DIV>
+<TABLE WIDTH="225" BORDER="0" CELLSPACING="0" CELLPADDING="0">
+  <TR>
+    <TD WIDTH="71"><a href="4-exe.htm"><IMG SRC="prev.gif" WIDTH="71" height="18" border="0"></a></TD>
+    <TD WIDTH="80"><a href="../index.htm"><IMG SRC="tocidx.gif" WIDTH="80" height="18" border="0"></a></TD>
+    <TD WIDTH="74"><a href="6-stdlib.htm"><IMG SRC="next.gif" WIDTH="74" height="18" border="0"></a></TD>
+  </TR>
+</TABLE>
+
+</BODY>
+</HTML>

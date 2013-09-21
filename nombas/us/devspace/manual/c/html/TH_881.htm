@@ -1,0 +1,74 @@
+<html>
+<head>
+<title>Object hasOwnProperty()</title>
+<link rel="stylesheet" href="semanualstyles.css" type="text/css">
+<style type="text/css">
+ p { margin-top: 0; margin-bottom: 0; }
+</style>
+<script language="JavaScript" src="TrueHelp.js"></script>
+</head>
+<body onload="thload()">
+<div id=ienav>
+<ilayer id=nsnav>
+<br>
+<center>
+<p class=normal><a href="seisdkc-toc.htm" target="left">contents</a> &nbsp; <a href="seisdkc-index.htm" target="left">index</a> &nbsp; <a href="TH_880.htm">previous</a> &nbsp; <a href="TH_882.htm">next</a></p>
+</center>
+<br>
+<hr noshade size=1>
+</ilayer>
+</div>
+<p class=sereffunclevel4>Object hasOwnProperty()</p>
+<table cellpadding=0>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>syntax:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=sesyntax>object.hasOwnProperty(<span class=truehelp-xe></span>propertyName)</p></td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>where:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>property - a string with the name of the property about which to query.</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>return:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>boolean - indicating whether or not the current object has a property of the specified name.</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>description:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>This method determines if the object has a property with the name propertyName. To return <span class=secodephrase>true</span>, the property must be an instance property created for this instance of an object and may not be an inheritable or prototype property. This is almost the same as testing <span class=secodephrase>defined(object[propertyName])</span>, except that <span class=secodephrase>undefined</span> values are different from non-existent values, and the internal <span class=secodephrase>_hasProperty()</span> method of the object may be called.</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>example:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=secodelines>function&nbsp;Atest()</p>
+<p class=secodelines>{</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;this.name&nbsp;=&nbsp;"";</p>
+<p class=secodelines>}&nbsp;//&nbsp;Test</p>
+<p class=secodelines>&nbsp;</p>
+<p class=secodelines>Atest.prototype.city&nbsp;=&nbsp;"Fort&nbsp;Worth";</p>
+<p class=secodelines>&nbsp;</p>
+<p class=secodelines>var&nbsp;t&nbsp;=&nbsp;new&nbsp;Atest();</p>
+<p class=secodelines>&nbsp;</p>
+<p class=secodelines>Screen.writeln(t.city);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//&nbsp;Fort&nbsp;Worth</p>
+<p class=secodelines>&nbsp;</p>
+<p class=secodelines>Screen.writeln(t.hasOwnProperty("name"));&nbsp;&nbsp;//&nbsp;true</p>
+<p class=secodelines>Screen.writeln(t.hasOwnProperty("city"));&nbsp;&nbsp;//&nbsp;false</p></td>
+</tr>
+</table>
+<p class=normal>&nbsp;</p>
+<hr noshade size=1>
+<p class=normal><a href="TH_882.htm"><img src="button.png" border=0></a><a href="TH_882.htm" style="text-decoration:none;">Object isPrototypeOf()</a></p>
+<p>
+</body>
+</html>

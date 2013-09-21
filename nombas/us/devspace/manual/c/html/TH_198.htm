@@ -1,0 +1,36 @@
+<html>
+<head>
+<title>INTEGRATING THE SCRIPTEASE DEBUGGER</title>
+<link rel="stylesheet" href="semanualstyles.css" type="text/css">
+<style type="text/css">
+ p { margin-top: 0; margin-bottom: 0; }
+</style>
+<script language="JavaScript" src="TrueHelp.js"></script>
+</head>
+<body onload="thload()">
+<div id=ienav>
+<ilayer id=nsnav>
+<br>
+<center>
+<p class=normal><a href="seisdkc-toc.htm" target="left">contents</a> &nbsp; <a href="seisdkc-index.htm" target="left">index</a> &nbsp; <a href="TH_197.htm">previous</a> &nbsp; <a href="TH_199.htm">next</a></p>
+</center>
+<br>
+<hr noshade size=1>
+</ilayer>
+</div>
+<p class=heading-2>INTEGRATING THE SCRIPTEASE DEBUGGER</p>
+<p class=heading-2-p>&nbsp;</p>
+<p class=senormalpara>The ScriptEase debugger can be used to debug scripts being run in your ScriptEase:ISDK application. This section explains the steps you need to take to enable debugger support in your application.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>There are two basic ways a debugging session can operate. First, your application may wish to connect to the debugger and debug a script. For instance, you may have a menu option to debug a script. In this case, your application runs normally until the time you wish to debug a particular script. When that debugging is complete, your application continues as normal. The second way to initiate debugging is by the command of the debugger. Typically, the ScriptEase IDE is being used to edit a script meant to be run by your application. When the user wants to try the script out, your application is invoked in the background to execute the script. Your application recognizes this situation by the presence of a <span class=secodephrase>/debug</span> command-line switch. The rest of the command-line consists of the script to be run and any parameters to be passed to the script.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>In either case, ScriptEase API calls are provided to establish a connection with the debugger and execute the script under the debugger's control. The connection between an application and the ScriptEase debugger is a TCP-IP socket. Connections can be established remotely, when the application and debugger reside on different machines.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<hr noshade size=1>
+<p class=normal><a href="TH_199.htm"><img src="button.png" border=0></a><a href="TH_199.htm" style="text-decoration:none;">THE CONTINUE FUNCTION</a></p>
+<p class=normal><a href="TH_200.htm"><img src="button.png" border=0></a><a href="TH_200.htm" style="text-decoration:none;">THE AT ERROR FUNCTION</a></p>
+<p class=normal><a href="TH_201.htm"><img src="button.png" border=0></a><a href="TH_201.htm" style="text-decoration:none;">INVOKING THE DEBUGGER</a></p>
+<p class=normal><a href="TH_202.htm"><img src="button.png" border=0></a><a href="TH_202.htm" style="text-decoration:none;">INVOKING THE DEBUGGER ON AN ERROR</a></p>
+<p>
+</body>
+</html>

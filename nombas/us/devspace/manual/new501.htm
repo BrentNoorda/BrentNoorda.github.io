@@ -1,0 +1,428 @@
+ 
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 FINAL//EN">
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=ISO-8859-1">
+<TITLE>ScriptEase Manuals - What's new in 5.01</TITLE>
+<META NAME="keywords" CONTENT="javascript,ecmascript,ecma,scriptease,jscript,scripting,nombas,isdk,sedesk,web application development,embedded devices,distributed computing,peer-to-peer,p2p,peer,data mining,javascript.com,cycletraders,integrated sdk,script ease,java,c++,c,simplicity,power,palm,windows ce,integration: sdk,integration:sdk,scriptease:desktop,scriptease: desktop,se:desktop,se:desk,se:isdk, se: isdk,development tools,devtools">
+<META HTTP-EQUIV="DESCRIPTION" CONTENT="Nombas delivers simplicity and power through scripting by providing market-leading development tools and software for JavaScript and ECMAScript.">
+<SCRIPT language=JavaScript1.2>
+  navbarPath = '../../'; 
+</SCRIPT>
+<SCRIPT language=JavaScript1.2 SRC="../../navbarData.js"></SCRIPT>
+<SCRIPT language=JavaScript1.2 SRC="../../navbarMenu.js"></SCRIPT>
+<SCRIPT language=JavaScript SRC="../../imgRollover.js"></SCRIPT>
+<LINK REL="SHORTCUT ICON" HREF="../../nombas.ico">
+<STYLE type=text/css>
+pre.example { BORDER-RIGHT: medium none; PADDING-RIGHT: 0.5em; BORDER-TOP: medium none; PADDING-LEFT: 0.5em; FONT-SIZE: 75%; PADDING-BOTTOM: 0.5em; MARGIN-LEFT: 0px; BORDER-LEFT: medium none; WIDTH: 100%; PADDING-TOP: 0.5em; BORDER-BOTTOM: medium none; FONT-FAMILY: "Courier New", Courier, mono; WHITE-SPACE: pre; BACKGROUND-COLOR: #CCCCFF}
+.unnamed1 {  font-family: Verdana, Arial, Helvetica, sans-serif}
+</STYLE>
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-1754630-10']);
+  _gaq.push(['_trackPageview']);
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+</HEAD>
+<BODY BGCOLOR="#06086F" LINK="#0000FF" VLINK="#800080" TEXT="#000000" TOPMARGIN=0 LEFTMARGIN=0 MARGINWIDTH=0 MARGINHEIGHT=0>
+<TABLE BORDER=0 CELLSPACING=0 CELLPADDING=0 WIDTH=213>
+  <TR VALIGN=TOP ALIGN=LEFT> 
+    <TD WIDTH=28 HEIGHT=4><IMG SRC="../../clearpixel.gif" WIDTH=28 HEIGHT=1 BORDER=0></TD>
+    <TD></TD>
+  </TR>
+  <TR VALIGN=TOP ALIGN=LEFT> 
+    <TD HEIGHT=60></TD>
+    <TD WIDTH=185 ALIGN=LEFT VALIGN=TOP><A HREF="../../index.htm"><IMG ID="Picture1" HEIGHT=60 WIDTH=185 SRC="../../logo.gif" BORDER=0></A></TD>
+  </TR>
+</TABLE>
+    <div id="nombas-legacy"></div>
+<TABLE BORDER=0 CELLSPACING=0 CELLPADDING=0>
+  <TR VALIGN=TOP ALIGN=LEFT> 
+    <TD WIDTH=30 HEIGHT=10><IMG SRC="../../clearpixel.gif" WIDTH=30 HEIGHT=1 BORDER=0></TD>
+    <TD></TD>
+  </TR>
+  <TR VALIGN=TOP ALIGN=LEFT> 
+    <TD></TD>
+    <TD WIDTH=582> 
+      <TABLE ID="Table1" BORDER=0 CELLSPACING=0 CELLPADDING=0 WIDTH=582>
+        <TR> 
+          <TD WIDTH=97> 
+            <P><A HREF="../../scripting/scripting.htm" 
+                            onmouseover="changeImages('scripting', '../../htab_scripting.gif'); popUp('elMenu1',event); return true;" 
+onmouseout="changeImages('scripting', '../../tab_scripting.gif'); popDown('elMenu1'); return true;"
+><IMG
+                             ID="scripting" HEIGHT=21 WIDTH=97 SRC="../../tab_scripting.gif" VSPACE=0 HSPACE=0 ALIGN="TOP" BORDER=0 name="scripting"></A> 
+          </TD>
+          <TD WIDTH=97> 
+            <P><A HREF="../../products/products.htm" 
+                            onmouseover="changeImages('products', '../../htab_products.gif'); popUp('elMenu2',event); return true;" 
+onmouseout="changeImages('products', '../../tab_products.gif'); popDown('elMenu2'); return true;"><IMG ID="products"
+                             HEIGHT=21 WIDTH=97 SRC="../../tab_products.gif" VSPACE=0 HSPACE=0 ALIGN="TOP" BORDER=0 name=products></A> 
+          </TD>
+          <TD WIDTH=97> 
+            <P><A HREF="../../purchase/purchase.htm" onmouseover="changeImages('purchase', '../../htab_purchase.gif');return true;" 
+onmouseout="changeImages('purchase', '../../tab_purchase.gif');return true;"><IMG ID="purchase"
+                             HEIGHT=21 WIDTH=97 SRC="../../tab_purchase.gif" VSPACE=0 HSPACE=0 ALIGN="TOP" BORDER=0 name=purchase></A> 
+          </TD>
+          <TD WIDTH=97> 
+            <P><A HREF="../../download/ndownload.htm" onmouseover="changeImages('download', '../../htab_download.gif');return true;" 
+onmouseout="changeImages('download', '../../tab_download.gif');return true;"><IMG ID="download"
+                             HEIGHT=21 WIDTH=97 SRC="../../tab_download.gif" VSPACE=0 HSPACE=0 ALIGN="TOP" BORDER=0 name=download></A> 
+          </TD>
+          <TD WIDTH=97> 
+            <P><a target="support" href="http://support.nombas.com/" onmouseover="changeImages('support', '../../htab_support.gif'); return true;" 
+onmouseout="changeImages('support', '../../tab_support.gif'); return true;"><IMG ID="support"
+                             HEIGHT=21 WIDTH=97 SRC="../../tab_support.gif" VSPACE=0 HSPACE=0 ALIGN="TOP" BORDER=0 name=support></A> 
+          </TD>
+          <TD WIDTH=97> 
+            <P><A HREF="../../company/company.htm" 
+                            onmouseover="changeImages('company', '../../htab_company.gif'); popUp('elMenu6',event); return true;" 
+onmouseout="changeImages('company', '../../tab_company.gif'); popDown('elMenu6'); return true;"><IMG ID="company"
+                             HEIGHT=21 WIDTH=97 SRC="../../tab_company.gif" VSPACE=0 HSPACE=0 ALIGN="TOP" BORDER=0 name=company></A> 
+          </TD>
+        </TR>
+      </TABLE>
+    </TD>
+  </TR>
+</TABLE>
+<TABLE BORDER=0 CELLSPACING=0 CELLPADDING=0 WIDTH=637>
+  <TR VALIGN=TOP ALIGN=LEFT> 
+    <TD WIDTH=5 HEIGHT=20><IMG SRC="../../clearpixel.gif" WIDTH=5 HEIGHT=1 BORDER=0></TD>
+    <TD WIDTH=632> 
+      <TABLE BORDER=0 CELLSPACING=0 CELLPADDING=0 WIDTH=632 HEIGHT=20 bgcolor="#FFFFFF">
+        <TR ALIGN=LEFT VALIGN=TOP> 
+          <TD> 
+            <TABLE BORDER=0 CELLSPACING=0 CELLPADDING=0 WIDTH=632>
+              <TR VALIGN=TOP ALIGN=LEFT> 
+                <TD WIDTH=20 HEIGHT=20 ALIGN=LEFT VALIGN=TOP><IMG ID="Picture12" HEIGHT=20 WIDTH=20 SRC="../../curve_topleft.gif" BORDER=0></TD>
+                <TD WIDTH=592><IMG SRC="../../clearpixel.gif" WIDTH=592 HEIGHT=1 BORDER=0></TD>
+                <TD WIDTH=20 ALIGN=LEFT VALIGN=TOP><IMG ID="Picture10" HEIGHT=20 WIDTH=20 SRC="../../curve_top.gif" BORDER=0></TD>
+              </TR>
+            </TABLE>
+          </TD>
+        </TR>
+      </TABLE>
+    </TD>
+  </TR>
+</TABLE>
+<TABLE BORDER=0 CELLSPACING=0 CELLPADDING=0 WIDTH=637>
+  <TR VALIGN=TOP ALIGN=LEFT> 
+    <TD HEIGHT=245></TD>
+    <TD WIDTH=632 COLSPAN=2 height="245"> 
+      <TABLE BORDER=0 CELLSPACING=0 CELLPADDING=0 WIDTH=637 HEIGHT=200 bgcolor="#FFFFFF">
+        <TR ALIGN=LEFT VALIGN=TOP> 
+          <TD height="236"> 
+            <TABLE BORDER=0 CELLSPACING=0 CELLPADDING=0 WIDTH=600>
+              <TR VALIGN=TOP ALIGN=LEFT> 
+                <TD WIDTH=14 HEIGHT=1><IMG SRC="../../clearpixel.gif" WIDTH=13 HEIGHT=1 BORDER=0></TD>
+                <TD WIDTH=586><IMG SRC="../../clearpixel.gif" WIDTH=316 HEIGHT=1 BORDER=0></TD>
+              </TR>
+              <TR VALIGN=TOP ALIGN=LEFT> 
+                <TD width="14"></TD>
+                <TD WIDTH=586> 
+                  <P ALIGN=LEFT><A HREF="../../index.htm"><FONT SIZE="-2" FACE="Verdana,Tahoma,Arial,Helvetica">Nombas</FONT></A><FONT SIZE="-2" FACE="Verdana,Tahoma,Arial,Helvetica"> 
+                    &gt; <a href="../index.htm">ScriptEase ISDK DevSpace</a> &gt; 
+                    <a href="index.htm">Manuals</a> &gt; What's new in 5.01</FONT> 
+                </TD>
+              </TR>
+            </TABLE>
+            <TABLE BORDER=0 CELLSPACING=0 CELLPADDING=0 WIDTH=615>
+              <TR VALIGN=TOP ALIGN=LEFT> 
+                <TD WIDTH=15 HEIGHT=5><IMG SRC="../../clearpixel.gif" WIDTH=15 HEIGHT=1 BORDER=0></TD>
+                <TD></TD>
+              </TR>
+              <TR VALIGN=TOP ALIGN=LEFT> 
+                <TD HEIGHT=80></TD>
+                <TD WIDTH=600 ALIGN=LEFT VALIGN=TOP><IMG ID="Picture14" HEIGHT=80 WIDTH=600 SRC="../../devspace/bnr_devspace.gif" BORDER=0></TD>
+              </TR>
+              <TR VALIGN=TOP ALIGN=LEFT> 
+                <TD HEIGHT=135></TD>
+                <TD WIDTH=600 ALIGN=LEFT VALIGN=TOP height="135"> 
+                  <table width="100%" border="0">
+                    <tr> 
+                      <td colspan="1" height="9"><img SRC="../../clearpixel.gif" width="1" height="1"></td>
+                    </tr>
+                    <tr> 
+                      <td width="1" height="100%">&nbsp;</td>
+                      <td valign="top" width="100%"> 
+                        <h1><font face="Verdana, Arial, Helvetica, sans-serif" size="4">What's 
+                          new in 5.01<br>
+                          </font><font face="Verdana, Arial, Helvetica, sans-serif" size="3"><i>For 
+                          5.00 users moving to 5.01 - what to look for</i></font></h1>
+                        <p>This document is intended for SE:ISDK/C or SE:ISDK/Java 
+                          movers moving from version 5.00 to 5.01. </p>
+                        <table width="250" border="0" cellspacing="4" cellpadding="4" align="right" bgcolor="#CCFFFF">
+                          <tr> 
+                            <td> 
+                              <p align="left"><font face="Verdana, Arial, Helvetica, sans-serif" size="2">5.01 
+                                30-day evaluation availble now for C/C++, Java, 
+                                or J2ME <a href="../../toolkit/isdkdownload.htm"><img src="../../products/btn_download.gif" width="59" height="17" border="0" alt="download"></a> 
+                                </font></p>
+                              </td>
+                          </tr>
+                        </table>
+                        <h3><font color="#0E2595">API Enhancements</font></h3>
+                        <ul>
+                          <li>The SE_SCOPE stock object has been added. SE_SCOPE 
+                            is similar to using SE_GLOBAL or SE_THIS except that 
+                            SE_SCOPE will follow the existing scope chain to locate 
+                            the specified value. SE_SCOPE will follow the appropriate 
+                            _prototype or __parent__ inheritance on get and put.</li>
+                          <li><a name="comp"></a>SE_COMPOUND_MEM and SE_COMPOUND_UNIMEM 
+                            have been added as member specifiers to get or put 
+                            complex member names. A single call to seGetLong(..SE_COMPOUND_MEM(&quot;a.b.c.d&quot;)...) 
+                            can be a lot less coding than the multiple calls to 
+                            seGetObject() or seParseVar() that were required in 
+                            5.00.</li>
+                          <li> 
+                            <div align="left"> 
+                              <div align="left"><a name="hid"></a>SE_HIDDEN_MEM 
+                                and SE_HIDDEN_UNIMEM have been added as member 
+                                specifiers to associate data as a member of an 
+                                object that scripts can neither see nor change. 
+                                This method is much more robust than the old SE_OBJECT_DATA 
+                                method or attaching data to oddly-named members, 
+                                because 1) hidden members allow any number of 
+                                associations, 2) they assure that your data has 
+                                not been corrupted by the script, 3) hidden members 
+                                follow the same inheritance rules as standard 
+                                members, and 4) the internal implementation of 
+                                hidden members is much faster and smaller than 
+                                the SE_OBJECT_DATA or sePtrxxx() calls of previous 
+                                releases.</div>
+                            </div>
+                          </li>
+                          <li>seInternalizeStringHidden() also creates sestring 
+                            types that are hidden from scripts</li>
+                          <li><a name="gis"></a>seGetInternalString() returns 
+                            strings that are now safe from being overwritten by 
+                            other calls to the API, so you don't need to quickly 
+                            store them elsewhere. These returned strings follow 
+                            the same lifetime rules as anything returned from 
+                            seGetString, and are freed the same way. Nearly all 
+                            conceivable uses of seGetInternalString() are in callbacks, 
+                            which automatically release the strings when they 
+                            return, so it is difficult to come up with a case 
+                            where you would need to explicitly free a string returned 
+                            by seGetInternalString().</li>
+                        </ul>
+                        <h3 align=LEFT><font color="#0E2595"><b>New ways to save 
+                          memory</b></font></h3>
+                        <ul>
+                          <li>On processors where data must be aligned on non-byte 
+                            boundaries, object members typically use half as much 
+                            memory as in previous versions(down from 32 bytes 
+                            per member to 16 bytes per member). For systems with 
+                            many objects, these members actually use the most 
+                            memory, therefore creating a noticeable memory savings..</li>
+                          <li>A phase of the garbage collector has been added 
+                            to minimize extra memory used by objects if those 
+                            objects are not frequently changing.</li>
+                          <li>seGarbageCollect(SE_COLLECT_AND_MINIMIZE) option 
+                            has been added to release all non-critical memory 
+                            from objects and pools. This is not a call to be made 
+                            frequently, but is useful if your putting a context 
+                            in a suspended state or if some other part of your 
+                            systems is aching for more memory. </li>
+                          <li>The garbage collector has been rewritten to require 
+                            no extra memory during the mark/sweep pass. </li>
+                        </ul>
+                        <h3 align=LEFT><font color="#0E2595"><b>New build options</b></font></h3>
+                        <ul>
+                          <li>JSE_DISABLE_GOTO - This new option in jseopt.h can 
+                            remove the &quot;goto&quot; keyword, which is not 
+                            a standard part of ECMAScript.</li>
+                          <li> SE_TOO_MANY_OBJECTS_WARNING, SE_TOO_MANY_STRINGS_WARNING 
+                            are added to jseopt.h to warn about situations where 
+                            your use of the API is creating many temporary objects. 
+                            This usually indicates that that section of code should 
+                            be written more efficiently and is making the scripting 
+                            engine run slower than it could.</li>
+                          <li> 
+                            <div align="left"> 
+                              <div align="left">JSE_ZIP_ALL has been added to 
+                                jseopt.h build the zip object library</div>
+                            </div>
+                          </li>
+                          <li>JSE_STACKCHK has been added to jseopt.h to allow 
+                            you to set a field (stack_limit in struct seContextParams) 
+                            so that the script engine will recover with a manageable 
+                            error object if too much system stack is used. The 
+                            engine interpreter itself is not recursive and uses 
+                            very little stack for most processing, but compiling 
+                            expressions and regular-expression statements within 
+                            many parenthesis can be recursive</li>
+                          <li>project files have been created for the Borland 
+                            compiler </li>
+                          <li> 
+                            <div align="left">Unix makefiles have been simplified 
+                              to be easily copied into new projects of your own</div>
+                          </li>
+                          <li> 
+                            <div align="left">Our internal memory routines are 
+                              now more easily disabled and replaced with any other 
+                              memory-management library</div>
+                          </li>
+                          <li>SE_GETSTRING_SHORT_POOL has been added to jseopt.h 
+                            to specify the size of a pool for temporaryy-locks 
+                            on short and average-length strings returned from 
+                            the API. Even a small pool can prevent many calls 
+                            to memory allocation and improve API performance.</li>
+                        </ul>
+                        <h3 align=LEFT><font color="#0E2595"><b>Miscellaneous</b></font></h3>
+                        <ul>
+                          <li>Our global variable cache, which improves performance 
+                            while scripts scope global variables, now recovers 
+                            quickly after it has become invalidated by &quot;with&quot; 
+                            statements</li>
+                          <li> 
+                            <div align="left"> 
+                              <div align="left">seThrow() and other uses of our 
+                                error reporting system now grow memory as needed 
+                                to print longer and more in-depth error messages</div>
+                            </div>
+                          </li>
+                          <li>More useful names are added to error messages. For 
+                            example, instead of &quot;variable is not a function 
+                            type&quot; you're likely to get &quot;variable 'reconsile' 
+                            is not a function type&quot;</li>
+                          <li>add SE_VARINIT_NO_RETURN to duplicate a common browser 
+                            quirk such that an eval() single statement when declared 
+                            with the &quot;var&quot; keyword will return undefined 
+                            (e.g. eval(&quot;var x = 100&quot;))</li>
+                          <li>Fully floating-point library is enabled for the 
+                            Blackberry version</li>
+                          <li> 
+                            <div align="left"> 
+                              <div align="left">Support of __parent__ inheritance 
+                                is now consistent through all global API calls 
+                                (such as seEval) and through other API calls with 
+                                the SE_SCOPE object</div>
+                            </div>
+                          </li>
+                          <li> 
+                            <div align="left"> 
+                              <div align="left">CString library has been updated 
+                                to run many times faster and use much less memory 
+                                - also the Clib objects understand CString better.</div>
+                            </div>
+                          </li>
+                          <li>API functions no longer alter the SE_RETURN object 
+                            except when explicitly directed to do so (e.g. sePutxxx(..SE_RETURN..), 
+                            or if using seEval() or seExec(), or if altered indirectly 
+                            via an error generated in SE_RETURN,SE_VALUE.</li>
+                          <li> 
+                            <div align="left">COMReleaseObject added to the COM 
+                              object to specifically free objects before GC has 
+                              deleted them</div>
+                          </li>
+                        </ul>
+                        <h3 align=LEFT><font color="#0E2595"><b>ScriptEase Workshop 
+                          / Debugger version 2</b></font></h3>
+                        <ul>
+                          <li> 
+                            <div align="left">ScriptEasy intelligent coding support 
+                              adds context-sensitive language information as you 
+                              write scripts with dot completion, code templates, 
+                              parameter hints, enumerated property values, and 
+                              integration with the manual.</div>
+                          </li>
+                          <li>Workshop is completely extensible for new features, 
+                            objects, and languages through underlying XML description 
+                            files</li>
+                          <li>Customizable, dockable IDE with advanced editing 
+                            and coding functionality for integration with your 
+                            own products</li>
+                          <li>Debugger is now complete and faster for both local 
+                            and remote script debugging</li>
+                        </ul>
+                        <h3 align=LEFT><font color="#0E2595"><b><a name="gotcha"></a>Coding 
+                          Changes</b></font></h3>
+                        <p align=LEFT>These are deprecated functions or change 
+                          for 5.00 users to watch out for with the 5.01 API. Most 
+                          of the old behaviors can be re-enabled (although this 
+                          is not recommended) by compiling with SE_OLDVER_500E 
+                          defined. </p>
+                        <ul>
+                          <li>seParseVar() has been renamed as seVarParse() and 
+                            an extra parameter has been added to specify a staring 
+                            object - however, the new SE_COMPOUND member specifiers 
+                            (mentioned <a href="#comp">above</a>) remove need 
+                            for this function in most cases</li>
+                          <li> SE_GETINTERNALSTRING_NO_LIFETIME option has been 
+                            added to turn off the new lifetime rules of seGetInternalString() 
+                            (as mentioned <a href="#gis">above</a>)</li>
+                          <li>JSE_API_ASSERTLEVEL and JSE_API_ASSERTNAMES, options, 
+                            along with<b> eh </b>jseApiOK macro have been removed. 
+                            The engine was no longer using these methods for reporting 
+                            errors.</li>
+                          <li>SE_OBJECT_DATA and the sePtr() methods (sePtrAdd, 
+                            sePtrRemove, etc...) are no longer the preferred &quot;magic&quot; 
+                            way to store a C/C++/Java object with a script object. 
+                            Instead, use the more robust new hidden members (as 
+                            described <a href="#hid">above</a>)</li>
+                          <li>C++ SEObjectWrapper users need to add a new parameter 
+                            when using the SEOBJWRAPPER_DECLARE_METHOD and SEOBJWRAPPER_DECLARE_VOID_METHOD</li>
+                        </ul>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </TD>
+        </TR>
+      </TABLE>
+    </TD>
+  </TR>
+</TABLE>
+<TR VALIGN=TOP ALIGN=LEFT> 
+  <TD HEIGHT=2></TD>
+  <TD WIDTH=632 COLSPAN=2 height="2"> 
+    <TABLE BORDER=0 CELLSPACING=0 CELLPADDING=0 WIDTH=632 HEIGHT=20 bgcolor="#FFFFFF">
+      <TR ALIGN=LEFT VALIGN=TOP> 
+        <TD> 
+          <TABLE BORDER=0 CELLSPACING=0 CELLPADDING=0 WIDTH=632>
+            <TR VALIGN=TOP ALIGN=LEFT> 
+              <TD WIDTH=20 HEIGHT=2 ALIGN=LEFT VALIGN=TOP><IMG ID="Picture13" HEIGHT=20 WIDTH=20 SRC="../../curve_botleft.gif" BORDER=0></TD>
+              <TD WIDTH=592 height="2"><IMG SRC="../../clearpixel.gif" WIDTH=592 HEIGHT=1 BORDER=0></TD>
+              <TD WIDTH=20 ALIGN=LEFT VALIGN=TOP height="2"><IMG ID="Picture11" HEIGHT=20 WIDTH=20 SRC="../../curve_bot.gif" BORDER=0></TD>
+            </TR>
+          </TABLE>
+        </TD>
+      </TR>
+    </TABLE>
+  </TD>
+</TR>
+<TR VALIGN=TOP ALIGN=LEFT> 
+  <TD WIDTH=5 HEIGHT=6><IMG SRC="../../clearpixel.gif" WIDTH=5 HEIGHT=1 BORDER=0></TD>
+  <TD WIDTH=613><IMG SRC="../../clearpixel.gif" WIDTH=613 HEIGHT=1 BORDER=0></TD>
+  <TD WIDTH=19><IMG SRC="../../clearpixel.gif" WIDTH=19 HEIGHT=1 BORDER=0></TD>
+</TR>
+<TR VALIGN=TOP ALIGN=LEFT> 
+  <TD WIDTH=618 COLSPAN=2> 
+    <P ALIGN=RIGHT><A HREF="../../index.htm"><FONT COLOR="#FFFFFF" SIZE="-2" FACE="Verdana,Tahoma,Arial,Helvetica">Home</FONT></A><FONT COLOR="#FFFFFF" SIZE="-2" FACE="Verdana,Tahoma,Arial,Helvetica"> 
+      | </FONT><A
+                 HREF="../../scripting/scripting.htm"><FONT COLOR="#FFFFFF" SIZE="-2" FACE="Verdana,Tahoma,Arial,Helvetica">Scripting</FONT></A><FONT COLOR="#FFFFFF" SIZE="-2" FACE="Verdana,Tahoma,Arial,Helvetica"> 
+      | </FONT><A
+                 HREF="../../products/products.htm"><FONT COLOR="#FFFFFF" SIZE="-2" FACE="Verdana,Tahoma,Arial,Helvetica">Products</FONT></A><FONT COLOR="#FFFFFF" SIZE="-2" FACE="Verdana,Tahoma,Arial,Helvetica"> 
+      | </FONT><A
+                 HREF="../../purchase/purchase.htm"><FONT COLOR="#FFFFFF" SIZE="-2" FACE="Verdana,Tahoma,Arial,Helvetica">Purchase</FONT></A><FONT COLOR="#FFFFFF" SIZE="-2" FACE="Verdana,Tahoma,Arial,Helvetica"> 
+      | </FONT><A
+                 HREF="../../download/ndownload.htm"><FONT COLOR="#FFFFFF" SIZE="-2" FACE="Verdana,Tahoma,Arial,Helvetica">Download</FONT></A><FONT COLOR="#FFFFFF" SIZE="-2" FACE="Verdana,Tahoma,Arial,Helvetica"> 
+      | </FONT><A
+                 HREF="http://support.nombas.com/"><FONT COLOR="#FFFFFF" SIZE="-2" FACE="Verdana,Tahoma,Arial,Helvetica">Support</FONT></A><FONT COLOR="#FFFFFF" SIZE="-2" FACE="Verdana,Tahoma,Arial,Helvetica"> 
+      | </FONT><A HREF="../../company/company.htm"> <FONT COLOR="#FFFFFF" SIZE="-2" FACE="Verdana,Tahoma,Arial,Helvetica">Company</FONT></A><FONT COLOR="#FFFFFF" SIZE="-2" FACE="Verdana,Tahoma,Arial,Helvetica"><BR>
+      <BR>
+      Copyright &#169;2001, Nombas, Inc. All Rights Reserved.<BR>
+      Questions? Visit </FONT><A HREF="http://support.nombas.com/"><FONT COLOR="#FFFFFF" SIZE="-2" FACE="Verdana,Tahoma,Arial,Helvetica">http://support.nombas.com/</FONT></A> 
+  </TD>
+  <TD></TD>
+</TR>
+<SCRIPT language=JavaScript1.2>
+  display_nombas_legacy_message();
+</SCRIPT>
+</BODY>
+</HTML>

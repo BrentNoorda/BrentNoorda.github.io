@@ -1,0 +1,271 @@
+<html>
+<head>
+<title>interface: SEOperatorOverloadCallback</title>
+<link rel="stylesheet" href="semanualstyles.css" type="text/css">
+<style type="text/css">
+ p { margin-top: 0; margin-bottom: 0; }
+</style>
+<script language="JavaScript" src="TrueHelp.js"></script>
+</head>
+<body onload="thload()">
+<div id=ienav>
+<ilayer id=nsnav>
+<br>
+<center>
+<p class=normal><a href="seisdkj-toc.htm" target="left">contents</a> &nbsp; <a href="seisdkj-index.htm" target="left">index</a> &nbsp; <a href="TH_200.htm">previous</a> &nbsp; <a href="TH_202.htm">next</a></p>
+</center>
+<br>
+<hr noshade size=1>
+</ilayer>
+</div>
+<p class=heading-3>interface: SEOperatorOverloadCallback</p>
+<p class=heading-3-p>&nbsp;</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;public&nbsp;Boolean&nbsp;operatorOverload(SEContext&nbsp;se,short&nbsp;op);</p>
+<p class=secodelines>&nbsp;</p>
+<p class=senormalpara>ScriptEase implements operator overloading. Whenever an object is used as the left-hand operand, this callback is invoked. The <span class=secodephrase>op</span> parameter will be the operator being overloaded, according to this table:</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>&nbsp;</p>
+<p class=senormalpara-p>&nbsp;</p>
+<table cellpadding=0>
+<tr>
+<td valign=top style="width: 2.5in">
+<p class=senormalpara>SE.OP_PREINC</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+<td valign=top style="width: 2.575in">
+<p class=senormalpara>++expr</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 2.5in">
+<p class=senormalpara>SE.OP_POSTING</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+<td valign=top style="width: 2.575in">
+<p class=senormalpara>expr++</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 2.5in">
+<p class=senormalpara>SE.OP_PREDEC</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+<td valign=top style="width: 2.575in">
+<p class=senormalpara>--expr</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 2.5in">
+<p class=senormalpara>SE.OP_POSTDEC</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+<td valign=top style="width: 2.575in">
+<p class=senormalpara>expr--</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 2.5in">
+<p class=senormalpara>SE.OP_ASSIGN</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+<td valign=top style="width: 2.575in">
+<p class=senormalpara>lhs = expr</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 2.5in">
+<p class=senormalpara>SE.OP_NOT</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+<td valign=top style="width: 2.575in">
+<p class=senormalpara>!expr</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 2.5in">
+<p class=senormalpara>SE.OP_UNARY_PLUS</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+<td valign=top style="width: 2.575in">
+<p class=senormalpara>+expr</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 2.5in">
+<p class=senormalpara>SE.OP_UNARY_MINUS</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+<td valign=top style="width: 2.575in">
+<p class=senormalpara>-expr</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 2.5in">
+<p class=senormalpara>SE.OP_BITNOT</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+<td valign=top style="width: 2.575in">
+<p class=senormalpara>~expr</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 2.5in">
+<p class=senormalpara>SE.OP_EQUAL</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+<td valign=top style="width: 2.575in">
+<p class=senormalpara>expr==expr</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 2.5in">
+<p class=senormalpara>SE.OP_NOTEQUAL</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+<td valign=top style="width: 2.575in">
+<p class=senormalpara>expr!=expr</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 2.5in">
+<p class=senormalpara>SE.OP_STRICT_EQUAL</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+<td valign=top style="width: 2.575in">
+<p class=senormalpara>expr===expr</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 2.5in">
+<p class=senormalpara>SE.OP_STRING_NOTEQUAL</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+<td valign=top style="width: 2.575in">
+<p class=senormalpara>expr!==expr</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 2.5in">
+<p class=senormalpara>SE.OP_LESS</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+<td valign=top style="width: 2.575in">
+<p class=senormalpara>expr&lt;expr</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 2.5in">
+<p class=senormalpara>SE.OP_LESS_EQUAL</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+<td valign=top style="width: 2.575in">
+<p class=senormalpara>expr&lt;=expr</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 2.5in">
+<p class=senormalpara>SE.OP_GREATER</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+<td valign=top style="width: 2.575in">
+<p class=senormalpara>expr&gt;expr</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 2.5in">
+<p class=senormalpara>SE.OP_GREATER_EQUAL</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+<td valign=top style="width: 2.575in">
+<p class=senormalpara>expr&gt;=expr</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 2.5in">
+<p class=senormalpara>SE.OP_SUBTRACT</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+<td valign=top style="width: 2.575in">
+<p class=senormalpara>expr-expr</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 2.5in">
+<p class=senormalpara>SE.OP_ADD</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+<td valign=top style="width: 2.575in">
+<p class=senormalpara>expr+expr</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 2.5in">
+<p class=senormalpara>SE.OP_MULTIPLY</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+<td valign=top style="width: 2.575in">
+<p class=senormalpara>expr*expr</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 2.5in">
+<p class=senormalpara>SE.OP_DIVIDE</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+<td valign=top style="width: 2.575in">
+<p class=senormalpara>expr/expr</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 2.5in">
+<p class=senormalpara>SE.OP_MOD</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+<td valign=top style="width: 2.575in">
+<p class=senormalpara>expr%expr</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 2.5in">
+<p class=senormalpara>SE.OP_SHIFTLEFT</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+<td valign=top style="width: 2.575in">
+<p class=senormalpara>expr&lt;&lt;expr</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 2.5in">
+<p class=senormalpara>SE.OP_SHIFTRIGHT</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+<td valign=top style="width: 2.575in">
+<p class=senormalpara>expr&gt;&gt;expr</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 2.5in">
+<p class=senormalpara>SE.OP_USHIFTRIGHT</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+<td valign=top style="width: 2.575in">
+<p class=senormalpara>expr&gt;&gt;&gt;expr</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 2.5in">
+<p class=senormalpara>SE.OP_OR</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+<td valign=top style="width: 2.575in">
+<p class=senormalpara>expr|expr</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 2.5in">
+<p class=senormalpara>SE.OP_XOR</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+<td valign=top style="width: 2.575in">
+<p class=senormalpara>expr^expr</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 2.5in">
+<p class=senormalpara>SE.OP_AND</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+<td valign=top style="width: 2.575in">
+<p class=senormalpara>expr&amp;expr</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+</table>
+<p class=senormalpara>&nbsp;</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>The assign operators, such as <span class=secodephrase>*=</span>, are performed as two separate operations, as if written <span class=secodephrase>expr = expr * expr</span> instead of <span class=secodephrase>expr *= expr</span>.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>The right-hand side of the operator is to be found in <span class=secodephrase>SE.ARGS,SE.NUM(0)</span>. The result of the operation should be returned in the <span class=secodephrase>SE.RETURN</span> object with a return from the function of <span class=secodephrase>true</span>. A return of <span class=secodephrase>false</span> will do the normal operation which will involve converting the object to a primitive type compatible with the other operand and doing the JavaScript operation.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>Note that the operator overload will be called with the op <span class=secodephrase>SE.OP_ASSIGN</span> if the object is assigned to. Normally, this operation is ignored since you cannot assign to an object directly. In a script, you can write:</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=secodelinesindented>some_obj&nbsp;=&nbsp;10;</p>
+<p class=secodelines>&nbsp;</p>
+<p class=senormalpara>but this just discards the object in the given variable and replaces it with 10. If the object has operator overloading, this will call the overload callback instead. If you return <span class=secodephrase>false</span>, the normal changing of <span class=secodephrase>some_obj</span>'s value takes place. If you return <span class=secodephrase>true</span>, it does not. Be careful, you can make a variable whose value the user can never change in this way.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<hr noshade size=1>
+<p class=normal><a href="TH_202.htm"><img src="button.png" border=0></a><a href="TH_202.htm" style="text-decoration:none;">inteface: SEGetByIndexCallback</a></p>
+<p>
+</body>
+</html>

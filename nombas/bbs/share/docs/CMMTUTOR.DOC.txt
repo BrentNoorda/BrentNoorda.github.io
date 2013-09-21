@@ -1,0 +1,1043 @@
+                      CEnvi Demo Manual, Chapter 2:
+                           Cmm Language Tutorial
+
+                           CEnvi version 2.11
+                            20 February 1996
+
+                 Copyright 1993, Nombas, All Rights Reserved.
+          Published by Nombas, 64 Salem Street, MEDFORD MA 02155 USA
+          
+             VOICE (617) 391-6595     EMAIL: nombas@nombas.com
+             BBS   (617) 391-3718     WWW: http://www.nombas.com
+             FAX   (617) 391-3842
+
+         Thank you for trying this shareware version of CEnvi from Nombas.
+
+                          _______
+                     ____|__     |                (R)
+                  --|       |    |-------------------
+                    |   ____|__  |  Association of
+                    |  |       |_|  Shareware
+                    |__|   o   |    Professionals
+                  -----|   |   |---------------------
+                       |___|___|    MEMBER
+
+
+
+2.  The Cmm Language: Tutorial for Non-C Programmers
+
+          The information in this chapter is geared toward those who are
+          not familiar with the C programming language.  C programmers
+          should jump ahead to the next chapter: Cmm versus C.  This
+          section is an introduction to and description of the Cmm
+          programming language.
+
+          If you can write a batch, script, or macro file, or if you can
+          remember what "y = x + 1" means from your algebra class, then
+          you're ready to take on Cmm.  Really.  Cmm contains only
+          variables, mathematics symbols (remember algebra), and these few
+          statements: IF, ELSE, DO, WHILE, FOR, SWITCH, CASE, BREAK,
+          DEFAULT, CONTINUE, GOTO, and RETURN.
+
+          This section is an abbreviation of the Cmm Language Tutorial
+          chapter in the CEnvi registered manual.  The CEnvi registered
+          manual goes into much more depth, has many more examples, and
+          follows a step-by-step tutorial to create a simple text editor
+          with CEnvi.
+
+2.1.  Your first Cmm program
+
+          Before going into a description of Cmm, let's first make sure
+          that CEnvi is working properly.  With a text editor (e.g., EDIT
+          for DOS, E for OS/2, or NOTEPAD for Windows) create the file
+          HELLO.CMM and enter this text:
+
+              // Hello.cmm: My first Cmm program
+              Count = 1; /* Count is how many Cmm programs I've written */
+              printf("Hello world. This is my %dst Cmm program.\n",Count);
+              printf("Press any key to quit...");
+              getch();
+
+          You have now written a Cmm program named "HELLO.CMM".  Don't be
+          concerned if you do not yet understand the HELLO.CMM program; it
+          should become clear as Cmm is defined.  Now execute this program
+          (for DOS or OS/2 you would enter "CENVID HELLO.CMM" or "CENVI2 HELLO.CMM"
+          and for Windows you need may use the File Manager and double-click 
+          on the file name).  You should get this output:
+
+              Hello world. This is my 1st Cmm program.
+              Press any key to quit...
+
+          If this program will execute, then you are ready to go on to
+          learn about Cmm.  If it did not execute then consult the CEnvi
+          installation section in the first chapter of this shareware
+          manual.
+
+2.2.  Cmm comments
+
+          Comments are used in Cmm code to explain what the code does, but
+          the comment itself does nothing.  Comments are very useful in
+          programming.  A comment takes nothing away from the execution of
+          a program, but adds immeasurably to the readability of the source
+          code.
+
+          In Cmm, any text on a line following two slash characters (//) is
+          considered a comment and so is ignored by the Cmm interpreter.
+          Likewise, anything between a slash-asterisk (/*) and an
+          asterisk-slash (*/) is a comment (this type of comment may extend
+          over many lines).  In the HELLO.CMM program there is a "//"
+          comment on the first line and a "/* blah blah */" comment on the
+          second line.
+
+2.3.  Cmm primary data types
+
+          There are three principal data types in Cmm:
+            *Byte: A character (e.g., 'D') or a whole number between 0 and
+              255, inclusive
+            *Integer: A whole number value; this is the most common numeric
+              data type (examples: 0, -1000, 567, 4335600)
+            *Float: floating point numbers; any number containing a decimal
+              point (examples: 0.567, 3.14159, -5.456e-12)
+
+          Cmm determines the data type of a number by how it is used; for
+          example, in the HELLO.CMM program the "1" in the second line is
+          an integer because that is the default type for numbers without a
+          decimal point.
+
+2.3.1   Escape Sequences for Characters
+
+          Certain characters are represented with a multi-character
+          sequence beginning with a backslash (\).  These are called escape
+          sequences, and have the following meanings:
+              \a      Audible bell
+              \b      Backspace
+              \f      Formfeed
+              \n      Newline
+              \r      Carriage return
+              \t      Tab
+              \v      Vertical tab
+              \'      Single quote
+              \"      Double quote
+              \\      Backslash character
+              \###    Octal number  // ex: '\033' is escape character
+                                    // ex: \0 is null character
+              \x##    Hex number    // '\x1B' is escape character
+
+2.4.  Cmm Variables
+
+          A Cmm variable is a symbol that may be assigned data.  The
+          assignment of data is usually performed by the equal sign (=), as
+          in the line "Count = 1" in HELLO.CMM.  After variables have been
+          assigned, they can be treated as their data type.  So, after
+          these statements:
+              Count = 1               // assign count as the integer 1
+              Count = Count + 2       // same as: Count = 1 + 2
+          Count would now have the value 3.
+
+2.5.  Cmm Expressions, Statements, and Blocks
+
+          A Cmm "expression" or "statement" is any sequence of code that
+          perform a computation or take an action (e.g., "Count=1",
+          "(2+4)*3").  Cmm code is executed one statement at a time in the
+          order it is read.  A Cmm program is a series of statements
+          executed sequentially, one at a time.  Each line of HELLO.CMM,
+          for example, follows the previous line as it is written and as it
+          is executed.
+
+          A statement usually ends in a semicolon (;) (this is required in
+          C, and still a good idea in Cmm to improve readability).  Each
+          program statement is usually written on a separate line to make
+          the code easy to read.
+
+          Expressions may be grouped to effect the sequence of processing;
+          expressions inside parentheses are processed first.  Notice that:
+              4 * 7 - 5 * 3       // 28 - 15 = 13
+          has the same meaning, due to algebraic operator precedence, as:
+              (4 * 7) - (5 * 3)   // 28 - 15 = 13
+          but has a different meaning than:
+              4 * (7 - 5) * 3     // 4 * 2 * 3 = 8 * 3 = 24
+          which is still different from:
+              4 * (7 - (5 * 3))   // 4 * (7 - 15) = 4 * -8 = -32
+
+          A "block" is a group of statements enclosed in curly braces ({})
+          to show that they are all a group and so are treated as one
+          statement.  For example, HELLO.CMM may be rewritten as:
+              // Hello.cmm: My first Cmm program
+              Count = 1; /* Count is how many Cmm programs I've written */
+              printf("Hello world. This is my %dst Cmm program.\n",Count);
+              {
+                // this block tells the user we're done, and quits
+                printf("Press any key to quit...");
+                getch();
+              }
+          The indentation of statements is not necessary, but is useful for
+          readability.
+
+2.6.  Cmm Mathematical Operators
+
+          Cmm code usually contains some mathematical operations, such as
+          adding numbers together, multiplying, dividing, etc.  These are
+          written in a natural way, such as "2 + 3" when you want to add
+          two and three.  The next few subsections define the recognized
+          operators within the comments of sample code:
+
+2.6.1   Basic Arithmetic
+
+              //  "="  assignment: sets a variable's value
+              i = 2;      // i is 2
+
+              //  "+"  addition: adds two numbers
+              i = i + 3;  // i is now (2+3) or 5
+
+              //  "-"  subtraction: subtracts a number
+              i = i - 3;  // i is now (5-3) or 2 again
+
+              //  "*"  multiplication:
+              i = i * 5;  // i is now (2*5) or 10
+
+              //  "/"  division:
+              i = i / 3;  // i is now (10/3) or 3 (no remainder)
+
+              //  "%"  remainder: remainder after division
+              i = 10;
+              i = i % 3;  // i is now (10%3) or 1
+
+2.6.2   Assignment Arithmetic
+
+          Each of the above operators can combined with the assignment
+          operator (=) as a shortcut.  This automatically assumes that the
+          assigned variable is the first variable in the arithmetic
+          operation.  Using assignment arithmetic operators, the above code
+          could be simplified as follows:
+
+              //  "="  assignment: sets a variable's value
+              i = 2;      // i is 2
+
+              //  "+="  assign addition: adds number
+              i += 3;     // i is now (2+3) or 5
+
+              //  "-="  assign subtraction: subtracts a number
+              i -= 3;     // i is now (5-3) or 2 again
+
+              //  "*="  assign multiplication:
+              i *= 5;     // i is now (2*5) or 10
+
+              //  "/="  assign divide:
+              i /= 3;     // i is now (10/3) or 3 (no remainder)
+
+              //  "%="  assign remainder: remainder after division
+              i = 10;
+              i %= i % 3; // i is now (10%3) or 1
+
+2.6.3   Auto-Increment (++) and Auto-Decrement (--)
+
+          Other arithmetic shortcuts are the auto-increment (++) and
+          auto-decrement (--) operators.  These operators add or subtract 1
+          (one) from the value to which they are applied.  ("i++" is a
+          shortcut for "i+=1", which is itself shortcut for "i=i+1").
+          These operators can be used before (prefix) or after (postfix)
+          their variables.  If used before, then the variable is altered
+          before it is used in the statement; if used after, then the
+          variable is altered after it is used in the statement.  This is
+          demonstrated by the following code sequence:
+
+              i = 4;    // i is initialized to 4
+              j = ++i;  // j is 5, i is 5 (i was incremented before use)
+              j = i++;  // j is 5, i is 6 (i was incremented after use)
+              j = --i;  // j is 5, i is 5 (i was decremented before use)
+              j = i--;  // j is 5, i is 4 (i was decremented after use)
+
+2.7.  Cmm Arrays and Strings
+
+          An "array" is a group of individual data elements.  Each
+          individual item in the array is then called an "array element".
+          An element of an array is itself a variable, much like any other
+          variable.  Any particular element of the array is selected by
+          specifying the element's offset in the array.  This offset is an
+          integer in square brackets ([]).  For example:
+
+              prime[0] = 2;
+              prime[1] = 3;
+              prime[2] = 5;
+              month[0] = "January";
+              month[1] = "February";
+              month[2] = "March";
+
+          An array in Cmm does not need to be pre-defined for size or data
+          type, as it does in other languages.  Any array extends from
+          minus infinity to plus infinity (within reasonable computer
+          memory limits).  The data type for the array is the type of the
+          data first assigned to it.
+
+          If Cmm code begins with:
+              foo[5] = 7;
+              foo[2] = -100;
+              foo[-5] = 4;
+          then foo is an array of integers and the element at index 7 is a
+          5, at index 2 is -100, and at index -5 is 4.  "foo[5]" can be
+          used in the code anywhere that a variable could be used.
+
+2.7.1   Array Initialization
+
+          Arrays can be initialized by initializing specific elements, as
+          in:
+              foo[5] = 7; foo[2] = -100; foo[-5] = 4;
+          or by enclosing all the initial statements in curly braces, which
+          will cause the array to start initializing at element 0, as in:
+              foo = { 0, 0, -100, 0, 0, 7 };
+
+2.7.2   Strings
+
+          Strings are arrays of bytes that end in the null-byte (zero).
+          "String" is just a shorthand way to specify this array of bytes.
+          A string is most commonly specified simply by writing text within
+          two quote characters (e.g., "I am a string.")
+
+          If this statement were present in the Cmm code:
+              animal = "dog";
+          it would be identical to this statement:
+              animal = { 'd', 'o', 'g', 0 };
+          and in both cases the value at animal[0] is 'd', at animal[2] is
+          'g', and at animal[3] is 0.
+
+          Escape sequences encountered in strings will be translated into
+          their byte value.  So you'll often see strings such as "\aHello
+          world\n" where the "\a" means to beep and the "\n" means to put a
+          newline character at the end of the string.  Cmm provides the
+          back-quote (`), also known as known as the "back-tick" or "grave
+          accent", as an alternative quote character to indicate that
+          escape sequences are not to be translated.  So, for example, here
+          are two ways to describe the same file name:
+              "c:\\autoexec.bat"    // traditional method
+              `c:\autoexec.bat`   // alternative method
+
+2.7.3   Array Arithmetic
+
+          When one array is assigned to the other, as in:
+              foo = "cat";
+              goo = foo;
+          then both variables define the same array and start at the same
+          offset 0.  In this case, if foo[2] is changed then you will find
+          that goo[2] has also been changed.
+
+          Integer addition and subtraction can also be performed on arrays.
+          Array addition or subtraction sets where the array is based.  By
+          altering the previous code segment to:
+              foo = "cat";
+              goo = foo + 1;
+          goo and foo would now be arrays containing the same data, except
+          that now goo is based one element further, and foo[2] is now the
+          same data as goo[1].
+
+          To demonstrate:
+              foo = "cat";    // foo[0] is 'c', foo[1] = 'a'
+              goo = foo + 1;// goo[0] is 'a', goo[-1] = 'c'
+              goo[0] = 'u'; // goo[0] is 'u', foo[1] = 'u', foo is "cut"
+              goo++;        // goo[0] is 't', goo[-2] = 'c'
+              goo[-2] = 'b' // goo[0] is 't', foo[0] = 'b', foo is "but"
+
+2.7.4   Multi-Dimensional Arrays: Arrays of Arrays
+
+          An array element is a variable, and so if the type of that
+          element's variable is itself an array, then you have an array of
+          arrays.  A statement such as:
+              goo[4][2] = 5;
+          indicates that goo is an array of arrays, and that element 2 of
+          element 4 is the integer 5.
+
+          Multi-dimensional arrays might be useful for programming a
+          tic-tac-toe game.  Each row and column of the 3x3 board could be
+          represented with a row, column element containing 'X', 'O' or ' '
+          (blank) depending on the character at that location.  For
+          example, a horizontal 'X' win in the middle row could be
+          initialized like this:
+              board[1][0] = 'X';
+              board[1][1] = 'X';
+              board[1][2] = 'X';
+
+          Note that a string is an array, and so anytime you make an array
+          of strings you are defining an array of arrays.
+
+2.8.  Cmm Structures
+
+          A "structure" is a collection of named variables that belong
+          together as a whole.  Each of the named variables in a structure
+          is called a member of that structure and can be any data type
+          (integer, float, array, another structure, array of structures,
+          etc.).  These structure members are associated with the structure
+          by using a period between the structure variable and the member
+          name.
+
+          A simple and useful example of a structure is to specify a point
+          on the screen.  A point is made up of a row and column, and so
+          you may specify:
+              place.row = 12;   // set to row 12
+              place.col = 20;   // set at column 20
+              place.row--;        // move up one row to row 11
+
+          Two structures can be compared for equality or inequality, and
+          they may be assigned, but no other arithmetic operations can be
+          performed on a structure.
+
+2.9.  printf() and getch()
+
+          Although although the Cmm "function" has not yet been defined, it
+          is useful to use two functions already, printf() and getch(), for
+          learning more about Cmm programming.  Unfortunately, printf() is
+          about as complicated as a function can get.
+
+2.9.1   printf() Syntax
+
+          printf() prints to the screen, providing useful feedback on your
+          programming.  The basic syntax of printf() is this:
+
+              printf(FormatString,data1,data2,data3,...);
+
+          FormatString is the string that will be printed to the screen.
+          When FormatString contains a percent character (%) followed by
+          another character, then instead of printing those characters
+          printf() will print the next data item (data1, data2, data3,
+          etc...).  The way the data will be presented is determined by the
+          characters immediately following the percent sign (%).  There are
+          many such data formats, as described fully in the Registered
+          User's Manual (or any C programming manual), but here's few to
+          start with:
+            *%%  print a percentage sign
+            *%d  print a decimal integer
+            *%X  print a hexadecimal integer
+            *%c  print a character
+            *%f  print a floating-point value
+            *%E  print a floating-point value in scientific format
+            *%s  print a string
+
+          There are also special characters that cause unique screen
+          behavior when they are printed, some of which are:
+            *\n  goto beginning of next line
+            *\t  tab
+            *\a  alarm: audible beep
+            *\r  carriage-return without a line feed
+            *\"  print the quote character
+            *\\  print a backslash
+
+          Here are some example printf() statements:
+              printf("Hello world. This is my %dst Cmm program.\n",Count);
+              printf("%c %d %dlips",'I',8,2);
+              printf("%d decimal is the same as %X in hexadecimal",n,n);
+              printf("My name is: %s\n","Mary");
+
+2.9.2   getch() Syntax
+
+          getch() (GET CHaracter) waits for any key to be pressed.  The
+          program stops executing at the getch() statement until a key is
+          pressed.  getch() is especially useful in Windows because once a
+          program is completed its windows will go away.  So getch() might
+          be placed at the end of the program to keep the screen visible
+          until a key is pressed.
+
+2.9.3   Using printf() and getch() to Learn Cmm
+
+          You can now experiment with what you are learning by using the
+          printf() and getch() statements.
+
+          If, during program execution, you want to know that you're about
+          to execute an exciting piece of code, then before those
+          interesting lines of code you may want to write:
+
+              printf("Here comes the good stuff.  Press any key...");
+              getch();
+
+          You can display values at any point in your program with a
+          printf() statement.  This short TEST.CMM program tests how "*="
+          works:
+
+              // TEST.CMM - test the *= operator
+              var1 = 4;
+              var2 = 5;
+              printf("the numbers are %d and %d\n",var1,var2);
+              var1 *= 7;
+              var2 *= 7;
+              printf("after *= 7 the values are %d and %d\n",var1,var2);
+              getch();
+
+2.10. Bit Operators
+
+          Cmm contains many operators for operating on the binary bits in a
+          byte or an integer.  If you're not familiar with hexadecimal
+          numbering (digits '0' to 'F'), you may want to refer to the CEnvi
+          Registered User's Manual.
+
+              i = 0x146;
+
+              //  "<<"  shift left: shift all bits left by value
+              //  "<<=" assignment shift left
+              i <<= 2;    // shift i (0x146) left 2, so i = 0x518
+
+              //  ">>"  shift right: shift all bits right by value
+              //  ">>=" assignment shift right
+              i >>= 3;    // shift i (0x518) right 3, so i = 0xA3
+
+              //  "&"   bitwise AND
+              //  "&="  assignment bitwise and
+              i &= 0x35;  // and i (0xA3) with 0x35 so i = 0x21
+
+              //  "|"   bitwise OR
+              //  "|="  assignment bitwise OR
+              i |= 0xC5;    // OR i (0x21) with 0xC4 so i = 0xE5
+
+              //  "^"   bitwise XOR: exlusive OR
+              //  "^="  assignment bitwise XOR
+              i ^= 0xF329 // XOR i (0xE5) with so i = 0xF3CC
+
+              //  "~"   Bitwise complement: (turn 0 bits to 1, and 1 to 0)
+              i = ~i;     // complement i (0xF3CC) so i = 0xFFFF0C33 (OS/2)
+
+2.11. Logical Operators and Conditional Expressions
+
+          A conditional expression is evaluated to be TRUE or FALSE, where
+          FALSE means zero, and TRUE means anything that is not FALSE
+          (i.e., not zero).  A variable or any other expression by itself
+          can be TRUE or FALSE (i.e., non-zero or zero).  With logic
+          operators, these expressions can be combined to make encompassing
+          TRUE/FALSE decisions.  The logic operators are:
+
+            * "!"   NOT: opposite of decision
+              !TRUE               // FALSE
+              !FALSE              // TRUE
+              !('D')              // FALSE
+              !(5-5)              // TRUE
+
+            * "&&"  AND: TRUE if and only if both expressions are true
+              TRUE && FALSE       // FALSE
+              TRUE && TRUE        // TRUE
+              0 && (foo+2)        // FALSE: (foo+2) is not evaluated
+              !(5-5) && 4         // TRUE
+
+            * "||"  OR: TRUE if either expression is TRUE
+              TRUE || FALSE       // TRUE: doesn't even check FALSE
+              TRUE || (4+2)       // TRUE: (4+2) is not evaluated
+              FALSE || (4+2)      // TRUE: (4+2) is evaluated
+              FALSE || FALSE      // FALSE
+              0 || 0.345          // TRUE
+              !(5-3) || 4         // TRUE
+
+            * "=="  EQUALITY: TRUE if both values equal, else FALSE
+              5 == 5              // TRUE
+              5 == 6              // FALSE
+
+            * "!="  INEQUALITY: TRUE if both values not equal, else FALSE
+              5 != 5              // FALSE
+              5 != 6              // TRUE
+
+            * "<"   LESS THAN
+              5 < 5               // FALSE
+              5 < 6               // TRUE
+
+            * ">"   GREATER THAN
+              5 > 5               // FALSE
+              5 > 6               // FALSE
+              5 > -1              // TRUE
+
+            * "<="  LESS THAN OR EQUAL TO
+              5 <= 5              // TRUE
+              5 <= 6              // TRUE
+              5 <= -1             // FALSE
+
+            * ">="  GREATER THAN OR EQUAL TO
+              5 >= 5              // TRUE
+              5 >= 6              // FALSE
+              5 >= -1             // TRUE
+
+2.12. Flow Decisions: Loops, Conditions, and Switches
+
+          This section describes how Cmm statements can control the flow of
+          your program.  You'll notice code sections are often indented,
+          when blocks belong together; this makes the code much easier to
+          read.
+
+2.12.1  IF - Execute statement (or block) if conditional expression is TRUE
+
+              if ( goo < 10 ) {
+                printf("goo is smaller than 10\n");
+              }
+
+2.12.2  ELSE - Execute statement (or block) if IF block was not executed
+              if ( goo < 10 ) {
+                printf("goo is smaller than 10\n");
+              } else {
+                printf("goo is not smaller than 10\n");
+              }
+
+          ELSE can also be combined with IF to find one in a series of
+          values:
+
+              if ( goo < 10 ) {
+                printf("goo is less than 10\n");
+                if ( goo < 0 ) {
+                  printf("goo is negative; of course it's less than 10\n");
+                }
+              } else if ( goo > 10 ) {
+                printf("goo is greater than 10\n");
+              } else {
+                printf("goo is 10\n");
+              }
+
+2.12.3  WHILE - Execute block while conditional expression is TRUE
+
+              str = "WHO ARE YOU?";
+              while ( str[0] != 'A' ) {
+                printf("%s\n",str);
+                str++;
+              }
+              printf("%s\n",str);
+
+          The output of the above code would be:
+              WHO ARE YOU?
+              HO ARE YOU?
+              O ARE YOU?
+               ARE YOU?
+              ARE YOU?
+
+2.12.4  DO ... WHILE - Execute block, and then test for conditional
+
+          This is different from the WHILE statement in that the block is
+          executed at least once, before the condition is tested.
+
+              do {
+                value++;
+                printf("value = %d\n",value);
+              } while( value < 100 );
+
+          The code used to demonstrate the WHILE statement might be better
+          written this way to avoid the extra printf():
+
+              str = "WHO ARE YOU?";
+              do {
+                printf("%s\n",str);
+              } while ( str++[0] != 'A' );
+
+2.12.5  FOR - initialize, test conditional, then loop
+
+          "for" is a combination of statements of this format:
+              for ( initialization; conditional; loop_expression )
+                statement
+          The initialization is performed first.  Then the conditional is
+          tested.  If the conditional is TRUE (or if there is no
+          conditional expression) then statement is executed, and then the
+          loop_expression is executed, and so on back to testing the
+          conditional.  If the conditional is FALSE then the program
+          continues beyond statement.  The "for" statement is a shortcut
+          for this form of WHILE:
+              initialization;
+              while ( conditional ) {
+                statement;
+                loop_expression;
+              }
+
+          The above code demonstrating the WHILE statement would be
+          rewritten this way if you preferred to use the FOR statement:
+
+              for ( str = "WHO ARE YOU?"; str[0] != 'A'; str++ )
+                printf("%s\n",str);
+              printf("%s\n",str);
+
+
+2.12.6  BREAK and CONTINUE
+
+          "break" terminates the nearest loop or case statement.
+
+          "continue" jumps to the test condition in the nearest DO or WHILE
+          loop, and jumps to the loop_expression in the nearest FOR loop.
+
+2.12.7  SWITCH, CASE, and DEFAULT
+
+          The SWITCH statement follows this format:
+
+              switch( switch_expression ) {
+                case exp1:  statement1
+                case exp2:  statement2
+                case exp3:  statement3
+                case exp4:  statement4
+                case exp5:  statement5
+                .
+                .
+                .
+                default: default_statement
+              }
+
+          switch_expression is evaluated, and then it is compared to all of
+          the case expressions (expr1, expr2, expr3, etc...) until a match
+          is found (i.e., switch_expression == expr? ).  The statements
+          following that match are then executed until the end of the
+          switch block is reached or until a BREAK statement exits the
+          switch block.  If no match is found, the DEFAULT: statement is
+          executed if there is one.
+
+          For example, this code handles the variable "key", which is
+          assumed to be the value of a key that was just pressed on the
+          keyboard:
+
+              switch ( key ) {
+                case '0':
+                case '1':
+                case '2':
+                case '3':
+                case '4':
+                case '5':
+                case '6':
+                case '7':
+                case '8':
+                case '9:
+                  printf("A digit was pressed\n");
+                  break;
+                case '\r';
+                  printf("You pressed RETURN\n");
+                default:
+                  printf("I am not prepared for the key you pressed\n");
+                  break;
+              }
+
+2.12.8  GOTO and Labels
+
+          You may jump to any location within a function block (see
+          functions) by using the GOTO statement.  The syntax is:
+              goto LABEL;
+          where LABEL is an identifier followed by a colon (:).
+
+              if ( a < 0 ) {
+                BadGoingsOn:      // this is a label
+                printf("\aThe value for a is very bad.\n");
+                abort();          // see function library for abort()
+              } else if ( 1000 < a )
+                goto BadGoingsOn;
+
+          GOTOs should be used sparingly, for they often make it difficult
+          to track program flow.
+
+2.13. Conditional Operator ?:
+
+          The conditional operator is a strange-looking statement that is
+          simply a useful shortcut.  The syntax is this:
+
+              test_expression ? expression_if_true : expression_if_false
+
+          First, test_expression is evaluated.  If test_expression is
+          non-zero (TRUE) then expression_if_true is evaluated and the
+          value of the entire expression replaced by the value of
+          expression_if_true.  If test_expression is FALSE, then
+          expression_if_false is evaluated and the value of the entire
+          expression is that of expression_if_false.
+
+          For example:
+              foo = ( 5 < 6 ) ? 100 : 200;  // foo is set to 100
+              printf("User's name is %s\n",NULL==name ? "unknown" : name);
+
+2.14. Functions
+
+          Functions in Cmm can perform any action of any complexity, and
+          yet they are used in statements as easily as variables.  It is
+          because of the flexibility and simplicity of functions that Cmm
+          needs so few statements.  Any action can take place in a
+          function, and yet the function is treated by the calling code
+          simply as the data type that the function returns.
+
+2.14.1  Function definition
+
+          A function takes a form such as this:
+
+              FunctionName(Parameter1,Parameter2,Parameter3)
+              {
+                statements...
+                return result;
+              }
+
+          where the function name is followed by a list of input parameters
+          in parentheses (there can be any number of input parameters and
+          they can be named with any variable names).
+
+          A call is made to a function in this format:
+
+              FunctionName(Value1,Value2,Value3)
+
+          So any call to FunctionName will be result in the execution of
+          FunctionName() with the parameters passed, and then be equivalent
+          to whatever value FunctionName() returns.
+
+2.14.2  Function RETURN Statement
+
+          The return statement causes a function to return to the code that
+          initially called the function.  The calling code will receive the
+          value that the function returned.  Here are function examples:
+
+              foo(a,b)    // return a times b
+              {
+                return( a * b );
+              }
+
+              foo(a,b)    // return a times b
+              {
+                return a * b;
+              }
+
+              foo(a,b)    // return the minimum value of a and b
+              {
+                if ( a < b )
+                  result = a;
+                else
+                  result = b;
+                return(result);
+              }
+
+              foo(a,b)    // return a structure with members .min and .max
+              {           // for the smaller and larger of a and b
+                if ( a < b ) {
+                  bounds.min = a;
+                  bounds.max = b; 
+                } else {
+                  bounds.min = b;
+                  bounds.max = a;
+                }
+                return( bounds );
+              }
+
+          If no value is returned, or if the end of the function block is
+          reached without a return statement, then no value is returned and
+          the function is a "void" type.  void functions return no value to
+          the calling code.  These examples demonstrate some void-returning
+          functions:
+
+              foo(a,b)    // set a = b squared. No return value.
+              {
+                a = b * b;
+                return;
+              }
+
+              foo(a,b)    // set a = b squared. No return value.
+              {
+                a = b * b;
+              }
+
+2.14.3  Function Example
+
+          The use of functions should gain clarity with this example.  This
+          code demonstrates a function that multiplies two integers
+          (although multiplying integers could more easily be performed
+          with the multiply (*) operator):
+
+              num1 = 4;
+              num2 = 6;
+
+              // use the standard method of multiplying numbers
+              printf("%d times %d is %d\n",num1,num2,num1*num2);
+
+              // now call our function to do the same thing
+              printf("%d times %d is %d\n",num1,num2,Multiply(num1,num2));
+
+                // declare a function that multiplies two integers.  Notice
+                // that the integers are defined as i and j, so that's how
+                // they'll be called in this function, no matter what they
+                // were named in the calling code.  This function will
+                // return i added to itself j times.
+              Multiply(i,j)
+              {
+                total = 0;
+                for ( count = 0; count < j; count++ )
+                  total += i;
+                return(total);  // caller will receive this value
+              }
+
+          When executed, the above code will print:
+              4 times 6 is 24
+              4 times 6 is 24
+
+          This example demonstrated several features of Cmm functions.
+          Notice that in calling printf() the parameter "num1*num2" is not
+          passed to printf, but the result of "num1*num2" is passed to
+          printf.  Likewise, "Multiply(num1,num2)" is not a parameter to
+          printf(); instead, printf receives the return value of Multiply()
+          as its parameter.
+
+2.14.4  Function Recursion
+
+          When a function calls itself, or calls some other function that
+          calls itself, then it is known as a recursive function.
+          Recursion is permitted in Cmm, as it is in C.  Each call into a
+          function is independent of any other call to that function (see
+          section on variable scope).
+
+          The following function, factor(), factors a number.  Factoring is
+          a natural candidate for recursion because it is a repetitive
+          process where the result of one factor is then itself factored
+          according to the same rules.
+
+              factor(i)   // recursive function to print all factors of i,
+              {           // and return the number of factors in i
+                 if ( 2 <= i ) {
+                    for ( test = 2; test <= i; test++ ) {
+                       if ( 0 == (i % test) ) {
+                          // found a factor, so print this factor then call
+                          // factor() recursively to find the next factor
+                          printf(" %d",test);
+                          return( 1 + factor(i/test) );
+                       }
+                    }
+                 }
+                 // if this point was reached, then factor not found
+                 return( 0 );
+              }
+
+2.15. Variable Scope
+
+          A variable in Cmm is either global or local.  A global variable
+          is one that is referenced outside of any function, making it
+          visible and accessible to all functions.  A local variable is one
+          that is only referenced inside of a function, and so it only has
+          meaning and value within the function that declares it.  Note
+          that two identically-named local variables in different functions
+          are not the same variable.  Also, each instance of a recursive
+          function has its own set of local variables.  In other words, a
+          variable that is not referenced outside of a function only has
+          meaning (and that meaning is unique) while the code for that
+          function is executing.
+
+          In the following sample code, "number" is the only global
+          variable, the two "result" variables in Quadruple() and Double()
+          are completely independent, and the "result" variable in one call
+          Double() is unique to each call to Double():
+
+              number = Quadruple(3);
+
+              Quadruple(i)
+              {
+                result = Double(Double(i));
+                return(result);
+              }
+
+              Double(j)
+              {
+                result = j + j;
+                return(result);
+              }
+
+          Note that variables that are all in uppercase letter are
+          considered global and refer to environment variables.  See the
+          chapter on CEnvi specifics for more on environment variables.
+
+2.16. #define
+
+          "#define" is used to replace a token (a variable or a function
+          name) with other characters.  The structure is:
+              #define token replacement
+          This results in all subsequent occurrences of "token" to be
+          replaced with "replacement".  For example:
+              #define HI  "Hello world!"
+              printf(HI);
+          would result in the following output:
+              Hello world!
+          because HI was replaced with "Hello world!"
+
+          A common use of #define is to define constant numeric or string
+          values that might possibly change, so that in the future only the
+          #define at the top of the file needs to be altered.  For
+          instance, if you write screen routines for a 25-line monitor, and
+          then later decide to make it a 50-line monitor, you're better off
+          altering
+              #define ROW_COUNT   25
+          to
+              #define ROW_COUNT   50
+          and using ROW_COUNT in your code (or ROW_COUNT-1, ROW_COUNT+2,
+          ROW_COUNT/2, etc...) than if you had to search for every instance
+          of the numbers 25, 24, 26, etc...
+
+          CEnvi has a large default list of tokens that have already been
+          #define'd, such as TRUE, FALSE, and NULL.  More of these are
+          listed in the chapter on the Internal Function Library.
+
+2.17. #include
+
+          Cmm code is executed from one stream of source code.  Sometimes
+          it is useful to break the program into different files or to
+          access commonly used code without recreating that code again and
+          again in every new program written.  This is what "#include" is
+          for: it allows code from another file to be included in a
+          program.
+
+          The #include syntax is:
+
+              #include <Name[,Ext[,Prefix[,BeginCode[,EndCode]]]]>
+              where:
+              Name - Name of the file to include
+              Ext - Extension name to add to Name if not already there
+              Prefix - Will only include code from Name on lines that begin
+                       with this string
+              BeginCode - Will start including code from Name following
+                          this line of text
+              EndCode - Will stop including code when this line is read
+
+          The quote characters (' or ") may be used in place of < and >.
+          The only field that is required by Cmm is Name (this is the field
+          used in C's #include), which is the name of the file to include.
+          All other fields are optional, and can be left blank if unused.
+
+          To include all of C:\CMM\LIB.cmm
+              #include <c:\CMM\LIB.cmm>
+          To include from dog.bat between the lines GOTO END and :END
+              #include 'dog,bat,,GOTO END,:END'
+          To include lots of little files into one big one program
+              #include <screen.cmm>
+              #include <keyboard.cmm>
+              #include <init.cmm>
+              #include <comm.cmm>
+
+          In CEnvi a file will not be included more than once, and so if it
+          has already been included, a second (or third) #include statement
+          will have no effect.
+
+2.18. Initialization
+
+          All code that is outside of any function is part of the global
+          initialization function.  This code is executed first, before
+          calling any function (unless a function is called from this
+          initialization code).
+
+          Any variables referenced in the initialization section are
+          global.
+
+2.19. main(ArgCount,ArgStrings)
+
+          After the initialization has been performed, the main() function
+          is called and is given the argument input to the Cmm program.
+          The first parameter to main (ArgCount) is the number of arguments
+          provided to the program.  ArgStrings is an array of those input
+          arguments, which are always strings.  The first argument is
+          always the name of the source code, or of CEnvi.exe if there is
+          no source file.
+
+          The value returned from main() should be an integer, and is the
+          exit code (ERRORLEVEL for DOS) returned to the operating system
+          from your program (see also exit() in the internal library).
+
+          This code file TEST.CMM:
+              printf("I am initializing\n");
+              main(argc,argv)
+              {
+                printf("This program is called %s.\n",argv[0]);
+                printf("There are %d input arguments, as follows:\n",argc);
+                for ( i = 0; i < argc; i++ )
+                  printf("\t%s\n",argv[i]);
+                return(0);
+              }
+              printf("still initializing\n");
+          When executed in this way:
+              cenvi test.cmm I am 4 "years old" today
+          would result in this output:
+              I am initializing
+              still initializing
+              This program is called test.CMM.
+              There are 6 input arguments, as follows:
+                      test.CMM
+                      I
+                      am
+                      4
+                      years old
+                      today
+          and would return 0 to the operating system.

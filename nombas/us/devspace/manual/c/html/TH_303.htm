@@ -1,0 +1,31 @@
+<html>
+<head>
+<title>secharptr</title>
+<link rel="stylesheet" href="semanualstyles.css" type="text/css">
+<style type="text/css">
+ p { margin-top: 0; margin-bottom: 0; }
+</style>
+<script language="JavaScript" src="TrueHelp.js"></script>
+</head>
+<body onload="thload()">
+<div id=ienav>
+<ilayer id=nsnav>
+<br>
+<center>
+<p class=normal><a href="seisdkc-toc.htm" target="left">contents</a> &nbsp; <a href="seisdkc-index.htm" target="left">index</a> &nbsp; <a href="TH_302.htm">previous</a> &nbsp; <a href="TH_304.htm">next</a></p>
+</center>
+<br>
+<hr noshade size=1>
+</ilayer>
+</div>
+<p class=heading-2>secharptr</p>
+<p class=heading-2-p>&nbsp;</p>
+<p class=senormalpara>You should not use <span class=secodephrase>char *</span> in your programs, use <span class=secodephrase>secharptr</span> instead. This typedef gives you a pointer to a string of the correct type for the build mode. String constants should be encased in the <span class=secodephrase>UNISTR()</span> macro. While <span class=secodephrase>"foo"</span> is a literal of type <span class=secodephrase>char *</span>, <span class=secodephrase>UNISTR("foo")</span> is a literal of type <span class=secodephrase>secharptr</span>. If you insist on writing your literals without the <span class=secodephrase>UNISTR()</span> macro, your program will not build correctly on Unicode or MBCS systems.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>All standard library functions that take a <span class=secodephrase>char *</span> parameter have a version that takes an <span class=secodephrase>secharptr</span>. Append to the name of the function <span class=secodephrase>_sechar</span>. For instance, <span class=secodephrase>sprintf</span> only works on ASCII ScriptEase builds while <span class=secodephrase>sprintf_sechar</span> works on all builds.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<hr noshade size=1>
+<p class=normal><a href="TH_304.htm"><img src="button.png" border=0></a><a href="TH_304.htm" style="text-decoration:none;">seconstcharptr</a></p>
+<p>
+</body>
+</html>

@@ -1,0 +1,124 @@
+<html>
+<head>
+<title>SElib.spawn()</title>
+<link rel="stylesheet" href="semanualstyles.css" type="text/css">
+<style type="text/css">
+ p { margin-top: 0; margin-bottom: 0; }
+</style>
+<script language="JavaScript" src="TrueHelp.js"></script>
+</head>
+<body onload="thload()">
+<div id=ienav>
+<ilayer id=nsnav>
+<br>
+<center>
+<p class=normal><a href="seisdkc-toc.htm" target="left">contents</a> &nbsp; <a href="seisdkc-index.htm" target="left">index</a> &nbsp; <a href="TH_944.htm">previous</a> &nbsp; <a href="TH_946.htm">next</a></p>
+</center>
+<br>
+<hr noshade size=1>
+</ilayer>
+</div>
+<p class=sereffunclevel4>SElib.spawn()</p>
+<table cellpadding=0>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>syntax:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=sesyntax>SElib.spawn(mode,&nbsp;execSpec[,&nbsp;arg[,&nbsp;...]])</p></td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>where:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>mode - a number indicating how to spawn or execute the file named by execSpec. The parameter mode may be one of the following values though not all values are valid on all operating systems:</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=list-bullet>&#8226;</p><p class=list-bullet-tab1><span class=secodephrase>P_WAIT</span> Wait for a child program to complete before continuing. (All platforms)</p>
+<p class=list-bullet>&#8226;</p><p class=list-bullet-tab1><span class=secodephrase>P_NOWAIT</span> A script continues to run while a child program runs. In windows, a successful call with mode <span class=secodephrase>P_NOWAIT</span> returns the window handle of the spawned process. (Windows and OS/2)</p>
+<p class=list-bullet>&#8226;</p><p class=list-bullet-tab1><span class=secodephrase>P_SWAP</span> Like <span class=secodephrase>P_WAIT</span>, but swap out ScriptEase to create more room for the child process. <span class=secodephrase>P_SWAP</span> will free up as much memory as possible by swapping ScriptEase to <span class=secodeterm>EMS/XMS/INT15</span> memory or to disk (in <span class=secodeterm>TMP</span> or <span class=secodeterm>TEMP</span> or else current directory) before executing the child process (thanks to Ralf Brown for his excellent spawn library). (DOS only)</p>
+<p class=list-bullet>&#8226;</p><p class=list-bullet-tab1><span class=secodephrase>P_OVERLAY</span> The script exits and the child program is executed in its place. (DOS 16-bit)</p>
+<p class=normal>&nbsp;</p>
+<p class=senormalpara>execSpec - a string with the path and filename of an executable file or a ScriptEase script.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>arg - one or more values to be passed as parameters to the file to be executed.</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>return:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>void - if the mode is <span class=secodephrase>P_OVERLAY</span>.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>number - if the mode is <span class=secodephrase>P_WAIT</span>, the return is the exit code of the child process, else it is -1.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>number - if the mode is <span class=secodephrase>P_NOWAIT</span> or <span class=secodephrase>P_SWAP</span>, the return is the identifier of the child process, else it is -1.</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>description:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>Launches another application. The parameter mode determines the behavior of the script after the spawn call, while execSpec is the name of the process being spawned. Any arguments to the spawned process follow execSpec.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>The parameter execSpec may be the path and filename of an executable file or the name of a ScriptEase script. If it is a script, the spawned script runs from the same instance of ScriptEase as the calling script. A spawned script does not cause another instance of the interpreter to be launched. A script that has been bound with the ScriptEase /bind function cannot be spawned from the same instance as the calling script.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>The parameter execSpec is automatically passed as argument 0. ScriptEase implicitly converts all arguments to strings before passing them to the child process.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara><span class=secodephrase>SElib.spawn()</span> searches for execSpec in the current directory and then in the directories of the PATH environment variable. If there is no extension in execSpec, <span class=secodephrase>SElib.spawn()</span> searches for file extensions in the following order: com, exe, bat, and cmd.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>If a batch file is being spawned in 16-bit DOS and the environment variable <span class=secodephrase>COMSPEC_ENV_SIZE</span> exists, the command processor is provided the amount of memory as indicated by <span class=secodephrase>COMSPEC_ENV_SIZE</span>. If <span class=secodephrase>COMSPEC_ENV_SIZE</span> does not exist, the command processor receives only enough memory for existing environment variables.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>A return value of -1 results when <span class=sepopuptopic><a href="TH_607.htm" onClick="return thwindow('TH_607.htm', 'GenPopup')">Clib.errno</a></span> is set to identify why the function failed.</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>see:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara><span class=sejumptopic><a href="TH_935.htm">SElib.interpret()</a></span>, <span class=sejumptopic><a href="TH_936.htm">SElib.interpretInNewThread()</a></span>, <i>winexec.jsh</i></p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>example:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=secodelines>&nbsp;&nbsp;&nbsp;//&nbsp;The&nbsp;following&nbsp;fragment</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;//&nbsp;calls&nbsp;a&nbsp;mortgage&nbsp;program,</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;//&nbsp;mortgage.exe,&nbsp;which&nbsp;takes</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;//&nbsp;three&nbsp;parameters,&nbsp;initial&nbsp;debt,</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;//&nbsp;rate,&nbsp;and&nbsp;monthly&nbsp;payment,&nbsp;and</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;//&nbsp;returns,&nbsp;in&nbsp;its&nbsp;exit&nbsp;code,</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;//&nbsp;the&nbsp;number&nbsp;of&nbsp;months&nbsp;needed&nbsp;to&nbsp;pay&nbsp;the&nbsp;debt.</p>
+<p class=secodelines>var&nbsp;months&nbsp;=&nbsp;SElib.spawn(P_WAIT,</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;"MORTGAGE.EXE&nbsp;300000&nbsp;10.5&nbsp;1000");</p>
+<p class=secodelines>if&nbsp;(months&nbsp;&lt;&nbsp;0)</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;Screen.writeln(&nbsp;"Error&nbsp;spawning&nbsp;MORTGAGE");</p>
+<p class=secodelines>else</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;Clib.printf(</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;&nbsp;"It&nbsp;takes&nbsp;%d&nbsp;months&nbsp;to&nbsp;pay&nbsp;off&nbsp;the&nbsp;mortgage\n",</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;&nbsp;months);</p>
+<p class=secodelines>&nbsp;</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;//&nbsp;The&nbsp;arguments&nbsp;could&nbsp;also</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;//&nbsp;be&nbsp;passed&nbsp;to&nbsp;mortgage.exe&nbsp;as</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;//&nbsp;separate&nbsp;variables,&nbsp;as&nbsp;in&nbsp;the&nbsp;following.</p>
+<p class=secodelines>var&nbsp;months&nbsp;=&nbsp;SElib.spawn(P_WAIT,</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;"MORTGAGE.EXE",300000,10.5,1000);</p>
+<p class=secodelines>&nbsp;</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;//&nbsp;The&nbsp;arguments&nbsp;could&nbsp;be&nbsp;passed</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;//&nbsp;to&nbsp;mortgage.exe&nbsp;in&nbsp;a</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;//&nbsp;variable&nbsp;array,&nbsp;provided&nbsp;that</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;//&nbsp;they&nbsp;are&nbsp;all&nbsp;of&nbsp;the&nbsp;same</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;//&nbsp;data&nbsp;type,&nbsp;in&nbsp;this&nbsp;case&nbsp;strings.</p>
+<p class=secodelines>var&nbsp;MortgageData;</p>
+<p class=secodelines>MortgageData[0]&nbsp;=&nbsp;"300000";</p>
+<p class=secodelines>MortgageData[1]&nbsp;=&nbsp;"10.5";</p>
+<p class=secodelines>MortgageData[2]&nbsp;=&nbsp;"1000";</p>
+<p class=secodelines>var&nbsp;ths&nbsp;=&nbsp;spawn(P_WAIT,</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;"MORTGAGE.EXE",&nbsp;MortgageData);</p></td>
+</tr>
+</table>
+<p class=normal>&nbsp;</p>
+<hr noshade size=1>
+<p class=normal><a href="TH_946.htm"><img src="button.png" border=0></a><a href="TH_946.htm" style="text-decoration:none;">SElib.splitFilename()</a></p>
+<p>
+</body>
+</html>

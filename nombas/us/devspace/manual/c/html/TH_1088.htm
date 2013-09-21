@@ -1,0 +1,75 @@
+<html>
+<head>
+<title>Cursor updateRow()</title>
+<link rel="stylesheet" href="semanualstyles.css" type="text/css">
+<style type="text/css">
+ p { margin-top: 0; margin-bottom: 0; }
+</style>
+<script language="JavaScript" src="TrueHelp.js"></script>
+</head>
+<body onload="thload()">
+<div id=ienav>
+<ilayer id=nsnav>
+<br>
+<center>
+<p class=normal><a href="seisdkc-toc.htm" target="left">contents</a> &nbsp; <a href="seisdkc-index.htm" target="left">index</a> &nbsp; <a href="TH_1087.htm">previous</a> &nbsp; <a href="TH_1089.htm">next</a></p>
+</center>
+<br>
+<hr noshade size=1>
+</ilayer>
+</div>
+<p class=sereffunclevel4>Cursor updateRow()</p>
+<table cellpadding=0>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>syntax:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=sesyntax>cursor.updateRow()<span class=truehelp-xe></span></p></td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>return:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>number - 0 if the call was successful; otherwise, a nonzero status code based on the error message produced by the database.  If the method returns a nonzero status code, use the associated Database's <span class=secodephrase>majorErrorCode</span> and <span class=secodephrase>majorErrorMessage</span> methods to interpret the meaning of the error.</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>description:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>This method uses the values in the current row of an undatable cursor to modify a row in a table.  Before an <span class=secodephrase>updateRow</span> can be performed, make sure the <span class=secodephrase>next</span> method has been called at least once, so that the current row of the Cursor is assigned.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>To update a row in a database table, assign values to columns in the current row of the cursor, and call <span class=secodephrase>updateRow</span>. Column values that are not explicitly assigned are not changed by the updateRow method.</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>see:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara><span class=secodephrase>#link &lt;sedbc&gt;</span>, <span class=sejumptopic><a href="TH_1085.htm">Cursor next()</a></span>, <span class=sejumptopic><a href="TH_1086.htm">Cursor previous()</a></span>, <span class=sejumptopic><a href="TH_1092.htm">Database commitTransaction()</a></span>, <span class=sejumptopic><a href="TH_1104.htm">Database rollbackTransaction()</a></span></p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>example:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=secodelines>//&nbsp;assume&nbsp;'database'&nbsp;is&nbsp;a&nbsp;valid&nbsp;Database&nbsp;object</p>
+<p class=secodelines>var&nbsp;curs&nbsp;=&nbsp;database.table("customer");</p>
+<p class=secodelines>&nbsp;</p>
+<p class=secodelines>//&nbsp;choose&nbsp;the&nbsp;first&nbsp;row&nbsp;to&nbsp;be&nbsp;updated</p>
+<p class=secodelines>curs.next();</p>
+<p class=secodelines>&nbsp;</p>
+<p class=secodelines>//&nbsp;update&nbsp;the&nbsp;values&nbsp;for&nbsp;the&nbsp;new&nbsp;row</p>
+<p class=secodelines>curs.Paid&nbsp;=&nbsp;False;</p>
+<p class=secodelines>&nbsp;</p>
+<p class=secodelines>//&nbsp;update&nbsp;the&nbsp;row&nbsp;in&nbsp;the&nbsp;Cursor</p>
+<p class=secodelines>curs.updateRow();</p>
+<p class=secodelines>database.commitTransaction();</p></td>
+</tr>
+</table>
+<p class=normal>&nbsp;</p>
+<hr noshade size=1>
+<p class=normal><a href="TH_1089.htm"><img src="button.png" border=0></a><a href="TH_1089.htm" style="text-decoration:none;">Database Object</a></p>
+<p>
+</body>
+</html>

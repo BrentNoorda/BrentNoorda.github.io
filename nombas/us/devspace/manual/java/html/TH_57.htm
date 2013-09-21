@@ -1,0 +1,102 @@
+<html>
+<head>
+<title>seSetAttribs</title>
+<link rel="stylesheet" href="semanualstyles.css" type="text/css">
+<style type="text/css">
+ p { margin-top: 0; margin-bottom: 0; }
+</style>
+<script language="JavaScript" src="TrueHelp.js"></script>
+</head>
+<body onload="thload()">
+<div id=ienav>
+<ilayer id=nsnav>
+<br>
+<center>
+<p class=normal><a href="seisdkj-toc.htm" target="left">contents</a> &nbsp; <a href="seisdkj-index.htm" target="left">index</a> &nbsp; <a href="TH_56.htm">previous</a> &nbsp; <a href="TH_58.htm">next</a></p>
+</center>
+<br>
+<hr noshade size=1>
+</ilayer>
+</div>
+<p class=sereffunclevel3>seSetAttribs</p>
+<p class=sereffunclevel3-p>&nbsp;</p>
+<table cellpadding=0>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>syntax:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=sesyntax>&nbsp;&nbsp;&nbsp;void</p>
+<p class=sesyntax>SEContext.seSetAttribs(SEObject&nbsp;obj,</p>
+<p class=sesyntax>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;SEMemberDesc&nbsp;mem,</p>
+<p class=sesyntax>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;int&nbsp;attributes);&nbsp;</p></td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>where:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara><span class=secodephrase>obj</span> the object half of an Object,Member pair</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara><span class=secodephrase>mem</span> the member half of an Object,Member pair</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara><span class=secodephrase>attributes</span> the attributes to set</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>return:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>None</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>description:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>This call sets the variable's attributes. The attributes can be any of the following, <span class=secodephrase>|</span>'d togethor:</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara><span class=secodephrase>SE.DEFAULT</span></p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>The default, no special attributes</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara><span class=secodephrase>SE.READONLY</span></p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>Any attempt to update the member is ignored</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara><span class=secodephrase>SE.DONTDELETE</span></p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>Attempts to delete the member using the ECMAScript <span class=secodephrase>delete</span> operator are ignored</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara><span class=secodephrase>SE.DONTENUM</span></p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>The member is not included in <span class=secodephrase>for..in</span> enumerations</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>&nbsp;</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>The following flags apply only if the variable is an object:</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara><span class=secodephrase>SE.DYNA_UNDEF</span></p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>Dynamic callbacks for the objects are only used if the object does not contain the desired member in the ScriptEase internal storage for the object.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara><span class=secodephrase>SE.IMPLICIT_THIS</span></p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>When the function is executed, the <span class=secodephrase>this</span> variable is added to the front of the scope chain so all members of <span class=secodephrase>this</span> are visible without putting <span class=secodephrase>this.</span> in front of them. This is exactly as if the entire body of the function was wrapped in the statement <span class=secodephrase>with( this ) ...</span> This behavior is similar to how Java member functions work.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara><span class=secodephrase>SE.IMPLICIT_PARENTS</span></p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>Similar to <span class=secodephrase>SE.IMPLICIT_THIS</span>, the parents of the <span class=secodephrase>this</span> variable are put into the scope chain. This chain begins with <span class=secodephrase>this.__parent__</span> and continues as long as each such object itself has a <span class=secodephrase>__parent__</span> property. Note that there are two underscores on each side of parent above. This is useful for browsers in which event handlers can refer to variables in the enclosing element, document, and window. By chaining these    objects together using <span class=secodephrase>__parent__</span> and adding    <span class=secodephrase>SE.IMPLICIT_THIS</span> and <span class=secodephrase>SE_IMPLICIT_PARENTS</span> to the event handler function, the desired behavior is achieved.</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>see:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara><span class=sepopuptopic><a href="TH_33.htm" onClick="return thwindow('TH_33.htm', 'GenPopup')">seGetAttribs()</a></span></p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+</table>
+<hr noshade size=1>
+<p class=normal><a href="TH_58.htm"><img src="button.png" border=0></a><a href="TH_58.htm" style="text-decoration:none;">seAssign</a></p>
+<p>
+</body>
+</html>

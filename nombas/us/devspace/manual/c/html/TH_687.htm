@@ -1,0 +1,83 @@
+<html>
+<head>
+<title>Clib.strtod()</title>
+<link rel="stylesheet" href="semanualstyles.css" type="text/css">
+<style type="text/css">
+ p { margin-top: 0; margin-bottom: 0; }
+</style>
+<script language="JavaScript" src="TrueHelp.js"></script>
+</head>
+<body onload="thload()">
+<div id=ienav>
+<ilayer id=nsnav>
+<br>
+<center>
+<p class=normal><a href="seisdkc-toc.htm" target="left">contents</a> &nbsp; <a href="seisdkc-index.htm" target="left">index</a> &nbsp; <a href="TH_686.htm">previous</a> &nbsp; <a href="TH_688.htm">next</a></p>
+</center>
+<br>
+<hr noshade size=1>
+</ilayer>
+</div>
+<p class=sereffunclevel4>Clib.strtod()</p>
+<table cellpadding=0>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>syntax:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=sesyntax>Clib.strtod(<span class=truehelp-xe></span>str[,&nbsp;endStr])</p></td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>where:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>str - string to be converted to a number.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>endStr - the part of str after the characters that were actually parsed.</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>return:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>number - the first part of str converted to a double precision number.</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>description:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>This method converts the string str into a number and optionally returns a partial string that begins beyond the characters parsed by this method. White space characters are skipped at the start of str, and the string characters are converted to a float as long as they match the following format.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>	[sign][digits][.][digits][format[sign]digits]</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>The parameter endStr is not compared against <span class=secodephrase>null</span>, as it is in standard C implementations, and is optional. If the parameter endStr is supplied, then endStr is set to a string beginning at the first character that was not used in converting.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>The return is the first part of str, converted to a floating-point number.</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>see:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara><span class=sejumptopic><a href="TH_688.htm">Clib.strtok()</a></span></p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>example:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=secodelines>//&nbsp;The&nbsp;following&nbsp;strings,&nbsp;are&nbsp;examples</p>
+<p class=secodelines>//&nbsp;that&nbsp;can&nbsp;be&nbsp;converted.</p>
+<p class=secodelines>//&nbsp;&nbsp;"1"</p>
+<p class=secodelines>//&nbsp;&nbsp;"1.8"</p>
+<p class=secodelines>//&nbsp;&nbsp;"-400.456e-20"</p>
+<p class=secodelines>//&nbsp;&nbsp;".67e50"</p>
+<p class=secodelines>//&nbsp;&nbsp;"2.5E+50"</p></td>
+</tr>
+</table>
+<p class=normal>&nbsp;</p>
+<hr noshade size=1>
+<p class=normal><a href="TH_688.htm"><img src="button.png" border=0></a><a href="TH_688.htm" style="text-decoration:none;">Clib.strtok()</a></p>
+<p>
+</body>
+</html>

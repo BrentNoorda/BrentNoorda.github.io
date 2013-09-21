@@ -1,0 +1,30 @@
+<html>
+<head>
+<title>SE_STR(sestring)</title>
+<link rel="stylesheet" href="semanualstyles.css" type="text/css">
+<style type="text/css">
+ p { margin-top: 0; margin-bottom: 0; }
+</style>
+<script language="JavaScript" src="TrueHelp.js"></script>
+</head>
+<body onload="thload()">
+<div id=ienav>
+<ilayer id=nsnav>
+<br>
+<center>
+<p class=normal><a href="seisdkc-toc.htm" target="left">contents</a> &nbsp; <a href="seisdkc-index.htm" target="left">index</a> &nbsp; <a href="TH_326.htm">previous</a> &nbsp; <a href="TH_328.htm">next</a></p>
+</center>
+<br>
+<hr noshade size=1>
+</ilayer>
+</div>
+<p class=heading-4>SE_STR(sestring)</p>
+<p class=senormalpara>Accesses a member using an <span class=secodephrase>sestring</span> internalized string that was received from the ScriptEase API. You can generate such strings using the <span class=sepopuptopic><a href="TH_16.htm" onClick="return thwindow('TH_16.htm', 'GenPopup')">seInternalizeString</a></span> or <span class=sepopuptopic><a href="TH_17.htm" onClick="return thwindow('TH_17.htm', 'GenPopup')">seInternalizeStringHidden</a></span> API call. Member names passed to callback functions are in this format.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>An <span class=secodephrase>sestring</span> is faster to use than a string literal member name. When you pass a member name using <span class=secodephrase>SE_MEM</span>, it has to be converted into an <span class=secodephrase>sestring</span> internally before continuing. Doing it once and referring to members using the resulting <span class=secodephrase>sestring</span> is faster. In addition, you can compare <span class=secodephrase>sestring</span>s for equality using the <span class=secodephrase>== </span>operator which is much faster than the <span class=secodephrase>strcmp_sechar</span> needed to compare text strings.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<hr noshade size=1>
+<p class=normal><a href="TH_328.htm"><img src="button.png" border=0></a><a href="TH_328.htm" style="text-decoration:none;">SE_INDEX(num)</a></p>
+<p>
+</body>
+</html>

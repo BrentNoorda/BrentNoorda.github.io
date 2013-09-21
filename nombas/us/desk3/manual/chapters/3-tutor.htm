@@ -1,0 +1,2103 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML EXPERIMENTAL 970324//EN">
+<HTML>
+<HEAD>
+<META NAME="GENERATOR" CONTENT="Adobe FrameMaker 5.5/HTML Export Filter">
+<LINK REL="STYLESHEET" HREF="desk3man.css">
+<TITLE>ScriptEase:Desktop v3 Manual: ScriptEase Tutorial and Annotated Scripts</TITLE>
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-1754630-10']);
+  _gaq.push(['_trackPageview']);
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+</HEAD>
+<BODY BACKGROUND="desk3pat.gif">
+<TABLE WIDTH="225" BORDER="0" CELLSPACING="0" CELLPADDING="0">
+  <TR>
+    <TD WIDTH="71"><a href="2-sevsc.htm"><IMG SRC="prev.gif" WIDTH="71" height="18" border="0"></a></TD>
+    <TD WIDTH="80"><a href="../index.htm"><IMG SRC="tocidx.gif" WIDTH="80" height="18" border="0"></a></TD>
+    <TD WIDTH="74"><a href="4-exe.htm"><IMG SRC="next.gif" WIDTH="74" height="18" border="0"></a></TD>
+  </TR>
+</TABLE>
+
+<H1 CLASS="Title">
+ScriptEase Tutorial and Annotated Scripts</H1>
+<P CLASS="Abstract">
+The previous chapters defined the ScriptEase programming language; this chapter teaches ScriptEase by example. A simple text editor, named CmmEdit, will be written one step at a time, much as any program might be written. At the end of the chapter are some less complicated scripts with annotations describing how they work.</P>
+<P CLASS="Abstract">
+All code listed in this chapter is included with the ScriptEase files. As each stage of the editor is developed, the corresponding file is named CmmEditA.cmm, CmmEditB.cmm, CmmEditC.cmm, and so on. The final, complete editor is called CmmEdit.cmm.</P>
+<P CLASS="Abstract">
+We recommend that instead of using the code in the files, you enter it yourself. This will give you a much better feel for the program and its structure. You can enter the code in any text editor.</P>
+<DIV>
+<H2 CLASS="Topic">
+CmmEdit: A Simple Editor</H2>
+<P CLASS="Body">
+Plan ahead: What should the editor do?</P>
+<P CLASS="Body">
+In general terms an editor is used to read in an ASCII text file, display it on the screen, allow users to make changes to the file, and then save it. Examples of editors are EDIT that comes with DOS, and NOTEPAD that comes with Windows. We will call our editor CmmEdit. </P>
+<P CLASS="Body">
+The key to CmmEdit is that it will be simple. The user will start the program in this manner (assuming the ScriptEase for DOS version):</P>
+<P CLASS="cmd">
+SEDOS CmmEdit [filename]</P>
+<P CLASS="Body">
+If filename is not supplied then CmmEdit will prompt for one. Initially, there will be no fancy editor features such as search or replace, paragraph or line-wrapping, marking, moving, macros, etc... All CmmEdit is intended to do is to read in a file, edit the file, and write out the edited text if any editing was done. The keyboard will always be in insert mode (not overwrite). Also, this program should work in all operating systems that support ScriptEase. Finally, we're not interested here in advanced programming techniques or strict adherence to stubborn programming styles; all we want is a simple program that works!</P>
+<P CLASS="Body">
+After we have written CmmEdit and have it working, you may want to add other advanced features to the program. Go ahead and spruce it up however you like. Any enhancements to this program that you'd like to share with other ScriptEase users--indeed, any ScriptEase programs that you'd like to may be sent to us via email, our website (http://www.nombas.com/us/).</P>
+<DIV>
+<H3 CLASS="SubTopic">
+<A NAME="419260">
+ </A>
+CmmEditA: Program outline</H3>
+<P CLASS="Body">
+The plan for the editor in the previous section is straightforward: get the name of a file, read the file, edit the file, and write the file. Here is the code to do just that:</P>
+<P CLASS="ciTable">
+		/*********************************************************************</P>
+<P CLASS="ciTable">
+		*** CmmEdit - A simple text editor. This is the tutorial program   ***</P>
+<P CLASS="ciTable">
+		***           from chapter 3 of the ScriptEase manual.             ***</P>
+<P CLASS="ciTable">
+		*********************************************************************/</P>
+<P CLASS="ciBody">
+&nbsp;</P>
+<P CLASS="ciBody">
+		main(ArgCount,ArgList)</P>
+<P CLASS="ciBody">
+		{</P>
+<P CLASS="ciBody">
+			FileName = GetFileName(ArgCount,ArgList);</P>
+<P CLASS="ciBody">
+			ReadFile(FileName);</P>
+<P CLASS="ciBody">
+			if ( Edit() )	// Edit returns TRUE if changes made to file</P>
+<P CLASS="ciBody">
+				WriteFile(FileName);</P>
+<P CLASS="ciBody">
+		}</P>
+<P CLASS="Body">
+There! We have now written the program.  Breaking the program into individual tasks (or pieces) and giving those tasks clear names (such as GetFileName() and ReadFile()) has turned a task that was difficult into a task that is easy.</P>
+<P CLASS="Body">
+In fact, it was too easy.  If you execute this code now you will get a message like the following:</P>
+<P CLASS="Error-Message">
+		Could not locate function &quot;GetFileName&quot;.</P>
+<P CLASS="Error-Message">
+		Error near: File &quot;CmmEditA.CMM&quot;, Line Number 8</P>
+<P CLASS="Body">
+If this is your first program, then congratulations are in order -- you've just found your first bug.  None of the functions that main() calls have been written yet, as ScriptEase informed us when we tried to execute the program.</P>
+</DIV>
+<DIV>
+<H3 CLASS="SubTopic">
+<A NAME="419261">
+ </A>
+CmmEditB: Stub routines</H3>
+<P CLASS="Body">
+With a relatively complex program like this, it's best to write it in sections and test them as you go. Finding errors (&quot;bugs&quot;) in a program can be frustrating and painstakingly slow work, so writing and testing small sections like this can save you a lot of aggravation. To prevent the processor from aborting when it tries to read a function that hasn't been written yet, we will add stubs (code that doesn't do anything) to the source file for each of the functions called.  The code listed here includes the additions to CmmEditA.cmm that make CmmEditB.cmm.</P>
+<P CLASS="ciBody">
+		GetFileName(argc,argv)</P>
+<P CLASS="ciBody">
+			// return a file name from the program input arguments, or </P>
+<P CLASS="ciBody">
+			// prompt user for the file name if none was supplied at the</P>
+<P CLASS="ciBody">
+			// command line.  exit() program if no file name is entered.</P>
+<P CLASS="ciBody">
+		{</P>
+<P CLASS="ciBody">
+			printf(&quot;Stub for GetFileName(); returning Dummy.tmp.\n&quot;);</P>
+<P CLASS="ciBody">
+			return(&quot;Dummy.tmp&quot;);	// temporary return value for dummy stub</P>
+<P CLASS="ciBody">
+		}</P>
+<P CLASS="ciBody">
+&nbsp;</P>
+<P CLASS="ciBody">
+// read FileSpec into global data. exit() if error.</P>
+<P CLASS="ciBody">
+		ReadFile(FileSpec)	</P>
+<P CLASS="ciBody">
+		{</P>
+<P CLASS="ciBody">
+			printf(&quot;Stub to ReadFile() named %s.\n&quot;,FileSpec);</P>
+<P CLASS="ciBody">
+		}</P>
+<P CLASS="ciBody">
+&nbsp;</P>
+<P CLASS="ciBody">
+		WriteFile(FileSpec)											// write global data to back to FileSpec.</P>
+<P CLASS="ciBody">
+								// exit() if error.</P>
+<P CLASS="ciBody">
+		{</P>
+<P CLASS="ciBody">
+			printf(&quot;Stub to WriteFile() named %s.\n&quot;,FileSpec);</P>
+<P CLASS="ciBody">
+		}</P>
+<P CLASS="ciBody">
+&nbsp;</P>
+<P CLASS="ciBody">
+		Edit()					// Edit file.  This is were the hard work happens.</P>
+<P CLASS="ciBody">
+							// exit() if error.</P>
+<P CLASS="ciBody">
+		{				// Return FALSE if no editing was done, else return TRUE.</P>
+<P CLASS="ciBody">
+			printf(&quot;Stub to edit() text.\n&quot;);</P>
+<P CLASS="ciBody">
+			return TRUE;</P>
+<P CLASS="ciBody">
+		}</P>
+<P CLASS="Body">
+With these lines added, the CmmEditB program will now execute.  There are no errors and this program is now bug-free.  CmmEditB won't actually DO anything useful, but that's OK at this stage.  Note that GetFileName() had to return something, or an error would have resulted where it was called in main() expecting a return value.  We are now ready to develop the individual pieces of the program--now isolated as functions--one at a time.</P>
+</DIV>
+<DIV>
+<H3 CLASS="SubTopic">
+<A NAME="419262">
+ </A>
+CmmEditC: GetFileName()</H3>
+<P CLASS="Body">
+We could begin enhancing this program with any of the dummy functions. GetFileName() is a good choice because it executes first and is not too complicated.  According to our plan, GetFileName() returns the filename from the input parameter (argv) (if it was supplied), otherwise it prompts for a file name.</P>
+<P CLASS="Body">
+All of the functions used in CmmEdit (except those we explicitly write ourselves, of course) are fully described in the second half of this manual.</P>
+<P CLASS="ciBody">
+		GetFileName(argc,argv)</P>
+<P CLASS="ciBody">
+			// return a file name from program input arguments, or prompt</P>
+<P CLASS="ciBody">
+			// user for the file name if none was supplied at the command</P>
+<P CLASS="ciBody">
+			// line.  exit() program if no file name is entered.</P>
+<P CLASS="ciBody">
+		{</P>
+<P CLASS="ciBody">
+			// If at least one argument was supplied to main() in addition </P>
+<P CLASS="ciBody">
+			// to the source file name (which is always supplied), then that</P>
+<P CLASS="ciBody">
+			// argument is the  file name.</P>
+<P CLASS="ciBody">
+			if ( 1 &lt; argc )</P>
+<P CLASS="ciBody">
+				return(argv[1]);</P>
+<P CLASS="ciBody">
+&nbsp;</P>
+<P CLASS="ciBody">
+			// File name wasn't supplied on command line; prompt for name.</P>
+<P CLASS="ciBody">
+			printf(&quot;Enter file name to edit: &quot;);</P>
+<P CLASS="ciBody">
+			filespec = gets();</P>
+<P CLASS="ciBody">
+			if ( filespec == NULL || filespec[0] == 0 ) </P>
+<P CLASS="ciBody">
+				//quit; no name entered </P>
+<P CLASS="ciBody">
+				exit(EXIT_FAILURE);</P>
+<P CLASS="ciBody">
+			return(filespec);</P>
+<P CLASS="ciBody">
+		}</P>
+<P CLASS="Body">
+Now the program does something, (though not much) and you can run it and experiment with the results.  You may want to experiment by invoking the program in these ways:</P>
+<P CLASS="cmd">
+SEDOS CmmEditC C:\Config.sys</P>
+<P CLASS="cmd">
+		SEDOS CmmEditC C:\Config.sys 2 3 4 5</P>
+<P CLASS="cmd">
+		SEDOS CmmEditC      C:\Config.sys</P>
+<P CLASS="cmd">
+		SEDOS CmmEditC &quot;&quot;</P>
+<P CLASS="cmd">
+		SEDOS CmmEditC &quot; &quot;</P>
+<P CLASS="cmd">
+		SEDOS CmmEditC My dog has fleas.</P>
+<P CLASS="cmd">
+		SEDOS CmmEditC</P>
+<P CLASS="Body">
+You may also want to experiment with the prompt code by executing CmmEditC with no arguments (as in the final preceding example line) and entering these lines:</P>
+<P CLASS="cmd">
+		C:\Config.sys</P>
+<P CLASS="cmd">
+		config.sys</P>
+<P CLASS="cmd">
+		config.sys   </P>
+<P CLASS="cmd">
+		My dog has fleas.</P>
+<P CLASS="Body">
+Or simply pressing return without entering any text.  As you will see when testing CmmEditC.cmm, the GetFileName() function is not particularly robust or intelligent.  There are many bad inputs you can supply to it that it will not handle very well; for instance, extra spaces at the beginning or end of the input line will throw it off.  You may want to make changes now or later to clean up the input.  For example, the following lines added before return(filespec); would handle some of the cases of erroneous spaces in the input line:</P>
+<P CLASS="ciBody">
+if ( 1 != sscanf(filespec,&quot;%s&quot;,filespec) )</P>
+<P CLASS="ciBody">
+	exit(EXIT_FAILURE);</P>
+<P CLASS="Body">
+This, instead, would take care of more:</P>
+<P CLASS="ciBody">
+if ( 1 != sscanf(filespec,&quot;%s%s&quot;,filespec,dummy) )</P>
+<P CLASS="ciBody">
+	exit(EXIT_FAILURE);</P>
+<P CLASS="Body">
+Experiment!</P>
+</DIV>
+<DIV>
+<H3 CLASS="SubTopic">
+<A NAME="419263">
+ </A>
+CmmEditD: The Text variable</H3>
+<P CLASS="Body">
+It is not enough just to read a file, we must read it into somewhere.  For this reason we will create a variable named Text. It will be an array of strings, where each string represents a line of the edit file.  ReadFile() initializes this variable, Edit() edits the strings in this variable, and WriteFile() will overwrite the file with the lines in Text.  Text doesn't have to be a global variable, but instead could be returned to main() by ReadFile() and passed to the other functions as an input parameter.  (Similarly, GetFileName() could have set a global variable instead of returning the value.)  Making Text global may be less &quot;pure&quot;, but it seems like an easy thing to do.</P>
+<P CLASS="Body">
+Adding the following line of ScriptEase code to the front of the program initializes Text as an array of strings that currently holds only one line, and that line is a zero-length string(empty).</P>
+<P CLASS="ciBody">
+Text[0] = &quot;&quot;;							//	Text is an array of text strings; one for each</P>
+<P CLASS="ciBody">
+				 				file line</P>
+</DIV>
+<DIV>
+<H3 CLASS="SubTopic">
+<A NAME="419264">
+ </A>
+CmmEditE: ReadFile()</H3>
+<P CLASS="Body">
+You are now prepared to write ReadFile(), which will initialize Text with all of the text in the file.  For files that don't exist,  Text is OK as it is, it already represents a file without any text in it.  If the file doesn't exist, ask the user if they want to create it. If they don't want to create a new file, the program assumes that they entered the file name in error and will exit the program.</P>
+<P CLASS="ciBody">
+		ReadFile(FileSpec)  // read FileSpec into global data. exit() if error</P>
+<P CLASS="ciBody">
+		{</P>
+<P CLASS="ciBody">
+			// Open the file, in text mode, for reading into Text.</P>
+<P CLASS="ciBody">
+			fp = fopen(FileSpec,&quot;rt&quot;);</P>
+<P CLASS="ciBody">
+			if ( fp == NULL ) {</P>
+<P CLASS="ciBody">
+				// The file doesn't exist, and so ask user if they want to</P>
+<P CLASS="ciBody">
+				// quit.  If they don't want to create file then simply exit</P>
+<P CLASS="ciBody">
+				// this program.  If they do want to create file then we're</P>
+<P CLASS="ciBody">
+		 		// done, as Text is already initialized.</P>
+<P CLASS="ciBody">
+				printf(&quot;File \&quot;%s\&quot; does not exist.  Create file?  Y/N &quot;,</P>
+<P CLASS="ciBody">
+						FileSpec);</P>
+<P CLASS="ciBody">
+				do {</P>
+<P CLASS="ciBody">
+					key = toupper(getch()); // uppercase to compare to Y and N</P>
+<P CLASS="ciBody">
+					if ( key == 'N' )</P>
+<P CLASS="ciBody">
+						exit(EXIT_FAILURE);</P>
+<P CLASS="ciBody">
+				} while( key != 'Y' );     // wasn't Y or N, and so try again</P>
+<P CLASS="ciBody">
+			} else {</P>
+<P CLASS="ciBody">
+				// File opened.  Read each line of file into the next element</P>
+<P CLASS="ciBody">
+				// of Text.</P>
+<P CLASS="ciBody">
+				for( LineCount = 0; NULL != (line = fgets(fp)); LineCount++) {</P>
+<P CLASS="ciBody">
+					// line set to new string for next line in the text file.</P>
+<P CLASS="ciBody">
+					//  Set the next line of Text to this line.</P>
+<P CLASS="ciBody">
+					Text[LineCount] = line;</P>
+<P CLASS="ciBody">
+				}</P>
+<P CLASS="ciBody">
+				fclose(fp);	// Always close a file that has been opened.</P>
+<P CLASS="ciBody">
+			}</P>
+<P CLASS="ciBody">
+		}</P>
+</DIV>
+<DIV>
+<H3 CLASS="SubTopic">
+<A NAME="419265">
+ </A>
+CmmEditF: Testing ReadFile()</H3>
+<P CLASS="Body">
+Before writing more code, we should test what we already have.  This may seem overly cautious, but it can save lots of misery later.</P>
+<P CLASS="Body">
+Edit() follows ReadFile() in execution, and Edit() needs for ReadFile() to have done its job correctly.  We'll put code into Edit() at this point to print out each line of Text().  This will show us if Text() has been set up as expected.  Here is the new, temporary, Edit()function:</P>
+<P CLASS="ciBody">
+		Edit()	// Edit file.  This is where the hard work happens.  </P>
+<P CLASS="ciBody">
+				// exit() if error.</P>
+<P CLASS="ciBody">
+		{			// Return FALSE if no editing was done, else return TRUE.</P>
+<P CLASS="ciBody">
+			LineTotal = 1 + GetArraySpan(Text);</P>
+<P CLASS="ciBody">
+			printf(&quot;Edit() file has %d lines\n&quot;,LineTotal);</P>
+<P CLASS="ciBody">
+			for( i = 0; i &lt; LineTotal; i++ )</P>
+<P CLASS="ciBody">
+				puts(Text[i]);</P>
+<P CLASS="ciBody">
+			return TRUE;</P>
+<P CLASS="ciBody">
+		}</P>
+<P CLASS="Body">
+You need a file to test this program on--one that won't hurt you if this program accidentally destroys it. Copy some simple text file into this directory and name it test.  We want Edit() to display all of the lines of test.</P>
+<P CLASS="Body">
+If you run this program on test now (I strongly suggest that you do test it now) then you'll see that if test looks like this:</P>
+<P CLASS="ciBody">
+line 1 of test</P>
+<P CLASS="ciBody">
+line 2 of test</P>
+<P CLASS="ciBody">
+line 3 of test</P>
+<P CLASS="ciBody">
+line 4 of test</P>
+<P CLASS="Body">
+then the output of CmmEditF test will be this:</P>
+<P CLASS="ciBody">
+Edit() file has 4 lines</P>
+<P CLASS="ciBody">
+line 1 of test</P>
+<P CLASS="ciBody">
+&nbsp;</P>
+<P CLASS="ciBody">
+line 2 of test</P>
+<P CLASS="ciBody">
+&nbsp;</P>
+<P CLASS="ciBody">
+line 3 of test</P>
+<P CLASS="ciBody">
+&nbsp;</P>
+<P CLASS="ciBody">
+line 4 of test</P>
+<P CLASS="ciBody">
+&nbsp;</P>
+<P CLASS="ciBody">
+Stub to WriteFile() named test.</P>
+<P CLASS="Body">
+This is not what we wanted.  An extra line is being displayed between each text line of test.  Oh no! another bug.  You can add lines at this point, such as:</P>
+<P CLASS="ciBody">
+printf(&quot;&lt;%s&gt;&quot;,Text[0]);</P>
+<P CLASS="Body">
+to help understand what is going wrong. You should also make sure you are using all of your functions correctly. If you look up gets() in the manual, you discover it leaves a newline at the end of strings. The function puts() is appending a newline after it prints a string.  So, two newlines are printed for each string in test. This accounts for the extra lines.</P>
+<P CLASS="Body">
+We must decide now if we want the newline in each string of the file that is read in.  We could add code to ReadFile() to remove the newline at the end of each string, such as:</P>
+<P CLASS="ciBody">
+if ( line[strlen(line)-1] == '\n' )</P>
+<P CLASS="ciBody">
+	line[strlen(line)-1] = 0;</P>
+<P CLASS="Body">
+No.  Let's just let the newline stay where it is.  This will work OK as long as we remember, when coding the rest of the program, that this decision was made.  (As the program grows, we'll get a feel for whether this was a good decision.)</P>
+</DIV>
+<DIV>
+<H3 CLASS="SubTopic">
+<A NAME="419267">
+ </A>
+CmmEditG: Fix bug from testing ReadFile()</H3>
+<P CLASS="Body">
+This file fixes the problem we discovered with the debugging test we put in Edit():</P>
+<P CLASS="ciBody">
+Edit()	// Edit file.  This is where the hard work happens.  </P>
+<P CLASS="ciBody">
+			// Return FALSE if no editing was done, else return TRUE.	//</P>
+<P CLASS="ciBody">
+			// exit() if error.</P>
+<P CLASS="ciBody">
+{		</P>
+<P CLASS="ciBody">
+	LineTotal = 1 + GetArraySpan(Text);</P>
+<P CLASS="ciBody">
+	printf(&quot;Edit() file has %d lines\n&quot;,LineTotal);</P>
+<P CLASS="ciBody">
+	for( i = 0; i &lt; LineTotal; i++ )</P>
+<P CLASS="ciBody">
+		printf( &quot;%s&quot;, Text[i] );</P>
+<P CLASS="ciBody">
+	return TRUE;</P>
+<P CLASS="ciBody">
+}</P>
+<P CLASS="Body">
+Testing CmmEditG with the test file will show the expected output now, without added newlines.  Note that, as usual, there was more than one way to fix this bug.  Instead of changing puts(<EM CLASS="ciBody">
+Text[i</EM>
+]) to <EM CLASS="ciBody">
+printf(&quot;%s&quot;,Text[i])</EM>
+, it could have changed to <EM CLASS="ciBody">
+fputs(Text[i],stdout)</EM>
+ because fputs() does not add a newline.  (<A NAME="419589">
+ </A>
+stdout is the pre-defined file handle for treating the console as if it were a file for output.)</P>
+</DIV>
+<DIV>
+<H3 CLASS="SubTopic">
+<A NAME="419266">
+ </A>
+CmmEditH: WriteFile()</H3>
+<P CLASS="Body">
+WriteFile() is the opposite of ReadFile(): it writes each line from Text to the file.  This is a good time to write the WriteFile() code, even though it executes after Edit(), because it is so much like ReadFile() and because it's a simple function to write.  WriteFile() must open the file (deleting the previous contents of the file if it existed), write the lines of Text  to the file, and then close the file.</P>
+<P CLASS="ciBody">
+WriteFile(FileSpec)	// write global data to back to FileSpec. </P>
+<P CLASS="ciBody">
+								// exit() if error.</P>
+<P CLASS="ciBody">
+{</P>
+<P CLASS="ciBody">
+	// Open FileSpec for writing in text mode.  If the file already</P>
+<P CLASS="ciBody">
+	// exists then overwrite it. If the file doesn't exist create it.</P>
+<P CLASS="ciBody">
+	fp = fopen(FileSpec,&quot;wt&quot;);</P>
+<P CLASS="ciBody">
+	if ( fp == NULL ) {</P>
+<P CLASS="ciBody">
+		printf(&quot;\aUnable to open \&quot;%s\&quot; for writing.\a\n&quot;);</P>
+<P CLASS="ciBody">
+		exit(EXIT_FAILURE);</P>
+<P CLASS="ciBody">
+	}</P>
+<P CLASS="ciBody">
+&nbsp;</P>
+<P CLASS="ciBody">
+	// write every line of Text into fp</P>
+<P CLASS="ciBody">
+	for ( i = 0; i &lt;= GetArraySpan(Text); i++ )</P>
+<P CLASS="ciBody">
+		fputs( Text[i], fp );</P>
+<P CLASS="ciBody">
+		// close fp</P>
+<P CLASS="ciBody">
+	fclose(fp);</P>
+<P CLASS="ciBody">
+}</P>
+<P CLASS="Body">
+You can do a quick test to see if WriteFile() is working.  The first test might be to run the program on the test file and then see if that date-time stamp on test has changed.  Further tests might include passing a different file name into WriteFile() and verifying that test was copied to this new file.  You may also want to write protect the test file to see that this code works correctly when it cannot open the output file for writing.  Finally, check to see whether CmmEditH creates an empty file when you give it the name of a file that doesn't exist. </P>
+</DIV>
+<DIV>
+<H3 CLASS="SubTopic">
+<A NAME="419268">
+ </A>
+CmmEditI: Skeleton for Edit()</H3>
+<P CLASS="Body">
+Edit()is the really difficult function in this program, and that is the primary reason we have put it off until the end.  You already know that the easiest way to handle a difficult task is to break it into manageable pieces.  Edit() needs to handle the keyboard input and screen display, so skeletons for these functions will be written now.</P>
+<P CLASS="ciBody">
+		Edit()	// Edit file.  This is where the hard work happens. </P>
+<P CLASS="ciBody">
+				// exit() if error.</P>
+<P CLASS="ciBody">
+		{		// Return FALSE if no editing was done, else return TRUE.</P>
+<P CLASS="ciBody">
+			LineCount = 1 + GetArraySpan(Text);	// how many lines in file</P>
+<P CLASS="ciBody">
+&nbsp;</P>
+<P CLASS="ciBody">
+			// Initialize screen: get its dimensions, and cursor location.</P>
+<P CLASS="ciBody">
+			ScreenClear();</P>
+<P CLASS="ciBody">
+			ScreenDimension = ScreenSize();</P>
+<P CLASS="ciBody">
+			CursorCol = CursorRow = 0;	// set cursor position</P>
+<P CLASS="ciBody">
+&nbsp;</P>
+<P CLASS="ciBody">
+			// Starting at row 0, draw all lines on screen. Initialize</P>
+<P CLASS="ciBody">
+			// Start as structure for upper-left visible portion of file. </P>
+<P CLASS="ciBody">
+			// Then draw the file.</P>
+<P CLASS="ciBody">
+			Start.Row = Start.Col = 0;</P>
+<P CLASS="ciBody">
+			DrawVisibleTextLines( Start, ScreenDimension, LineCount );</P>
+<P CLASS="ciBody">
+&nbsp;</P>
+<P CLASS="ciBody">
+			// FileWasEdited is boolean to say if changes made</P>
+<P CLASS="ciBody">
+			FileWasEdited = FALSE;</P>
+<P CLASS="ciBody">
+&nbsp;</P>
+<P CLASS="ciBody">
+			// Stay here getting all keyboard input until escape is pressed</P>
+<P CLASS="ciBody">
+			#define	ESCAPE_KEY	'\033'</P>
+<P CLASS="ciBody">
+			while ( (key = getch()) != ESCAPE_KEY ) {</P>
+<P CLASS="ciBody">
+				// haven't written code for keyboard input yet.  If any key</P>
+<P CLASS="ciBody">
+				// other than escape was pressed, assume that file was changed</P>
+<P CLASS="ciBody">
+				FileWasEdited = TRUE;</P>
+<P CLASS="ciBody">
+			}</P>
+<P CLASS="ciBody">
+&nbsp;</P>
+<P CLASS="ciBody">
+			// Return TRUE if file was edited, else false</P>
+<P CLASS="ciBody">
+			ScreenClear();</P>
+<P CLASS="ciBody">
+			return(FileWasEdited);</P>
+<P CLASS="ciBody">
+		}</P>
+<P CLASS="ciBody">
+&nbsp;</P>
+<P CLASS="ciBody">
+		DrawVisibleTextLines(StartPosition,ScreenSize,TextLineCount)</P>
+<P CLASS="ciBody">
+			// display visible portion of file. StartPosition is initial</P>
+<P CLASS="ciBody">
+			// .row and .col that is visible.  ScreenSize show .col and .row</P>
+<P CLASS="ciBody">
+			// width and height of screen.</P>
+<P CLASS="ciBody">
+		{</P>
+<P CLASS="ciBody">
+			printf(&quot;Stub for DrawVisibleTextLines()\n&quot;);</P>
+<P CLASS="ciBody">
+		}</P>
+<P CLASS="Body">
+A lot of variables were created in this code, such as ScreenDimension, CursorCol, and so forth.  If this were an official, mission-critical, and shared application then we might have a section at the top of the routine to describe what each variable is and how it is used.</P>
+<P CLASS="Body">
+You may test CmmEditI to verify that it acts OK so far.  It won't quit until you press escape.  Notice that the DrawVisibleTextLines() routine was called from Edit() because this seemed like a process that could naturally stand alone and might be needed later.  Stub code was added for that function so that CmmEditI could be tested without reporting: &quot;Could not locate function &quot;DrawVisibleTextLines&quot;.</P>
+</DIV>
+<DIV>
+<H3 CLASS="SubTopic">
+<A NAME="419271">
+ </A>
+CmmEditJ: DrawVisibleTextLines()</H3>
+<P CLASS="Body">
+This function will draw all the lines in Text that are visible on the screen (i.e., not clipped outside of the screen region).  The final version of CmmEdit will have to scroll up and down and right and left, so we need to know the row and column to start displaying from.</P>
+<P CLASS="ciBody">
+DrawVisibleTextLines(StartPosition,ScreenSize,TextLineCount)</P>
+<P CLASS="ciBody">
+	// display visible portion of file. StartPosition is initial</P>
+<P CLASS="ciBody">
+	// .row and .col that is visible.  ScreenSize show .col and .row</P>
+<P CLASS="ciBody">
+	// width and height of screen.</P>
+<P CLASS="ciBody">
+{</P>
+<P CLASS="ciBody">
+	// verify that the screen position is not invalid;</P>
+<P CLASS="ciBody">
+	// negative would be bad.</P>
+<P CLASS="ciBody">
+	assert( 0 &lt;= StartPosition.row  &amp;&amp;  0 &lt;= StartPosition.col );</P>
+<P CLASS="ciBody">
+	// Also, this function assumes that at least some lines are</P>
+<P CLASS="ciBody">
+	// visible at the top of the screen, So verify that this is true.</P>
+<P CLASS="ciBody">
+	assert( StartPosition.row &lt; TextLineCount );</P>
+<P CLASS="ciBody">
+&nbsp;</P>
+<P CLASS="ciBody">
+	// draw all visible lines from Text; leave bottom line free</P>
+<P CLASS="ciBody">
+	// for messages.</P>
+<P CLASS="ciBody">
+	for ( row = 0; row &lt; (ScreenSize.row-1); row++ ) {</P>
+<P CLASS="ciBody">
+		Line = Text[StartPosition.row + row];</P>
+<P CLASS="ciBody">
+		// draw this line on the screen from StartPosition.row,</P>
+<P CLASS="ciBody">
+		// remembering to clip at the right edge of screen if the line</P>
+<P CLASS="ciBody">
+		// is too long.</P>
+<P CLASS="ciBody">
+		LineLen = strlen(Line) - StartPosition.col;</P>
+<P CLASS="ciBody">
+		if ( 0 &lt; LineLen ) {	// only print if characters to print</P>
+<P CLASS="ciBody">
+			ScreenCursor(0,row);</P>
+<P CLASS="ciBody">
+			printf(&quot;%.*s&quot;,ScreenSize.col,Line + StartPosition.col);</P>
+<P CLASS="ciBody">
+		}</P>
+<P CLASS="ciBody">
+	}</P>
+<P CLASS="ciBody">
+}</P>
+<P CLASS="Body">
+The assert() statements at the beginning of this function are not necessary, in fact they slow the program down, but they are put there JUST IN CASE; that is, just to make sure that the parameters coming in to the function conform to the assumptions that were made in coding the function.</P>
+</DIV>
+<DIV>
+<H3 CLASS="SubTopic">
+<A NAME="419274">
+ </A>
+CmmEditK.cmm: CursorStatus()</H3>
+<P CLASS="Body">
+The technique of only adding a little code at a time will continue here.  The bottom line of the screen has been reserved for a status line.  After any change in the file being edited,  we want to update this status line.  It is sensible to add a function that will set the status.  The main thing to change in this line is the state of the cursor position.  This is also a convenient place to set the cursor to the right location.  Note that a couple of references are added to the Edit() function where CursorStatus() is called.  It is called before keys are checked for and then again after every key is processed </P>
+<P CLASS="ciBody">
+CursorStatus(CRow,CCol,StartPosition,ScreenSize)</P>
+<P CLASS="ciBody">
+{</P>
+<P CLASS="ciBody">
+	// show current file cursor position; based at 1</P>
+<P CLASS="ciBody">
+	ScreenCursor(5,ScreenSize.row-1);</P>
+<P CLASS="ciBody">
+	printf(&quot;Status: row %-3d col %-3d&quot;,CRow + 1,CCol + 1);</P>
+<P CLASS="ciBody">
+&nbsp;</P>
+<P CLASS="ciBody">
+	// put cursor at correct position on screen</P>
+<P CLASS="ciBody">
+	ScreenCursor(CCol - StartPosition.Col,CRow - StartPosition.Row);</P>
+<P CLASS="ciBody">
+}</P>
+</DIV>
+<DIV>
+<H3 CLASS="SubTopic">
+CmmEditL.cmm: Cursor movement</H3>
+<P CLASS="Body">
+The first keys we'll handle here are cursor movement, so we can move around in the file.  The cursor will move around the screen unless it extends beyond the currently visible screen when the entire screen must be redrawn.  First, to make the code easier to read, some #defines are added for the codes returned by getch() for cursor-movement keys.  These keys may not be returned in a straightforward way by getch(), so at this point we are going to write our own routine to get keys. Getch() will be replaced by instead calling our own routine GetKeyChar().  GetKeyChar() will return the regular key code for regular ascii keys, and extended keys for cursor-movement keys.</P>
+<P CLASS="ciBody">
+// define movement keys - Give values over 0x100 to distinguish </P>
+<P CLASS="ciBody">
+// from text</P>
+<P CLASS="ciBody">
+&nbsp;</P>
+<P CLASS="ciBody">
+		#define	UP				0x101</P>
+<P CLASS="ciBody">
+		#define	DOWN			0x102</P>
+<P CLASS="ciBody">
+		#define	LEFT			0x103</P>
+<P CLASS="ciBody">
+		#define	RIGHT			0x104</P>
+<P CLASS="ciBody">
+		#define	PG_UP			0x105</P>
+<P CLASS="ciBody">
+		#define	PG_DN			0x106</P>
+<P CLASS="ciBody">
+		#define	HOME			0x107</P>
+<P CLASS="ciBody">
+		#define	END				0x108</P>
+<P CLASS="ciBody">
+		#define	BK_TAB			0x109</P>
+<P CLASS="ciBody">
+		#define	DELETE			0x110</P>
+<P CLASS="ciBody">
+&nbsp;</P>
+<P CLASS="ciBody">
+		GetKeyChar()	// return key from keyboard, ascii for above #defined</P>
+<P CLASS="ciBody">
+		{</P>
+<P CLASS="ciBody">
+			if defined(_DOS_)  ||  defined(_OS2_) {</P>
+<P CLASS="ciBody">
+				// DOS and OS/2 return 0 on first getch for extended keys</P>
+<P CLASS="ciBody">
+				KeyCode = getch();</P>
+<P CLASS="ciBody">
+				if ( KeyCode == 0 ) {</P>
+<P CLASS="ciBody">
+					// set value for extended key; these value found </P>
+<P CLASS="ciBody">
+					// using KeyCode.cmd</P>
+<P CLASS="ciBody">
+					switch( getch() ) {</P>
+<P CLASS="ciBody">
+						case 0x48:		KeyCode = UP;			break;</P>
+<P CLASS="ciBody">
+						case 0x50:		KeyCode = DOWN;			break;</P>
+<P CLASS="ciBody">
+						case 0x4B:		KeyCode = LEFT;			break;</P>
+<P CLASS="ciBody">
+						case 0x4D:		KeyCode = RIGHT;		break;</P>
+<P CLASS="ciBody">
+						case 0x49:		KeyCode = PG_UP;		break;</P>
+<P CLASS="ciBody">
+						case 0x51:		KeyCode = PG_DN;		break;</P>
+<P CLASS="ciBody">
+						case 0x47:		KeyCode = HOME;			break;</P>
+<P CLASS="ciBody">
+						case 0x4F:		KeyCode = END;			break;</P>
+<P CLASS="ciBody">
+						case 0x0F;		KeyCode = BK_TAB;		break;</P>
+<P CLASS="ciBody">
+						case 0x53;		KeyCode = DELETE;		break;</P>
+<P CLASS="ciBody">
+						default: break;	// return 0, which will do nothing</P>
+<P CLASS="ciBody">
+					}</P>
+<P CLASS="ciBody">
+				}</P>
+<P CLASS="ciBody">
+			} else {</P>
+<P CLASS="ciBody">
+				// Windows version</P>
+<P CLASS="ciBody">
+				KeyCode = getch();</P>
+<P CLASS="ciBody">
+				if ( 0x100 &lt; KeyCode ) {</P>
+<P CLASS="ciBody">
+					switch ( KeyCode ) {</P>
+<P CLASS="ciBody">
+						// special values in the following table come</P>
+<P CLASS="ciBody">
+						// from KeyCode.cmm</P>
+<P CLASS="ciBody">
+						case 0x126:		KeyCode = UP;			break;</P>
+<P CLASS="ciBody">
+						case 0x128:		KeyCode = DOWN;			break;</P>
+<P CLASS="ciBody">
+						case 0x125:		KeyCode = LEFT;			break;</P>
+<P CLASS="ciBody">
+						case 0x127:		KeyCode = RIGHT;		break;</P>
+<P CLASS="ciBody">
+						case 0x121:		KeyCode = PG_UP;		break;</P>
+<P CLASS="ciBody">
+						case 0x122:		KeyCode = PG_DN;		break;</P>
+<P CLASS="ciBody">
+						case 0x124:		KeyCode = HOME;			break;</P>
+<P CLASS="ciBody">
+						case 0x123:		KeyCode = END;			break;</P>
+<P CLASS="ciBody">
+						case 0x109;		KeyCode = BK_TAB;		break;</P>
+<P CLASS="ciBody">
+						case 0x12E;		KeyCode = DELETE;		break;</P>
+<P CLASS="ciBody">
+						default:			KeyCode = 0;				break;</P>
+<P CLASS="ciBody">
+					}</P>
+<P CLASS="ciBody">
+				}</P>
+<P CLASS="ciBody">
+			}</P>
+<P CLASS="ciBody">
+			return(KeyCode);</P>
+<P CLASS="ciBody">
+		}</P>
+<P CLASS="Body">
+Here is the Revised keyboad-handling code in Edit().</P>
+<P CLASS="ciBody">
+			while ( (key = GetKeyChar()) != ESCAPE_KEY ) {</P>
+<P CLASS="ciBody">
+&nbsp;</P>
+<P CLASS="ciBody">
+				// special keyboard codes are returned if getch() first</P>
+<P CLASS="ciBody">
+				switch( key ) {</P>
+<P CLASS="ciBody">
+					case UP:		CursorRow--;	break;</P>
+<P CLASS="ciBody">
+					case DOWN:	CursorRow++;	break;</P>
+<P CLASS="ciBody">
+					case LEFT:	CursorCol--;	break;</P>
+<P CLASS="ciBody">
+					case RIGHT:	CursorCol++;	break;</P>
+<P CLASS="ciBody">
+					case HOME:	CursorCol = 0;	break;</P>
+<P CLASS="ciBody">
+					case END:</P>
+<P CLASS="ciBody">
+						// go to end of visible line, but not including newline</P>
+<P CLASS="ciBody">
+						CursorCol = strlen(Text[CursorRow]);</P>
+<P CLASS="ciBody">
+						if ( (0 &lt; CursorCol) &amp;&amp; </P>
+<P CLASS="ciBody">
+									( Text[CursorRow][CursorCol-1] == '\n')</P>
+<P CLASS="ciBody">
+							CursorCol--;</P>
+<P CLASS="ciBody">
+						break;</P>
+<P CLASS="ciBody">
+					case PG_UP:</P>
+<P CLASS="ciBody">
+						CursorRow -= (ScreenDimension.row - 1);</P>
+<P CLASS="ciBody">
+						Start.Row -= (ScreenDimension.row - 1);</P>
+<P CLASS="ciBody">
+						break;</P>
+<P CLASS="ciBody">
+					case PG_DN:</P>
+<P CLASS="ciBody">
+						CursorRow += (ScreenDimension.row - 1);</P>
+<P CLASS="ciBody">
+						Start.Row += (ScreenDimension.row - 1);</P>
+<P CLASS="ciBody">
+						break;</P>
+<P CLASS="ciBody">
+&nbsp;</P>
+<P CLASS="ciBody">
+					#define	TABSIZE	8</P>
+<P CLASS="ciBody">
+					case '\t':</P>
+<P CLASS="ciBody">
+						CursorCol += TABSIZE;</P>
+<P CLASS="ciBody">
+						CursorCol -= CursorCol % TABSIZE;</P>
+<P CLASS="ciBody">
+						break;</P>
+<P CLASS="ciBody">
+					case BK_TAB:</P>
+<P CLASS="ciBody">
+						CursorCol -= TABSIZE;</P>
+<P CLASS="ciBody">
+						CursorCol -= CursorCol % TABSIZE;</P>
+<P CLASS="ciBody">
+						break;</P>
+<P CLASS="ciBody">
+&nbsp;</P>
+<P CLASS="ciBody">
+					default:</P>
+<P CLASS="ciBody">
+						// the key that was pressed was not handled.  Beep at</P>
+<P CLASS="ciBody">
+						// the user as a warning, but otherwise alter nothing.</P>
+<P CLASS="ciBody">
+						putchar('\a');</P>
+<P CLASS="ciBody">
+						break;</P>
+<P CLASS="ciBody">
+				}</P>
+<P CLASS="ciBody">
+&nbsp;</P>
+<P CLASS="ciBody">
+				// Check that cursor position has not gone out of range</P>
+<P CLASS="ciBody">
+				if ( CursorRow &lt; 0 ) CursorRow = 0;</P>
+<P CLASS="ciBody">
+				if ( CursorCol &lt; 0 ) CursorCol = 0;</P>
+<P CLASS="ciBody">
+				if ( LineCount &lt;= CursorRow ) CursorRow = LineCount - 1;</P>
+<P CLASS="ciBody">
+	</P>
+<P CLASS="ciBody">
+				// Check that Start.Row has not gone out of range</P>
+<P CLASS="ciBody">
+				MaxStartRow = LineCount - (ScreenDimension.row - 1)</P>
+<P CLASS="ciBody">
+				if ( MaxStartRow &lt; Start.Row )</P>
+<P CLASS="ciBody">
+					Start.Row = MaxStartRow;</P>
+<P CLASS="ciBody">
+				if ( Start.Row &lt; 0 )</P>
+<P CLASS="ciBody">
+					Start.Row = 0;</P>
+<P CLASS="ciBody">
+&nbsp;</P>
+<P CLASS="ciBody">
+				// If cursor does not now fit on visible screen, then move</P>
+<P CLASS="ciBody">
+				// screen so that cursor does fit on it.</P>
+<P CLASS="ciBody">
+				while( CursorRow &lt; Start.Row ) Start.Row--;</P>
+<P CLASS="ciBody">
+				while( CursorCol &lt; Start.Col ) Start.Col--;</P>
+<P CLASS="ciBody">
+				while( Start.Row + ScreenDimension.Row - 1 &lt;= CursorRow )</P>
+<P CLASS="ciBody">
+					Start.Row++;</P>
+<P CLASS="ciBody">
+				while( Start.Col + ScreenDimension.Col &lt;= CursorCol )</P>
+<P CLASS="ciBody">
+					Start.Col++;</P>
+<P CLASS="ciBody">
+&nbsp;</P>
+<P CLASS="ciBody">
+				// if screen must be redrawn, then do so now</P>
+<P CLASS="ciBody">
+				if ( DrawnStart != Start ) {</P>
+<P CLASS="ciBody">
+					ScreenClear();</P>
+<P CLASS="ciBody">
+					DrawVisibleTextLines( Start, ScreenDimension, LineCount );</P>
+<P CLASS="ciBody">
+					DrawnStart = Start;</P>
+<P CLASS="ciBody">
+				}</P>
+<P CLASS="ciBody">
+&nbsp;</P>
+<P CLASS="ciBody">
+				// key was processed, so redisplay screen state</P>
+<P CLASS="ciBody">
+				CursorStatus(CursorRow,CursorCol,Start,ScreenDimension);</P>
+<P CLASS="ciBody">
+			}</P>
+</DIV>
+<DIV>
+<H3 CLASS="SubTopic">
+<A NAME="419275">
+ </A>
+CmmView.cmm: File viewer</H3>
+<P CLASS="Body">
+Notice at this point that the CmmEditL.cmm program is now a simple file viewer, that allows no editing at all.  For this reason it was copied to CmmView.cmm and a few changes were made to make it clearer that this file does not change the source file.  First, Edit() was changed to View(), and it doesn't return a boolean to indicate if changes were made.  Second, the WriteFile() routine was removed, since it won't ever be called anyway.</P>
+</DIV>
+<DIV>
+<H3 CLASS="SubTopic">
+<A NAME="419276">
+ </A>
+CmmEditM.cmm:  InsertAsciiCharacter()</H3>
+<P CLASS="Body">
+Finally, here's the code to handle input of ascii characters.  This code is the default: section of the switch in Edit().</P>
+<P CLASS="ciBody">
+		default:</P>
+<P CLASS="ciBody">
+			if ( isprint(key) ) {</P>
+<P CLASS="ciBody">
+				InsertAsciiCharacter(key,Text[CursorRow],CursorCol++);</P>
+<P CLASS="ciBody">
+				FileWasEdited = TRUE;</P>
+<P CLASS="ciBody">
+				// redraw this row</P>
+<P CLASS="ciBody">
+				ScreenCursor(0,CursorRow - Start.row);</P>
+<P CLASS="ciBody">
+				printf(&quot;%.*s&quot;,ScreenDimension.col,Text[CursorRow]+Start.col);</P>
+<P CLASS="ciBody">
+			} else {</P>
+<P CLASS="ciBody">
+				// the key that was pressed was not handled.  Beep at the user</P>
+<P CLASS="ciBody">
+				// as a warning, but otherwise alter nothing.</P>
+<P CLASS="ciBody">
+				putchar('\a');</P>
+<P CLASS="ciBody">
+			}</P>
+<P CLASS="ciBody">
+			break;</P>
+<P CLASS="Body">
+Of course, the InsertAsciiCharacter() function must be written (oh darn!).  Remember that we're always in INSERT mode and there is a newline at the end of each line (except possibly the last line).</P>
+<P CLASS="ciBody">
+InsertAsciiCharacter(c,str,offset)	// insert c in str at offset</P>
+<P CLASS="ciBody">
+{</P>
+<P CLASS="ciBody">
+	// The newline at the end of the string can be a problem later</P>
+<P CLASS="ciBody">
+	// for now temporarily remove the newline then we'll put it back</P>
+<P CLASS="ciBody">
+	// in when we're done.</P>
+<P CLASS="ciBody">
+	len = strlen(str);</P>
+<P CLASS="ciBody">
+	AddNewLine = ( len != 0  &amp;&amp;  str[len-1] == '\n' );</P>
+<P CLASS="ciBody">
+	if ( AddNewLine )</P>
+<P CLASS="ciBody">
+		str[--len] = 0;</P>
+<P CLASS="ciBody">
+&nbsp;</P>
+<P CLASS="ciBody">
+	// If the current cursor position is longer than the line, </P>
+<P CLASS="ciBody">
+	// then add spaces.</P>
+<P CLASS="ciBody">
+	while( len &lt; offset )</P>
+<P CLASS="ciBody">
+		str[len++] = ' ';</P>
+<P CLASS="ciBody">
+&nbsp;</P>
+<P CLASS="ciBody">
+	// If this character won't be at end of the string, then move all</P>
+<P CLASS="ciBody">
+	// characters from here to the end of the string one space</P>
+<P CLASS="ciBody">
+	// forward.  This may be done with a strcpy because ScriptEase</P>
+<P CLASS="ciBody">
+	// ensures that overwriting is safe.</P>
+<P CLASS="ciBody">
+	if ( CursorCol &lt; len ) {</P>
+<P CLASS="ciBody">
+		strcpy(str + offset + 1,str + offset);</P>
+<P CLASS="ciBody">
+		len++;</P>
+<P CLASS="ciBody">
+	}</P>
+<P CLASS="ciBody">
+	</P>
+<P CLASS="ciBody">
+	// At last, put the character in the string</P>
+<P CLASS="ciBody">
+	str[offset] = c;</P>
+<P CLASS="ciBody">
+&nbsp;</P>
+<P CLASS="ciBody">
+	if ( AddNewLine )	// put newline character back into the string</P>
+<P CLASS="ciBody">
+		strcat(str,&quot;\n&quot;);</P>
+<P CLASS="ciBody">
+}</P>
+</DIV>
+<DIV>
+<H3 CLASS="SubTopic">
+<A NAME="419277">
+ </A>
+<A NAME="419291">
+ </A>
+CmmEditN.cmm: Delete and Backspace</H3>
+<P CLASS="Body">
+How to delete characters?  The Delete and Backspace cases will be added to the Edit() function.</P>
+<P CLASS="ciBody">
+			#define BACKSPACE '\010'</P>
+<P CLASS="ciBody">
+			case BACKSPACE:</P>
+<P CLASS="ciBody">
+				// Back space is deleting from one column to the left,</P>
+<P CLASS="ciBody">
+				// check that we're not on the first column, then move</P>
+<P CLASS="ciBody">
+				// left a column and let control fall to DELETE</P>
+<P CLASS="ciBody">
+				if ( --CursorCol &lt; 0 )	{</P>
+<P CLASS="ciBody">
+					// backspace from beginning of line; </P>
+<P CLASS="ciBody">
+					// move to end of previous line</P>
+<P CLASS="ciBody">
+					if ( CursorRow == 0 ) {</P>
+<P CLASS="ciBody">
+						// cannot backup to earlier row, so do nothing</P>
+<P CLASS="ciBody">
+						CursorCol = 0;</P>
+<P CLASS="ciBody">
+						break;</P>
+<P CLASS="ciBody">
+					}</P>
+<P CLASS="ciBody">
+					CursorCol = strlen(Text[--CursorRow]) - 1;</P>
+<P CLASS="ciBody">
+				} </P>
+<P CLASS="ciBody">
+			case DELETE:</P>
+<P CLASS="ciBody">
+				if ( DeleteCharacterAtCursor(CursorRow,CursorCol,LineCount) ) </P>
+<P CLASS="ciBody">
+				{</P>
+<P CLASS="ciBody">
+					FileWasEdited = TRUE;</P>
+<P CLASS="ciBody">
+					DrawnStart.row = -1; // force screen redraw</P>
+<P CLASS="ciBody">
+				}</P>
+<P CLASS="ciBody">
+				break;</P>
+<P CLASS="Body">
+Because there is no break statement at the end of the backspace section, the computer will continue interpreting and executing code until it hits the break at the end of the delete section. Here is the DeleteCharacterAtCursor() function that was just added:</P>
+<P CLASS="ciBody">
+DeleteCharacterAtCursor(row,col,TotalLineCount)</P>
+<P CLASS="ciBody">
+	// delete character at cursor position.  Return TRUE if character</P>
+<P CLASS="ciBody">
+	// was deleted else return FALSE.  This function may alter</P>
+<P CLASS="ciBody">
+	// TotalLineCount.</P>
+<P CLASS="ciBody">
+{</P>
+<P CLASS="ciBody">
+	str = Text[row];</P>
+<P CLASS="ciBody">
+	len = strlen(str);</P>
+<P CLASS="ciBody">
+	if ( row &lt; (TotalLineCount - 1) )</P>
+<P CLASS="ciBody">
+		len--;</P>
+<DIV>
+<H6 CLASS="Shrunk-ciBody">
+&nbsp;</H6>
+<P CLASS="ciBody">
+	if ( col &lt; len ) {</P>
+<P CLASS="ciBody">
+		// This is the simple case.  copy string to this location</P>
+<P CLASS="ciBody">
+		// from the next char.</P>
+<P CLASS="ciBody">
+		strcpy(str + col,str + col + 1);</P>
+<P CLASS="ciBody">
+	} 	</P>
+<P CLASS="ciBody">
+	else {</P>
+<P CLASS="ciBody">
+		// deleting from the end of the string or beyond.  Must bring</P>
+<P CLASS="ciBody">
+		// in from next row.</P>
+<P CLASS="ciBody">
+		if ( row == (TotalLineCount - 1) )</P>
+<P CLASS="ciBody">
+			return(FALSE);	// no following text to copy to here</P>
+</DIV>
+<DIV>
+<H6 CLASS="Shrunk-ciBody">
+&nbsp;</H6>
+<P CLASS="ciBody">
+		// fill in spaces from end of text to this location</P>
+<P CLASS="ciBody">
+		for( i = len; i &lt;= col; i++ )</P>
+<P CLASS="ciBody">
+			str[i] = ' ';</P>
+</DIV>
+<DIV>
+<H6 CLASS="Shrunk-ciBody">
+&nbsp;</H6>
+<P CLASS="ciBody">
+		// copy from next string to the end of this string</P>
+<P CLASS="ciBody">
+		strcpy( str + col, Text[row+1] );</P>
+<P CLASS="ciBody">
+		// One newline has been removed, there are now one fewer lines</P>
+<P CLASS="ciBody">
+		// in the file.  Copy all of the rows from this point on down</P>
+<P CLASS="ciBody">
+		// one element in the Text array.</P>
+<P CLASS="ciBody">
+		TotalLineCount--;</P>
+<P CLASS="ciBody">
+		for ( i = row + 1; i &lt; TotalLineCount; i++ )</P>
+<P CLASS="ciBody">
+			Text[i] = Text[i+1];</P>
+<P CLASS="ciBody">
+		SetArraySpan(Text,TotalLineCount - 1);</P>
+<P CLASS="ciBody">
+	}</P>
+<P CLASS="ciBody">
+	return(TRUE);</P>
+<P CLASS="ciBody">
+}</P>
+</DIV>
+</DIV>
+<DIV>
+<H3 CLASS="SubTopic">
+<A NAME="419278">
+ </A>
+CmmEditO.cmm: Carriage-return, the final piece</H3>
+<P CLASS="Body">
+So far, there is no way to add a newline, which is what we'd expect when the user presses a carriage-return.  So this case will be added to the switch statement in Edit().</P>
+<P CLASS="ciBody">
+			case '\r':</P>
+<P CLASS="ciBody">
+				// Add a newline at the current position</P>
+<P CLASS="ciBody">
+				InsertAsciiCharacter('\n',Text[CursorRow],CursorCol);</P>
+<P CLASS="ciBody">
+				FileWasEdited = TRUE;</P>
+<P CLASS="ciBody">
+&nbsp;</P>
+<P CLASS="ciBody">
+				// a line must be opened up in Text, and all the</P>
+<P CLASS="ciBody">
+				// data moved to account for it.</P>
+<P CLASS="ciBody">
+				for( i = CursorRow + 1; i &lt; LineCount; i++ )</P>
+<P CLASS="ciBody">
+					strcpy(Text[i+1],Text[i]);</P>
+<P CLASS="ciBody">
+				LineCount++;</P>
+<P CLASS="ciBody">
+&nbsp;</P>
+<P CLASS="ciBody">
+				// move text after cursor to next line, end this line</P>
+<P CLASS="ciBody">
+				Text[CursorRow+1] = Text[CursorRow] + CursorCol + 1;</P>
+<P CLASS="ciBody">
+				Text[CursorRow][CursorCol + 1] = 0;</P>
+<P CLASS="ciBody">
+&nbsp;</P>
+<P CLASS="ciBody">
+				// finally, move cursor to beginning of next line,</P>
+<P CLASS="ciBody">
+				// and redraw screen</P>
+<P CLASS="ciBody">
+				CursorRow++, CursorCol = 0;</P>
+<P CLASS="ciBody">
+				DrawnStart.row = -1; // force screen redraw				</P>
+<P CLASS="ciBody">
+				break;</P>
+<P CLASS="Body">
+At last, finally, hooray!  The editor is finished.</P>
+</DIV>
+<DIV>
+<H3 CLASS="SubTopic">
+<A NAME="419279">
+ </A>
+CmmEditP-Q.cmm: DebugPrintf() for Enter-key</H3>
+<P CLASS="Body">
+Before really saying the editor is finished, we need to test it.  In particular, let's test the case that was just added in CmmEditO.cmm.  (You may want to copy CmmEditO.cmm to test so we have a nice big file to test with.)  If you edit test now, and insert a carriage-return in a line, you'll see a problem. When a newline is added, the following line is repeated again and again.  Another bug!</P>
+<P CLASS="Body">
+Suppose you were to study the code we just wrote for case '\r': and still could not figure out what went wrong.  At this point you need more information about what is happening while the program is running.  printf() statements are often used during debugging to show what's going on during program execution.  In this program the printf()'s would mess up the display.  Instead, add the following function to print debugging messages on the bottom of the screen and wait for a key and then return.</P>
+<P CLASS="ciBody">
+DebugPrintf(FormatString,arg1,arg2,arg3/*etc...*/)</P>
+<P CLASS="ciBody">
+	// printf() line on bottom of string, then get key</P>
+<P CLASS="ciBody">
+{</P>
+<P CLASS="ciBody">
+	// format message into a string using vsprintf</P>
+<P CLASS="ciBody">
+	va_start(VaList,FormatString);</P>
+<P CLASS="ciBody">
+	vsprintf(msg,FormatString,VaList);</P>
+<P CLASS="ciBody">
+	va_end(VaList);</P>
+<P CLASS="ciBody">
+&nbsp;</P>
+<P CLASS="ciBody">
+	// Save the cursor position. Display this message on the bottom</P>
+<P CLASS="ciBody">
+	// of the screen, get a key, and then return.  This is very</P>
+<P CLASS="ciBody">
+	// non-intrusive.</P>
+<P CLASS="ciBody">
+	SaveCursor = ScreenCursor();</P>
+<P CLASS="ciBody">
+	ClearBottomLine();</P>
+<P CLASS="ciBody">
+	msg[ScreenSize().Col - 1] = '\0'; // don't let line get too long</P>
+<P CLASS="ciBody">
+&nbsp;</P>
+<P CLASS="ciBody">
+// change newlines to underbars</P>
+<P CLASS="ciBody">
+	while ( NULL != (nl = strchr(msg,'\n')) )</P>
+<P CLASS="ciBody">
+		nl[0] = '_';</P>
+<P CLASS="ciBody">
+	ScreenCursor(0,ScreenSize().Row-1);</P>
+<P CLASS="ciBody">
+	printf(&quot;%s&quot;,msg);</P>
+<P CLASS="ciBody">
+	GetKeyChar();</P>
+<P CLASS="ciBody">
+	ClearBottomLine();</P>
+<P CLASS="ciBody">
+	ScreenCursor(SaveCursor.Col,SaveCursor.Row);</P>
+<P CLASS="ciBody">
+}</P>
+<P CLASS="ciBody">
+&nbsp;</P>
+<P CLASS="ciBody">
+ClearBottomLine()	// called by DebugPrintf() to clear last lie</P>
+<P CLASS="ciBody">
+{</P>
+<P CLASS="ciBody">
+	ScreenCursor(0,ScreenSize().Row - 1);</P>
+<P CLASS="ciBody">
+	printf(&quot;%*s&quot;,ScreenSize().Col-1,&quot;&quot;);</P>
+<P CLASS="ciBody">
+}</P>
+<P CLASS="Body">
+DebugPrintf() can now be called from anywhere in the program to print out messages without disturbing anything but the bottom line of the screen.  This is A GOOD DEBUGGING TOOL.  Let's use it now to debug the carriage-return problem that we suspect is hidden in this section of code:</P>
+<P CLASS="ciBody">
+// a line must be opened up in Text, and all the data moved</P>
+<P CLASS="ciBody">
+for( i = CursorRow + 1; i &lt; LineCount; i++ )</P>
+<P CLASS="ciBody">
+	strcpy( Text[i+1], Text[i] );</P>
+<P CLASS="ciBody">
+LineCount++;</P>
+<P CLASS="Body">
+Add some DebugPrintf() statements:</P>
+<P CLASS="ciBody">
+// a line must be opened up in Text, and all the data moved</P>
+<P CLASS="ciBody">
+DebugPrintf(&quot;about to move all text lines down by one&quot;);</P>
+<P CLASS="ciBody">
+for( i = CursorRow + 1; i &lt; LineCount; i++ ) {</P>
+<P CLASS="ciBody">
+	DebugPrintf(&quot;Move \&quot;%.20s...\&quot; to \&quot;%.20s...\&quot;&quot;,</P>
+<P CLASS="ciBody">
+		Text[i],Text[i+1]);</P>
+<P CLASS="ciBody">
+	strcpy( Text[i+1], Text[i] );</P>
+<P CLASS="ciBody">
+}</P>
+<P CLASS="ciBody">
+LineCount++;</P>
+<P CLASS="ciBody">
+DebugPrintf(&quot;Finished with shifting lines down.&quot;);</P>
+<P CLASS="Body">
+Then run the program on the original file.  Perhaps the information from these debug calls is enough to show what is going wrong.  The problem appears to be that after the first line is copied down one line further in the Text array, then the same line is copied again and again.  The problem is that we are copying from the beginning of the array to the end.  So the fix, as appears in CmmEditQ.cmm, is to copy from the end to the beginning.</P>
+<P CLASS="ciBody">
+// a line must be opened up in Text, and all the data moved</P>
+<P CLASS="ciBody">
+for( i = LineCount++; CursorRow + 1 &lt; i; i-- )</P>
+<P CLASS="ciBody">
+	strcpy( Text[i], Text[i-1] );</P>
+<P CLASS="Body">
+Now, if we test response to carriage returns in this program, (you are strongly encouraged test! test! test!)  we see that pressing the Enter key does not cause the same problem as before.  The next line no longer repeats itself again and again.</P>
+<P CLASS="Body">
+Now there seems to be a new problem.  When the Enter key is pressed, everything looks OK except that the new line created by carriage return is blank.  That is, when pressing carriage return when the cursor is on the fourth character of this file:</P>
+<P CLASS="ciBody">
+Momma gets a wig.</P>
+<P CLASS="ciBody">
+Poppa only gets big.</P>
+<P CLASS="Body">
+we want to get:</P>
+<P CLASS="ciBody">
+Mom</P>
+<P CLASS="ciBody">
+ma gets a wig.</P>
+<P CLASS="ciBody">
+Poppa only gets big.</P>
+<P CLASS="Body">
+but instead, we get (due to the bug):</P>
+<P CLASS="ciBody">
+Mom</P>
+<P CLASS="ciBody">
+&nbsp;</P>
+<P CLASS="ciBody">
+Poppa only gets big.</P>
+<P CLASS="Body">
+Again, we stare and stare at the code but cannot see where it's going wrong.  So CmmEditR.cmm contains the following code changes with DebugPrintf() statements to help see what's going on during program execution.</P>
+<P CLASS="ciBody">
+			case '\r':</P>
+<P CLASS="ciBody">
+				// Add a newline at the current position</P>
+<P CLASS="ciBody">
+				InsertAsciiCharacter('\n',Text[CursorRow],CursorCol);</P>
+<P CLASS="ciBody">
+				FileWasEdited = TRUE;</P>
+<P CLASS="ciBody">
+&nbsp;</P>
+<P CLASS="ciBody">
+				// a line must be opened up in Text, and all the data moved</P>
+<P CLASS="ciBody">
+				for( i = CursorRow + 1; i &lt; LineCount; i++ )</P>
+<P CLASS="ciBody">
+					strcpy(Text[i+1],Text[i]);</P>
+<P CLASS="ciBody">
+				LineCount++;</P>
+<P CLASS="ciBody">
+&nbsp;</P>
+<P CLASS="ciBody">
+				// move text from after cursor to next line, and end this line</P>
+<P CLASS="ciBody">
+				DebugPrintf(&quot;1 - Text[CursorRow] = \&quot;%s\&quot;&quot;, Text[CursorRow]);</P>
+<P CLASS="ciBody">
+				DebugPrintf(&quot;1 - Text[CursorRow+1] = \&quot;%s\&quot;&quot;, </P>
+<P CLASS="ciBody">
+										Text[CursorRow+1]);</P>
+<P CLASS="ciBody">
+				DebugPrintf(&quot;About to set next row to beyond this</P>
+<P CLASS="ciBody">
+									 row cursor&quot;);</P>
+<P CLASS="ciBody">
+				Text[CursorRow+1] = Text[CursorRow] + CursorCol + 1;</P>
+<P CLASS="ciBody">
+				DebugPrintf(&quot;2 - Text[CursorRow] = \&quot;%s\&quot;&quot;, Text[CursorRow]);</P>
+<P CLASS="ciBody">
+				DebugPrintf(&quot;2 - Text[CursorRow+1] = \&quot;%s\&quot;&quot;, </P>
+<P CLASS="ciBody">
+										Text[CursorRow+1]);</P>
+<P CLASS="ciBody">
+				DebugPrintf(&quot;About to null terminate this line beyond </P>
+<P CLASS="ciBody">
+									 cursor&quot;);</P>
+<P CLASS="ciBody">
+				Text[CursorRow][CursorCol + 1] = 0;</P>
+<P CLASS="ciBody">
+				DebugPrintf(&quot;3 - Text[CursorRow] = \&quot;%s\&quot;&quot;,Text[CursorRow]);</P>
+<P CLASS="ciBody">
+				DebugPrintf(&quot;3 - Text[CursorRow+1] = \&quot;%s\&quot;&quot;,</P>
+<P CLASS="ciBody">
+										Text[CursorRow+1]);</P>
+<P CLASS="ciBody">
+&nbsp;</P>
+<P CLASS="ciBody">
+				// finally, move cursor to beginning of next line, and redraw</P>
+<P CLASS="ciBody">
+				// screen</P>
+<P CLASS="ciBody">
+				CursorRow++, CursorCol = 0;</P>
+<P CLASS="ciBody">
+				DrawnStart.row = -1; // force screen redraw				</P>
+<P CLASS="ciBody">
+				break;</P>
+<P CLASS="Body">
+You can test this code by watching what happens when you press the enter key on the first byte of the file you're editing.  The DebugPrintf() messages all look OK until the last one; after the message &quot;About to null terminate this line beyond cursor&quot; we see that <EM CLASS="ciBody">
+Text[CursorRow]</EM>
+ gets terminated correctly, but  <EM CLASS="ciBody">
+Text[CursorRow+1]</EM>
+ has somehow become null-length at the same time.  It may take some thought, and some re-reading of the section in the previous chapter on Array Arithmetic, to understand why this code isn't working.</P>
+<P CLASS="Body">
+The problem is that this code:</P>
+<P CLASS="ciBody">
+Text[CursorRow+1] = Text[CursorRow] + CursorCol + 1;</P>
+<P CLASS="Body">
+is setting the <EM CLASS="ciBody">
+Text[CursorRow+1]</EM>
+ array to point into the same array data as <EM CLASS="ciBody">
+Text[CursorRow]</EM>
+, but only with a different offset.  So</P>
+<P CLASS="ciBody">
+Text[CursorRow][CursorCol + 1]</P>
+<P CLASS="Body">
+is the same data byte as</P>
+<P CLASS="ciBody">
+Text[CursorRow+1][0]</P>
+<P CLASS="Body">
+and so when you set one byte to zero, you're setting the other byte as well.  The fix for this bug is to copy the data from one array to another, using strcpy(), instead of only setting one array to be relative to another.</P>
+</DIV>
+<DIV>
+<H3 CLASS="SubTopic">
+CmmEdit.cmm: The final program (for now)</H3>
+<P CLASS="Body">
+This final bug fix is incorporated into the final ScriptEase program: CmmEdit.cmm.  This is by no means the world's greatest editor.  It doesn't correctly handle tabs or other special characters, it doesn't search or replace or move blocks of text, and it's as slow as molasses.</P>
+<P CLASS="Body">
+If you intend to use this program as an editor, then it would be much more convenient under DOS or OS/2 to rename it as CmmEdit.bat or CmmEdit.cmd, respectively, and add the few lines that run ScriptEase code from a batch file (as described in chapter 5 of this manual). </P>
+<P CLASS="Body">
+You may want to improve the code now by experimenting with it--and learning in the process.  You might want to speed it up, add new commands such as line-delete, handle tabs, etc...  The DebugPrintf() routines have been left in, but commented out, so that if you decide to enhance the program you can easily restore DebugPrintf().</P>
+<P CLASS="Body">
+You may also consider changing the code so that each line of Text does not end in a newline.  Many routines in this program may then become a lot cleaner.</P>
+<P CLASS="Body">
+What makes the program particularly slow is when the screen has to be redrawn, such as when the cursor moves beyond the edge of the screen or when text is deleted.  You could speed up character deletion just be redrawing only the line where a delete occurs.  For scrolling, you may want to add a call to the operating-system's routines to scroll just a section of the screen (see interrupt() for DOS and DynamicLink() for Windows and OS/2) and then only printing the new line.  As mentioned at the beginning of this chapter, Nombas welcomes any additions to this program -- Let us know what you come up with!</P>
+</DIV>
+</DIV>
+<DIV>
+<H2 CLASS="Topic">
+Annotated Scripts</H2>
+<P CLASS="Body">
+These scripts are all included with the ScriptEase disks.  Most of them work with all operating systems; the exception is IS_DAY.BAT,  a script for DOS that demonstrates how to incorporate a script into a batch file.</P>
+<P CLASS="Body">
+A note about comments in the supplied scripts: Somewhere at the beginning of each Nombas-supplied script is a comment which begins with three tildes and a number, followed by a brief description of what the script does. This peculiar comment line is used by Nombas to automatically generate its script library webpages and should be ignored.</P>
+<DIV>
+<H3 CLASS="SubTopic">
+<A NAME="419259">
+ </A>
+Datediff.cmm: Comparing dates</H3>
+<P CLASS="Body">
+This script compares two dates and returns the number of days between them.  It expects to receive two parameters when it is called, the two dates to be compared, like this:</P>
+<P CLASS="cmd">
+datediff 3/14/96 3/27/94</P>
+<P CLASS="Body">
+The first thing the script does is define the variable SecondsPerDay. Because it is defined outside of any function it is a global variable, and therefore available for all functions to use.</P>
+<P CLASS="Body">
+main() is the first function in the script.  The first thing it does is make sure that you have entered the required parameters (i.e., it makes sure you have provided two dates to compare). If these two parameters are not provided, the program assumes you don't know how to use the script, so ScriptEase will beep (\a) and then print a brief message demonstrating the proper way to load the script. These commands are carried out by the first statement block in the function  main(), consisting of the if statement and the statements in the braces which follow.</P>
+<P CLASS="ciBody">
+// Display differences in dates (in MM/DD/YYYY format).</P>
+<P CLASS="ciBody">
+&nbsp;</P>
+<P CLASS="ciBody">
+SecondsPerDay = 60 * 60 * 24;</P>
+<P CLASS="ciBody">
+&nbsp;</P>
+<P CLASS="ciBody">
+main(argc,argv)</P>
+<P CLASS="ciBody">
+{</P>
+<P CLASS="ciBody">
+   if ( argc != 3 ) {</P>
+<P CLASS="ciBody">
+      printf(&quot;\aDateDiff - display difference in dates\n&quot;);</P>
+<P CLASS="ciBody">
+      printf(&quot;USAGE: SEDOS DateDiff MM/DD/YY MM/DD/YY\n&quot;);</P>
+<P CLASS="ciBody">
+      ByeBye();</P>
+<P CLASS="ciBody">
+   }</P>
+<P CLASS="ciBody">
+&nbsp;</P>
+<P CLASS="ciBody">
+   Time1 = GetTimeFromDateString(argv[1]);</P>
+<P CLASS="ciBody">
+   Time2 = GetTimeFromDateString(argv[2]);</P>
+<P CLASS="ciBody">
+&nbsp;</P>
+<P CLASS="ciBody">
+   DiffTime = Time2 - Time1;</P>
+<P CLASS="ciBody">
+   DiffDay = DiffTime / SecondsPerDay;</P>
+<P CLASS="ciBody">
+   printf(&quot;Date difference is %d days\n&quot;,DiffDay);</P>
+<P CLASS="ciBody">
+}</P>
+<P CLASS="Body">
+The next two lines call the function GetTimeFromDateString() once for each of the command line parameter. Remember that argv[0] is the name of the program being called (datediff, in this case), so the parameters following it are argv[1] and argv[2]. GetTimeFromDateString() puts the dates into a format the computer can work on directly.  This will be a number representing the number of seconds since a certain date, defined in your operating system (usually 1/1/1970). Dates from before this time may not be recognizeable by the computer.</P>
+<P CLASS="Body">
+The final three lines of the function are pretty straightforward; Date2 is subtracted from date one, and the result is then divided by the number of seconds in a day to get the difference in days.  This result is printed out, and the script ends.</P>
+<P CLASS="ciBody">
+GetTimeFromDateString(String)</P>
+<P CLASS="ciBody">
+{</P>
+<P CLASS="ciBody">
+   if ( 3 != sscanf(String,&quot;%d/%d/%d&quot;,Month,Day,Year) ) {</P>
+<P CLASS="ciBody">
+      printf(&quot;\aUnrecognized date \&quot;%s\&quot;\n&quot;,argv[1]);</P>
+<P CLASS="ciBody">
+      ByeBye();</P>
+<P CLASS="ciBody">
+   }</P>
+<P CLASS="ciBody">
+   if ( Year &lt; 1000 ) {</P>
+<P CLASS="ciBody">
+      Year += ( Year &lt; 20 ) ? 2000 : 1900 ;</P>
+<P CLASS="ciBody">
+   }</P>
+<P CLASS="ciBody">
+   if( Month&lt;1 || Month&gt;12 ) {</P>
+<P CLASS="ciBody">
+     printf(&quot;Month %d is out of the range of 1 to 12.\n&quot;,Month);</P>
+<P CLASS="ciBody">
+     ByeBye();</P>
+<P CLASS="ciBody">
+   }</P>
+<P CLASS="ciBody">
+   if( Day&lt;1 || Day&gt;31 ) {</P>
+<P CLASS="ciBody">
+     printf(&quot;Day %d is out of the range of 1 to 31.\n&quot;,Day);</P>
+<P CLASS="ciBody">
+     ByeBye();</P>
+<P CLASS="ciBody">
+   }</P>
+<P CLASS="ciBody">
+&nbsp;</P>
+<P CLASS="ciBody">
+   // convert to time</P>
+<P CLASS="ciBody">
+   tm.tm_year = Year - 1900;</P>
+<P CLASS="ciBody">
+   tm.tm_mon = Month - 1;</P>
+<P CLASS="ciBody">
+   tm.tm_mday = Day;</P>
+<P CLASS="ciBody">
+   ResultTime = mktime(tm);</P>
+<P CLASS="ciBody">
+   if ( ResultTime &lt; 1 ) {</P>
+<P CLASS="ciBody">
+      printf(&quot;%d/%d/%d is not within range of dates I can calculate.\n&quot;,</P>
+<P CLASS="ciBody">
+             Month,Day,Year);</P>
+<P CLASS="ciBody">
+      ByeBye();</P>
+<P CLASS="ciBody">
+   }</P>
+<P CLASS="ciBody">
+   return ResultTime;</P>
+<P CLASS="ciBody">
+}</P>
+<P CLASS="Body">
+The function GetTimeFromDateString() first makes sure that the date is a valid date. It reads in the date with a sscanf statement, which takes a string and a template, and assigns variable names to parts of the string according to the template.  Items in the template which are to be converted to text from variables are represented with a % preceeding a character that specifies how the variable is to be represented. The string expects to have three things separated by slashes; these three things will be saved as the variables Month, Day and Year.</P>
+<P CLASS="Body">
+The sscanf function will return the number of variables it created, so if there weren't three of them, it sends back a message saying it cannot recognize the date.</P>
+<P CLASS="Body">
+The next three statement blocks make sure that the Month, Day and Year are all valid. If Year is less than 1000, it adds 1900 or 2000 (if Year is less than 20) to your date to make a complete year (e.g., 85 will be turned into 1985, and 19 will be turned into 2019). It then checks to make sure month is a number from 1 to 12, and Day is from 1 to 31.</P>
+<P CLASS="Body">
+If the data checks out, it stores it in a time structure.  This structure has members for the day, month, year, and other time related elements; the whole structure can be converted into a number (the number of seconds since a particular date) with the function mktime(). These two date/time formats (the long number format and the broken down structure) are used for different things: the time structure is easier for humans to understand and allows you to extract useful information from the data (Is it Monday, e.g.). The long number form lets you add and subtract dates. For more information on the structure format, see the function localtime() in the standard library section.</P>
+<P CLASS="Body">
+Since mktime() returns 1 if it can't create a viable date/time number, the computer checks to see if 1 was returned and prints an error message to the screen.  Otherwise, it returns the date/time number back to the function that called it.</P>
+<P CLASS="ciBody">
+ByeBye()</P>
+<P CLASS="ciBody">
+{</P>
+<P CLASS="ciBody">
+   if( (defined(_WINDOWS_) || defined(_NWNLM_)) &amp;&amp; !defined(_SHELL_)) {</P>
+<P CLASS="ciBody">
+      printf(&quot;press any key to exit...&quot;);</P>
+<P CLASS="ciBody">
+      getch();</P>
+<P CLASS="ciBody">
+   }</P>
+<P CLASS="ciBody">
+   exit(EXIT_FAILURE);</P>
+<P CLASS="ciBody">
+}</P>
+<P CLASS="Body">
+This final function makes sure that the script works with all operating systems. If you are running from a text-based operating system, the output will be printed on your screen.  But if you are working from a windows based system and ran the script from a run line, ScriptEase will create and open a new window to display the data in.  This window will close as soon as the script terminates, which happens next. If you are running this script from a windowing system, you would see the data window fly open and shut again, so quickly you don't have time to read it. The Byebye() function prevents this from happening by first checking to see if you are using a windowing system, and if you are, it prints &quot;press any key to exit...&quot;and waits for a user to hit a key.  Then it exits.</P>
+</DIV>
+<DIV>
+<H3 CLASS="SubTopic">
+<A NAME="419258">
+ </A>
+Border.cmm: Drawing text and cursor navigation</H3>
+<P CLASS="Body">
+Border.cmm is a simple script that draws a border of asterisks around the edge of the screen or active window. It first draws the top of the box, then the bottom, and finally the sides, and places the cursor in the upper left-hand corner.</P>
+<P CLASS="ciBody">
+if defined(_WINDOWS_)</P>
+<P CLASS="ciBody">
+   ScreenSize(30,30);</P>
+<P CLASS="ciBody">
+&nbsp;</P>
+<P CLASS="ciBody">
+DrawAsteriskBorder();</P>
+<P CLASS="ciBody">
+ScreenCursor(1,1);</P>
+<P CLASS="ciBody">
+getch();</P>
+<P CLASS="ciBody">
+&nbsp;</P>
+<P CLASS="ciBody">
+DrawAsteriskBorder()</P>
+<P CLASS="ciBody">
+{</P>
+<P CLASS="ciBody">
+   size = ScreenSize();</P>
+<P CLASS="ciBody">
+   ScreenClear();</P>
+<P CLASS="ciBody">
+   // draw top border</P>
+<P CLASS="ciBody">
+   ScreenCursor(0,0);</P>
+<P CLASS="ciBody">
+   for ( col = 0; col &lt; size.col; col++ )</P>
+<P CLASS="ciBody">
+      putchar('*');</P>
+<P CLASS="ciBody">
+   // draw bottom border</P>
+<P CLASS="ciBody">
+   ScreenCursor(0,size.row-2);</P>
+<P CLASS="ciBody">
+   for ( col = 0; col &lt; size.col; col++ )</P>
+<P CLASS="ciBody">
+      putchar('*');</P>
+<P CLASS="ciBody">
+   // draw left and right borders</P>
+<P CLASS="ciBody">
+   for ( row = 0; row &lt; size.row - 1; row++ ) {</P>
+<P CLASS="ciBody">
+      ScreenCursor(0,row);</P>
+<P CLASS="ciBody">
+      putchar('*');</P>
+<P CLASS="ciBody">
+      ScreenCursor(size.col - 1,row);</P>
+<P CLASS="ciBody">
+      putchar('*');</P>
+<P CLASS="ciBody">
+   }</P>
+<P CLASS="ciBody">
+}</P>
+<P CLASS="Body">
+The first thing this script does is call the defined function to see whether the Windows version of ScriptEase is running or not.  If it is, the size of the screen is set to 30 x 30. These lines demonstrate using the defined() function to allow greater control over your scripts in cross-platform environments.</P>
+<P CLASS="Body">
+The next line calls the function DrawAsteriskBorder(), which appears at the end of the script, and does the actual work of drawing the asterisks on the screen.  Once the border has been drawn, the next line, (the call to ScreenCursor()), resets the cursor so that it will appear in the upper left hand corner of the recently created asterisk box, while the last line calls getch(), waiting for user to hit a key before the program exits.</P>
+<P CLASS="Body">
+The function DrawAsteriskBorder() begins by getting the size of the screen and storing it in the variable &quot;size&quot;.  Size is a structure with two elements, size.row and size.col, representing the width and height of the screen.</P>
+<P CLASS="Body">
+The screen is then cleared with a call to ScreenClear, and the cursor is set to the upper left-hand corner. A for loop is then initiated to create the top border of asterisks; starting at 0, the loop counts up to the value of the variable size.col, putting an asterisk with each iteration of the loop.</P>
+<P CLASS="Body">
+Once again, the function ScreenCursor is called to put the cursor at the bottom left of the screen.  The cursor is put at 0, size.row - 2 (instead of 0, size.row) for two reasons. Firstly, the screen  height is given as the number of rows on the screen, but the first row is counted as 0, not 1, so one must be subtracted from the row height.  The second is that the script writes the bottom row of asterisks on the second to last row of the screen, not the last one, to leave a little space at the bottom.</P>
+<P CLASS="Body">
+The remaining part of the function draws the sides of the asterisk box. A loop is set up, just as when the top of the box was being drawn, only this time it loops once for every row of screen instead of every column.  For each iteration x, it draws an asterisk at the point 0, x (the left edge of the screen), and then at (size.row-1), x.  (One is subtracted from size.row for the same reason as before: counting the number of rows, the first row counted is row #1, but the first row counted in the for loop is zero.</P>
+</DIV>
+<DIV>
+<H3 CLASS="SubTopic">
+<A NAME="419256">
+ </A>
+IsDay_1.bat: Using ScriptEase with <A NAME="419257">
+ </A>
+batch files</H3>
+<P CLASS="Body">
+IsDay_1.bat is a file that checks whether today is a certain day or not.  It is a DOS batch file with an included ScriptEase script.  This script shows you how to use ScriptEase with batch files.  For the most part, it is a straight ScriptEase script; three lines at the beginning of the file and one at the end are all that is needed to run a ScriptEase script with a .bat extension. You can easily convert this to a regular ScriptEase script by removing these lines.</P>
+<P CLASS="Body">
+The first four lines of code are in DOS batch language. The first merely says &quot;don't echo these commands to the screen&quot;, and the second is a comment describing the file. The third line starts up the ScriptEase processor, sending three parameters: the name of the script being run (the first parameter sent, or &quot;isday_1&quot;), and up to two parameters that follow. </P>
+<P CLASS="Body">
+When a script is launched from a batch file, all of the code between the lines &quot;GOTO SE_EXIT&quot; and  &quot;:SE_EXIT&quot; will be interpreted as ScriptEase code.  These two phrases serve as identifiers to the processor, so each should be printed on its own line.</P>
+<P CLASS="Body">
+After DOS launches ScriptEase, ScriptEase initializes the script and begins to execute the function main(), which takes argc and argv as variables.  Argc is the number of parameters passed, and argv is an array of all those parameters. Remember that the name of the script being called is a parameter (argv[0]), so if the script was correctly called:</P>
+<P CLASS="cmd">
+isday_1 WED</P>
+<P CLASS="Body">
+it will return 2 for argc; argv[0] will be &quot;isday_1&quot; and argv[1] will be &quot;WED&quot;.</P>
+<P CLASS="Body">
+The first thing that the script does is set the value of IsDay to 0, which is equivalent to FALSE. If the script discovers that indeed, it is the correct day, the value will be changed to 1 and this result returned to the calling program.</P>
+<P CLASS="Body">
+Then the script makes sure that it has correct number of parameters, which in this case is two: the name of the script being called, and the day being checked.  If the number of parameters (argc) is not equal to two, or if there are less than three letters in the second parameter, it assumes that you don't know how to use the script and calls the function ShowHelp(), which prints out a list of instructions and terminates the script.</P>
+<P CLASS="Body">
+If the parameters check out OK, the script gets the current time and converts it into an ascii string with the two functions time() and ctime().  Time() gets the current time, as a number representing the number of seconds elapsed since the computer began keeping track, and ctime() takes this huge number and translates it into an ascii string that looks something like this:</P>
+<P CLASS="cmd">
+Wed Dec 18 09:45:33 1996</P>
+<P CLASS="Body">
+Notice how the two functions are combined into one statement, with one function nested within the parenthesis of the other.  Basically what this is saying is that whatever is returned from the innermost function (the long number returned from time()) will be passed as an argument to the outermost function.</P>
+<P CLASS="Body">
+The next line copies the argument argv[1] into the string &quot;QueryDay&quot;.  This helps improve legibility: when you read the variable name &quot;QueryDay&quot; it gives you a much better idea of what the variable represents than &quot;argv[1].&quot;  The next line, QueryDay[3] = 0; sets the value of the fourth element of QueryDay to 0. This in effect cuts off everything after the third letter of the string, because 0 marks the end of a string.</P>
+<P CLASS="Body">
+As the comment indicates, the if statement searches for the string input as a parameter (argv[1], converted to the string QueryDay) and sees if it is contained within the larger date/time string returned above as TimeString.  It first converts the two strings to all uppercase with the strupr() function, so that the search will be case sensitive.  If strstr() finds anything (it will evaluate as false if it does not) it prints out the string saying &quot;Yes, today is argv[1]&quot; and sets the value of IsDay to 1, so that when the  program exits it will return a value of 1 to any program that called it.  If strstr() evaluates as false, then it prints out &quot;No, today is not argv[1]&quot; and exits.  Since IsDay has not been changed, it will return a value of 0 (false) to the program that called it (if any).</P>
+<P CLASS="Body">
+&nbsp;</P>
+<P CLASS="ciBody">
+@echo OFF</P>
+<P CLASS="ciBody">
+::~~~1 Test to see what day it is.  Set ERRORLEVEL to 1 if it is, 0 if not.</P>
+<P CLASS="ciBody">
+&nbsp;</P>
+<P CLASS="ciBody">
+SEDOS %0.bat %1 %2</P>
+<P CLASS="ciBody">
+GOTO SE_EXIT</P>
+<P CLASS="ciBody">
+&nbsp;</P>
+<P CLASS="ciBody">
+main(argc,argv)</P>
+<P CLASS="ciBody">
+{</P>
+<P CLASS="ciBody">
+   IsDay = 0                   // Assume that it is not the correct day</P>
+<P CLASS="ciBody">
+   if ( argc != 2  ||  strlen(argv[1]) &lt; 3 ) {</P>
+<P CLASS="ciBody">
+      // Invalid parameters were passed, so give instructions</P>
+<P CLASS="ciBody">
+      ShowHelp()</P>
+<P CLASS="ciBody">
+   } else {</P>
+<P CLASS="ciBody">
+      TimeString = ctime(time())    // Standard C functions to get NOW</P>
+<P CLASS="ciBody">
+																as a string</P>
+<P CLASS="ciBody">
+      strcpy(QueryDay,argv[1])  // copy first argument to work with it.</P>
+<P CLASS="ciBody">
+      QueryDay[3] = 0           // limit to search on first three letters</P>
+<P CLASS="ciBody">
+      // case-inensitive (i.e., both string converted to upper-case) </P>
+<P CLASS="ciBody">
+      // search for QueryDay in TimeString</P>
+<P CLASS="ciBody">
+      if strstr(strupr(TimeString),strupr(QueryDay)) {</P>
+<P CLASS="ciBody">
+         printf(&quot;Yes, today is %s\n&quot;,argv[1])</P>
+<P CLASS="ciBody">
+         IsDay = 1</P>
+<P CLASS="ciBody">
+      } else</P>
+<P CLASS="ciBody">
+         printf(&quot;No, today is not %s\n&quot;,argv[1])</P>
+<P CLASS="ciBody">
+   }</P>
+<P CLASS="ciBody">
+   return IsDay</P>
+<P CLASS="ciBody">
+}</P>
+<P CLASS="ciBody">
+&nbsp;</P>
+<P CLASS="ciBody">
+ShowHelp() // This routine is called above if input seems invalid</P>
+<P CLASS="ciBody">
+{</P>
+<P CLASS="ciBody">
+   printf(&quot;\n\a&quot;)      // This makes an audible beep</P>
+<P CLASS="ciBody">
+   printf(&quot;IsDay.bat - CMM program to check if it is a certain day of</P>
+<P CLASS="ciBody">
+										the week.\n&quot;)</P>
+<P CLASS="ciBody">
+   printf(&quot;            Will print messages if it is or isn't, and return</P>
+<P CLASS="ciBody">
+										 with\n&quot;)</P>
+<P CLASS="ciBody">
+   printf(&quot;            ERRORLEVEL 1 if it is the requested day, and 0 if</P>
+<P CLASS="ciBody">
+										 it is not.\n&quot;)</P>
+<P CLASS="ciBody">
+   printf(&quot;            You must supply at least the first three letters</P>
+<P CLASS="ciBody">
+									 of the day.\n&quot;)</P>
+<P CLASS="ciBody">
+   printf(&quot;Example:\n&quot;)</P>
+<P CLASS="ciBody">
+   printf(&quot;\tISDAY &lt;Friday | Fri | FRI | FRICASSE&gt;\n\n&quot;);</P>
+<P CLASS="ciBody">
+}</P>
+<P CLASS="ciBody">
+&nbsp;</P>
+<P CLASS="ciBody">
+:SE_EXIT</P>
+</DIV>
+<DIV>
+<H3 CLASS="SubTopic">
+<A NAME="419255">
+ </A>
+TReplace.cmm: Replace text in a document</H3>
+<P CLASS="Body">
+This script opens with the function Instructions(), which prints a brief explanation of how the script is to be used:</P>
+<P CLASS="ciBody">
+  Instructions()</P>
+<P CLASS="ciBody">
+{</P>
+<P CLASS="ciBody">
+   puts(&quot;TReplace.cmm: Text replace. Replace text in a file.\a&quot;)</P>
+<P CLASS="ciBody">
+   puts(``)</P>
+<P CLASS="ciBody">
+   puts(`USAGE: SEDOS TReplace &lt;filespec&gt; &lt;oldtext&gt; &lt;newtext&gt;`)</P>
+<P CLASS="ciBody">
+   puts(``)</P>
+<P CLASS="ciBody">
+   puts(`WHERE: filespec - File specification for any text-mode file`)</P>
+<P CLASS="ciBody">
+   puts(`       oldtext  - Any text to find in lines of filespec`)</P>
+<P CLASS="ciBody">
+   puts(`       newtext  - New text to replace found old text`)</P>
+<P CLASS="ciBody">
+   puts(``)</P>
+<P CLASS="ciBody">
+   puts(`NOTE: This search is case-sensitive and slow, with very few `)</P>
+<P CLASS="ciBody">
+   puts(`      options, but the Cmm code is very simple.`)</P>
+<P CLASS="ciBody">
+   puts(``)</P>
+<P CLASS="ciBody">
+   puts(`EXAMPLE: SEDOS TReplace c:\autoexec.bat F:\UTL\CENVID F:\UTL\SEDOS`)</P>
+<P CLASS="ciBody">
+   puts(``)</P>
+<P CLASS="ciBody">
+   exit(EXIT_FAILURE);</P>
+<P CLASS="ciBody">
+}</P>
+<P CLASS="Body">
+This function is put first only for convenience: it lets people looking at the script itself have an idea of what the script is supposed to do and how it works without having to read the entire script and figure this out from the code. Instructions() will only be called if the script did not receive all of the information it needs to run. In such a case, it assumes that the user didn't know how the script is to be used and therefore needs instructions.  Instructions() consists of a series of puts() statements, each of which puts a line of text to the screen.</P>
+<P CLASS="Body">
+Instructions() ends with an exit statement, so when the computer finishes writing the instructions, the script will end instead of returning to the function that called it.</P>
+<P CLASS="ciBody">
+#define TEMP_FILE_NAME  &quot;TREPLACE.TMP&quot;</P>
+<P CLASS="ciBody">
+&nbsp;</P>
+<P CLASS="ciBody">
+main(argc,argv)</P>
+<P CLASS="ciBody">
+{</P>
+<P CLASS="ciBody">
+   if ( 4 != argc )</P>
+<P CLASS="ciBody">
+      Instructions();</P>
+<P CLASS="ciBody">
+&nbsp;</P>
+<P CLASS="ciBody">
+   // Get input parameters</P>
+<P CLASS="ciBody">
+   FileSpec = argv[1];</P>
+<P CLASS="ciBody">
+   OldText = argv[2];</P>
+<P CLASS="ciBody">
+   NewText = argv[3];</P>
+<P CLASS="ciBody">
+&nbsp;</P>
+<P CLASS="ciBody">
+   // Open old source file</P>
+<P CLASS="ciBody">
+   SrcFP = fopen(FileSpec,&quot;rt&quot;);</P>
+<P CLASS="ciBody">
+   if ( !SrcFP ) {</P>
+<P CLASS="ciBody">
+      printf(&quot;Unable to open source file \&quot;%s\&quot; for reading.\n\a&quot;, </P>
+<P CLASS="ciBody">
+						FileSpec);</P>
+<P CLASS="ciBody">
+      exit(EXIT_FAILURE);</P>
+<P CLASS="ciBody">
+   }</P>
+<P CLASS="Body">
+ The next statement in the script is a #define statement, meaning that every time the phrase &quot;TEMP_FILE_NAME&quot; appears  in the script it will be replaced with &quot;TREPLACE.TMP&quot;.  This is the name of a temporary file the script uses. It is deleted before the script terminates.</P>
+<P CLASS="Body">
+Then the function main() begins. By default, main() is the first function called by the script, and so it receives the parameters that were entered on command line when the script was launched. The first thing main() does is check to make sure that the correct number of parameters has been entered,  and prints out the instructions if it has not. The correct format for the input is:</P>
+<P CLASS="cmd">
+SEDOS TREPLACE filename &quot;cat&quot; &quot;dog&quot;</P>
+<P CLASS="Body">
+The example above would replace every instance of the string &quot;cat&quot; with &quot;dog&quot; in the file &quot;filename&quot;. Although normally this would be considered four parameters passed to the program SEDOS (SEDOS being argv[0]), the Scriptease processor understands the call to the engine implicitly, and interprets the name of the ScriptEase script being called as argv[0] instead of the engine. The parameters following the script name become argv[1], argv[2], etc, and the call to the processor (SEDOS in this case) is demoted to argv[-1]</P>
+<P CLASS="Body">
+The script then gives the command line parameters more descriptive names than &quot;argv[1]&quot; and &quot;argv[3]&quot;.  Argv[1], the name of the file being searched, is put into a variable filespec, the name of the text to be found is put into OldText, while the text to be replaced (argv[3]) is put into a variable called NewText.</P>
+<P CLASS="Body">
+Next, the file to be modified is opened with a call to fopen().  fopen() returns a handle to the open file (or NULL if the function was unable to open the file). Use this handle when doing anything with the contents of the file. The two parameters passed to fopen() are strings representing the name of the file to be opened and the mode the file is to be opened with (read-only, full read and write, append only, etc.). In this example the mode is &quot;rt&quot; to open the file for Reading in Text mode. For a list of these modes please consult the description of the function in the Standard Library chapter.</P>
+<P CLASS="Body">
+The if statement block, following the fopen() call, tests whether the file was opened incorrectly (i.e. returned 0 or NULL) and prints and error message and exits if it wasn't.</P>
+<P CLASS="ciBody">
+  // open temporary file in same directory as source file</P>
+<P CLASS="ciBody">
+   FileNameParts = SplitFileName(FileSpec);</P>
+<P CLASS="ciBody">
+   sprintf(TemporaryFileSpec,&quot;%s%s&quot;,FileNameParts.dir,TEMP_FILE_NAME);</P>
+<P CLASS="ciBody">
+   DstFP = fopen(TemporaryFileSpec,&quot;wt&quot;);</P>
+<P CLASS="ciBody">
+   if ( !DstFP ) {</P>
+<P CLASS="ciBody">
+      printf(&quot;Unable to open temporary file \&quot;%s\&quot; for</P>
+<P CLASS="ciBody">
+             reading.\n\a&quot;,TemporaryFileSpec);</P>
+<P CLASS="ciBody">
+      fclose(SrcFP);</P>
+<P CLASS="ciBody">
+      exit(EXIT_FAILURE);</P>
+<P CLASS="ciBody">
+   }</P>
+<P CLASS="Body">
+The above section of code opens a temporary file for the script to work in. It wants to open this file in the same directory as the source file, so it calls the function SplitFileName() to get the directory of the file being read.  SplitFileName returns a structure containing the separate parts of the name of the file, the directory, name and extension.</P>
+<P CLASS="Body">
+From these parts, a new filename is created. The sprintf() function is used to format the string variable correctly, with the name of the temporary file (TEMP_FILE_NAME, defined at the top of the script) put after the directory of the original file (FileNameParts.dir). Now that a full file name has been created for the temporary file, we can open it (and make sure it was opened correctly) with a call to fopen() as we did in the preceeding section of code.</P>
+<P CLASS="ciBody">
+ // replace all text in source</P>
+<P CLASS="ciBody">
+   TextReplaced = WriteWithReplace(SrcFP,DstFP,OldText,NewText);</P>
+<P CLASS="Body">
+The function WriteWithReplace() is then called to do the actual text replacement. Although it doesn't appear until the end of the script, let's take a look at it now :</P>
+<P CLASS="ciBody">
+WriteWithReplace(src,dst,find,replace)</P>
+<P CLASS="ciBody">
+{</P>
+<P CLASS="ciBody">
+   lCount = 0;</P>
+<P CLASS="ciBody">
+   FindLen = strlen(find);</P>
+<P CLASS="ciBody">
+   ReplaceLen = strlen(replace);</P>
+<P CLASS="ciBody">
+   while( lFound = lLine = fgets(src) ) {</P>
+<P CLASS="ciBody">
+      while ( lFound = strstr(lFound,find) ) {</P>
+<P CLASS="ciBody">
+         lCount++;</P>
+<P CLASS="ciBody">
+         strcpy(lFound+ReplaceLen,lFound+FindLen);</P>
+<P CLASS="ciBody">
+         memcpy(lFound,replace,ReplaceLen);</P>
+<P CLASS="ciBody">
+         lFound += ReplaceLen;</P>
+<P CLASS="ciBody">
+      }</P>
+<P CLASS="ciBody">
+      fputs(lLine,dst);</P>
+<P CLASS="ciBody">
+   }</P>
+<P CLASS="ciBody">
+   return lCount;</P>
+<P CLASS="ciBody">
+}</P>
+<P CLASS="Body">
+The first three lines assign values to variables: lCount is set to 0, and FindLen and ReplaceLen are set to the length of the strings find and replace, respectively, using the strlen() function to get the length of each string. The function strlen() returns the length of a string passed to it.</P>
+<P CLASS="Body">
+Although it looks complicated, the while loop that follows may be read as &quot;while there is a string left in the file.&quot;  The single equals signs are setting values, not testing them, so the variables lFound and lLine will be set to equal whatever is returned from the call to fgets(). Since fgets() returns the string that it retrieved from the file, these two variables are initialized as strings. If it is unable to return a string, it will return NULL if there was some other error and evaluate as false. As long as fgets() doesn't return 0 (false), the expression will evaluate as true and the computer will execute the commands in the loop.</P>
+<P CLASS="Body">
+The next while loop uses the strstr() function to search for one string (find) inside another (lFound, created in the previous statement). If the substring is not found, strstr returns 0, the expression evaluates as false, and the statement block is jumped over.  The next line,</P>
+<P CLASS="Body">
+fputs(lLine,dst);</P>
+<P CLASS="Body">
+puts the line into the temporary destination file, and the first loop repeats again, until the fgets() function returns NULL, indicating that it has reached the end of the file (or that an error has occurred).</P>
+<P CLASS="Body">
+If the expression evaluates as true (i.e., the function finds the substring within the larger string), the loop is executed.  Since strstr() returns the string beginning at the place where the substring starts, lFound now begins at the first letter of the substring.  </P>
+<P CLASS="Body">
+lCount is incremented by one (lCount represents the number of times the found text is replaced, so every time ScriptEase finds the text to be replaced, it increments lCount by one). </P>
+<P CLASS="Body">
+The call to strcpy() resizes the string so that it will be the right length for the string after the replacement is made. The length of the text to be replaced is added to lFound, which resets the beginning of the string to the character just after the text to be replaced. This result is then copied back into lFound, but first it adds the length of the replacement text to lFound, leaving space for the replacement text in front of it.</P>
+<P CLASS="Body">
+This is a lot easier to understand with an example.  Suppose we have a string, &quot;Joe has bad breath.&quot; We want to replace &quot;Joe&quot; with &quot;Alice&quot;. If we call the string lFound, then lFound + strlen(&quot;Joe&quot;) is equivalent to  &quot; has bad breath.&quot; The starting place of the string  has been advanced by three spaces (strlen(&quot;Joe&quot;) is equal to three). (The `J' of Joe is still there, at string[-3]; however, when strings are used in operations, the negative members are ignored).</P>
+<P CLASS="ciBody">
+strcpy (lFound + strlen(&quot;Alice&quot;), lFound + strlen(&quot;Joe&quot;));</P>
+<P CLASS="Body">
+This line copies the second parameter into the first. The addition in the first parameter means to advance the starting point of the string by five spaces (the length of  &quot;Alice&quot;) before pasting in the new string. so the resulting string will be &quot;Joe h has bad breath.&quot; The second string begins at the space after the lone letter `h'; as you can see, there are five characters before it, just the right amount of space to fit &quot;Alice&quot; into.</P>
+<P CLASS="Body">
+Next we call the memcpy() function to copy the replacement text into the space we just allotted for it. memcpy() copies the characters in one string into another, stopping after it has copied as many characters as the third optional parameter (if this third parameter is omitted, the entire string will be copied).</P>
+<P CLASS="Body">
+The final line of the loop,</P>
+<P CLASS="Body">
+lFound += ReplaceLen;</P>
+<P CLASS="Body">
+advances lFound to the point just past where you just inserted text, so when you test the line again, it won't test the part that you just fixed.  This is only important when the text to be found is a substring of the replacement text, e.g. &quot;North&quot; being replaced with &quot;North Carolina&quot;.  If you didn't advance past the replacement text, it would continuously replace the &quot;North&quot; in &quot;North Carolina&quot;, producing the string &quot;North Carolina Carolina Carolina Carolina Carolina Carolina Carolina...&quot;</P>
+<P CLASS="Body">
+The loop then repeats, going back to the strstr() statement to see if there are any more instances of the search string in the line.  If so, the loop repeats; if not, the next line (after the loop) is carried out:</P>
+<P CLASS="ciBody">
+fputs(lLine,dst);</P>
+<P CLASS="Body">
+lLine was defined with lFound to be the string from the fgets() statement (at the very beginning of the loop). The two variable point to the same string; the only difference is that we mucked around with the starting point of lFound (with the strstr() statement), while leaving lLine alone. This line puts the string lLine into the file dst, which we opened in the main part of the script as DestFP, but passed to the function as dst.</P>
+<P CLASS="Body">
+The final line of the function returns lCount to main, so that we know how many times the string was replaced.</P>
+<P CLASS="Body">
+Having returned back to the main() function, the next lines check to see if there were any errors recorded in writing to the files. The function ferror(), passed a pointer to a file, will return False if there were no errors recorded while writing to that file. If there is, we call the function CleanUp(), which removes the temporary files we created and exits the program (the code for the CleanUp() function appears at the end of the listing).</P>
+<P CLASS="ciBody">
+SrcError = ferror(SrcFP);</P>
+<P CLASS="ciBody">
+DstError = ferror(DstFP);</P>
+<P CLASS="ciBody">
+if (SrcError)</P>
+<P CLASS="ciBody">
+  CleanUp(TemporaryFileSpec);</P>
+<P CLASS="Body">
+Next, we close the files that are open.</P>
+<P CLASS="ciBody">
+fclose(SrcFP);</P>
+<P CLASS="ciBody">
+fclose(DstFP);</P>
+<P CLASS="Body">
+The variable TextReplaced, returned from the function WriteWithReplace(), represents the number of replacements that were made. If TextReplaced is true (i.e., is not equal to zero), rename the source file something else (if there's a problem later on, we'll want a backup copy) and then rename the file we just changed with the name of the original file. The function that renames a file, rename(), returns 0 for success, non-zero for failure, so rename(x,y) will evaluate as true if the computer is unable to rename the file &quot;x&quot; as &quot;y&quot;. When we're done with all the renaming, call CleanUp() and exit.</P>
+<P CLASS="ciBody">
+if (TextReplaced){</P>
+<P CLASS="ciBody">
+  if (DstError){</P>
+<P CLASS="ciBody">
+    printf(&quot;Error writing to temporary file&quot;);</P>
+<P CLASS="ciBody">
+    CleanUp(TemporaryFileSpec);</P>
+<P CLASS="ciBody">
+  }</P>
+<P CLASS="ciBody">
+  if (rename( FileSpec,AnotherTemporaryFile = tmpnam())){</P>
+<P CLASS="ciBody">
+    printf(&quot;Error creating backup of original file&quot;);</P>
+<P CLASS="ciBody">
+    CleanUp(TemporaryFileSpec, AnotherTemporaryFile);</P>
+<P CLASS="ciBody">
+  }</P>
+<P CLASS="ciBody">
+  if (rename (TemporaryFileSpec, FileSpec)){</P>
+<P CLASS="ciBody">
+    printf(&quot;Unable to replace the old file with the new.&quot;)</P>
+<P CLASS="ciBody">
+&nbsp;</P>
+<P CLASS="ciBody">
+    if (rename(AnotherTemporaryFile, FileSpec)){</P>
+<P CLASS="ciBody">
+      printf(&quot;The old file is saved as %s&quot;, AnotherTemporaryFile);</P>
+<P CLASS="ciBody">
+    }</P>
+<P CLASS="ciBody">
+    CleanUp(TemporaryFileSpec);</P>
+<P CLASS="ciBody">
+&nbsp;</P>
+<P CLASS="ciBody">
+  }</P>
+<P CLASS="ciBody">
+  else CleanUp(AnotherTemporaryFileSpec);</P>
+<P CLASS="ciBody">
+}</P>
+<P CLASS="ciBody">
+else{</P>
+<P CLASS="ciBody">
+  printf(&quot;The search string was not found.&quot;);</P>
+<P CLASS="ciBody">
+  CleanUp(TemporaryFileSpec);</P>
+<P CLASS="ciBody">
+}</P>
+<P CLASS="ciBody">
+&nbsp;</P>
+<P CLASS="ciBody">
+}  //this is the closing brace to main()</P>
+<P CLASS="Body">
+The function CleanUp() deletes any files passed to it as parameters.  Since there is no way of telling how many files will be passed to it, the parentheses following the function call are left empty, and the function's variables are accessed through the va_arg() function. (In this script, either one or two variables will be passed. However, you can use va_arg() with an indefinate number of variables).</P>
+<P CLASS="Body">
+va_arg() is first called in the for loop, where there are no parameters passed to it. In this form, va_arg() returns the number of parameters passed; it is a counterpart to the argc variable in main. This loop will run once for each parameter passed to the function.</P>
+<P CLASS="Body">
+The next time va_arg() is called, it has a parameter, which will correspond to the parameters that the function was passed. Counting starts at 0, so va_arg(0) is the first parameter, va_arg(1) is the second, and so forth. Notice that the parameters are contained in parenthesis ( () ), and not in brackets ( [] ) as is the case with main's argv[] variable. The remove function is used to delete a file.</P>
+<P CLASS="ciBody">
+CleanUp()</P>
+<P CLASS="ciBody">
+{</P>
+<P CLASS="ciBody">
+  for (x=0; x&lt;va_arg(); x++){</P>
+<P CLASS="ciBody">
+  remove (va_arg(x));</P>
+<P CLASS="ciBody">
+  }</P>
+<P CLASS="ciBody">
+  exit(0);</P>
+<P CLASS="ciBody">
+}</P>
+<P CLASS="Body">
+&nbsp;</P>
+</DIV>
+<TABLE WIDTH="225" BORDER="0" CELLSPACING="0" CELLPADDING="0">
+  <TR>
+    <TD WIDTH="71"><a href="2-sevsc.htm"><IMG SRC="prev.gif" WIDTH="71" height="18" border="0"></a></TD>
+    <TD WIDTH="80"><a href="../index.htm"><IMG SRC="tocidx.gif" WIDTH="80" height="18" border="0"></a></TD>
+    <TD WIDTH="74"><a href="4-exe.htm"><IMG SRC="next.gif" WIDTH="74" height="18" border="0"></a></TD>
+  </TR>
+</TABLE>
+
+</BODY>
+</HTML>

@@ -1,0 +1,90 @@
+<html>
+<head>
+<title>OBJECT CLASSES</title>
+<link rel="stylesheet" href="semanualstyles.css" type="text/css">
+<style type="text/css">
+ p { margin-top: 0; margin-bottom: 0; }
+</style>
+<script language="JavaScript" src="TrueHelp.js"></script>
+</head>
+<body onload="thload()">
+<div id=ienav>
+<ilayer id=nsnav>
+<br>
+<center>
+<p class=normal><a href="seisdkj-toc.htm" target="left">contents</a> &nbsp; <a href="seisdkj-index.htm" target="left">index</a> &nbsp; <a href="TH_192.htm">previous</a> &nbsp; <a href="TH_194.htm">next</a></p>
+</center>
+<br>
+<hr noshade size=1>
+</ilayer>
+</div>
+<p class=heading-2>OBJECT CLASSES</p>
+<p class=heading-2-p>&nbsp;</p>
+<p class=senormalpara>An object class starts with a constructor function. A constructor function&#8217;s job is to initialize a new object of the object class. It can be written in Java using wrapper functions or implemented in JavaScript. When the user wishes to create a new object of your class, he calls your constructor function using the new operator, such as:</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=secodelinesindented>var&nbsp;a&nbsp;=&nbsp;new&nbsp;MyClass();</p>
+<p class=secodelinesindented>&nbsp;</p>
+<p class=senormalpara>In this case, the constructor function is <span class=secodephrase>MyClass</span>. Your constructor function will have a new blank object of its class provided to it as its <span class=secodephrase>this</span> variable. The function can then add members to the <span class=secodephrase>this</span> variable as appropriate for the task your object class is designed to perform. Here is a simple circle class constructor written in JavaScript:</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=secodelinesindented>function&nbsp;circle(radius)</p>
+<p class=secodelinesindented>{</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;this.radius&nbsp;=&nbsp;radius;</p>
+<p class=secodelinesindented>}</p>
+<p class=secodelinesindented>&nbsp;</p>
+<p class=senormalpara>With this constructor in your script, you can create a new circle object in JavaScript such as <span class=secodephrase>new circle(10)</span>. Although this example has implemented the circle constructor in JavaScript, you could also implement the circle constructor using the ScriptEase API, as we will demonstrate later in this chapter.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>The particular parameters you pass to your constructor as well as how you set up your new object is determined by the object&#8217;s intended use. The main point to remember is that the <span class=secodephrase>this</span> variable passed to your constructor is already a blank object of the constructor&#8217;s object class. All objects of a single class share common members via their <span class=secodephrase>prototype</span>. This sharing is set up for your premade <span class=secodephrase>this</span> variable passed to your constructor.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>You designate the methods to share by putting them in the <span class=secodephrase>prototype</span> member of the constructor function. All object&#8217;s of the constructor&#8217;s class have access to those members. Here is a simple script that uses a slightly extended version of the <span class=secodephrase>circle</span> constructor:</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=secodelinesindented>function&nbsp;circle(radius)</p>
+<p class=secodelinesindented>{</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;this.radius&nbsp;=&nbsp;radius;</p>
+<p class=secodelinesindented>}</p>
+<p class=secodelinesindented>&nbsp;</p>
+<p class=secodelinesindented>function&nbsp;circle.prototype.toString()</p>
+<p class=secodelinesindented>{</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;return&nbsp;"circle&nbsp;of&nbsp;radius&nbsp;"&nbsp;+&nbsp;this.radius;</p>
+<p class=secodelinesindented>}</p>
+<p class=secodelinesindented>&nbsp;</p>
+<p class=secodelinesindented>var&nbsp;a&nbsp;=&nbsp;new&nbsp;circle(5);</p>
+<p class=secodelinesindented>Clib.puts(a.toString());</p>
+<p class=senormalpara>&nbsp;</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>This is a simple program that will print <span class=secodephrase>circle of radius 5</span>. Although we've implemented this in script form, you can do the same using the ScriptEase API. Here is the version that does so:</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=secodelinesindented>public&nbsp;void&nbsp;circle(SEContext&nbsp;se,int&nbsp;argc)</p>
+<p class=secodelinesindented>{</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;assert(&nbsp;argc==1&nbsp;);</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;se.seAssign(SE.THIS,SE.MEM("radius"),&nbsp;SE.ARGS,SE.NUM(0));</p>
+<p class=secodelinesindented>}</p>
+<p class=secodelinesindented>&nbsp;</p>
+<p class=secodelinesindented>public&nbsp;void&nbsp;circleToString(SEContext&nbsp;se,int&nbsp;argc)</p>
+<p class=secodelinesindented>{</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;String&nbsp;str&nbsp;=&nbsp;&#147;circle&nbsp;of&nbsp;radius&nbsp;&#147;&nbsp;+&nbsp;&nbsp;&nbsp;</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(int)se.seGetNumber(SE.THIS,SE.MEM(&#147;radius&#148;));</p>
+<p class=secodelinesindented>&nbsp;</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;se.sePutString(SE.RETURN,SE.VALUE,&nbsp;str);</p>
+<p class=secodelinesindented>}</p>
+<p class=secodelinesindented>&nbsp;</p>
+<p class=secodelinesindented>SELibraryTable[]&nbsp;circleTable&nbsp;=&nbsp;</p>
+<p class=secodelinesindented>{</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;SE.CLASS(&nbsp;"circle",&nbsp;&#147;circle&#148;,&nbsp;1,&nbsp;1,&nbsp;SE.SECURE,&nbsp;SE.DEFAULT),</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;SE.PROTO</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;SE.METHOD(&nbsp;"toString",&nbsp;&#147;circleToString&#148;,&nbsp;0,&nbsp;0,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;SE_SECURE,&nbsp;SE.DEFAULT),</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;SE.END_PROTO,</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;SE.END_CLASS</p>
+<p class=secodelinesindented>}</p>
+<p class=secodelinesindented>&nbsp;</p>
+<p class=secodelinesindented>se.seAddLibTable(circleTable,this);</p>
+<p class=secodelinesindented>&nbsp;</p>
+<p class=senormalpara>Notice that the circle function in both the JavaScript and ScriptEase API versions returns no value. It instead initializes the provided <span class=secodephrase>this</span> variable. Constructors can return a value which will override the default preconstructed <span class=secodephrase>this</span> variable. However, doing so requires you to do all of the initialization for the object you intend to return yourself.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>Please refer to a JavaScript language book for more information on objects and object classes.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<hr noshade size=1>
+<p class=normal><a href="TH_194.htm"><img src="button.png" border=0></a><a href="TH_194.htm" style="text-decoration:none;">DYNAMIC OBJECTS</a></p>
+<p>
+</body>
+</html>

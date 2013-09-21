@@ -1,0 +1,42 @@
+<html>
+<head>
+<title>interface: SEErrorFunction</title>
+<link rel="stylesheet" href="semanualstyles.css" type="text/css">
+<style type="text/css">
+ p { margin-top: 0; margin-bottom: 0; }
+</style>
+<script language="JavaScript" src="TrueHelp.js"></script>
+</head>
+<body onload="thload()">
+<div id=ienav>
+<ilayer id=nsnav>
+<br>
+<center>
+<p class=normal><a href="seisdkj-toc.htm" target="left">contents</a> &nbsp; <a href="seisdkj-index.htm" target="left">index</a> &nbsp; <a href="TH_71.htm">previous</a> &nbsp; <a href="TH_73.htm">next</a></p>
+</center>
+<br>
+<hr noshade size=1>
+</ilayer>
+</div>
+<p class=heading-3>interface: SEErrorFunction</p>
+<p class=heading-3-p>&nbsp;</p>
+<p class=secodelinesindented><span class=secodephrase>public&nbsp;void&nbsp;seAtErrorFunc(SEContext&nbsp;context,&nbsp;SEAtErrorInfo&nbsp;info);</span></p>
+<p class=senormalpara>&nbsp;</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>The <span class=secodephrase>seAtErrorFunc</span> method is invoked whenever a script generates an error, at the point of error. This will occur for any error, even if the error is trapped via a <span class=secodephrase>try/catch</span> handler. Note that some scripts will throw errors as a valid part of their program such as to indicate an error return from a function which will be trapped higher up in the script. This is why normally you do not care about an error until it comes back to you via the <span class=secodephrase>sePrintErrorFunc</span>, indicating it never is trapped. Getting an immediate notification is primarily useful in implementing a debugger for which the user may want to stop anytime an error is generated even if it will be handled, in order to step through the handling code.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>The <span class=secodephrase>seAtErrorFunc</span> is passed an informational <span class=secodephrase>SEAtErrorInfo</span> object.  Currently, the SEAtErrorInfo has one public method:</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=secodelinesindented><span class=secodephrase>public&nbsp;boolean&nbsp;getTrapped();</span></p>
+<p class=secodelinesindented>&nbsp;</p>
+<p class=senormalpara>The <span class=secodephrase>getTrapped</span> method returns <span class=secodephrase>true</span> if the error will be trapped and <span class=secodephrase>false</span> if the <span class=secodephrase>sePrintErrorFunc</span> will be called on it.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>The actual value of the error is set up in the <span class=secodephrase>SE.RETURN</span> object, described fully in Chapter V. For an error, the value is an <span class=secodephrase>Error</span> object as described by the ECMAScript specification. Since working with variables and return values is not described until later chapters, you should revisit this description once you have read those chapters.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>&nbsp;</p>
+<p class=senormalpara-p>&nbsp;</p>
+<hr noshade size=1>
+<p class=normal><a href="TH_73.htm"><img src="button.png" border=0></a><a href="TH_73.htm" style="text-decoration:none;">interface: SEContinueFunction</a></p>
+<p>
+</body>
+</html>

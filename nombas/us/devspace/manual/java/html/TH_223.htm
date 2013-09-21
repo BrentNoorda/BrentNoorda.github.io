@@ -1,0 +1,32 @@
+<html>
+<head>
+<title>SE.GLOBAL</title>
+<link rel="stylesheet" href="semanualstyles.css" type="text/css">
+<style type="text/css">
+ p { margin-top: 0; margin-bottom: 0; }
+</style>
+<script language="JavaScript" src="TrueHelp.js"></script>
+</head>
+<body onload="thload()">
+<div id=ienav>
+<ilayer id=nsnav>
+<br>
+<center>
+<p class=normal><a href="seisdkj-toc.htm" target="left">contents</a> &nbsp; <a href="seisdkj-index.htm" target="left">index</a> &nbsp; <a href="TH_222.htm">previous</a> &nbsp; <a href="TH_224.htm">next</a></p>
+</center>
+<br>
+<hr noshade size=1>
+</ilayer>
+</div>
+<p class=heading-4>SE.GLOBAL</p>
+<p class=senormalpara>The members of this object are the global variables of the script. For instance, the global variable <span class=secodephrase>zed</span> is the member <span class=secodephrase>zed</span> of this object. You can examine and change global variables by using this stock object. You can also change the global object itself by using using <span class=secodephrase>sePutObject</span> on <span class=secodephrase>SE.GLOBAL,SE.VALUE</span>.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>Note that all functions remember the global object in effect when they were first created and swap that in when they are executing. This facilitates scoping where multiple scripts are executed using <span class=secodephrase>seEval</span>, each with a new global object. The    various functions remember their global object, so variables created with the <span class=secodephrase>var</span> keyword in the script the function was evaluated in are accessible whenever the function is executing.  For some programs, this behavior is undesirable. For instance, a person might want to create utility functions that always act on the variables in effect and run them with different global objects. There are two ways to change the behavior.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>First, by turning off <span class=secodephrase>JSE_MULTIPLE_GLOBAL</span> in your <span class=secodephrase>jseopt.jh</span> file, this behavior is turned off completely. Alternately, you can turn the behavior off for any wrapper function by including the <span class=secodephrase>SE.KEEP_GLOBAL</span> flag in the function flags used to define that wrapper function (see Chapter VII, wrapper functions for more details.)</p>
+<p class=senormalpara-p>&nbsp;</p>
+<hr noshade size=1>
+<p class=normal><a href="TH_224.htm"><img src="button.png" border=0></a><a href="TH_224.htm" style="text-decoration:none;">SE.ARGS</a></p>
+<p>
+</body>
+</html>

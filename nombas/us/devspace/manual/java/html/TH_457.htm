@@ -1,0 +1,87 @@
+<html>
+<head>
+<title>Buffer getValue()</title>
+<link rel="stylesheet" href="semanualstyles.css" type="text/css">
+<style type="text/css">
+ p { margin-top: 0; margin-bottom: 0; }
+</style>
+<script language="JavaScript" src="TrueHelp.js"></script>
+</head>
+<body onload="thload()">
+<div id=ienav>
+<ilayer id=nsnav>
+<br>
+<center>
+<p class=normal><a href="seisdkj-toc.htm" target="left">contents</a> &nbsp; <a href="seisdkj-index.htm" target="left">index</a> &nbsp; <a href="TH_456.htm">previous</a> &nbsp; <a href="TH_458.htm">next</a></p>
+</center>
+<br>
+<hr noshade size=1>
+</ilayer>
+</div>
+<p class=sereffunclevel4>Buffer getValue()</p>
+<table cellpadding=0>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>syntax:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=sesyntax>buffer.getValue<span class=truehelp-xe></span>([valueSize[,&nbsp;valueType]])</p></td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>where:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>valueSize - a positive number describing the number of bytes to be used and defaults to 1. The following are acceptable values: 1, 2, 3, 4, 8, and 10 </p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>valueType - One of the following types: "<span class=secodephrase>signed</span>", "<span class=secodephrase>unsigned</span>", or "<span class=secodephrase>float</span>". The default type is: "<span class=secodephrase>signed</span>."</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>return:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>number - from the position, specified by the <span class=secodephrase>cursor</span> property, in a <span class=sepopuptopic><a href="TH_445.htm" onClick="return thwindow('TH_445.htm', 'GenPopup')">Buffer object</a></span>.</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>description:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>This call is similar to the <span class=sepopuptopic><a href="TH_459.htm" onClick="return thwindow('TH_459.htm', 'GenPopup')">Buffer putValue()</a></span> function, except that it gets a value instead of puts a value.</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>see:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara><span class=sejumptopic><a href="TH_459.htm">Buffer putValue()</a></span>, <span class=sejumptopic><a href="TH_451.htm">Buffer[] Array</a></span></p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>example:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=secodelines>/*</p>
+<p class=secodelines>To&nbsp;explicitly&nbsp;put&nbsp;a&nbsp;value&nbsp;at&nbsp;a&nbsp;specific&nbsp;location</p>
+<p class=secodelines>while&nbsp;preserving&nbsp;the&nbsp;cursor&nbsp;location,</p>
+<p class=secodelines>do&nbsp;something&nbsp;similar&nbsp;to&nbsp;the&nbsp;following.</p>
+<p class=secodelines>*/</p>
+<p class=secodelines>&nbsp;</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;//&nbsp;Save&nbsp;the&nbsp;old&nbsp;cursor&nbsp;location</p>
+<p class=secodelines>var&nbsp;oldCursor&nbsp;=&nbsp;foo.cursor;</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;//&nbsp;Set&nbsp;to&nbsp;new&nbsp;location</p>
+<p class=secodelines>foo.cursor&nbsp;=&nbsp;20;</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;//&nbsp;Get&nbsp;goo&nbsp;at&nbsp;offset&nbsp;20</p>
+<p class=secodelines>bar&nbsp;=&nbsp;foo.getValue(goo);</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;//&nbsp;Restore&nbsp;cursor&nbsp;location</p>
+<p class=secodelines>foo.cursor&nbsp;=&nbsp;oldCursor</p>
+<p class=secodelines>&nbsp;</p>
+<p class=secodelines>//Please&nbsp;see&nbsp;Buffer.putValue</p>
+<p class=secodelines>//&nbsp;for&nbsp;a&nbsp;more&nbsp;complete&nbsp;description.</p></td>
+</tr>
+</table>
+<p class=normal>&nbsp;</p>
+<hr noshade size=1>
+<p class=normal><a href="TH_458.htm"><img src="button.png" border=0></a><a href="TH_458.htm" style="text-decoration:none;">Buffer putString()</a></p>
+<p>
+</body>
+</html>

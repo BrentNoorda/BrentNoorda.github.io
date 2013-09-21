@@ -1,0 +1,104 @@
+<html>
+<head>
+<title>SElib.doWindows()</title>
+<link rel="stylesheet" href="semanualstyles.css" type="text/css">
+<style type="text/css">
+ p { margin-top: 0; margin-bottom: 0; }
+</style>
+<script language="JavaScript" src="TrueHelp.js"></script>
+</head>
+<body onload="thload()">
+<div id=ienav>
+<ilayer id=nsnav>
+<br>
+<center>
+<p class=normal><a href="seisdkj-toc.htm" target="left">contents</a> &nbsp; <a href="seisdkj-index.htm" target="left">index</a> &nbsp; <a href="TH_818.htm">previous</a> &nbsp; <a href="TH_820.htm">next</a></p>
+</center>
+<br>
+<hr noshade size=1>
+</ilayer>
+</div>
+<p class=sereffunclevel4>SElib.doWindows()</p>
+<table cellpadding=0>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>syntax:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=sesyntax>SElib.doWindows(immediateReturn)</p></td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>where:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>immediateReturn - if <span class=secodephrase>true</span> return immediately, regardless of messages. Default is <span class=secodephrase>false</span>.</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>return:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>boolean - <span class=secodephrase>true</span> if any of the windows created with <span class=secodephrase>SElib.makeWindow()</span> or subclassed with <span class=secodephrase>SElib.subclassWindow()</span> are still open, that is, have not received a WM_NCDESTROY message. Returns <span class=secodephrase>false</span> if there are no valid windows registered with the ScriptEase Window Manager.</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>description:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>For Win32 and Win16</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>Starts the ScriptEase Window Manager to activate whatever windows have been created or subclassed with <span class=sepopuptopic><a href="TH_826.htm" onClick="return thwindow('TH_826.htm', 'GenPopup')">SElib.makeWindow()</a></span> or <span class=sepopuptopic><a href="TH_836.htm" onClick="return thwindow('TH_836.htm', 'GenPopup')">SElib.subclassWindow()</a></span>. All such windows are registered with the Window Manager. The Window Manager controls the messages sent to the windows in its registry and routes them to their respective window functions.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>There should not be more than one copy of the Window Manager running at a time. Generally, <span class=secodephrase>SElib.doWindows()</span> is called only once with a succession of windows. All windows created or subclassed after a call to <span class=secodephrase>SElib.doWindows()</span> are automatically registered with the Window Manager.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>The flags that define window messages are kept in the library file, message.jsh.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>If the optional parameter immediateReturn is <span class=secodephrase>true</span>, the method returns immediately, regardless of whether there are messages for this application or not. Otherwise this method yields control to other applications until a message has been processed, subject to filtering by <span class=sepopuptopic><a href="TH_827.htm" onClick="return thwindow('TH_827.htm', 'GenPopup')">SElib.messageFilter()</a></span>, for this application or for any window subclassed by this application.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>The example below displays a standard Windows window. If you click anywhere in the window, the string "You clicked me!" is displayed briefly in the middle of the window. When the window is closed, the script terminates.</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>see:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara><span class=sejumptopic><a href="TH_826.htm">SElib.makeWindow()</a></span>, <span class=sejumptopic><a href="TH_836.htm">SElib.subclassWindow()</a></span>, Window object in <i>winobj.jsh</i></p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>example:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=secodelines>#include&nbsp;&lt;message.jsh&gt;</p>
+<p class=secodelines>#include&nbsp;&lt;window.jsh&gt;</p>
+<p class=secodelines>function&nbsp;main()</p>
+<p class=secodelines>{</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;var&nbsp;hWnd&nbsp;=&nbsp;SElib.makeWindow(null,&nbsp;null,</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;WindowFunction,&nbsp;"Display&nbsp;Windows'&nbsp;messages",</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;WS_OVERLAPPEDWINDOW&nbsp;|&nbsp;WS_VISIBLE,</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;CW_USEDEFAULT,&nbsp;CW_USEDEFAULT,</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;500,&nbsp;350,&nbsp;null,&nbsp;0);</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;SElib.messageFilter(hWnd,&nbsp;WM_LBUTTONDOWN);</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;while(SElib.doWindows())&nbsp;;</p>
+<p class=secodelines>}</p>
+<p class=secodelines>&nbsp;</p>
+<p class=secodelines>function&nbsp;WindowFunction(hWnd,&nbsp;msg,&nbsp;param1,&nbsp;</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;param2,&nbsp;counter)</p>
+<p class=secodelines>{</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;if&nbsp;(msg&nbsp;==&nbsp;WM_LBUTTONDOWN)</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;{</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;var&nbsp;msgHwnd&nbsp;=&nbsp;SElib.makeWindow(hWnd,</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"static",&nbsp;null,&nbsp;"You&nbsp;clicked&nbsp;me!",</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;WS_CHILD&nbsp;|&nbsp;WS_VISIBLE,</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;200,&nbsp;150,&nbsp;100,&nbsp;50,&nbsp;null,&nbsp;0);</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;SElib.suspend(1000);</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;SElib.breakWindow(msgHwnd);</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;}</p>
+<p class=secodelines>}</p></td>
+</tr>
+</table>
+<p class=normal>&nbsp;</p>
+<hr noshade size=1>
+<p class=normal><a href="TH_820.htm"><img src="button.png" border=0></a><a href="TH_820.htm" style="text-decoration:none;">SElib.fullpath()</a></p>
+<p>
+</body>
+</html>

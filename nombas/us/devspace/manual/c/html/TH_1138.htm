@@ -1,0 +1,81 @@
+<html>
+<head>
+<title>Stproc execute()</title>
+<link rel="stylesheet" href="semanualstyles.css" type="text/css">
+<style type="text/css">
+ p { margin-top: 0; margin-bottom: 0; }
+</style>
+<script language="JavaScript" src="TrueHelp.js"></script>
+</head>
+<body onload="thload()">
+<div id=ienav>
+<ilayer id=nsnav>
+<br>
+<center>
+<p class=normal><a href="seisdkc-toc.htm" target="left">contents</a> &nbsp; <a href="seisdkc-index.htm" target="left">index</a> &nbsp; <a href="TH_1137.htm">previous</a> &nbsp; next</p>
+</center>
+<br>
+<hr noshade size=1>
+</ilayer>
+</div>
+<p class=sereffunclevel4>Stproc execute()</p>
+<table cellpadding=0>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>syntax:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=sesyntax>stproc.execute()<span class=truehelp-xe></span></p></td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>return:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>number - 0 if the call was successful; otherwise, a nonzero status code based on the error message produced by the database.  If the method returns a nonzero status code, use the associated Database's <span class=secodephrase>majorErrorCode</span> and <span class=secodephrase>majorErrorMessage</span> methods to interpret the meaning of the error.</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>description:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>This method executes the stored procedure of SQL statement.  It allows execution of any stored procedure or SQL statement that uses data definition language (DDL) or data manipulation language (DML) statements supported by the database server and that do not return a cursor (such as <span class=secodephrase>CREATE</span>, <span class=secodephrase>ALTER</span>, or <span class=secodephrase>DROP</span>).</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>Each database supports a standard core of DDL and DML statements.  In addition, a database may support DDL and DML statements specific to that database vendor.  Use <span class=secodephrase>execute</span> to call any of those statements.  However, a database vendor may provide functions that are not DDL or DML statements.  Do not use <span class=secodephrase>execute</span> to call a stored procedure using those functions.  For example, do not call the Oracle <span class=secodephrase>describe</span> function or the Informix <span class=secodephrase>load</span> function from a stored procedure's <span class=secodephrase>execute</span> method. Although the <span class=secodephrase>execute</span> method can be used to perform data modification (<span class=secodephrase>INSERT</span>, <span class=secodephrase>UPDATE</span>, or <span class=secodephrase>DELETE</span> statements), it is recommended that <span class=secodephrase>Cursor</span> objects be used instead to achieve the same functionality.  Using the <span class=secodephrase>Cursor</span> object for these sorts of actions allows better database-type independence and also allows the use of binary large object (BLOb) data.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>When using the <span class=secodephrase>execute</span> method, the stored procedure's SQL statement must strictly conform to the syntax requirements of the database server.  For example, some servers require each SQL statement be terminated with a semicolon. See the server documentation for more information. If a transaction has not been started with <span class=secodephrase>beginTransaction</span>, the single statement is automatically immediately committed when the stored procedure's <span class=secodephrase>execute</span> method is called.</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>see:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara><span class=secodephrase>#link &lt;sedbc&gt;</span>, <span class=sejumptopic><a href="TH_1137.htm">Stproc cursor()</a></span>, <span class=sejumptopic><a href="TH_1098.htm">Database majorErrorCode()</a></span>, <span class=sejumptopic><a href="TH_1099.htm">Database majorErrorMessage()</a></span></p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>example:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=secodelines>//&nbsp;Create&nbsp;a&nbsp;new&nbsp;database&nbsp;object,&nbsp;and</p>
+<p class=secodelines>//&nbsp;connect&nbsp;it&nbsp;to&nbsp;a&nbsp;data&nbsp;source</p>
+<p class=secodelines>var&nbsp;a&nbsp;=&nbsp;new&nbsp;Database;</p>
+<p class=secodelines>a.connect(DBEngine,&nbsp;DataSource,&nbsp;User,&nbsp;Password);</p>
+<p class=secodelines>&nbsp;</p>
+<p class=secodelines>//&nbsp;execute&nbsp;the&nbsp;stored&nbsp;procedure&nbsp;'SomeProc'</p>
+<p class=secodelines>var&nbsp;sp&nbsp;=&nbsp;a.storedProc("SomeProc");</p>
+<p class=secodelines>sp.ItemID&nbsp;=&nbsp;123;</p>
+<p class=secodelines>sp.execute();</p>
+<p class=secodelines>&nbsp;</p>
+<p class=secodelines>//&nbsp;execute&nbsp;an&nbsp;SQL&nbsp;stored&nbsp;procedure</p>
+<p class=secodelines>sp&nbsp;=&nbsp;a.storedProc("delete&nbsp;from&nbsp;Items&nbsp;where&nbsp;Weight&nbsp;=&nbsp;?");</p>
+<p class=secodelines>sp[0]&nbsp;=&nbsp;1000;</p>
+<p class=secodelines>sp.execute();</p>
+<p class=secodelines>&nbsp;</p>
+<p class=secodelines>//&nbsp;clean&nbsp;up</p>
+<p class=secodelines>sp.close();</p>
+<p class=secodelines>a.close();</p></td>
+</tr>
+</table>
+<p class=normal>&nbsp;</p>
+<p>
+</body>
+</html>

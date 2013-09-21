@@ -1,0 +1,65 @@
+<html>
+<head>
+<title>Socket linger()</title>
+<link rel="stylesheet" href="semanualstyles.css" type="text/css">
+<style type="text/css">
+ p { margin-top: 0; margin-bottom: 0; }
+</style>
+<script language="JavaScript" src="TrueHelp.js"></script>
+</head>
+<body onload="thload()">
+<div id=ienav>
+<ilayer id=nsnav>
+<br>
+<center>
+<p class=normal><a href="seisdkc-toc.htm" target="left">contents</a> &nbsp; <a href="seisdkc-index.htm" target="left">index</a> &nbsp; <a href="TH_1146.htm">previous</a> &nbsp; <a href="TH_1148.htm">next</a></p>
+</center>
+<br>
+<hr noshade size=1>
+</ilayer>
+</div>
+<p class=sereffunclevel4>Socket linger()</p>
+<table cellpadding=0>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>syntax:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=sesyntax>socket.linger(<span class=truehelp-xe></span>flag[,&nbsp;timeout])</p></td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>where:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>flag - A boolean value indicating whether this socket will linger or not</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>timeout - A timeout, in seconds, to wait for when closing the socket, only used when linger is on.  This defaults to 10 if not supplied.</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>return:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>boolean - Whether the operation was successful</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>description:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>If <span class=secodephrase>flag</span> is <span class=secodephrase>true</span>, then this socket is set to linger, otherwise it is not.  A lingering socket will remain active after closing it if there remains data to be read or written. If linger is not set, then the socket will immediately close, but any remaining data will be sent, if possible, before closing the socket.  If linger is active, and timeout 0, then the socket is immediately closed and any unsent data is lost, simulating a hard close.  Otherwise, the socket remains open until the data is transferred or <span class=secodephrase>timeout</span> is reached. By default, all sockets are non-lingering.</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>see:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara><span class=secodephrase>#link &lt;sesock&gt;</span>, <span class=sejumptopic><a href="TH_1146.htm">Socket close()</a></span></p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+</table>
+<p class=normal>&nbsp;</p>
+<hr noshade size=1>
+<p class=normal><a href="TH_1148.htm"><img src="button.png" border=0></a><a href="TH_1148.htm" style="text-decoration:none;">Socket read()</a></p>
+<p>
+</body>
+</html>

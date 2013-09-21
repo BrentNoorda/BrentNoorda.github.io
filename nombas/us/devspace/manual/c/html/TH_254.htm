@@ -1,0 +1,184 @@
+<html>
+<head>
+<title>GLOBAL MANIPULATION</title>
+<link rel="stylesheet" href="semanualstyles.css" type="text/css">
+<style type="text/css">
+ p { margin-top: 0; margin-bottom: 0; }
+</style>
+<script language="JavaScript" src="TrueHelp.js"></script>
+</head>
+<body onload="thload()">
+<div id=ienav>
+<ilayer id=nsnav>
+<br>
+<center>
+<p class=normal><a href="seisdkc-toc.htm" target="left">contents</a> &nbsp; <a href="seisdkc-index.htm" target="left">index</a> &nbsp; <a href="TH_253.htm">previous</a> &nbsp; <a href="TH_255.htm">next</a></p>
+</center>
+<br>
+<hr noshade size=1>
+</ilayer>
+</div>
+<p class=sereffunclevel3>GLOBAL MANIPULATION</p>
+<p class=sereffunclevel3-p>&nbsp;</p>
+<p class=senormalpara>Although the intent of fibers is to conserve memory by sharing overhead, often each fiber should still be independent. For instance, you may not want them to share global variables. This is easy to accomplish. After you create the initial context and set up the libraries in it using <span class=secodephrase>seCreateContext</span>, you preserve that global object. Then for each fiber (including the original context returned by <span class=secodephrase>seCreateContext</span>), you give it a new global object with its <span class=secodephrase>_prototype</span> pointing to the preserved global object. Thus, all new variables created in a fiber will be created in its private global object, yet it still can refer via the global&#8217;s prototype to the original global object which contains all the standard function libraries.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>Here is a short example ScriptEase API application that creates several fibers and runs them all.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=secodelinesindented>#define&nbsp;MAX_FIBERS&nbsp;5</p>
+<p class=secodelinesindented>&nbsp;</p>
+<p class=secodelinesindented>&nbsp;</p>
+<p class=secodelinesindented>/*&nbsp;---------------------------------------------------------</p>
+<p class=secodelinesindented>&nbsp;*&nbsp;Error&nbsp;handler</p>
+<p class=secodelinesindented>&nbsp;*&nbsp;---------------------------------------------------------&nbsp;*/</p>
+<p class=secodelinesindented>&nbsp;</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;SE_CALLBACK(&nbsp;void&nbsp;)</p>
+<p class=secodelinesindented>my_error_printer(secontext&nbsp;se,seconstcharptr&nbsp;text)</p>
+<p class=secodelinesindented>{</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;printf_sechar(UNISTR("Error&nbsp;encountered:&nbsp;%s\n"),text);</p>
+<p class=secodelinesindented>}</p>
+<p class=secodelinesindented>&nbsp;</p>
+<p class=secodelinesindented>/*&nbsp;A&nbsp;wrapper&nbsp;function&nbsp;to&nbsp;write&nbsp;out&nbsp;a&nbsp;string.&nbsp;It&nbsp;converts</p>
+<p class=secodelinesindented>&nbsp;*&nbsp;whatever&nbsp;argument&nbsp;it&nbsp;is&nbsp;given&nbsp;to&nbsp;a&nbsp;string&nbsp;then&nbsp;writes&nbsp;it</p>
+<p class=secodelinesindented>&nbsp;*&nbsp;to&nbsp;the&nbsp;terminal&nbsp;using&nbsp;'printf'.&nbsp;The&nbsp;user&nbsp;would&nbsp;use&nbsp;it&nbsp;like&nbsp;&nbsp;&nbsp;&nbsp;</p>
+<p class=secodelinesindented>&nbsp;*&nbsp;this:</p>
+<p class=secodelinesindented>&nbsp;*</p>
+<p class=secodelinesindented>&nbsp;*&nbsp;&nbsp;&nbsp;&nbsp;StringOut("Hello,&nbsp;world!");</p>
+<p class=secodelinesindented>&nbsp;*/</p>
+<p class=secodelinesindented>&nbsp;</p>
+<p class=secodelinesindented>&nbsp;</p>
+<p class=secodelinesindented>/*&nbsp;---------------------------------------------------------</p>
+<p class=secodelinesindented>&nbsp;*&nbsp;Text&nbsp;output</p>
+<p class=secodelinesindented>&nbsp;*&nbsp;---------------------------------------------------------&nbsp;*/</p>
+<p class=secodelinesindented>&nbsp;</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;SE_CALLBACK(&nbsp;void&nbsp;)</p>
+<p class=secodelinesindented>StringOut(secontext&nbsp;se,sememcount&nbsp;argc)</p>
+<p class=secodelinesindented>{</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;sememcount&nbsp;i;</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;seconstcharptr&nbsp;text;</p>
+<p class=secodelinesindented>&nbsp;</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;for(&nbsp;i=0;i&lt;argc;i++&nbsp;)</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;{</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/*&nbsp;Get&nbsp;each&nbsp;successive&nbsp;argument&nbsp;and&nbsp;print&nbsp;them</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*/</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;text&nbsp;=&nbsp;seGetString(se,&nbsp;SE_ARGS,SE_NUM(i),&nbsp;NULL);</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;printf_sechar(UNISTR("%s\n"),text);</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;}</p>
+<p class=secodelinesindented>}</p>
+<p class=secodelinesindented>&nbsp;</p>
+<p class=secodelinesindented>SE_BEGIN_LIB_TABLE(&nbsp;SampleFunctionList&nbsp;)</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;SE_FUNCTION(&nbsp;"StringOut",&nbsp;&nbsp;&nbsp;&nbsp;StringOut,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1,&nbsp;-1,&nbsp;&nbsp;</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;SE_SECURE,&nbsp;SE_DONTENUM&nbsp;),</p>
+<p class=secodelinesindented>SE_END_LIB_TABLE</p>
+<p class=secodelinesindented>&nbsp;</p>
+<p class=secodelinesindented>&nbsp;</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;void</p>
+<p class=secodelinesindented>add_fiber(secontext&nbsp;se,secontext&nbsp;*table,int&nbsp;*number,</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;seobject&nbsp;glob)</p>
+<p class=secodelinesindented>{</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;assert(&nbsp;(*number)&lt;MAX_FIBERS&nbsp;);</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;table[(*number)++]&nbsp;=&nbsp;se;</p>
+<p class=secodelinesindented>&nbsp;</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;/*&nbsp;give&nbsp;the&nbsp;fiber&nbsp;a&nbsp;private&nbsp;global&nbsp;*/</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;sePutObject(se,SE_GLOBAL,SE_VALUE,seMakeObject(se));</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;/*&nbsp;but&nbsp;point&nbsp;back&nbsp;to&nbsp;shared&nbsp;so&nbsp;can&nbsp;see&nbsp;it&nbsp;*/</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;sePutObject(se,SE_GLOBAL,SE_STOCK(_prototype),glob);</p>
+<p class=secodelinesindented>&nbsp;</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;seEval(se,UNISTR("var&nbsp;a&nbsp;=&nbsp;10;\nStringOut(a);\n"),SE_TEXT,</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;NULL,NULL,SE_START,NULL);</p>
+<p class=secodelinesindented>}</p>
+<p class=secodelinesindented>&nbsp;</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;void</p>
+<p class=secodelinesindented>remove_fiber(int&nbsp;num,secontext&nbsp;*table,int&nbsp;*number)</p>
+<p class=secodelinesindented>{</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;assert(&nbsp;num&lt;(*number)&nbsp;);</p>
+<p class=secodelinesindented>&nbsp;</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;/*&nbsp;we&nbsp;are&nbsp;done&nbsp;with&nbsp;the&nbsp;context&nbsp;*/</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;seDestroyContext(table[num]);</p>
+<p class=secodelinesindented>&nbsp;</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;/*&nbsp;remove&nbsp;it&nbsp;from&nbsp;the&nbsp;table&nbsp;*/</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;while(&nbsp;num&lt;(*number)-1&nbsp;)</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;{</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;table[num]&nbsp;=&nbsp;table[num+1];</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;num++;</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;}</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;(*number)--;</p>
+<p class=secodelinesindented>}</p>
+<p class=secodelinesindented>&nbsp;</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;void</p>
+<p class=secodelinesindented>main(int&nbsp;argc,char&nbsp;**argv)</p>
+<p class=secodelinesindented>{</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;secontext&nbsp;se;</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;secontext&nbsp;fibers[MAX_FIBERS];</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;int&nbsp;fibers_used&nbsp;=&nbsp;0;</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;int&nbsp;fiber_current&nbsp;=&nbsp;0;</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;seobject&nbsp;shared_global;</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;struct&nbsp;seContextParams&nbsp;params;</p>
+<p class=secodelinesindented>&nbsp;</p>
+<p class=secodelinesindented>&nbsp;</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;seInitialize();</p>
+<p class=secodelinesindented>&nbsp;</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;memset(&amp;params,0,sizeof(params));</p>
+<p class=secodelinesindented>&nbsp;</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;/*&nbsp;the&nbsp;print&nbsp;error&nbsp;function&nbsp;is&nbsp;the&nbsp;one&nbsp;required&nbsp;function.&nbsp;*/</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;params.sePrintErrorFunc&nbsp;=&nbsp;my_error_printer;</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;/*&nbsp;initialize&nbsp;the&nbsp;main&nbsp;context&nbsp;*/</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;se&nbsp;=&nbsp;seCreateContext(&amp;params,MY_JSE_USER_KEY);</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;if(&nbsp;se==NULL&nbsp;)</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;{</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;printf_sechar(UNISTR("Invalid&nbsp;user&nbsp;key.\n"));</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;exit(0);</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;}</p>
+<p class=secodelinesindented>&nbsp;</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;shared_global&nbsp;=&nbsp;seGetObject(se,SE_GLOBAL,SE_VALUE);</p>
+<p class=secodelinesindented>&nbsp;</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;/*&nbsp;add&nbsp;libaries&nbsp;so&nbsp;we&nbsp;have&nbsp;the&nbsp;StringOut&nbsp;function&nbsp;*/</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;seAddLibTable(se,SampleFunctionList,NULL);</p>
+<p class=secodelinesindented>&nbsp;</p>
+<p class=secodelinesindented>&nbsp;</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;/*&nbsp;Add&nbsp;the&nbsp;original&nbsp;context&nbsp;to&nbsp;our&nbsp;fiber&nbsp;list.&nbsp;All&nbsp;contexts</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;including&nbsp;the&nbsp;parent&nbsp;will&nbsp;be&nbsp;treated&nbsp;identically</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;&nbsp;*/</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;add_fiber(se,fibers,&amp;fibers_used,shared_global);</p>
+<p class=secodelinesindented>&nbsp;</p>
+<p class=secodelinesindented>&nbsp;</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;/*&nbsp;Create&nbsp;some&nbsp;more&nbsp;fibers.&nbsp;All&nbsp;are&nbsp;added&nbsp;to&nbsp;one&nbsp;big</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;pool.</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;&nbsp;*/</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;while(&nbsp;fibers_used&lt;MAX_FIBERS&nbsp;)</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;add_fiber(seCreateFiber(fibers[0]),fibers,</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&amp;fibers_used,shared_global);</p>
+<p class=secodelinesindented>&nbsp;</p>
+<p class=secodelinesindented>&nbsp;</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;/*&nbsp;run&nbsp;the&nbsp;fibers&nbsp;until&nbsp;all&nbsp;have&nbsp;exited.&nbsp;For&nbsp;each&nbsp;fiber,</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;execute&nbsp;its&nbsp;next&nbsp;available&nbsp;statement&nbsp;using&nbsp;seExec().</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;Notice&nbsp;that&nbsp;an&nbsp;seEval&nbsp;using&nbsp;SE_START&nbsp;was&nbsp;started&nbsp;in</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;each&nbsp;fiber&nbsp;when&nbsp;it&nbsp;was&nbsp;added&nbsp;above.&nbsp;As&nbsp;each&nbsp;fiber&nbsp;</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;finishes&nbsp;its&nbsp;seEval(),&nbsp;we&nbsp;remove&nbsp;it&nbsp;from&nbsp;the&nbsp;fiber&nbsp;list.</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;We&nbsp;exit&nbsp;when&nbsp;all&nbsp;fibers&nbsp;are&nbsp;done.</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;&nbsp;*/</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;while(&nbsp;fibers_used&gt;0&nbsp;)</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;{</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if(&nbsp;!seExec(fibers[fiber_current])&nbsp;)</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;remove_fiber(fiber_current,fibers,&amp;fibers_used);</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/*&nbsp;and&nbsp;continue&nbsp;using&nbsp;the&nbsp;fiber&nbsp;that&nbsp;fell&nbsp;into&nbsp;its</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;place</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*/</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;else</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;fiber_current++;</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if(&nbsp;fiber_current&gt;=fibers_used&nbsp;)&nbsp;fiber_current&nbsp;=&nbsp;0;</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;}</p>
+<p class=secodelinesindented>&nbsp;</p>
+<p class=secodelinesindented>&nbsp;</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;/*&nbsp;Done&nbsp;with&nbsp;the&nbsp;sample,&nbsp;shut&nbsp;everything&nbsp;down.&nbsp;*/</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;seTerminate();</p>
+<p class=secodelinesindented>}</p>
+<hr noshade size=1>
+<p class=normal><a href="TH_255.htm"><img src="button.png" border=0></a><a href="TH_255.htm" style="text-decoration:none;">YIELDING AND SUSPENDING</a></p>
+<p>
+</body>
+</html>

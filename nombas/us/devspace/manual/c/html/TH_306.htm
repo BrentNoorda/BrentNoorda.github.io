@@ -1,0 +1,31 @@
+<html>
+<head>
+<title>secharptrdatum</title>
+<link rel="stylesheet" href="semanualstyles.css" type="text/css">
+<style type="text/css">
+ p { margin-top: 0; margin-bottom: 0; }
+</style>
+<script language="JavaScript" src="TrueHelp.js"></script>
+</head>
+<body onload="thload()">
+<div id=ienav>
+<ilayer id=nsnav>
+<br>
+<center>
+<p class=normal><a href="seisdkc-toc.htm" target="left">contents</a> &nbsp; <a href="seisdkc-index.htm" target="left">index</a> &nbsp; <a href="TH_305.htm">previous</a> &nbsp; <a href="TH_307.htm">next</a></p>
+</center>
+<br>
+<hr noshade size=1>
+</ilayer>
+</div>
+<p class=heading-2>secharptrdatum</p>
+<p class=heading-2-p>&nbsp;</p>
+<p class=senormalpara>A single character. <span class=secodephrase>sechar</span> is the maximum size of a character, such that an array of <span class=secodephrase>sechar</span>s of size X can always hold a string of size X.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara><span class=secodephrase>secharptrdatum</span> is what an <span class=secodephrase>secharptr</span> points to. Such an array does not point to <span class=secodephrase>sechar</span> necessarily. For instance, on MBCS, strings and thus <span class=secodephrase>secharptr</span> point to an array of characters (bytes). However, each MBCS logical character may take up several of those bytes. Therefore, <span class=secodephrase>sizeof(sechar) &gt; sizeof(secharptrdatum)</span> for MBCS builds. <span class=sejumptopic></span></p>
+<p class=senormalpara-p>&nbsp;</p>
+<hr noshade size=1>
+<p class=normal><a href="TH_307.htm"><img src="button.png" border=0></a><a href="TH_307.htm" style="text-decoration:none;">sememcount</a></p>
+<p>
+</body>
+</html>

@@ -1,0 +1,60 @@
+<html>
+<head>
+<title>RegExp.input</title>
+<link rel="stylesheet" href="semanualstyles.css" type="text/css">
+<style type="text/css">
+ p { margin-top: 0; margin-bottom: 0; }
+</style>
+<script language="JavaScript" src="TrueHelp.js"></script>
+</head>
+<body onload="thload()">
+<div id=ienav>
+<ilayer id=nsnav>
+<br>
+<center>
+<p class=normal><a href="seisdkc-toc.htm" target="left">contents</a> &nbsp; <a href="seisdkc-index.htm" target="left">index</a> &nbsp; <a href="TH_917.htm">previous</a> &nbsp; <a href="TH_919.htm">next</a></p>
+</center>
+<br>
+<hr noshade size=1>
+</ilayer>
+</div>
+<p class=sereffunclevel4>RegExp.input</p>
+<table cellpadding=0>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>syntax:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=sesyntax>RegExp.input<span class=truehelp-xe></span></p></td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>description:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>If no string is passed to <span class=sepopuptopic><a href="TH_914.htm" onClick="return thwindow('TH_914.htm', 'GenPopup')">RegExp exec()</a></span> or to <span class=sepopuptopic><a href="TH_915.htm" onClick="return thwindow('TH_915.htm', 'GenPopup')">RegExp test()</a></span>, then <span class=secodephrase>RegExp.input</span> is used as the target string. To be used as the target string, it must be assigned a value. <span class=secodephrase>RegExp.input</span> is equivalent to <span class=secodephrase>RegExp.$_</span><span class=truehelp-xe></span>, for compatibility with PERL.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>Read/write property.</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>see:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara><span class=sejumptopic><a href="TH_914.htm">RegExp exec()</a></span>, <span class=sejumptopic><a href="TH_915.htm">RegExp test()</a></span></p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>example:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=secodelines>var&nbsp;pat&nbsp;=&nbsp;/(t.o/;</p>
+<p class=secodelines>RegExp.input&nbsp;=&nbsp;"one&nbsp;two&nbsp;three&nbsp;two&nbsp;one";</p>
+<p class=secodelines>pat.exec();</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;//&nbsp;"two"&nbsp;is&nbsp;matched</p></td>
+</tr>
+</table>
+<p class=normal>&nbsp;</p>
+<hr noshade size=1>
+<p class=normal><a href="TH_919.htm"><img src="button.png" border=0></a><a href="TH_919.htm" style="text-decoration:none;">RegExp.lastMatch</a></p>
+<p>
+</body>
+</html>

@@ -1,0 +1,77 @@
+<html>
+<head>
+<title>Regular expression attributes</title>
+<link rel="stylesheet" href="semanualstyles.css" type="text/css">
+<style type="text/css">
+ p { margin-top: 0; margin-bottom: 0; }
+</style>
+<script language="JavaScript" src="TrueHelp.js"></script>
+</head>
+<body onload="thload()">
+<div id=ienav>
+<ilayer id=nsnav>
+<br>
+<center>
+<p class=normal><a href="seisdkc-toc.htm" target="left">contents</a> &nbsp; <a href="seisdkc-index.htm" target="left">index</a> &nbsp; <a href="TH_891.htm">previous</a> &nbsp; <a href="TH_893.htm">next</a></p>
+</center>
+<br>
+<hr noshade size=1>
+</ilayer>
+</div>
+<p class=heading-4>Regular expression attributes</p>
+<p class=senormalpara>The following table lists allowable attribute characters and their effects on a regular expression. No other characters are allowed as attributes<span class=truehelp-xe></span>.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<table cellpadding=0>
+<tr>
+<td valign=top style="width: 0.779167in">
+<p class=normal><b>Character</p></b></td>
+<td valign=top style="width: 4.29583in">
+<p class=senormalpara><b>Attribute meaning</p><p class=senormalpara-p>&nbsp;</p>
+</b></td>
+</tr>
+<tr>
+<td valign=top style="width: 0.779167in">
+<p class=normal><span class=secodephrase>g</span><span class=truehelp-xe></span></p></td>
+<td valign=top style="width: 4.29583in">
+<p class=senormalpara>Do a global match<span class=truehelp-xe></span>. Allow the finding of all matches in a string using the RegExp and String methods and properties that allow global operations. The instance property <span class=secodephrase>global</span> is set to <span class=secodephrase>true</span>.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>Example: <span class=secodephrase>/pattern/g</span></p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.779167in">
+<p class=normal><span class=secodephrase>i</span><span class=truehelp-xe></span></p></td>
+<td valign=top style="width: 4.29583in">
+<p class=senormalpara>Do case insensitive matches<span class=truehelp-xe></span>. The instance property <span class=secodephrase>ignoreCase</span> is set to <span class=secodephrase>true</span>. </p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>Example: <span class=secodephrase>/pattern/i</span></p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.779167in">
+<p class=normal><span class=secodephrase>m</span><span class=truehelp-xe></span></p></td>
+<td valign=top style="width: 4.29583in">
+<p class=senormalpara>Work with multiple lines in a string. When working with multiple lines the "<span class=secodephrase>^</span>" and "<span class=secodephrase>$</span>" anchor characters will match the start and end of a string and the start and end of lines within the string. The newline character "<span class=secodephrase>\n</span>" in a string indicates the end of a line and hence lines in a string. The instance property <span class=secodephrase>multiline</span> is set to <span class=secodephrase>true</span>. </p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>Example: <span class=secodephrase>/pattern/m</span></p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+</table>
+<p class=normal>&nbsp;</p>
+<p class=senormalpara>Attributes are the characters allowed after the end slash "/" in a regular expression pattern. The following regular expressions illustrate the use of attributes.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=secodelinesindented>var&nbsp;pat&nbsp;=&nbsp;/^The/i;&nbsp;&nbsp;&nbsp;&nbsp;//&nbsp;any&nbsp;form&nbsp;of&nbsp;"the"&nbsp;at&nbsp;start&nbsp;of&nbsp;a&nbsp;string</p>
+<p class=secodelinesindented>var&nbsp;pat&nbsp;=&nbsp;/the/g;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//&nbsp;all&nbsp;occurrences&nbsp;of&nbsp;"the"&nbsp;may&nbsp;be&nbsp;found</p>
+<p class=secodelinesindented>var&nbsp;pat&nbsp;=&nbsp;/test$/m;&nbsp;&nbsp;&nbsp;//&nbsp;first&nbsp;"test"&nbsp;at&nbsp;the&nbsp;end&nbsp;of&nbsp;any&nbsp;line</p>
+<p class=secodelinesindented>var&nbsp;pat&nbsp;=&nbsp;/test$/igm;&nbsp;//&nbsp;all&nbsp;forms&nbsp;of&nbsp;"test"&nbsp;at&nbsp;end&nbsp;of&nbsp;all&nbsp;lines</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;//&nbsp;The&nbsp;following&nbsp;four&nbsp;examples&nbsp;do&nbsp;the&nbsp;same&nbsp;as&nbsp;the&nbsp;first&nbsp;four</p>
+<p class=secodelinesindented>var&nbsp;pat&nbsp;=&nbsp;new&nbsp;RegExp("^The",&nbsp;&nbsp;"i");</p>
+<p class=secodelinesindented>var&nbsp;pat&nbsp;=&nbsp;new&nbsp;RegExp("the",&nbsp;&nbsp;&nbsp;"g");</p>
+<p class=secodelinesindented>var&nbsp;pat&nbsp;=&nbsp;new&nbsp;RegExp("test$",&nbsp;"m");</p>
+<p class=secodelinesindented>var&nbsp;pat&nbsp;=&nbsp;new&nbsp;RegExp("test$",&nbsp;"igm");</p>
+<p class=secodelinesindented>&nbsp;</p>
+<hr noshade size=1>
+<p class=normal><a href="TH_893.htm"><img src="button.png" border=0></a><a href="TH_893.htm" style="text-decoration:none;">Regular expression special characters</a></p>
+<p>
+</body>
+</html>

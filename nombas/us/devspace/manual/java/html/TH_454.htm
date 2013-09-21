@@ -1,0 +1,73 @@
+<html>
+<head>
+<title>Buffer getString()</title>
+<link rel="stylesheet" href="semanualstyles.css" type="text/css">
+<style type="text/css">
+ p { margin-top: 0; margin-bottom: 0; }
+</style>
+<script language="JavaScript" src="TrueHelp.js"></script>
+</head>
+<body onload="thload()">
+<div id=ienav>
+<ilayer id=nsnav>
+<br>
+<center>
+<p class=normal><a href="seisdkj-toc.htm" target="left">contents</a> &nbsp; <a href="seisdkj-index.htm" target="left">index</a> &nbsp; <a href="TH_453.htm">previous</a> &nbsp; <a href="TH_455.htm">next</a></p>
+</center>
+<br>
+<hr noshade size=1>
+</ilayer>
+</div>
+<p class=sereffunclevel4>Buffer getString()</p>
+<table cellpadding=0>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>syntax:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=sesyntax>buffer.getString<span class=truehelp-xe></span>([length])</p></td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>where:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>length - number of characters to get from the buffer.</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>return:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>string - starting from the current cursor location and continuing for length bytes. If no length is specified, then the method reads until a <span class=secodephrase>NULL</span> byte is encountered or the end of the buffer is reached.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>The <span class=sepopuptopic><a href="TH_448.htm" onClick="return thwindow('TH_448.htm', 'GenPopup')">Buffer cursor</a></span> property is updated to the position after the string  returned.</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>description:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>The string is read according to the value of the .unicode flag of the buffer. A terminating <span class=secodephrase>NULL</span> byte is not added, even if a length parameter is not provided.</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>see:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara><span class=sejumptopic><a href="TH_458.htm">Buffer putString()</a></span></p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>example:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=secodelines>foo&nbsp;=&nbsp;new&nbsp;Buffer("abcd");</p>
+<p class=secodelines>foo.cursor&nbsp;=&nbsp;1;</p>
+<p class=secodelines>goo&nbsp;=&nbsp;foo.getString(2);</p>
+<p class=secodelines>//goo&nbsp;is&nbsp;now&nbsp;"bc"</p></td>
+</tr>
+</table>
+<hr noshade size=1>
+<p class=normal><a href="TH_455.htm"><img src="button.png" border=0></a><a href="TH_455.htm" style="text-decoration:none;">Buffer compare()</a></p>
+<p>
+</body>
+</html>

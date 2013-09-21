@@ -1,0 +1,111 @@
+<html>
+<head>
+<title>Regular expression repetition characters</title>
+<link rel="stylesheet" href="semanualstyles.css" type="text/css">
+<style type="text/css">
+ p { margin-top: 0; margin-bottom: 0; }
+</style>
+<script language="JavaScript" src="TrueHelp.js"></script>
+</head>
+<body onload="thload()">
+<div id=ienav>
+<ilayer id=nsnav>
+<br>
+<center>
+<p class=normal><a href="seisdkc-toc.htm" target="left">contents</a> &nbsp; <a href="seisdkc-index.htm" target="left">index</a> &nbsp; <a href="TH_894.htm">previous</a> &nbsp; <a href="TH_896.htm">next</a></p>
+</center>
+<br>
+<hr noshade size=1>
+</ilayer>
+</div>
+<p class=heading-4>Regular expression repetition characters</p>
+<p class=senormalpara>Notice that the character "<span class=secodephrase>?</span>" pulls double duty. When used as the only repetition specifier<span class=truehelp-xe></span>, "<span class=secodephrase>?</span>" means to match zero or more occurrences of the previous character. For example, <span class=secodephrase>/a?/</span> matches one or more "a" characters in sequence. When used as the second character of a repetition specifier, as in "<span class=secodephrase>*?</span>", "<span class=secodephrase>+?</span>", and "<span class=secodephrase>{n,}?</span>", a question mark "<span class=secodephrase>?</span>" indicates a minimal match<span class=truehelp-xe></span>. What is meant by a minimal match?</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>Well obviously, it is the counterpart to a maximal match<span class=truehelp-xe></span>, which is the default for JavaScript and PERL regular expressions. A maximal match will include the maximum number of characters in a text that will qualify to match a regular expression pattern. For example, in the string <span class=secodephrase>"one two three"</span>, the pattern <span class=secodephrase>/o.*e/</span> will match the text <span class=secodephrase>"one two three"</span>.  Why? The pattern says to match text that begins with the character "<span class=secodephrase>o</span>" followed by zero or more of any characters up to the character "<span class=secodephrase>e</span>". Since the default is a maximal match, the whole string is matched since it begins with "<span class=secodephrase>o</span>" and ends with "<span class=secodephrase>e</span>". Often, this maximal match behavior is not what is expected or desired.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>Now consider a similar match using the minimal character. The string is still <span class=secodephrase>"one two three"</span>, but the pattern becomes <span class=secodephrase>/o.*?e/</span>. Notice that the only difference is the addition of a question mark "<span class=secodephrase>?</span>" as the second repetition character after the "<span class=secodephrase>*</span>". The text matched this time is <span class=secodephrase>"one"</span>, which is the minimal number of characters that match the conditions of the regular expression pattern.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>So, it might be a good habit to begin reading regular expression patterns with a maximal and minimal vocabulary. As an example, lets spell out how we could read the two patterns in the current example.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=list-bullet>&#8226;</p><p class=list-bullet-tab1>"<span class=secodephrase>o.*e</span>" - match text that begin with "<span class=secodephrase>o</span>" and has the maximum number of characters possible until the last "<span class=secodephrase>e</span>" is encountered.</p>
+<p class=list-bullet>&#8226;</p><p class=list-bullet-tab1>"<span class=secodephrase>o.*?e</span>" - match text that begins with "<span class=secodephrase>o</span>" and has the minimum number of characters possible until the first "<span class=secodephrase>e</span>" is encountered.</p>
+<p class=secodelines>&nbsp;</p>
+<p class=senormalpara>Sometimes a maximal match is called a greedy match<span class=truehelp-xe></span> and a minimal match is called a non-greedy match<span class=truehelp-xe></span>.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<table cellpadding=0>
+<tr>
+<td valign=top style="width: 0.779167in">
+<p class=normal><b>Repetition</p></b></td>
+<td valign=top style="width: 4.29583in">
+<p class=senormalpara><b>How many characters matched</p><p class=senormalpara-p>&nbsp;</p>
+</b></td>
+</tr>
+<tr>
+<td valign=top style="width: 0.779167in">
+<p class=normal><span class=secodephrase>?</span><span class=truehelp-xe></span></p></td>
+<td valign=top style="width: 4.29583in">
+<p class=senormalpara>Match zero or one occurrence of the previous character or sub pattern. Same as <span class=secodephrase>{0,1}</span></p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.779167in">
+<p class=normal><span class=secodephrase>*</span><span class=truehelp-xe></span></p></td>
+<td valign=top style="width: 4.29583in">
+<p class=senormalpara>Match zero or more occurrences of the previous character or sub pattern. A maximal match, that is, match as many characters as will fulfill the regular expression. Same as <span class=secodephrase>{0,}</span></p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.779167in">
+<p class=normal><span class=secodephrase>*?</span><span class=truehelp-xe></span></p></td>
+<td valign=top style="width: 4.29583in">
+<p class=senormalpara>Match zero or more occurrences of the previous character or sub pattern. A minimal match, that is, match as few characters as will fulfill the regular expression. Same as <span class=secodephrase>{0,}?</span></p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.779167in">
+<p class=normal><span class=secodephrase>+</span><span class=truehelp-xe></span></p></td>
+<td valign=top style="width: 4.29583in">
+<p class=senormalpara>Match one or more occurrences of the previous character or sub pattern. A maximal match, that is, match as many characters as will fulfill the regular expression. Same as <span class=secodephrase>{1,}</span></p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.779167in">
+<p class=normal><span class=secodephrase>+?</span><span class=truehelp-xe></span></p></td>
+<td valign=top style="width: 4.29583in">
+<p class=senormalpara>Match one or more occurrences of the previous character or sub pattern. A minimal match, that is, match as few characters as will fulfill the regular expression. Same as <span class=secodephrase>{1,}?</span></p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.779167in">
+<p class=normal><span class=secodephrase>{n}</span><span class=truehelp-xe></span></p></td>
+<td valign=top style="width: 4.29583in">
+<p class=senormalpara>Match <span class=secodephrase>n</span> occurrences of the previous character or sub pattern.</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.779167in">
+<p class=normal><span class=secodephrase>{n,}</span></p></td>
+<td valign=top style="width: 4.29583in">
+<p class=senormalpara>Match <span class=secodephrase>n</span> or more occurrences of the previous character or sub pattern. A maximal match, that is, match as many characters as will fulfill the regular expression. </p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.779167in">
+<p class=normal><span class=secodephrase>{n,}?</span><span class=truehelp-xe></span></p></td>
+<td valign=top style="width: 4.29583in">
+<p class=senormalpara>Match <span class=secodephrase>n</span> or more occurrences of the previous character or sub pattern. A minimal match, that is, match as few characters as will fulfill the regular expression. </p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.779167in">
+<p class=normal><span class=secodephrase>{n, m}</span><span class=truehelp-xe></span></p></td>
+<td valign=top style="width: 4.29583in">
+<p class=senormalpara>Match the previous character or sub pattern at least <span class=secodephrase>n</span> times but not more than <span class=secodephrase>m</span> times.</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+</table>
+<hr noshade size=1>
+<p class=normal><a href="TH_896.htm"><img src="button.png" border=0></a><a href="TH_896.htm" style="text-decoration:none;">Regular expression character classes</a></p>
+<p>
+</body>
+</html>

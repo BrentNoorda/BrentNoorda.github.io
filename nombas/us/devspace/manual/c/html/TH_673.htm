@@ -1,0 +1,92 @@
+<html>
+<head>
+<title>Clib.strcspn()</title>
+<link rel="stylesheet" href="semanualstyles.css" type="text/css">
+<style type="text/css">
+ p { margin-top: 0; margin-bottom: 0; }
+</style>
+<script language="JavaScript" src="TrueHelp.js"></script>
+</head>
+<body onload="thload()">
+<div id=ienav>
+<ilayer id=nsnav>
+<br>
+<center>
+<p class=normal><a href="seisdkc-toc.htm" target="left">contents</a> &nbsp; <a href="seisdkc-index.htm" target="left">index</a> &nbsp; <a href="TH_672.htm">previous</a> &nbsp; <a href="TH_674.htm">next</a></p>
+</center>
+<br>
+<hr noshade size=1>
+</ilayer>
+</div>
+<p class=sereffunclevel4>Clib.strcspn()</p>
+<table cellpadding=0>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>syntax:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=sesyntax>Clib.strcspn(<span class=truehelp-xe></span>str,&nbsp;chrSet)</p></td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>where:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>str - string to be searched.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>chrSet - set of characters to search for.</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>return:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>number - offset into str to a found character on success, else the length of str.</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>description:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>This method searches the parameter string for any of the characters in the string chrSet  and returns the offset of that character. If no matching characters are found, it returns the length of the string. This method is similar to <span class=sepopuptopic><a href="TH_682.htm" onClick="return thwindow('TH_682.htm', 'GenPopup')">Clib.strpbrk()</a></span>, except that <span class=secodephrase>Clib.strcspn()</span> returns the offset number, or index, for the first character found, while <span class=secodephrase>Clib.strpbrk.()</span> returns the string beginning at that character.</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>see:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara><span class=sejumptopic><a href="TH_682.htm">Clib.strpbrk()</a></span></p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>example:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=secodelines>//&nbsp;The&nbsp;following&nbsp;fragment&nbsp;demonstrates</p>
+<p class=secodelines>//&nbsp;the&nbsp;difference&nbsp;between&nbsp;Clib.strcspn()&nbsp;and</p>
+<p class=secodelines>//&nbsp;Clib.strpbrk().</p>
+<p class=secodelines>&nbsp;</p>
+<p class=secodelines>var&nbsp;string&nbsp;=</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;&nbsp;"There's&nbsp;more&nbsp;than&nbsp;one&nbsp;way&nbsp;to&nbsp;skin&nbsp;a&nbsp;cat.";</p>
+<p class=secodelines>var&nbsp;rStrpbrk&nbsp;=&nbsp;Clib.strpbrk(string,&nbsp;"dxb8w9k!");&nbsp;</p>
+<p class=secodelines>var&nbsp;rStrcspn&nbsp;=&nbsp;Clib.strcspn(string,&nbsp;"dxb8w9k!");&nbsp;</p>
+<p class=secodelines>Clib.printf("The&nbsp;string&nbsp;is:&nbsp;%s\n",&nbsp;string);&nbsp;</p>
+<p class=secodelines>Clib.printf("\nstrpbrk&nbsp;returns&nbsp;a&nbsp;string:&nbsp;%s\n",</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;rStrpbrk);&nbsp;</p>
+<p class=secodelines>Clib.printf("\nstrcspn&nbsp;returns&nbsp;an&nbsp;integer:&nbsp;%d\n",</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;rStrcspn);</p>
+<p class=secodelines>Clib.printf("string&nbsp;+strcspn&nbsp;=&nbsp;%s\n",&nbsp;string&nbsp;+</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;rStrcspn);&nbsp;Clib.getch();&nbsp;</p>
+<p class=secodelines>&nbsp;</p>
+<p class=secodelines>//&nbsp;And&nbsp;results&nbsp;in&nbsp;the&nbsp;following&nbsp;output:</p>
+<p class=secodelines>//&nbsp;&nbsp;The&nbsp;string&nbsp;is:</p>
+<p class=secodelines>//&nbsp;&nbsp;There's&nbsp;more&nbsp;than&nbsp;one&nbsp;way&nbsp;to&nbsp;skin&nbsp;a&nbsp;cat.&nbsp;</p>
+<p class=secodelines>//&nbsp;&nbsp;strpbrk&nbsp;returns&nbsp;a&nbsp;string:&nbsp;way&nbsp;to&nbsp;skin&nbsp;a&nbsp;cat.&nbsp;</p>
+<p class=secodelines>//&nbsp;&nbsp;strcspn&nbsp;returns&nbsp;an&nbsp;integer:&nbsp;22</p>
+<p class=secodelines>//&nbsp;&nbsp;string&nbsp;+strcspn&nbsp;=&nbsp;way&nbsp;to&nbsp;skin&nbsp;a&nbsp;cat</p></td>
+</tr>
+</table>
+<p class=normal>&nbsp;</p>
+<hr noshade size=1>
+<p class=normal><a href="TH_674.htm"><img src="button.png" border=0></a><a href="TH_674.htm" style="text-decoration:none;">Clib.stricmp()</a></p>
+<p>
+</body>
+</html>

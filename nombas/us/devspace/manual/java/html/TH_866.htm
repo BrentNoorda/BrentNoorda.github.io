@@ -1,0 +1,81 @@
+<html>
+<head>
+<title>String substring()</title>
+<link rel="stylesheet" href="semanualstyles.css" type="text/css">
+<style type="text/css">
+ p { margin-top: 0; margin-bottom: 0; }
+</style>
+<script language="JavaScript" src="TrueHelp.js"></script>
+</head>
+<body onload="thload()">
+<div id=ienav>
+<ilayer id=nsnav>
+<br>
+<center>
+<p class=normal><a href="seisdkj-toc.htm" target="left">contents</a> &nbsp; <a href="seisdkj-index.htm" target="left">index</a> &nbsp; <a href="TH_865.htm">previous</a> &nbsp; <a href="TH_867.htm">next</a></p>
+</center>
+<br>
+<hr noshade size=1>
+</ilayer>
+</div>
+<p class=sereffunclevel4>String substring()</p>
+<table cellpadding=0>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>syntax:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=sesyntax>string.substring(<span class=truehelp-xe></span>start,&nbsp;end)</p></td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>where:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>start - integer specifying the position within the string to begin the desired substring.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>end - integer specifying the position within the string to end the desired substring.</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>return:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>string - a substring starting at position start and going to but not including position end.</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>description:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>This method retrieves a section of a string. The start parameter is the index or position of the first character to include.  The end parameter marks the end of the string. The end position is the index or position after the last character to be included. The length of the substring retrieved is defined by end minus start. Another way to think about the start and end positions is that end equals start plus the length of the substring desired.</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>see:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara><span class=sejumptopic><a href="TH_854.htm">String charAt()</a></span>, <span class=sejumptopic><a href="TH_857.htm">String indexOf()</a></span>, <span class=sejumptopic><a href="TH_858.htm">String lastIndexOf()</a></span>, <span class=sejumptopic><a href="TH_863.htm">String slice()</a></span>, <span class=sejumptopic><a href="TH_865.htm">String substr()</a></span></p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>example:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=secodelines>//&nbsp;For&nbsp;example,&nbsp;to&nbsp;get&nbsp;the&nbsp;first&nbsp;nine&nbsp;characters</p>
+<p class=secodelines>//&nbsp;in&nbsp;string,&nbsp;use&nbsp;a&nbsp;Start&nbsp;position</p>
+<p class=secodelines>//&nbsp;of&nbsp;0&nbsp;and&nbsp;add&nbsp;9&nbsp;to&nbsp;it,&nbsp;that&nbsp;is,</p>
+<p class=secodelines>//&nbsp;"0&nbsp;+&nbsp;9",&nbsp;to&nbsp;get&nbsp;the&nbsp;End&nbsp;position</p>
+<p class=secodelines>//&nbsp;which&nbsp;is&nbsp;9.&nbsp;The&nbsp;following&nbsp;fragment&nbsp;illustrates.</p>
+<p class=secodelines>&nbsp;</p>
+<p class=secodelines>var&nbsp;str&nbsp;=&nbsp;"0123456789";</p>
+<p class=secodelines>str.substring(0,&nbsp;5)&nbsp;&nbsp;&nbsp;//&nbsp;==&nbsp;"01234"</p>
+<p class=secodelines>str.substring(2,&nbsp;5)&nbsp;&nbsp;&nbsp;//&nbsp;==&nbsp;"234"</p>
+<p class=secodelines>str.substring(0,&nbsp;10)&nbsp;&nbsp;//&nbsp;==&nbsp;"0123456789"</p>
+</td>
+</tr>
+</table>
+<p class=normal>&nbsp;</p>
+<hr noshade size=1>
+<p class=normal><a href="TH_867.htm"><img src="button.png" border=0></a><a href="TH_867.htm" style="text-decoration:none;">String toLocaleLowerCase()</a></p>
+<p>
+</body>
+</html>

@@ -1,0 +1,73 @@
+<html>
+<head>
+<title>seWeakLockObject</title>
+<link rel="stylesheet" href="semanualstyles.css" type="text/css">
+<style type="text/css">
+ p { margin-top: 0; margin-bottom: 0; }
+</style>
+<script language="JavaScript" src="TrueHelp.js"></script>
+</head>
+<body onload="thload()">
+<div id=ienav>
+<ilayer id=nsnav>
+<br>
+<center>
+<p class=normal><a href="seisdkj-toc.htm" target="left">contents</a> &nbsp; <a href="seisdkj-index.htm" target="left">index</a> &nbsp; <a href="TH_27.htm">previous</a> &nbsp; <a href="TH_29.htm">next</a></p>
+</center>
+<br>
+<hr noshade size=1>
+</ilayer>
+</div>
+<p class=sereffunclevel3>seWeakLockObject</p>
+<p class=sereffunclevel3-p>&nbsp;</p>
+<table cellpadding=0>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>syntax:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=sesyntax>&nbsp;&nbsp;&nbsp;void</p>
+<p class=sesyntax>SEContext.seWeakLockObject(SEObject&nbsp;obj,</p>
+<p class=sesyntax>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;boolean&nbsp;weak);</p></td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>where:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara><span class=secodephrase>obj</span> the object to weak lock</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara><span class=secodephrase>weak</span> should the object be weak locked</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>return:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>None</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>description:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>Lock an item to produce a weak lock. The object is always locked, so it must eventually be explicitly freed, just as if you use <span class=secodephrase>jseLockObject</span>. The boolean determines if the lock is weak. <span class=secodephrase>jseLockObject</span> always produces normal locks. Therefore, this routines is usually used to produce weak locks, so the parameter is <span class=secodephrase>true</span>. On occasion, you may need to turn off an existing weak lock and restore it to a full lock which is when the parameter may be <span class=secodephrase>false</span>.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>This API function is designed to resolve a common problem. It is typical when mapping a Java object to a JavaScript object for a programmer to want each item to have a reference to the other. This allows both sides to have access to its sibling to perform any needed task. The problem that arises is that the lock on the ScriptEase object by the API keeps the object permanently in memory, even when ScriptEase is no longer using the object. It is a cyclic loop that cannot be detected because the cycle extends outside of the ScriptEase core.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>Using <span class=sepopuptopic><a href="TH_28.htm" onClick="return thwindow('TH_28.htm', 'GenPopup')">seWeakLockObject</a></span>, the programmer retains a handle to the object but that handle does not lock the object in memory. If ScriptEase is no longer using the object, the presence of this lock does not keep it from being garbage collected. Other than that difference, this function performs exactly like seLockObject.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>Be careful with this function. The object can be cleaned up at any time once the script is no longer using it. If you try to use a handle to such an object, you will probably crash the system. You should make sure to add a destructor to the object so that you know when you must stop using the handle, and free the handle using <span class=sepopuptopic><a href="TH_26.htm" onClick="return thwindow('TH_26.htm', 'GenPopup')">seFreeObject</a></span> at that time. Any use for this function other than this intended one is likely to crash your application.</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>see:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara><span class=sepopuptopic><a href="TH_29.htm" onClick="return thwindow('TH_29.htm', 'GenPopup')">seLockObject</a></span>, <span class=sepopuptopic><a href="TH_26.htm" onClick="return thwindow('TH_26.htm', 'GenPopup')">seFreeObject</a></span></p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+</table>
+<hr noshade size=1>
+<p class=normal><a href="TH_29.htm"><img src="button.png" border=0></a><a href="TH_29.htm" style="text-decoration:none;">seLockObject</a></p>
+<p>
+</body>
+</html>

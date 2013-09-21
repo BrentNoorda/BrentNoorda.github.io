@@ -1,0 +1,264 @@
+Program Archive Name: CEnvi2.zip
+
+Program: CEnvi version 2.11 for OS/2 2.x
+
+Short description:
+          CEnvi for OS/2 is a shareware C interpreter that doubles as a
+          batch/REXX enhancer or replacement.  CEnvi makes C as easy to use
+          as a batch language, but with much more power.
+
+Long description:
+          Cmm (C minus minus) is 'C' for the rest of us.  CEnvi runs Cmm
+          programs in the DOS, Windows, OS/2, NT, etc... environments.
+          Together, CEnvi and Cmm make the power and flexibility of the C
+          programming language part of every computer user's environment,
+          without the hardware, time, and programmer resources needed for
+          developing full-blown C programs.
+
+          With CEnvi and Cmm, anyone can take control of their computer
+          environment.  C is not just for programming nerds anymore.  CEnvi
+          utilites, macros, batch files, and scripts can quickly be
+          created, shared, and modified among all computer users,
+          professional and amateur alike.
+
+          CEnvi can be incorporated at a pace that is comfortable to you:
+          you may just want to use CEnvi code set up by a more experienced
+          user, you may want to enhance existing batch files with a line or
+          two of CEnvi code, or you may write complete utilities using
+          CEnvi.
+
+          nearly 100 samples are included, demonstrating such tasks as:
+          looping in batch files, setting the NumLock key, killing processes,
+          calling DLLs, deleting directory trees, opening desktop folders,
+          scheduling task times and priorities, controlling PMSHELL and WPS,
+          fine-tuning DOS sessions and appearances, sending keystrokes
+          to PM and Windowed applications, menu selections, automating
+          DOS, Windows, and OS/2 sessions, and much more...
+
+CEnvi source:
+          Nombas                       Internet: nombas@nombas.com
+          64 Salem Street              CompuServe: 72212,1622
+          MEDFORD MA 02155    USA      BBS:   (617)391-3718
+                                       Phone: (617)391-6595
+                                       Fax:   (617)391-3842
+
+************************* CENVI2.ZIP FILE LIST *************************
+
+CENVI2.ZIP, the Unregistered Shareware CEnvi package for OS/2, contains the
+following files:
+
+*CENVI.EXE: CEnvi shareware executable for DOS, OS/2, or Windows.
+*CENVI2PM.EXE: Gateway program, executed transparently by CEnvi, for access
+  to PM-dependent system calls
+*CENVI.DOC: CEnvi Shareware Manual, Chapter 1: CEnvi Unregistered Shareware
+*CMMTUTOR.DOC: CEnvi Shareware Manual, Chapter 2: Cmm Language Tutorial
+*CMM_VS_C.DOC: CEnvi Shareware Manual, Chapter 3: Cmm versus C, for C
+  Programmers
+*CENVILIB.DOC: CEnvi Shareware Manual, Chapter 4: Function Library
+*LICENSE.DOC: CEnvi Unregistered Shareware License Agreement
+*README.DOC: Introductory file. Read this first for quick intallation.
+*REGISTER.DOC: CEnvi registration form
+*INSTALL.CMM: Cmm source file for installing this shareware version
+*AllDirs.cmd: Perform a command in this directory and all
+  sub-directories
+*AllFiles.cmd: Perform a command on all files matching a given
+  file specification
+*AltHome.cmd: Switch OS/2 session between windowed and
+  full-screen, much like ALT-HOME works in DOS sessions
+*BarClock.cmd: Display time in title bar of active window
+*BatLoops.cmd: Examples of various methods CEnvi can use to
+  allow looping within batch files
+*BattMem.cmm: Show values stored in a PC's battery-protected
+  memory
+*BckGrnd.cmd: Specify a new file as your desktop background
+  image
+*Bouncy.cmd: Start a bouncy OS/2 Command Window. This
+  demonstrates moving windows and silliness.
+*BoxFont.cmd: Show and alter default font for DOS and OS/2
+  command-line windows
+*CDfind.cmd: Change to directory based on name search
+*CEnviSet.cmd: This file can be used instead of CEnvi.exe if
+  you are using environment variables as Cmm variables and need
+  them to be changed in the current OS/2 environment.
+*ClipBrd.cmd: Get or modify clipboard text
+*ClipBrd.lib: Library of routines for reading from or writing
+  to the clipboard
+*CmmEdit.cmm: VERY simple text editor; developed step-by-step
+  in the tutorial chapter of the CEnvi User Manual.
+*Comm.lib: Serial communications routines
+*DelOld.cmd: Delete files older than specified age
+*DelTree.cmd: Delete a directory tree
+*DeskLock.cmd: Lock or unlock desktop
+*DevIOCtl.lib: Function library for OS/2's DosDevIOCTL
+  functions
+*DirDiff.cmm: Compare two directory listings for differences
+*DiskFree.cmd: Display free space on a disk drive
+*DlgCtrl.lib: Library of routines for interactive with PM
+  dialog boxes and other windows with sub-windows - this
+  library is only in its early stages
+*DoFiles.cmd: Perform any command on a list of files selected
+  from a file dialog box
+*DoList.cmd: Perform action on every element of a list
+*DoMenu.cmd: Execute any menu selection of a PM application,
+  based on the name of the window and the menu text
+*DOS.cmd: Perform DOS command from an OS/2 session, with the
+  option to "see" output of the command; mirrors OS2.BAT
+*DosCalls.lib: Example library of "wrapper" function calls to
+  OS/2 API calls in the DosCalls library.  This file is
+  "#include"ed in many of the other example files.
+*DropMany.cmd: Drag many files for single launch of program
+  object
+*DumpIni.cmd: Display profile settings from a .INI file; uses
+  Profile.lib
+*EditCmd.cmd: Use PM's file dialog (via FileDlg.lib) to select
+  a *.cmd file to edit.
+*EnvSort.cmd: Sort environment variables alphabetically
+*ErrLev.cmd: Execute a command and set the ERRLEV value as the
+  return code, which makes ERRORLEVEL a variable
+*ExamineW.cmd: Display lots of data about any PM window on the
+  desktop, and sub-windows (this file in early stages)
+*Fibonacc.cmm: Two methods for generating the Fibonacci
+  sequence
+*FileDlg.lib: A simple interface to the WinFileDlg() PM
+  function.  This library file is #include'd in some of the
+  other CEnvi sample files.
+*FileFind.cmd: Wildcard search for files on current drive or on
+  all drives
+*FileIO.lib: Function to interface directly with OS/2's File IO
+*Find#.cmm: Extract a number from wordy output; used by
+  DirStat.bat
+*FranTick.cmm: Animated tick who drank too much coffee
+*FSSlave.cmm: Control full screen OS/2 session from
+  TEXTBOSS.LIB
+*GetUKey.cmd: Display a choice prompt and then set an
+  environment variable based on user's selection
+*GiveMem.lib: Library of routines for shareing memory with
+  other applications whose memory is otherwise "protected"
+*Hello.cmm: My first Cmm program. Used to begin the Cmm
+  tutorial.
+*HexDump.cmd: Display hexadecimal dump of a file
+*HideTask.cmd: Hide task from the Task List window
+*IDLE.cmd: Change process priority to run a CEnvi program only
+  during system idle time.
+*IdleProg.cmd: Execute a program in the background; i.e., run
+  only during system idle time.
+*Install.cmm: Install this version of CEnvi.
+*IsItFri.cmd: Is it Friday?
+*IsRun.cmd: Is process XXXXX running?
+*KbdRate.cmd: Alter the typematic rate of the keyboard; in many
+  cases faster than OS/2 Keyboard tool can set it
+*KeyCode.cmd: Display keycode of any key pressed
+*KeyGhost.cmd: Sample for using KeyPush.lib to determine if
+  CEnvi is worth the price of registration.
+*KeyPush.cmd: Send keystroke commands directly to a window by
+  window title; a quick interface into KeyPush.lib
+*KeyPush.lib: Library of routines for sending keystrokes to PM
+  or Windowed applications.
+*KeyState.cmd: Get or set the state of the NumLock, CapsLock,
+  or Insert keys for current session or for the whole WPS
+*Kill.cmd: Terminate a running process by Process ID, Window
+  title, full name, or partial name
+*MenuCtrl.lib: Library of routines for interactive with PM
+  menus
+*MiniTemp.cmd: Temporarily minimize all windows to icons
+*MsgBox.lib: A wrapper library for the PM WinMessageBox()
+  function.  This file is #include'd in other CEnvi sample
+  files.
+*MsgBoxes.cmd: Show various message box types using the
+  function in MsgBox.lib.
+*NamePipe.lib: Library for OS/2 Named Pipes
+*NoTitleB.cmd: Remove selected elements of a window title bar
+*NumLock.cmd: Turn on NUMLOCK key once, or maintain NUMLOCK ON.
+  A shadow of NumLock.cmd can be put in startup folder to
+  default computer to NumLock ON. "NumLock 1000" will check
+  every second to make sure that NUMLOCK is still set.
+*ObjSet.cmd: Alter WPS object and folder settings
+*OneADay.cmd: Perform any command(s) no more than once per day
+*OnTop.cmd: Float window to top of all other windows
+*OptParms.lib: Library of routines for parsing the optional
+  parameters for executing a program. #included in other files
+*OS2.bat: Perform OS/2 command from a DOS session, with the
+  option to "see" output of the command; mirrors DOS.CMD.  Note
+  that this requires CEnvi for DOS
+*OS2Time.cmd: Show time according to computer's internal clock
+*OS2Wait.bat: CEnvi for DOS tool to suspend DOS session for
+  specified interval
+*Parents.cmd: Show hierarchical list of ancestor's process ID's
+  and names
+*PathAdd.cmd: Add a directory to your PATH environment
+  variable.
+*PathDel.cmd: Remove a directory from your PATH environment
+  variable
+*PathStak.cmd: Multi-level save or restore of current drive and
+  directory so that you can change drives and directories and
+  still return to this one
+*PMdll.lib: Example library of "wrapper" routines to function
+  in the PM DLL (Presentatiom Manager Dynamic Link Library).
+  This file is "#include"ed in many of the other example files.
+*Print.cmm: Copy file to printer, treating printer as a file
+*PrmptDay.cmd: Change command-line-prompt to display today's
+  date
+*ProcList.cmd: Show list of all running processes; their names
+  and ID's
+*Profile.lib: Function library for accessing Profiles; i.e.
+  .INI files
+*Quote.cmd: Choose a text-mode "profound" quote at random
+*QuotePM.cmd: Choose a PM-mode "profound" quote at random
+*RndBckgr.cmd: Randomly select desktop background, at specified
+  interval, from a list of graphic file specifications
+*RunTime.cmd: Rudimentary scheme for executing a command at a
+  certain time of day.
+*ScanCode.lib: Retrieve keyboard scan codes for ascii
+  characters
+*ServeOS2.com: DOS TSR to work with TextBoss.lib for complete
+  keyboard control of DOS sessions
+*Session.cmd: Replace OS/2's START command for greater control
+  of starting sessions, including name, position, font,
+  notebook settings, etc...
+*Sessions.cmd: batch file to demonstarte various uses of
+  Session.cmd
+*ShutDown.cmd: Automated shutdown or reboot of OS/2 system
+*SortLen.cmd: Sort any file based on line length
+*Sound.cmd: Play a frequency for a given time period
+*Switch.cmd: Switch foreground application to another process
+  base on process ID, full name, or partial name
+*SysInfo.cmd: Display system configuration parameters
+*TempFldr.cmd: Open folder temporarily, to automatically close
+  when it no longer has focus; good for menus
+*Terminal.cmd: A VERY basic terminal program; demonstrates
+  COMM.LIB
+*TextBoss.lib: Library of routines to interactively windowed
+  DOS or OS/2 applications: can work with ServeOS2.com
+*TextEcho.cmd: Demonstrate TextBoss.lib by shadowing a DOS or
+  OS/2 box from an OS/2 box
+*TextWin.cmd: GET/PUT text from/to a windowed DOS or OS/2
+  session
+*Threads.cmd: Display list of all threads in all running
+  processes
+*UnHang.cmm: Monitor your system to detect OS/2 "hangs", where
+  the workplace shell stops responding, then kill or otherwise
+  handle the application that is causing the problem
+*ValidDir.cmd: Verify if a directory is valid
+*Wait.cmd: Pause and do not return for specified number of
+  seconds
+*Which.cmd: Find in PATH which command is executed
+*WinList.cmd: Display list of all PM windows
+*WinMsg.lib: Routines to send or post messages to PM windows
+*WinSet.cmd: Set the position, size, state, etc... of a PM
+  Window
+*WinSpawn.cmd: Pass simple commands to Windows session running
+  WinSpawn.cmm
+*WinSpawn.cmm: Run in Windows session from CEnvi for Windows to
+  receive commands from WinSpawn.lib
+*WinSpawn.lib: WinSpawn() function to send commands to Windows
+  session running CEnvi for Windows and WinSpawn.cmm
+*WinTools.cmd: Demonstrate many of the capabilities of
+  WinTools.lib
+*WinTools.lib: Library of routines for manipulating PM windows
+  by name or by handle
+*WIN_Boss.lib: work with CEnvi for Windows' ServeOS2.cmm
+  program to all full control of Windows applications from an
+  OS/2 script
+*WPFolder.cmd: Open a desktop folder for any specified
+  directory and optionally switch to that window
+

@@ -1,0 +1,92 @@
+<html>
+<head>
+<title>Clib.fscanf()</title>
+<link rel="stylesheet" href="semanualstyles.css" type="text/css">
+<style type="text/css">
+ p { margin-top: 0; margin-bottom: 0; }
+</style>
+<script language="JavaScript" src="TrueHelp.js"></script>
+</head>
+<body onload="thload()">
+<div id=ienav>
+<ilayer id=nsnav>
+<br>
+<center>
+<p class=normal><a href="seisdkc-toc.htm" target="left">contents</a> &nbsp; <a href="seisdkc-index.htm" target="left">index</a> &nbsp; <a href="TH_624.htm">previous</a> &nbsp; <a href="TH_626.htm">next</a></p>
+</center>
+<br>
+<hr noshade size=1>
+</ilayer>
+</div>
+<p class=sereffunclevel4>Clib.fscanf()</p>
+<table cellpadding=0>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>syntax:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=sesyntax>Clib.fscanf(<span class=truehelp-xe></span>filePointer,&nbsp;formatString[,&nbsp;variables&nbsp;...])</p></td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>where:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>filePointer - pointer to file to use.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>formatString - string that specifies the final format.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>variables - values to be converted to and formatted as a string.</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>return:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>number - input items assigned on success, else <span class=secodephrase>EOF</span>.</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>description:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>This flexible function reads input from the file indicated by filePointer and stores in parameters following formatString according the character combinations in the format string, which indicate how the file data is to be read and stored. The file must be open, with read access. It returns the number of input items assigned. This number may be fewer than the number of parameters requested if there was a matching failure. If there is an input failure, before the conversion occurs, this function returns <span class=secodephrase>EOF</span>.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>See <span class=sepopuptopic><a href="TH_587.htm" onClick="return thwindow('TH_587.htm', 'GenPopup')">Clib.scanf()</a></span> for a description of this format string. The parameters following the format string will be set to data according to the specifications of the format string.</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>see:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara><span class=sejumptopic><a href="TH_587.htm">Clib.scanf()</a></span></p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>example:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=secodelines>//&nbsp;Given&nbsp;the&nbsp;following&nbsp;text&nbsp;file,&nbsp;weight.dat:</p>
+<p class=secodelines>//&nbsp;&nbsp;Crow,&nbsp;Barney&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;180</p>
+<p class=secodelines>//&nbsp;&nbsp;Claus,&nbsp;Santa&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;306&nbsp;</p>
+<p class=secodelines>//&nbsp;&nbsp;Mouse,&nbsp;Mickey&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2&nbsp;</p>
+<p class=secodelines>//&nbsp;the&nbsp;following&nbsp;code:</p>
+<p class=secodelines>&nbsp;</p>
+<p class=secodelines>var&nbsp;fp&nbsp;=&nbsp;Clib.fopen("weight.dat",&nbsp;"r");&nbsp;</p>
+<p class=secodelines>var&nbsp;FormatString&nbsp;=&nbsp;"%[,]&nbsp;%*c&nbsp;%s&nbsp;%d\n";&nbsp;</p>
+<p class=secodelines>while&nbsp;(3&nbsp;==&nbsp;Clib.fscanf(fp,&nbsp;FormatString,</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;LastName,&nbsp;Firstame,&nbsp;weight))</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;Clib.printf("%s&nbsp;%s&nbsp;weighs&nbsp;%d&nbsp;pounds.\n",</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;FirstName,&nbsp;LastName,&nbsp;weight);</p>
+<p class=secodelines>Clib.fclose(fp);&nbsp;</p>
+<p class=secodelines>&nbsp;</p>
+<p class=secodelines>//&nbsp;results&nbsp;in&nbsp;the&nbsp;following&nbsp;output:</p>
+<p class=secodelines>//&nbsp;&nbsp;Barney&nbsp;Crow&nbsp;weighs&nbsp;180&nbsp;pounds.&nbsp;</p>
+<p class=secodelines>//&nbsp;&nbsp;Santa&nbsp;Claus&nbsp;weighs&nbsp;306&nbsp;pounds.&nbsp;</p>
+<p class=secodelines>//&nbsp;&nbsp;Mickey&nbsp;Mouse&nbsp;weighs&nbsp;2&nbsp;pounds.</p></td>
+</tr>
+</table>
+<p class=normal>&nbsp;</p>
+<hr noshade size=1>
+<p class=normal><a href="TH_626.htm"><img src="button.png" border=0></a><a href="TH_626.htm" style="text-decoration:none;">Clib.fseek()</a></p>
+<p>
+</body>
+</html>

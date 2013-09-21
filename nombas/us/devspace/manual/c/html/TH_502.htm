@@ -1,0 +1,33 @@
+<html>
+<head>
+<title>Specifying Security</title>
+<link rel="stylesheet" href="semanualstyles.css" type="text/css">
+<style type="text/css">
+ p { margin-top: 0; margin-bottom: 0; }
+</style>
+<script language="JavaScript" src="TrueHelp.js"></script>
+</head>
+<body onload="thload()">
+<div id=ienav>
+<ilayer id=nsnav>
+<br>
+<center>
+<p class=normal><a href="seisdkc-toc.htm" target="left">contents</a> &nbsp; <a href="seisdkc-index.htm" target="left">index</a> &nbsp; <a href="TH_501.htm">previous</a> &nbsp; <a href="TH_503.htm">next</a></p>
+</center>
+<br>
+<hr noshade size=1>
+</ilayer>
+</div>
+<p class=heading-2>Specifying Security</p>
+<p class=heading-2-p>&nbsp;</p>
+<p class=senormalpara>The ScriptEase API call <span class=secodephrase>jseInterpret()</span> has among its settings <span class=secodephrase>jseNewSecurity</span>. If you turn this on, then the script being run will have security applied to it. If you leave it off, no security applies and all functions can be called. The four security items we just finished discussing correspond to the four fields of the <span class=secodephrase>jseExternalLinkParameters</span> structure of the same name. Before you interpret the script, you use <span class=secodephrase>jseGetExternalLinkParameters()</span> to get the parameters structure, fill in these fields, then call <span class=secodephrase>jseInterpret()</span> with the <span class=secodephrase>jseNewSecurity</span> flag turned on. You must fill in the <span class=secodephrase>jseSecurityInit</span> function. If you do not, the <span class=secodephrase>jseNewSecurity</span> flag will be ignored.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>Since the parameters are jseVariables, you set them to any function you like. You can use <span class=secodephrase>jseCreateWrapperFunction()</span> to create a wrapper function to do the security tasks. In the example above, we used script examples. ScriptEase Desktop implements security this way. The three functions are put in a script. You tell ScriptEase Desktop the name of the script using the command line parameter <span class=secodephrase>/secure=&lt;security script name&gt;</span>. ScriptEase Desktop interprets that script first, picks out the security functions, and uses them when it interprets the script you are really interested in. The functions in the security script must be given the names we described above.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>When you interpret a script from within a script, using <span class=secodephrase>SElib.interpret()</span>, you can also specify the security for that child script. See the manual description of <span class=sepopuptopic><a href="TH_935.htm" onClick="return thwindow('TH_935.htm', 'GenPopup')">SElib.interpret()</a></span> for details on how you do this.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<hr noshade size=1>
+<p class=normal><a href="TH_503.htm"><img src="button.png" border=0></a><a href="TH_503.htm" style="text-decoration:none;">Wrapper Functions And Security</a></p>
+<p>
+</body>
+</html>

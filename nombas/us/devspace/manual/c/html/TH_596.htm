@@ -1,0 +1,110 @@
+<html>
+<head>
+<title>Clib.localtime()</title>
+<link rel="stylesheet" href="semanualstyles.css" type="text/css">
+<style type="text/css">
+ p { margin-top: 0; margin-bottom: 0; }
+</style>
+<script language="JavaScript" src="TrueHelp.js"></script>
+</head>
+<body onload="thload()">
+<div id=ienav>
+<ilayer id=nsnav>
+<br>
+<center>
+<p class=normal><a href="seisdkc-toc.htm" target="left">contents</a> &nbsp; <a href="seisdkc-index.htm" target="left">index</a> &nbsp; <a href="TH_595.htm">previous</a> &nbsp; <a href="TH_597.htm">next</a></p>
+</center>
+<br>
+<hr noshade size=1>
+</ilayer>
+</div>
+<p class=sereffunclevel4>Clib.localtime()</p>
+<table cellpadding=0>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>syntax:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=sesyntax>Clib.localtime(<span class=truehelp-xe></span>timeInt)</p></td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>where:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>timeInt - an integer time value.</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>return:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>object - a time object reflecting the value timeInt (as returned by the <span class=sepopuptopic><a href="TH_599.htm" onClick="return thwindow('TH_599.htm', 'GenPopup')">Clib.time()</a></span> function).</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>description:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>This method returns the value timeInt (as returned by the time() function) as a Time object. Note that the Time object differs from the Date object, although they contain the same data. The Time object is for use with the other date and time functions in the <span class=sepopuptopic><a href="TH_577.htm" onClick="return thwindow('TH_577.htm', 'GenPopup')">Clib object</a></span>. It has the following integer properties:</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=list-bullet>&#8226;</p><p class=list-bullet-tab1><span class=secodephrase>.tm_sec</span><br>
+second after the minute (from 0)</p>
+<p class=list-bullet>&#8226;</p><p class=list-bullet-tab1><span class=secodephrase>.tm_min</span><br>
+minutes after the hour (from 0)</p>
+<p class=list-bullet>&#8226;</p><p class=list-bullet-tab1><span class=secodephrase>.tm_hour</span><br>
+hour of the day (from 0)</p>
+<p class=list-bullet>&#8226;</p><p class=list-bullet-tab1><span class=secodephrase>.tm_mday</span><br>
+day of the month (from 1)</p>
+<p class=list-bullet>&#8226;</p><p class=list-bullet-tab1><span class=secodephrase>.tm_mon</span><br>
+month of the year (from 0)</p>
+<p class=list-bullet>&#8226;</p><p class=list-bullet-tab1><span class=secodephrase>.tm_year</span><br>
+years since 1900 (from 0)</p>
+<p class=list-bullet>&#8226;</p><p class=list-bullet-tab1><span class=secodephrase>.tm_wday</span><br>
+days since Sunday (from 0)</p>
+<p class=list-bullet>&#8226;</p><p class=list-bullet-tab1><span class=secodephrase>.tm_yday</span><br>
+day of the year (from 0)</p>
+<p class=list-bullet>&#8226;</p><p class=list-bullet-tab1><span class=secodephrase>.tm_isdst</span><br>
+daylight-savings-time flag</p>
+<p class=secodelines>&nbsp;</p>
+<p class=senormalpara>The following function prints the current date and time on the screen and returns the day of the year, where Jan 1 is the 1st day of the year.</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>see:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara><span class=sejumptopic><a href="TH_597.htm">Clib.mktime()</a></span>, <span class=sejumptopic><a href="TH_742.htm">Date Object</a></span>, <span class=sejumptopic><a href="TH_780.htm">Date toDateString()</a></span>, <span class=sejumptopic><a href="TH_782.htm">Date toLocaleDateString()</a></span></p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>example:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=secodelines>//&nbsp;Show&nbsp;today's&nbsp;date</p>
+<p class=secodelines>//&nbsp;Return&nbsp;day&nbsp;of&nbsp;the&nbsp;year&nbsp;in&nbsp;USA&nbsp;format&nbsp;</p>
+<p class=secodelines>ShowToday()&nbsp;</p>
+<p class=secodelines>{&nbsp;</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//&nbsp;get&nbsp;current&nbsp;time&nbsp;structure&nbsp;</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;var&nbsp;tm&nbsp;=&nbsp;Clib.localtime(Clib.time());&nbsp;</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//&nbsp;display&nbsp;the&nbsp;date&nbsp;in&nbsp;USA&nbsp;format&nbsp;</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;Clib.printf("Date:&nbsp;%02d/%02d/%02d&nbsp;&nbsp;&nbsp;",</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;tm.tm_mon+1,&nbsp;</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;tm.tm_mday,&nbsp;tm.tm_year&nbsp;%&nbsp;100);&nbsp;</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//&nbsp;hour&nbsp;to&nbsp;run&nbsp;from&nbsp;12&nbsp;to&nbsp;11,&nbsp;not&nbsp;0&nbsp;to&nbsp;23&nbsp;</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;var&nbsp;hour&nbsp;=&nbsp;tm.tm_hour&nbsp;%&nbsp;12;&nbsp;</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;if&nbsp;(&nbsp;hour&nbsp;==&nbsp;0&nbsp;)&nbsp;</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;hour&nbsp;=&nbsp;12;&nbsp;</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//&nbsp;print&nbsp;current&nbsp;time&nbsp;</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;Clib.printf("Time:&nbsp;%&nbsp;2d:%02d:%02d\n",&nbsp;hour,</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;tm.tm_min,</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;tm.tm_sec);&nbsp;</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//&nbsp;return&nbsp;day&nbsp;of&nbsp;year,&nbsp;Jan.&nbsp;1&nbsp;is&nbsp;day&nbsp;1&nbsp;</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;return(&nbsp;tm.tm_yday&nbsp;+&nbsp;1&nbsp;);&nbsp;</p>
+<p class=secodelines>}</p></td>
+</tr>
+</table>
+<p class=normal>&nbsp;</p>
+<hr noshade size=1>
+<p class=normal><a href="TH_597.htm"><img src="button.png" border=0></a><a href="TH_597.htm" style="text-decoration:none;">Clib.mktime()</a></p>
+<p>
+</body>
+</html>

@@ -1,0 +1,99 @@
+<html>
+<head>
+<title>Clib.scanf()</title>
+<link rel="stylesheet" href="semanualstyles.css" type="text/css">
+<style type="text/css">
+ p { margin-top: 0; margin-bottom: 0; }
+</style>
+<script language="JavaScript" src="TrueHelp.js"></script>
+</head>
+<body onload="thload()">
+<div id=ienav>
+<ilayer id=nsnav>
+<br>
+<center>
+<p class=normal><a href="seisdkj-toc.htm" target="left">contents</a> &nbsp; <a href="seisdkj-index.htm" target="left">index</a> &nbsp; <a href="TH_475.htm">previous</a> &nbsp; <a href="TH_477.htm">next</a></p>
+</center>
+<br>
+<hr noshade size=1>
+</ilayer>
+</div>
+<p class=sereffunclevel4>Clib.scanf()</p>
+<table cellpadding=0>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>syntax:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=sesyntax>Clib.scanf(formatString,&nbsp;variables[,&nbsp;...])<span class=truehelp-xe></span></p></td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>where:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>formatString - specifies how to read and store data in variables.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>variables - list of variables to hold data input according to formatString.</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>return:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>number - input items assigned.</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>description:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>This flexible method reads input from the screen, extracts data from it by matching the string to a format string (as described below), and stores the data in the variables which follow the format string. It returns the number of input items assigned; this number may be fewer than the number of parameters requested if there was a matching failure. The format string contains character combinations that specify the type of data expected. The format string specifies the admissible input sequences, and how the input is to be converted to be assigned to the variable number of arguments passed to this function. </p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>Characters are matched against the input as read and as it matches a portion of the format string until a % character is reached. % indicates that a value is to be read and stored to subsequent parameters following the format string. Each subsequent parameter after the format string gets the next parsed value takes from the next parameter in the list following format. A parameter specification takes this form (square brackets indicate optional fields, angled brackets indicate required fields):</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara><span class=secodephrase>%</span>[<span class=secodephrase>*</span>][width]&lt;type&gt; </p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara><span class=secodephrase>*</span>, width, and type may be:</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=list-bullet>&#8226;</p><p class=list-bullet-tab1><span class=secodephrase>*</span><br>
+suppress assigning this value to any parameter</p>
+<p class=list-bullet>&#8226;</p><p class=list-bullet-tab1>width<br>
+maximum number of characters to read; fewer will be read if white space or nonconvertible character</p>
+<p class=list-bullet>&#8226;</p><p class=list-bullet-tab1>type<br>
+may be one of the following:</p>
+<p class=secodelines>&nbsp;</p>
+<p class=list-bullet>&#8226;</p><p class=list-bullet-tab1><span class=secodephrase>d, D, i, I</span><br>
+signed integer</p>
+<p class=list-bullet>&#8226;</p><p class=list-bullet-tab1><span class=secodephrase>u, U</span><br>
+unsigned integer</p>
+<p class=list-bullet>&#8226;</p><p class=list-bullet-tab1><span class=secodephrase>o,  O</span><br>
+octal integer</p>
+<p class=list-bullet>&#8226;</p><p class=list-bullet-tab1><span class=secodephrase>x, X</span><br>
+hexadecimal integer</p>
+<p class=list-bullet>&#8226;</p><p class=list-bullet-tab1><span class=secodephrase>f, e, E, g, G</span><br>
+floating point number</p>
+<p class=list-bullet>&#8226;</p><p class=list-bullet-tab1><span class=secodephrase>c</span><br>
+character; if width was specified then this will be an array of characters of the specified length</p>
+<p class=list-bullet>&#8226;</p><p class=list-bullet-tab1><span class=secodephrase>s</span><br>
+string</p>
+<p class=list-bullet>&#8226;</p><p class=list-bullet-tab1><span class=secodephrase>[abc</span>]<br>
+string consisting of all characters within brackets; where AZ represents range "A" to "Z"</p>
+<p class=list-bullet>&#8226;</p><p class=list-bullet-tab1><span class=secodephrase>[^abc]</span><br>
+string consisting of all character NOT within brackets.</p>
+<p class=secodelines>&nbsp;</p>
+<p class=senormalpara>Modifies any number of parameters following the format string, setting the parameters to data according to the specifications of the format string.</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>see:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara><span class=sejumptopic><a href="TH_478.htm">Clib.vscanf()</a></span></p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+</table>
+<p class=normal>&nbsp;</p>
+<hr noshade size=1>
+<p class=normal><a href="TH_477.htm"><img src="button.png" border=0></a><a href="TH_477.htm" style="text-decoration:none;">Clib.vprintf()</a></p>
+<p>
+</body>
+</html>

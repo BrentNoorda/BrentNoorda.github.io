@@ -1,0 +1,60 @@
+<html>
+<head>
+<title>Passing variables by reference</title>
+<link rel="stylesheet" href="semanualstyles.css" type="text/css">
+<style type="text/css">
+ p { margin-top: 0; margin-bottom: 0; }
+</style>
+<script language="JavaScript" src="TrueHelp.js"></script>
+</head>
+<body onload="thload()">
+<div id=ienav>
+<ilayer id=nsnav>
+<br>
+<center>
+<p class=normal><a href="seisdkj-toc.htm" target="left">contents</a> &nbsp; <a href="seisdkj-index.htm" target="left">index</a> &nbsp; <a href="TH_406.htm">previous</a> &nbsp; <a href="TH_408.htm">next</a></p>
+</center>
+<br>
+<hr noshade size=1>
+</ilayer>
+</div>
+<p class=heading-2>Passing variables by reference</p>
+<p class=heading-2-p>&nbsp;</p>
+<p class=senormalpara>By default, lvalues in ScriptEase are passed to functions by value (that is, the function cannot alter the lvalue) <span class=truehelp-xe></span>. But if a variable is declared in a function with the "&amp;" symbol then it is passed by reference.  I a function alters a pass-by-reference (i.e. &amp;argument) variable, then the variable passed as an argument by the calling routine is altered also, if it is an lvalue. So instead of the following C code which uses address and pointer operators:</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=secodelinesindented>main()</p>
+<p class=secodelinesindented>{</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;CQuadrupleInPlace(&amp;i);</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;...</p>
+<p class=secodelinesindented>}</p>
+<p class=secodelinesindented>&nbsp;</p>
+<p class=secodelinesindented>void&nbsp;CQuadrupleInPlace(int&nbsp;*j)</p>
+<p class=secodelinesindented>{</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;*j&nbsp;+=&nbsp;4;</p>
+<p class=secodelinesindented>}</p>
+<p class=secodelinesindented>&nbsp;</p>
+<p class=senormalpara>a ScriptEase conversion could be:</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=secodelinesindented>function&nbsp;main()</p>
+<p class=secodelinesindented>{</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;...</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;QuadrupleInPlace(i);</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;...</p>
+<p class=secodelinesindented>}</p>
+<p class=secodelinesindented>&nbsp;</p>
+<p class=secodelinesindented>function&nbsp;QuadrupleInPlace(&amp;j)</p>
+<p class=secodelinesindented>{</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;j&nbsp;+=&nbsp;4;</p>
+<p class=secodelinesindented>}</p>
+<p class=secodelinesindented>&nbsp;</p>
+<p class=senormalpara>The following calls to QuadrupleInPlace() are valid in ScriptEase, but the values passed as arguments are not changed after QuadrupleInPlace() is called. Why? None of the arguments being passed are lvalues.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=secodelinesindented>QuadrupleInPlace(8);</p>
+<p class=secodelinesindented>QuadrupleInPlace(i+1);</p>
+<p class=secodelinesindented>QuadrupleInPlace(8+1);</p>
+<p class=secodelinesindented>&nbsp;</p>
+<hr noshade size=1>
+<p class=normal><a href="TH_408.htm"><img src="button.png" border=0></a><a href="TH_408.htm" style="text-decoration:none;">Pointer operator * and address operator &</a></p>
+<p>
+</body>
+</html>

@@ -1,0 +1,87 @@
+<html>
+<head>
+<title>GD setStyle()</title>
+<link rel="stylesheet" href="semanualstyles.css" type="text/css">
+<style type="text/css">
+ p { margin-top: 0; margin-bottom: 0; }
+</style>
+<script language="JavaScript" src="TrueHelp.js"></script>
+</head>
+<body onload="thload()">
+<div id=ienav>
+<ilayer id=nsnav>
+<br>
+<center>
+<p class=normal><a href="seisdkc-toc.htm" target="left">contents</a> &nbsp; <a href="seisdkc-index.htm" target="left">index</a> &nbsp; <a href="TH_1054.htm">previous</a> &nbsp; <a href="TH_1056.htm">next</a></p>
+</center>
+<br>
+<hr noshade size=1>
+</ilayer>
+</div>
+<p class=sereffunclevel4>GD setStyle()</p>
+<table cellpadding=0>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>syntax:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=sesyntax>gd.setStyle(<span class=truehelp-xe></span>style)</p></td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>where:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>style - style to set for current image.</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>return:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>void.</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>description:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>This method sets the current style for this image, which is used whenever the string "styled" is passed as a color index parameter to a drawing function.  The parameters to the method is a list of pixels, which are color indexes or the special value -1, which indicates a transparent pixel.  When drawing lines or a series of pixels, the drawing methods cycle through the sequence defined in the current style and applies the color to each successive pixel.  If the value of -1 is used, then no color is applied and the background remains.</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>see:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara><span class=secodephrase>#link &lt;gd&gt;</span>, <span class=sejumptopic><a href="TH_1053.htm">GD setBrush()</a></span>, <span class=sejumptopic><a href="TH_1056.htm">GD setTile()</a></span></p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>example:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=secodelines>/*&nbsp;Create&nbsp;a&nbsp;Red,&nbsp;Green,&nbsp;Blue,</p>
+<p class=secodelines>&nbsp;*&nbsp;dashed&nbsp;line&nbsp;from&nbsp;the&nbsp;upper&nbsp;left</p>
+<p class=secodelines>&nbsp;*&nbsp;corner&nbsp;of&nbsp;the&nbsp;image&nbsp;to&nbsp;the&nbsp;lower&nbsp;right&nbsp;corner.</p>
+<p class=secodelines>&nbsp;*&nbsp;Each&nbsp;dash&nbsp;will&nbsp;be&nbsp;3</p>
+<p class=secodelines>&nbsp;*&nbsp;pixels&nbsp;wide,&nbsp;and&nbsp;there&nbsp;will&nbsp;be&nbsp;3&nbsp;pixels</p>
+<p class=secodelines>&nbsp;*&nbsp;of&nbsp;space&nbsp;in&nbsp;between.</p>
+<p class=secodelines>&nbsp;*/</p>
+<p class=secodelines>&nbsp;</p>
+<p class=secodelines>var&nbsp;gd&nbsp;=&nbsp;new&nbsp;GD(64,64);</p>
+<p class=secodelines>var&nbsp;red&nbsp;=&nbsp;gd.colorAllocate(&nbsp;255,&nbsp;0,&nbsp;0&nbsp;);</p>
+<p class=secodelines>var&nbsp;green&nbsp;=&nbsp;gd.colorAllocate(&nbsp;0,&nbsp;255,&nbsp;0&nbsp;);</p>
+<p class=secodelines>var&nbsp;blue&nbsp;=&nbsp;gd.colorAllocate(&nbsp;0,&nbsp;0,&nbsp;255&nbsp;);</p>
+<p class=secodelines>gd.setStyle(red,&nbsp;red,&nbsp;red,</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-1,&nbsp;-1,&nbsp;-1,&nbsp;</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;green,&nbsp;green,&nbsp;green,</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-1,&nbsp;-1,&nbsp;-1,</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;blue,&nbsp;blue,&nbsp;blue,</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-1,&nbsp;-1,&nbsp;-1&nbsp;);</p>
+<p class=secodelines>gd.line(&nbsp;[0,0],&nbsp;[63,63],&nbsp;"styled"&nbsp;);</p></td>
+</tr>
+</table>
+<p class=normal>&nbsp;</p>
+<hr noshade size=1>
+<p class=normal><a href="TH_1056.htm"><img src="button.png" border=0></a><a href="TH_1056.htm" style="text-decoration:none;">GD setTile()</a></p>
+<p>
+</body>
+</html>

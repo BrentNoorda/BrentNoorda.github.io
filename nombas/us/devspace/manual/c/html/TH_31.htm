@@ -1,0 +1,125 @@
+<html>
+<head>
+<title>seGetStringEx</title>
+<link rel="stylesheet" href="semanualstyles.css" type="text/css">
+<style type="text/css">
+ p { margin-top: 0; margin-bottom: 0; }
+</style>
+<script language="JavaScript" src="TrueHelp.js"></script>
+</head>
+<body onload="thload()">
+<div id=ienav>
+<ilayer id=nsnav>
+<br>
+<center>
+<p class=normal><a href="seisdkc-toc.htm" target="left">contents</a> &nbsp; <a href="seisdkc-index.htm" target="left">index</a> &nbsp; <a href="TH_30.htm">previous</a> &nbsp; <a href="TH_32.htm">next</a></p>
+</center>
+<br>
+<hr noshade size=1>
+</ilayer>
+</div>
+<p class=sereffunclevel3>seGetStringEx</p>
+<p class=sereffunclevel3-p>&nbsp;</p>
+<table cellpadding=0>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>syntax:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=sesyntax>&nbsp;&nbsp;&nbsp;sebool</p>
+<p class=sesyntax>seGetBoolEx(secontext&nbsp;se,</p>
+<p class=sesyntax>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;seobject&nbsp;object,</p>
+<p class=sesyntax>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;semember&nbsp;member,</p>
+<p class=sesyntax>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;int&nbsp;fl);</p>
+<p class=sesyntax>&nbsp;</p>
+<p class=sesyntax>&nbsp;&nbsp;&nbsp;senumber</p>
+<p class=sesyntax>seGetNumberEx(secontext&nbsp;se,</p>
+<p class=sesyntax>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;seobject&nbsp;object,</p>
+<p class=sesyntax>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;semember&nbsp;member,</p>
+<p class=sesyntax>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;int&nbsp;fl);</p>
+<p class=sesyntax>&nbsp;</p>
+<p class=sesyntax>&nbsp;&nbsp;&nbsp;void&nbsp;*</p>
+<p class=sesyntax>seGetPointerEx(secontext&nbsp;se,</p>
+<p class=sesyntax>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;seobject&nbsp;object,</p>
+<p class=sesyntax>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;semember&nbsp;member,</p>
+<p class=sesyntax>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;int&nbsp;fl);</p>
+<p class=sesyntax>&nbsp;</p>
+<p class=sesyntax>&nbsp;&nbsp;&nbsp;seobject</p>
+<p class=sesyntax>seGetObjectEx(secontext&nbsp;se,</p>
+<p class=sesyntax>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;seobject&nbsp;object,</p>
+<p class=sesyntax>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;semember&nbsp;member,</p>
+<p class=sesyntax>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;int&nbsp;fl);</p>
+<p class=sesyntax>&nbsp;</p>
+<p class=sesyntax>&nbsp;&nbsp;&nbsp;seconstcharptr</p>
+<p class=sesyntax>seGetStringEx(secontext&nbsp;se,</p>
+<p class=sesyntax>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;seobject&nbsp;object,</p>
+<p class=sesyntax>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;semember&nbsp;member,</p>
+<p class=sesyntax>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;sememcount&nbsp;*len,</p>
+<p class=sesyntax>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;int&nbsp;fl);</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>where:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara><span class=secodephrase>se</span> the context to get the variable from</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara><span class=secodephrase>object</span> the object half of an Object,Member pair</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara><span class=secodephrase>member</span> the member half of an Object,Member pair</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara><span class=secodephrase>fl</span> flags determining how the variable is retrieved</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara><span class=secodephrase>len</span> the length of the returned data for <span class=sepopuptopic><a href="TH_31.htm" onClick="return thwindow('TH_31.htm', 'GenPopup')">seGetStringEx</a></span> in characters</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>return:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>The C value for the variable.</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>description:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>These routines are a core element of the ScriptEase API. Given an Object,Member pair, these routines extract the current value as the given type, converting if necessary, and return the result. Note that the underlying variable does not change type, its value is retrieved and converted without changing the source variable. A valid return will always result from these functions. If an internal error occurs, like an illegal conversion, that error will be set up as the result of your function (see <span class=secodephrase>seThrow</span>), but a valid result is still returned. The intent is that you can write a simple wrapper with no error checking that uses these routines. See the section <span class=sejumptopic><a href="TH_371.htm">SE_RETURN EXPLAINED</a></span> in "<span class=sejumptopic><a href="TH_317.htm">Working with Variables</a></span>" for a discussion of the implications of this behavior. The value returned if an error occurs will always be a stock value. For numbers, it is <span class=secodephrase>SE_NAN</span> (or <span class=secodephrase>0</span> for non-floating point numbers). For strings, an empty string, <span class=secodephrase>UNISTR(&#147;&#148;)</span>, is returned. For objects, <span class=secodephrase>SE_NOWHERE</span> is returned. Finally, for booleans <span class=secodephrase>FALSE</span> is returned.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>The flags parameter can be any of the following <span class=secodephrase>|</span>'d togethor:</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara><span class=secodephrase>SE_DEFAULT</span></p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>SE_GF_NOPROTOTYPE - ignore the object's prototype when looking for the property<span class=secodephrase></span></p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara><span class=secodephrase>SE_GF_NOCALLBACKS</span> - ignore the object's dynamic methods when looking for the property. It directly accesses the object's internal structure. It is intended for writing faster dynamic routines<span class=secodephrase>.</span></p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>SE_GF_DIRECT - This is a bitwise OR of <span class=secodeterm>SE_GF_NOPROTOTYPE</span> and <span class=secodeterm>SE_GF_NOCALLBACKS</span> to ignore the object's prototype and dynamic methods when looking for the property. See the sections on <span class=sejumptopic><a href="TH_282.htm">DYNAMIC OBJECTS</a></span> for more information on using this flag<span class=secodephrase></span></p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara><span class=secodephrase>SE_GF_CALL_HINT</span> - if the member is retrieved via a dynamic get callback (on <span class=sejumptopic><a href="TH_282.htm">DYNAMIC OBJECTS</a></span> for more information about get callbacks), then this flag will set the <span class=secodeterm>call_hint</span> value to <span class=secodeterm>TRUE</span> for that callback.<span class=secodephrase></span></p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara><span class=secodephrase>SE_GF_UNDEF_OBJ_OK</span> - if seGetObject() is called and the property cannot be converted to an object because it is <span class=secodephrase>SE_TYPE_UNDEFINED</span> or <span class=secodephrase>SE_TYPE_NULL</span>, then normally an exception will be generated because these types cannot be converted to an object.  With this flag set the property will stay as it is and no exception will be generated (although your returned object will be <span class=secodephrase>SE_NOWHERE</span>).</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara><span class=secodephrase>SE_GF_COMPOUND_CREATE</span> - This flag applies only to the <span class=secodephrase>SE_COMPOUND_MEM</span> and <span class=secodephrase>SE_COMPOUND_UNIMEM</span> types, or to calls to <span class=sepopuptopic><a href="TH_14.htm" onClick="return thwindow('TH_14.htm', 'GenPopup')">seVarParse()</a></span>.  This flag means that the variable is created so it always exists after the call even if it did not before the call. Any piece of the variable is likewise created, so if you refer to <span class=secodephrase>foo.goo</span> and there is no variable <span class=secodephrase>foo</span>, then <span class=secodephrase>foo</span> is created and made an object and is given the member <span class=secodephrase>goo</span> which will initially be of type <span class=secodephrase>SE_TYPE_UNDEFINED; </span>but if you refer to <span class=secodephrase>foo.goo.zoo </span>and there is no variable <span class=secodephrase>foo</span> then <span class=secodephrase>foo</span> and <span class=secodephrase>foo.goo</span> are created and made objects.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>In addition, you can specify the flags by using different named functions that have the flags as part of their name. In this case, you do not specify the flags, they are implicit. Taking <span class=secodephrase>seGetNumberEx</span> as an example:</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara><span class=secodephrase>seGetNumber(...) = seGetNumberEx(...,SE_DEFAULT)</span></p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>seGetDirectNumber(...) = seGetNumberEx(...,SE_GF_DIRECT)</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>The return from <span class=sepopuptopic><a href="TH_31.htm" onClick="return thwindow('TH_31.htm', 'GenPopup')">seGetStringEx</a></span> and <span class=sepopuptopic><a href="TH_29.htm" onClick="return thwindow('TH_29.htm', 'GenPopup')">seGetObjectEx</a></span> both follow the usual ScriptEase lifetime rules described in the <span class=sejumptopic><a href="TH_279.htm">Lifetimes</a></span> chapter.</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>see:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>None</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+</table>
+<hr noshade size=1>
+<p class=normal><a href="TH_32.htm"><img src="button.png" border=0></a><a href="TH_32.htm" style="text-decoration:none;">seFreeObject</a></p>
+<p>
+</body>
+</html>

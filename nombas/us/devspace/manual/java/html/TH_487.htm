@@ -1,0 +1,118 @@
+<html>
+<head>
+<title>Clib.strftime()</title>
+<link rel="stylesheet" href="semanualstyles.css" type="text/css">
+<style type="text/css">
+ p { margin-top: 0; margin-bottom: 0; }
+</style>
+<script language="JavaScript" src="TrueHelp.js"></script>
+</head>
+<body onload="thload()">
+<div id=ienav>
+<ilayer id=nsnav>
+<br>
+<center>
+<p class=normal><a href="seisdkj-toc.htm" target="left">contents</a> &nbsp; <a href="seisdkj-index.htm" target="left">index</a> &nbsp; <a href="TH_486.htm">previous</a> &nbsp; <a href="TH_488.htm">next</a></p>
+</center>
+<br>
+<hr noshade size=1>
+</ilayer>
+</div>
+<p class=sereffunclevel4>Clib.strftime()</p>
+<table cellpadding=0>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>syntax:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=sesyntax>Clib.strftime(<span class=truehelp-xe></span>str,&nbsp;formatString,&nbsp;timeObj)</p></td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>where:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>str - a variable to receive the formatted time string.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>formatString - string that specifies the final format.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>timeObj - time variable in the Time object format.</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>return:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>string - a string that describes the date and/or time and stores it in the variable string.</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>description:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>This method creates a string that describes the date and or time and stores it in the variable str. The parameter formatString describes what the string will look like, and timeObj is a time object as returned by <span class=sepopuptopic><a href="TH_485.htm" onClick="return thwindow('TH_485.htm', 'GenPopup')">Clib.localtime()</a></span>.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>These following conversion characters are used with <span class=secodephrase>Clib.strftime()</span> to indicate time and date output:</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=list-bullet>&#8226;</p><p class=list-bullet-tab1><span class=secodephrase>%a</span><br>
+abbreviated weekday name (Sun)</p>
+<p class=list-bullet>&#8226;</p><p class=list-bullet-tab1><span class=secodephrase>%A</span><br>
+full weekday name (Sunday)</p>
+<p class=list-bullet>&#8226;</p><p class=list-bullet-tab1><span class=secodephrase>%b</span><br>
+abbreviated month name (Dec)</p>
+<p class=list-bullet>&#8226;</p><p class=list-bullet-tab1><span class=secodephrase>%B</span><br>
+full month name (December)</p>
+<p class=list-bullet>&#8226;</p><p class=list-bullet-tab1><span class=secodephrase>%c</span><br>
+date and time (Dec 2 06:55:15 1979)</p>
+<p class=list-bullet>&#8226;</p><p class=list-bullet-tab1><span class=secodephrase>%d</span><br>
+twodigit day of the month (02)</p>
+<p class=list-bullet>&#8226;</p><p class=list-bullet-tab1><span class=secodephrase>%H</span><br>
+twodigit hour of the 24hour day (06)</p>
+<p class=list-bullet>&#8226;</p><p class=list-bullet-tab1><span class=secodephrase>%I</span><br>
+twodigit hour of the 12hour day (06)</p>
+<p class=list-bullet>&#8226;</p><p class=list-bullet-tab1><span class=secodephrase>%j</span><br>
+threedigit day of the year from 001 (335)</p>
+<p class=list-bullet>&#8226;</p><p class=list-bullet-tab1><span class=secodephrase>%m</span><br>
+twodigit month of the year from 01 (12)</p>
+<p class=list-bullet>&#8226;</p><p class=list-bullet-tab1><span class=secodephrase>%M</span><br>
+twodigit minute of the hour (55)</p>
+<p class=list-bullet>&#8226;</p><p class=list-bullet-tab1><span class=secodephrase>%p</span><br>
+AM or PM (AM)</p>
+<p class=list-bullet>&#8226;</p><p class=list-bullet-tab1><span class=secodephrase>%S</span><br>
+twodigit seconds of the minute (15)</p>
+<p class=list-bullet>&#8226;</p><p class=list-bullet-tab1><span class=secodephrase>%U</span><br>
+twodigit week of year, Sunday is first day of week (48)</p>
+<p class=list-bullet>&#8226;</p><p class=list-bullet-tab1><span class=secodephrase>%w</span><br>
+day of the week where Sunday is 0 (0)</p>
+<p class=list-bullet>&#8226;</p><p class=list-bullet-tab1><span class=secodephrase>%W</span><br>
+twodigit week of year, Monday is first day of week (47)</p>
+<p class=list-bullet>&#8226;</p><p class=list-bullet-tab1><span class=secodephrase>%x</span><br>
+the date (Dec 2 1979)</p>
+<p class=list-bullet>&#8226;</p><p class=list-bullet-tab1><span class=secodephrase>%X</span><br>
+the time (06:55:15)</p>
+<p class=list-bullet>&#8226;</p><p class=list-bullet-tab1><span class=secodephrase>%y</span><br>
+twodigit year of the century (79)</p>
+<p class=list-bullet>&#8226;</p><p class=list-bullet-tab1><span class=secodephrase>%Y</span><br>
+the year (1979)</p>
+<p class=list-bullet>&#8226;</p><p class=list-bullet-tab1><span class=secodephrase>%Z</span><br>
+name of the time zone, if known (EST)</p>
+<p class=list-bullet>&#8226;</p><p class=list-bullet-tab1><span class=secodephrase>%%</span><br>
+the per cent character (%)</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>example:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=secodelines>//&nbsp;displays&nbsp;the&nbsp;full&nbsp;day&nbsp;name&nbsp;and&nbsp;month&nbsp;name</p>
+<p class=secodelines>//&nbsp;of&nbsp;the&nbsp;current&nbsp;day</p>
+<p class=secodelines>Clib.strftime(TimeBuf,&nbsp;</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"Today&nbsp;is:&nbsp;%A,&nbsp;the&nbsp;month&nbsp;is:&nbsp;%B",</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Clib.localtime(time()));</p>
+<p class=secodelines>Clib.puts(TimeBuf);</p></td>
+</tr>
+</table>
+<p class=normal>&nbsp;</p>
+<hr noshade size=1>
+<p class=normal><a href="TH_488.htm"><img src="button.png" border=0></a><a href="TH_488.htm" style="text-decoration:none;">Clib.time()</a></p>
+<p>
+</body>
+</html>

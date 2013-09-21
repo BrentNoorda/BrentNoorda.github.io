@@ -1,0 +1,10475 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML EXPERIMENTAL 970324//EN">
+<HTML>
+<HEAD>
+<META NAME="GENERATOR" CONTENT="Adobe FrameMaker 5.5/HTML Export Filter">
+<LINK REL="STYLESHEET" HREF="desk3man.css">
+<TITLE>ScriptEase:Desktop v3 Manual: ScriptEase Standard Library</TITLE>
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-1754630-10']);
+  _gaq.push(['_trackPageview']);
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+</HEAD>
+<BODY BACKGROUND="desk3pat.gif">
+<TABLE WIDTH="225" BORDER="0" CELLSPACING="0" CELLPADDING="0">
+  <TR>
+    <TD WIDTH="71"><a href="5-debug.htm"><IMG SRC="prev.gif" WIDTH="71" height="18" border="0"></a></TD>
+    <TD WIDTH="80"><a href="../index.htm"><IMG SRC="tocidx.gif" WIDTH="80" height="18" border="0"></a></TD>
+    <TD WIDTH="74"><a href="7-libext.htm"><IMG SRC="next.gif" WIDTH="74" height="18" border="0"></a></TD>
+  </TR>
+</TABLE>
+
+<H1 CLASS="Title">
+ScriptEase Standard Library</H1>
+<P CLASS="Abstract">
+The Standard ScriptEase Library is based on the standard C libraries, as defined by ANSI and ISO. All of these routines are available to any ScriptEase program executed by ScriptEase.</P>
+<P CLASS="Body">
+Minimal modifications have been made to the standard C library to support the differences between the ScriptEase and the C languages. In most cases, these modifications involve the redefinition of a variable pointer to become a variable-passed-by-reference. Usually, the ScriptEase call to one of these functions looks identical to the C call. The experienced C programmer must only give thought to the changes when an ampersand (&amp;) operator or a sizeof() statement would otherwise be in order.</P>
+<P CLASS="Body">
+A few functions are missing, mostly those dealing with locales (locales will be added if there is demand for them). A few functions have been added beyond those in the ANSI and ISO standards. The functions that seem to be common across most existing implementations of C libraries were implemented.</P>
+<P CLASS="Body">
+Note: Any functions beginning with &quot;str&quot; automatically tags character-arrays as &quot;strings&quot;, which means that further use of those variables will always ensure that they are null-terminated.</P>
+<P CLASS="Body">
+The following defines are include as part of the standard ScriptEase library</P>
+<TABLE>
+<TR>
+<TD>
+<P CLASS="cb">
+<A NAME="1006392">
+ </A>
+CLOCKS_PER_SEC</P>
+</TD>
+<TD>
+<P CLASS="cb">
+(e.g. 18.2, 100) Number of system clock ticks<BR>
+per second</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="cb">
+<A NAME="1006393">
+ </A>
+FALSE</P>
+</TD>
+<TD>
+<P CLASS="cb">
+0  (Indicates FALSE)</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="cb">
+<A NAME="1006394">
+ </A>
+TRUE</P>
+</TD>
+<TD>
+<P CLASS="cb">
+1  (Indicates TRUE)</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="cb">
+<A NAME="1006395">
+ </A>
+NULL</P>
+</TD>
+<TD>
+<P CLASS="cb">
+0   Used to initialize arrays to being empty</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="cb">
+<A NAME="1006396">
+ </A>
+EXIT_FAILURE</P>
+</TD>
+<TD>
+<P CLASS="cb">
+(e.g. 1, 255) Program return code to indicate failure</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="cb">
+<A NAME="1006397">
+ </A>
+EXIT_SUCCESS</P>
+</TD>
+<TD>
+<P CLASS="cb">
+(e.g. 0) Program return code to indicate success</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="cb">
+<A NAME="1006398">
+ </A>
+RAND_MAX</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Maximum value returned by the rand function</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="cb">
+<A NAME="1006400">
+ </A>
+EOF</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Status returned when end of file is reached</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="cb">
+<A NAME="1006399">
+ </A>
+stderr</P>
+</TD>
+<TD>
+<P CLASS="cb">
+FILE for standard error device; can be changed with freopen()</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="cb">
+<A NAME="1006401">
+ </A>
+stdin</P>
+</TD>
+<TD>
+<P CLASS="cb">
+FILE for standard input device; can be changed with freopen()</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="cb">
+<A NAME="1006402">
+ </A>
+stdout</P>
+</TD>
+<TD>
+<P CLASS="cb">
+FILE for standard output device; can be changed with freopen()</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="cb">
+<A NAME="1006391">
+ </A>
+errno</P>
+</TD>
+<TD>
+<P CLASS="cb">
+errno is a variable used to store diagnostic messages in the case of an error in executing a fuction. Many library functions will set errno to non-zero in case of error to provide more specific information about the error. ScriptEase implements errno as a macro to the internal function_errno(). This variable can be accessed with perror() or strerror().</P>
+</TD>
+</TR>
+</TABLE>
+<P CLASS="Body">
+&nbsp;</P>
+<HR><TABLE>
+<TR>
+<TH COLSPAN="2">
+<H6 CLASS="fnam">
+<A NAME="1006403">
+ </A>
+abort</H6>
+</TH>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+DESCRIPTION</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Terminate program; most likely due to an error.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+SYNTAX</P>
+</TD>
+<TD>
+<P CLASS="Function-Syntax">
+void abort() </P>
+<P CLASS="Function-Syntax">
+void abort(bool AbortAll)</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+COMMENTS</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Causes abnormal program termination, and should only be called on fatal error. It does not return to the caller, but instead exits returning EXIT_FAILURE to the operating system. </P>
+<P CLASS="cb">
+The second form of this call, which adds an additional parameters to the standard-C abort() function, will abort through all levels of ScriptEase interpretation. This means that if you are within multiple levels of interpret(), and AbortAll is TRUE (i.e., not FALSE), then this will abort through all interpret() levels.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+RETURN</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Does not return.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+SEE ALSO</P>
+</TD>
+<TD>
+<P CLASS="cb">
+assert(), exit()</P>
+</TD>
+</TR>
+</TABLE>
+<HR><TABLE>
+<TR>
+<TH COLSPAN="2">
+<H6 CLASS="fnam">
+<A NAME="1006404">
+ </A>
+asctime</H6>
+</TH>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+DESCRIPTION</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Convert date and time to an ASCII string.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+SYNTAX</P>
+</TD>
+<TD>
+<P CLASS="cb">
+string asctime(struct tm)</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+COMMENTS</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Converts time stored in tm structure into an ascii string of this form: </P>
+<P CLASS="cmd">
+Mon Jul 19 09:14:22 1993\n </P>
+<P CLASS="cb">
+See localtime() for a description of the tm structure.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+RETURN</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Returns ascii string, ending in newline and null-terminated, representing a date and time.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+SEE ALSO</P>
+</TD>
+<TD>
+<P CLASS="cb">
+ctime(), gmtime(), localtime(), mktime(), time(), strftime()</P>
+</TD>
+</TR>
+</TABLE>
+<HR><TABLE>
+<TR>
+<TH COLSPAN="2">
+<H6 CLASS="fnam">
+<A NAME="1006405">
+ </A>
+abs</H6>
+</TH>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+DESCRIPTION</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Calculate the absolute value</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+SYNTAX</P>
+</TD>
+<TD>
+<P CLASS="cb">
+int abs(int x)</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+COMMENTS</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Since int and long int are the same in ScriptEase, this function is the same as labs().</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+RETURN</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Returns the absolute (positive) value of x.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+SEE ALSO</P>
+</TD>
+<TD>
+<P CLASS="cb">
+labs(), fabs(),</P>
+</TD>
+</TR>
+</TABLE>
+<HR><TABLE>
+<TR>
+<TH COLSPAN="2">
+<H6 CLASS="fnam">
+<A NAME="1006406">
+ </A>
+acos</H6>
+</TH>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+DESCRIPTION</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Calculate the arc cosine.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+SYNTAX</P>
+</TD>
+<TD>
+<P CLASS="cb">
+float acos(float x)</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+RETURN</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Return arc cosine of x in the range [0,pi] radians.</P>
+</TD>
+</TR>
+</TABLE>
+<HR><TABLE>
+<TR>
+<TH>
+<H6 CLASS="fnam">
+<A NAME="1006407">
+ </A>
+asin</H6>
+</TH>
+<TH>
+<H6 CLASS="cHead">
+&nbsp;</H6>
+</TH>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+DESCRIPTION</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Calculate the arc sine.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+SYNTAX</P>
+</TD>
+<TD>
+<P CLASS="cb">
+float asin(float x)</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+RETURN</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Return arc sine of x in the range [-pi/2,pi/2] radians.</P>
+</TD>
+</TR>
+</TABLE>
+<HR><TABLE>
+<TR>
+<TH>
+<H6 CLASS="fnam">
+<A NAME="1006408">
+ </A>
+assert</H6>
+</TH>
+<TH>
+<H6 CLASS="cHead">
+&nbsp;</H6>
+</TH>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+DESCRIPTION</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Test a condition and abort if it is FALSE.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+SYNTAX</P>
+</TD>
+<TD>
+<P CLASS="cb">
+void assert(bool test)</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+COMMENTS</P>
+</TD>
+<TD>
+<P CLASS="cb">
+If the assertion test evaluates to FALSE then will print file name and line number to stderr, and then abort. If the assertion evaluates to TRUE then the program continues. assert() is typically used as a debugging technique to test that assumptions are true before executing code that is based on those assumptions. Unlike C, the ScriptEase implementation of assert does not depend upon NDEBUG being defined or undefined. It is always active.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+RETURN</P>
+</TD>
+<TD>
+<P CLASS="cb">
+None. Will abort if the assertion fails.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+SEE ALSO</P>
+</TD>
+<TD>
+<P CLASS="cb">
+abort(), exit()</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+EXAMPLE</P>
+</TD>
+<TD>
+<P CLASS="cb">
+The Inverse() function returns the inverse of the input number (i.e., 1/x): </P>
+<P CLASS="ciTable">
+Inverse(x) // return 1/x </P>
+<P CLASS="ciTable">
+{</P>
+<P CLASS="ciTable">
+	assert(0 != x); </P>
+<P CLASS="ciTable">
+	return 1 / x; </P>
+<P CLASS="ciTable">
+}</P>
+<P CLASS="cb">
+ &nbsp;</P>
+</TD>
+</TR>
+</TABLE>
+<HR><TABLE>
+<TR>
+<TH>
+<H6 CLASS="fnam">
+<A NAME="1006409">
+ </A>
+atan</H6>
+</TH>
+<TH>
+<H6 CLASS="cHead">
+&nbsp;</H6>
+</TH>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+DESCRIPTION</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Calculate the arc tangent.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+SYNTAX</P>
+</TD>
+<TD>
+<P CLASS="cb">
+float atan(float x)</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+RETURN</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Return arc tangent of x in the range [-pi/2,pi/2] radians.</P>
+</TD>
+</TR>
+</TABLE>
+<HR><TABLE>
+<TR>
+<TH>
+<H6 CLASS="fnam">
+<A NAME="1006410">
+ </A>
+atan2</H6>
+</TH>
+<TH>
+<H6 CLASS="cHead">
+&nbsp;</H6>
+</TH>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+DESCRIPTION</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Calculate the arc tangent of a fraction.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+SYNTAX</P>
+</TD>
+<TD>
+<P CLASS="cb">
+float atan2(float y, float x)</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+RETURN</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Return the arc tangent of y/x, in the range [-pi, +pi] radians.</P>
+</TD>
+</TR>
+</TABLE>
+<HR><TABLE>
+<TR>
+<TH>
+<H6 CLASS="fnam">
+<A NAME="1006411">
+ </A>
+atexit</H6>
+</TH>
+<TH>
+<H6 CLASS="cHead">
+&nbsp;</H6>
+</TH>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+DESCRIPTION</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Register function to be called at program exit.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+SYNTAX</P>
+</TD>
+<TD>
+<P CLASS="cb">
+void atexit(string FunctionName)</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+COMMENTS</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Function name is string for function to call.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+SEE ALSO</P>
+</TD>
+<TD>
+<P CLASS="cb">
+abort(), assert(), exit()</P>
+</TD>
+</TR>
+</TABLE>
+<HR><TABLE>
+<TR>
+<TH>
+<H6 CLASS="fnam">
+<A NAME="1006412">
+ </A>
+atof</H6>
+</TH>
+<TH>
+<H6 CLASS="cHead">
+&nbsp;</H6>
+</TH>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+DESCRIPTION</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Convert ascii string to a floating-point number.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+SYNTAX</P>
+</TD>
+<TD>
+<P CLASS="cb">
+float atof(string str)</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+COMMENTS</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Converts the ascii string str, as long as str can be converted, to a floating-point value.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+RETURN</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Return str converted to floating-point. Returns 0 if the string evaluates to 0 (&quot;0.000&quot;, e.g.), or str cannot be converted to a floating point number.</P>
+</TD>
+</TR>
+</TABLE>
+<HR><TABLE>
+<TR>
+<TH>
+<H6 CLASS="fnam">
+<A NAME="1006413">
+ </A>
+atoi</H6>
+</TH>
+<TH>
+<H6 CLASS="cHead">
+&nbsp;</H6>
+</TH>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+DESCRIPTION</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Convert ascii string to an integer.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+SYNTAX</P>
+</TD>
+<TD>
+<P CLASS="cb">
+int atoi(string str)</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+COMMENTS</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Converts the ascii string str, as long as str can be converted, to an integer.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+RETURN</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Return str converted to an integer. Returns 0 if the string evaluates to 0, or str cannot be converted to an integer.</P>
+</TD>
+</TR>
+</TABLE>
+<HR><TABLE>
+<TR>
+<TH>
+<H6 CLASS="fnam">
+<A NAME="1006414">
+ </A>
+atol</H6>
+</TH>
+<TH>
+<H6 CLASS="cHead">
+&nbsp;</H6>
+</TH>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+DESCRIPTION</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Convert ascii string to an integer.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+SYNTAX</P>
+</TD>
+<TD>
+<P CLASS="cb">
+int atol(string str)</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+COMMENTS</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Converts the ascii string str, as long as str can be converted, to an integer. This is the same as the atoi() function because longs and integers are the same in ScriptEase.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+RETURN</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Return str converted to an integer. Returns 0 if sting is equivalent to zero (0.00, e.g.), or str cannot be converted to an integer.</P>
+</TD>
+</TR>
+</TABLE>
+<HR><TABLE>
+<TR>
+<TH>
+<H6 CLASS="fnam">
+<A NAME="1006415">
+ </A>
+bsearch</H6>
+</TH>
+<TH>
+<H6 CLASS="cHead">
+&nbsp;</H6>
+</TH>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+DESCRIPTION</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Binary search for member of a sorted array.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+SYNTAX</P>
+</TD>
+<TD>
+<P CLASS="Function-Syntax">
+var[] bsearch(var key, var [] SortedArray, [int ElementCount,] <BR>
+string CompareFunction)</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+COMMENTS</P>
+</TD>
+<TD>
+<P CLASS="cb">
+The CompareFunction will receive the key variable as its first argument and a variable from the array as its second argument. If ElementCount is not supplied then will search the entire array.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+RETURN</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Will return the array variable at the offset in the array of the found element, else NULL if the key is not matched in the array. This function assumes all array indices are greater than or equal to 0.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+NOTE</P>
+</TD>
+<TD>
+<P CLASS="cb">
+ElementCount is limited to 64K for 16-bit version of ScriptEase.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+SEE ALSO</P>
+</TD>
+<TD>
+<P CLASS="cb">
+qsort()</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+EXAMPLE</P>
+</TD>
+<TD>
+<P CLASS="cb">
+The following example demonstrates the use of qsort() and bsearch() to locate a name and related item in a list:</P>
+<P CLASS="ciTable">
+ // create array of names and favorite food </P>
+<P CLASS="ciTable">
+list = {</P>
+<P CLASS="ciTable">
+	{ &quot;Brent&quot;,   &quot;salad&quot; }, </P>
+<P CLASS="ciTable">
+	{ &quot;Laura&quot;,   &quot;cheese&quot; }, </P>
+<P CLASS="ciTable">
+	{ &quot;Alby&quot;,    &quot;sugar&quot; }, </P>
+<P CLASS="ciTable">
+	{ &quot;Josh&quot;,    &quot;anything&quot; }, </P>
+<P CLASS="ciTable">
+	{ &quot;Aiko&quot;,    &quot;cats&quot; }, </P>
+<P CLASS="ciTable">
+	{ &quot;Quinn&quot;,   &quot;anything from the garbage&quot; } </P>
+<P CLASS="ciTable">
+}; </P>
+<P CLASS="ciTable">
+// sort the list </P>
+<P CLASS="ciTable">
+qsort(list,&quot;ListCompareFunction&quot;); </P>
+<P CLASS="ciTable">
+// Create key to search for item </P>
+<P CLASS="ciTable">
+// key must work in compare function </P>
+<P CLASS="ciTable">
+Key[0] = &quot;brent&quot;; </P>
+<P CLASS="ciTable">
+// search for the name Brent in the list </P>
+<P CLASS="ciTable">
+Found = bsearch(Key,list,&quot;ListCompareFunction&quot;); </P>
+<P CLASS="ciTable">
+// display name, or not found </P>
+<P CLASS="ciTable">
+if ( Found ) </P>
+<P CLASS="ciTable">
+	printf(&quot;%s's favorite food is %s\n&quot;,</P>
+<P CLASS="ciTable">
+        Found[0][0],Found[0][1]);</P>
+<P CLASS="ciTable">
+else </P>
+<P CLASS="ciTable">
+	puts(&quot;Could not find name in favorite-food list.&quot;); </P>
+<P CLASS="ciTable">
+&nbsp;</P>
+<P CLASS="ciTable">
+ListCompareFunction(Item1,Item2)   // used in qsort and {                                  // bsearch </P>
+<P CLASS="ciTable">
+	return strcmpi(Item1[0],Item2[0]); </P>
+<P CLASS="ciTable">
+}</P>
+</TD>
+</TR>
+</TABLE>
+<HR><TABLE>
+<TR>
+<TH>
+<H6 CLASS="fnam">
+<A NAME="1006416">
+ </A>
+ceil</H6>
+</TH>
+<TH>
+<H6 CLASS="cHead">
+&nbsp;</H6>
+</TH>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+DESCRIPTION</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Ceiling; round up.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+SYNTAX</P>
+</TD>
+<TD>
+<P CLASS="cb">
+float ceil(float x)</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+RETURN</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Return the smallest integral value not less than x.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+SEE ALSO</P>
+</TD>
+<TD>
+<P CLASS="cb">
+floor()</P>
+</TD>
+</TR>
+</TABLE>
+<HR><TABLE>
+<TR>
+<TH>
+<H6 CLASS="fnam">
+<A NAME="1006417">
+ </A>
+clearerr</H6>
+</TH>
+<TH>
+<H6 CLASS="cHead">
+&nbsp;</H6>
+</TH>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+DESCRIPTION</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Clear end-of-file and error status for a file.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+SYNTAX</P>
+</TD>
+<TD>
+<P CLASS="cb">
+void clearerr(FILE stream)</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+COMMENTS</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Clear error status end reset end-of-file flags for this file stream.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+RETURN</P>
+</TD>
+<TD>
+<P CLASS="cb">
+None.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+SEE ALSO</P>
+</TD>
+<TD>
+<P CLASS="cb">
+ferror()</P>
+</TD>
+</TR>
+</TABLE>
+<HR><TABLE>
+<TR>
+<TH>
+<H6 CLASS="fnam">
+<A NAME="1006418">
+ </A>
+clock</H6>
+</TH>
+<TH>
+<H6 CLASS="cHead">
+&nbsp;</H6>
+</TH>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+DESCRIPTION</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Get processor time.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+SYNTAX</P>
+</TD>
+<TD>
+<P CLASS="cb">
+int clock()</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+COMMENTS</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Gets a processor and operating-system dependent value for the clock. This value is incremented CLOCKS_PER_SEC times per second. Clock value starts at 0 when ScriptEase program begins.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+RETURN</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Return current processor tick count.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+SEE ALSO</P>
+</TD>
+<TD>
+<P CLASS="cb">
+time() </P>
+</TD>
+</TR>
+</TABLE>
+<HR><TABLE>
+<TR>
+<TH>
+<H6 CLASS="fnam">
+<A NAME="1006419">
+ </A>
+cos</H6>
+</TH>
+<TH>
+<H6 CLASS="cHead">
+&nbsp;</H6>
+</TH>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+DESCRIPTION</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Calculate the cosine.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+SYNTAX</P>
+</TD>
+<TD>
+<P CLASS="cb">
+float cos(float x)</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+RETURN</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Return the cosine of x in radians.</P>
+</TD>
+</TR>
+</TABLE>
+<HR><TABLE>
+<TR>
+<TH>
+<H6 CLASS="fnam">
+<A NAME="1006420">
+ </A>
+cosh</H6>
+</TH>
+<TH>
+<H6 CLASS="cHead">
+&nbsp;</H6>
+</TH>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+DESCRIPTION</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Calculate the hyperbolic cosine.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+SYNTAX</P>
+</TD>
+<TD>
+<P CLASS="cb">
+float cosh(float x)</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+RETURN</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Return the hyperbolic cosine of x.</P>
+</TD>
+</TR>
+</TABLE>
+<HR><TABLE>
+<TR>
+<TH>
+<H6 CLASS="fnam">
+<A NAME="1006421">
+ </A>
+ctime</H6>
+</TH>
+<TH>
+<H6 CLASS="cHead">
+&nbsp;</H6>
+</TH>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+DESCRIPTION</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Convert date-time to an ascii string.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+SYNTAX</P>
+</TD>
+<TD>
+<P CLASS="cb">
+string ctime(int time)</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+COMMENTS</P>
+</TD>
+<TD>
+<P CLASS="cb">
+<EM CLASS="Element">
+time</EM>
+ is a date-time value as returned by the time() function. </P>
+<P CLASS="cb">
+ctime() is equivalent to: asctime(localtime(time))</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+RETURN</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Returns ascii string as returned by the asctime() function.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+SEE ALSO</P>
+</TD>
+<TD>
+<P CLASS="cb">
+asctime(), gmtime(), localtime(), mktime(), time(), strftime()</P>
+</TD>
+</TR>
+</TABLE>
+<HR><TABLE>
+<TR>
+<TH>
+<H6 CLASS="fnam">
+<A NAME="1006422">
+ </A>
+difftime</H6>
+</TH>
+<TH>
+<H6 CLASS="cHead">
+&nbsp;</H6>
+</TH>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+DESCRIPTION</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Compute difference between two times.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+SYNTAX</P>
+</TD>
+<TD>
+<P CLASS="cb">
+float difftime(int time1,int time0)</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+COMMENTS</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Compute time in seconds corresponding to time1 - time0, where time1 and time0 are the value types as might be returned by the time() function.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+RETURN</P>
+</TD>
+<TD>
+<P CLASS="cb">
+time1 - time0 in seconds.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+SEE ALSO</P>
+</TD>
+<TD>
+<P CLASS="cb">
+time()</P>
+</TD>
+</TR>
+</TABLE>
+<HR><TABLE>
+<TR>
+<TH>
+<H6 CLASS="fnam">
+<A NAME="1006423">
+ </A>
+div</H6>
+</TH>
+<TH>
+<H6 CLASS="cHead">
+&nbsp;</H6>
+</TH>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+DESCRIPTION</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Integer division, returning quotient and remainder.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+SYNTAX</P>
+</TD>
+<TD>
+<P CLASS="cb">
+struct div(int numerator, int denominator)</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+COMMENTS</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Same as ldiv(). The value returned is a structure with the following elements: </P>
+<P CLASS="fit">
+<EM CLASS="Element">
+.quot</EM>
+	 quotient</P>
+<P CLASS="fit">
+<EM CLASS="Element">
+.rem</EM>
+	 remainder</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+RETURN</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Returns result in a structure with quotient (.quot) and remainder (.rem) members.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+SEE ALSO</P>
+</TD>
+<TD>
+<P CLASS="cb">
+ldiv(), fmod(), modf()</P>
+</TD>
+</TR>
+</TABLE>
+<HR><TABLE>
+<TR>
+<TH>
+<H6 CLASS="fnam">
+<A NAME="1006424">
+ </A>
+exit</H6>
+</TH>
+<TH>
+<H6 CLASS="cHead">
+&nbsp;</H6>
+</TH>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+DESCRIPTION</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Normal program termination.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+SYNTAX</P>
+</TD>
+<TD>
+<P CLASS="cb">
+void exit(int status)</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+COMMENTS</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Calls all functions registered with atexit(), flushes and closes all open file streams, updates environment variables if applicable to this version of ScriptEase, and returns control to the OS environment with the return code of status.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+RETURN</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Does not return.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+SEE ALSO</P>
+</TD>
+<TD>
+<P CLASS="cb">
+abort(), assert(), atexit()</P>
+</TD>
+</TR>
+</TABLE>
+<P CLASS="Body">
+&nbsp;</P>
+<HR><TABLE>
+<TR>
+<TH>
+<H6 CLASS="fnam">
+<A NAME="1006425">
+ </A>
+exp</H6>
+</TH>
+<TH>
+<H6 CLASS="cHead">
+&nbsp;</H6>
+</TH>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+DESCRIPTION</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Compute the exponential function.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+SYNTAX</P>
+</TD>
+<TD>
+<P CLASS="cb">
+float exp(float x)</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+RETURN</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Return the exponential value of x.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+SEE ALSO</P>
+</TD>
+<TD>
+<P CLASS="cb">
+frexp(), ldexp(), pow()</P>
+</TD>
+</TR>
+</TABLE>
+<HR><TABLE>
+<TR>
+<TH>
+<H6 CLASS="fnam">
+<A NAME="1006426">
+ </A>
+fabs</H6>
+</TH>
+<TH>
+<H6 CLASS="cHead">
+&nbsp;</H6>
+</TH>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+DESCRIPTION</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Absolute value.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+SYNTAX</P>
+</TD>
+<TD>
+<P CLASS="cb">
+float fabs(float x)</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+RETURN</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Return the absolute (i.e., non-negative) value of x.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+SEE ALSO</P>
+</TD>
+<TD>
+<P CLASS="cb">
+abs()</P>
+</TD>
+</TR>
+</TABLE>
+<HR><TABLE>
+<TR>
+<TH>
+<H6 CLASS="fnam">
+<A NAME="1006427">
+ </A>
+fclose</H6>
+</TH>
+<TH>
+<H6 CLASS="cHead">
+&nbsp;</H6>
+</TH>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+DESCRIPTION</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Close an open file.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+SYNTAX</P>
+</TD>
+<TD>
+<P CLASS="cb">
+int fclose(FILE stream)</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+COMMENTS</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Cause the stream file buffers to be flushed and then closes the file, making stream no longer valid.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+RETURN</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Returns zero for success, else returns EOF.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+SEE ALSO</P>
+</TD>
+<TD>
+<P CLASS="cb">
+fopen(), fflush(), freopen()</P>
+</TD>
+</TR>
+</TABLE>
+<HR><TABLE>
+<TR>
+<TH>
+<H6 CLASS="fnam">
+<A NAME="1006428">
+ </A>
+feof</H6>
+</TH>
+<TH>
+<H6 CLASS="cHead">
+&nbsp;</H6>
+</TH>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+DESCRIPTION</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Test if at end of file stream.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+SYNTAX</P>
+</TD>
+<TD>
+<P CLASS="cb">
+bool feof(FILE stream)</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+COMMENTS</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Test end-of-file indicator for stream.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+RETURN</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Returns an integer which is non-zero if at end of file, and 0 if NOT at end of file.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+SEE ALSO</P>
+</TD>
+<TD>
+<P CLASS="cb">
+ clearerr(), ferror()</P>
+</TD>
+</TR>
+</TABLE>
+<HR><TABLE>
+<TR>
+<TH>
+<H6 CLASS="fnam">
+<A NAME="1006429">
+ </A>
+ferror</H6>
+</TH>
+<TH>
+<H6 CLASS="cHead">
+&nbsp;</H6>
+</TH>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+DESCRIPTION</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Test for error on a file stream.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+SYNTAX</P>
+</TD>
+<TD>
+<P CLASS="cb">
+int ferror(FILE stream)</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+COMMENTS</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Tests and returns the error indicator for stream file.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+RETURN</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Returns 0 if no error, else returns the error value.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+SEE ALSO</P>
+</TD>
+<TD>
+<P CLASS="cb">
+clearerr(), strerror()</P>
+</TD>
+</TR>
+</TABLE>
+<HR><TABLE>
+<TR>
+<TH>
+<H6 CLASS="fnam">
+<A NAME="1006430">
+ </A>
+fflush</H6>
+</TH>
+<TH>
+<H6 CLASS="cHead">
+&nbsp;</H6>
+</TH>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+DESCRIPTION</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Flush stream for open file(s).</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+SYNTAX</P>
+</TD>
+<TD>
+<P CLASS="cb">
+int fflush(FILE stream)</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+COMMENTS</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Causes any unwritten buffered data to be written to the file. If stream is NULL then flushes buffers in all open files.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+RETURN</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Returns zero for success, otherwise EOF.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+SEE ALSO</P>
+</TD>
+<TD>
+<P CLASS="cb">
+fclose(), fopen(), freopen()</P>
+</TD>
+</TR>
+</TABLE>
+<HR><TABLE>
+<TR>
+<TH>
+<H6 CLASS="fnam">
+<A NAME="1006431">
+ </A>
+fgetc</H6>
+</TH>
+<TH>
+<H6 CLASS="cHead">
+&nbsp;</H6>
+</TH>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+DESCRIPTION</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Get a character from file stream.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+SYNTAX</P>
+</TD>
+<TD>
+<P CLASS="cb">
+int fgetc(FILE stream)</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+COMMENTS</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Read the next character, if there is one, from stream.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+RETURN</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Return the next character as a byte converted to an integer (remember that all bytes in ScriptEase are unsigned. Return EOF if there is a read error or if at end-of-file; if read error then ferror() will indicate the error condition.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+SEE ALSO</P>
+</TD>
+<TD>
+<P CLASS="cb">
+getc(), getch(), getchar(), getche(), ungetc() </P>
+</TD>
+</TR>
+</TABLE>
+<HR><TABLE>
+<TR>
+<TH>
+<H6 CLASS="fnam">
+<A NAME="1006432">
+ </A>
+fgetpos</H6>
+</TH>
+<TH>
+<H6 CLASS="cHead">
+&nbsp;</H6>
+</TH>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+DESCRIPTION</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Get current position of a file stream.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+SYNTAX</P>
+</TD>
+<TD>
+<P CLASS="cb">
+int fgetpos(FILE stream, Var pos)</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+COMMENTS</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Stores the current position of the file stream pointer for future restoration using fsetpos().</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+MODIFIES</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Sets pos to be a variable of undefined type for file-position restoration on a later call to fsetpos.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+RETURN</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Returns zero for success, else non-zero and an error value is stored in errno.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+SEE ALSO</P>
+</TD>
+<TD>
+<P CLASS="cb">
+fseek(), fsetpos(), ftell(), rewind()</P>
+</TD>
+</TR>
+</TABLE>
+<HR><TABLE>
+<TR>
+<TH>
+<H6 CLASS="fnam">
+<A NAME="1006433">
+ </A>
+fgets</H6>
+</TH>
+<TH>
+<H6 CLASS="cHead">
+&nbsp;</H6>
+</TH>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+DESCRIPTION</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Get a string from an input stream.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+SYNTAX</P>
+</TD>
+<TD>
+<P CLASS="cb">
+string fgets([string buf[, int buflen], ] FILE stream)</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+COMMENTS</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Reads a string into buf until buflen-1 characters are read or until a newline is read, whichever comes first. If a newline was read then it is retained at the end of buf. A null byte (`\0') as always appended at the end of the string. If buf is not supplied then a buffer variable is automatically created. If buflen is not supplied then a very large value for buflen is assumed.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+MODIFIES</P>
+</TD>
+<TD>
+<P CLASS="cb">
+If buf is supplied, then it will be altered to be a string, if necessary, and the data read will be stored in buf.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+RETURN</P>
+</TD>
+<TD>
+<P CLASS="cb">
+If error or end-of-file then return NULL, else return the value of buf if buf is supplied or the variable created if buf is not supplied.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+SEE ALSO</P>
+</TD>
+<TD>
+<P CLASS="cb">
+fputs(), fscanf(), gets()</P>
+</TD>
+</TR>
+</TABLE>
+<HR><TABLE>
+<TR>
+<TH>
+<H6 CLASS="fnam">
+<A NAME="1006434">
+ </A>
+floor</H6>
+</TH>
+<TH>
+<H6 CLASS="cHead">
+&nbsp;</H6>
+</TH>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+DESCRIPTION</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Round down.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+SYNTAX</P>
+</TD>
+<TD>
+<P CLASS="cb">
+float floor(float x)</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+RETURN</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Return the largest integral value not greater than x.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+SEE ALSO</P>
+</TD>
+<TD>
+<P CLASS="cb">
+ceil()</P>
+</TD>
+</TR>
+</TABLE>
+<HR><TABLE>
+<TR>
+<TH>
+<H6 CLASS="fnam">
+<A NAME="1006435">
+ </A>
+fmod</H6>
+</TH>
+<TH>
+<H6 CLASS="cHead">
+&nbsp;</H6>
+</TH>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+DESCRIPTION</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Modulus; calculate remainder.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+SYNTAX</P>
+</TD>
+<TD>
+<P CLASS="cb">
+float fmod(float x, float y)</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+RETURN</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Return the remainder of x / y.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+SEE ALSO</P>
+</TD>
+<TD>
+<P CLASS="cb">
+div(), ldiv(), modf()</P>
+</TD>
+</TR>
+</TABLE>
+<HR><TABLE>
+<TR>
+<TH>
+<H6 CLASS="fnam">
+<A NAME="1006436">
+ </A>
+fopen</H6>
+</TH>
+<TH>
+<H6 CLASS="cHead">
+&nbsp;</H6>
+</TH>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+DESCRIPTION</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Open a file.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+SYNTAX</P>
+</TD>
+<TD>
+<P CLASS="Function-Syntax">
+FILE fopen(string filename, string mode)</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+COMMENTS</P>
+</TD>
+<TD>
+<P CLASS="cb">
+This function opens the file specified by filename for file operations specified by mode. </P>
+<P CLASS="cb">
+<EM CLASS="Element">
+Filename</EM>
+ can be any valid file name, excluding wildcard characters.</P>
+<P CLASS="cb">
+<EM CLASS="Element">
+Mode</EM>
+ is a string composed of `r', `w', or `a' followed by other characters as follows: </P>
+<P CLASS="fit">
+<EM CLASS="Element">
+r	</EM>
+open file for reading; file must already exist </P>
+<P CLASS="fit">
+<EM CLASS="Element">
+w	</EM>
+open file for writing; create if doesn't exist; if file exists then truncate to zero length </P>
+<P CLASS="fit">
+<EM CLASS="Element">
+a	</EM>
+open file for append; create if doesn't exist; set for writing at end-of-file </P>
+<P CLASS="fit">
+<EM CLASS="Element">
+b</EM>
+	binary mode; if b is not specified then open file in text mode (end-of-line translation) </P>
+<P CLASS="fit">
+<EM CLASS="Element">
+t</EM>
+	text mode </P>
+<P CLASS="fit">
+<EM CLASS="Element">
++</EM>
+	open for update (reading and writing) </P>
+<P CLASS="cb">
+When a file is successfully opened, its error status is cleared and buffer is initialized for automatic buffering of reads and writes to the file.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+RETURN</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Returns NULL for failure, else returns FILE handle (which is a blob) for subsequent file actions.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+SEE ALSO</P>
+</TD>
+<TD>
+<P CLASS="cb">
+fclose(), freopen(), fflush()</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+EXAMPLE</P>
+</TD>
+<TD>
+<P CLASS="cb">
+The following code opens the text file &quot;ReadMe&quot; for text-mode reading, and prints out each line in that file: </P>
+<P CLASS="ciTable">
+fp = fopen(&quot;ReadMe&quot;,&quot;r&quot;);</P>
+<P CLASS="ciTable">
+if ( fp == NULL ) </P>
+<P CLASS="ciTable">
+	printf(&quot;\aError opening file for reading.\n&quot;) </P>
+<P CLASS="ciTable">
+else { </P>
+<P CLASS="ciTable">
+	while ( NULL != (line=fgets(fp)) ){ </P>
+<P CLASS="ciTable">
+	fputs(line,stdout); </P>
+<P CLASS="ciTable">
+} </P>
+<P CLASS="ciTable">
+fclose(fp); </P>
+<P CLASS="ciTable">
+} </P>
+<P CLASS="cb">
+This function copies binary files one byte at a time (buffers would be faster): </P>
+<P CLASS="ciTable">
+BinaryCopy(SrcFile,DstFile)</P>
+<P CLASS="ciTable">
+// binary copy SrcFile to DstFile; </P>
+<P CLASS="ciTable">
+// return TRUE for success { </P>
+<P CLASS="ciTable">
+success = FALSE; // assume failure </P>
+<P CLASS="ciTable">
+SrcFP = fopen(SrcFile,&quot;rb&quot;); </P>
+<P CLASS="ciTable">
+if ( SrcFP == NULL ) </P>
+<P CLASS="ciTable">
+<BR>
+	printf(&quot;Unable to open \&quot;%s\&quot; for reading.\n&quot;,SrcFile); <BR>
+else { <BR>
+DstFP = fopen(DstFile,&quot;wb&quot;); <BR>
+if ( DstFP == NULL ) <BR>
+	printf(&quot;Unable to open \&quot;%s\&quot; for writing.\n&quot;,DstFile); <BR>
+else { <BR>
+// copy one byte at a time from source to destination <BR>
+	while( EOF != (c = fgetc(SrcFP)) ) <BR>
+		fputc(c,DstFP); <BR>
+// success if there were no errors on either file <BR>
+		if ( ferror(SrcFP) ) <BR>
+			printf(&quot;Error reading from source file.\n&quot;) <BR>
+		else if ( ferror(DstFP) ) <BR>
+			printf(&quot;Error writing to destination file.\n&quot;) <BR>
+		else <BR>
+			success = TRUE; <BR>
+				if ( fclose(DstFP) ) { <BR>
+				success = FALSE; <BR>
+				printf(&quot;Error closing dest. file \&quot;%s\&quot;\n&quot;, DstFP); <BR>
+				} <BR>
+			} <BR>
+	fclose(SrcFP); <BR>
+	} <BR>
+// if not success then make a long beeping noise <BR>
+if ( !success ) <BR>
+	printf(&quot;\a\a\a\a&quot;); <BR>
+	return(success); </P>
+<P CLASS="ciTable">
+}</P>
+</TD>
+</TR>
+</TABLE>
+<HR><TABLE>
+<TR>
+<TH>
+<H6 CLASS="fnam">
+<A NAME="1006437">
+ </A>
+fprintf</H6>
+</TH>
+<TH>
+<H6 CLASS="cHead">
+&nbsp;</H6>
+</TH>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+DESCRIPTION</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Formatted output to a file stream.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+SYNTAX</P>
+</TD>
+<TD>
+<P CLASS="Function-Syntax">
+int fprintf(FILE stream,string format,...)</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+COMMENTS</P>
+</TD>
+<TD>
+<P CLASS="cb">
+This flexible function writes output to the file specification specified by stream according to the format string.  The format string can contain character combinations indicating how following parameters may be written. </P>
+<P CLASS="cb">
+<EM CLASS="Element">
+stream</EM>
+ must have been previously opened with write access (most likely with fopen()). </P>
+<P CLASS="cb">
+See printf() for a description of this format string.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+RETURN</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Returns the number of characters written, or a negative number if there was an output error.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+SEE ALSO</P>
+</TD>
+<TD>
+<P CLASS="cb">
+fputs(), printf(), puts(), sprintf(), vfprintf()</P>
+</TD>
+</TR>
+</TABLE>
+<HR><TABLE>
+<TR>
+<TH>
+<H6 CLASS="fnam">
+<A NAME="1006438">
+ </A>
+fputc</H6>
+</TH>
+<TH>
+<H6 CLASS="cHead">
+&nbsp;</H6>
+</TH>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+DESCRIPTION</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Write a character to a file stream.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+SYNTAX</P>
+</TD>
+<TD>
+<P CLASS="cb">
+int fputc(int c,FILE stream)</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+COMMENTS</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Write the character c, converted to a byte, to output file stream.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+RETURN</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Returns c for success, and EOF for a write error.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+SEE ALSO</P>
+</TD>
+<TD>
+<P CLASS="cb">
+putc(), putchar()</P>
+</TD>
+</TR>
+</TABLE>
+<HR><TABLE>
+<TR>
+<TH>
+<H6 CLASS="fnam">
+<A NAME="1006439">
+ </A>
+fputs</H6>
+</TH>
+<TH>
+<H6 CLASS="cHead">
+&nbsp;</H6>
+</TH>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+DESCRIPTION</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Write a string to a file stream.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+SYNTAX</P>
+</TD>
+<TD>
+<P CLASS="Function-Syntax">
+int fputs(string s,FILE stream)</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+COMMENTS</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Write the string s to stream.  Do not write the terminating null character.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+RETURN</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Returns EOF if write error, else returns a non-negative value.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+SEE ALSO</P>
+</TD>
+<TD>
+<P CLASS="cb">
+fgets(), fprintf(), puts()</P>
+</TD>
+</TR>
+</TABLE>
+<HR><TABLE>
+<TR>
+<TH>
+<H6 CLASS="fnam">
+<A NAME="1006440">
+ </A>
+fread</H6>
+</TH>
+<TH>
+<H6 CLASS="cHead">
+&nbsp;</H6>
+</TH>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+DESCRIPTION</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Read data from a file.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+SYNTAX</P>
+</TD>
+<TD>
+<P CLASS="Function-Syntax">
+int fread(byte[] DestBuffer,bufferLen,stream) </P>
+<P CLASS="Function-Syntax">
+int fread(Var DestVar,int DataTypeInFile,stream) </P>
+<P CLASS="Function-Syntax">
+int fread(struct DestStruct,struct DataStructureDefinition,stream)</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+COMMENTS</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Reads data from a file opened for reading into a destination variable.  The destination is created, if necessary, to contain the data read. In the first syntax form for this routine, up to bufferLen bytes are read into the DestBuffer byte array. In the second syntax form for this routine, a single data item is read into DestVar, and the DataTypeInFile parameter specifies how that data is to be read from the file.  DataTypeInFile may be one of the following: </P>
+<P CLASS="deTable-indent">
+<EM CLASS="Element">
+UWORD8</EM>
+	Stored as a byte in DestVar</P>
+<P CLASS="deTable-indent">
+<EM CLASS="Element">
+SWORD8</EM>
+	Stored as an integer in DestVar</P>
+<P CLASS="deTable-indent">
+<EM CLASS="Element">
+UWORD16</EM>
+	Stored as an integer in DestVar</P>
+<P CLASS="deTable-indent">
+<EM CLASS="Element">
+SWORD16</EM>
+	Stored as an integer in DestVar</P>
+<P CLASS="deTable-indent">
+<EM CLASS="Element">
+UWORD24</EM>
+	Stored as an integer in DestVar</P>
+<P CLASS="deTable-indent">
+<EM CLASS="Element">
+SWORD24</EM>
+	Stored as an integer in DestVar</P>
+<P CLASS="deTable-indent">
+<EM CLASS="Element">
+UWORD32</EM>
+	Stored as an integer in DestVar</P>
+<P CLASS="deTable-indent">
+<EM CLASS="Element">
+SWORD32</EM>
+	Stored as an integer in DestVar </P>
+<P CLASS="deTable-indent">
+<EM CLASS="Element">
+FLOAT32</EM>
+	Stored as an float in DestVar </P>
+<P CLASS="deTable-indent">
+<EM CLASS="Element">
+FLOAT64</EM>
+	Stored as an float in DestVar </P>
+<P CLASS="deTable-indent">
+<EM CLASS="Element">
+FLOAT80</EM>
+	Stored as an float in DestVar </P>
+<P CLASS="cb">
+In the third form, which reads data into a ScriptEase structure, the DataStructureDefinition sets each possible element of DestStruct from the same elements of DataStructureDefinition, with the exception that member names beginning with an underscore (_) are not copied.  This allows you to read only those portions of the structure in the file that you are interested in. For example, the definition of a structure might be: </P>
+<P CLASS="ciTable">
+ClientDef.Sex = UWORD8; </P>
+<P CLASS="ciTable">
+ClientDef.MaritalStatus = UWORD8; </P>
+<P CLASS="ciTable">
+ClientDef._Unused1 = UWORD16; </P>
+<P CLASS="ciTable">
+ClientDef.FirstName = 30; </P>
+<P CLASS="ciTable">
+ClientDef.LastName = 40; </P>
+<P CLASS="ciTable">
+ClientDef.Initial = UWORD8; </P>
+<P CLASS="cb">
+The ScriptEase version of fread() differs from the standard C version in that the standard C library is set up for reading arrays of numeric values or structures into consecutive bytes in memory. </P>
+<P CLASS="cb">
+For the second and third forms, data types will be read from the file in a byte-order described by the current value of the _BigEndianMode variable (see _BigEndianMode in chapter 8).</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+MODIFIES</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Modifies the first input parameter.  If DestBuffer is the first parameter then set buffer to be an array of characters.  If buffer is a DataType then create or modify DestVar to hold the numeric DataType.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+RETURN</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Returns the number of elements read.  For DestBuffer this would be the number of bytes read, up to bufferLen.  For DataTypeInFile this returns 1 if the data is read or 0 if read error or end-of-file is encountered.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+SEE ALSO</P>
+</TD>
+<TD>
+<P CLASS="cb">
+_BigEndianMode, fopen(), fwrite()</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+EXAMPLE</P>
+</TD>
+<TD>
+<P CLASS="cb">
+To read the 16-bit integer `i', the 32-bit float `f', and then 10-byte buffer `buf' from open file `fp': </P>
+<P CLASS="ciTable">
+if ( !fread(i,SWORD16,fp) || !fread(f,FLOAT32,fp)   </P>
+<P CLASS="ciTable">
+ 			|| 10 != fread(buf,10,fp) ) {</P>
+<P CLASS="ciTable">
+	printf(&quot;Error reading from file.\n&quot;); </P>
+<P CLASS="ciTable">
+	abort(); </P>
+<P CLASS="ciTable">
+}</P>
+</TD>
+</TR>
+</TABLE>
+<HR><TABLE>
+<TR>
+<TH>
+<H6 CLASS="fnam">
+<A NAME="1006441">
+ </A>
+freopen</H6>
+</TH>
+<TH>
+<H6 CLASS="cHead">
+&nbsp;</H6>
+</TH>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+DESCRIPTION</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Assign a new file specification to a file handle.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+SYNTAX</P>
+</TD>
+<TD>
+<P CLASS="Function-Syntax">
+FILE freopen(string filename,string mode,FILE OldFP)</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+COMMENTS</P>
+</TD>
+<TD>
+<P CLASS="cb">
+This function closes the file associated with OldFP (ignoring any close errors), and then opens filename according to mode, just as in the fopen() call, and reassociated OldFP to this new file specification.  This function is most commonly used to redirect one of the pre-defined file handles (stdout, stderr, stdin) to or from a file.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+MODIFIES</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Modifies OldFP to be associated with the new file specification.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+RETURN</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Returns NULL for failure, else returns a copy of the modified OldFP.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+SEE ALSO</P>
+</TD>
+<TD>
+<P CLASS="cb">
+fclose(), fopen(), fflush()</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+EXAMPLE</P>
+</TD>
+<TD>
+<P CLASS="cb">
+This sample code will call the ScriptEase for DOS program with no parameters (which causes a help screen to be printed), but redirecting stdout to a file CENVI.OUT so that CENVI.OUT will contain the text of the ScriptEase help screens.</P>
+<P CLASS="ciTable">
+if ( NULL == freopen(&quot;CENVI.OUT&quot;,&quot;w&quot;,stdout) ) </P>
+<P CLASS="ciTable">
+	printf(&quot;Error redirecting stdout\a\n&quot;); </P>
+<P CLASS="ciTable">
+else </P>
+<P CLASS="ciTable">
+	system(&quot;SEDOS&quot;)</P>
+</TD>
+</TR>
+</TABLE>
+<HR><TABLE>
+<TR>
+<TH>
+<H6 CLASS="fnam">
+<A NAME="1006442">
+ </A>
+frexp</H6>
+</TH>
+<TH>
+<H6 CLASS="cHead">
+&nbsp;</H6>
+</TH>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+DESCRIPTION</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Break into a mantissa and an exponential power of 2.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+SYNTAX</P>
+</TD>
+<TD>
+<P CLASS="Function-Syntax">
+float frexp(float x,int exponent)</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+COMMENTS</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Breaks x into a normalized mantissa between 0.5 and 1.0, or zero, and calculates and calculates an integer exponent of 2 such that x=mantissa*2 ^ exponent.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+MODIFIES</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Modifies exponent, to the exponent.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+RETURN</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Returns normalized mantissa between 0.5 and 1.0, or 0.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+SEE ALSO</P>
+</TD>
+<TD>
+<P CLASS="cb">
+exp(), frexp(), ldexp(), pow()  </P>
+</TD>
+</TR>
+</TABLE>
+<HR><TABLE>
+<TR>
+<TH>
+<H6 CLASS="fnam">
+<A NAME="1006443">
+ </A>
+fscanf</H6>
+</TH>
+<TH>
+<H6 CLASS="cHead">
+&nbsp;</H6>
+</TH>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+DESCRIPTION</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Formatted input from a file stream.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+SYNTAX</P>
+</TD>
+<TD>
+<P CLASS="Function-Syntax">
+int fscanf(FILE stream,string format,...)</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+COMMENTS</P>
+</TD>
+<TD>
+<P CLASS="cb">
+This flexible function reads input from a file specification and stores in parameters following the format string according the character combinations in the format string, which indicate how the file data is to be read and stored. Stream must have been previously opened with read access. </P>
+<P CLASS="cb">
+See scanf() for a description of this format string.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+MODIFIES</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Modifies any number of parameters following the format string, setting the parameters to data according to the specifications of the format string.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+RETURN</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Returns EOF if input failure before any conversion occurs, else returns the number of input items assigned; this number may be fewer than the number of parameters requested if there was a matching failure.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+SEE ALSO</P>
+</TD>
+<TD>
+<P CLASS="cb">
+atof(), atoi(), atol(), scanf(), sscanf(), vfscanf(), vsscanf()</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+EXAMPLE</P>
+</TD>
+<TD>
+<P CLASS="cb">
+With the following text file, WEIGHT.DAT:</P>
+<P CLASS="ciTable">
+Crow, Barney      180</P>
+<P CLASS="ciTable">
+Claus, Santa      306 </P>
+<P CLASS="ciTable">
+Mouse, Mickey     2 </P>
+<P CLASS="cb">
+then this code: </P>
+<P CLASS="ciTable">
+fp = fopen(&quot;WEIGHT.DAT&quot;,&quot;r&quot;); </P>
+<P CLASS="ciTable">
+FormatString = &quot;%[<BR>
+,] %*c %s %d\n&quot;; </P>
+<P CLASS="ciTable">
+while (3==fscanf(fp,FormatString,LastName, </P>
+<P CLASS="ciTable">
+                   Firstame,weight) ) </P>
+<P CLASS="ciTable">
+printf(&quot;%s %s weighs %d pounds.\n&quot;,</P>
+<P CLASS="ciTable">
+        FirstName,LastName,weight);</P>
+<P CLASS="ciTable">
+fclose(fp); </P>
+<P CLASS="cb">
+would result in this output: </P>
+<P CLASS="ciTable">
+Barney Crow weighs 180 pounds. </P>
+<P CLASS="ciTable">
+Santa Claus weighs 306 pounds. </P>
+<P CLASS="ciTable">
+Mickey Mouse weighs 2 pounds.</P>
+</TD>
+</TR>
+</TABLE>
+<HR><TABLE>
+<TR>
+<TH>
+<H6 CLASS="fnam">
+<A NAME="1006444">
+ </A>
+fseek</H6>
+</TH>
+<TH>
+<H6 CLASS="cHead">
+&nbsp;</H6>
+</TH>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+DESCRIPTION</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Set the file position for an opened file stream</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+SYNTAX</P>
+</TD>
+<TD>
+<P CLASS="Function-Syntax">
+int fseek(FILE stream,int offset[,int mode])</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+COMMENTS</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Set the position offset of the file pointer of an open file stream. mode can be any of the following predefined values: </P>
+<P CLASS="fit3">
+<EM CLASS="Element">
+SEEK_CUR</EM>
+	seek is relative to the current position of the file</P>
+<P CLASS="fit3">
+<EM CLASS="Element">
+SEEK_END</EM>
+	position is relative from the end of the file </P>
+<P CLASS="fit3">
+<EM CLASS="Element">
+SEEK_SET</EM>
+	position is relative to the beginning of the file </P>
+<P CLASS="cb">
+If mode is not supplied then absolute offset from the beginning of file (SEEK_SET) is assumed.  For text files (i.e., not opened in binary mode) the file position may not correspond exactly to the byte offset in the file.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+RETURN</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Returns zero for success, or non-zero if cannot set the file pointer to the indicated position.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+SEE ALSO</P>
+</TD>
+<TD>
+<P CLASS="cb">
+fgetpos(), fsetpos(), ftell(), rewind()</P>
+</TD>
+</TR>
+</TABLE>
+<HR><TABLE>
+<TR>
+<TH>
+<H6 CLASS="fnam">
+<A NAME="1006445">
+ </A>
+fsetpos</H6>
+</TH>
+<TH>
+<H6 CLASS="cHead">
+&nbsp;</H6>
+</TH>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+DESCRIPTION</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Set position of a file stream.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+SYNTAX</P>
+</TD>
+<TD>
+<P CLASS="Function-Syntax">
+int fsetpos(stream,Var pos)</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+COMMENTS</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Set the current file stream pointer to the value defined in pos, which should be a value obtained from a previous call to fsetpos(stream,pos) on the same open file stream.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+RETURN</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Returns zero for success, else non-zero and an error value is stored in errno.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+SEE ALSO</P>
+</TD>
+<TD>
+<P CLASS="cb">
+fgetpos(), fseek(), ftell(), rewind()</P>
+</TD>
+</TR>
+</TABLE>
+<HR><TABLE>
+<TR>
+<TH>
+<H6 CLASS="fnam">
+<A NAME="1006446">
+ </A>
+ftell</H6>
+</TH>
+<TH>
+<H6 CLASS="cHead">
+&nbsp;</H6>
+</TH>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+DESCRIPTION</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Get the current value of the file position.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+SYNTAX</P>
+</TD>
+<TD>
+<P CLASS="Function-Syntax">
+int ftell(FILE stream)</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+COMMENTS</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Gets the position offset of the file pointer of an open file stream from the beginning of the file.  For text files (i.e., not opened in binary mode) the file position may not correspond exactly to the byte offset in the file.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+RETURN</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Returns the current value of the file position indicator, or -1 for an error and an error value is stored in errno.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+SEE ALSO</P>
+</TD>
+<TD>
+<P CLASS="cb">
+fgetpos(), fseek(), fsetpos(), rewind()</P>
+</TD>
+</TR>
+</TABLE>
+<HR><TABLE>
+<TR>
+<TH>
+<H6 CLASS="fnam">
+<A NAME="1006447">
+ </A>
+fwrite</H6>
+</TH>
+<TH>
+<H6 CLASS="cHead">
+&nbsp;</H6>
+</TH>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+DESCRIPTION</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Write data to a file.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+SYNTAX</P>
+</TD>
+<TD>
+<P CLASS="Function-Syntax">
+int fwrite(byte[] SourceBuffer,bufferLen,FILE stream)</P>
+<P CLASS="Function-Syntax">
+int fwrite(Var SourceVar,int DataTypeInFile,FILE stream)</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+COMMENTS</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Writes data from a variable into the current location of a file opened for writing. </P>
+<P CLASS="cb">
+In the first syntax form of this routine, up to bufferLen bytes are written from the SourceBuffer byte array. </P>
+<P CLASS="cb">
+In the second syntax form of this routine, a single data item is written from SourceVar, and the DataTypeInFile parameter specifies how that data is to be read from the file.  See fread() (above) for valid DataTypeInFile parameters. </P>
+<P CLASS="cb">
+The ScriptEase version of fwrite() differs from the standard C version in that the standard C library is set up for writing arrays of numeric values or structures from consecutive bytes in memory.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+RETURN</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Returns the number of elements written.  For DestBuffer this would be the number of bytes written, up to bufferLen.  For DataTypeInFile this returns 1 if the data is written or 0 if a write error or end-of-file is encountered.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+SEE ALSO</P>
+</TD>
+<TD>
+<P CLASS="cb">
+_BigEndianMode, fopen(), fread()</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+EXAMPLE</P>
+</TD>
+<TD>
+<P CLASS="cb">
+To write the 16-bit integer `i', the 32-bit float `f', and then 10-byte buffer `buf' into open file `fp': </P>
+<P CLASS="ciTable">
+if ( !fwrite(i,SWORD16,fp) || !fwrite(f,FLOAT32,fp)   </P>
+<P CLASS="ciTable">
+     || 10 !=  fwrite(buf,10,fp) ) </P>
+<P CLASS="ciTable">
+{</P>
+<P CLASS="ciTable">
+	printf(&quot;Error writing to file.\n&quot;); </P>
+<P CLASS="ciTable">
+	abort(); </P>
+<P CLASS="ciTable">
+}</P>
+</TD>
+</TR>
+</TABLE>
+<P CLASS="Body">
+&nbsp;</P>
+<HR><TABLE>
+<TR>
+<TH>
+<H6 CLASS="fnam">
+<A NAME="1006448">
+ </A>
+getc</H6>
+</TH>
+<TH>
+<H6 CLASS="cHead">
+&nbsp;</H6>
+</TH>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+DESCRIPTION</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Get a character from file stream.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+SYNTAX</P>
+</TD>
+<TD>
+<P CLASS="Function-Syntax">
+int getc(FILE stream)</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+COMMENTS</P>
+</TD>
+<TD>
+<P CLASS="cb">
+This function is identical to fgetc().</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+RETURN</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Returns the next character as a byte (unsigned) converted to an integer. Returns EOF if there is a read error or if at end-of-file; if read error then ferror() will indicate the error condition.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+SEE ALSO</P>
+</TD>
+<TD>
+<P CLASS="cb">
+fgetc(), getch(), getchar(), getche(), ungetc()</P>
+</TD>
+</TR>
+</TABLE>
+<HR><TABLE>
+<TR>
+<TH>
+<H6 CLASS="fnam">
+<A NAME="1006449">
+ </A>
+getch</H6>
+</TH>
+<TH>
+<H6 CLASS="cHead">
+&nbsp;</H6>
+</TH>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+DESCRIPTION</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Get a character from the keyboard; without echo.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+SYNTAX</P>
+</TD>
+<TD>
+<P CLASS="Function-Syntax">
+int getch()</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+COMMENTS</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Read keyboard key pressed without echoing to the screen. If no key is available then will wait until a key is pressed. Some key presses, such as extended keys and function keys, may generate multiple getch() return values.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+RETURN</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Character read from the keyboard.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+SEE ALSO</P>
+</TD>
+<TD>
+<P CLASS="cb">
+fgetc(), getc(), getchar(), getche(), ungetc()</P>
+</TD>
+</TR>
+</TABLE>
+<HR><TABLE>
+<TR>
+<TH>
+<H6 CLASS="fnam">
+<A NAME="1006450">
+ </A>
+getchar</H6>
+</TH>
+<TH>
+<H6 CLASS="cHead">
+&nbsp;</H6>
+</TH>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+DESCRIPTION</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Get a character from standard input (keyboard).</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+SYNTAX</P>
+</TD>
+<TD>
+<P CLASS="Function-Syntax">
+int getchar()</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+COMMENTS</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Get the next character from the stdin stream. This call is the same as fgetc(stdin).</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+RETURN</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Return the next character as a byte (unsigned) converted to an integer. Return EOF if there is a read error or if at end-of-file; if read error then ferror() will indicate the error condition.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+SEE ALSO</P>
+</TD>
+<TD>
+<P CLASS="cb">
+fgetc(), getc(), getch(), getche(), ungetc()</P>
+</TD>
+</TR>
+</TABLE>
+<HR><TABLE>
+<TR>
+<TH>
+<H6 CLASS="fnam">
+<A NAME="1006452">
+ </A>
+getche</H6>
+</TH>
+<TH>
+<H6 CLASS="cHead">
+&nbsp;</H6>
+</TH>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+DESCRIPTION</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Get a character from the keyboard; with echo.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+SYNTAX</P>
+</TD>
+<TD>
+<P CLASS="Function-Syntax">
+int getch()</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+COMMENTS</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Read keyboard key pressed with echo to the screen. If no key is available then will wait until a key is pressed. Some key presses, such as extended keys and function keys, may generate multiple getche() return values.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+RETURN</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Character read from the keyboard.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+SEE ALSO</P>
+</TD>
+<TD>
+<P CLASS="cb">
+fgetc(), getc(), getch(), getchar(), ungetc()</P>
+</TD>
+</TR>
+</TABLE>
+<HR><TABLE>
+<TR>
+<TH>
+<H6 CLASS="fnam">
+<A NAME="1006451">
+ </A>
+getenv</H6>
+</TH>
+<TH>
+<H6 CLASS="cHead">
+&nbsp;</H6>
+</TH>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+DESCRIPTION</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Get an environment string.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+SYNTAX</P>
+</TD>
+<TD>
+<P CLASS="Function-Syntax">
+string getenv(string VariableName) </P>
+<P CLASS="Function-Syntax">
+string[] getenv()</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+COMMENTS</P>
+</TD>
+<TD>
+<P CLASS="cb">
+In the first form (the standard form), returns the value of VariableName, where VariableName is an environment variable, as a string. In the second form, with no parameter supplied, this returns an array of all the environment variable names. The last element of this array will always be NULL.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+RETURN</P>
+</TD>
+<TD>
+<P CLASS="cb">
+If VariableName is supplied, then this returns environment value as a string if the variable exists in the environment, or returns NULL if VariableName does not exist. If no name is supplied then returns an array of all environment variable names, ending with a NULL element.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+SEE ALSO</P>
+</TD>
+<TD>
+<P CLASS="cb">
+putenv()</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+EXAMPLE</P>
+</TD>
+<TD>
+<P CLASS="cb">
+The following code would print the existing environment variables, in &quot;EVAR=Value&quot; format, sorted alphabetically. </P>
+<P CLASS="ciTable">
+// get array of all environment variable names </P>
+<P CLASS="ciTable">
+EnvList = getenv(); </P>
+<P CLASS="ciTable">
+// sort array alphabetically </P>
+<P CLASS="ciTable">
+qsort(EnvList,GetArraySpan(EnvList),&quot;stricmp&quot;); </P>
+<P CLASS="ciTable">
+// display each element in ENV=VALUE format </P>
+<P CLASS="ciTable">
+for ( lIdx = 0; EnvList[lIdx]; lIdx++ ) </P>
+<P CLASS="ciTable">
+	printf(&quot;%s=%s\n&quot;,EnvList[lIdx],getenv(EnvList[lIdx]));</P>
+</TD>
+</TR>
+</TABLE>
+<HR><TABLE>
+<TR>
+<TH>
+<H6 CLASS="fnam">
+<A NAME="1006453">
+ </A>
+gets</H6>
+</TH>
+<TH>
+<H6 CLASS="cHead">
+&nbsp;</H6>
+</TH>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+DESCRIPTION</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Read a string from standard input (keyboard).</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+SYNTAX</P>
+</TD>
+<TD>
+<P CLASS="Function-Syntax">
+string gets([string buf])</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+COMMENTS</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Reads a string into buf until a newline or EOF is read. If a newline was read then it is discarded. A null byte (`\0') as always appended at the end of the string. If buf is not supplied, a buffer variable is automatically created. </P>
+<P CLASS="cb">
+This function is identical to fgets(buf,stdin) except that new-lines are discarded.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+MODIFIES</P>
+</TD>
+<TD>
+<P CLASS="cb">
+If buf is supplied, then it will be altered to be a string, if necessary, and the data read will be stored in buf.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+RETURN</P>
+</TD>
+<TD>
+<P CLASS="cb">
+If error or end-of-file then return NULL, else return the value of buf if buf is supplied or the variable created if buf is not supplied.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+SEE ALSO</P>
+</TD>
+<TD>
+<P CLASS="cb">
+fgets(), puts(), scanf()</P>
+</TD>
+</TR>
+</TABLE>
+<HR><TABLE>
+<TR>
+<TH>
+<H6 CLASS="fnam">
+<A NAME="1006454">
+ </A>
+gmtime</H6>
+</TH>
+<TH>
+<H6 CLASS="cHead">
+&nbsp;</H6>
+</TH>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+DESCRIPTION</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Convert date and time to Greenwich mean time (GMT).</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+SYNTAX</P>
+</TD>
+<TD>
+<P CLASS="Function-Syntax">
+struct gmtime(int t)</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+COMMENTS</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Takes the integer t, which is the data type returned by the time() function, and converts to a structure representing date and time fields converted to Greenwich mean time.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+RETURN</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Returns structure for GMT. See localtime() for a description of the returned structure.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+SEE ALSO</P>
+</TD>
+<TD>
+<P CLASS="cb">
+asctime(), ctime(), localtime(), time(), strftime()</P>
+</TD>
+</TR>
+</TABLE>
+<HR><TABLE>
+<TR>
+<TH>
+<H6 CLASS="fnam">
+<A NAME="1006455">
+ </A>
+isalnum</H6>
+</TH>
+<TH>
+<H6 CLASS="cHead">
+&nbsp;</H6>
+</TH>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+DESCRIPTION</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Test for alphanumeric character.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+SYNTAX</P>
+</TD>
+<TD>
+<P CLASS="Function-Syntax">
+bool isalnum(int c)</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+RETURN</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Return TRUE if c is a letter (A to Z or a to z) or a digit (0 to 9), else return FALSE.</P>
+</TD>
+</TR>
+</TABLE>
+<HR><TABLE>
+<TR>
+<TH>
+<H6 CLASS="fnam">
+<A NAME="1006456">
+ </A>
+isalpha</H6>
+</TH>
+<TH>
+<H6 CLASS="cHead">
+&nbsp;</H6>
+</TH>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+DESCRIPTION</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Test for alphabetic character.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+SYNTAX</P>
+</TD>
+<TD>
+<P CLASS="Function-Syntax">
+bool isalpha(int c)</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+RETURN</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Return TRUE if c is a letter (A to Z or a to z), else return FALSE.</P>
+</TD>
+</TR>
+</TABLE>
+<HR><TABLE>
+<TR>
+<TH>
+<H6 CLASS="fnam">
+<A NAME="1006457">
+ </A>
+isascii</H6>
+</TH>
+<TH>
+<H6 CLASS="cHead">
+&nbsp;</H6>
+</TH>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+DESCRIPTION</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Test for ASCII coded character.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+SYNTAX</P>
+</TD>
+<TD>
+<P CLASS="Function-Syntax">
+bool isascii(int c)</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+RETURN</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Return TRUE if c is in the range 0 to 127, inclusive, else return FALSE.</P>
+</TD>
+</TR>
+</TABLE>
+<HR><TABLE>
+<TR>
+<TH>
+<H6 CLASS="fnam">
+<A NAME="1006458">
+ </A>
+iscntrl</H6>
+</TH>
+<TH>
+<H6 CLASS="cHead">
+&nbsp;</H6>
+</TH>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+DESCRIPTION</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Test for any control character.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+SYNTAX</P>
+</TD>
+<TD>
+<P CLASS="Function-Syntax">
+bool iscntrl(int c)</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+RETURN</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Return TRUE if c is a control character or delete character, else return FALSE.</P>
+</TD>
+</TR>
+</TABLE>
+<HR><TABLE>
+<TR>
+<TH>
+<H6 CLASS="fnam">
+<A NAME="1006459">
+ </A>
+isdigit</H6>
+</TH>
+<TH>
+<H6 CLASS="cHead">
+&nbsp;</H6>
+</TH>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+DESCRIPTION</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Test for any decimal-digit character.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+SYNTAX</P>
+</TD>
+<TD>
+<P CLASS="Function-Syntax">
+bool isdigit(int c)</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+RETURN</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Return TRUE if c is a digit (0 to 9), else return FALSE.</P>
+</TD>
+</TR>
+</TABLE>
+<HR><TABLE>
+<TR>
+<TH>
+<H6 CLASS="fnam">
+<A NAME="1006460">
+ </A>
+isgraph</H6>
+</TH>
+<TH>
+<H6 CLASS="cHead">
+&nbsp;</H6>
+</TH>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+DESCRIPTION</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Test for any printing character except for space.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+SYNTAX</P>
+</TD>
+<TD>
+<P CLASS="Function-Syntax">
+bool isgraph(int c)</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+RETURN</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Return TRUE if c is a printable character that is not a space, else return FALSE.</P>
+</TD>
+</TR>
+</TABLE>
+<HR><TABLE>
+<TR>
+<TH>
+<H6 CLASS="fnam">
+<A NAME="1006461">
+ </A>
+islower</H6>
+</TH>
+<TH>
+<H6 CLASS="cHead">
+&nbsp;</H6>
+</TH>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+DESCRIPTION</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Test for lower-case alphabetic letter.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+SYNTAX</P>
+</TD>
+<TD>
+<P CLASS="Function-Syntax">
+bool islower(int c)</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+RETURN</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Return TRUE if c is a lowercase letter (a to z), else return FALSE.</P>
+</TD>
+</TR>
+</TABLE>
+<HR><TABLE>
+<TR>
+<TH>
+<H6 CLASS="fnam">
+<A NAME="1006462">
+ </A>
+isprint</H6>
+</TH>
+<TH>
+<H6 CLASS="cHead">
+&nbsp;</H6>
+</TH>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+DESCRIPTION</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Test for any printing character including space.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+SYNTAX</P>
+</TD>
+<TD>
+<P CLASS="Function-Syntax">
+bool isprint(int c)</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+RETURN</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Return TRUE if c occupies one space when printed, else return FALSE.</P>
+</TD>
+</TR>
+</TABLE>
+<HR><TABLE>
+<TR>
+<TH>
+<H6 CLASS="fnam">
+<A NAME="1006463">
+ </A>
+ispunct</H6>
+</TH>
+<TH>
+<H6 CLASS="cHead">
+&nbsp;</H6>
+</TH>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+DESCRIPTION</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Test for punctuation character.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+SYNTAX</P>
+</TD>
+<TD>
+<P CLASS="Function-Syntax">
+bool ispunct(int c)</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+RETURN</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Return TRUE if c is a punctuation character, else return FALSE.</P>
+</TD>
+</TR>
+</TABLE>
+<HR><TABLE>
+<TR>
+<TH>
+<H6 CLASS="fnam">
+<A NAME="1006464">
+ </A>
+isspace</H6>
+</TH>
+<TH>
+<H6 CLASS="cHead">
+&nbsp;</H6>
+</TH>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+DESCRIPTION</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Test for white-space character.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+SYNTAX</P>
+</TD>
+<TD>
+<P CLASS="Function-Syntax">
+bool isspace(int c)</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+RETURN</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Return TRUE if c is a whitespace character (alters position on display device without displaying a graphic), else return FALSE. Space, tab, and carriage-return are examples of whitespace characters.</P>
+</TD>
+</TR>
+</TABLE>
+<HR><TABLE>
+<TR>
+<TH>
+<H6 CLASS="fnam">
+<A NAME="1006465">
+ </A>
+isupper</H6>
+</TH>
+<TH>
+<H6 CLASS="cHead">
+&nbsp;</H6>
+</TH>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+DESCRIPTION</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Test for upper-case alphabetic character.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+SYNTAX</P>
+</TD>
+<TD>
+<P CLASS="Function-Syntax">
+bool isupper(int c)</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+RETURN</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Return TRUE if c is an uppercase letter (A to Z), else return FALSE. </P>
+</TD>
+</TR>
+</TABLE>
+<HR><TABLE>
+<TR>
+<TH>
+<H6 CLASS="fnam">
+<A NAME="1006466">
+ </A>
+isxdigit</H6>
+</TH>
+<TH>
+<H6 CLASS="cHead">
+&nbsp;</H6>
+</TH>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+DESCRIPTION</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Test for hexadecimal-digit character.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+SYNTAX</P>
+</TD>
+<TD>
+<P CLASS="Function-Syntax">
+bool isxdigit(int c)</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+RETURN</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Return TRUE if c is a hexadecimal digit (0 to 9, A to F, or a to f), else return FALSE.</P>
+</TD>
+</TR>
+</TABLE>
+<HR><TABLE>
+<TR>
+<TH>
+<H6 CLASS="fnam">
+<A NAME="1006467">
+ </A>
+kbhit</H6>
+</TH>
+<TH>
+<H6 CLASS="cHead">
+&nbsp;</H6>
+</TH>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+DESCRIPTION</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Check if a keyboard keystroke is available.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+SYNTAX</P>
+</TD>
+<TD>
+<P CLASS="Function-Syntax">
+bool kbhit()</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+COMMENTS</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Test whether a key-press is available to be returned by either getch() or getche().</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+RETURN</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Return TRUE if a key has been pressed, else FALSE.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+SEE ALSO</P>
+</TD>
+<TD>
+<P CLASS="cb">
+getch(), getche()</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+EXAMPLE</P>
+</TD>
+<TD>
+<P CLASS="cb">
+The following routine can be called to check if the user has pressed the `Q' key: </P>
+<P CLASS="ciTable">
+IsItQYet()</P>
+<P CLASS="ciTable">
+// Throw out all keys until Q is pressed. </P>
+<P CLASS="ciTable">
+{</P>
+<P CLASS="ciTable">
+// Return TRUE if Q has been pressed. </P>
+<P CLASS="ciTable">
+	while( kbhit() ) </P>
+<P CLASS="ciTable">
+	{</P>
+<P CLASS="ciTable">
+		if ( `Q' == toupper(getch()) ) return TRUE; </P>
+<P CLASS="ciTable">
+	}</P>
+<P CLASS="ciTable">
+		return FALSE; </P>
+<P CLASS="ciTable">
+}</P>
+</TD>
+</TR>
+</TABLE>
+<HR><TABLE>
+<TR>
+<TH>
+<H6 CLASS="fnam">
+<A NAME="1006468">
+ </A>
+labs</H6>
+</TH>
+<TH>
+<H6 CLASS="cHead">
+&nbsp;</H6>
+</TH>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+DESCRIPTION</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Return the absolute value of an integer (non-negative).</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+SYNTAX</P>
+</TD>
+<TD>
+<P CLASS="Function-Syntax">
+int labs(int x)</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+COMMENTS</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Since int and long int are the same in ScriptEase, this function is the same as abs().</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+RETURN</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Returns the absolute (positive) value of x.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+SEE ALSO</P>
+</TD>
+<TD>
+<P CLASS="cb">
+abs()</P>
+</TD>
+</TR>
+</TABLE>
+<HR><TABLE>
+<TR>
+<TH>
+<H6 CLASS="fnam">
+<A NAME="1006469">
+ </A>
+ldexp</H6>
+</TH>
+<TH>
+<H6 CLASS="cHead">
+&nbsp;</H6>
+</TH>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+DESCRIPTION</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Calculate mantissa * 2 ^ exp; inverse of frexp().</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+SYNTAX</P>
+</TD>
+<TD>
+<P CLASS="Function-Syntax">
+float ldexp(float mantissa, int exponent)</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+COMMENTS</P>
+</TD>
+<TD>
+<P CLASS="cb">
+This is the inverse function of frexp(). It calculates mantissa * 2 <BR>
+exponent.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+RETURN</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Returns the result of the calculation: mantissa * 2 <BR>
+ exponent.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+SEE ALSO</P>
+</TD>
+<TD>
+<P CLASS="cb">
+exp(), frexp(), pow()</P>
+</TD>
+</TR>
+</TABLE>
+<HR><TABLE>
+<TR>
+<TH>
+<H6 CLASS="fnam">
+<A NAME="1006470">
+ </A>
+ldiv</H6>
+</TH>
+<TH>
+<H6 CLASS="cHead">
+&nbsp;</H6>
+</TH>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+DESCRIPTION</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Integer division, returning quotient and remainder.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+SYNTAX</P>
+</TD>
+<TD>
+<P CLASS="Function-Syntax">
+struct ldiv(int numerator, int denominator)</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+COMMENTS</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Same as div(). The value returned is a structure with the following element members: </P>
+<P CLASS="fit3">
+<EM CLASS="Element">
+.quot</EM>
+	 quotient </P>
+<P CLASS="fit3">
+<EM CLASS="Element">
+.rem</EM>
+	 remainder</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+RETURN</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Returns result in a structure with quotient (.quot) and remainder(.rem) members.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+SEE ALSO</P>
+</TD>
+<TD>
+<P CLASS="cb">
+div(), fmod(), modf()</P>
+</TD>
+</TR>
+</TABLE>
+<HR><TABLE>
+<TR>
+<TH>
+<H6 CLASS="fnam">
+<A NAME="1006471">
+ </A>
+localtime</H6>
+</TH>
+<TH>
+<H6 CLASS="cHead">
+&nbsp;</H6>
+</TH>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+DESCRIPTION</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Convert date and time to broken-down structure.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+SYNTAX</P>
+</TD>
+<TD>
+<P CLASS="Function-Syntax">
+struct localtime(int t)</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+COMMENTS</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Convert the calendar time t, as might be returned by the time() function, into a broken-down date-time structure.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+RETURN</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Returns t converted to a structure with the following integer elements: </P>
+<P CLASS="fit3">
+<EM CLASS="Element">
+.tm_sec</EM>
+	second after the minute (from 0) </P>
+<P CLASS="fit3">
+<EM CLASS="Element">
+.tm_min</EM>
+	minutes after the hour (from 0) </P>
+<P CLASS="fit3">
+<EM CLASS="Element">
+.tm_hour</EM>
+	hour of the day (from 0) </P>
+<P CLASS="fit3">
+<EM CLASS="Element">
+.tm_mday</EM>
+	day of the month (from 1) </P>
+<P CLASS="fit3">
+<EM CLASS="Element">
+.tm_mon</EM>
+	month of the year (from 0) </P>
+<P CLASS="fit3">
+<EM CLASS="Element">
+.tm_year</EM>
+	years since 1900 (from 0) </P>
+<P CLASS="fit3">
+<EM CLASS="Element">
+.tm_wday</EM>
+	days since Sunday (from 0) </P>
+<P CLASS="fit3">
+<EM CLASS="Element">
+.tm_yday</EM>
+	day of the year (from 0) </P>
+<P CLASS="fit3">
+<EM CLASS="Element">
+.tm_isdst</EM>
+	daylight-savings-time flag</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+SEE ALSO</P>
+</TD>
+<TD>
+<P CLASS="cb">
+asctime(), ctime(), gmtime(), time(), strftime()</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+EXAMPLE</P>
+</TD>
+<TD>
+<P CLASS="cb">
+The following function prints the current date and time on the screen, and then returns to its caller the day of the year, where Jan 1. is the 1st day of the year: </P>
+<P CLASS="ciTable">
+ShowToday() </P>
+<P CLASS="ciTable">
+// show today's date; return day of the year in USA format </P>
+<P CLASS="ciTable">
+{ </P>
+<P CLASS="ciTable">
+	// get current time structure </P>
+<P CLASS="ciTable">
+	tm = localtime(time()); </P>
+<P CLASS="ciTable">
+	// display the date in USA format </P>
+<P CLASS="ciTable">
+	printf(&quot;Date: %02d/%02d/%02d   &quot;, tm.tm_mon+1, </P>
+<P CLASS="ciTable">
+				tm.tm_mday, </P>
+<P CLASS="ciTable">
+	tm.tm_year % 100); </P>
+<P CLASS="ciTable">
+	// convert hour to run from 12 to 11, not 0 to 23 </P>
+<P CLASS="ciTable">
+	hour = tm.tm_hour % 12; </P>
+<P CLASS="ciTable">
+	if ( hour == 0 ) </P>
+<P CLASS="ciTable">
+		hour = 12; </P>
+<P CLASS="ciTable">
+	// print current time </P>
+<P CLASS="ciTable">
+	printf(&quot;Time: % 2d:%02d:%02d\n&quot;, hour, tm.tm_min,</P>
+<P CLASS="ciTable">
+				 tm.tm_sec); </P>
+<P CLASS="ciTable">
+	// return day of year, where Jan. 1 would be day 1 </P>
+<P CLASS="ciTable">
+	return( tm.tm_yday + 1 ); </P>
+<P CLASS="ciTable">
+}</P>
+</TD>
+</TR>
+</TABLE>
+<HR><TABLE>
+<TR>
+<TH>
+<H6 CLASS="fnam">
+<A NAME="1006472">
+ </A>
+log</H6>
+</TH>
+<TH>
+<H6 CLASS="cHead">
+&nbsp;</H6>
+</TH>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+DESCRIPTION</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Calculate the natural logarithm.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+SYNTAX</P>
+</TD>
+<TD>
+<P CLASS="cb">
+float log(float x)</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+RETURN</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Return the natural logarithm of x.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+SEE ALSO</P>
+</TD>
+<TD>
+<P CLASS="cb">
+exp(), log10(), pow()</P>
+</TD>
+</TR>
+</TABLE>
+<HR><TABLE>
+<TR>
+<TH>
+<H6 CLASS="fnam">
+<A NAME="1006473">
+ </A>
+log10</H6>
+</TH>
+<TH>
+<H6 CLASS="cHead">
+&nbsp;</H6>
+</TH>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+DESCRIPTION</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Calculate the base-ten logarithm.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+SYNTAX</P>
+</TD>
+<TD>
+<P CLASS="cb">
+float log10(float x)</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+RETURN</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Return the base-ten logarithm of x.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+SEE ALSO</P>
+</TD>
+<TD>
+<P CLASS="cb">
+exp(), log, pow()</P>
+</TD>
+</TR>
+</TABLE>
+<HR><TABLE>
+<TR>
+<TH>
+<H6 CLASS="fnam">
+<A NAME="1006474">
+ </A>
+max</H6>
+</TH>
+<TH>
+<H6 CLASS="cHead">
+&nbsp;</H6>
+</TH>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+DESCRIPTION</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Return the largest of one or more values.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+SYNTAX</P>
+</TD>
+<TD>
+<P CLASS="cb">
+var max(var v1[,var v2[,var v3[,...]]])</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+COMMENTS</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Similar to the standard C macro max() with the addition that only one variable must be supplied and any number of other variables may be supplied for the comparison.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+RETURN</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Return the maximum value of all the variables passed to this function.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+SEE ALSO</P>
+</TD>
+<TD>
+<P CLASS="cb">
+min()</P>
+</TD>
+</TR>
+</TABLE>
+<HR><TABLE>
+<TR>
+<TH>
+<H6 CLASS="fnam">
+<A NAME="1006475">
+ </A>
+memchr</H6>
+</TH>
+<TH>
+<H6 CLASS="cHead">
+&nbsp;</H6>
+</TH>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+DESCRIPTION</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Search a byte array, or blob, for a character.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+SYNTAX</P>
+</TD>
+<TD>
+<P CLASS="Function-Syntax">
+byte[] memchr(byte[] array, byte c[, int size])</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+COMMENTS</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Searches all the bytes in a byte array (which could be a blob) and returns a variable for this array that starts at the first occurrence of byte c. If size is not specified then searches the entire array from element zero.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+RETURN</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Returns NULL if c is not found in array; else returns var for this array offset to the first occurrence of c.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+SEE ALSO</P>
+</TD>
+<TD>
+<P CLASS="cb">
+strchr() </P>
+</TD>
+</TR>
+</TABLE>
+<HR><TABLE>
+<TR>
+<TH>
+<H6 CLASS="fnam">
+<A NAME="1006476">
+ </A>
+memcmp</H6>
+</TH>
+<TH>
+<H6 CLASS="cHead">
+&nbsp;</H6>
+</TH>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+DESCRIPTION</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Compare two byte arrays.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+SYNTAX</P>
+</TD>
+<TD>
+<P CLASS="Function-Syntax">
+int memcmp(byte[] array1, byte[] array2[, int len])</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+COMMENTS</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Compare the first len bytes of array and array2. If len is not specified then len is the smaller of the array index spans of array1 and array2. If one of the arrays is shorter than the length specified, ScriptEase will treat it as being len.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+RETURN</P>
+</TD>
+<TD>
+<P CLASS="cb">
+ Returns result of comparison, which will be: </P>
+<P CLASS="cb-in">
+&lt; 0 if array1 is less than array2 </P>
+<P CLASS="cb-in">
+= 0 if array1 is the same as array2 for len bytes </P>
+<P CLASS="cb-in">
+&gt; 0 if array 1 is greater than array2</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+SEE ALSO</P>
+</TD>
+<TD>
+<P CLASS="cb">
+memicmp(), strncmpi(), strnicmp()</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+EXAMPLE</P>
+</TD>
+<TD>
+<P CLASS="cb">
+This function will check to see if the shorter string is the same as the beginning of the longer string. This function differs from strcmp() in that this function will return TRUE if given the strings &quot;foo&quot; and &quot;foobar&quot;, because it only compares characters up to the end of the shorter string. </P>
+<P CLASS="cb">
+MyStrCmp(string1,string2) </P>
+<P CLASS="ciTable">
+{ </P>
+<P CLASS="ciTable">
+len = min(strlen(string1),strlen(string2));</P>
+<P CLASS="ciTable">
+return(memcmp(string1,string2,len)); </P>
+<P CLASS="ciTable">
+}</P>
+</TD>
+</TR>
+</TABLE>
+<HR><TABLE>
+<TR>
+<TH>
+<H6 CLASS="fnam">
+<A NAME="1006477">
+ </A>
+memcpy</H6>
+</TH>
+<TH>
+<H6 CLASS="cHead">
+&nbsp;</H6>
+</TH>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+DESCRIPTION</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Copy bytes from one array to another.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+SYNTAX</P>
+</TD>
+<TD>
+<P CLASS="Function-Syntax">
+byte[] memcpy(byte[] dest, byte[] src[, int len])</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+COMMENTS</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Copies len bytes from src array to dest array. If dest is not already defined then this defines it as a byte array. If len is not supplied then copies all of the bytes from src to dest. </P>
+<P CLASS="cb">
+ScriptEase insures protection from data overwrite, so in ScriptEase the memcpy() function is the same as memmove().</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+RETURN</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Returns the value of dest; that is, a variable into the dest array based at dest[0].</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+SEE ALSO</P>
+</TD>
+<TD>
+<P CLASS="cb">
+memmove(), strncpy()</P>
+</TD>
+</TR>
+</TABLE>
+<HR><TABLE>
+<TR>
+<TH>
+<H6 CLASS="fnam">
+<A NAME="1006478">
+ </A>
+memicmp</H6>
+</TH>
+<TH>
+<H6 CLASS="cHead">
+&nbsp;</H6>
+</TH>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+DESCRIPTION</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Case-insensitive compare two byte arrays.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+SYNTAX</P>
+</TD>
+<TD>
+<P CLASS="Function-Syntax">
+int memicmp(byte[] array1,byte[] array2[,int len])</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+COMMENTS</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Compare the first len bytes of array1 and array2. If len is not specified then len is the smaller of the array index spans of array1 and array2. Each byte comparison is case-insensitive, so `A' is equal to `a'. If one of the arrays is shorter than the length specified, ScriptEase will treat it as being len.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+RETURN</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Returns result of comparison, which will be: </P>
+<P CLASS="cb-in">
+&lt; 0 if array1 is less than array2</P>
+<P CLASS="cb-in">
+ = 0 if array1 is the same as array2 for len bytes </P>
+<P CLASS="cb-in">
+&gt; 0 if array 1 is greater than array2</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+SEE ALSO</P>
+</TD>
+<TD>
+<P CLASS="cb">
+memcmp(), strncmp()</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+EXAMPLE</P>
+</TD>
+<TD>
+<P CLASS="cb">
+This function performs the same as the internal stricmp() library function. </P>
+<P CLASS="ciTable">
+MyStrICmp(string1,string2) </P>
+<P CLASS="ciTable">
+{ </P>
+<P CLASS="ciTable">
+len = min(strlen(string1),strlen(string2)); </P>
+<P CLASS="ciTable">
+return(memicmp(string1,string2,len)); </P>
+<P CLASS="ciTable">
+}</P>
+</TD>
+</TR>
+</TABLE>
+<HR><TABLE>
+<TR>
+<TH>
+<H6 CLASS="fnam">
+<A NAME="1006479">
+ </A>
+memmove</H6>
+</TH>
+<TH>
+<H6 CLASS="cHead">
+&nbsp;</H6>
+</TH>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+DESCRIPTION</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Copy bytes from one array to another.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+SYNTAX</P>
+</TD>
+<TD>
+<P CLASS="Function-Syntax">
+byte[] memmove(byte[] dest, byte[] src[, int len])</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+COMMENTS</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Copies len bytes from src array to dest array. If dest is not already defined then this defines it as a byte array. If len is not supplied then copies all of the bytes from src to dest. ScriptEase insures protection from data overwrite, so in ScriptEase the memcpy() function is the same as memmove().</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+RETURN</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Returns the value of dest; that is, a variable into the dest array based at dest[0].</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+SEE ALSO</P>
+</TD>
+<TD>
+<P CLASS="cb">
+memcpy(), strncpy()</P>
+</TD>
+</TR>
+</TABLE>
+<HR><TABLE>
+<TR>
+<TH>
+<H6 CLASS="fnam">
+<A NAME="1006480">
+ </A>
+memset</H6>
+</TH>
+<TH>
+<H6 CLASS="cHead">
+&nbsp;</H6>
+</TH>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+DESCRIPTION</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Set values in a byte array to specific character.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+SYNTAX</P>
+</TD>
+<TD>
+<P CLASS="Function-Syntax">
+byte[] memset(byte[] buf, int c[, int len])</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+COMMENTS</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Sets the first len bytes of buf to character c. If buf is not already defined then this defines it as a byte array of size len. If buf is less than len bytes big then buf is grown to be big enough for len. If len is not supplied then len is the total size of buf (starting at index 0).</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+RETURN</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Returns the value of buf; that is, a variable into the buf array based at buf[0].</P>
+</TD>
+</TR>
+</TABLE>
+<HR><TABLE>
+<TR>
+<TH>
+<H6 CLASS="fnam">
+<A NAME="1006481">
+ </A>
+min</H6>
+</TH>
+<TH>
+<H6 CLASS="cHead">
+&nbsp;</H6>
+</TH>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+DESCRIPTION</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Return the minimum of one or more values.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+SYNTAX</P>
+</TD>
+<TD>
+<P CLASS="Function-Syntax">
+var min(var v1[,var v2[,var v3[,...]]])</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+COMMENTS</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Similar to the standard C macro min() with the addition that only one variable must be supplied; any number of other variables may be supplied for the comparison.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+RETURN</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Return the minimum value of all the variables passed to this function.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+SEE ALSO</P>
+</TD>
+<TD>
+<P CLASS="cb">
+max()</P>
+</TD>
+</TR>
+</TABLE>
+<HR><TABLE>
+<TR>
+<TH>
+<H6 CLASS="fnam">
+<A NAME="1006482">
+ </A>
+mktime</H6>
+</TH>
+<TH>
+<H6 CLASS="cHead">
+&nbsp;</H6>
+</TH>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+DESCRIPTION</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Convert time structure into calendar time.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+SYNTAX</P>
+</TD>
+<TD>
+<P CLASS="Function-Syntax">
+int mktime(struct TimeStruct)</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+COMMENTS</P>
+</TD>
+<TD>
+<P CLASS="cb">
+This creates a calendar time, which is the time format returned by time(), from the elements of the TimeStruct structure. TimeStruct is a structure of the format used by localtime(). All elements of TimeStruct not defined will be set to 0.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+RETURN</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Returns time structure converted to calendar time. Return -1 if time cannot be converted or represented.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+SEE ALSO</P>
+</TD>
+<TD>
+<P CLASS="cb">
+asctime(), ctime(), gmtime(), localtime(), time(), strftime()</P>
+</TD>
+</TR>
+</TABLE>
+<HR><TABLE>
+<TR>
+<TH>
+<H6 CLASS="fnam">
+<A NAME="1006483">
+ </A>
+modf</H6>
+</TH>
+<TH>
+<H6 CLASS="cHead">
+&nbsp;</H6>
+</TH>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+DESCRIPTION</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Split a value into integer and fractional parts.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+SYNTAX</P>
+</TD>
+<TD>
+<P CLASS="Function-Syntax">
+float modf(float x, float i)</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+COMMENTS</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Splits x into integer and fraction parts, where integer and fraction both have the same sign as x.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+MODIFIES</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Sets i to the integer part of x.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+RETURN</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Returns the fraction part of x.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+SEE ALSO</P>
+</TD>
+<TD>
+<P CLASS="cb">
+ldiv(), fmod()</P>
+</TD>
+</TR>
+</TABLE>
+<HR><TABLE>
+<TR>
+<TH>
+<H6 CLASS="fnam">
+<A NAME="1006484">
+ </A>
+perror</H6>
+</TH>
+<TH>
+<H6 CLASS="cHead">
+&nbsp;</H6>
+</TH>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+DESCRIPTION</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Prints an message describing error in errno</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+SYNTAX</P>
+</TD>
+<TD>
+<P CLASS="Function-Syntax">
+void perror(string s) </P>
+<P CLASS="Function-Syntax">
+void perror()</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+COMMENTS</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Prints an error message describing the error defined by errno. This function is identical to calling strerror(errno). If s is supplied then the error string is copied to s and s is returned. If s is not supplied then only returns the error string.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+RETURN</P>
+</TD>
+<TD>
+<P CLASS="cb">
+None.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+SEE ALSO</P>
+</TD>
+<TD>
+<P CLASS="cb">
+errno, strerror()</P>
+</TD>
+</TR>
+</TABLE>
+<HR><TABLE>
+<TR>
+<TD>
+<H6 CLASS="fnam">
+<A NAME="1006485">
+ </A>
+pow</H6>
+</TD>
+<TD>
+<P CLASS="cb">
+&nbsp;</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+DESCRIPTION</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Calculates x to the power of y.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+SYNTAX</P>
+</TD>
+<TD>
+<P CLASS="cb">
+float pow(float x, float y)</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+RETURN</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Return the x to the power of y.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+SEE ALSO</P>
+</TD>
+<TD>
+<P CLASS="cb">
+exp(), frexp(), log(), sqrt()</P>
+</TD>
+</TR>
+</TABLE>
+<HR><TABLE>
+<TR>
+<TD>
+<H6 CLASS="fnam">
+<A NAME="1006486">
+ </A>
+printf</H6>
+</TD>
+<TD>
+<P CLASS="cb">
+&nbsp;</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+DESCRIPTION</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Formatted output to the standard output stream (screen).</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+SYNTAX</P>
+</TD>
+<TD>
+<P CLASS="cb">
+int printf(string format,...)</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+COMMENTS</P>
+</TD>
+<TD>
+<P CLASS="cb">
+This flexible function writes output to the standard output device according to the format string ( this is identical to calling fprintf with `stdout' as the first parameter). The format string can contain character combinations indicating how following parameters are to be treated. Characters are printed as read to standard output until a per cent character (`%') is reached. % indicates that a value is to be printed from the parameters following the format string. Each subsequent parameter specification takes from the next parameter in the list following format. A parameter specification takes this form (square brackets indicate optional fields, angled brackets indicate required fields):</P>
+<H6 CLASS="FormatciTable">
+%[flags][width][.precision]&lt;type&gt; </H6>
+<P CLASS="cb">
+Where <EM CLASS="Element">
+flags</EM>
+ may be:</P>
+<P CLASS="fit">
+<EM CLASS="Element">
+ -</EM>
+	Left justification in the field with blank padding; else right justifies with zero or blank padding </P>
+<P CLASS="fit">
+<EM CLASS="Element">
++</EM>
+	Force numbers to begin with a plus (+) or minus (-) </P>
+<P CLASS="fit">
+<EM CLASS="Element">
+blank</EM>
+	Negative values begin with a minus (-); positive values begin with a blank </P>
+<P CLASS="fit">
+<EM CLASS="Element">
+#</EM>
+	Convert using the following alternate form, depending on output data type:</P>
+<P CLASS="Flag-Subtabel">
+<EM CLASS="Element">
+c, s, d, i, u</EM>
+ 	No effect</P>
+<P CLASS="Flag-Subtabel">
+<EM CLASS="Element">
+o</EM>
+	0 (zero) is prepended to non-zero output </P>
+<P CLASS="Flag-Subtabel">
+<EM CLASS="Element">
+x, X</EM>
+	0x, or 0X, are prepended to output</P>
+<P CLASS="Flag-Subtabel">
+<EM CLASS="Element">
+f, e, E</EM>
+	Output includes decimal even if no digits follow decimal </P>
+<P CLASS="Flag-Subtabel">
+<EM CLASS="Element">
+g, G</EM>
+	same as e or E but trailing zeros are not removed </P>
+<P CLASS="cb">
+<EM CLASS="Element">
+width</EM>
+ may be: </P>
+<P CLASS="fit">
+<EM CLASS="Element">
+n</EM>
+	(n is a number e.g., 14) At least n characters are output, padded with blanks</P>
+<P CLASS="fit">
+<EM CLASS="Element">
+0n</EM>
+	At least n characters are output, padded on the left with zeros </P>
+<P CLASS="fit">
+<EM CLASS="Element">
+*</EM>
+	The next value in the argument list is an integer specifying the output width</P>
+<P CLASS="fit">
+<EM CLASS="Element">
+.precision     </EM>
+If precision is specified, then it must begin with a period (.), and may be as follows:</P>
+<P CLASS="Flag-Subtabel">
+<EM CLASS="Element">
+.0</EM>
+	For floating point type, no decimal point is output    </P>
+<P CLASS="Flag-Subtabel">
+<EM CLASS="Element">
+.n</EM>
+	n characters or n decimal places (floating point) are output    </P>
+<P CLASS="Flag-Subtabel">
+<EM CLASS="Element">
+.*</EM>
+	The next value in the argument list is an integer specifying the precision width</P>
+<P CLASS="cb">
+&nbsp;</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+&nbsp;</P>
+</TD>
+<TD>
+<P CLASS="cb">
+<EM CLASS="Element">
+type</EM>
+ may be: </P>
+<P CLASS="fit">
+<EM CLASS="Element">
+d, i</EM>
+	signed integer </P>
+<P CLASS="fit">
+<EM CLASS="Element">
+u</EM>
+	unsigned integer </P>
+<P CLASS="fit">
+<EM CLASS="Element">
+o</EM>
+	octal integer x</P>
+<P CLASS="fit">
+<EM CLASS="Element">
+x</EM>
+	hexadecimal integer with 0-9 and a, b, c, d, e, f </P>
+<P CLASS="fit">
+<EM CLASS="Element">
+X</EM>
+	hexadecimal integer with 0-9 and A, B, C, D, E, F </P>
+<P CLASS="fit">
+<EM CLASS="Element">
+f</EM>
+	floating point of the form [-]dddd.dddd </P>
+<P CLASS="fit">
+<EM CLASS="Element">
+e</EM>
+	floating point of the form [-]d.ddde+dd or [-]d.ddde-dd</P>
+<P CLASS="fit">
+<EM CLASS="Element">
+E</EM>
+	floating point of the form [-]d.dddE+dd or [-]d.dddE-dd</P>
+<P CLASS="fit">
+<EM CLASS="Element">
+g</EM>
+	floating point of f or e type, depending on precision</P>
+<P CLASS="fit">
+<EM CLASS="Element">
+G</EM>
+	floating point of For E type, depending on precision</P>
+<P CLASS="fit">
+<EM CLASS="Element">
+c</EM>
+	character (`a', `b', `8', e.g.)</P>
+<P CLASS="fit">
+<EM CLASS="Element">
+s</EM>
+	string</P>
+<P CLASS="cb">
+To include the `%' character as a character in the format string, you must use two % together (`%%') to prevent the computer from trying to interpret it as on of the above forms.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+RETURN</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Returns the number of characters written, or a negative number if there was an output error.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+SEE ALSO</P>
+</TD>
+<TD>
+<P CLASS="cb">
+fprintf(), fputs(), puts(), sprintf(), vfprintf(), vprintf()</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+EXAMPLES</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Each of the following lines shows a printf example followed by what would show on the output in boldface: </P>
+<P CLASS="ciTable">
+printf(&quot;Hello world!&quot;) </P>
+<P CLASS="cb">
+Hello world! </P>
+<P CLASS="ciTable">
+printf(&quot;I count: %d %d %d.&quot;,1,2,3)</P>
+<P CLASS="cb">
+I count: 1 2 3</P>
+<P CLASS="ciTable">
+a = 1;</P>
+<P CLASS="ciTable">
+b = 2;</P>
+<P CLASS="ciTable">
+c = a+b; </P>
+<P CLASS="ciTable">
+printf(&quot;%d %d %d&quot;,a,b,c) </P>
+<P CLASS="cb">
+1 2 3</P>
+</TD>
+</TR>
+</TABLE>
+<HR><TABLE>
+<TR>
+<TH>
+<H6 CLASS="fnam">
+<A NAME="1006487">
+ </A>
+putc</H6>
+</TH>
+<TH>
+<H6 CLASS="cHead">
+&nbsp;</H6>
+</TH>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+DESCRIPTION</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Write a character to a file stream.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+SYNTAX</P>
+</TD>
+<TD>
+<P CLASS="Function-Syntax">
+int putc(int c, FILE stream)</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+COMMENTS</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Write the character c, converted to a byte, to output file stream. This function is identical to fputc(c,stream).</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+RETURN</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Returns c for success, and EOF for a write error.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+SEE ALSO</P>
+</TD>
+<TD>
+<P CLASS="cb">
+fputc(), putchar()</P>
+</TD>
+</TR>
+</TABLE>
+<HR><TABLE>
+<TR>
+<TH>
+<H6 CLASS="fnam">
+<A NAME="1006488">
+ </A>
+putchar</H6>
+</TH>
+<TH>
+<H6 CLASS="cHead">
+&nbsp;</H6>
+</TH>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+DESCRIPTION</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Write a character to the standard output stream (console).</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+SYNTAX</P>
+</TD>
+<TD>
+<P CLASS="Function-Syntax">
+int putchar(int c)</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+COMMENTS</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Write the character c, converted to a byte, to the stream defined by stdout (usually the console). This function is identical to fputc(c,stdout).</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+RETURN</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Returns c for success, and EOF for a write error.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+SEE ALSO</P>
+</TD>
+<TD>
+<P CLASS="cb">
+fputc(), putc() </P>
+</TD>
+</TR>
+</TABLE>
+<HR><TABLE>
+<TR>
+<TH>
+<H6 CLASS="fnam">
+<A NAME="1006489">
+ </A>
+putenv</H6>
+</TH>
+<TH>
+<H6 CLASS="cHead">
+&nbsp;</H6>
+</TH>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+DESCRIPTION</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Set an environment string.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+SYNTAX</P>
+</TD>
+<TD>
+<P CLASS="Function-Syntax">
+int putenv(string VariableName, string Value)</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+COMMENTS</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Sets the VariableName environment variable to the Value string. If Value is NULL then VariableName is removed from the environment. For those operating systems for which ScriptEase can alter the parent environment (DOS, or OS/2 when invoked with SESet.cmd or using ESet()) the variable setting will still be valid when ScriptEase exits; otherwise the variable change applies only to the ScriptEase code and to child processes of the ScriptEase program.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+RETURN</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Returns -1 if there is an error, else 0.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+SEE ALSO</P>
+</TD>
+<TD>
+<P CLASS="cb">
+getenv()</P>
+</TD>
+</TR>
+</TABLE>
+<HR><TABLE>
+<TR>
+<TH>
+<H6 CLASS="fnam">
+<A NAME="1006490">
+ </A>
+puts</H6>
+</TH>
+<TH>
+<H6 CLASS="cHead">
+&nbsp;</H6>
+</TH>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+DESCRIPTION</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Write a string to the standard output stream (console).</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+SYNTAX</P>
+</TD>
+<TD>
+<P CLASS="Function-Syntax">
+int puts(string s)</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+COMMENTS</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Write the string s followed by a new-line character to stream. Do not write the terminating null-character. This function is identical to fputs(s, stdout) except that a new-line character is written after the string.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+RETURN</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Returns EOF if write error, else returns a non-negative value.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+SEE ALSO</P>
+</TD>
+<TD>
+<P CLASS="cb">
+fputs(), gets(), printf()</P>
+</TD>
+</TR>
+</TABLE>
+<HR><TABLE>
+<TR>
+<TH>
+<H6 CLASS="fnam">
+<A NAME="1006491">
+ </A>
+qsort</H6>
+</TH>
+<TH>
+<H6 CLASS="cHead">
+&nbsp;</H6>
+</TH>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+DESCRIPTION</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Sort an array using specified comparison function.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+SYNTAX</P>
+</TD>
+<TD>
+<P CLASS="Function-Syntax">
+void qsort(var [] array, [int ElementCount,] string CompareFunction)</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+COMMENTS</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Sort elements in this array, starting from index 0 to ElementCount-1. If ElementCount is not supplied then will sort the entire array.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+RETURN</P>
+</TD>
+<TD>
+<P CLASS="cb">
+No return value.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+NOTE</P>
+</TD>
+<TD>
+<P CLASS="cb">
+ElementCount is limited to 64K</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+SEE ALSO</P>
+</TD>
+<TD>
+<P CLASS="cb">
+bsearch()</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+EXAMPLE</P>
+</TD>
+<TD>
+<P CLASS="cb">
+The following code would print a list of colors sorted reverse-alphabetically and case-insensitive:</P>
+<P CLASS="ciTable">
+ // initialize an array of colors </P>
+<P CLASS="ciTable">
+colors = { &quot;yellow&quot;, &quot;Blue&quot;, &quot;GREEN&quot;, &quot;purple&quot;,   &quot;RED&quot;, &quot;BLACK&quot;, &quot;white&quot;, &quot;orange&quot; }; </P>
+<P CLASS="ciTable">
+// sort the list of colors in place using qsort </P>
+<P CLASS="ciTable">
+// and our own defined ColorSorter routine </P>
+<P CLASS="ciTable">
+qsort(colors,&quot;ReverseColorSorter&quot;); </P>
+<P CLASS="ciTable">
+// display the sorted colors</P>
+<P CLASS="ciTable">
+	for ( i = 0; i &lt;= GetArraySpan(colors); i++ ) </P>
+<P CLASS="ciTable">
+		puts(colors[i]); </P>
+<P CLASS="ciTable">
+&nbsp;</P>
+<P CLASS="ciTable">
+ReverseColorSorter(color1,color2)</P>
+<P CLASS="ciTable">
+// function called from qsort to compare two colors. In <BR>
+// this case do a simple case insensitive string </P>
+<P CLASS="ciTable">
+// comparison, and reverse the results too </P>
+<P CLASS="ciTable">
+{</P>
+<P CLASS="ciTable">
+	CompareResult = stricmp(color1,color2)</P>
+<P CLASS="ciTable">
+	return( -CompareResult ); </P>
+<P CLASS="ciTable">
+} </P>
+<P CLASS="cb">
+The output of the above code would be: </P>
+<P CLASS="ciTable">
+yellow </P>
+<P CLASS="ciTable">
+white </P>
+<P CLASS="ciTable">
+RED</P>
+<P CLASS="ciTable">
+purple </P>
+<P CLASS="ciTable">
+orange </P>
+<P CLASS="ciTable">
+GREEN </P>
+<P CLASS="ciTable">
+Blue </P>
+<P CLASS="ciTable">
+BLACK</P>
+</TD>
+</TR>
+</TABLE>
+<HR><TABLE>
+<TR>
+<TH>
+<H6 CLASS="fnam">
+<A NAME="1006492">
+ </A>
+rand</H6>
+</TH>
+<TH>
+<H6 CLASS="cHead">
+&nbsp;</H6>
+</TH>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+DESCRIPTION</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Generate a random number.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+SYNTAX</P>
+</TD>
+<TD>
+<P CLASS="Function-Syntax">
+int rand()</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+COMMENTS</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Generates a result between 0 and RAND_MAX, inclusive. The sequence of pseudo-random numbers is affected by the initial generator seed (see srand()) and by earlier calls to rand().</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+RETURN</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Returns pseudo-random number between 0 and RAND_MAX, inclusive.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+SEE ALSO</P>
+</TD>
+<TD>
+<P CLASS="cb">
+srand(), RAND_MAX</P>
+</TD>
+</TR>
+</TABLE>
+<HR><TABLE>
+<TR>
+<TH>
+<H6 CLASS="fnam">
+<A NAME="1006493">
+ </A>
+remove</H6>
+</TH>
+<TH>
+<H6 CLASS="cHead">
+&nbsp;</H6>
+</TH>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+DESCRIPTION</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Delete a file.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+SYNTAX</P>
+</TD>
+<TD>
+<P CLASS="Function-Syntax">
+int remove(string filename)</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+COMMENTS</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Deletes the filename specified by filename.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+RETURN</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Returns zero for success, and non-zero for failure.</P>
+</TD>
+</TR>
+</TABLE>
+<HR><TABLE>
+<TR>
+<TH>
+<H6 CLASS="fnam">
+<A NAME="1006494">
+ </A>
+rename</H6>
+</TH>
+<TH>
+<H6 CLASS="cHead">
+&nbsp;</H6>
+</TH>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+DESCRIPTION</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Rename a file.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+SYNTAX</P>
+</TD>
+<TD>
+<P CLASS="Function-Syntax">
+int rename(string OldFilename, string NewFilename)</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+RETURN</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Returns zero for success, and non-zero for failure.</P>
+</TD>
+</TR>
+</TABLE>
+<HR><TABLE>
+<TR>
+<TH>
+<H6 CLASS="fnam">
+<A NAME="1006495">
+ </A>
+rewind</H6>
+</TH>
+<TH>
+<H6 CLASS="cHead">
+&nbsp;</H6>
+</TH>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+DESCRIPTION</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Reset file position to beginning of file.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+SYNTAX</P>
+</TD>
+<TD>
+<P CLASS="Function-Syntax">
+void rewind(FILE stream)</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+COMMENTS</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Set stream file-position pointer to the beginning of file. This call is identical to fseek(stream,0,SEEK_SET) except that it also clears the error indicator for this stream.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+RETURN</P>
+</TD>
+<TD>
+<P CLASS="cb">
+No return value.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+SEE ALSO</P>
+</TD>
+<TD>
+<P CLASS="cb">
+fgetpos(), fseek(), fsetpos(), ftell()</P>
+</TD>
+</TR>
+</TABLE>
+<HR><TABLE>
+<TR>
+<TH>
+<H6 CLASS="fnam">
+<A NAME="1006496">
+ </A>
+scanf</H6>
+</TH>
+<TH>
+<H6 CLASS="cHead">
+&nbsp;</H6>
+</TH>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+DESCRIPTION</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Formatted input from the standard input stream (keyboard)</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+SYNTAX</P>
+</TD>
+<TD>
+<P CLASS="Function-Syntax">
+int scanf(string format,...)</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+&nbsp;</P>
+</TD>
+<TD>
+<P CLASS="cb">
+This flexible function reads input from the standard input stream (the keyboard unless some other file has been redirected as input) and stores the data read in variables provided as parameters following the format string. The data will be stored according to the character combinations in format strings indicating how the input data is to be read and stored. This function is identical to calling fscanf() with stdin as the first parameter. </P>
+<P CLASS="cb">
+The format string specifies the admissible input sequences, and how the input is to be converted to be assigned to the variable number of arguments passed to this function.</P>
+<P CLASS="cb">
+In Windows, the input will not be read until it has been entered by hitting return. </P>
+<P CLASS="cb">
+Characters from input are matched against the characters of the format string until a per cent character (`%') is reached. % indicates that a value is to be read and stored to subsequent parameters following the format string. Each subsequent parameter after the format string gets the next parsed value taken from the next parameter in the list following format. </P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+COMMENTS</P>
+</TD>
+<TD>
+<P CLASS="cb">
+A parameter specification takes this form (square brackets indicate optional fields, angled brackets indicate required fields):</P>
+<H6 CLASS="FormatciTable">
+ %[*][width]&lt;type&gt; </H6>
+<P CLASS="cb">
+Where: </P>
+<P CLASS="fit">
+<EM CLASS="Element">
+*</EM>
+	Suppress assigning this value to any parameter </P>
+<P CLASS="fit">
+<EM CLASS="Element">
+width</EM>
+	maximum number of characters to read; fewer will be read if whitespace or nonconvertible character</P>
+<P CLASS="fit">
+<EM CLASS="Element">
+type</EM>
+</P>
+<P CLASS="Flag-Subtabel">
+<EM CLASS="Element">
+d,D,i,I</EM>
+	signed integer    </P>
+<P CLASS="Flag-Subtabel">
+<EM CLASS="Element">
+u,U</EM>
+	unsigned integer    </P>
+<P CLASS="Flag-Subtabel">
+<EM CLASS="Element">
+o,O</EM>
+	octal integer    </P>
+<P CLASS="Flag-Subtabel">
+<EM CLASS="Element">
+x,X</EM>
+	hexadecimal integer    </P>
+<P CLASS="Flag-Subtabel">
+<EM CLASS="Element">
+f,e,E,g,G</EM>
+	floating point number    </P>
+<P CLASS="Flag-Subtabel">
+<EM CLASS="Element">
+c</EM>
+	character; if width was specified then this is an array of characters    </P>
+<P CLASS="Flag-Subtabel">
+<EM CLASS="Element">
+s</EM>
+	string    </P>
+<P CLASS="Flag-Subtabel">
+<EM CLASS="Element">
+[abc]</EM>
+	string consisting of all characters within brackets; where A-Z represents range `A' to `Z'    </P>
+<P CLASS="Flag-Subtabel">
+<EM CLASS="Element">
+[^abc]</EM>
+	string consisting of all character NOT within brackets</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+MODIFIES</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Modifies any number of parameters following the format string, setting the parameters to data according to the specifications of the format string.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+RETURN</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Returns EOF if input failure before any conversion occurs, else returns the number of input items assigned; this number may be fewer than the number of parameters requested if there was a matching failure.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+SEE ALSO</P>
+</TD>
+<TD>
+<P CLASS="cb">
+fscanf(), fgets(), gets(), sscanf(), vfscanf(), vscanf()</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+EXAMPLES</P>
+</TD>
+<TD>
+<P CLASS="cb">
+See fscanf for examples on using this function.</P>
+</TD>
+</TR>
+</TABLE>
+<HR><TABLE>
+<TR>
+<TH>
+<H6 CLASS="fnam">
+<A NAME="1006497">
+ </A>
+sin</H6>
+</TH>
+<TH>
+<H6 CLASS="cHead">
+&nbsp;</H6>
+</TH>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+DESCRIPTION</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Calculate the sine.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+SYNTAX</P>
+</TD>
+<TD>
+<P CLASS="Function-Syntax">
+float sin(float x)</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+RETURN</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Return the sine of x in radians.</P>
+</TD>
+</TR>
+</TABLE>
+<HR><TABLE>
+<TR>
+<TH>
+<H6 CLASS="fnam">
+<A NAME="1006498">
+ </A>
+sinh</H6>
+</TH>
+<TH>
+<H6 CLASS="cHead">
+&nbsp;</H6>
+</TH>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+DESCRIPTION</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Calculate the hyperbolic sine.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+SYNTAX</P>
+</TD>
+<TD>
+<P CLASS="Function-Syntax">
+float sinh(float x)</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+RETURN</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Return the hyperbolic sine of x</P>
+</TD>
+</TR>
+</TABLE>
+<HR><TABLE>
+<TR>
+<TH>
+<H6 CLASS="fnam">
+<A NAME="1006499">
+ </A>
+sprintf</H6>
+</TH>
+<TH>
+<H6 CLASS="cHead">
+&nbsp;</H6>
+</TH>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+DESCRIPTION</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Formatted output to a string.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+SYNTAX</P>
+</TD>
+<TD>
+<P CLASS="Function-Syntax">
+int sprintf(string buffer, string format,...)</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+COMMENTS</P>
+</TD>
+<TD>
+<P CLASS="cb">
+This flexible function writes output to the string variable specified by buffer according to the format string. The format string can contain character combinations indicating how following parameters may be written. buffer need not be previously defined; it will be created large enough to hold the string result. See printf() for a description of this format string.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+RETURN</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Returns the number of characters written into buffer not including the terminating null byte, or EOF if there was an error.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+SEE ALSO</P>
+</TD>
+<TD>
+<P CLASS="cb">
+printf(), vsprintf()</P>
+</TD>
+</TR>
+</TABLE>
+<HR><TABLE>
+<TR>
+<TH>
+<H6 CLASS="fnam">
+<A NAME="1006500">
+ </A>
+sqrt</H6>
+</TH>
+<TH>
+<H6 CLASS="cHead">
+&nbsp;</H6>
+</TH>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+DESCRIPTION</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Calculate the square root.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+SYNTAX</P>
+</TD>
+<TD>
+<P CLASS="cb">
+float sqrt(float x)</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+RETURN</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Return the square root of x. </P>
+</TD>
+</TR>
+</TABLE>
+<HR><TABLE>
+<TR>
+<TH>
+<H6 CLASS="fnam">
+<A NAME="1006501">
+ </A>
+srand</H6>
+</TH>
+<TH>
+<H6 CLASS="cHead">
+&nbsp;</H6>
+</TH>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+DESCRIPTION</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Initialize random number generator.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+SYNTAX</P>
+</TD>
+<TD>
+<P CLASS="Function-Syntax">
+void srand([int seed])</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+COMMENTS</P>
+</TD>
+<TD>
+<P CLASS="cb">
+If seed is not supplied then a random seed is generated in an operating-system-specific manner.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+SEE ALSO</P>
+</TD>
+<TD>
+<P CLASS="cb">
+rand(), RAND_MAX</P>
+</TD>
+</TR>
+</TABLE>
+<HR><TABLE>
+<TR>
+<TH>
+<H6 CLASS="fnam">
+<A NAME="1006502">
+ </A>
+sscanf</H6>
+</TH>
+<TH>
+<H6 CLASS="cHead">
+&nbsp;</H6>
+</TH>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+DESCRIPTION</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Formatted input from a string.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+SYNTAX</P>
+</TD>
+<TD>
+<P CLASS="Function-Syntax">
+int sscanf(string buffer, string FormatString,...)</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+COMMENTS</P>
+</TD>
+<TD>
+<P CLASS="cb">
+This flexible function reads input from a string and stores in parameters following the format string according to the character combinations in FormatString indicating how the buffer data is to be read and stored. See scanf() for a description of this format string.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+MODIFIES</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Modifies any number of parameters following the format string, setting the parameters to data according to the specifications of the format string.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+RETURN</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Returns the number of input items assigned; this number may be fewer than the number of parameters requested if there was a matching failure.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+SEE ALSO</P>
+</TD>
+<TD>
+<P CLASS="cb">
+fscanf(), scanf(), vsscanf()</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+EXAMPLES</P>
+</TD>
+<TD>
+<P CLASS="cb">
+See fscanf for examples on using this function.</P>
+</TD>
+</TR>
+</TABLE>
+<HR><TABLE>
+<TR>
+<TH>
+<H6 CLASS="fnam">
+<A NAME="1006503">
+ </A>
+strcat</H6>
+</TH>
+<TH>
+<H6 CLASS="cHead">
+&nbsp;</H6>
+</TH>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+DESCRIPTION</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Append (concatenate) one string onto the end of another</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+SYNTAX</P>
+</TD>
+<TD>
+<P CLASS="Function-Syntax">
+string strcat(string dest, string src)</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+COMMENTS</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Appends src string onto the end of dest string. The dest array is made big enough to hold src and a terminating null byte. In ScriptEase, the string copy is safe, so that you can copy from one part of a string to another part of itself.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+RETURN</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Returns the value of dest; that is, a variable into the dest array based at dest[0].</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+SEE ALSO</P>
+</TD>
+<TD>
+<P CLASS="cb">
+sprintf(), strcpy(), memcpy(), memmove()</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+EXAMPLE</P>
+</TD>
+<TD>
+<P CLASS="cb">
+The following code would create the string Giant to be &quot;FeeFieFoeFum&quot;. </P>
+<P CLASS="ciTable">
+Giant = &quot;Fee&quot;;</P>
+<P CLASS="ciTable">
+// giant initially says only &quot;Fee&quot; </P>
+<P CLASS="ciTable">
+strcat(Giant,&quot;Fie&quot;);<BR>
+// now giant says &quot;FeeFie&quot; </P>
+<P CLASS="ciTable">
+// remember that strcat returns Giant strcat(strcat(Giant,&quot;Foe&quot;),&quot;Fum&quot;)</P>
+</TD>
+</TR>
+</TABLE>
+<HR><TABLE>
+<TR>
+<TH>
+<H6 CLASS="fnam">
+<A NAME="1006504">
+ </A>
+strchr</H6>
+</TH>
+<TH>
+<H6 CLASS="cHead">
+&nbsp;</H6>
+</TH>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+DESCRIPTION</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Search a string for a character.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+SYNTAX</P>
+</TD>
+<TD>
+<P CLASS="Function-Syntax">
+string strchr(string s, byte c)</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+COMMENTS</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Searches for the byte c in string s.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+RETURN</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Returns NULL if c is not found in s; else returns variable for this string based at the first c character.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+SEE ALSO</P>
+</TD>
+<TD>
+<P CLASS="cb">
+memchr(), strcspn(), strpbrk(), strrchr(), strspn(), strstr(), strtok()</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+EXAMPLE</P>
+</TD>
+<TD>
+<P CLASS="cb">
+This code: </P>
+<P CLASS="ciTable">
+str = &quot;I can't stand soggy cereal.&quot; </P>
+<P CLASS="ciTable">
+substr = strchr(str,'s'); </P>
+<P CLASS="ciTable">
+printf(&quot;str = %s\n&quot;, str); </P>
+<P CLASS="ciTable">
+printf(&quot;substr = %s\n&quot;, substr);</P>
+<P CLASS="cb">
+ Results in this output: </P>
+<P CLASS="ciTable">
+str = I can't stand soggy cereal. </P>
+<P CLASS="ciTable">
+substr = stand soggy cereal.</P>
+</TD>
+</TR>
+</TABLE>
+<HR><TABLE>
+<TR>
+<TH>
+<H6 CLASS="fnam">
+<A NAME="1006505">
+ </A>
+strcmp</H6>
+</TH>
+<TH>
+<H6 CLASS="cHead">
+&nbsp;</H6>
+</TH>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+DESCRIPTION</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Compare two strings.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+SYNTAX</P>
+</TD>
+<TD>
+<P CLASS="Function-Syntax">
+int strcmp(string s1,string s2)</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+COMMENTS</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Compare the bytes of s1 against s2 until there is a mismatch or reach the terminating null byte.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+RETURN</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Returns result of comparison, which will be: &lt; 0 if s1 is less than s2 = 0 if s1 is the same as s2 &gt; 0 if s1 is greater than s2</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+SEE ALSO</P>
+</TD>
+<TD>
+<P CLASS="cb">
+memcmp(), stricmp(), strncmp()</P>
+</TD>
+</TR>
+</TABLE>
+<HR><TABLE>
+<TR>
+<TH>
+<H6 CLASS="fnam">
+<A NAME="1006507">
+ </A>
+strcmpi</H6>
+</TH>
+<TH>
+<H6 CLASS="cHead">
+&nbsp;</H6>
+</TH>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+DESCRIPTION</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Case-insensitive compare two strings.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+SYNTAX</P>
+</TD>
+<TD>
+<P CLASS="Function-Syntax">
+int strcmpi(string s1,string s2)</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+COMMENTS</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Compare the bytes of s1 against s2, case-insensitive such that `A' is equal to `a', until there is a mismatch or reach the terminating null byte.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+RETURN</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Returns result of comparison, which will be: </P>
+<P CLASS="cb-in">
+&lt; 0 if s1 is less than s2 </P>
+<P CLASS="cb-in">
+= 0 if s1 is the same as s2 </P>
+<P CLASS="cb-in">
+&gt; 0 if s1 is greater than s2</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+SEE ALSO</P>
+</TD>
+<TD>
+<P CLASS="cb">
+memicmp(), stricmp(), strncmpi()</P>
+</TD>
+</TR>
+</TABLE>
+<HR><TABLE>
+<TR>
+<TH>
+<H6 CLASS="fnam">
+<A NAME="1006506">
+ </A>
+strcpy</H6>
+</TH>
+<TH>
+<H6 CLASS="cHead">
+&nbsp;</H6>
+</TH>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+DESCRIPTION</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Copy from one string into another.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+SYNTAX</P>
+</TD>
+<TD>
+<P CLASS="Function-Syntax">
+string strcpy(string dest, string src)</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+COMMENTS</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Copies bytes from src to dest, up to and including the terminating null byte. If dest is not already defined then this defines it as a string. strcpy() is identical in behavior to memmove(dest,src,strlen(src)) with string enforcement. It is safe to copy from one part of a string to another part of the same string.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+RETURN</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Returns the value of dest; that is, a variable into the dest array based at dest[0].</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+SEE ALSO</P>
+</TD>
+<TD>
+<P CLASS="cb">
+memcpy(), memmove(), strcat(), strncpy(), sprintf()</P>
+</TD>
+</TR>
+</TABLE>
+<HR><TABLE>
+<TR>
+<TH>
+<H6 CLASS="fnam">
+<A NAME="1006508">
+ </A>
+strcspn</H6>
+</TH>
+<TH>
+<H6 CLASS="cHead">
+&nbsp;</H6>
+</TH>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+DESCRIPTION</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Search string for first instance of any character from a set of characters.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+SYNTAX</P>
+</TD>
+<TD>
+<P CLASS="Function-Syntax">
+int strcspn(string Str, string CharSet)</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+COMMENTS</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Searches string Str for any of the characters in CharSet, and returns the offset of that character. This function is similar to strpbrk, except that strpbrk returns the string beginning at the first character found, while strcspn returns the offset number for that character.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+RETURN</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Return the index in Str of the first character that is also in CharSet; if no CharSet character is found then the length of Str will be returned.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+SEE ALSO</P>
+</TD>
+<TD>
+<P CLASS="cb">
+strrchr(), strspn(), strstr(), strtok()</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+EXAMPLE</P>
+</TD>
+<TD>
+<P CLASS="cb">
+The following script demonstrates the difference between strcspn and strpbrk: </P>
+<P CLASS="ciTable">
+string=&quot;There's more than one way to skin a cat.&quot; </P>
+<P CLASS="ciTable">
+rStrpbrk = strpbrk(string, &quot;dxb8w9k!&quot;); </P>
+<P CLASS="ciTable">
+rStrcspn = strcspn(string, &quot;dxb8w9k!&quot;); </P>
+<P CLASS="ciTable">
+printf(&quot;The string is: %s\n&quot;, string); </P>
+<P CLASS="ciTable">
+printf(&quot;\nstrpbrk returns a string: %s\n&quot;, rStrpbrk); </P>
+<P CLASS="ciTable">
+printf(&quot;\nstrcspn returns an integer: %d\n&quot;, rStrcspn);</P>
+<P CLASS="ciTable">
+printf(&quot;string +strcspn = %s\n&quot;, string + rStrcspn); getch(); </P>
+<P CLASS="cb">
+And results in the following output: </P>
+<P CLASS="ciTable">
+The string is: There's more than one way to skin a cat. </P>
+<P CLASS="ciTable">
+strpbrk returns a string: way to skin a cat. </P>
+<P CLASS="ciTable">
+strcspn returns an integer: 22 </P>
+<P CLASS="ciTable">
+string +strcspn = way to skin a cat</P>
+</TD>
+</TR>
+</TABLE>
+<HR><TABLE>
+<TR>
+<TH>
+<H6 CLASS="fnam">
+<A NAME="1006509">
+ </A>
+strerror</H6>
+</TH>
+<TH>
+<H6 CLASS="cHead">
+&nbsp;</H6>
+</TH>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+DESCRIPTION</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Get a string describing an error number.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+SYNTAX</P>
+</TD>
+<TD>
+<P CLASS="cb">
+string strerror (int err)</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+COMMENTS</P>
+</TD>
+<TD>
+<P CLASS="cb">
+An error number may be generated by certain library calls, such as fopen(). This error number can be converted to readable ascii text for error reporting.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+RETURN</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Returns descriptive error message string.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+SEE ALSO</P>
+</TD>
+<TD>
+<P CLASS="cb">
+errno, perror()</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+EXAMPLE</P>
+</TD>
+<TD>
+<P CLASS="ciTable">
+This function opens a file for reading, and if it cannot open the file then it prints a descriptive message and exits the program: </P>
+<P CLASS="ciTable">
+MustOpen(filename) </P>
+<P CLASS="ciTable">
+{ </P>
+<P CLASS="ciTable">
+	fh = fopen(filename,&quot;r&quot;); </P>
+<P CLASS="ciTable">
+	if ( fh == NULL ) { </P>
+<P CLASS="ciTable">
+		printf(&quot;Unable to open %s for reading.\n&quot;,filename); </P>
+<P CLASS="ciTable">
+		printf(&quot;Error:%s\n&quot;,strerror(errno)); </P>
+<P CLASS="ciTable">
+		exit(EXIT_FAILURE); </P>
+<P CLASS="ciTable">
+	} </P>
+<P CLASS="ciTable">
+	return(fh); </P>
+<P CLASS="ciTable">
+}</P>
+</TD>
+</TR>
+</TABLE>
+<HR><TABLE>
+<TR>
+<TH>
+<H6 CLASS="fnam">
+<A NAME="1006510">
+ </A>
+strftime</H6>
+</TH>
+<TH>
+<H6 CLASS="cHead">
+&nbsp;</H6>
+</TH>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+DESCRIPTION</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Formatted write of date and/or time into a string.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+SYNTAX</P>
+</TD>
+<TD>
+<P CLASS="Function-Syntax">
+int strftime(string buf, [int MaxBufSize,] string Format, struct tm)</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+COMMENTS</P>
+</TD>
+<TD>
+<P CLASS="cb">
+This function follows the pattern of the printf() functions: <EM CLASS="Element">
+Format</EM>
+ specifies the form of output and <EM CLASS="Element">
+tm</EM>
+ is the input describing a date/time in the structure defined in localtime(). If maxsize not supplied then will use a very big value. </P>
+<P CLASS="cb">
+Format is a string copied directly to <EM CLASS="Element">
+buf</EM>
+; when the conversion character (%) is encountered then the following character is replaced by a string representing the data and/or time. These are the conversion characters and their meaning (and an example in parentheses): </P>
+<P CLASS="fit">
+<EM CLASS="Element">
+%a</EM>
+	abbreviated weekday name (Sun)</P>
+<P CLASS="fit">
+<EM CLASS="Element">
+%A</EM>
+	full weekday name (Sunday)</P>
+<P CLASS="fit">
+<EM CLASS="Element">
+%b</EM>
+	abbreviated month name (Dec) </P>
+<P CLASS="fit">
+<EM CLASS="Element">
+%B</EM>
+			full month name (December) </P>
+<P CLASS="fit">
+<EM CLASS="Element">
+%c</EM>
+	date and time (Dec 2 06:55:15 1979) </P>
+<P CLASS="fit">
+<EM CLASS="Element">
+%d</EM>
+	two-digit day of the month (02) </P>
+<P CLASS="fit">
+<EM CLASS="Element">
+%H</EM>
+	two-digit hour of the 24-hour day (06) </P>
+<P CLASS="fit">
+<EM CLASS="Element">
+%I</EM>
+	two-digit hour of the 12-hour day (06) </P>
+<P CLASS="fit">
+<EM CLASS="Element">
+%j</EM>
+	three-digit day of the year from 001 (335) </P>
+<P CLASS="fit">
+<EM CLASS="Element">
+%m</EM>
+	two-digit month of the year from 01 (12) </P>
+<P CLASS="fit">
+<EM CLASS="Element">
+%M</EM>
+	two-digit minute of the hour (55) </P>
+<P CLASS="fit">
+<EM CLASS="Element">
+%p</EM>
+	AM or PM (AM) </P>
+<P CLASS="fit">
+<EM CLASS="Element">
+%S</EM>
+	two-digit seconds of the minute (15) </P>
+<P CLASS="fit">
+<EM CLASS="Element">
+%U</EM>
+	two-digit week of the year where Sunday is first day of the week (48) </P>
+<P CLASS="fit">
+<EM CLASS="Element">
+%w</EM>
+	day of the week where Sunday is 0 (0)</P>
+<P CLASS="fit">
+<EM CLASS="Element">
+%W</EM>
+	two-digit week of the year where Monday is the first day of the week (47) </P>
+<P CLASS="fit">
+<EM CLASS="Element">
+%x</EM>
+	the date (Dec 2 1979) </P>
+<P CLASS="fit">
+<EM CLASS="Element">
+%X</EM>
+	the time (06:55:15) </P>
+<P CLASS="fit">
+<EM CLASS="Element">
+%y</EM>
+	two-digit year of the century (79) </P>
+<P CLASS="fit">
+<EM CLASS="Element">
+%Y</EM>
+	the year (1979) </P>
+<P CLASS="fit">
+<EM CLASS="Element">
+%Z</EM>
+	name of the time zone, if known (EST) </P>
+<P CLASS="fit">
+<EM CLASS="Element">
+%%</EM>
+	the per cent character (%)</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+MODIFIES</P>
+</TD>
+<TD>
+<P CLASS="cb">
+buf is created as a string (if it isn't one already) containing a string which is the formatted result of strftime().</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+RETURN</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Returns the number of characters put into buf.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+SEE ALSO</P>
+</TD>
+<TD>
+<P CLASS="cb">
+asctime(), ctime(), gmtime(), localtime(), mktime(), time()</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+EXAMPLE</P>
+</TD>
+<TD>
+<P CLASS="cb">
+The following code prints the full day name and month name of the current day: </P>
+<P CLASS="ciTable">
+strftime(TimeBuf,&quot;Today is: %A, and the month is: %B&quot;,</P>
+<P CLASS="ciTable">
+         localtime(time()));</P>
+<P CLASS="ciTable">
+puts(TimeBuf);</P>
+</TD>
+</TR>
+</TABLE>
+<HR><TABLE>
+<TR>
+<TH>
+<H6 CLASS="fnam">
+<A NAME="1006511">
+ </A>
+stricmp</H6>
+</TH>
+<TH>
+<H6 CLASS="cHead">
+&nbsp;</H6>
+</TH>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+DESCRIPTION</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Case-insensitive compare two strings.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+SYNTAX</P>
+</TD>
+<TD>
+<P CLASS="Function-Syntax">
+int stricmp(string s1,string s2)</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+COMMENTS</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Compare the bytes of s1 against s2 until there is a mismatch or reach the terminating null byte. Comparison is done case-insensitive, so<BR>
+`a' == `A'.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+RETURN</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Returns result of comparison, which will be: &lt; 0 if s1 is less than s2 = 0 if s1 is the same as s2 &gt; 0 if s1 is greater than s2</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+SEE ALSO</P>
+</TD>
+<TD>
+<P CLASS="cb">
+memicmp(), strcmpi(), strncmpi()</P>
+</TD>
+</TR>
+</TABLE>
+<HR><TABLE>
+<TR>
+<TH>
+<H6 CLASS="fnam">
+<A NAME="1006512">
+ </A>
+strlen</H6>
+</TH>
+<TH>
+<H6 CLASS="cHead">
+&nbsp;</H6>
+</TH>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+DESCRIPTION</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Determine the length of a string.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+SYNTAX</P>
+</TD>
+<TD>
+<P CLASS="Function-Syntax">
+int strlen(string s)</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+RETURN</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Returns the number of character in s, starting from the character at s[0], before (and not including) the terminating null-byte.</P>
+</TD>
+</TR>
+</TABLE>
+<HR><TABLE>
+<TR>
+<TH>
+<H6 CLASS="fnam">
+<A NAME="1006514">
+ </A>
+strlwr</H6>
+</TH>
+<TH>
+<H6 CLASS="cHead">
+&nbsp;</H6>
+</TH>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+DESCRIPTION</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Converts string to lower-case characters.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+SYNTAX</P>
+</TD>
+<TD>
+<P CLASS="Function-Syntax">
+string strlwr(string s);</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+COMMENTS</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Converts all uppercase letters in s to lowercase, starting at s[0] and up to the terminating null byte.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+RETURN</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Returns the value of s; that is, a variable into the s array based at s[0].</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+SEE ALSO</P>
+</TD>
+<TD>
+<P CLASS="cb">
+strupr(), tolower(), isupper()   </P>
+</TD>
+</TR>
+</TABLE>
+<HR><TABLE>
+<TR>
+<TH>
+<H6 CLASS="fnam">
+<A NAME="1006513">
+ </A>
+strncat</H6>
+</TH>
+<TH>
+<H6 CLASS="cHead">
+&nbsp;</H6>
+</TH>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+DESCRIPTION</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Append (concatenate) up to len bytes of one string onto the end of another.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+SYNTAX</P>
+</TD>
+<TD>
+<P CLASS="Function-Syntax">
+string strncat(string dest, string src, int MaxLen)</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+COMMENTS</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Appends up to MaxLen bytes of src string onto the end of dest string. Characters following a null-byte in src are not copied. The dest array is made big enough to hold min(strlen(src),MaxLen) and a terminating null byte.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+SEE ALSO</P>
+</TD>
+<TD>
+<P CLASS="cb">
+memcpy(), memmove(), strcat(), strcpy(), sprintf()</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+RETURN</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Returns the value of dest; that is, a variable into the dest array based at dest[0].</P>
+</TD>
+</TR>
+</TABLE>
+<HR><TABLE>
+<TR>
+<TH>
+<H6 CLASS="fnam">
+<A NAME="1006515">
+ </A>
+strncmp</H6>
+</TH>
+<TH>
+<H6 CLASS="cHead">
+&nbsp;</H6>
+</TH>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+DESCRIPTION</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Compare part of two strings.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+SYNTAX</P>
+</TD>
+<TD>
+<P CLASS="Function-Syntax">
+int strncmp(string s1, string s2, int MaxLen)</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+COMMENTS</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Compare up to MaxLen bytes of s1 against s2 until there is a mismatch or reach the terminating null byte. The comparison ends when MaxLen bytes have been compared or when a terminating null-byte has been compared, whichever comes first.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+RETURN</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Returns result of comparison, which will be: &lt; 0 if s1 is less than s2 = 0 if s1 is the same as s2 &gt; 0 if s1 is greater than s2</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+SEE ALSO</P>
+</TD>
+<TD>
+<P CLASS="cb">
+memcmp(), stricmp(), strcmp()</P>
+</TD>
+</TR>
+</TABLE>
+<HR><TABLE>
+<TR>
+<TH>
+<H6 CLASS="fnam">
+<A NAME="1006516">
+ </A>
+strncmpi</H6>
+</TH>
+<TH>
+<H6 CLASS="cHead">
+&nbsp;</H6>
+</TH>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+DESCRIPTION</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Case-insensitive compare part of two strings.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+SYNTAX</P>
+</TD>
+<TD>
+<P CLASS="cb">
+int strncmpi(string s1, string s2, int MaxLen)</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+COMMENTS</P>
+</TD>
+<TD>
+<P CLASS="cb">
+This function is the same as strnicmp().</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+RETURN</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Same as strnicmp().</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+SEE ALSO</P>
+</TD>
+<TD>
+<P CLASS="cb">
+memicmp(), strcmp(), stricmp(), strncmp(), strnicmp()</P>
+</TD>
+</TR>
+</TABLE>
+<HR><TABLE>
+<TR>
+<TH>
+<H6 CLASS="fnam">
+<A NAME="1006517">
+ </A>
+strncpy</H6>
+</TH>
+<TH>
+<H6 CLASS="cHead">
+&nbsp;</H6>
+</TH>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+DESCRIPTION</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Copy given number of bytes from one string into another.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+SYNTAX</P>
+</TD>
+<TD>
+<P CLASS="Function-Syntax">
+string strncpy(string dest, string src, int MaxLen)</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+COMMENTS</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Copies min(strlen(src)+1,MaxLen) bytes from src to dest. If dest is not already defined then this defines it as a string. dest is null-padded if MaxLen is greater than the length of src, and a null-byte is appended to dest if MaxLen bytes are copied. It is safe to copy from one part of a string to another part of the same string.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+RETURN</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Returns the value of dest; that is, a variable into the dest array based at dest[0].</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+SEE ALSO</P>
+</TD>
+<TD>
+<P CLASS="cb">
+memcpy(), memmove(), strcat(), strcpy(), sprintf()</P>
+</TD>
+</TR>
+</TABLE>
+<HR><TABLE>
+<TR>
+<TH>
+<H6 CLASS="fnam">
+<A NAME="1006518">
+ </A>
+strnicmp</H6>
+</TH>
+<TH>
+<H6 CLASS="cHead">
+&nbsp;</H6>
+</TH>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+DESCRIPTION</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Case-insensitive compare part of two strings.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+SYNTAX</P>
+</TD>
+<TD>
+<P CLASS="Function-Syntax">
+int strnicmp(string s1, string s2, int MaxLen)</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+COMMENTS</P>
+</TD>
+<TD>
+<P CLASS="cb">
+This is the same as strncmp() except that the comparison is case-insensitive, such that `a' == `A'. It is the same as strncmpi().</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+RETURN</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Returns result of comparison, which will be: </P>
+<P CLASS="cb">
+less than 0 if s1 is less than s2, equal to 0 if s1 is the same as s2, or greater than 0 if s1 is greater than s2</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+SEE ALSO</P>
+</TD>
+<TD>
+<P CLASS="cb">
+memicmp(), strcmp(), stricmp(), strncmp(), strncmpi()</P>
+</TD>
+</TR>
+</TABLE>
+<HR><TABLE>
+<TR>
+<TH>
+<H6 CLASS="fnam">
+<A NAME="1006519">
+ </A>
+strpbrk</H6>
+</TH>
+<TH>
+<H6 CLASS="cHead">
+&nbsp;</H6>
+</TH>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+DESCRIPTION</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Search string for first character from a set of characters.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+SYNTAX</P>
+</TD>
+<TD>
+<P CLASS="Function-Syntax">
+string strpbrk(string Str,string CharSet)</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+COMMENTS</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Searches string Str for any of the characters in CharSet, and returns the string based at the found character.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+RETURN</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Returns NULL if no character from CharSet is found in s; else returns variable for the Str array based at the first CharSet character.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+SEE ALSO</P>
+</TD>
+<TD>
+<P CLASS="cb">
+strchr(), strcspn(), strrchr(), strspn(), strstr(), strtok()</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+EXAMPLE</P>
+</TD>
+<TD>
+<P CLASS="cb">
+See strcspn() for an example using this function.</P>
+</TD>
+</TR>
+</TABLE>
+<HR><TABLE>
+<TR>
+<TH>
+<H6 CLASS="fnam">
+<A NAME="1006520">
+ </A>
+strrchr</H6>
+</TH>
+<TH>
+<H6 CLASS="cHead">
+&nbsp;</H6>
+</TH>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+DESCRIPTION</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Search a string for the last occurrence of a character.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+SYNTAX</P>
+</TD>
+<TD>
+<P CLASS="Function-Syntax">
+string strrchr(string s, byte c)</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+COMMENTS</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Searches in the reverse direction for the byte c in string s.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+RETURN</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Returns NULL if c is not found in s; otherwise it returns variable for this string based at the last c character.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+SEE ALSO</P>
+</TD>
+<TD>
+<P CLASS="cb">
+strchr(), strcspn(), strpbrk(), strspn(), strstr(), strtok()</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+EXAMPLE</P>
+</TD>
+<TD>
+<P CLASS="cb">
+This code: </P>
+<P CLASS="ciTable">
+str = &quot;I can't stand soggy cereal.&quot; </P>
+<P CLASS="ciTable">
+substr = strrchr(str,'s'); </P>
+<P CLASS="ciTable">
+printf(&quot;str = %s\n&quot;,str); </P>
+<P CLASS="ciTable">
+printf(&quot;substr = %s\n&quot;, substr);</P>
+<P CLASS="cb">
+ Results in this output: </P>
+<P CLASS="ciTable">
+str = I can't stand soggy cereal. </P>
+<P CLASS="ciTable">
+substr = soggy cereal.</P>
+</TD>
+</TR>
+</TABLE>
+<HR><TABLE>
+<TR>
+<TH>
+<H6 CLASS="fnam">
+<A NAME="1006521">
+ </A>
+strspn</H6>
+</TH>
+<TH>
+<H6 CLASS="cHead">
+&nbsp;</H6>
+</TH>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+DESCRIPTION</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Search string for first character not in a set of characters.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+SYNTAX</P>
+</TD>
+<TD>
+<P CLASS="Function-Syntax">
+int strspn(string Str,string CharSet)</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+COMMENTS</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Searches string Str for any characters that are not in CharSet, and returns the offset of the first instance of such a character.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+RETURN</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Returns the index in Str of the first character that is not also in CharSet; if all characters in Str are also in CharSet will return the length of Str.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+SEE ALSO</P>
+</TD>
+<TD>
+<P CLASS="cb">
+strchr(), strcspn(), strpbrk(), strrchr(), strstr(), strtok()</P>
+</TD>
+</TR>
+</TABLE>
+<HR><TABLE>
+<TR>
+<TH>
+<H6 CLASS="fnam">
+<A NAME="1006522">
+ </A>
+strstr</H6>
+</TH>
+<TH>
+<H6 CLASS="cHead">
+&nbsp;</H6>
+</TH>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+DESCRIPTION</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Search string for a substring.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+SYNTAX</P>
+</TD>
+<TD>
+<P CLASS="Function-Syntax">
+string strstr(string Str,string SubStr)</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+COMMENTS</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Searches Str, starting at Str[0], for the first occurrence of SubStr. Comparison is case-sensitive.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+RETURN</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Returns NULL if SubStr is not found anywhere in Str; otherwise it returns a variable for the Str array based at the first offset matching SubStr.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+SEE ALSO</P>
+</TD>
+<TD>
+<P CLASS="cb">
+strchr(), strcspn(), strpbrk(), strrchr(), strspn(), strtok(), strstri()</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+EXAMPLE</P>
+</TD>
+<TD>
+<P CLASS="cb">
+This code: </P>
+<P CLASS="ciTable">
+Phrase = &quot;To be or not to be? Beep beep!&quot;;</P>
+<P CLASS="ciTable">
+do {</P>
+<P CLASS="ciTable">
+puts(Phrase);</P>
+<P CLASS="ciTable">
+Phrase = strstr(Phrase+1,&quot;be&quot;); </P>
+<P CLASS="ciTable">
+} while ( Phrase != NULL ); </P>
+<P CLASS="cb">
+would result in this output. </P>
+<P CLASS="ciTable">
+To be or not to be? Beep beep! </P>
+<P CLASS="ciTable">
+be or not to be? Beep beep! </P>
+<P CLASS="ciTable">
+be? Beep beep! </P>
+<P CLASS="ciTable">
+beep!</P>
+</TD>
+</TR>
+</TABLE>
+<HR><TABLE>
+<TR>
+<TH>
+<H6 CLASS="fnam">
+<A NAME="1006523">
+ </A>
+strstri</H6>
+</TH>
+<TH>
+<H6 CLASS="cHead">
+&nbsp;</H6>
+</TH>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+DESCRIPTION</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Case insensitive search string for a substring.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+SYNTAX</P>
+</TD>
+<TD>
+<P CLASS="Function-Syntax">
+string strstri(string Str,string SubStr)</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+COMMENTS</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Searches Str, starting at Str[0], for the first occurrence of SubStr. Comparison is case-sensitive.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+RETURN</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Returns NULL if SubStr is not found anywhere in Str; otherwise returns variable for the Str array based at the first offset matching SubStr.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+SEE ALSO</P>
+</TD>
+<TD>
+<P CLASS="cb">
+strchr(), strcspn(), strpbrk(), strrchr(), strspn(), strtok(), strstr() </P>
+</TD>
+</TR>
+</TABLE>
+<HR><TABLE>
+<TR>
+<TH>
+<H6 CLASS="fnam">
+<A NAME="1006524">
+ </A>
+strtod</H6>
+</TH>
+<TH>
+<H6 CLASS="cHead">
+&nbsp;</H6>
+</TH>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+DESCRIPTION</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Convert a string to a floating-point value.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+SYNTAX</P>
+</TD>
+<TD>
+<P CLASS="Function-Syntax">
+float strtod(string Str[, string End])</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+COMMENTS</P>
+</TD>
+<TD>
+<P CLASS="cb">
+This function converts the string Str into a number and optionally returns string starting beyond the characters parsed in this function. Whitespace characters are skipped at the start of Str, then the string characters are converted to a float as long as they match this format:</P>
+<H6 CLASS="FormatciTable">
+ [sign][digits][.][digits][format[sign]digits] </H6>
+<P CLASS="cb">
+The following values, for example, can be converted: </P>
+<P CLASS="cb-in">
+1 </P>
+<P CLASS="cb-in">
+1.8 </P>
+<P CLASS="cb-in">
+-400.456e-20 </P>
+<P CLASS="cb-in">
+.67e50 </P>
+<P CLASS="cb-in">
+2.5E+50 </P>
+<P CLASS="cb">
+<EM CLASS="Element">
+End</EM>
+ is not compared against NULL, as it is in standard C implementations. Instead if you don't want End then don't supply the parameter.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+MODIFIES</P>
+</TD>
+<TD>
+<P CLASS="cb">
+If End is supplied, then End will be set to the Str array based on the first character that was not used in converting.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+RETURN</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Returns the first part of Str converted to a floating-point number.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+SEE ALSO</P>
+</TD>
+<TD>
+<P CLASS="cb">
+atof(), sscanf(), strtol()</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+EXAMPLE</P>
+</TD>
+<TD>
+<P CLASS="cb">
+This code: </P>
+<P CLASS="ciTable">
+numbers = &quot;  3.14159    +2.4e-13   0.0000001&quot; &quot; me and little joe 4.6473&quot;;</P>
+<P CLASS="ciTable">
+ while( True ) { <BR>
+f = strtod(numbers,next); <BR>
+if( next == numbers ) // no chars used means no float found <BR>
+break; <BR>
+printf(&quot;%G\n&quot;,f); <BR>
+numbers = next; } </P>
+<P CLASS="cb">
+produces this printed output:</P>
+<P CLASS="ciTable">
+3.14159 </P>
+<P CLASS="ciTable">
+2.4E-13 </P>
+<P CLASS="ciTable">
+1E-007</P>
+</TD>
+</TR>
+</TABLE>
+<HR><TABLE>
+<TR>
+<TH>
+<H6 CLASS="fnam">
+<A NAME="1006525">
+ </A>
+strtok</H6>
+</TH>
+<TH>
+<H6 CLASS="cHead">
+&nbsp;</H6>
+</TH>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+DESCRIPTION</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Search a string for delimited tokens.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+SYNTAX</P>
+</TD>
+<TD>
+<P CLASS="Function-Syntax">
+string strtok(string Source, string Delimiters)</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+COMMENTS</P>
+</TD>
+<TD>
+<P CLASS="cb">
+This is a weird function. </P>
+<P CLASS="cb">
+<EM CLASS="Element">
+Source</EM>
+ is a string that consists of text tokens (substrings) separated by delimiters found in the <EM CLASS="Element">
+Delimiters</EM>
+ string. Bytes of Source may be altered during the first and subsequent calls to strtok(). </P>
+<P CLASS="cb">
+On the first call to strtok(), Source points to the string to tokenize and Delimiters is a list of characters which are used to separate tokens in source. This first call returns a variable pointing to the Source array and based at the first character of the first token in Source. On subsequent calls, the first argument is NULL and strtok will continue through Source returning subsequent tokens. </P>
+<P CLASS="cb">
+The ScriptEase implementation of this function is as weird as any: the initial var must remain valid throughout following calls with NULL as the initial var. If you change the string in any way, a following call to strtok() must be of the first syntax form (i.e., the new string must be passed as a first parameter).</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+RETURN</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Returns NULL if there are no more tokens; else returns Source array variable based at the next token in Source.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+SEE ALSO</P>
+</TD>
+<TD>
+<P CLASS="cb">
+strchr(), strcspn(), strpbrk(), strrchr(), strspn(), strstr()</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+EXAMPLE</P>
+</TD>
+<TD>
+<P CLASS="cb">
+This code: </P>
+<P CLASS="ciTable">
+source = &quot; Little   John,,,Eats ?? crackers;;;! &quot;; </P>
+<P CLASS="ciTable">
+token = strtok(source,&quot;, &quot;); </P>
+<P CLASS="ciTable">
+while( NULL != token ) { <BR>
+puts(token); <BR>
+token = strtok(NULL,&quot;;?, &quot;); } </P>
+<P CLASS="cb">
+produces this list of tokens: </P>
+<P CLASS="ciTable">
+Little </P>
+<P CLASS="ciTable">
+John </P>
+<P CLASS="ciTable">
+Eats </P>
+<P CLASS="ciTable">
+crackers </P>
+<P CLASS="ciTable">
+!</P>
+</TD>
+</TR>
+</TABLE>
+<HR><TABLE>
+<TR>
+<TH>
+<H6 CLASS="fnam">
+<A NAME="1006526">
+ </A>
+strtol</H6>
+</TH>
+<TH>
+<H6 CLASS="cHead">
+&nbsp;</H6>
+</TH>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+DESCRIPTION</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Convert a string to an integer value.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+SYNTAX</P>
+</TD>
+<TD>
+<P CLASS="Function-Syntax">
+int strtol(string Str) </P>
+<P CLASS="Function-Syntax">
+int strtol(string Str,string End) </P>
+<P CLASS="Function-Syntax">
+int strtol(string Str,string End, string Radix)</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+COMMENTS</P>
+</TD>
+<TD>
+<P CLASS="cb">
+This function converts the string Str into a number and optionally returns a string starting beyond the characters parsed in this function. Whitespace characters are skipped at the start of Str, then the string characters are converted to an integer as long as they match this format: </P>
+<H6 CLASS="FormatciTable">
+[sign][0][x][digits] </H6>
+<P CLASS="cb">
+these values can be converted, for example: </P>
+<P CLASS="fit">
+1</P>
+<P CLASS="fit">
+12 </P>
+<P CLASS="fit">
+-400 </P>
+<P CLASS="fit">
+0xFACE </P>
+<P CLASS="cb">
+<EM CLASS="Element">
+End</EM>
+ is not compared against NULL, as it is in standard C implementations. Instead if you don't want End then don't supply the parameter. Radix specifies the base for conversion; for instance base 10 would be decimal numbers zero through nine and base 16 would be used for Hexadecimal numbers `0' (zero) through `F'. If Radix is zero, or if the Radix argument is not supplied, then the radix is determined based on the first characters of Str.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+.MODIFIES</P>
+</TD>
+<TD>
+<P CLASS="cb">
+If End is supplied, then End will be set to the Str array based on the first character that was not used in converting.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+RETURN</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Returns the first part of Str converted to a floating-point number.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+SEE ALSO</P>
+</TD>
+<TD>
+<P CLASS="cb">
+atoi(), atol(), sscanf(), strtof()</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+EXAMPLE</P>
+</TD>
+<TD>
+<P CLASS="cb">
+This code: </P>
+<P CLASS="ciTable">
+numbers = &quot;  3 14159    +2 0xFACE 7.4e-13   0.0000001 &quot;; </P>
+<P CLASS="ciTable">
+while( True ) { <BR>
+i = strtol(numbers,next,0); <BR>
+if ( next == numbers ) // no chars used means no int found <BR>
+<BR>
+break; <BR>
+printf(&quot;%d\n&quot;,i); <BR>
+numbers = next; } </P>
+<P CLASS="cb">
+results in this output: </P>
+<P CLASS="ciTable">
+3 14159 2 64206 7</P>
+</TD>
+</TR>
+</TABLE>
+<HR><TABLE>
+<TR>
+<TH>
+<H6 CLASS="fnam">
+<A NAME="1006527">
+ </A>
+strupr</H6>
+</TH>
+<TH>
+<H6 CLASS="cHead">
+&nbsp;</H6>
+</TH>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+DESCRIPTION</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Converts string to upper-case characters.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+SYNTAX</P>
+</TD>
+<TD>
+<P CLASS="Function-Syntax">
+string strupr(string s)</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+COMMENTS</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Converts all lowercase letters in s to uppercase, starting at s[0] and up to the terminating null byte.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+RETURN</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Returns the value of s; that is, a variable into the s array based at s[0].</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+SEE ALSO</P>
+</TD>
+<TD>
+<P CLASS="cb">
+strlwr(), toupper()</P>
+</TD>
+</TR>
+</TABLE>
+<HR><TABLE>
+<TR>
+<TH>
+<H6 CLASS="fnam">
+<A NAME="1006528">
+ </A>
+system</H6>
+</TH>
+<TH>
+<H6 CLASS="cHead">
+&nbsp;</H6>
+</TH>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+DESCRIPTION</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Pass a command to the command processor.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+SYNTAX</P>
+</TD>
+<TD>
+<P CLASS="Function-Syntax">
+int system(string Command)</P>
+<P CLASS="Function-Syntax">
+int system(string CommandFormat, var arg1,...)</P>
+<P CLASS="cb">
+&nbsp;</P>
+<P CLASS="cb">
+DOS versions only: </P>
+<P CLASS="Function-Syntax">
+int system(P_SWAP,string Command)</P>
+<P CLASS="Function-Syntax">
+int system(P_SWAP,string CommandFormat, var arg1,...)</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+COMMENTS</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Passes <EM CLASS="Element">
+Command</EM>
+ to the command processor. If the <EM CLASS="Element">
+CommandFormat</EM>
+ form is used then system() formats the CommandFormat according to the rules defined in printf().</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+&nbsp;</P>
+</TD>
+<TD>
+<P CLASS="Spawn-OS-List">
+DOS	In the DOS version of ScriptEase, if the special argument P_SWAP is used then SEDOS.exe is swapped to EMS/XMS/INT15 memory or disk while the system command is executed. This leaves almost all available memory for executing the command. See spawn() for a discussion of P_SWAP.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+&nbsp;</P>
+</TD>
+<TD>
+<P CLASS="Spawn-OS-List">
+DOS32	The 32-bit protected mode version of DOS ignores the first parameter if it is an not a string; in other words, P_SWAP is ignored.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+RETURN</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Returns value returned by the command processor.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+SEE ALSO</P>
+</TD>
+<TD>
+<P CLASS="cb">
+spawn()</P>
+</TD>
+</TR>
+</TABLE>
+<HR><TABLE>
+<TR>
+<TH>
+<H6 CLASS="fnam">
+<A NAME="1006529">
+ </A>
+tan</H6>
+</TH>
+<TH>
+<H6 CLASS="cHead">
+&nbsp;</H6>
+</TH>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+DESCRIPTION</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Calculate the tangent.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+SYNTAX</P>
+</TD>
+<TD>
+<P CLASS="Function-Syntax">
+float tan(float x)</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+RETURN</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Return the tangent of x in radians.</P>
+</TD>
+</TR>
+</TABLE>
+<HR><TABLE>
+<TR>
+<TH>
+<H6 CLASS="fnam">
+<A NAME="1006530">
+ </A>
+tanh</H6>
+</TH>
+<TH>
+<H6 CLASS="cHead">
+&nbsp;</H6>
+</TH>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+DESCRIPTION</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Calculate the hyperbolic tangent.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+SYNTAX</P>
+</TD>
+<TD>
+<P CLASS="Function-Syntax">
+float tanh(float x)</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+RETURN</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Return the hyperbolic tangent of x.</P>
+</TD>
+</TR>
+</TABLE>
+<HR><TABLE>
+<TR>
+<TH>
+<H6 CLASS="fnam">
+<A NAME="1006532">
+ </A>
+time</H6>
+</TH>
+<TH>
+<H6 CLASS="cHead">
+&nbsp;</H6>
+</TH>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+DESCRIPTION</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Get current time.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+SYNTAX</P>
+</TD>
+<TD>
+<P CLASS="Function-Syntax">
+int time([t])</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+COMMENTS</P>
+</TD>
+<TD>
+<P CLASS="cb">
+This gets the current system time. The format of the time is not specifically defined except that it represents the current time, to the system's best approximation, and can be used in many other time-related functions. If t is supplied then it is also set to the current time.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+RETURN</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Returns an integer representation of the current time.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+SEE ALSO</P>
+</TD>
+<TD>
+<P CLASS="cb">
+difftime(), mktime(), ctime(), gmtime(), localtime(), Directory()</P>
+</TD>
+</TR>
+</TABLE>
+<HR><TABLE>
+<TR>
+<TH>
+<H6 CLASS="fnam">
+<A NAME="1006531">
+ </A>
+tmpfile</H6>
+</TH>
+<TH>
+<H6 CLASS="cHead">
+&nbsp;</H6>
+</TH>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+DESCRIPTION</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Create a temporary binary file.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+SYNTAX</P>
+</TD>
+<TD>
+<P CLASS="Function-Syntax">
+FILE tmpfile()</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+COMMENTS</P>
+</TD>
+<TD>
+<P CLASS="cb">
+This creates a binary temporary file that will automatically be removed when it is closed or when the program exits. If FILE variable is an environment variable then it is invalid after the program ends.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+RETURN</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Returns a file pointer, which will be NULL if the function fails.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+SEE ALSO</P>
+</TD>
+<TD>
+<P CLASS="cb">
+tmpnam() </P>
+</TD>
+</TR>
+</TABLE>
+<HR><TABLE>
+<TR>
+<TH>
+<H6 CLASS="fnam">
+<A NAME="1006533">
+ </A>
+tmpnam</H6>
+</TH>
+<TH>
+<H6 CLASS="cHead">
+&nbsp;</H6>
+</TH>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+DESCRIPTION</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Get a temporary file name.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+SYNTAX</P>
+</TD>
+<TD>
+<P CLASS="Function-Syntax">
+string tmpname([string filename])</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+COMMENTS</P>
+</TD>
+<TD>
+<P CLASS="cb">
+This creates a string that is a valid file name that is not the same as the name of any existing file and not the same as any filename returned by this function during execution of this program.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+MODIFIES</P>
+</TD>
+<TD>
+<P CLASS="cb">
+If filename is supplied then sets filename to the string that will be returned by this function.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+RETURN</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Returns a valid filename.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+SEE ALSO</P>
+</TD>
+<TD>
+<P CLASS="cb">
+tmpfile()</P>
+</TD>
+</TR>
+</TABLE>
+<HR><TABLE>
+<TR>
+<TH>
+<H6 CLASS="fnam">
+<A NAME="1006534">
+ </A>
+toascii</H6>
+</TH>
+<TH>
+<H6 CLASS="cHead">
+&nbsp;</H6>
+</TH>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+DESCRIPTION</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Translate character to ASCII (7-bit) format</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+SYNTAX</P>
+</TD>
+<TD>
+<P CLASS="Function-Syntax">
+int toascii(int c)</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+COMMENTS</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Converts c to ASCII by clearing all but the lower 7 bits.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+RETURN</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Return lower 7 bits of c.</P>
+</TD>
+</TR>
+</TABLE>
+<HR><TABLE>
+<TR>
+<TH>
+<H6 CLASS="fnam">
+<A NAME="1006535">
+ </A>
+tolower</H6>
+</TH>
+<TH>
+<H6 CLASS="cHead">
+&nbsp;</H6>
+</TH>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+DESCRIPTION</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Translate character to lower-case if it is upper-case.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+SYNTAX</P>
+</TD>
+<TD>
+<P CLASS="Function-Syntax">
+int tolower(int c)</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+RETURN</P>
+</TD>
+<TD>
+<P CLASS="cb">
+If c is upper-case alphabetic then returns c converted to lower-case alphabetic; otherwise it returns c unaltered.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+SEE ALSO</P>
+</TD>
+<TD>
+<P CLASS="cb">
+strlwr(), toupper()</P>
+</TD>
+</TR>
+</TABLE>
+<HR><TABLE>
+<TR>
+<TH>
+<H6 CLASS="fnam">
+<A NAME="1006536">
+ </A>
+toupper</H6>
+</TH>
+<TH>
+<H6 CLASS="cHead">
+&nbsp;</H6>
+</TH>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+DESCRIPTION</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Translate character to upper-case if it is lower-case.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+SYNTAX</P>
+</TD>
+<TD>
+<P CLASS="Function-Syntax">
+int toupper(int c)</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+RETURN</P>
+</TD>
+<TD>
+<P CLASS="cb">
+If c is lower-case alphabetic then returns c converted to upper-case alphabetic; otherwise it returns c unaltered.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+SEE ALSO</P>
+</TD>
+<TD>
+<P CLASS="cb">
+strupr(), tolower()</P>
+</TD>
+</TR>
+</TABLE>
+<HR><TABLE>
+<TR>
+<TH>
+<H6 CLASS="fnam">
+<A NAME="1006537">
+ </A>
+ungetc</H6>
+</TH>
+<TH>
+<H6 CLASS="cHead">
+&nbsp;</H6>
+</TH>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+DESCRIPTION</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Push character back to input stream.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+SYNTAX</P>
+</TD>
+<TD>
+<P CLASS="Function-Syntax">
+int ungetc(int c, FILE stream)</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+COMMENTS</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Pushes c (converted to be a byte) back onto the input stream for subsequent re-retrieval. Only one character of pushback is guaranteed.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+RETURN</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Return the character c, or EOF for failure.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+SEE ALSO</P>
+</TD>
+<TD>
+<P CLASS="cb">
+fgetc(), getc(), getch(), getchar(), getche()</P>
+</TD>
+</TR>
+</TABLE>
+<HR><TABLE>
+<TR>
+<TH>
+<H6 CLASS="fnam">
+<A NAME="1006538">
+ </A>
+va_arg</H6>
+</TH>
+<TH>
+<H6 CLASS="cHead">
+&nbsp;</H6>
+</TH>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+DESCRIPTION</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Retrieve variable from variable argument list.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+SYNTAX</P>
+</TD>
+<TD>
+<P CLASS="Function-Syntax">
+var va_arg(blob valist[, int offset]) </P>
+<P CLASS="Function-Syntax">
+var va_arg(int offset) </P>
+<P CLASS="Function-Syntax">
+int va_arg()</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+COMMENTS</P>
+</TD>
+<TD>
+<P CLASS="cb">
+va_arg() is called to retrieve a parameter passed to a function even when the number of parameters that can be passed to the function is not constant. </P>
+<P CLASS="cb">
+If valist is used then the variable returned is the one at offset from the first of the valist variables. If offset is not passed in then the next variable from valist is retrieved and valist is updated so that a further call to va_arg(valist) will return the subsequent variable. </P>
+<P CLASS="cb">
+If the va_arg(int offset) form is used then this returns the input variable at index: offset. </P>
+<P CLASS="cb">
+The va_arg() form of this function returns only the number of parameters passed to the current function. </P>
+<P CLASS="cb">
+It is a fatal error to retrieve an argument offset beyond the number of parameters in the function or the valist.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+RETURN</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Returns a variable for the forms that take a parameter; the va_arg() form returns the number of parameters passed to the current function.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+SEE ALSO</P>
+</TD>
+<TD>
+<P CLASS="cb">
+va_end(), va_start(), vfprintf(), vfscanf(), vprintf(), vscanf(), vsprintf(), vsscanf()</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+EXAMPLE</P>
+</TD>
+<TD>
+<P CLASS="cb">
+For the following examples, assume that the trait function is called like this: </P>
+<H6 CLASS="FormatciTable">
+trait(&quot;Doug&quot;,34,&quot;Blue&quot;,&quot;pizza&quot;); </H6>
+<P CLASS="cb">
+All of the following examples of the trait() function will set FavoriteColor to Doug's favorite color:</P>
+<P CLASS="ciTable">
+trait(name,age,color,food){ <BR>
+	FavoriteColor = color; </P>
+<P CLASS="ciTable">
+} </P>
+<P CLASS="ciTable">
+&nbsp;</P>
+<P CLASS="ciTable">
+trait(){</P>
+<P CLASS="ciTable">
+	assert( 3 &lt;= va_arg() ); </P>
+<P CLASS="ciTable">
+	FavoriteColor = va_arg(2); </P>
+<P CLASS="ciTable">
+} </P>
+<P CLASS="ciTable">
+&nbsp;</P>
+<P CLASS="ciTable">
+trait(name){</P>
+<P CLASS="ciTable">
+	va_start(valist,name); </P>
+<P CLASS="ciTable">
+	va_arg(valist); </P>
+<P CLASS="ciTable">
+	FavoriteColor = va_arg(valist); <BR>
+	va_end(valist); </P>
+<P CLASS="ciTable">
+} </P>
+<P CLASS="ciTable">
+&nbsp;</P>
+<P CLASS="ciTable">
+trait(name){ </P>
+<P CLASS="ciTable">
+	va_start(valist,name); </P>
+<P CLASS="ciTable">
+	FavoriteColor = va_arg(valist,1); <BR>
+	va_end(valist); } </P>
+<P CLASS="ciTable">
+&nbsp;</P>
+<P CLASS="ciTable">
+trait(){</P>
+<P CLASS="ciTable">
+	va_start(valist); <BR>
+	va_arg(valist); <BR>
+	va_arg(valist); <BR>
+	FavoriteColor = va_arg(valist); <BR>
+	va_end(valist); </P>
+<P CLASS="ciTable">
+}</P>
+</TD>
+</TR>
+</TABLE>
+<HR><TABLE>
+<TR>
+<TH>
+<H6 CLASS="fnam">
+<A NAME="1006539">
+ </A>
+va_end</H6>
+</TH>
+<TH>
+<H6 CLASS="cHead">
+&nbsp;</H6>
+</TH>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+DESCRIPTION</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Terminate variable argument list.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+SYNTAX</P>
+</TD>
+<TD>
+<P CLASS="Function-Syntax">
+void va_end(blob valist)</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+COMMENTS</P>
+</TD>
+<TD>
+<P CLASS="cb">
+This function makes valist invalid. Many implementations of C require that you call this function. ScriptEase does not, but since people may expect it to be there, we provided it.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+SEE ALSO</P>
+</TD>
+<TD>
+<P CLASS="cb">
+va_arg(), va_start(), vfprintf(), vfscanf(), vprintf(), vscanf(), vsprintf(), vsscanf()</P>
+</TD>
+</TR>
+</TABLE>
+<HR><TABLE>
+<TR>
+<TH>
+<H6 CLASS="fnam">
+<A NAME="1006540">
+ </A>
+va_start</H6>
+</TH>
+<TH>
+<H6 CLASS="cHead">
+&nbsp;</H6>
+</TH>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+DESCRIPTION</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Initialize variable argument list.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+SYNTAX</P>
+</TD>
+<TD>
+<P CLASS="Function-Syntax">
+int va_start(blob va_list[, var InputVar])</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+COMMENTS</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Initialize va_list for a function that takes a variable number of arguments. va_list will then be used in further calls to va_arg() to get the next argument(s) passed to the function. </P>
+<P CLASS="cb">
+<EM CLASS="Element">
+InputVar</EM>
+ must be one of the parameters defined in the function line, and then the first argument returned by the first call to va_arg() will be the variable passed after InputVar.</P>
+<P CLASS="cb">
+If InputVar is not provided, then the first parameter passed to the function will be the first one returned by va_arg(va_list).</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+RETURN</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Returns the number of valid calls to va_arg(va_list), i.e., how many variables are available in this va_list.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+MODIFIES</P>
+</TD>
+<TD>
+<P CLASS="cb">
+va_list will be set to a blob, which can then be passed to other functions and/or used by subsequent calls to va_arg().</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+SEE ALSO</P>
+</TD>
+<TD>
+<P CLASS="cb">
+va_arg(), va_end(), vfprintf(), vfscanf(), vprintf(), vscanf(), vsprintf(), vsscanf()</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+EXAMPLE</P>
+</TD>
+<TD>
+<P CLASS="cb">
+The following example uses and accepts a variable number of strings and concatenates them all together: </P>
+<P CLASS="ciTable">
+MultiStrcat(Result,InitialString) <BR>
+// Append any number of strings to InitialString. <BR>
+// e.g., MultiStrcat(Result,&quot;C:\\&quot;,&quot;FOO&quot;,&quot;.&quot;,&quot;CMD&quot;) </P>
+<P CLASS="ciTable">
+{ <BR>
+	strcpy(Result,&quot;&quot;); // initialize the result <BR>
+	Count = va_start( ArgList, InitialString )</P>
+<P CLASS="ciTable">
+	for ( i = 0; i &lt; Count; i++ ) </P>
+<P CLASS="ciTable">
+		strcat( Result, va_arg(ArgList) ) </P>
+<P CLASS="ciTable">
+}</P>
+</TD>
+</TR>
+</TABLE>
+<HR><TABLE>
+<TR>
+<TH>
+<H6 CLASS="fnam">
+<A NAME="1006541">
+ </A>
+vfprintf</H6>
+</TH>
+<TH>
+<H6 CLASS="cHead">
+&nbsp;</H6>
+</TH>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+DESCRIPTION</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Formatted output to a file stream using arg_list.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+SYNTAX</P>
+</TD>
+<TD>
+<P CLASS="Function-Syntax">
+int vfprintf(FILE stream, string format, blob valist)</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+COMMENTS</P>
+</TD>
+<TD>
+<P CLASS="cb">
+This is similar to fprintf() except that it takes a variable argument list (see va_start()). See fprintf() for more details.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+RETURN</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Returns the number of characters written, or a negative number if there was an output error.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+SEE ALSO</P>
+</TD>
+<TD>
+<P CLASS="cb">
+fprintf(), va_arg(), va_end(), va_start()</P>
+</TD>
+</TR>
+</TABLE>
+<HR><TABLE>
+<TR>
+<TH>
+<H6 CLASS="fnam">
+<A NAME="1006542">
+ </A>
+vfscanf</H6>
+</TH>
+<TH>
+<H6 CLASS="cHead">
+&nbsp;</H6>
+</TH>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+DESCRIPTION</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Formatted input from a file stream using arg_list.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+SYNTAX</P>
+</TD>
+<TD>
+<P CLASS="Function-Syntax">
+int vfscanf(FILE stream, string format, blob valist)</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+COMMENTS</P>
+</TD>
+<TD>
+<P CLASS="cb">
+This is similar to fscanf() except that it takes a variable argument list (see va_start()). See fscanf() for more details.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+MODIFIES</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Modifies any number of parameters following the format string, setting the parameters to data according to the specifications of the format string.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+RETURN</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Returns EOF if input failure before any conversion occurs, otherwise returns the number of input items assigned; this number may be fewer than the number of parameters requested if there was a matching failure.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+SEE ALSO</P>
+</TD>
+<TD>
+<P CLASS="cb">
+fscanf(), va_arg(), va_end(), va_start()</P>
+</TD>
+</TR>
+</TABLE>
+<HR><TABLE>
+<TR>
+<TH>
+<H6 CLASS="fnam">
+<A NAME="1006543">
+ </A>
+vprintf</H6>
+</TH>
+<TH>
+<H6 CLASS="cHead">
+&nbsp;</H6>
+</TH>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+DESCRIPTION</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Formatted output to the standard output stream (screen) using arg_list.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+SYNTAX</P>
+</TD>
+<TD>
+<P CLASS="Function-Syntax">
+int vfprintf(FILE stream, blob valist)</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+COMMENTS</P>
+</TD>
+<TD>
+<P CLASS="cb">
+This is similar to printf() except that it takes a variable argument list (see va_start()). See printf() for more details.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+RETURN</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Returns the number of characters written, or a negative number if there was an output error.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+SEE ALSO</P>
+</TD>
+<TD>
+<P CLASS="cb">
+printf(), va_arg(), va_end(), va_start()</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+EXAMPLES</P>
+</TD>
+<TD>
+<P CLASS="cb">
+The following function would act just like a printf statement except that it beeps, then prints the message, then beeps again and waits a second before returning. This might be uses as a wrapper for the printf function when urgent messages are output: </P>
+<P CLASS="ciTable">
+UrgentPrintf(FormatString /*,arg1,arg2,arg3,etc...*/ ) { </P>
+<P CLASS="ciTable">
+//create variable arg list </P>
+<P CLASS="ciTable">
+va_start(va_list,FormatString); </P>
+<P CLASS="ciTable">
+printf(&quot;\a&quot;);      // audible beep </P>
+<P CLASS="ciTable">
+// printf original statement</P>
+<P CLASS="ciTable">
+ret = vprintf(FormatString,va_list); </P>
+<P CLASS="ciTable">
+printf(&quot;\a&quot;);     // beep again </P>
+<P CLASS="ciTable">
+suspend(1000);    // wait one second before returning</P>
+<P CLASS="ciTable">
+va_end(va_list); // end using va_list (not required)</P>
+<P CLASS="ciTable">
+return(ret);       // return as printf would }</P>
+<P CLASS="ciTable">
+}</P>
+</TD>
+</TR>
+</TABLE>
+<HR><TABLE>
+<TR>
+<TH>
+<H6 CLASS="fnam">
+<A NAME="1006544">
+ </A>
+vscanf</H6>
+</TH>
+<TH>
+<H6 CLASS="cHead">
+&nbsp;</H6>
+</TH>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+DESCRIPTION</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Formatted input from the standard input stream (keyboard) using arg_list.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+SYNTAX</P>
+</TD>
+<TD>
+<P CLASS="Function-Syntax">
+int vscanf(string format, blob valist)</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+COMMENTS</P>
+</TD>
+<TD>
+<P CLASS="cb">
+This is similar to scanf() except that it takes a variable argument list (see va_start()). See scanf() for more details.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+MODIFIES</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Modifies any number of parameters following the format string, setting the parameters to data according to the specifications of the format string.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+RETURN</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Returns the number of input items assigned; this number may be fewer than the number of parameters requested if there was a matching failure.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+SEE ALSO</P>
+</TD>
+<TD>
+<P CLASS="cb">
+scanf(), va_arg(), va_end(), va_start()</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+EXAMPLES</P>
+</TD>
+<TD>
+<P CLASS="cb">
+The following function would act exactly like scanf, including taking a variable number of input arguments, except that it beeps and tries again if there are zero matches: </P>
+<P CLASS="ciTable">
+Must_scanf(FormatString /*,arg1,arg2,arg3,etc...*/ ) { </P>
+<P CLASS="ciTable">
+vastart(va_list,FormatString);</P>
+<P CLASS="ciTable">
+// create variable arg list </P>
+<P CLASS="ciTable">
+do {                     // mimic original scanf() call</P>
+<P CLASS="ciTable">
+	count = vscanf(FormatString,va_list); </P>
+<P CLASS="ciTable">
+	if ( 0 == count )        // if no match, then beep </P>
+<P CLASS="ciTable">
+		printf(&quot;\a&quot;); </P>
+<P CLASS="ciTable">
+} while( 0 == count );</P>
+<P CLASS="ciTable">
+// if not match, then try again </P>
+<P CLASS="ciTable">
+va_end(va_list);</P>
+<P CLASS="ciTable">
+// end using va_list (optional) </P>
+<P CLASS="ciTable">
+return(count);</P>
+<P CLASS="ciTable">
+// return as scanf would </P>
+<P CLASS="ciTable">
+}</P>
+</TD>
+</TR>
+</TABLE>
+<HR><TABLE>
+<TR>
+<TH>
+<H6 CLASS="fnam">
+<A NAME="1006545">
+ </A>
+vsprintf</H6>
+</TH>
+<TH>
+<H6 CLASS="cHead">
+&nbsp;</H6>
+</TH>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+DESCRIPTION</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Formatted output to a string using arg_list.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+SYNTAX</P>
+</TD>
+<TD>
+<P CLASS="cb">
+int vsprintf(string buffer,string format, blob valist)</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+COMMENTS</P>
+</TD>
+<TD>
+<P CLASS="cb">
+This is similar to sprintf() except that it takes a variable argument list (see va_start()). See sprintf() for more details.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+RETURN</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Returns the number of characters written into buffer not including the terminating null byte, or EOF if there was an error.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+SEE ALSO</P>
+</TD>
+<TD>
+<P CLASS="cb">
+sprintf(), va_arg(), va_end(), va_start()</P>
+</TD>
+</TR>
+</TABLE>
+<HR><TABLE>
+<TR>
+<TH>
+<H6 CLASS="fnam">
+<A NAME="1006546">
+ </A>
+vsscanf</H6>
+</TH>
+<TH>
+<H6 CLASS="cHead">
+&nbsp;</H6>
+</TH>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+DESCRIPTION</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Formatted input from a string.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+SYNTAX</P>
+</TD>
+<TD>
+<P CLASS="Function-Syntax">
+int vsscanf(string buffer, string format, blob valist)</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+COMMENTS</P>
+</TD>
+<TD>
+<P CLASS="cb">
+This is similar to sscanf() except that it takes a variable argument list (see va_start()). See sscanf() for more details.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+MODIFIES</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Modifies any number of parameters following the format string, setting the parameters to data according to the specifications of the format string.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+RETURN</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Returns the number of input items assigned; this number may be fewer than the number of parameters requested if there was a matching failure.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+SEE ALSO</P>
+</TD>
+<TD>
+<P CLASS="cb">
+sscanf(), va_arg(), va_end(), va_start()</P>
+</TD>
+</TR>
+</TABLE>
+</DIV>
+</DIV>
+<TABLE WIDTH="225" BORDER="0" CELLSPACING="0" CELLPADDING="0">
+  <TR>
+    <TD WIDTH="71"><a href="5-debug.htm"><IMG SRC="prev.gif" WIDTH="71" height="18" border="0"></a></TD>
+    <TD WIDTH="80"><a href="../index.htm"><IMG SRC="tocidx.gif" WIDTH="80" height="18" border="0"></a></TD>
+    <TD WIDTH="74"><a href="7-libext.htm"><IMG SRC="next.gif" WIDTH="74" height="18" border="0"></a></TD>
+  </TR>
+</TABLE>
+
+</BODY>
+</HTML>

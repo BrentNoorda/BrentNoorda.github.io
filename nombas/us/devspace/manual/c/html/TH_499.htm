@@ -1,0 +1,38 @@
+<html>
+<head>
+<title>jseSecurityTerm</title>
+<link rel="stylesheet" href="semanualstyles.css" type="text/css">
+<style type="text/css">
+ p { margin-top: 0; margin-bottom: 0; }
+</style>
+<script language="JavaScript" src="TrueHelp.js"></script>
+</head>
+<body onload="thload()">
+<div id=ienav>
+<ilayer id=nsnav>
+<br>
+<center>
+<p class=normal><a href="seisdkc-toc.htm" target="left">contents</a> &nbsp; <a href="seisdkc-index.htm" target="left">index</a> &nbsp; <a href="TH_498.htm">previous</a> &nbsp; <a href="TH_500.htm">next</a></p>
+</center>
+<br>
+<hr noshade size=1>
+</ilayer>
+</div>
+<p class=heading-3>jseSecurityTerm</p>
+<p class=heading-3-p>&nbsp;</p>
+<p class=senormalpara>Whenever you have an initialization function, you have a corresponding termination function. Like <span class=secodephrase>jseSecurityInit</span>, this function gets a single parameter, the security variable (described below.) This function is rarely needed, and you can simply not specify it most of the time. It is included so that you can clean up the security variable before exiting. You do not need to <span class=secodeterm>unset</span> the <span class=secodephrase>setSecurity()</span> calls done, as the engine knows that they go away when they are no longer used. The security termination function looks like this:</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=secodelinesindented>function&nbsp;jseSecurityTerm(security_var)</p>
+<p class=secodelinesindented>{</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;/*&nbsp;do&nbsp;any&nbsp;necessary&nbsp;cleanup&nbsp;*/</p>
+<p class=secodelinesindented>}</p>
+<p class=secodelines>&nbsp;</p>
+<p class=senormalpara>This function is not usually called until the end of the program (not just the end of the script.) Why is this? For ISDK developers, if you have read the advanced concepts chapter, you know that all of the functions in a <span class=secodephrase>jseInterpret()</span> stick around in the global object, even after the <span class=secodephrase>jseInterpret()</span> call itself is finished. This is why you can <span class=secodeterm>load</span> functions using <span class=secodephrase>jseInterpret()</span> and later call them. Whatever security they had when they were created is not forgotten. </p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>All functions remember the security in effect when they were created, and that applies if they are again called later. So, the security termination function is not actually called until all of the functions have gone away, which happens at the end of the program when the ScriptEase engine cleans up everything.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<hr noshade size=1>
+<p class=normal><a href="TH_500.htm"><img src="button.png" border=0></a><a href="TH_500.htm" style="text-decoration:none;">jseSecurityGuard</a></p>
+<p>
+</body>
+</html>

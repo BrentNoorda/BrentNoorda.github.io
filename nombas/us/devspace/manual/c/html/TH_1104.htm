@@ -1,0 +1,62 @@
+<html>
+<head>
+<title>Database rollbackTransaction()</title>
+<link rel="stylesheet" href="semanualstyles.css" type="text/css">
+<style type="text/css">
+ p { margin-top: 0; margin-bottom: 0; }
+</style>
+<script language="JavaScript" src="TrueHelp.js"></script>
+</head>
+<body onload="thload()">
+<div id=ienav>
+<ilayer id=nsnav>
+<br>
+<center>
+<p class=normal><a href="seisdkc-toc.htm" target="left">contents</a> &nbsp; <a href="seisdkc-index.htm" target="left">index</a> &nbsp; <a href="TH_1103.htm">previous</a> &nbsp; <a href="TH_1105.htm">next</a></p>
+</center>
+<br>
+<hr noshade size=1>
+</ilayer>
+</div>
+<p class=sereffunclevel4>Database rollbackTransaction()</p>
+<table cellpadding=0>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>syntax:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=sesyntax>database.rollbackTransaction()<span class=truehelp-xe></span></p></td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>return:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>number - 0 if the call was successful; otherwise, a nonzero status code based on the error message produced by the database.  If the method returns a nonzero status code, use the <span class=secodephrase>majorErrorCode</span> and <span class=secodephrase>majorErrorMessage</span> methods to interpret the meaning of the error.</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>description:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>This method undoes all actions performed since the last call to <span class=secodephrase>beginTransaction</span>. If there is no current transaction (for instance, the application has not called <span class=secodephrase>beginTransaction</span>), calls to <span class=secodephrase>rollbackTransaction</span> are ignored.</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>see:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara><span class=secodephrase>#link &lt;sedbc&gt;</span>, <span class=sejumptopic><a href="TH_1091.htm">Database beginTransaction()</a></span>, <span class=sejumptopic><a href="TH_1092.htm">Database commitTransaction()</a></span></p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>example:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=secodelines>err&nbsp;=&nbsp;db.rollbackTransaction()</p></td>
+</tr>
+</table>
+<p class=normal>&nbsp;</p>
+<hr noshade size=1>
+<p class=normal><a href="TH_1105.htm"><img src="button.png" border=0></a><a href="TH_1105.htm" style="text-decoration:none;">Database storedProc()</a></p>
+<p>
+</body>
+</html>

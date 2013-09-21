@@ -1,0 +1,396 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 FINAL//EN">
+<HTML><!-- #BeginTemplate "/us/Templates/normalpage.dwt" -->
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=ISO-8859-1">
+<!-- #BeginEditable "doctitle" --> 
+<TITLE>ScriptEase Integrated SDK Technical Overview</TITLE>
+<!-- #EndEditable --> <!-- begin metaTags --> 
+<META NAME="keywords" CONTENT="javascript,ecmascript,ecma,scriptease,jscript,scripting,nombas,isdk,sedesk,web application development,embedded devices,distributed computing,peer-to-peer,p2p,peer,data mining,javascript.com,cycletraders,integrated sdk,script ease,java,c++,c,simplicity,power,palm,windows ce,integration: sdk,integration:sdk,scriptease:desktop,scriptease: desktop,se:desktop,se:desk,se:isdk, se: isdk,development tools,devtools">
+<META HTTP-EQUIV="DESCRIPTION" CONTENT="Nombas delivers simplicity and power through scripting by providing market-leading development tools and software for JavaScript and ECMAScript.">
+<!-- end metaTags -->
+
+<!-- begin navbar includes -->
+<SCRIPT language=JavaScript1.2>
+  navbarPath = '../'; 
+</SCRIPT> 
+<SCRIPT language=JavaScript1.2 src="../navbarData.js"></SCRIPT>
+<SCRIPT language=JavaScript1.2 src="../navbarMenu.js"></SCRIPT>
+<SCRIPT language=JavaScript src="../imgRollover.js"></SCRIPT>
+<!-- end navbar includes -->
+
+<!-- begin style and icon definition -->
+<LINK REL="SHORTCUT ICON" HREF="../nombas.ico"> 
+<STYLE> 
+A:hover { color:#941810;} 
+</STYLE>
+<!-- end style and icon definition -->
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-1754630-10']);
+  _gaq.push(['_trackPageview']);
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+</HEAD>
+<BODY BGCOLOR="#06086F" LINK="#0000FF" VLINK="#800080" TEXT="#000000" TOPMARGIN=0 LEFTMARGIN=0 MARGINWIDTH=0 MARGINHEIGHT=0>
+    <TABLE BORDER=0 CELLSPACING=0 CELLPADDING=0 WIDTH=213>
+        <TR VALIGN=TOP ALIGN=LEFT>
+            <TD WIDTH=28 HEIGHT=4><IMG SRC="../clearpixel.gif" WIDTH=28 HEIGHT=1 BORDER=0></TD>
+            <TD></TD>
+        </TR>
+        <TR VALIGN=TOP ALIGN=LEFT>
+            <TD HEIGHT=60></TD>
+            
+    <TD WIDTH=185 ALIGN=LEFT VALIGN=TOP><A HREF="../index.htm"><IMG ID="Picture1" HEIGHT=60 WIDTH=185 SRC="../logo.gif" BORDER=0 alt="Nombas Logo: Simplicity and Power Through Scripting"></A></TD>
+        </TR>
+    </TABLE>
+    <div id="nombas-legacy"></div>
+    <TABLE BORDER=0 CELLSPACING=0 CELLPADDING=0>
+        <TR VALIGN=TOP ALIGN=LEFT>
+            <TD WIDTH=30 HEIGHT=10><IMG SRC="../clearpixel.gif" WIDTH=30 HEIGHT=1 BORDER=0></TD>
+            <TD></TD>
+        </TR>
+        <TR VALIGN=TOP ALIGN=LEFT>
+            <TD></TD>
+            <TD WIDTH=582>
+                <TABLE ID="Table1" BORDER=0 CELLSPACING=0 CELLPADDING=0 WIDTH=582>
+                    <TR>
+                        <TD WIDTH=97>
+            <P><A HREF="../scripting/scripting.htm" 
+                            onmouseover="changeImages('scripting', '../htab_scripting.gif'); popUp('elMenu1',event); return true;" 
+onmouseout="changeImages('scripting', '../tab_scripting.gif'); popDown('elMenu1'); return true;"
+><IMG
+                             ID="scripting" HEIGHT=21 WIDTH=97 SRC="../tab_scripting.gif" VSPACE=0 HSPACE=0 ALIGN="TOP" BORDER=0 name="scripting" alt="Scripting"></A>
+          </TD>
+                        <TD WIDTH=97>
+            <P><A HREF="../products/products.htm" 
+                            onmouseover="changeImages('products', '../htab_products.gif'); popUp('elMenu2',event); return true;" 
+onmouseout="changeImages('products', '../tab_products.gif'); popDown('elMenu2'); return true;"><IMG ID="products"
+                             HEIGHT=21 WIDTH=97 SRC="../tab_products.gif" VSPACE=0 HSPACE=0 ALIGN="TOP" BORDER=0 name=products alt="Products"></A>
+          </TD>
+                        <TD WIDTH=97>
+            <P><A href="/cgi-bin/WebObjects/DynamicLicense.woa" target="isdkbuy" onmouseover="changeImages('purchase', '../htab_purchase.gif');return true;" 
+onmouseout="changeImages('purchase', '../tab_purchase.gif');return true;"><IMG ID="purchase"
+                             HEIGHT=21 WIDTH=97 SRC="../tab_purchase.gif" VSPACE=0 HSPACE=0 ALIGN="TOP" BORDER=0 name=purchase alt="Purchase"></A>
+          </TD>
+                        <TD WIDTH=97>
+            <P><A HREF="../download/ndownload.htm" onmouseover="changeImages('download', '../htab_download.gif');return true;" 
+onmouseout="changeImages('download', '../tab_download.gif');return true;"><IMG ID="download"
+                             HEIGHT=21 WIDTH=97 SRC="../tab_download.gif" VSPACE=0 HSPACE=0 ALIGN="TOP" BORDER=0 name=download alt="Download"></A>
+          </TD>
+                        <TD WIDTH=97>
+            <P><A target="support" HREF="http://support.nombas.com/" onmouseover="changeImages('support', '../htab_support.gif'); return true;" 
+onmouseout="changeImages('support', '../tab_support.gif'); return true;"><IMG ID="support"
+                             HEIGHT=21 WIDTH=97 SRC="../tab_support.gif" VSPACE=0 HSPACE=0 ALIGN="TOP" BORDER=0 name=support alt="Support"></A>
+          </TD>
+                        <TD WIDTH=97>
+            <P><A HREF="../company/company.htm" 
+                            onmouseover="changeImages('company', '../htab_company.gif'); popUp('elMenu6',event); return true;" 
+onmouseout="changeImages('company', '../tab_company.gif'); popDown('elMenu6'); return true;"><IMG ID="company"
+                             HEIGHT=21 WIDTH=97 SRC="../tab_company.gif" VSPACE=0 HSPACE=0 ALIGN="TOP" BORDER=0 name=company alt="Company"></A>
+          </TD>
+                    </TR>
+                </TABLE>
+            </TD>
+        </TR>
+    </TABLE>
+    <TABLE BORDER=0 CELLSPACING=0 CELLPADDING=0 WIDTH=637>
+        <TR VALIGN=TOP ALIGN=LEFT>
+            <TD WIDTH=5 HEIGHT=20><IMG SRC="../clearpixel.gif" WIDTH=5 HEIGHT=1 BORDER=0></TD>
+            <TD WIDTH=632>
+                <TABLE BORDER=0 CELLSPACING=0 CELLPADDING=0 WIDTH=632 HEIGHT=20 bgcolor="#FFFFFF">
+                    <TR ALIGN=LEFT VALIGN=TOP>
+                        <TD>
+                            <TABLE BORDER=0 CELLSPACING=0 CELLPADDING=0 WIDTH=632>
+                                <TR VALIGN=TOP ALIGN=LEFT>
+                                    <TD WIDTH=20 HEIGHT=20 ALIGN=LEFT VALIGN=TOP><IMG ID="Picture12" HEIGHT=20 WIDTH=20 SRC="../curve_topleft.gif" BORDER=0></TD>
+                                    <TD WIDTH=592><IMG SRC="../clearpixel.gif" WIDTH=592 HEIGHT=1 BORDER=0></TD>
+                                    <TD WIDTH=20 ALIGN=LEFT VALIGN=TOP><IMG ID="Picture10" HEIGHT=20 WIDTH=20 SRC="../curve_top.gif" BORDER=0></TD>
+                                </TR>
+                            </TABLE>
+                        </TD>
+                    </TR>
+                </TABLE>
+            </TD>
+        </TR>
+    </TABLE>
+    <TABLE BORDER=0 CELLSPACING=0 CELLPADDING=0 WIDTH=637>
+        <TR VALIGN=TOP ALIGN=LEFT>
+            
+    <TD HEIGHT=490></TD>
+            
+    <TD WIDTH=632 COLSPAN=2 height="490"> 
+      <TABLE BORDER=0 CELLSPACING=0 CELLPADDING=0 WIDTH=632 HEIGHT=200 bgcolor="#FFFFFF">
+        <TR ALIGN=LEFT VALIGN=TOP>
+                        
+          <TD height="494"> 
+            <TABLE BORDER=0 CELLSPACING=0 CELLPADDING=0 WIDTH=450>
+              <TR VALIGN=TOP ALIGN=LEFT>
+                                    <TD WIDTH=13 HEIGHT=1><IMG SRC="../clearpixel.gif" WIDTH=13 HEIGHT=1 BORDER=0></TD>
+                                    
+                <TD WIDTH=396><IMG SRC="../clearpixel.gif" WIDTH=316 HEIGHT=1 BORDER=0></TD>
+                                </TR>
+                                <TR VALIGN=TOP ALIGN=LEFT>
+                                    
+                <TD width="13"></TD>
+                                    
+                <TD WIDTH=396> 
+                  <P ALIGN=LEFT><!-- #BeginEditable "hierarchy" --><A HREF="../index.htm"><FONT SIZE="-2" FACE="Verdana,Tahoma,Arial,Helvetica">Nombas</FONT></A><FONT SIZE="-2" FACE="Verdana,Tahoma,Arial,Helvetica"> 
+                    &gt; <a href="../products/products.htm">Products</a> &gt; 
+                    <a href="index.htm">ScriptEase ISDK</a> &gt; Technical Overview</FONT><!-- #EndEditable -->
+                </TD>
+                                </TR>
+                            </TABLE>
+                            
+            <TABLE BORDER=0 CELLSPACING=0 CELLPADDING=0 WIDTH=615>
+              <TR VALIGN=TOP ALIGN=LEFT> 
+                <TD WIDTH=15 HEIGHT=5><IMG SRC="../clearpixel.gif" WIDTH=15 HEIGHT=1 BORDER=0></TD>
+                <TD></TD>
+              </TR>
+              <TR VALIGN=TOP ALIGN=LEFT> 
+                <TD HEIGHT=80></TD>
+                <TD WIDTH=600 ALIGN=LEFT VALIGN=TOP><!-- #BeginEditable "banner" --><IMG ID="Picture14" HEIGHT=80 WIDTH=600 SRC="bnr_seisdk.gif" BORDER=0><!-- #EndEditable --></TD>
+              </TR>
+              <TR VALIGN=TOP ALIGN=LEFT>
+                <TD HEIGHT=80></TD>
+                <TD WIDTH=600 ALIGN=LEFT VALIGN=TOP><!-- #BeginEditable "text" -->
+                  <table width="100%" border="0">
+                    <tr> 
+                      <td colspan="4" height="9"><img src="../clearpixel.gif" width="1" height="1"></td>
+                    </tr>
+                    <tr> 
+                      <td width="1" height="1360">&nbsp;</td>
+                      <td valign="top" height="1360"> 
+                        <table width="100%" border="0" cellpadding="5">
+                          <tr> 
+                            <td align="left" valign="top" width="9%"> 
+                              <p>&nbsp;</p>
+                            </td>
+                            <td valign="top" width="91%"> 
+                              <p><img src="bnr_techview.gif" width="300" height="30"></p>
+                              <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2">You 
+                                can easily create ScriptEase methods that: </font></p>
+                              <ul>
+                                <li><font face="Verdana, Arial, Helvetica, sans-serif" size="2">Manipulate 
+                                  structures/objects and their members </font></li>
+                                <li><font face="Verdana, Arial, Helvetica, sans-serif" size="2">Take 
+                                  a variable number of arguments, and multiple 
+                                  argument typers </font></li>
+                                <li><font face="Verdana, Arial, Helvetica, sans-serif" size="2">Create 
+                                  global variables and pre-processor #defines 
+                                  that can be shared between scripts </font></li>
+                                <li><font face="Verdana, Arial, Helvetica, sans-serif" size="2">Map 
+                                  internal application structures, properties, 
+                                  and methods directly to the scripting language 
+                                  <br>
+                                  </font></li>
+                              </ul>
+                              <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><b>The 
+                                ScriptEase API</b></font></p>
+                              <ul>
+                                <li><font face="Verdana, Arial, Helvetica, sans-serif" size="2">Allows 
+                                  you to access variables as strings, buffers, 
+                                  bytes, booleans, objects or numbers</font></li>
+                                <li><font face="Verdana, Arial, Helvetica, sans-serif" size="2">Provides 
+                                  thread-safe interpretation for cooperative or 
+                                  preemptive systems </font></li>
+                                <li><font face="Verdana, Arial, Helvetica, sans-serif" size="2">Allows 
+                                  your C/C++ or Java application call ScriptEase 
+                                  methods directly </font></li>
+                                <li><font face="Verdana, Arial, Helvetica, sans-serif" size="2">Includes 
+                                  a debugger interface to allow users to single-step 
+                                  through the ScriptEase code, locally or remotely 
+                                  over TCP/IP </font></li>
+                                <li><font face="Verdana, Arial, Helvetica, sans-serif" size="2">Provides 
+                                  an option to interpret from a string in memory 
+                                  or from a file <br>
+                                  </font></li>
+                              </ul>
+                              <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><b>Compact 
+                                and Portable</b></font></p>
+                              <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2">ScriptEase:Integration 
+                                SDK/C works with the leading C/C++ compilers and 
+                                any language that supports the C or Pascal calling 
+                                conventions. SE:ISDK/Java is written in and works 
+                                with any Pure Java application. </font></p>
+                              <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2">The 
+                                libraries are fully thread safe and the Interpreter 
+                                can execute ScriptEase JavaScript from within 
+                                a single 64k segment. See the Tiny/Fast ISDK benchmarks 
+                                for numbers.</font></p>
+                              <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><b>Platforms 
+                                and Operating Systems Supported</b></font></p>
+                              <blockquote> 
+                                <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2">Windows 
+                                  3.1 <br>
+                                  Windows '95/'98/2000/NT <br>
+                                  Windows CE <br>
+                                  Linux <br>
+                                  Unix (Sun/Solaris, AIX, Irix, HP-UX, Digital 
+                                  UNIX, SCO Unix &amp; FreeBSD) <br>
+                                  DOS (including 16- and 32-bit DPMI) <br>
+                                  OS/2 <br>
+                                  MacOS (68k and PPC) <br>
+                                  NetWare <br>
+                                  PalmOS<br>
+                                  RIM/Blackberry </font><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><br>
+                                  OS/390 <br>
+                                  VxWorks (Wind River Systems) <br>
+                                  <a href="isdkdownload.htm"></a>All Pure Java 
+                                  platforms <br>
+                                  <a href="isdkdownload.htm">Download page for 
+                                  all the above</a> </font></p>
+                                </blockquote>
+                              <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2">The 
+                                ScriptEase:Integration SDK seamlessly integrates 
+                                with your application as a DLL (shared object 
+                                or a code fragment) or a static library. </font></p>
+                              <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><b>ScriptEase 
+                                Functionality</b></font></p>
+                              <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2">The 
+                                ScriptEase Interpreter offers all the flow control 
+                                operators: if, else, while,do/while, for switch, 
+                                and goto and also includes the pre-processor directives, 
+                                #include, #if, #ifdef, #else #elif, #endif, #define.</font></p>
+                              <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2">ScriptEase 
+                                can call your C or Java functions and conversely, 
+                                your C or Java functions can call ScriptEase and 
+                                any functionality or data within your application 
+                                can be exposed to ScriptEase or not.</font></p>
+                              <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2">ScriptEase 
+                                offers the functionality of a compiled language 
+                                and the ease of an interpreter: </font></p>
+                              <ul>
+                                <li><font face="Verdana, Arial, Helvetica, sans-serif" size="2">Make 
+                                  a calculation </font></li>
+                                <li><font face="Verdana, Arial, Helvetica, sans-serif" size="2">Simulate 
+                                  key strokes </font></li>
+                                <li><font face="Verdana, Arial, Helvetica, sans-serif" size="2">Format 
+                                  screen, file or printer output </font></li>
+                                <li><font face="Verdana, Arial, Helvetica, sans-serif" size="2">Read 
+                                  a file from a menu selection or button press 
+                                  <br>
+                                  </font></li>
+                                <li><font face="Verdana, Arial, Helvetica, sans-serif" size="2">Automate 
+                                  tasks </font></li>
+                                <li><font face="Verdana, Arial, Helvetica, sans-serif" size="2">Spawn 
+                                  and/or subclass an application </font></li>
+                                <li><font face="Verdana, Arial, Helvetica, sans-serif" size="2">Communicate 
+                                  via a network or with hardware </font></li>
+                                <li><font face="Verdana, Arial, Helvetica, sans-serif" size="2">Make 
+                                  system calls </font></li>
+                              </ul>
+                              <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><b>ScriptEase 
+                                ISDK Support </b></font></p>
+                              <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2">The 
+                                ScriptEase ISDK ships with numerous sample applications, 
+                                on-line and printed documentation (html) format, 
+                                and over 200 sample wrapper functions to use as 
+                                a guide or include in your application. Technical 
+                                support is provided via http://suppport.nombas.com/ 
+                                to guide you through the implementation process.</font></p>
+                              <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><b>Evaluation 
+                                Version</b></font></p>
+                              <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2">Try 
+                                SE:ISDK Now by <a href="isdkdownload.htm">downloading</a> 
+                                here. </font></p>
+                              <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2">For 
+                                more information, pricing, and details, e-mail Sales at <a href="mailto:sales@nombas.com">sales@nombas.com</a>. 
+                                </font></p>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td align="left" valign="top" width="9%">&nbsp;</td>
+                            <td valign="top" width="91%">&nbsp;</td>
+                          </tr>
+                        </table>
+                        
+                      </td>
+                      <td width="7" valign="top" background="../horline_bk.jpg" height="1360">&nbsp;</td>
+                      <td width="114" valign="top" height="1360">
+                        <p><img src="linkbar.gif" align="top" border="0" usemap="#links"> 
+                          <map name="links">
+                            <area shape="rect" coords="2,2,113,15" href="isdkdownload.htm">
+                            <area shape="rect" coords="3,19,112,36" href="/cgi-bin/WebObjects/DynamicLicense.woa" target="isdkbuy">
+                            <area shape="rect" coords="2,39,112,56" href="se_isdk_overview.htm">
+                            <area shape="rect" coords="0,60,112,77" href="se_isdk_techview.htm">
+                            <area shape="rect" coords="2,79,113,94" href="v4lic.htm">
+                            <area shape="rect" coords="1,97,113,115" href="sertex.htm">
+                            <area shape="rect" coords="2,114,112,134" href="../devspace/index.htm">
+                          </map>
+                        </p>
+                        <p><font face="Verdana, Arial, Helvetica, sans-serif" size="1"><b>Faster. 
+                          Smaller. </b><a href="tinyfast.htm">Click here </a>to 
+                          See the amazing performance statistics of ScriptEase 
+                          ISDK. </font></p>
+                      </td>
+                    </tr>
+                    <tr> 
+                      <td width="1">&nbsp;</td>
+                      <td width="460">&nbsp;</td>
+                      <td width="10">&nbsp;</td>
+                      <td width="114">&nbsp;</td>
+                    </tr>
+                  </table>
+                  <!-- #EndEditable --></TD>
+              </TR>
+            </TABLE>
+                            
+          </TD>
+                    </TR>
+                </TABLE>
+            </TD>
+        </TR>
+        <TR VALIGN=TOP ALIGN=LEFT>
+            
+    <TD HEIGHT=2></TD>
+            
+    <TD WIDTH=632 COLSPAN=2 height="2"> 
+      <TABLE BORDER=0 CELLSPACING=0 CELLPADDING=0 WIDTH=632 HEIGHT=20 bgcolor="#FFFFFF">
+                    <TR ALIGN=LEFT VALIGN=TOP>
+                        <TD>
+                            <TABLE BORDER=0 CELLSPACING=0 CELLPADDING=0 WIDTH=632>
+                                <TR VALIGN=TOP ALIGN=LEFT>
+                                    <TD WIDTH=20 HEIGHT=20 ALIGN=LEFT VALIGN=TOP><IMG ID="Picture13" HEIGHT=20 WIDTH=20 SRC="../curve_botleft.gif" BORDER=0></TD>
+                                    <TD WIDTH=592><IMG SRC="../clearpixel.gif" WIDTH=592 HEIGHT=1 BORDER=0></TD>
+                                    <TD WIDTH=20 ALIGN=LEFT VALIGN=TOP><IMG ID="Picture11" HEIGHT=20 WIDTH=20 SRC="../curve_bot.gif" BORDER=0></TD>
+                                </TR>
+                            </TABLE>
+                        </TD>
+                    </TR>
+                </TABLE>
+            </TD>
+        </TR>
+        <TR VALIGN=TOP ALIGN=LEFT>
+            <TD WIDTH=5 HEIGHT=6><IMG SRC="../clearpixel.gif" WIDTH=5 HEIGHT=1 BORDER=0></TD>
+            <TD WIDTH=613><IMG SRC="../clearpixel.gif" WIDTH=613 HEIGHT=1 BORDER=0></TD>
+            <TD WIDTH=19><IMG SRC="../clearpixel.gif" WIDTH=19 HEIGHT=1 BORDER=0></TD>
+        </TR>
+        <TR VALIGN=TOP ALIGN=LEFT>
+            <TD WIDTH=618 COLSPAN=2>
+      <P ALIGN=RIGHT><A HREF="../index.htm"><FONT COLOR="#FFFFFF" SIZE="-2" FACE="Verdana,Tahoma,Arial,Helvetica">Home</FONT></A><FONT COLOR="#FFFFFF" SIZE="-2" FACE="Verdana,Tahoma,Arial,Helvetica"> 
+        | </FONT><A
+                 HREF="../scripting/scripting.htm"><FONT COLOR="#FFFFFF" SIZE="-2" FACE="Verdana,Tahoma,Arial,Helvetica">Scripting</FONT></A><FONT COLOR="#FFFFFF" SIZE="-2" FACE="Verdana,Tahoma,Arial,Helvetica"> 
+        | </FONT><A
+                 HREF="../products/products.htm"><FONT COLOR="#FFFFFF" SIZE="-2" FACE="Verdana,Tahoma,Arial,Helvetica">Products</FONT></A><FONT COLOR="#FFFFFF" SIZE="-2" FACE="Verdana,Tahoma,Arial,Helvetica"> 
+        | </FONT><A
+                 href="/cgi-bin/WebObjects/DynamicLicense.woa" target="isdkbuy"><FONT COLOR="#FFFFFF" SIZE="-2" FACE="Verdana,Tahoma,Arial,Helvetica">Purchase</FONT></A><FONT COLOR="#FFFFFF" SIZE="-2" FACE="Verdana,Tahoma,Arial,Helvetica"> 
+        | </FONT><A
+                 HREF="../download/ndownload.htm"><FONT COLOR="#FFFFFF" SIZE="-2" FACE="Verdana,Tahoma,Arial,Helvetica">Download</FONT></A><FONT COLOR="#FFFFFF" SIZE="-2" FACE="Verdana,Tahoma,Arial,Helvetica"> 
+        | </FONT><A
+                 target="support" HREF="http://support.nombas.com/"><FONT COLOR="#FFFFFF" SIZE="-2" FACE="Verdana,Tahoma,Arial,Helvetica">Support</FONT></A><FONT COLOR="#FFFFFF" SIZE="-2" FACE="Verdana,Tahoma,Arial,Helvetica"> 
+        | </FONT><A HREF="../company/company.htm"> <FONT COLOR="#FFFFFF" SIZE="-2" FACE="Verdana,Tahoma,Arial,Helvetica">Company</FONT></A><FONT COLOR="#FFFFFF" SIZE="-2" FACE="Verdana,Tahoma,Arial,Helvetica"><BR>
+        <BR>Copyright &#169;2001, Nombas, Inc. All Rights Reserved.<BR>
+                Questions? Visit </FONT><A HREF="http://support.nombas.com/"><FONT COLOR="#FFFFFF" SIZE="-2" FACE="Verdana,Tahoma,Arial,Helvetica">http://support.nombas.com/</FONT></A></TD>
+            <TD></TD>
+        </TR>
+    </TABLE>
+<SCRIPT language=JavaScript1.2>
+  display_nombas_legacy_message();
+</SCRIPT>
+</BODY>
+<!-- #EndTemplate --></HTML>
+ 

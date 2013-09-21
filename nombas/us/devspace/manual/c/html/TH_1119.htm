@@ -1,0 +1,95 @@
+<html>
+<head>
+<title>SimpleDataset find() with clause</title>
+<link rel="stylesheet" href="semanualstyles.css" type="text/css">
+<style type="text/css">
+ p { margin-top: 0; margin-bottom: 0; }
+</style>
+<script language="JavaScript" src="TrueHelp.js"></script>
+</head>
+<body onload="thload()">
+<div id=ienav>
+<ilayer id=nsnav>
+<br>
+<center>
+<p class=normal><a href="seisdkc-toc.htm" target="left">contents</a> &nbsp; <a href="seisdkc-index.htm" target="left">index</a> &nbsp; <a href="TH_1118.htm">previous</a> &nbsp; <a href="TH_1120.htm">next</a></p>
+</center>
+<br>
+<hr noshade size=1>
+</ilayer>
+</div>
+<p class=sereffunclevel4>SimpleDataset find() with clause</p>
+<table cellpadding=0>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>syntax:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=sesyntax>simpledataset.find(<span class=truehelp-xe></span>whereClause)</p></td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>where:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>whereClause - A string containing the <span class=secodephrase>WHERE</span> clause of an SQL statement (without the word <span class=secodephrase>WHERE</span>) indicating which items to find.</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>return:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>Boolean value indicating success.  In the case that the operation failed, use the <span class=secodephrase>getLastErrorCode()</span> and <span class=secodephrase>getLastError()</span> methods to determine the reason for the failure.</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>description:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>This method searches the database table of a SimpleDataset for all items that match the given SQL <span class=secodephrase>WHERE</span> clause. The contents of the <span class=secodephrase>SimpleDataset</span> are changed to reflect the results of the search.  The previous contents of the <span class=secodephrase>SimpleDataset</span> are cleared and the complete database table is searched to create the new contents.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>After the <span class=secodephrase>find</span> has completed, the current record is set to the record "before" the first record.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>The string passed into <span class=secodephrase>find</span> contains a SQL <span class=secodephrase>WHERE</span> clause.  This allows more elaborate searches to be performed.</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>see:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara><span class=secodephrase>#include &lt;smdtset.jsh&gt;</span>, <span class=sejumptopic><a href="TH_1120.htm">SimpleDataset findAll()</a></span>, <span class=sejumptopic><a href="TH_1121.htm">SimpleDataset findDistinct()</a></span></p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>example:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=secodelines>//&nbsp;the&nbsp;following&nbsp;function&nbsp;will&nbsp;print&nbsp;out&nbsp;the&nbsp;fields</p>
+<p class=secodelines>//&nbsp;of&nbsp;each&nbsp;of&nbsp;the&nbsp;records&nbsp;that&nbsp;have&nbsp;either&nbsp;Boston</p>
+<p class=secodelines>//&nbsp;or&nbsp;Paris&nbsp;as&nbsp;their&nbsp;city&nbsp;values</p>
+<p class=secodelines>function&nbsp;print_BostonParis(db,&nbsp;table,&nbsp;user,&nbsp;passwd)</p>
+<p class=secodelines>{</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;//&nbsp;create&nbsp;the&nbsp;SimpleDataset</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;var&nbsp;ds&nbsp;=&nbsp;new&nbsp;SimpleDataset(db,&nbsp;table,&nbsp;user,</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;passwd);</p>
+<p class=secodelines>&nbsp;</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;var&nbsp;whereClause;</p>
+<p class=secodelines>&nbsp;</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;whereClause&nbsp;=&nbsp;"(City&nbsp;=&nbsp;\'Boston\')&nbsp;OR&nbsp;</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(City&nbsp;=&nbsp;\'Paris\')";</p>
+<p class=secodelines>&nbsp;</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;ds.find(template1,&nbsp;template2);</p>
+<p class=secodelines>&nbsp;</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;while(var&nbsp;rec&nbsp;=&nbsp;ds.nextRecord())</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;for(var&nbsp;prop&nbsp;in&nbsp;rec)</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Clib.printf(prop&nbsp;+&nbsp;"&nbsp;=&nbsp;"&nbsp;+&nbsp;rec[prop]&nbsp;+</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"\n");</p>
+<p class=secodelines>&nbsp;</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;ds.close();</p>
+<p class=secodelines>}</p></td>
+</tr>
+</table>
+<p class=normal>&nbsp;</p>
+<hr noshade size=1>
+<p class=normal><a href="TH_1120.htm"><img src="button.png" border=0></a><a href="TH_1120.htm" style="text-decoration:none;">SimpleDataset findAll()</a></p>
+<p>
+</body>
+</html>

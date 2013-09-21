@@ -1,0 +1,82 @@
+<html>
+<head>
+<title>SElib.splitFilename()</title>
+<link rel="stylesheet" href="semanualstyles.css" type="text/css">
+<style type="text/css">
+ p { margin-top: 0; margin-bottom: 0; }
+</style>
+<script language="JavaScript" src="TrueHelp.js"></script>
+</head>
+<body onload="thload()">
+<div id=ienav>
+<ilayer id=nsnav>
+<br>
+<center>
+<p class=normal><a href="seisdkj-toc.htm" target="left">contents</a> &nbsp; <a href="seisdkj-index.htm" target="left">index</a> &nbsp; <a href="TH_834.htm">previous</a> &nbsp; <a href="TH_836.htm">next</a></p>
+</center>
+<br>
+<hr noshade size=1>
+</ilayer>
+</div>
+<p class=sereffunclevel4>SElib.splitFilename()</p>
+<table cellpadding=0>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>syntax:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=sesyntax>SElib.splitFilename(filespec)</p></td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>where:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>filespec - string specification for a file. May be a full or partial path specification.</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>return:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>object - structure containing the drive and directory, file, and extension information contained in filespec. The structure returned has the following properties:</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=secodelinesindented>.dir&nbsp;&nbsp;&nbsp;directory&nbsp;name&nbsp;including&nbsp;leading&nbsp;drive</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;spec&nbsp;and&nbsp;trailing&nbsp;slash&nbsp;(d:\dir1\dir2\)</p>
+<p class=secodelinesindented>.name&nbsp;&nbsp;root&nbsp;name&nbsp;of&nbsp;file&nbsp;only&nbsp;(filename)</p>
+<p class=secodelinesindented>.ext&nbsp;&nbsp;&nbsp;file&nbsp;extension&nbsp;with&nbsp;leading&nbsp;period&nbsp;(.ext)</p>
+<p class=secodelinesindented>&nbsp;</p>
+<p class=senormalpara>The three properties returned are guaranteed not to be <span class=secodephrase>null</span>.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>The actual characters used, such as the slash, depend on the operating system. </p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>description:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>Break up a file specification, full or partial path specification, into its component parts: drive and directory, filename, and extension. The filespec does not have to actually exist. This method merely divides up the filespec, as passed, according to the conventions of the operating system without checking to see if a drive, directory, or filename actually exists. </p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>see:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara><span class=sejumptopic><a href="TH_820.htm">SElib.fullpath()</a></span>, File splitName(), File object in <i>fileobj.jsh</i></p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>example:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=secodelines>&nbsp;&nbsp;&nbsp;//&nbsp;After&nbsp;splitting&nbsp;a&nbsp;filespec,</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;//&nbsp;the&nbsp;following&nbsp;statement&nbsp;will</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;//&nbsp;reconstruct&nbsp;it</p>
+<p class=secodelines>var&nbsp;parts&nbsp;=&nbsp;SElib.splitFilename(MySpec);</p>
+<p class=secodelines>var&nbsp;FileSpec&nbsp;=&nbsp;MySpec.dir&nbsp;+&nbsp;MySpec.name&nbsp;+&nbsp;MySpec.ext;</p></td>
+</tr>
+</table>
+<p class=normal>&nbsp;</p>
+<hr noshade size=1>
+<p class=normal><a href="TH_836.htm"><img src="button.png" border=0></a><a href="TH_836.htm" style="text-decoration:none;">SElib.subclassWindow()</a></p>
+<p>
+</body>
+</html>

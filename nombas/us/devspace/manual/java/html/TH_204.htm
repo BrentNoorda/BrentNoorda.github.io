@@ -1,0 +1,35 @@
+<html>
+<head>
+<title>interface: SEMaxIndexCallback</title>
+<link rel="stylesheet" href="semanualstyles.css" type="text/css">
+<style type="text/css">
+ p { margin-top: 0; margin-bottom: 0; }
+</style>
+<script language="JavaScript" src="TrueHelp.js"></script>
+</head>
+<body onload="thload()">
+<div id=ienav>
+<ilayer id=nsnav>
+<br>
+<center>
+<p class=normal><a href="seisdkj-toc.htm" target="left">contents</a> &nbsp; <a href="seisdkj-index.htm" target="left">index</a> &nbsp; <a href="TH_203.htm">previous</a> &nbsp; <a href="TH_205.htm">next</a></p>
+</center>
+<br>
+<hr noshade size=1>
+</ilayer>
+</div>
+<p class=heading-3>interface: SEMaxIndexCallback</p>
+<p class=heading-3-p>&nbsp;</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;public&nbsp;int&nbsp;getMaxIndex(SEContext&nbsp;se);</p>
+<p class=secodelines>&nbsp;</p>
+<p class=senormalpara>Return the maximum index of the members of your objects which is equal to the number of members minus one.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>&nbsp;</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>For all of the above callbacks, the <span class=secodephrase>SE.DYNA_UNDEF</span> flag will cause your dynamic property to be called only if the object does not contain the property in its internal storage. This is useful for speed. When your dynamic put callback is invoked on a property, if that property is not special, you can return <span class=secodephrase>false</span> to put it into the object's internal storage. From then on, that property will be treated normally. The properties you are interested in you do not store in the object, you handle them in your callback. They will continue to be routed through your callbacks each time they are accessed.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<hr noshade size=1>
+<p class=normal><a href="TH_205.htm"><img src="button.png" border=0></a><a href="TH_205.htm" style="text-decoration:none;">FUNCTION REDIRECTION</a></p>
+<p>
+</body>
+</html>

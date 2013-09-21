@@ -1,0 +1,31 @@
+<html>
+<head>
+<title>interface: SEDefaultValueCallback</title>
+<link rel="stylesheet" href="semanualstyles.css" type="text/css">
+<style type="text/css">
+ p { margin-top: 0; margin-bottom: 0; }
+</style>
+<script language="JavaScript" src="TrueHelp.js"></script>
+</head>
+<body onload="thload()">
+<div id=ienav>
+<ilayer id=nsnav>
+<br>
+<center>
+<p class=normal><a href="seisdkj-toc.htm" target="left">contents</a> &nbsp; <a href="seisdkj-index.htm" target="left">index</a> &nbsp; <a href="TH_199.htm">previous</a> &nbsp; <a href="TH_201.htm">next</a></p>
+</center>
+<br>
+<hr noshade size=1>
+</ilayer>
+</div>
+<p class=heading-3>interface: SEDefaultValueCallback</p>
+<p class=heading-3-p>&nbsp;</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;public&nbsp;void&nbsp;defaultValue(SEContext&nbsp;se,int&nbsp;hint);</p>
+<p class=secodelines>&nbsp;</p>
+<p class=senormalpara>When an object is used in a situation when it has to be converted to a primitive value (i.e. a string or number), this callback is used to do so. The only parameter is <span class=secodephrase>hint</span>, the type that the system needs the value as. It is permissible to always convert to a single primitive type, which will then itself be converted to the correct value, if you don't want to take the hint into account. Return the value in the SE.RETURN object.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<hr noshade size=1>
+<p class=normal><a href="TH_201.htm"><img src="button.png" border=0></a><a href="TH_201.htm" style="text-decoration:none;">interface: SEOperatorOverloadCallback</a></p>
+<p>
+</body>
+</html>

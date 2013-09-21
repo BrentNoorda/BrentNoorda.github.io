@@ -1,0 +1,53 @@
+<html>
+<head>
+<title>THE SELIBRARYMANAGER CLASS</title>
+<link rel="stylesheet" href="semanualstyles.css" type="text/css">
+<style type="text/css">
+ p { margin-top: 0; margin-bottom: 0; }
+</style>
+<script language="JavaScript" src="TrueHelp.js"></script>
+</head>
+<body onload="thload()">
+<div id=ienav>
+<ilayer id=nsnav>
+<br>
+<center>
+<p class=normal><a href="seisdkj-toc.htm" target="left">contents</a> &nbsp; <a href="seisdkj-index.htm" target="left">index</a> &nbsp; <a href="TH_264.htm">previous</a> &nbsp; <a href="TH_266.htm">next</a></p>
+</center>
+<br>
+<hr noshade size=1>
+</ilayer>
+</div>
+<p class=heading-2>THE SELIBRARYMANAGER CLASS</p>
+<p class=heading-2-p>&nbsp;</p>
+<p class=senormalpara>The SELibraryManager class (located in the COM.Nombas.jse.libraries package) is used to make the ScriptEase standard library functions available to your scripts. The SELibraryManager class has one static method, addStandardLibraries, which has the following signature:</p>
+<p class=senormalpara>public static final void addStandardLibraries(SEContext se, int libs);</p>
+<p class=senormalpara>The first parameter is the context you want to add the library functions to.  The second parameter specifies which libraries to add to the context.  This parameter can be any of the following values |&#8217;d together:</p>
+<p class=senormalpara><span class=secodephrase>SELibraryManager.ECMA_OBJECTS</span></p>
+<p class=senormalpara>Makes the following ECMA objects available to your scripts: Object, Function, Array, String, Boolean, Number, Exception.</p>
+<p class=senormalpara><span class=secodephrase>SELibraryManager.ECMA_MISC</span></p>
+<p class=senormalpara>Some miscellaneous ECMA functions: eval, parseInt, parseFloat, escape, unescape, isNaN, isFinite.</p>
+<p class=senormalpara><span class=secodephrase>SELibraryManager.ECMA_DATE</span></p>
+<p class=senormalpara>The ECMA Date object.</p>
+<p class=senormalpara><span class=secodephrase>SELibraryManager.ECMA_MATH</span></p>
+<p class=senormalpara>The ECMA Math object.</p>
+<p class=senormalpara><span class=secodephrase>SELibraryManager.ECMA_REGEXP</span></p>
+<p class=senormalpara>The ECMA RegExp object.</p>
+<p class=senormalpara><span class=secodephrase>SELibraryManager.ECMA_ALL</span></p>
+<p class=senormalpara>Makes all of the ECMA objects and functions available to your scripts.</p>
+<p class=senormalpara><span class=secodephrase>SELibraryManager.SE_TEST</span></p>
+<p class=senormalpara>The Nombas Test object, used to test and debug scripts.</p>
+<p class=senormalpara><span class=secodephrase>SELibraryManager.LANG_MISC</span></p>
+<p class=senormalpara>Miscellaneous language extension functions: defined, undefined, getArrayLength, setArrayLength</p>
+<p class=senormalpara><span class=secodephrase>SELibraryManager.LANG_CONVERT</span></p>
+<p class=senormalpara>ECMA conversion functions: ToPrimitive, ToBoolean, ToNumber, ToInteger, ToInt32, ToUint32, ToInt16, ToObject, ToString</p>
+<p class=senormalpara>For example, if you wanted to make the ECMA Date and Math objects available to your scripts, you would invoke the library manager like this:</p>
+<p class=secodelinesindented>SELibraryManager.addStandardLibraries(se,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
+<p class=secodelinesindented>SELibraryManager.ECMA_DATE&nbsp;|</p>
+<p class=secodelinesindented>SELibraryManager.ECMA_MATH);</p>
+<p class=senormalpara>&nbsp;</p>
+<hr noshade size=1>
+<p class=normal><a href="TH_266.htm"><img src="button.png" border=0></a><a href="TH_266.htm" style="text-decoration:none;">The SEToLocaleHandler interface</a></p>
+<p>
+</body>
+</html>

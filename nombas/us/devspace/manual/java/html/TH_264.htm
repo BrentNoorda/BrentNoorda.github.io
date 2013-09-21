@@ -1,0 +1,36 @@
+<html>
+<head>
+<title>SELIBRARY INTERFACE</title>
+<link rel="stylesheet" href="semanualstyles.css" type="text/css">
+<style type="text/css">
+ p { margin-top: 0; margin-bottom: 0; }
+</style>
+<script language="JavaScript" src="TrueHelp.js"></script>
+</head>
+<body onload="thload()">
+<div id=ienav>
+<ilayer id=nsnav>
+<br>
+<center>
+<p class=normal><a href="seisdkj-toc.htm" target="left">contents</a> &nbsp; <a href="seisdkj-index.htm" target="left">index</a> &nbsp; <a href="TH_263.htm">previous</a> &nbsp; <a href="TH_265.htm">next</a></p>
+</center>
+<br>
+<hr noshade size=1>
+</ilayer>
+</div>
+<p class=heading-2>SELIBRARY INTERFACE</p>
+<p class=heading-2-p>&nbsp;</p>
+<p class=senormalpara>A class needs to implement the <span class=secodephrase>SELibrary</span> interface if any of its methods are to be used as wrapper functions.  The object that implements this interface (and thus implements the actual wrapper functions) is passed to the <span class=secodephrase>seAddLibTable</span> API call along with the corresponding library table. In addition to implementing the wrapper functions, this object could also be used to store any library specific data.</p>
+<p class=senormalpara>The <span class=secodephrase>SELibrary</span> interface declares the following two methods:</p>
+<p class=secodelinesindented>public&nbsp;SELibrary&nbsp;seLibraryInitFunc(SEContext&nbsp;se);</p>
+<p class=secodelinesindented>public&nbsp;void&nbsp;seLibraryTermFunc(SEContext&nbsp;se);</p>
+<p class=secodelinesindented>&nbsp;</p>
+<p class=senormalpara>The <span class=secodephrase>seLibraryInitFunc</span> method is called whenever the corresponding library table is initialized.  This method returns an object which contains any library specific data structure that the library may need access to.  For example, the library may need to keep track of files opened.  This method may create and return a new object, but you will most likely want to simply return <span class=secodephrase>this</span>.</p>
+<p class=senormalpara>Note that the library can be initialized more than once, and you must be prepared to handle that case. The first time the library is initialized is when you call <span class=secodephrase1>seAddLibTable</span>, but the library will be reinitialized in certain circumstances.</p>
+<p class=senormalpara>&nbsp;</p>
+<p class=senormalpara>The <span class=secodephrase>seLibraryTermFunc</span> is used is called when the library is terminated.  This function should be used to clean up any library specific resources.  For each call to the initialization function, there will be one call to the termination function.</p>
+<hr noshade size=1>
+<p class=normal><a href="TH_265.htm"><img src="button.png" border=0></a><a href="TH_265.htm" style="text-decoration:none;">THE SELIBRARYMANAGER CLASS</a></p>
+<p>
+</body>
+</html>

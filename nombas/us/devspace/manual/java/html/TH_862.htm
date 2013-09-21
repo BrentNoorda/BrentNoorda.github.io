@@ -1,0 +1,77 @@
+<html>
+<head>
+<title>String search()</title>
+<link rel="stylesheet" href="semanualstyles.css" type="text/css">
+<style type="text/css">
+ p { margin-top: 0; margin-bottom: 0; }
+</style>
+<script language="JavaScript" src="TrueHelp.js"></script>
+</head>
+<body onload="thload()">
+<div id=ienav>
+<ilayer id=nsnav>
+<br>
+<center>
+<p class=normal><a href="seisdkj-toc.htm" target="left">contents</a> &nbsp; <a href="seisdkj-index.htm" target="left">index</a> &nbsp; <a href="TH_861.htm">previous</a> &nbsp; <a href="TH_863.htm">next</a></p>
+</center>
+<br>
+<hr noshade size=1>
+</ilayer>
+</div>
+<p class=sereffunclevel4>String search()</p>
+<table cellpadding=0>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>syntax:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=sesyntax>string.search(<span class=truehelp-xe></span>pattern)</p></td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>where:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>pattern - a regular expression pattern to find or match in string.</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>return:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>number - the starting position of the first matched portion or substring of the target string. Returns -1 if there is no match.</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>description:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>This method returns a number indicating the offset within the string where the pattern matched or -1 if there was no match. The return is the same character position as returned by the simple search using <span class=sepopuptopic><a href="TH_857.htm" onClick="return thwindow('TH_857.htm', 'GenPopup')">String indexOf()</a></span>. Both <span class=secodephrase>search()</span> and <span class=secodephrase>indexOf()</span> return the same character position of a match or find. The difference is that <span class=secodephrase>indexOf()</span> is simple and <span class=secodephrase>search()</span> is powerful.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>The <span class=secodephrase>search()</span> method ignores a "g" attribute if it is part of the regular expression pattern to be matched or found. That is, <span class=secodephrase>search()</span> cannot be used for global searches in a string.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>After a search is done, the appropriate RegExp object static properties are set.</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>see:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara><span class=sejumptopic><a href="TH_860.htm">String match()</a></span>, <span class=sejumptopic><a href="TH_861.htm">String replace()</a></span>, RegExp exec(), Regular expression syntax, RegExp Object, RegExp object static properties</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>example:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=secodelines>var&nbsp;str&nbsp;=&nbsp;"one&nbsp;two&nbsp;three&nbsp;four&nbsp;five";</p>
+<p class=secodelines>var&nbsp;pat&nbsp;=&nbsp;/th/;</p>
+<p class=secodelines>str.search(pat);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//&nbsp;==&nbsp;8,&nbsp;start&nbsp;of&nbsp;th&nbsp;in&nbsp;three</p>
+<p class=secodelines>str.search(/t/);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//&nbsp;==&nbsp;4,&nbsp;start&nbsp;of&nbsp;t&nbsp;in&nbsp;two</p>
+<p class=secodelines>str.search(/Four/i);&nbsp;//&nbsp;==&nbsp;14,&nbsp;start&nbsp;of&nbsp;four</p></td>
+</tr>
+</table>
+<p class=normal>&nbsp;</p>
+<hr noshade size=1>
+<p class=normal><a href="TH_863.htm"><img src="button.png" border=0></a><a href="TH_863.htm" style="text-decoration:none;">String slice()</a></p>
+<p>
+</body>
+</html>

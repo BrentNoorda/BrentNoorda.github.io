@@ -1,0 +1,152 @@
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=windows-1252">
+<META NAME="Generator" CONTENT="Microsoft Word 97">
+<TITLE>Testing The Performace of Integration SDK</TITLE>
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-1754630-10']);
+  _gaq.push(['_trackPageview']);
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+</HEAD>
+<BODY BACKGROUND="/us/devspace/pix/halfred.gif" BGCOLOR=#FFFFFF TEXT=#000000 LINK=#990000 VLINK=#990000 ALINK=#990000 TOPMARGIN="4"><link rel="STYLESHEET" type="text/css" href="/us/home.css">
+ <P>
+  <TABLE WIDTH=590 CELLPADDING=0 CELLSPACING=0 BORDER=0 HEIGHT="100%">
+   <TR>
+    <TD WIDTH=45 VALIGN=TOP><P ALIGN=CENTER>
+    <CENTER><IMG SRC="../../pix/banner.gif" ALIGN=BOTTOM WIDTH=40 HEIGHT=223 BORDER=0 VSPACE=4 HSPACE=0 LOOP="0"><BR>
+    <IMG SRC="../../pix/pixel.gif" ALIGN=BOTTOM WIDTH=45 HEIGHT=1 BORDER=0 VSPACE=4 HSPACE=0><BR>
+    <A HREF="/us/cgi-bin/sewse.exe/us/search/search.jse"><IMG SRC="../../pix/search.gif" ALT="Site Search" ALIGN=BOTTOM WIDTH=40 HEIGHT=29 BORDER=0 VSPACE=3 HSPACE=0 LOOP="0"></A><BR>
+    <A HREF="http://support.nombas.com/"><IMG SRC="../../pix/feedback.gif" ALT="Send Mail Feedback" ALIGN=BOTTOM WIDTH=40 HEIGHT=23 BORDER=0 VSPACE=3 HSPACE=0 LOOP="0"></A><BR>
+    <A HREF="/us/cgi-bin/sewse.exe/us/outline/outline.jse"><IMG SRC="../../pix/outline.gif" ALT="Site Outline" ALIGN=BOTTOM WIDTH=40 HEIGHT=40 BORDER=0 VSPACE=3 HSPACE=0 LOOP="0"></A><br>
+    <a target="support" href="http://support.nombas.com/"><IMG SRC="../../pix/support.gif" ALT="Site Support" ALIGN=BOTTOM WIDTH=32 HEIGHT=32 BORDER=0 VSPACE=3 HSPACE=0 LOOP="0"></A>
+</CENTER></P></TD>
+    <TD WIDTH=21 VALIGN=TOP><P>
+    <A NAME="topofpage"></A><IMG SRC="../../pix/pixel.gif" ALIGN=BOTTOM WIDTH=21 HEIGHT=1 BORDER=0 VSPACE=0 HSPACE=0></TD>
+    <TD ROWSPAN=2 WIDTH=524 VALIGN=TOP><P>
+     <TABLE WIDTH=524 CELLPADDING=0 CELLSPACING=0 BORDER=0>
+      <TR>
+       <TD WIDTH=394 BGCOLOR=#CCCCCC VALIGN=CENTER><P>
+       <FONT FACE="Arial,Helvetica,Monaco"><FONT SIZE=2>&nbsp;<A HREF="/us/devspace/index.htm">ISDK&nbsp;Support</A>
+ &#151; <A HREF="/us/devspace/samples/index.htm">Samples</A>
+ &#151; <A HREF="/us/devspace/samples/tests/index.htm">Tests</A></FONT></FONT></A></TD><TD
+        WIDTH=130 VALIGN=CENTER><P>
+       <A HREF="/us/index.htm"><FONT SIZE=1><IMG SRC="../../pix/tinylogo.gif" ALIGN=RIGHT WIDTH=90 HEIGHT=15 BORDER=0 VSPACE=0 HSPACE=0></FONT></A><HR ALIGN=LEFT WIDTH=36 SIZE=2></TD></TR>
+     </TABLE>
+    </P><P><!--END_HEADER-->
+<BODY>
+
+<B><FONT FACE="Times New Roman" SIZE=6><P ALIGN="CENTER">Document on testing </P>
+</FONT><FONT FACE="Times New Roman" SIZE=3><P ALIGN="CENTER"></P>
+</B></FONT><FONT FACE="Times New Roman" SIZE=5><P ALIGN="CENTER">Testecma Suite</P>
+</FONT><U><FONT FACE="Times New Roman" SIZE=4><P ALIGN="JUSTIFY"></P>
+<P ALIGN="JUSTIFY">&nbsp;</P>
+<P ALIGN="JUSTIFY">Introduction to test object</P>
+</U></FONT><FONT FACE="Times New Roman" SIZE=3><P ALIGN="JUSTIFY">This suite tests the performance of ISDK. It consists of a major test file (<I>setest.c</I>) and some other files, which will support different aspects of the test. There are several features with the test object. At this time, the features include </FONT><B><FONT FACE="Times New Roman" SIZE=2>Test.assert, Test.start, Test.assertNumEqual, Test.setAttributes, and Test.end.</FONT><FONT FACE="Times New Roman" SIZE=3> </B>The most significant one is </FONT><B><FONT FACE="Times New Roman" SIZE=2>Test.assert()</B></FONT><FONT FACE="Times New Roman" SIZE=3> function. It performs almost all tests on ISDK performance. Let’s first review how it works, then look at some examples. In fact, the behavior of </FONT><B><FONT FACE="Times New Roman" SIZE=2>Test.assert()</B></FONT><FONT FACE="Times New Roman" SIZE=3> is very much like assertion function in standard C/C++. It takes an expression as its argument. If the expression was evaluated to be true, the assertion is successful and the execution will go on, otherwise, assertion is failed and the execution will terminate with an error message. Here are some examples.</P>
+<P ALIGN="JUSTIFY"></P>
+</FONT><B><FONT FACE="Times New Roman" SIZE=2><P ALIGN="JUSTIFY">Test.assert( &quot;Hello&quot; + &quot; world!&quot; == &quot;Hello world!&quot; );</P>
+<P ALIGN="JUSTIFY">Test.assert( Math.max (2, -2) == 2 );</P>
+</FONT><FONT FACE="Times New Roman" SIZE=3><P ALIGN="JUSTIFY">  </P>
+</B><P ALIGN="JUSTIFY">Above assertions will be successful, since the arguments are true statements.</P>
+<P ALIGN="JUSTIFY"></P>
+</FONT><B><FONT FACE="Times New Roman" SIZE=2><P ALIGN="JUSTIFY">Test.assert( &quot;cat&quot; == &quot;dog&quot; );</P>
+</B></FONT><FONT FACE="Times New Roman" SIZE=3><P ALIGN="JUSTIFY"></P>
+<P ALIGN="JUSTIFY">Above assertion will be failed, since the argument is a false statement.</P>
+<P ALIGN="JUSTIFY"></P>
+<P ALIGN="JUSTIFY">The expression you are going to test (i.e. the argument you are going to write) is a predicate, either true or false. So, you may want to have all your expression true in order to make the test execution go through. Of cause those assumptions should be built on the performance of specific software. For example, if you have designed &quot;cat&quot; equaled to &quot;dog&quot; (although it is less likely), the above &quot;cat&quot; == &quot;dog&quot; example would not fail. </P>
+<P ALIGN="JUSTIFY"></P>
+<P ALIGN="JUSTIFY">SE:ISDK is designed to meet ECMA standard. So, in testecma suite, the tests for assertions are designed based on ECMAScript Language Specification.</P>
+<P ALIGN="JUSTIFY"></P>
+<P ALIGN="JUSTIFY">In summary,</P>
+
+<UL>
+</FONT><B><FONT FACE="Times New Roman" SIZE=2><P ALIGN="JUSTIFY"><LI>Test.assert()</B></FONT><FONT FACE="Times New Roman" SIZE=3> – This function has been used throughout the script files. If designed carefully, it would be able to catch all kinds of errors in ISDK performance. Errors are written into <I>ERROR.LOG</I> files.</LI></P></UL>
+
+
+<UL>
+</FONT><B><FONT FACE="Times New Roman" SIZE=2><P ALIGN="JUSTIFY"><LI>Test.start()</B></FONT><FONT FACE="Times New Roman" SIZE=3> – It is used at the very beginning of the script files to indicate the beginning of the tests. It takes no argument. If a script file has not been called or been called more than once by mistake, the function will catch this error and write it to <I>ERROR.LOG</I> file. </LI></P></UL>
+
+
+<UL>
+</FONT><B><FONT FACE="Times New Roman" SIZE=2><P ALIGN="JUSTIFY"><LI>Test.end()</B></FONT><FONT FACE="Times New Roman" SIZE=3> – Similar to </FONT><B><FONT FACE="Times New Roman" SIZE=2>Test.start(),</B></FONT><FONT FACE="Times New Roman" SIZE=3> it is used at the end of the script files to detect the end of the tests. It takes no argument. If the end of a script file has not been reached or been reached more than once by mistake, the function will catch this error and write it to <I>ERROR.LOG</I> file.</LI></P></UL>
+
+
+<UL>
+</FONT><B><FONT FACE="Times New Roman" SIZE=2><P ALIGN="JUSTIFY"><LI>Test.setAttributes()</B></FONT><FONT FACE="Times New Roman" SIZE=3> – When performing test on function scope, it is used to turn on/off attribute of an object to test some specific values.</LI></P></UL>
+
+
+<UL>
+</FONT><B><FONT FACE="Times New Roman" SIZE=2><P ALIGN="JUSTIFY"><LI>Test.assertNumEqual()</B></FONT><FONT FACE="Times New Roman" SIZE=3> – It is used whenever a floating-point number needs special treatment. For example, if you tried to test the value of </FONT><B><FONT FACE="Times New Roman" SIZE=2>(2/10)</B></FONT><FONT FACE="Times New Roman" SIZE=3> with the regular </FONT><FONT FACE="Times New Roman" SIZE=2>assertion <B>Test.assert(2/10==0.2),</B> </FONT><FONT FACE="Times New Roman" SIZE=3>you would probably get failed, since the number </FONT><B><FONT FACE="Times New Roman" SIZE=2>0.2</B></FONT><FONT FACE="Times New Roman" SIZE=3> may actually be stored as </FONT><B><FONT FACE="Times New Roman" SIZE=2>0.20000000000000001</B></FONT><FONT FACE="Times New Roman" SIZE=3> in the computer. </FONT><B><FONT FACE="Times New Roman" SIZE=2>Test.assertNumEqual()</B></FONT><FONT FACE="Times New Roman" SIZE=3> is specially designed to handle this kind of problem. It takes two numbers, compares them, if the difference of the numbers is less than a small value, the numbers are considered to be same. The small value is chosen to be </FONT><B><FONT FACE="Times New Roman" SIZE=2>1e-15</FONT><FONT FACE="Times New Roman" SIZE=3>,</B> because double precision numbers usually round up/down at that position. The success assertion becomes to </FONT><B><FONT FACE="Times New Roman" SIZE=2>Test.assertNumEqual(2/10, 0.2)</B>.</LI></P></UL>
+
+</FONT><FONT FACE="Times New Roman" SIZE=3><P ALIGN="JUSTIFY"></P>
+<P ALIGN="JUSTIFY">&nbsp;</P>
+</FONT><U><FONT FACE="Times New Roman" SIZE=4><P ALIGN="JUSTIFY">Write your own test script</P>
+</U></FONT><FONT FACE="Times New Roman" SIZE=3><P ALIGN="JUSTIFY">Suppose you want to test the performance of String object, a sample script looks like this.</P>
+</FONT><B><FONT FACE="Times New Roman" SIZE=2><P ALIGN="JUSTIFY">Test.start();</P>
+<P ALIGN="JUSTIFY">var s = new String(&quot;Hello&quot;);</P>
+<P ALIGN="JUSTIFY">var t = &quot;World&quot;;</P>
+<P ALIGN="JUSTIFY">Test.assert(s != t); // string comparison</P>
+<P ALIGN="JUSTIFY">Test.assert(s.length == 5);  // length property</P>
+<P ALIGN="JUSTIFY">Test.assert(s + t == &quot;HelloWorld&quot;);  // string concatenation</P>
+<P ALIGN="JUSTIFY">……</P>
+<P ALIGN="JUSTIFY">Test.end();</P>
+</B><P ALIGN="JUSTIFY"></P>
+</FONT><FONT FACE="Times New Roman" SIZE=3><P ALIGN="JUSTIFY">Theoretically, the test would be able to catch any possible errors, as long as you could complete the test cases in your script.</P>
+<P ALIGN="JUSTIFY"></P>
+</FONT><U><FONT FACE="Times New Roman" SIZE=4><P ALIGN="JUSTIFY">Porting test suite to your system</P>
+</U></FONT><FONT FACE="Times New Roman" SIZE=3><P ALIGN="JUSTIFY">To make the test build correctly, you must first compile each of the files contained in the project and link them with a ScriptEase Interpreter Engine library file. The exact steps will vary with the compiler you are using. Your compiler choice and whether or not your target operating system supports DLLs will probably dictate your library file choice. For example, if you are using Microsoft Visual C++ 5.0 on Windows 98 and want to use a static library, you could use the library file <I>serte41.lib</I> (located in the seisdk\tests\lang\testecma\win32\msvc50\ directory). There are also two directories of headers you need to make available to the compiler: \seisdk\incjse and \seisdk\srcmisc. </P>
+<P ALIGN="JUSTIFY"></P>
+<P ALIGN="JUSTIFY">Usually, you do not need to change too much to configure SE:ISDK to suit your specific system, because the header file <I>jseopt.h</I> would have done most of this for you. You have to add the piece </FONT><B><FONT FACE="Times New Roman" SIZE=2>&quot;__JSE_XXXXX__&quot;</B></FONT><FONT FACE="Times New Roman" SIZE=3> where </FONT><B><FONT FACE="Times New Roman" SIZE=2>XXXXX</B></FONT><FONT FACE="Times New Roman" SIZE=3> is the platform you are targeting (for example, </FONT><B><FONT FACE="Times New Roman" SIZE=2>__JSE_WIN32__, __JSE_MAC__,</B></FONT><FONT FACE="Times New Roman" SIZE=3> etc.) to your project setting, or to the <I>jseopt.h</I> file to indicate your targeting system.</P>
+<P ALIGN="JUSTIFY"></P>
+<P ALIGN="JUSTIFY">You may also want to modify or add more features to the test object, then you can work with <I>setest.c</I> file. All methods of test object can be found in that file. After making the project executable, you are ready to run tests on your own scripts. </P>
+<P ALIGN="JUSTIFY"></P>
+<P ALIGN="JUSTIFY">&nbsp;</P>
+</FONT><U><FONT FACE="Times New Roman" SIZE=4><P ALIGN="JUSTIFY">Run test on your script</P>
+</U></FONT><FONT FACE="Times New Roman" SIZE=3><P ALIGN="JUSTIFY">First, you have to build the project correctly. It will export an executable file. Then, you can run this executable file on your script file. If all test cases passed, the execution will terminate normally with message &quot;Good-bye&quot; at the end. If any of the assertion failed, the execution will stop immediately. An error message will display on screen and be written to the <I>ERROR.LOG</I> file at same time. The message tells where the error occurs (with the error line number) and what the error is, so you could identify the problem quickly. You could check <I>ERROR.LOG</I> file for your error record in case that you lost your screen display.</P>
+<P ALIGN="JUSTIFY"></P>
+<P ALIGN="JUSTIFY">If you want to run all tests at once, you should make a batch file to include all your script files. You may add new script files into the test suite by adding them into the batch file. Individual script file could be written as described in earlier section. You may also add more tests to a specific script file to complete that specific test. You are encouraged to do so and send them back to us. Any kind of new script or supplement to current script will be welcome by Nombas.</P>
+<P ALIGN="JUSTIFY"></P>
+<P ALIGN="JUSTIFY">&nbsp;</P>
+<P ALIGN="JUSTIFY">&nbsp;</P>
+<P ALIGN="JUSTIFY">&nbsp;</P>
+</FONT><FONT FACE="Times New Roman" SIZE=5><P ALIGN="CENTER">API Suite</P>
+</FONT><FONT SIZE=2>
+<P>&nbsp;</P>
+</FONT><U><FONT FACE="Times New Roman" SIZE=4><P ALIGN="JUSTIFY">Introduction</P>
+</U></FONT><FONT FACE="Times New Roman" SIZE=3><P ALIGN="JUSTIFY">This suite tests each API call. These tests are extremely useful for those who are porting the ISDK to other platforms (with an appropriate license from <B>Nombas</B>, of course), to ensure that the port has worked correctly for every calling the API. There is a <I>jsetest.c</I> file, which is included by all tests. Test failure is handled by the </FONT><B><FONT FACE="Times New Roman" SIZE=2>jseTestAssert()</B></FONT><FONT FACE="Times New Roman" SIZE=3> function in <I>jsetest.c</I>. If an API call failed, this function will print out some error message and terminate the program.</P>
+<P ALIGN="JUSTIFY"></P>
+</FONT><U><FONT FACE="Times New Roman" SIZE=4><P ALIGN="JUSTIFY">&nbsp;</P>
+<P ALIGN="JUSTIFY">Porting test suite to your system</P>
+</U></FONT><FONT FACE="Times New Roman" SIZE=3><P ALIGN="JUSTIFY">As mentioned in testecma section, in order to compile any of the tests, you must first link them with a ScriptEase Interpreter Engine library file. The exact steps will vary with the compiler you are using. Your compiler choice and whether or not your target operating system supports DLLs will probably dictate your library file choice. For instance, use the library file, <I>serte41.lib</I> (located in the seisdk\tests\lang\testecma\win32\msvc50\ directory) if you are using Visual C++ on the Windows 95/98 platform and want to use a static library. There are also two directories of headers you need to make available to the compiler: \seisdk\incjse and \seisdk\srcmisc.</P>
+<P ALIGN="JUSTIFY"></P>
+<P ALIGN="JUSTIFY">Next, you have to edit the <I>jseopt.h</I> file, which is included in all of the tests. The <I>jseopt.h</I> file is designed to allow you to configure the SE:ISDK to fit the particulars of your platform and specify the options you choose to use. There are two </FONT><B><FONT FACE="Times New Roman" SIZE=2>#defines</B></FONT><FONT FACE="Times New Roman" SIZE=3> you will need to configure in order to successfully run the tests. The first is your target operating system, which takes the form </FONT><B><FONT FACE="Times New Roman" SIZE=2>&quot;__JSE_XXXXX__&quot;</B></FONT><FONT FACE="Times New Roman" SIZE=3> where </FONT><B><FONT FACE="Times New Roman" SIZE=2>XXXXX</B></FONT><FONT FACE="Times New Roman" SIZE=3> is the platform you are targeting (for example, </FONT><B><FONT FACE="Times New Roman" SIZE=2>__JSE_WIN32__, __JSE_MAC__,</B></FONT><FONT FACE="Times New Roman" SIZE=3> etc. ). The second will be one of the following: </FONT><B><FONT FACE="Times New Roman" SIZE=2>__JSE_LIB__</B></FONT><FONT FACE="Times New Roman" SIZE=3> for the static library version of the interpreter engine, </FONT><B><FONT FACE="Times New Roman" SIZE=2>__JSE_DLLLOAD__</B></FONT><FONT FACE="Times New Roman" SIZE=3> for load-time DLL version, or </FONT><B><FONT FACE="Times New Roman" SIZE=2>__JSE_DLLRUN__</B></FONT><FONT FACE="Times New Roman" SIZE=3> for run-time DLL version. If you are using Microsoft Visual Studio, you may put your options into the project setting as an alternative.</P>
+<P ALIGN="JUSTIFY"></P>
+<P ALIGN="JUSTIFY">Finally, if you want to modify the <I>jsetest.c</I> file. The <I>jsetest.c</I> file holds all of the common code for the tests, which allows you to change the behavior of all the tests in one place. There are two specific functions, which you may need to configure in order to suit your system:</P>
+<P ALIGN="JUSTIFY"></P>
+
+<UL>
+</FONT><B><FONT FACE="Times New Roman" SIZE=2><P ALIGN="JUSTIFY"><LI>jseTestPrintf()</B></FONT><FONT FACE="Times New Roman" SIZE=3> - Output is handled in the </FONT><B><FONT FACE="Times New Roman" SIZE=2>jseTestPrintf()</B></FONT><FONT FACE="Times New Roman" SIZE=3> function. The default behavior of this function is printing to standard output using </FONT><B><FONT FACE="Times New Roman" SIZE=2>printf().</B></FONT><FONT FACE="Times New Roman" SIZE=3> If you wish to change the method for output, alter the body of this function in a way that suits your needs. If you do not want output, then take out the body of this function and leave it blank.</LI></P></UL>
+
+<P ALIGN="JUSTIFY">             </P>
+
+<UL>
+</FONT><B><FONT FACE="Times New Roman" SIZE=2><P ALIGN="JUSTIFY"><LI>jseTestAssert()</B></FONT><FONT FACE="Times New Roman" SIZE=3> - Test failure is handled in the </FONT><B><FONT FACE="Times New Roman" SIZE=2>jseTestAssert()</B></FONT><FONT FACE="Times New Roman" SIZE=3> function. The default behavior of a failed assert is print out an error message using </FONT><B><FONT FACE="Times New Roman" SIZE=2>jseTestPrintf()</B></FONT><FONT FACE="Times New Roman" SIZE=3> and then terminate the program with a call to </FONT><B><FONT FACE="Times New Roman" SIZE=2>exit(EXIT_FAILURE).</B></FONT><FONT FACE="Times New Roman" SIZE=3> You should change the method of termination to work with your system.</LI></P></UL>
+
+<P ALIGN="JUSTIFY"></P>
+</FONT><U><FONT FACE="Times New Roman" SIZE=4><P ALIGN="JUSTIFY">&nbsp;</P>
+<P ALIGN="JUSTIFY">Run test</P>
+</U></FONT><FONT FACE="Times New Roman" SIZE=3><P ALIGN="JUSTIFY">Once you have configured the <I>jseopt.h</I> and <I>jsetest.c</I> files, you are ready to run the tests. Just chose the test you wish to run and then compile and link it. If you want to run all tests at once, just make a batch file to include them all. As described above, the test will report success or failure depending on how you configured the <I>jsetest.c</I> file. </P></FONT></BODY>
+<!--BEGIN_FOOTER--></TD>
+   </TR>
+   <TR>
+    <TD WIDTH=45 VALIGN=BOTTOM><P>
+    <A HREF="#topofpage"><IMG SRC="../../pix/top.gif" ALIGN=BOTTOM WIDTH=40 HEIGHT=27 BORDER=0 VSPACE=0 HSPACE=0></A></TD>
+    <TD WIDTH=21 VALIGN=CENTER>
+    </TD>
+   </TR>
+  </TABLE></BODY></HTML>

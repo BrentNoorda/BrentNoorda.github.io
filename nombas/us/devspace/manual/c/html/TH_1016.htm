@@ -1,0 +1,60 @@
+<html>
+<head>
+<title>DSP.remote</title>
+<link rel="stylesheet" href="semanualstyles.css" type="text/css">
+<style type="text/css">
+ p { margin-top: 0; margin-bottom: 0; }
+</style>
+<script language="JavaScript" src="TrueHelp.js"></script>
+</head>
+<body onload="thload()">
+<div id=ienav>
+<ilayer id=nsnav>
+<br>
+<center>
+<p class=normal><a href="seisdkc-toc.htm" target="left">contents</a> &nbsp; <a href="seisdkc-index.htm" target="left">index</a> &nbsp; <a href="TH_1015.htm">previous</a> &nbsp; next</p>
+</center>
+<br>
+<hr noshade size=1>
+</ilayer>
+</div>
+<p class=sereffunclevel4>DSP.remote</p>
+<table cellpadding=0>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>syntax:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=sesyntax>DSP.remote<span class=truehelp-xe></span></p></td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>description:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>This global property of the DSP object is used to make calls back to the remote client from within a function. When the first DSP object in a script is created, this gets assigned to that value.  From then on, whenever a packet needs to be serviced, this value is set (and later restored) to the object representing the incoming connection.  This allows for multiple connections, and lets the function easily call back the appropriate client.  Note that within a <span class=secodephrase>dspLoad</span> call, the client does not wait for a response, and so trying to call on the client will yield no result until the server is queried again.</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>see:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara><span class=secodephrase>#link &lt;sedsp&gt;</span></p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>example:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=secodelines>//&nbsp;Assume&nbsp;the&nbsp;client&nbsp;calls&nbsp;this:</p>
+<p class=secodelines>serverConn.printRemote("hi");</p>
+<p class=secodelines>//&nbsp;And&nbsp;the&nbsp;server&nbsp;side&nbsp;looks&nbsp;like&nbsp;this:</p>
+<p class=secodelines>function&nbsp;printRemote(&nbsp;string&nbsp;)</p>
+<p class=secodelines>{</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;DSP.remote.Screen.write(&nbsp;string&nbsp;);</p>
+<p class=secodelines>}</p>
+<p class=secodelines>//&nbsp;This&nbsp;will&nbsp;print&nbsp;out&nbsp;"hi"&nbsp;on&nbsp;the&nbsp;client&nbsp;machine</p></td>
+</tr>
+</table>
+<p class=normal>&nbsp;</p>
+<p>
+</body>
+</html>

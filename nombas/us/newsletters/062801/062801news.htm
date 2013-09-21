@@ -1,0 +1,251 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 FINAL//EN">
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=ISO-8859-1">
+<TITLE>ScriptEase ISDK Newsletter</TITLE>
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-1754630-10']);
+  _gaq.push(['_trackPageview']);
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+</HEAD>
+<BODY BGCOLOR="#FFFFFF" LINK="#0000FF" VLINK="#800080" TEXT="#000000" TOPMARGIN=0 LEFTMARGIN=0 MARGINWIDTH=0 MARGINHEIGHT=0>
+    <TABLE BORDER=0 CELLSPACING=0 CELLPADDING=0 WIDTH=640>
+        <TR VALIGN=TOP ALIGN=LEFT>
+            <TD WIDTH=640 HEIGHT=80 ALIGN=LEFT VALIGN=TOP><IMG ID="Picture1" HEIGHT=80 WIDTH=640 SRC="Newsbanner2.jpg" BORDER=0></TD>
+        </TR>
+    </TABLE>
+    <TABLE CELLPADDING=0 CELLSPACING=0 BORDER=0 WIDTH=638>
+        <TR VALIGN=TOP ALIGN=LEFT>
+            <TD>
+                
+      <TABLE BORDER=0 CELLSPACING=0 CELLPADDING=0 WIDTH=180>
+        <TR VALIGN=TOP ALIGN=LEFT> 
+          <TD WIDTH=5 HEIGHT=8><IMG SRC="../../clearpixel.gif" WIDTH=5 HEIGHT=1 BORDER=0></TD>
+          <TD WIDTH=5><IMG SRC="../../clearpixel.gif" WIDTH=5 HEIGHT=1 BORDER=0></TD>
+          <TD WIDTH=164><IMG SRC="../../clearpixel.gif" WIDTH=164 HEIGHT=1 BORDER=0></TD>
+          <TD WIDTH=6><IMG SRC="../../clearpixel.gif" WIDTH=6 HEIGHT=1 BORDER=0></TD>
+        </TR>
+        <TR VALIGN=TOP ALIGN=LEFT> 
+          <TD COLSPAN=4 HEIGHT=14></TD>
+        </TR>
+        <TR VALIGN=TOP ALIGN=LEFT> 
+          <TD COLSPAN=2></TD>
+          <TD WIDTH=164>
+            <P ALIGN=LEFT><B><FONT COLOR="#990000" SIZE="-2" FACE="Verdana,Tahoma,Arial,Helvetica">In 
+              This Issue <BR>
+              <BR>
+              <IMG ID="Picture16" HEIGHT=10 WIDTH=10 SRC="bulletnm.gif" VSPACE=0 HSPACE=0 ALIGN="TOP" BORDER=0> 
+              </FONT></B><FONT SIZE="-2" FACE="Verdana,Tahoma,Arial,Helvetica">&nbsp;</FONT><A HREF="#article1"><FONT SIZE="-2" FACE="Verdana,Tahoma,Arial,Helvetica"> 
+              Dr. Scripter describes debugging tool to analyze internal state 
+              of the SE:ISDK/C engine. </FONT></A><FONT SIZE="-2" FACE="Verdana,Tahoma,Arial,Helvetica"><BR>
+              <BR>
+              <IMG ID="Picture17" HEIGHT=10 WIDTH=10 SRC="bulletnm.gif" VSPACE=0 HSPACE=0 ALIGN="TOP" BORDER=0>&nbsp; 
+              </FONT><A HREF="#errata"><FONT SIZE="-2" FACE="Verdana,Tahoma,Arial,Helvetica">Errata 
+              for 4.30d release.</FONT></A><B><FONT COLOR="#990000" SIZE="-2" FACE="Verdana,Tahoma,Arial,Helvetica"> 
+              </FONT></B>
+            <p><font size="-2" face="Verdana,Tahoma,Arial,Helvetica"><a href="../../devspace/newsletters/index.htm">Other 
+              Newsletters</a></font></p>
+            <P ALIGN=LEFT><B><FONT COLOR="#990000" SIZE="-2" FACE="Verdana,Tahoma,Arial,Helvetica">DevSpace 
+              Developer Support<BR>
+              <BR>
+              </FONT></B><FONT SIZE="-2" FACE="Verdana,Tahoma,Arial,Helvetica">For 
+              more information and resources, </FONT><A
+                             HREF="../../devspace/index.htm"><FONT SIZE="-2" FACE="Verdana,Tahoma,Arial,Helvetica">visit 
+              ScriptEase: ISDK DevSpace online.</FONT></A> 
+            <P ALIGN=LEFT><B><FONT COLOR="#990000" SIZE="-2"
+                             FACE="Verdana,Tahoma,Arial,Helvetica">Download Center<BR>
+              <BR>
+              </FONT></B><FONT SIZE="-2" FACE="Verdana,Tahoma,Arial,Helvetica">For 
+              latest updates and extensions, </FONT><A HREF="http://www.nombasxxx.com/us/toolkit/isdkdownload.htm"><FONT SIZE="-2" FACE="Verdana,Tahoma,Arial,Helvetica">visit 
+              the ISDK Download Center</FONT></A><FONT SIZE="-2"
+                             FACE="Verdana,Tahoma,Arial,Helvetica">. </FONT> 
+          </TD>
+          <TD></TD>
+        </TR>
+      </TABLE>
+            </TD>
+            <TD>
+                <TABLE BORDER=0 CELLSPACING=0 CELLPADDING=0 WIDTH=458>
+                    <TR VALIGN=TOP ALIGN=LEFT>
+                        <TD WIDTH=8 HEIGHT=8><IMG SRC="../../clearpixel.gif" WIDTH=8 HEIGHT=1 BORDER=0></TD>
+                        <TD WIDTH=2><IMG SRC="../../clearpixel.gif" WIDTH=2 HEIGHT=1 BORDER=0></TD>
+                        <TD WIDTH=443><IMG SRC="../../clearpixel.gif" WIDTH=443 HEIGHT=1 BORDER=0></TD>
+                        <TD WIDTH=5><IMG SRC="../../clearpixel.gif" WIDTH=5 HEIGHT=1 BORDER=0></TD>
+                    </TR>
+                    <TR VALIGN=TOP ALIGN=LEFT>
+                        <TD HEIGHT=50></TD>
+                        
+          <TD WIDTH=450 COLSPAN=3 ALIGN=LEFT VALIGN=TOP> 
+            <p><font face="Arial, Helvetica, sans-serif" color="#0E2595" size="4"><b><a name="article1"></a>Help 
+              from JSE_COLLECT_AND_ANALYZE</b></font><br>
+              <font size="2" color="#6699FF" face="Arial, Helvetica, sans-serif"><i>An 
+              in-depth debugging tool for tracking locked memory and objects</i></font></p>
+            </TD>
+                    </TR>
+                    <TR VALIGN=TOP ALIGN=LEFT>
+                        <TD COLSPAN=4 HEIGHT=9></TD>
+                    </TR>
+                    <TR VALIGN=TOP ALIGN=LEFT>
+                        <TD COLSPAN=2></TD>
+                        <TD WIDTH=443>
+            <p ALIGN=LEFT><IMG ID="Picture10" HEIGHT=150 WIDTH=150 SRC="drscripter.jpg" VSPACE=6 HSPACE=2 ALIGN="RIGHT" BORDER=0><FONT COLOR="#000000">In 
+              this month's <I>Dr. Scripter</I>, we discuss a tool for analyzing 
+              the internal state of the ScriptEase engine, its use of memory, 
+              and the hierarchy of locks on all objects and variables. This is 
+              an extremely useful tool when an application is not freeing variables 
+              as expected, or is growing in its use of memory. </FONT> </p>
+            <p ALIGN=LEFT><B><FONT COLOR="#0E2595">Calling JSE_COLLECT_AND_ANALYZE 
+              </FONT></B> </p>
+            <p ALIGN=LEFT> <FONT COLOR="#000000">When compiling without NDEBUG 
+              defined an additional option is available to the jseGarbageCollect 
+              call, which can be called like this:</FONT></p>
+            <pre ALIGN=LEFT> jseGarbageCollect(jsecontext,JSE_COLLECT_AND_ANALYZE)</pre>
+            <p ALIGN=LEFT><FONT COLOR="#000000">When this jseGarbageCollect() 
+              is called, the ScriptEase engine will first run a garbage collection, 
+              and then step through all objects and variables again, in the same 
+              way the garbage collector would, while printing lots of data to 
+              your debug log file (e.g. c:\jsedebug.log on WIN32; see srcmisc/dbgprntf.c 
+              for the location of the debug log file on other systems).</FONT></p>
+            <p ALIGN=LEFT><font color="#000000">This debug log can can now be 
+              examined to learn nearly everything about the state of the ScriptEase 
+              engine, and your script, at that moment.</font></p>
+            <p ALIGN=LEFT><b><font color="#0E2595">Sections of the jse debug log 
+              file </font></b> </p>
+            <p align=LEFT> <font color="#000000"><b>memory use</b>: This section 
+              provides a quick summary of memory used by variables before and 
+              after garbage collection. From this section you can get a quick 
+              overview of how much memory is used overall.</font></p>
+            <p align=LEFT> <b>String Table</b>: This section shows all of the 
+              strings that are used as variable names and properties. If a name 
+              is still in this section, and you don't think that your script should 
+              still be using that name, then some variable is still locked on 
+              to that string.</p>
+            <p align=LEFT><b>OBJECT TREE</b>: The section between &quot;BEGIN 
+              OBJECT TREE&quot; and &quot;END OBJECT TREE&quot; is the bulk of 
+              the debug log file. Indented beneath each object that the garbage 
+              collector would visit are all of the properties of that object, 
+              and indicators of whether that object can be found via another path.</p>
+            <p align=LEFT><b><font color="#0E2595">Help from JSE_COLLECT_AND_ANALYZE 
+              output </font></b> </p>
+            <p align=LEFT> I have found that JSE_COLLECT_AND_ANALYZE output is 
+              most useful when an implementation an script is using more memory 
+              than you expect, or is not releasing some resource when you expect 
+              it to (e.g., you expect the delete method of an object to be called 
+              but it is not). By looking through the OBJECT TREE you can look 
+              for objects that you don't expect to still be there, see were in 
+              the path of garbage collection that object is still locked, and 
+              from there get clues for implementation errors.</p>
+            <p align=LEFT>The most common place for objects to be locked in, when 
+              you expect them to be garbage collected, is when API vars have not 
+              been destroyed. So look for the &quot;API VARS&quot; section to 
+              find listing of such variables. Another common way that variables 
+              are locked is when globals are switched and the old global is still 
+              around.</p>
+            <p align=LEFT><b><font color="#0E2595">How can we improve JSE_COLLECT_AND_ANALYZE? 
+              </font></b> </p>
+            <p align=LEFT> We know how valuable your time is when debugging your 
+              application. And with a language that can be as rich and complex 
+              as ECMAScript, combined with your own applications and object models, 
+              that debugging can become a nightmare. This is why we created the 
+              JSE_COLLECT_AND_ANALYZE tool, and we hope you find it useful.</p>
+            <p align=LEFT>This is just the second pass at this internal analysis 
+              tool. What additional information should appear in this output file? 
+              What other tools should we add to your development arsenal? We appreciate 
+              any suggestion you can give for making this and other tools more 
+              valuable. </p>
+            <p align=LEFT><I><FONT
+                             SIZE="-1" FACE="Verdana,Tahoma,Arial,Helvetica">Have 
+              a question about how to use ScriptEase:ISDK? Let Dr. Scripter know 
+              at </FONT></I><A HREF="../../index.htm"><I><FONT SIZE="-1"
+                             FACE="Verdana,Tahoma,Arial,Helvetica">nombas</FONT></I></A><FONT SIZE="-1" FACE="Verdana,Tahoma,Arial,Helvetica">. 
+              </FONT></p>
+            </TD>
+                        <TD></TD>
+                    </TR>
+                </TABLE>
+            </TD>
+        </TR>
+    </TABLE>
+    
+<TABLE BORDER=0 CELLSPACING=0 CELLPADDING=0 WIDTH=98% align="right">
+  <TR VALIGN=TOP ALIGN=LEFT> 
+    <TD WIDTH=631 HEIGHT=13 colspan="3"> 
+      <p><IMG SRC="../../clearpixel.gif" WIDTH=185 HEIGHT=1 BORDER=0><IMG SRC="../../clearpixel.gif" WIDTH=3 HEIGHT=1 BORDER=0></p>
+      <hr align="center" width="90%">
+      <p><a name="errata"></a> <img id="Picture15" height=30 width=450 src="errata.gif" border=0></p>
+      <p><b><font color="#0E2595" size="-1" face="Verdana,Tahoma,Arial,Helvetica">4.30d 
+        and earlier versions </font></b> </p>
+      <p align=LEFT><font color="#000000"><b>Error with continue in do/while loop</b></font><font color="#000000">: 
+        "continue" statement, when used in a do/while loop, is skipping the while 
+        statement and always going to the top of the loop. This bug and a fix 
+        are described at <a href="../../devspace/errata/isdk/index430.htm#430dcontnowhile">continue_do_while_bug</a> 
+        on the errata web site.</font> 
+      <p align=LEFT><b>locale not supported by Date object</b>: The Date treats 
+        toLocale function the same as the standard string functions (e.g., toLocaleString==toString). 
+        If you need special handling of the toLocale function on the date object 
+        read the <a href="../../devspace/errata/objfunc/index.htm#tolocale">Date 
+        toLocale description and fix</a> on the errata web site. 
+      <p align=LEFT><b>Memory not free when string.replace fails</b>: When the 
+        string.replace encounters an invalid regular expression and (correctly) 
+        reports an error, there is a jseVariable that remains unfreed. <font color="#000000"> 
+        This bug and a fix are described at <a href="../../devspace/errata/isdk/index430.htm#430dstrrepnofree">string.replace 
+        unfreed variable</a> on the errata web site.</font> 
+      <p align=LEFT><b>Date object TimeZone calculations incorrect and inefficient</b>: 
+        The time-zone calculations are inefficient, and on at least one Solaris 
+        system have been incorrect. <font color="#000000"> This problem and a 
+        fix are described at <a href="../../devspace/errata/objfunc/index.htm#ftimetz">Date 
+        object TimeZone</a> on the errata web site.</font> 
+      <p align=LEFT><font color="#000000"><b>Further support for browser-style 
+        HTML comments</b>: HTML browsers support more comment styles than standard 
+        ECMAScript. With JSE_HTML_COMMENT_STYLE defined the SE:ISDK engine has 
+        long recognized the &quot;&lt;!--&quot; style comment. With the changes 
+        described on the <a href="../../devspace/errata/isdk/index430.htm#430dhtmlend">JSE_HTML_COMMENT_STYLE 
+        too strict</a> link on the errata page, the compiler will now recognizes 
+        &quot;--&gt;&quot; as an end-comment.</font> 
+      <p align=LEFT><b>string.lastIndexOf incorrect for offset &lt; 0</b>: If 
+        the second parameter (offset) to string.lastIndexOf is negative the interpreter 
+        should default to zero, but is instead defaulting to -1. <font color="#000000">This 
+        bug and a fix are described at <a href="../../devspace/errata/objfunc/index.htm#lastindexofneg">string.lastIndexOf 
+        invalid negative</a> link on the errata web site.</font> 
+      <p align=LEFT><b>string.replace always converting to regular expression</b>: 
+        String.prototype.replace() is always converting the first argument to 
+        a regular expression. This is not correct. It should convert to a string 
+        on any parameter that is not already a regular expression object. <font color="#000000">This 
+        bug and a fix are described at <a href="../../devspace/errata/objfunc/index.htm#strrepreg">string.replace 
+        always RegExp</a> link on the errata web site.</font>
+      </TD>
+    <TD WIDTH=4><IMG SRC="../../clearpixel.gif" WIDTH=4 HEIGHT=1 BORDER=0></TD>
+    <TD WIDTH=5><IMG SRC="../../clearpixel.gif" WIDTH=5 HEIGHT=1 BORDER=0></TD>
+  </TR>
+  <TR VALIGN=TOP ALIGN=LEFT> 
+    <TD HEIGHT=30></TD>
+    <TD WIDTH=450 COLSPAN=3 ALIGN=LEFT VALIGN=TOP>&nbsp;</TD>
+    <TD></TD>
+  </TR>
+  <TR VALIGN=TOP ALIGN=LEFT> 
+    <TD COLSPAN=5 HEIGHT=8></TD>
+  </TR>
+  <TR VALIGN=TOP ALIGN=LEFT> 
+    <TD COLSPAN=2></TD>
+    <TD WIDTH=443>&nbsp;</TD>
+    <TD COLSPAN=2></TD>
+  </TR>
+  <TR VALIGN=TOP ALIGN=LEFT> 
+    <TD COLSPAN=5 HEIGHT=9></TD>
+  </TR>
+  <TR VALIGN=TOP ALIGN=LEFT> 
+    <TD WIDTH=640 HEIGHT=30 COLSPAN=5 ALIGN=LEFT VALIGN=TOP><IMG ID="Picture9" HEIGHT=30 WIDTH=640 SRC="a_Footer.jpg" BORDER=0 ALT="ScriptEase: ISDK is a product of Nombas, Inc. Visit us at ../../index.htm" USEMAP="#map33"><MAP
+                 NAME="map33">
+        <AREA SHAPE=RECT ALT="" COORDS="396,4,530,25" HREF="../../index.htm">
+      </MAP></TD>
+  </TR>
+</TABLE>
+</BODY>
+</HTML>
+ 

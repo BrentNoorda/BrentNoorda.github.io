@@ -1,0 +1,46 @@
+<html>
+<head>
+<title>MAIN DEBUG MODE</title>
+<link rel="stylesheet" href="semanualstyles.css" type="text/css">
+<style type="text/css">
+ p { margin-top: 0; margin-bottom: 0; }
+</style>
+<script language="JavaScript" src="TrueHelp.js"></script>
+</head>
+<body onload="thload()">
+<div id=ienav>
+<ilayer id=nsnav>
+<br>
+<center>
+<p class=normal><a href="seisdkc-toc.htm" target="left">contents</a> &nbsp; <a href="seisdkc-index.htm" target="left">index</a> &nbsp; <a href="TH_204.htm">previous</a> &nbsp; <a href="TH_206.htm">next</a></p>
+</center>
+<br>
+<hr noshade size=1>
+</ilayer>
+</div>
+<p class=heading-3>MAIN DEBUG MODE</p>
+<p class=heading-3-p>&nbsp;</p>
+<p class=senormalpara>This is the main loop of the debugging session. It continues until the session is ended by either side closing their socket or by the debugger sending the <span class=secodephrase>QUIT</span> command. The debugger is always in control, sending a single command at a time for the application to execute. The application always gives a response to each command. If the command is not understood, it results in a <span class=secodephrase>DENIED</span> response.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>Note that it is possible to not use the <span class=secodephrase>GO</span> command described below and the various breakpoint commands that go along with it. This could be done by using <span class=secodephrase>STEP</span> only and making the checks yourself in the debugger. This is strongly discouraged. Experimentation has shown that the speed penalty is enormous.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<hr noshade size=1>
+<p class=normal><a href="TH_206.htm"><img src="button.png" border=0></a><a href="TH_206.htm" style="text-decoration:none;">REPORT</a></p>
+<p class=normal><a href="TH_207.htm"><img src="button.png" border=0></a><a href="TH_207.htm" style="text-decoration:none;">SEND FILE filename</a></p>
+<p class=normal><a href="TH_208.htm"><img src="button.png" border=0></a><a href="TH_208.htm" style="text-decoration:none;">CLEAR BREAKPOINTS</a></p>
+<p class=normal><a href="TH_209.htm"><img src="button.png" border=0></a><a href="TH_209.htm" style="text-decoration:none;">BREAKPOINT ADD/REMOVE filename:line-number</a></p>
+<p class=normal><a href="TH_210.htm"><img src="button.png" border=0></a><a href="TH_210.htm" style="text-decoration:none;">EXPR ADD expression</a></p>
+<p class=normal><a href="TH_211.htm"><img src="button.png" border=0></a><a href="TH_211.htm" style="text-decoration:none;">EXPR REMOVE #number</a></p>
+<p class=normal><a href="TH_212.htm"><img src="button.png" border=0></a><a href="TH_212.htm" style="text-decoration:none;">GO number</a></p>
+<p class=normal><a href="TH_213.htm"><img src="button.png" border=0></a><a href="TH_213.htm" style="text-decoration:none;">STEP</a></p>
+<p class=normal><a href="TH_214.htm"><img src="button.png" border=0></a><a href="TH_214.htm" style="text-decoration:none;">TEST BREAKPOINT filename:line-number</a></p>
+<p class=normal><a href="TH_215.htm"><img src="button.png" border=0></a><a href="TH_215.htm" style="text-decoration:none;">EVAL expression</a></p>
+<p class=normal><a href="TH_216.htm"><img src="button.png" border=0></a><a href="TH_216.htm" style="text-decoration:none;">GET object index</a></p>
+<p class=normal><a href="TH_217.htm"><img src="button.png" border=0></a><a href="TH_217.htm" style="text-decoration:none;">STRING object index</a></p>
+<p class=normal><a href="TH_218.htm"><img src="button.png" border=0></a><a href="TH_218.htm" style="text-decoration:none;">VARNAME object index</a></p>
+<p class=normal><a href="TH_219.htm"><img src="button.png" border=0></a><a href="TH_219.htm" style="text-decoration:none;">STACK index</a></p>
+<p class=normal><a href="TH_220.htm"><img src="button.png" border=0></a><a href="TH_220.htm" style="text-decoration:none;">RELEASE #object-id</a></p>
+<p class=normal><a href="TH_221.htm"><img src="button.png" border=0></a><a href="TH_221.htm" style="text-decoration:none;">QUIT</a></p>
+<p>
+</body>
+</html>

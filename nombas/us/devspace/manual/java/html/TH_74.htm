@@ -1,0 +1,36 @@
+<html>
+<head>
+<title>interface: SEFileLocation</title>
+<link rel="stylesheet" href="semanualstyles.css" type="text/css">
+<style type="text/css">
+ p { margin-top: 0; margin-bottom: 0; }
+</style>
+<script language="JavaScript" src="TrueHelp.js"></script>
+</head>
+<body onload="thload()">
+<div id=ienav>
+<ilayer id=nsnav>
+<br>
+<center>
+<p class=normal><a href="seisdkj-toc.htm" target="left">contents</a> &nbsp; <a href="seisdkj-index.htm" target="left">index</a> &nbsp; <a href="TH_73.htm">previous</a> &nbsp; <a href="TH_75.htm">next</a></p>
+</center>
+<br>
+<hr noshade size=1>
+</ilayer>
+</div>
+<p class=heading-3>interface: SEFileLocation</p>
+<p class=heading-3-p>&nbsp;</p>
+<p class=secodelinesindented><span class=secodephrase>public&nbsp;String&nbsp;seFileFindFunc(SEContext&nbsp;se,String&nbsp;fileName,</span></p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;boolean&nbsp;findLink);</p>
+<p class=secodelinesindented>&nbsp;</p>
+<p class=senormalpara>The <span class=secodephrase>seFileFindFunc</span> is used used by ScriptEase when looking for source files. The filenames being looked for are the filenames passed to the <span class=secodephrase>#include</span> and <span class=secodephrase>#link</span> directives. The parameter <span class=secodephrase>findLink </span>tells you which kind if being looked for: <span class=secodephrase>true</span> for a <span class=secodephrase>#link</span> extlib, <span class=secodephrase>false</span> for a <span class=secodephrase>#include</span> include file.  (Note: the #link directive is not currently implemented for Java, so this parameter should always be <span class=secodephrase>false.</span>)</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>If you do not implement this interface, then files are looked for directly, meaning that the filename given must appear exactly as specified in the current directory. By implementing this function, you can handle looking for these files with various extensions in various directories. You are passed <span class=secodephrase>fileName</span>, the file to be looked for. This is the text that appears in the directive exactly as the user entered it. You return a string containing the translated filename if the file was found.  Return <span class=secodephrase>null</span> if the file could not be found.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>&nbsp;</p>
+<p class=senormalpara-p>&nbsp;</p>
+<hr noshade size=1>
+<p class=normal><a href="TH_75.htm"><img src="button.png" border=0></a><a href="TH_75.htm" style="text-decoration:none;">interface: SEGetSourceFunction</a></p>
+<p>
+</body>
+</html>

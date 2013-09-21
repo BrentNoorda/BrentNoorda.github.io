@@ -1,0 +1,62 @@
+<html>
+<head>
+<title>SimpleDataset object</title>
+<link rel="stylesheet" href="semanualstyles.css" type="text/css">
+<style type="text/css">
+ p { margin-top: 0; margin-bottom: 0; }
+</style>
+<script language="JavaScript" src="TrueHelp.js"></script>
+</head>
+<body onload="thload()">
+<div id=ienav>
+<ilayer id=nsnav>
+<br>
+<center>
+<p class=normal><a href="seisdkc-toc.htm" target="left">contents</a> &nbsp; <a href="seisdkc-index.htm" target="left">index</a> &nbsp; <a href="TH_1108.htm">previous</a> &nbsp; <a href="TH_1110.htm">next</a></p>
+</center>
+<br>
+<hr noshade size=1>
+</ilayer>
+</div>
+<p class=heading-3>SimpleDataset object</p>
+<p class=heading-3-p>&nbsp;</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;title:&nbsp;SimpleDataset&nbsp;object</p>
+<p class=secodelinesindented>platform:&nbsp;Win32;&nbsp;all&nbsp;versions&nbsp;of&nbsp;SE</p>
+<p class=secodelinesindented>&nbsp;&nbsp;source:&nbsp;#include&nbsp;&lt;smdtset.jsh&gt;</p>
+<p class=normal>&nbsp;</p>
+<p class=senormalpara>A SimpleDataset object is an easy-to-use database-access object that combines database and cursor functionality into a single object.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>SimpleDataset is a JavaScript class that combines the concept of a table and a cursor into a single, easy-to-use object.  No more than one table may be represented by a SimpleDataset, so inserting items into the dataset doesn't require a target table to be specified.  SQL is not needed to use a SimpleDataset and all operations can be performed through simple method calls.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>When a SimpleDataset is created, it initially contains all of the rows ("records") in the specified table.  The find() method allows this set to be reduced to only those records that match specified templates.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>A SimpleDataset has the notion of the "current record".  This is the record that SimpleDataset operations will affect.  When the SimpleDataset is first created, the current record is the record "before" the first record, and is thus <span class=secodephrase>undefined</span>.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>Use the firstRecord(), lastRecord(), nextRecord(), and prevRecord() methods, to step through the records in the SimpleDataset.  The current record is returned by currentRecord().  The objects returned by these routines have one property for each of the current record's fields.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>The current record can be deleted using deleteRecord(). All items in the dataset can be deleted by deleteAll().</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>Records can be inserted into the table of the SimpleDataset by insertRecord().  The "current" record can be replaced by a specified record using replaceRecord().</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>A Cursor object representing the SimpleDataset can be obtained by using the cursor() method.  It may be necessary to use this to perform more powerful operations on the dataset.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>Although the SimpleDataset can be closed through its close() method, it is automatically closed when the object goes out of scope.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>Using the SimpleDataset object, the following five-line script can be used to print out the contents of a database:</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=secodelinesindented>function&nbsp;print_all(db,&nbsp;table,&nbsp;user,&nbsp;passwd)</p>
+<p class=secodelinesindented>{</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;var&nbsp;ds&nbsp;=&nbsp;new&nbsp;SimpleDataset(db,&nbsp;table,&nbsp;user,&nbsp;passwd);</p>
+<p class=secodelinesindented>&nbsp;</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;while(var&nbsp;rec&nbsp;=&nbsp;ds.nextRecord())</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;for(var&nbsp;prop&nbsp;in&nbsp;rec)</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Screen.writeln(prop&nbsp;+&nbsp;"&nbsp;=&nbsp;"&nbsp;+&nbsp;rec[prop]);</p>
+<p class=secodelinesindented>&nbsp;</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;ds.close();</p>
+<p class=secodelinesindented>}</p>
+<p class=secodelinesindented>&nbsp;</p>
+<hr noshade size=1>
+<p class=normal><a href="TH_1110.htm"><img src="button.png" border=0></a><a href="TH_1110.htm" style="text-decoration:none;">SimpleDataset instance methods</a></p>
+<p>
+</body>
+</html>

@@ -1,0 +1,86 @@
+<html>
+<head>
+<title>Function apply()</title>
+<link rel="stylesheet" href="semanualstyles.css" type="text/css">
+<style type="text/css">
+ p { margin-top: 0; margin-bottom: 0; }
+</style>
+<script language="JavaScript" src="TrueHelp.js"></script>
+</head>
+<body onload="thload()">
+<div id=ienav>
+<ilayer id=nsnav>
+<br>
+<center>
+<p class=normal><a href="seisdkj-toc.htm" target="left">contents</a> &nbsp; <a href="seisdkj-index.htm" target="left">index</a> &nbsp; <a href="TH_696.htm">previous</a> &nbsp; <a href="TH_698.htm">next</a></p>
+</center>
+<br>
+<hr noshade size=1>
+</ilayer>
+</div>
+<p class=sereffunclevel4>Function apply()</p>
+<table cellpadding=0>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>syntax:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=sesyntax>function.apply(<span class=truehelp-xe></span>[thisObj[,&nbsp;arguments])</p></td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>where:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>thisObj - object that will be used as the "this" variable while calling this function.  If this is not supplied, then the global object is used instead.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>arguments - array of arguments to pass to the function as an Array object or a list in the form of [arg1, arg2[, ...]]. The brackets "[]" around a list of arguments are required. Note that the similar method <span class=sepopuptopic><a href="TH_698.htm" onClick="return thwindow('TH_698.htm', 'GenPopup')">Function call()</a></span> can receive the same arguments as a list. Compare the following ways of passing arguments:</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;//&nbsp;Uses&nbsp;an&nbsp;Array&nbsp;object</p>
+<p class=secodelinesindented>function.apply(this,&nbsp;argArray)</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;//&nbsp;Uses&nbsp;brackets</p>
+<p class=secodelinesindented>function.apply(this,[arg1,arg2])</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;//&nbsp;Uses&nbsp;argument&nbsp;list</p>
+<p class=secodelinesindented>function.call(this,arg1,arg2)</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>return:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>variable - the result of calling the function object with the specified "this" variable and arguments.</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>description:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>This method is similar to calling the function directly, only the user is able to pass a variable to use as the "this" variable, and the arguments to the function are passed as an array.  If <span class=secodephrase>arguments</span> is not supplied, then no arguments are passed to the function.  If the <span class=secodephrase>arguments</span> parameter is not a valid Array object or list of arguments inside of brackets "[]", then a runtime error is generated.</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>see:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara><span class=sejumptopic><a href="TH_696.htm">Function()</a></span>, <span class=sejumptopic><a href="TH_698.htm">Function call()</a></span></p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>example:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=secodelines>var&nbsp;myFunction&nbsp;=&nbsp;new&nbsp;Function("a,b","return&nbsp;a&nbsp;+&nbsp;b");</p>
+<p class=secodelines>var&nbsp;args&nbsp;=&nbsp;new&nbsp;Array(4,5);</p>
+<p class=secodelines>myFunction.apply(global,&nbsp;args);</p>
+<p class=secodelines>&nbsp;&nbsp;//or</p>
+<p class=secodelines>myFunction.apply(global,&nbsp;[4,5]);</p>
+<p class=secodelines>&nbsp;</p>
+<p class=secodelines>//&nbsp;This&nbsp;code&nbsp;sample&nbsp;will&nbsp;return&nbsp;9,&nbsp;which&nbsp;is</p>
+<p class=secodelines>//&nbsp;the&nbsp;result&nbsp;of&nbsp;calling&nbsp;myFunction&nbsp;with</p>
+<p class=secodelines>//&nbsp;the&nbsp;arguments&nbsp;4&nbsp;and&nbsp;5,&nbsp;from&nbsp;the&nbsp;args&nbsp;array.</p></td>
+</tr>
+</table>
+<p class=normal>&nbsp;</p>
+<hr noshade size=1>
+<p class=normal><a href="TH_698.htm"><img src="button.png" border=0></a><a href="TH_698.htm" style="text-decoration:none;">Function call()</a></p>
+<p>
+</body>
+</html>

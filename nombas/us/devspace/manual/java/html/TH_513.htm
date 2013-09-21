@@ -1,0 +1,80 @@
+<html>
+<head>
+<title>Clib.freopen()</title>
+<link rel="stylesheet" href="semanualstyles.css" type="text/css">
+<style type="text/css">
+ p { margin-top: 0; margin-bottom: 0; }
+</style>
+<script language="JavaScript" src="TrueHelp.js"></script>
+</head>
+<body onload="thload()">
+<div id=ienav>
+<ilayer id=nsnav>
+<br>
+<center>
+<p class=normal><a href="seisdkj-toc.htm" target="left">contents</a> &nbsp; <a href="seisdkj-index.htm" target="left">index</a> &nbsp; <a href="TH_512.htm">previous</a> &nbsp; <a href="TH_514.htm">next</a></p>
+</center>
+<br>
+<hr noshade size=1>
+</ilayer>
+</div>
+<p class=sereffunclevel4>Clib.freopen()</p>
+<table cellpadding=0>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>syntax:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=sesyntax>Clib.freopen(<span class=truehelp-xe></span>filename,&nbsp;mode,&nbsp;filePointer)</p></td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>where:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>filename - a string with a filename to open.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>mode - how or for what operations the file will be opened.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>filePointer - pointer to file to use.</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>return:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>number - file pointer on success, else <span class=secodephrase>null</span>.</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>description:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>This method closes the file associated with filePointer, ignoring any close errors, opens filename according to mode, as with <span class=sepopuptopic><a href="TH_502.htm" onClick="return thwindow('TH_502.htm', 'GenPopup')">Clib.fopen()</a></span>, and reassociates filePointer with the new file specification. This method is commonly used to redirect one of the pre-defined file handles (<span class=secodephrase>stdout</span>, <span class=secodephrase>stderr</span>, or <span class=secodephrase>stdin</span>) to or from a file.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>The method returns a copy of the modified filePointer, or <span class=secodephrase>null</span> if it fails.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>The example code calls ScriptEase for DOS with no parameters, which causes a help screen to be printed, and redirects <span class=secodephrase>stdout</span> to a file <i>cenvi.out</i> so that <i>cenvi.out</i> will contain the text of the ScriptEase help screens.</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>see:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara><span class=sejumptopic><a href="TH_502.htm">Clib.fopen()</a></span></p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>example:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=secodelines>if&nbsp;(&nbsp;null&nbsp;==&nbsp;Clib.freopen("cenvi.out",&nbsp;"w",&nbsp;stdout)&nbsp;)&nbsp;</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;Clib.printf("Error&nbsp;redirecting&nbsp;stdout\a\n")</p>
+<p class=secodelines>else&nbsp;</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;Clib.system("SEDOS");</p></td>
+</tr>
+</table>
+<p class=normal>&nbsp;</p>
+<hr noshade size=1>
+<p class=normal><a href="TH_514.htm"><img src="button.png" border=0></a><a href="TH_514.htm" style="text-decoration:none;">Clib.fscanf()</a></p>
+<p>
+</body>
+</html>

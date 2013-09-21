@@ -1,0 +1,33 @@
+<html>
+<head>
+<title>inteface: SEGetByIndexCallback</title>
+<link rel="stylesheet" href="semanualstyles.css" type="text/css">
+<style type="text/css">
+ p { margin-top: 0; margin-bottom: 0; }
+</style>
+<script language="JavaScript" src="TrueHelp.js"></script>
+</head>
+<body onload="thload()">
+<div id=ienav>
+<ilayer id=nsnav>
+<br>
+<center>
+<p class=normal><a href="seisdkj-toc.htm" target="left">contents</a> &nbsp; <a href="seisdkj-index.htm" target="left">index</a> &nbsp; <a href="TH_201.htm">previous</a> &nbsp; <a href="TH_203.htm">next</a></p>
+</center>
+<br>
+<hr noshade size=1>
+</ilayer>
+</div>
+<p class=heading-3>inteface: SEGetByIndexCallback</p>
+<p class=heading-3-p>&nbsp;</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;public&nbsp;boolean&nbsp;getByIndex(SEContext&nbsp;se,int&nbsp;index);</p>
+<p class=secodelines>&nbsp;</p>
+<p class=senormalpara>This callback is used to get an object member's value by index. This will be used solely by the ScriptEase API when a programmer is trying to iterate the members of your dynamic object. There is no hint as there is no way to know how the programmer intends to use the retrieved value. Return <span class=secodephrase>false</span> if you have no such indexed member. </p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>In order to implement this routine correctly, you need to internally order the members of your dynamic object in a consistent way. A person will be using this routine to iterate all of your members, from 0 on up. You must return each member once only and always in the same index. It is only permissible to reorganize the members if a member is added or removed. Return the member in the <span class=secodephrase>SE.RETURN</span> object.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<hr noshade size=1>
+<p class=normal><a href="TH_203.htm"><img src="button.png" border=0></a><a href="TH_203.htm" style="text-decoration:none;">interface: SEGetNameByIndexCallback</a></p>
+<p>
+</body>
+</html>

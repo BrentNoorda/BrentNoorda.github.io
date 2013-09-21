@@ -1,0 +1,37 @@
+<html>
+<head>
+<title>REPORT</title>
+<link rel="stylesheet" href="semanualstyles.css" type="text/css">
+<style type="text/css">
+ p { margin-top: 0; margin-bottom: 0; }
+</style>
+<script language="JavaScript" src="TrueHelp.js"></script>
+</head>
+<body onload="thload()">
+<div id=ienav>
+<ilayer id=nsnav>
+<br>
+<center>
+<p class=normal><a href="seisdkc-toc.htm" target="left">contents</a> &nbsp; <a href="seisdkc-index.htm" target="left">index</a> &nbsp; <a href="TH_205.htm">previous</a> &nbsp; <a href="TH_207.htm">next</a></p>
+</center>
+<br>
+<hr noshade size=1>
+</ilayer>
+</div>
+<p class=heading-4>REPORT</p>
+<p class=senormalpara>This is the main debugger status command. The application responds with one of these two:</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=secodelinesindented>LOCATION&nbsp;filename:line-number&nbsp;DEPTH&nbsp;depth</p>
+<p class=secodelinesindented>DEPTH&nbsp;0</p>
+<p class=secodelinesindented>&nbsp;</p>
+<p class=senormalpara>Note that depth 0 represents being outside of a script. In the first instance, depth will never be 0. When the script reaches its end, the depth will be 0. If the debugger find the depth to be 0 on the first call, it means the script had a syntax error in it. See <span class=secodephrase>GET/STRING</span> below to retrieve error messages.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>Often, the debugger will follow up this command with a <span class=secodephrase>SEND FILE</span> command if the given filename is one it has not seen before. The <span class=secodephrase>REPORT</span> command is typically issued when the connection first begins then right after any of the <span class=secodephrase>GO/STEP</span> commands listed below. However, the debugger may use this command more frequently in development to ensure it is properly keeping itself in sync. It can issue this command and check against its internal records and, if they don't match, the debugger has a problem.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>If the filename contains spaces, it must be enclosed in quotes (i.e. <span class=secodephrase>"filename"</span>).</p>
+<p class=senormalpara-p>&nbsp;</p>
+<hr noshade size=1>
+<p class=normal><a href="TH_207.htm"><img src="button.png" border=0></a><a href="TH_207.htm" style="text-decoration:none;">SEND FILE filename</a></p>
+<p>
+</body>
+</html>

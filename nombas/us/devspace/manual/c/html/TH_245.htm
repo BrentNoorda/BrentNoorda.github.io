@@ -1,0 +1,33 @@
+<html>
+<head>
+<title>FUNCTION GLOBALS</title>
+<link rel="stylesheet" href="semanualstyles.css" type="text/css">
+<style type="text/css">
+ p { margin-top: 0; margin-bottom: 0; }
+</style>
+<script language="JavaScript" src="TrueHelp.js"></script>
+</head>
+<body onload="thload()">
+<div id=ienav>
+<ilayer id=nsnav>
+<br>
+<center>
+<p class=normal><a href="seisdkc-toc.htm" target="left">contents</a> &nbsp; <a href="seisdkc-index.htm" target="left">index</a> &nbsp; <a href="TH_244.htm">previous</a> &nbsp; <a href="TH_246.htm">next</a></p>
+</center>
+<br>
+<hr noshade size=1>
+</ilayer>
+</div>
+<p class=heading-2>FUNCTION GLOBALS</p>
+<p class=heading-2-p>&nbsp;</p>
+<p class=normal>One ScriptEase feature that you should keep in mind is that all functions remember the global object in effect when they are created and use that as their own global object when called. A script file, especially header files, may be self-contained packages that add functions and variables to the global object in initialization. Those functions cannot work if they are run under a different global object, they need their global object in which their definitions are stored. Therefore, specifying a different global object for a function to run under has no effect, because it is changed back when the function is actually run.</p>
+<p class=normal>If you'd like to turn off this behavior, you can use define:</p>
+<p class=secodelinesindented>&nbsp;</p>
+<p class=secodelinesindented>#define&nbsp;JSE_MULTIPLE_GLOBAL&nbsp;0</p>
+<p class=secodelinesindented>&nbsp;</p>
+<p class=normal>in your jseopt.h file. Be warned, doing so may make script function libraries written by other people incompatible with your application.</p>
+<hr noshade size=1>
+<p class=normal><a href="TH_246.htm"><img src="button.png" border=0></a><a href="TH_246.htm" style="text-decoration:none;">SCOPING</a></p>
+<p>
+</body>
+</html>

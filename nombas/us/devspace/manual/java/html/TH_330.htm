@@ -1,0 +1,43 @@
+<html>
+<head>
+<title>Composite data types</title>
+<link rel="stylesheet" href="semanualstyles.css" type="text/css">
+<style type="text/css">
+ p { margin-top: 0; margin-bottom: 0; }
+</style>
+<script language="JavaScript" src="TrueHelp.js"></script>
+</head>
+<body onload="thload()">
+<div id=ienav>
+<ilayer id=nsnav>
+<br>
+<center>
+<p class=normal><a href="seisdkj-toc.htm" target="left">contents</a> &nbsp; <a href="seisdkj-index.htm" target="left">index</a> &nbsp; <a href="TH_329.htm">previous</a> &nbsp; <a href="TH_331.htm">next</a></p>
+</center>
+<br>
+<hr noshade size=1>
+</ilayer>
+</div>
+<p class=heading-3>Composite data types</p>
+<p class=heading-3-p>&nbsp;</p>
+<p class=senormalpara>Whereas primitive types are passed by value, composite types are <span class=truehelp-xe></span>passed by reference<span class=truehelp-xe></span>. When a composite type is assigned to a variable or passed to a parameter, only a reference that points to its data is passed. The following fragment illustrates:</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=secodelinesindented>var&nbsp;AnObj&nbsp;=&nbsp;new&nbsp;Object;</p>
+<p class=secodelinesindented>AnObj.name&nbsp;=&nbsp;"Joe";</p>
+<p class=secodelinesindented>AnObj.old&nbsp;=&nbsp;ReturnName(AnObj)</p>
+<p class=secodelinesindented>&nbsp;</p>
+<p class=secodelinesindented>function&nbsp;ReturnName(CurObj)</p>
+<p class=secodelinesindented>{</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;return&nbsp;CurObj.name</p>
+<p class=secodelinesindented>}</p>
+<p class=secodelinesindented>&nbsp;</p>
+<p class=senormalpara>After the object AnObj is created, the string "Joe" is assigned, by value since a property is a variable within an Object, to the property AnObj.name. Two copies of the string "Joe" exist. When AnObj is passed to the function ReturnName, it is passed by reference. CurObj does not receive a copy of the Object, but only a reference to the Object. With this reference, CurObj can access every property and method of the original. If CurObj.name were to be changed while the function was executing, then AnObj.name would be changed at the same time. When AnObj.old receives the return from the function, the return is assigned by value, and a copy of the string "Joe" transferred to the property. Thus, AnObj holds two copies of the string "Joe": one in the property .name and one in the property .old. Three total copies of "Joe" exist, counting the original string literal.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>The composite data types are: Object and Array.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<hr noshade size=1>
+<p class=normal><a href="TH_331.htm"><img src="button.png" border=0></a><a href="TH_331.htm" style="text-decoration:none;">Object type</a></p>
+<p class=normal><a href="TH_332.htm"><img src="button.png" border=0></a><a href="TH_332.htm" style="text-decoration:none;">Array type</a></p>
+<p>
+</body>
+</html>

@@ -1,0 +1,78 @@
+<html>
+<head>
+<title>SElib.suspend()</title>
+<link rel="stylesheet" href="semanualstyles.css" type="text/css">
+<style type="text/css">
+ p { margin-top: 0; margin-bottom: 0; }
+</style>
+<script language="JavaScript" src="TrueHelp.js"></script>
+</head>
+<body onload="thload()">
+<div id=ienav>
+<ilayer id=nsnav>
+<br>
+<center>
+<p class=normal><a href="seisdkj-toc.htm" target="left">contents</a> &nbsp; <a href="seisdkj-index.htm" target="left">index</a> &nbsp; <a href="TH_836.htm">previous</a> &nbsp; <a href="TH_838.htm">next</a></p>
+</center>
+<br>
+<hr noshade size=1>
+</ilayer>
+</div>
+<p class=sereffunclevel4>SElib.suspend()</p>
+<table cellpadding=0>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>syntax:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=sesyntax>SElib.suspend(milliSeconds)</p></td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>where:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>milliSeconds - a number, the time in thousandths of a second to suspend program execution. </p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>return:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>void.</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>description:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>Suspends script or program execution for the time interval specified in milliSeconds. The next statement in a script will execute at the end of the delay.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>True accuracy to the exact millisecond is not guaranteed and is only closely approximated according to the accuracy provided by the underlying operating system. This method allows a computer to devote more time to other processes and can be used to give the processor time to complete other tasks before calling the next line in a script.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>The example below spawns a copy of Windows Notepad, puts the date and time into the document by simulating the selection of Time/Date from the Edit menu, and then displays the line "You asked for the time?". The <span class=secodephrase>SElib.suspend()</span> method gives the processor time to finish completing the menu command before entering the text into Notepad. If Keystroke() were called immediately after the call to MenuCommand(), the text would be sent to Notepad while the menu item was still being selected and would be garbled. </p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>see:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara><span class=sejumptopic><a href="TH_834.htm">SElib.spawn()</a></span>, <span class=sejumptopic><a href="TH_482.htm">Clib.ctime()</a></span>, <span class=sejumptopic><a href="TH_631.htm">Date object</a></span></p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>example:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=secodelines>#include&nbsp;&lt;menuctrl.jsh&gt;</p>
+<p class=secodelines>#include&nbsp;&lt;keypush.jsh&gt;</p>
+<p class=secodelines>var&nbsp;hWnd&nbsp;=&nbsp;SElib.spawn(P_NOWAIT,&nbsp;"notepad.exe");</p>
+<p class=secodelines>MenuCommand(hWnd,&nbsp;"Edit|Time");</p>
+<p class=secodelines>SElib.suspend(300);</p>
+<p class=secodelines>KeyStroke("\nYou&nbsp;asked&nbsp;for&nbsp;the&nbsp;time?");</p></td>
+</tr>
+</table>
+<p class=normal>&nbsp;</p>
+<hr noshade size=1>
+<p class=normal><a href="TH_838.htm"><img src="button.png" border=0></a><a href="TH_838.htm" style="text-decoration:none;">SElib.version()</a></p>
+<p>
+</body>
+</html>

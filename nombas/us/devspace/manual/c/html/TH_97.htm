@@ -1,0 +1,57 @@
+<html>
+<head>
+<title>Appendix 2: Using Wrapper.jse</title>
+<link rel="stylesheet" href="semanualstyles.css" type="text/css">
+<style type="text/css">
+ p { margin-top: 0; margin-bottom: 0; }
+</style>
+<script language="JavaScript" src="TrueHelp.js"></script>
+</head>
+<body onload="thload()">
+<div id=ienav>
+<ilayer id=nsnav>
+<br>
+<center>
+<p class=normal><a href="seisdkc-toc.htm" target="left">contents</a> &nbsp; <a href="seisdkc-index.htm" target="left">index</a> &nbsp; previous &nbsp; next</p>
+</center>
+<br>
+<hr noshade size=1>
+</ilayer>
+</div>
+<p class=heading-2>Appendix 2: Using Wrapper.jse</p>
+<p class=heading-2-p>&nbsp;</p>
+<p class=senormalpara>The <span class=secodephrase>wrapper.jse</span> script is a tool that generates ScriptEase wrapper functions to wrap C functions defined in a C header file. This is a quick and easy way to allow scripts to access your application's capabilities.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>You need a C header that describes all of the functions you'd like to make wrappers for. You may have multiple headers and use <span class=secodephrase>wrapper.jse</span> on each individually. Note that each header can include other headers, and those will not be wrapped. For instance, you may include <span class=secodephrase>windows.h</span> to get needed defines, and <span class=secodephrase>wrapper.jse</span> won't try to write wrappers for lots of Windows functions.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>If your application relies on any <span class=secodephrase>#define</span>s to properly parse its headers, you must provide a file with those defines in it and pass that filename as a parameter. Here is an example file of definitions you might need:</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=secodelinesindented>//&nbsp;mydefines.h:</p>
+<p class=secodelinesindented>#define&nbsp;WIN32&nbsp;1</p>
+<p class=secodelinesindented>#define&nbsp;MY_APP_THINGEE&nbsp;1</p>
+<p class=secodelinesindented>&nbsp;</p>
+<p class=senormalpara>to tell <span class=secodephrase>wrapper.jse</span> to use it, add the parameter</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara><span class=secodephrase>-defines mydefines.h</span></p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>In addition, you need to pass the directories that contain the include files such as</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara> <span class=secodephrase>-path c:\vc98\include -path c:\myapp\include</span></p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>The only required parameter is your header file to translate. An example call would be:</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=secodelinesindented>secon32&nbsp;wrapper.jse&nbsp;-defines&nbsp;mydefs.h&nbsp;-path&nbsp;c:\include&nbsp;example.h</p>
+<p class=secodelinesindented>&nbsp;</p>
+<p class=senormalpara>The output for this example is the file <span class=secodephrase>example_wrappers.c</span>, which you need to add to your application. Finally, you need to add the produced wrappers into your running context. You do this at the same time you add other wrapper libraries using <span class=secodephrase>seAddLibTable</span>. Typically this is done in your <span class=secodephrase>sePrepareContext</span> callback described in the <span class=sejumptopic><a href="TH_99.htm">The seContextParams Structure</a></span>. See the chapter on "<span class=sejumptopic><a href="TH_372.htm">Wrapper functions</a></span>" for more information on wrapper functions and wrapper libraries. <span class=secodephrase>wrapper.jse</span> generates a function for you to call at this point that adds its definitions. First, make sure to tell the compiler about the function by adding at the top of the file: </p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=secodelinesindented>extern&nbsp;void&nbsp;example_add_wrappers(secontext&nbsp;se);</p>
+<p class=secodelinesindented>&nbsp;</p>
+<p class=senormalpara>and add those wrapper library by calling:</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=secodelinesindented>example_add_wrappers(se);</p>
+<p class=secodelinesindented>&nbsp;</p>
+<p class=senormalpara>Note that the name of the function to call and the .c file that implements it is dependent on the name of the header file it was produced from. In this case, <span class=secodephrase>example.h</span> produces <span class=secodephrase>example_wrappers.c</span> and <span class=secodephrase>example_add_wrappers()</span>.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p>
+</body>
+</html>

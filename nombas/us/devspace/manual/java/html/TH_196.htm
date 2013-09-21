@@ -1,0 +1,33 @@
+<html>
+<head>
+<title>interface: SEPutCallback</title>
+<link rel="stylesheet" href="semanualstyles.css" type="text/css">
+<style type="text/css">
+ p { margin-top: 0; margin-bottom: 0; }
+</style>
+<script language="JavaScript" src="TrueHelp.js"></script>
+</head>
+<body onload="thload()">
+<div id=ienav>
+<ilayer id=nsnav>
+<br>
+<center>
+<p class=normal><a href="seisdkj-toc.htm" target="left">contents</a> &nbsp; <a href="seisdkj-index.htm" target="left">index</a> &nbsp; <a href="TH_195.htm">previous</a> &nbsp; <a href="TH_197.htm">next</a></p>
+</center>
+<br>
+<hr noshade size=1>
+</ilayer>
+</div>
+<p class=heading-3>interface: SEPutCallback</p>
+<p class=heading-3-p>&nbsp;</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;public&nbsp;boolean&nbsp;put(SEContext&nbsp;se,&nbsp;int&nbsp;prop);</p>
+<p class=secodelines>&nbsp;</p>
+<p class=senormalpara>This callback is used whenever any of the object&#8217;s members is being put to. Like the <span class=secodephrase>get</span> callback, the parameter <span class=secodephrase>prop</span> indicates the property being updated. The value being put to that property is the first (and only) parameter to the callback, <span class=secodephrase>SE.ARGS,SE.NUM(0)</span>. Also like <span class=secodephrase>get</span>, you return <span class=secodephrase>true</span> if you've handled the put operation and <span class=secodephrase>false </span>if you still want ScriptEase to update its internal storage for the object in the regular way.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>Like the other dynamic callbacks, the <span class=secodephrase>put</span> callback for your object is turned off while inside of it. However, it is usually better to make this behavior irrelevent by always using the <span class=secodephrase>Direct</span> versions of the ScriptEase API calls inside a dynamic callback.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<hr noshade size=1>
+<p class=normal><a href="TH_197.htm"><img src="button.png" border=0></a><a href="TH_197.htm" style="text-decoration:none;">interface: SEHasPropCallback</a></p>
+<p>
+</body>
+</html>

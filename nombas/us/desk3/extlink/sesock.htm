@@ -1,0 +1,322 @@
+<HTML>
+<HEAD>
+	<META NAME="VPSiteProject" CONTENT="file:///c|/visualpage/Nombas.vpp"><TITLE>SESOCK Documentation</TITLE>
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-1754630-10']);
+  _gaq.push(['_trackPageview']);
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+</HEAD>
+<BODY BACKGROUND="../deskback.gif" LINK=#FF0000 VLINK=#3366FF>
+<TABLE>
+<TR><TD WIDTH="150"><IMG SRC="/us/spacers/sp150w.gif"><BR>
+    <IMG SRC="/us/images/logo49b.gif" HEIGHT=49 WIDTH=107 ALT="Nombas Logo"><BR>
+    </TD>
+    <TD WIDTH=10><BR></TD>
+    <TD VALIGN="TOP" WIDTH=540 ALIGN="LEFT">
+
+
+<TR><TD WIDTH="150" VALIGN="TOP">
+       <FONT COLOR=#FF0000 SIZE=5><B>SESOCK</B></FONT></TD>
+    <TD WIDTH="10"><BR></TD>
+    <TD WIDTH="540" VALIGN="TOP">
+<P>
+<FONT SIZE=5><A NAME="top">SESOCK.DLL contains routines for opening and closing i/o sockets.</A><BR>
+</FONT><BR>
+<IMG SRC="../../download/rb_bar.gif" HEIGHT=6 WIDTH=356 ALT=""><BR>
+<TABLE>
+
+<TR><TD COLSPAN=2 WIDTH=494><B><FONT SIZE=4><A NAME="sock_errno">sock_errno</A></FONT></B></TD>
+    </TR>
+
+<TR><TD COLSPAN=2 WIDTH=494>Get the last error from any of the socket routines</TD>
+    </TR>
+
+<TR><TD WIDTH=96 VALIGN="TOP"><B><FONT SIZE=2>SYNTAX</FONT></B></TD>
+    <TD WIDTH=398>sock_errno()</TD>
+    </TR>
+
+<TR><TD WIDTH=96 VALIGN="TOP"><B><FONT SIZE=2>COMMENTS</FONT></B></TD>
+    <TD WIDTH=398>When a routine indicates an error return (usually SOCKET_ERROR),
+    you can call this to get the exact error number. Under UNIX, you can just
+    access 'errno' to get the same information.</TD>
+    </TR>
+
+<TR><TD WIDTH=96 VALIGN="TOP"><B><FONT SIZE=2>RETURN</FONT></B></TD>
+    <TD WIDTH=398>Returns the error number of the error in question.</TD>
+    </TR>
+
+</TABLE>
+
+  <!--fnavbar-->
+    <A HREF="#top">To the Top of this Page</A>
+    <IMG SRC="../../spacers/space25w.gif" WIDTH=13 HEIGHT=2 ALT="">
+    <A HREF="../../index.htm">Nombas' homepage</A>
+    <IMG SRC="../../spacers/space25w.gif" WIDTH=13 HEIGHT=2 ALT="">
+    <A HREF="index.htm">#link libraries</A><BR>
+<HR>
+
+<TABLE>
+
+
+<TR><TD COLSPAN=2 WIDTH=494><B><FONT SIZE=4><A NAME="socket">socket</A></FONT></B></TD>
+    </TR>
+
+<TR><TD COLSPAN=2 WIDTH=494>Create a socket and return it.</TD>
+    </TR>
+
+<TR><TD WIDTH=96 VALIGN="TOP"><B><FONT SIZE=2>SYNTAX</FONT></B></TD>
+    <TD WIDTH=398> int socket(port), int socket(host, port)</TD>
+    </TR>
+
+<TR><TD WIDTH=96 VALIGN="TOP"><B><FONT SIZE=2>COMMENTS</FONT></B></TD>
+    <TD WIDTH=398>Both calls create a socket and return it, returning
+    SOCKET_ERROR if it failed. Sockets are created in blocking mode by
+    default. Use <A HREF="#ioctlsocket">ioctlsocket</A>() to change back
+    to non-blocking mode.
+    <P>
+    The first syntax is used to create and monitor a local port for
+    connections. sockaccept() is used on the socket to create such a
+    connection. It is not valid to <A HREF="#socksend">socksend</A>()
+    or <A HREF="#sockrecv">sockrecv</A>() using this
+    socket since it is not connected to anything.
+    <P>
+    The second syntax connects to a remote machine via the specified port.
+    You cannot use <A HREF="#sockaccept">sockaccept</A>() on a socket created
+    with this call.</TD>
+    </TR>
+</TABLE>
+
+  <!--fnavbar-->
+    <A HREF="#top">To the Top of this Page</A>
+    <IMG SRC="../../spacers/space25w.gif" WIDTH=13 HEIGHT=2 ALT="">
+    <A HREF="../../index.htm">Nombas' homepage</A>
+    <IMG SRC="../../spacers/space25w.gif" WIDTH=13 HEIGHT=2 ALT="">
+    <A HREF="index.htm">#link libraries</A><BR>
+<HR>
+
+<TABLE>
+
+<TR><TD COLSPAN=2 WIDTH=494><B><FONT SIZE=4><A NAME="sockaccept">sockaccept</A></FONT></B></TD>
+    </TR>
+
+<TR><TD COLSPAN=2 WIDTH=494>create and return a new socket</TD>
+    </TR>
+
+<TR><TD WIDTH=96 VALIGN="TOP"><B><FONT SIZE=2>SYNTAX</FONT></B>
+</TD><TD WIDTH=398> int sockaccept(int socket[, string connection])
+</TD></TR>
+
+<TR><TD WIDTH=96 VALIGN="TOP"><B><FONT SIZE=2>COMMENTS</FONT></B></TD>
+    <TD WIDTH=398>sockaccept() can only be used on a socket created to
+    monitor a port.
+    <P>
+    When a connection is ready, sockaccept() will create and return a new
+    socket which is the particular connection to a single remote address.
+    The original socket is still valid, and you can accept many times from
+    the single original socket. If the socket is in blocking mode, sockaccept()
+    will wait until a connection arrives if needed.
+    <P>
+    The connection parameter, if supplied, will be set to a string indicating
+    the IP address (numeric) of the connecting entity. This address is not
+    verified, so I believe it is relatively easy for a hacker to lie about this.</TD>
+    </TR>
+</TABLE>
+
+  <!--fnavbar-->
+    <A HREF="#top">To the Top of this Page</A>
+    <IMG SRC="../../spacers/space25w.gif" WIDTH=13 HEIGHT=2 ALT="">
+    <A HREF="../../index.htm">Nombas' homepage</A>
+    <IMG SRC="../../spacers/space25w.gif" WIDTH=13 HEIGHT=2 ALT="">
+    <A HREF="index.htm">#link libraries</A><BR>
+<HR>
+
+<TABLE>
+<TR><TD COLSPAN=2 WIDTH=494><B><FONT SIZE=4><A NAME="closesocket">closesocket</A></FONT></B></TD>
+    </TR>
+
+<TR><TD COLSPAN=2 WIDTH=494>Close a socket.</TD>
+    </TR>
+
+<TR><TD WIDTH=96 VALIGN="TOP"><B><FONT SIZE=2>SYNTAX</FONT></B></TD>
+    <TD WIDTH=398>void closesocket(socket)</TD>
+    </TR>
+</TABLE>
+
+  <!--fnavbar-->
+    <A HREF="#top">To the Top of this Page</A>
+    <IMG SRC="../../spacers/space25w.gif" WIDTH=13 HEIGHT=2 ALT="">
+    <A HREF="../../index.htm">Nombas' homepage</A>
+    <IMG SRC="../../spacers/space25w.gif" WIDTH=13 HEIGHT=2 ALT="">
+    <A HREF="index.htm">#link libraries</A><BR>
+<HR>
+
+<TABLE>
+<TR><TD COLSPAN=2 WIDTH=494><B><FONT SIZE=4><A NAME="socksend">socksend</A></FONT></B></TD>
+    </TR>
+
+<TR><TD COLSPAN=2 WIDTH=494>Send some data on a socket.</TD>
+    </TR>
+
+<TR><TD WIDTH=96 VALIGN="TOP"><B><FONT SIZE=2>SYNTAX</FONT></B></TD>
+    <TD WIDTH=398>int socksend(socket, buffer[,length])</TD>
+    </TR>
+
+<TR><TD WIDTH=96 VALIGN="TOP"><B><FONT SIZE=2>COMMENTS</FONT></B></TD>
+    <TD WIDTH=398>'length' bytes are sent from the given array of characters
+    (not null-terminated). If the length parameter is not provided, the string
+    is assumed to be null-terminated, and the entire string is sent.</TD>
+    </TR>
+
+<TR><TD WIDTH=96 VALIGN="TOP"><B><FONT SIZE=2>RETURN</FONT></B></TD>
+    <TD WIDTH=398>The number of bytes actually sent, or SOCKET_ERROR</TD>
+    </TR>
+</TABLE>
+
+  <!--fnavbar-->
+    <A HREF="#top">To the Top of this Page</A>
+    <IMG SRC="../../spacers/space25w.gif" WIDTH=13 HEIGHT=2 ALT="">
+    <A HREF="../../index.htm">Nombas' homepage</A>
+    <IMG SRC="../../spacers/space25w.gif" WIDTH=13 HEIGHT=2 ALT="">
+    <A HREF="index.htm">#link libraries</A><BR>
+<HR>
+
+<TABLE>
+<TR><TD COLSPAN=2 WIDTH=494><B><FONT SIZE=4><A NAME="sockrecv">sockrecv</A></FONT></B></TD>
+    </TR>
+
+<TR><TD COLSPAN=2 WIDTH=494>Read some data from a socket, up to length bytes.</TD>
+    </TR>
+
+<TR><TD WIDTH=96 VALIGN="TOP"><B><FONT SIZE=2>SYNTAX</FONT></B></TD>
+    <TD WIDTH=398>int sockrecv(socket, buffer, length)</TD>
+    </TR>
+
+<TR><TD WIDTH=96 VALIGN="TOP"><B><FONT SIZE=2>COMMENTS</FONT></B></TD>
+    <TD WIDTH=398>The buffer is converted to a string if necessary and grown to
+    be able to hold all of the data transferred.
+    <P>
+    Note: under Windows, it is better to always do a <A HREF="#sockselect">sockselect</A>() on the socket
+    before receiving any data. Otherwise, sockrecv() will wait for data, and no
+    Windows messages will be processed during this time. This may make your
+    application very unresponsive.</TD>
+    </TR>
+
+<TR><TD WIDTH=96 VALIGN="TOP"><B><FONT SIZE=2>RETURN</FONT></B></TD>
+    <TD WIDTH=398>Returns the number of bytes actually read or SOCKET_ERROR.</TD>
+    </TR>
+</TABLE>
+
+  <!--fnavbar-->
+    <A HREF="#top">To the Top of this Page</A>
+    <IMG SRC="../../spacers/space25w.gif" WIDTH=13 HEIGHT=2 ALT="">
+    <A HREF="../../index.htm">Nombas' homepage</A>
+    <IMG SRC="../../spacers/space25w.gif" WIDTH=13 HEIGHT=2 ALT="">
+    <A HREF="index.htm">#link libraries</A><BR>
+<HR>
+
+<TABLE>
+<TR><TD COLSPAN=2 WIDTH=494><B><FONT SIZE=4><A NAME="sockselect">sockselect</A></FONT></B></TD>
+    </TR>
+
+<TR><TD COLSPAN=2 WIDTH=494>Wait until one or more of the given sockets
+     are ready for reading/accepting.</TD>
+     </TR>
+
+<TR><TD WIDTH=96 VALIGN="TOP"><B><FONT SIZE=2>SYNTAX</FONT></B></TD>
+    <TD WIDTH=398>sockselect(timeout, socket,...)</TD>
+    </TR>
+
+<TR><TD WIDTH=96 VALIGN="TOP"><B><FONT SIZE=2>COMMENTS</FONT></B></TD>
+    <TD WIDTH=398>Any number of sockets can be specified, and an
+    array can be specified as well (It must be an array of sockets.)
+    <P>
+    The time-out is the number of milliseconds to wait before giving
+    up. If it is -1, wait indefinitely until some socket is ready. A
+    socket that has lost its connection will show up as ready (and
+    will return an error result when you try to use it.)</TD>
+    </TR>
+
+<TR><TD WIDTH=96 VALIGN="TOP"><B><FONT SIZE=2>RETURN</FONT></B></TD>
+    <TD WIDTH=398>Returns one of the sockets ready to be processed, or
+    SOCKET_ERROR if the timeout was reached. Currently, the first socket
+    you specified that is ready is returned, but this behavior is not
+    guaranteed.</TD>
+    </TR>
+</TABLE>
+
+  <!--fnavbar-->
+    <A HREF="#top">To the Top of this Page</A>
+    <IMG SRC="../../spacers/space25w.gif" WIDTH=13 HEIGHT=2 ALT="">
+    <A HREF="../../index.htm">Nombas' homepage</A>
+    <IMG SRC="../../spacers/space25w.gif" WIDTH=13 HEIGHT=2 ALT="">
+    <A HREF="index.htm">#link libraries</A><BR>
+<HR>
+
+<TABLE>
+<TR><TD COLSPAN=2 WIDTH=494><B><FONT SIZE=4><A NAME="ioctlsocket">ioctlsocket</A></FONT></B></TD>
+    </TR>
+
+<TR><TD COLSPAN=2 WIDTH=494>Perform a standard operation on a socket.</TD>
+    </TR>
+
+<TR><TD WIDTH=96 VALIGN="TOP"><B><FONT SIZE=2>SYNTAX</FONT></B></TD>
+    <TD WIDTH=398>void ioctlsocket(socket, operation, parameter)</TD>
+    </TR>
+
+<TR><TD WIDTH=96 VALIGN="TOP"><B><FONT SIZE=2>COMMENTS</FONT></B></TD>
+    <TD WIDTH=398>You pass it the operation you would like to accomplish
+    and the parameter (usually 0 or non-0). The currently implemented
+    operations are:
+    <P>
+    FIONBIO - The parameter is 0 (makes the socket blocking)
+    or non-0 (makes the socket non-blocking).</TD>
+    </TR>
+</TABLE>
+
+  <!--fnavbar-->
+    <A HREF="#top">To the Top of this Page</A>
+    <IMG SRC="../../spacers/space25w.gif" WIDTH=13 HEIGHT=2 ALT="">
+    <A HREF="../../index.htm">Nombas' homepage</A>
+    <IMG SRC="../../spacers/space25w.gif" WIDTH=13 HEIGHT=2 ALT="">
+    <A HREF="index.htm">#link libraries</A><BR>
+<HR>
+
+<TABLE>
+<TR><TD COLSPAN=2 WIDTH=494><B><FONT SIZE=4><A NAME="gethostname">gethostname</A></FONT></B></TD>
+    </TR>
+
+<TR><TD COLSPAN=2 WIDTH=494>Get hostname of current machine.</TD>
+    </TR>
+
+<TR><TD WIDTH=96 VALIGN="TOP"><B><FONT SIZE=2>SYNTAX</FONT></B></TD>
+    <TD WIDTH=398>string gethostname()</TD>
+    </TR>
+
+<TR><TD WIDTH=96 VALIGN="TOP"><B><FONT SIZE=2>RETURN</FONT></B></TD>
+    <TD WIDTH=398>Returns the hostname of the current machine.</TD>
+    </TR>
+
+</TABLE>
+
+
+  <!--fnavbar-->
+    <A HREF="#top">To the Top of this Page</A>
+    <IMG SRC="../../spacers/space25w.gif" WIDTH=13 HEIGHT=2 ALT="">
+    <A HREF="../../index.htm">Nombas' homepage</A>
+    <IMG SRC="../../spacers/space25w.gif" WIDTH=13 HEIGHT=2 ALT="">
+    <A HREF="index.htm">#link libraries</A><BR>
+<HR>
+      <FONT SIZE="1"><A HREF="../../index.htm">Home</A></FONT> </TD>
+  </TR>
+
+</TABLE>
+</BODY>
+</HTML>
+
+

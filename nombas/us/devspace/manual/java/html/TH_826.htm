@@ -1,0 +1,150 @@
+<html>
+<head>
+<title>SElib.makeWindow()</title>
+<link rel="stylesheet" href="semanualstyles.css" type="text/css">
+<style type="text/css">
+ p { margin-top: 0; margin-bottom: 0; }
+</style>
+<script language="JavaScript" src="TrueHelp.js"></script>
+</head>
+<body onload="thload()">
+<div id=ienav>
+<ilayer id=nsnav>
+<br>
+<center>
+<p class=normal><a href="seisdkj-toc.htm" target="left">contents</a> &nbsp; <a href="seisdkj-index.htm" target="left">index</a> &nbsp; <a href="TH_825.htm">previous</a> &nbsp; <a href="TH_827.htm">next</a></p>
+</center>
+<br>
+<hr noshade size=1>
+</ilayer>
+</div>
+<p class=sereffunclevel4>SElib.makeWindow()</p>
+<table cellpadding=0>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>syntax:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=sesyntax>SElib.makeWindow(parent,&nbsp;class,&nbsp;windowFunction,</p>
+<p class=sesyntax>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;text,&nbsp;style,&nbsp;col,&nbsp;row,</p>
+<p class=sesyntax>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;width,&nbsp;height,</p>
+<p class=sesyntax>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;createParam,&nbsp;utilityVar)</p></td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>where:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>parent - window handle of the parent window of this window, which would mean that this window is a subwindow. Pass <span class=secodephrase>null</span> if this window is being created on the desktop, without a specific window being its parent. If <span class=secodephrase>null</span>, the desktop is the parent.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>class - a string or an object. If this parameter is a string, it must be one of the pre-existing Windows classes:</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=secodelinesindented>button</p>
+<p class=secodelinesindented>combobox</p>
+<p class=secodelinesindented>edit</p>
+<p class=secodelinesindented>listbox</p>
+<p class=secodelinesindented>scrollbar</p>
+<p class=secodelinesindented>static</p>
+<p class=secodelinesindented>&nbsp;</p>
+<p class=senormalpara>If this parameter is an object or structure it may have the following properties:</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=secodelinesindented>.style&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Windows&nbsp;class&nbsp;style</p>
+<p class=secodelinesindented>.icon&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;icon&nbsp;bitmap&nbsp;for&nbsp;minimized&nbsp;window</p>
+<p class=secodelinesindented>.cursor&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;appearance&nbsp;when&nbsp;over&nbsp;this&nbsp;window</p>
+<p class=secodelinesindented>.background&nbsp;&nbsp;&nbsp;&nbsp;window&nbsp;background&nbsp;color</p>
+<p class=secodelinesindented>&nbsp;</p>
+<p class=senormalpara>Properties that are not assigned values receive default values. In general, the class defines the behavior of a window.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>windowFunction - an identifier, the function that is called whenever Windows sends a message to this window. Use <span class=secodephrase>null</span> if no function is to be called to intercept windows messages. In the case of <span class=secodephrase>null</span>, default functions for Windows are called. If specified, the windowFunction should return a number or nothing. Use the actual identifier of the function and not a string with its name. For example, use <span class=secodephrase>MyWinFunction</span> instead of <span class=secodephrase>"MyWinFunction"</span>. The windowFunction is described in greater detail in the description section.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>text - the window title or caption that appears in the title bar. Use <span class=secodephrase>null</span> or "" if the window has no title.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>style - the style of the window. Windows has many predefined styles that may be joined into one style by using the bitwise or operator, "|". Windows styles are defined with "WS_" at the beginning. For example, <span class=secodephrase>WS_MAXIMIZEBOX | WS_THICKFRAME</span> would define a window that has a thick frame and a maximize box. The "WS_" windows styles are standard definitions used in Windows programming and may be found in <span class=secodephrase>winobj.jsh</span> or <span class=secodephrase>window.jsh</span>.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>col - the left most column of the window, expressed in pixels.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>row - the top most row of the window, expressed in pixels. Together, col and row define the top left corner of the window. Use <span class=secodephrase>CW_USEDEFAULT</span> for col and row to let Windows set the position.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>width - the total width of the window, expressed in pixels.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>height - the total height of the window, expressed in pixels. By using col, row, width, and height, a window can be place precisely on a screen.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>createParam - normally set to <span class=secodephrase>null</span>. If used, it may be a number or object that is passed with the Windows <span class=secodephrase>WM_CREATE</span> message when creating a window.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>utilityVar - any variable that a scripter chooses. This variable is passed to the windowFunction when it receives a Windows message. The windowFunction may alter the utilityVar. An object or structure may be used, in which case many values may be passed and altered as properties of the object. One practice is to use an object to keep up with the properties of a window, sometimes including its subwindows. This object is a good vehicle for passing information.</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>return:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>number - the handle of the window created on success, else <span class=secodephrase>null</span>.</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>description:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>For Win32 and Win16</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>This method is the basic function for creating windows that will be opened and managed by ScriptEase. This function provides the basis for normal windows operations when windows created by it are opened. This function registers the created window with ScriptEase, so that when the .doWindows() method is executed, this window will be properly managed.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>If the class of the Window is unknown, it is registered as a new class.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>The windowFunction, a parameter of <span class=sepopuptopic><a href="TH_826.htm" onClick="return thwindow('TH_826.htm', 'GenPopup')">SElib.makeWindow()</a></span>, is a function that is specified to intercept and handle all Windows messages that are posted to this window, the window just created by <span class=secodephrase>SElib.makeWindow()</span>. The windowFunction will intercept all messages sent its associated window which slows execution of a script. Use <span class=sepopuptopic><a href="TH_827.htm" onClick="return thwindow('TH_827.htm', 'GenPopup')">SElib.messageFilter()</a></span> to limit the messages that are actually intercepted by the windowFunction. If the windowFunction has a return value, it must be a number, which seems limiting. But remember, that you may use utilityVar as a variable for receiving information and for passing information.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>The definition of a windowFunction must follow the following format: </p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=secodelinesindented>function&nbsp;MyWinFunction(hWnd,&nbsp;Message,&nbsp;Param1,</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Param2&nbsp;[,&nbsp;utilityVar])</p>
+<p class=secodelinesindented>{</p>
+<p class=secodelinesindented>//&nbsp;Body&nbsp;of&nbsp;the&nbsp;window&nbsp;function</p>
+<p class=secodelinesindented>}</p>
+<p class=secodelinesindented>&nbsp;</p>
+<p class=senormalpara>hWnd - a number, Window handle for the window that receives these Windows messages. It is the handle of the window created by <span class=secodephrase>SElib.makeWindow()</span> that specified this function to receive messages.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>Message - a number, a message ID. Windows defines message IDs and posts them to windows.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>Param1 - a parameter that may accompany a message.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>Param2 - a second parameter that may accompany a message.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>utilityVar - an optional variable that is specified in the <span class=secodephrase>SElib.makeWindow()</span> call that created this window. This variable is often an object/structure with several pieces of information which may be altered. If it is, the changes are available to other functions that may use the variable while <span class=sepopuptopic><a href="TH_819.htm" onClick="return thwindow('TH_819.htm', 'GenPopup')">SElib.doWindows()</a></span> is active and is showing and managing the windows under its control.</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>see:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara><span class=sejumptopic><a href="TH_819.htm">SElib.doWindows()</a></span></p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>example:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=secodelines>var&nbsp;InfoStruct;</p>
+<p class=secodelines>InfoStruct.width&nbsp;=&nbsp;400;</p>
+<p class=secodelines>InfoStruct.height&nbsp;=&nbsp;300;</p>
+<p class=secodelines>&nbsp;</p>
+<p class=secodelines>var&nbsp;hWnd&nbsp;&nbsp;=&nbsp;SElib.makeWindow</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;0,&nbsp;null,&nbsp;MyWinFunction,</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"My&nbsp;Window",&nbsp;WS_MAXIMIZEBOX,</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;CW_USEDEFAULT,&nbsp;CW_USEDEFAULT,</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;InfoStruct.width,&nbsp;InfoStruct.height,</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;null,&nbsp;InfoStruct</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;);</p>
+<p class=secodelines>&nbsp;</p>
+<p class=secodelines>function&nbsp;MyWinFunction(hWnd,&nbsp;Msg,&nbsp;Param1,</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Param2,&nbsp;UtilVar)</p>
+<p class=secodelines>{</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;//&nbsp;Body&nbsp;of&nbsp;function&nbsp;to&nbsp;process&nbsp;messages.</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;//&nbsp;Notice&nbsp;that&nbsp;UtilVar&nbsp;receives&nbsp;InfoStruct</p>
+<p class=secodelines>}</p></td>
+</tr>
+</table>
+<p class=normal>&nbsp;</p>
+<hr noshade size=1>
+<p class=normal><a href="TH_827.htm"><img src="button.png" border=0></a><a href="TH_827.htm" style="text-decoration:none;">SElib.messageFilter()</a></p>
+<p>
+</body>
+</html>

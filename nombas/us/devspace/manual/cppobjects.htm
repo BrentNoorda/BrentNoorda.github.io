@@ -1,0 +1,1162 @@
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 FINAL//EN">
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=ISO-8859-1">
+<TITLE>Integrating C++ Objects with ScriptEase</TITLE>
+<!-- begin metaTags -->
+<META NAME="keywords" CONTENT="javascript,ecmascript,ecma,scriptease,jscript,scripting,nombas,isdk,sedesk,web application development,embedded devices,distributed computing,peer-to-peer,p2p,peer,data mining,javascript.com,cycletraders,integrated sdk,script ease,java,c++,c,simplicity,power,palm,windows ce,integration: sdk,integration:sdk,scriptease:desktop,scriptease: desktop,se:desktop,se:desk,se:isdk, se: isdk,development tools,devtools">
+<META HTTP-EQUIV="DESCRIPTION" CONTENT="Nombas delivers simplicity and power through scripting by providing market-leading development tools and software for JavaScript and ECMAScript.">
+<!-- end metaTags -->
+<!-- begin navbar includes -->
+<SCRIPT language=JavaScript1.2>
+  navbarPath = '../../';
+</SCRIPT>
+<SCRIPT language=JavaScript1.2 SRC="../../navbarData.js"></SCRIPT>
+<SCRIPT language=JavaScript1.2 SRC="../../navbarMenu.js"></SCRIPT>
+<SCRIPT language=JavaScript SRC="../../imgRollover.js"></SCRIPT>
+<!-- end navbar includes -->
+<!-- begin style and icon definition -->
+<LINK REL="SHORTCUT ICON" HREF="../../nombas.ico">
+<STYLE>
+A:hover { color:#941810;}
+</STYLE>
+<!-- end style and icon definition -->
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-1754630-10']);
+  _gaq.push(['_trackPageview']);
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+</HEAD>
+<BODY BGCOLOR="#06086F" LINK="#0000FF" VLINK="#800080" TEXT="#000000" TOPMARGIN=0 LEFTMARGIN=0 MARGINWIDTH=0 MARGINHEIGHT=0>
+<TABLE BORDER=0 CELLSPACING=0 CELLPADDING=0 WIDTH=213>
+  <TR VALIGN=TOP ALIGN=LEFT>
+    <TD WIDTH=28 HEIGHT=4><IMG SRC="../../clearpixel.gif" WIDTH=28 HEIGHT=1 BORDER=0></TD>
+    <TD></TD>
+  </TR>
+  <TR VALIGN=TOP ALIGN=LEFT>
+    <TD HEIGHT=60></TD>
+    <TD WIDTH=185 ALIGN=LEFT VALIGN=TOP><A HREF="../../index.htm"><IMG ID="Picture1" HEIGHT=60 WIDTH=185 SRC="../../logo.gif" BORDER=0></A></TD>
+  </TR>
+</TABLE>
+    <div id="nombas-legacy"></div>
+<TABLE BORDER=0 CELLSPACING=0 CELLPADDING=0>
+  <TR VALIGN=TOP ALIGN=LEFT>
+    <TD WIDTH=30 HEIGHT=10><IMG SRC="../../clearpixel.gif" WIDTH=30 HEIGHT=1 BORDER=0></TD>
+    <TD></TD>
+  </TR>
+  <TR VALIGN=TOP ALIGN=LEFT>
+    <TD></TD>
+    <TD WIDTH=582>
+      <TABLE ID="Table1" BORDER=0 CELLSPACING=0 CELLPADDING=0 WIDTH=582>
+        <TR>
+          <TD WIDTH=97>
+            <P><A HREF="../../scripting/scripting.htm"
+                            onmouseover="changeImages('scripting', '../../htab_scripting.gif'); popUp('elMenu1',event); return true;"
+onmouseout="changeImages('scripting', '../../tab_scripting.gif'); popDown('elMenu1'); return true;"
+><IMG
+                             ID="scripting" HEIGHT=21 WIDTH=97 SRC="../../tab_scripting.gif" VSPACE=0 HSPACE=0 ALIGN="TOP" BORDER=0 name="scripting"></A>
+          </TD>
+          <TD WIDTH=97>
+            <P><A HREF="../../products/products.htm"
+                            onmouseover="changeImages('products', '../../htab_products.gif'); popUp('elMenu2',event); return true;"
+onmouseout="changeImages('products', '../../tab_products.gif'); popDown('elMenu2'); return true;"><IMG ID="products"
+                             HEIGHT=21 WIDTH=97 SRC="../../tab_products.gif" VSPACE=0 HSPACE=0 ALIGN="TOP" BORDER=0 name=products></A>
+          </TD>
+          <TD WIDTH=97>
+            <P><A HREF="../../purchase/purchase.htm" onmouseover="changeImages('purchase', '../../htab_purchase.gif');return true;"
+onmouseout="changeImages('purchase', '../../tab_purchase.gif');return true;"><IMG ID="purchase"
+                             HEIGHT=21 WIDTH=97 SRC="../../tab_purchase.gif" VSPACE=0 HSPACE=0 ALIGN="TOP" BORDER=0 name=purchase></A>
+          </TD>
+          <TD WIDTH=97>
+            <P><A HREF="../../download/ndownload.htm" onmouseover="changeImages('download', '../../htab_download.gif');return true;"
+onmouseout="changeImages('download', '../../tab_download.gif');return true;"><IMG ID="download"
+                             HEIGHT=21 WIDTH=97 SRC="../../tab_download.gif" VSPACE=0 HSPACE=0 ALIGN="TOP" BORDER=0 name=download></A>
+          </TD>
+          <TD WIDTH=97>
+            <P><a target="support" href="http://support.nombas.com/" onmouseover="changeImages('support', '../../htab_support.gif'); return true;"
+onmouseout="changeImages('support', '../../tab_support.gif'); return true;"><IMG ID="support"
+                             HEIGHT=21 WIDTH=97 SRC="../../tab_support.gif" VSPACE=0 HSPACE=0 ALIGN="TOP" BORDER=0 name=support></A>
+          </TD>
+          <TD WIDTH=97>
+            <P><A HREF="../../company/company.htm"
+                            onmouseover="changeImages('company', '../../htab_company.gif'); popUp('elMenu6',event); return true;"
+onmouseout="changeImages('company', '../../tab_company.gif'); popDown('elMenu6'); return true;"><IMG ID="company"
+                             HEIGHT=21 WIDTH=97 SRC="../../tab_company.gif" VSPACE=0 HSPACE=0 ALIGN="TOP" BORDER=0 name=company></A>
+          </TD>
+        </TR>
+      </TABLE>
+    </TD>
+  </TR>
+</TABLE>
+<TABLE BORDER=0 CELLSPACING=0 CELLPADDING=0 WIDTH=637>
+  <TR VALIGN=TOP ALIGN=LEFT>
+    <TD WIDTH=5 HEIGHT=20><IMG SRC="../../clearpixel.gif" WIDTH=5 HEIGHT=1 BORDER=0></TD>
+    <TD WIDTH=632>
+      <TABLE BORDER=0 CELLSPACING=0 CELLPADDING=0 WIDTH=632 HEIGHT=20 bgcolor="#FFFFFF">
+        <TR ALIGN=LEFT VALIGN=TOP>
+          <TD>
+            <TABLE BORDER=0 CELLSPACING=0 CELLPADDING=0 WIDTH=632>
+              <TR VALIGN=TOP ALIGN=LEFT>
+                <TD WIDTH=20 HEIGHT=20 ALIGN=LEFT VALIGN=TOP><IMG ID="Picture12" HEIGHT=20 WIDTH=20 SRC="../../curve_topleft.gif" BORDER=0></TD>
+                <TD WIDTH=592><IMG SRC="../../clearpixel.gif" WIDTH=592 HEIGHT=1 BORDER=0></TD>
+                <TD WIDTH=20 ALIGN=LEFT VALIGN=TOP><IMG ID="Picture10" HEIGHT=20 WIDTH=20 SRC="../../curve_top.gif" BORDER=0></TD>
+              </TR>
+            </TABLE>
+          </TD>
+        </TR>
+      </TABLE>
+    </TD>
+  </TR>
+</TABLE>
+<TABLE BORDER=0 CELLSPACING=0 CELLPADDING=0 WIDTH=637>
+  <TR VALIGN=TOP ALIGN=LEFT>
+    <TD HEIGHT=490></TD>
+    <TD WIDTH=632 COLSPAN=2 height="490">
+      <TABLE BORDER=0 CELLSPACING=0 CELLPADDING=0 WIDTH=632 HEIGHT=200 bgcolor="#FFFFFF">
+        <TR ALIGN=LEFT VALIGN=TOP>
+          <TD height="494">
+            <TABLE BORDER=0 CELLSPACING=0 CELLPADDING=0 WIDTH=450>
+              <TR VALIGN=TOP ALIGN=LEFT>
+                <TD WIDTH=13 HEIGHT=1><IMG SRC="../../clearpixel.gif" WIDTH=13 HEIGHT=1 BORDER=0></TD>
+                <TD WIDTH=396><IMG SRC="../../clearpixel.gif" WIDTH=316 HEIGHT=1 BORDER=0></TD>
+              </TR>
+              <TR VALIGN=TOP ALIGN=LEFT>
+                <TD width="13"></TD>
+                <TD WIDTH=396>
+                  <P ALIGN=LEFT><A HREF="../../index.htm"><FONT SIZE="-2" FACE="Verdana,Tahoma,Arial,Helvetica">Nombas</FONT></A><FONT SIZE="-2" FACE="Verdana,Tahoma,Arial,Helvetica"> 
+                    &gt; <a HREF="../../devspace/index.htm">ScriptEase ISDK DevSpace</a> 
+                    &gt; <a href="index.htm">Manuals</a></FONT> 
+                </TD>
+              </TR>
+            </TABLE>
+            <TABLE BORDER=0 CELLSPACING=0 CELLPADDING=0 WIDTH=615>
+              <TR VALIGN=TOP ALIGN=LEFT>
+                <TD WIDTH=15 HEIGHT=5><IMG SRC="../../clearpixel.gif" WIDTH=15 HEIGHT=1 BORDER=0></TD>
+                <TD></TD>
+              </TR>
+              <TR VALIGN=TOP ALIGN=LEFT>
+                <TD HEIGHT=80></TD>
+                <TD WIDTH=600 ALIGN=LEFT VALIGN=TOP>
+                  <h1>Integrating C++ Objects with ScriptEase and SEObjectWrapper</h1>
+<p>For those developers working with a project in C++, one of the first questions
+  is how to make C++ objects available to scripts.  The task of integrating numerous
+  existing objects into the ScriptEase engine can seem daunting.  Fortunately,
+  the object-oriented nature of ScriptEase has a number of similarities that help
+  map between the two languages.  Nombas provides a utility class, the SEObjectWrapper
+  class, which takes advantage of these similarities and handles most of the integration
+  to make it simple for the developer.</p>
+<p>The SEObjectWrapper class is designed with the following goals in mind:</p>
+<ul type=disc>
+  <li>Letting the user create new objects from within the ScriptEase engine</li>
+  <li>Automatic management of object lifetime and deletion</li>
+  <li>Simple method of exporting existing methods to the ScriptEase engine</li>
+  <li>Simple method of exporting dynamic properties to the ScriptEase engine</li>
+  <li>Ability to create fully dynamic ScriptEase objects easily</li>
+  <li>Allowing for any C++ object hierarchy to be represented in ScriptEase</li>
+</ul>
+<p>The SEObjectWrapper class is designed to be simple to use, yet powerful enough
+  to handle all of your needs.  With just a few extra lines of code and some wrapper
+  functions, any class can be converted into a ScriptEase object with minimal
+  effort.</p>
+                  <p>Using the SEObjectWrapper class, objects can be created either within C++ or
+                    from within the ScriptEase engine.  The task of when the object
+                    should be deleted is handled automatically by the wrapper
+                    class.  For basic objects, the first section, &quot;<a href="#creatingsimpleobjects">Creating
+                    Simple Objects</a>&quot;, describes how to make your C++ objects
+                    available to the ScriptEase engine.  For objects with dynamic
+                    properties, or when properties need to be exposed to the ScriptEase
+                    engine, there is a SEDynamicObjectWrapper class, which is
+                    described in the section &quot;<a href="#creatingdynamicobjects">Creating
+                    Dynamic Objects</a>&quot;. The final section of this documentation,
+                    &quot;<a href="#advancedtech">Advanced Programming Techniques</a>&quot;,
+                    describes a number of mechanisms for doing things not possible
+                    with the standard interface, such as containment, controlling
+                    method attributes, lifetime management and inheritance.  You
+                    should only need to consult the final section if what you
+                    want to do is not covered in the first two sections.</p>
+                  <p>The files and samples in this folder are shipped with the
+                    ISDK/C 4.40 release, but there is nothing specific in these
+                    files that should prevent them from being modified for 4.30.
+                    The files revered to in this document, along with a sample
+                    MSVC6 project, may be downloaded from: <a href="ftp://ftp.nombas.com/pub/isdkeval/se440/jseobject.zip">ftp://ftp.nombas.com/pub/isdkeval/se440/jseobject.zip</a>.</p>
+<b><i> </i></b>
+<h2>1. <a name="creatingsimpleobjects"></a>Creating Simple Objects</h2>
+<p>The majority of objects fall into the category of &quot;simple objects&quot;,
+  or those which are not exchanged between C++ and the ScriptEase engine, and
+  do not need special dynamic functionality.  In this section we will attempt
+  to walk you through the integration of a simple C++ object.  For this example,
+  we will be using a simple employee class:</p>
+<blockquote>
+  <code>
+  <pre>class SimpleEmployee
+{
+public:
+   SimpleEmployee( string name, float hourlyWage )
+      : m_name(name), m_hourlyWage(hourlyWage)
+      { }
+
+   float calculateWeeklyWages( float hoursWorked )
+      { return m_hourlyWage*hoursWorked; }
+
+   void printInfo()
+      {
+         cout << "        Name: " << m_name << endl;
+         cout << " Hourly Wage: " << m_hourlyWage << endl;
+      }
+
+private:
+   string m_name;
+   float m_hourlyWage;
+};</pre>
+  </code>
+  </blockquote>
+<p>We want the user to be able to create SimpleEmployee objects from the ScriptEase
+  engine, as well as be able to export C++ objects to the scripting environment. 
+  We want to be able to call the <code>calculateWeeklyWage()</code> and <code>printInfo()</code>
+  methods from the scripting environment.</p>
+<p>The first step is to modify your class to inherit from the base class <code>SEObjectWrapper</code>. 
+  To do this, you must include the header file &quot;<code>jseobject.h</code>&quot;
+  first, found in the <code>srcapp</code> directory of the SDK installation. 
+  You then must include the &quot;<code>jseobject.cpp</code>&quot; (also found
+  in <code>srcapp</code>) into your poject.  The method for doing this varies
+  from platform to platform.  Our SimpleEmployee class now looks like this (making
+  sure to include our jseopt.h file as well):</p>
+<blockquote>
+  <code>
+  <pre>#include "jseopt.h"
+#include "jseobject.h"
+
+class SimpleEmployee : public SEObjectWrapper
+{
+public:
+   // ...</pre>
+  </code><p></p>
+</blockquote>
+<p>The second step is to declare the interface within your class.  This declaration
+  MUST be the first statement within your class, as it defines some important
+  methods used elsewhere.  The macro to declare the interface is <code>SEOBJWRAPPER_DECLARE_INTERFACE()</code>. 
+  It takes a single parameter, which MUST be the same name as the name of the
+  class in which it is used.  Applying this to our sample, we now have:</p>
+<blockquote>
+  <code>
+  <pre>#include "jseopt.h"
+#include "jseobject.h"
+
+class SimpleEmployee : public SEObjectWrapper
+{
+   SEOBJWRAPPER_DECLARE_INTERFACE(SimpleEmployee);
+public:
+   // ...</pre>
+  </code>
+</blockquote>
+<p>The next step is to declare methods which we are going to export to the ScriptEase
+  engine.  The first such method is the constructor.  You need to define a version
+  of the constructor which takes a <code>jseContext</code> as the only parameter. 
+  This form of the constructor gets called when the object is created from within
+  the ScriptEase engine.  The rest of the exported methods are declared using
+  the macro <code>SEOBJWRAPPER_DECLARE_METHOD()</code>.  This macro has two parameters,
+  the name of the method and the return type of the method.  The supported return
+  types are the following: <code>int, long, float, double, string, void, jseVariable,
+  SEObjectWrapperReference</code>.  The first types are self-explanatory.  The
+  final two special types are described in the section &quot;<a href="#advancedtech">Advanced
+  Programming Techniques</a>&quot;. The second parameter to the macro is the name
+  of the function you wish to export.  This macro will create a wrapper method
+  declaration of the form:</p>
+<blockquote><code><pre>retType methodName( jseContext );</pre></code></blockquote>
+<p>You will need to define this method and fill in the contents later.  Implementing
+  this macro and the new constructor, our example now includes: </p>
+<blockquote><code>
+  <pre>   // ...
+
+   SimpleEmployee( jseContext );
+
+   // ...
+
+   SEOBJWRAPPER_DECLARE_METHOD(calculateWeeklyWages,float);
+   SEOBJWRAPPER_DECLARE_METHOD(printInfo,void);
+
+   // ...</pre>
+  </code>
+</blockquote>
+<p>That is all that needs to be done within the class definition.  Outside of
+  the class, you need to export any declared methods to the ScriptEase engine. 
+  This is accomplished via a series of macros.  For every class that inherits
+  from SEObjectWrapper, you must define a section enclosed by <code>SEOBJWRAPPER_BEGIN_INTERFACE()</code>and
+  <code>SEOBJWRAPPER_END_INTERFACE() </code>macros.  The first macro takes the
+  name of the class again as a parameter, while the second macro takes no parameters. 
+  These are macros which enclose the methods to be exported to the ScriptEase
+  engine.  All the methods that you declared within the class must be exported
+  here with the macro <code>SEOBJWRAPPER_EXPORT_METHOD()</code>.  This macro takes
+  two parameters, the name of the method and the number of arguments it takes. 
+  To allow for any number of arguments, specify -1 as the number of arguments. 
+  For greater control over arguments and function attributes, consult the section
+  &quot;<a href="#advancedtech">Advanced Programming Techniques</a>&quot;.  Our
+  example now has a corresponding .cpp file that begins like this:</p>
+<blockquote><code>
+  <pre>#include "SimpleEmployee.h"
+
+SEOBJWRAPPER_BEGIN_INTERFACE(SimpleEmployee)
+   SEOBJWRAPPER_EXPORT_METHOD(calculateWeeklyWages,1)
+   SEOBJWRAPPER_EXPORT_METHOD(printInfo,0)
+SEOBJWRAPPER_END_INTERFACE()</pre>
+  </code>
+</blockquote>
+<p>Now you must write the methods to map to the existing methods of your class. 
+  This process is simple with the <code>SEOBJWRAPPER_PARAMETER() </code>macro,
+  which automatically gets ScriptEase parameters and converts them to the appropriate
+  type.  To use this macro, you must first declare the variables in your method. 
+  Then, simply pass the name and type of the variable, as well as the offset within
+  the argument list (starting at 0) to this macro.  The supported types of the
+  macro are the same as the types supported by the <code>SEOBJWRAPPER_DECLARE_METHOD</code>
+  macro, except for the <code>void</code> type.  The macro returns a boolean value
+  indicating whether the parameter was present and in the appropriate format. 
+  If this macro fails, you should immediately return from your method.  In case
+  of an error, the return value is ignored, and the SEObjectWrapper class will
+  propagate that error to the ScriptEase engine.  Typically, you will simply want
+  to convert the arguments into native C++ types and pass them on to the actual
+  C++ method.  This is exactly what we do in our example.  The final code for
+  our sample looks like this:</p>
+<h3>SimpleEmployee.h</h3>
+<blockquote>
+                    <pre><code>#ifndef _SIMPLE_EMPLOYEE_H_
+#define _SIMPLE_EMPLOYEE_H_
+
+#include "jseopt.h"
+#include "jseobject.h"
+
+#include &lt;iostream&gt;
+
+class SimpleEmployee : public SEObjectWrapper
+{
+   SEOBJWRAPPER_DECLARE_INTERFACE(SimpleEmployee);
+
+public:
+   SimpleEmployee( string name, float hourlyWage )
+      : SEObjectWrapper(), m_name(name), m_hourlyWage(hourlyWage)
+      { }
+
+   SimpleEmployee( jseContext );
+
+   float calculateWeeklyWages( float hoursWorked )
+      { return m_hourlyWage*hoursWorked; }
+
+   void printInfo()
+      {
+         cout &lt;&lt; &quot;        Name: &quot; &lt;&lt; m_name &lt;&lt; endl;
+         cout &lt;&lt; &quot; Hourly Wage: &quot; &lt;&lt; m_hourlyWage &lt;&lt; endl;
+      }
+
+   SEOBJWRAPPER_DECLARE_METHOD(calculateWeeklyWages,float);
+   SEOBJWRAPPER_DECLARE_METHOD(printInfo,void);
+
+private:
+   string m_name;
+   float m_hourlyWage;
+};
+
+#endif /* _SIMPLE_EMPLOYEE_H_ */</code></pre>
+</blockquote>
+<h3>SimpleEmployee.cpp</h3>
+<blockquote><code>
+  <pre>#include &quot;SimpleEmployee.h&quot;
+
+SEOBJWRAPPER_BEGIN_INTERFACE(SimpleEmployee)
+   SEOBJWRAPPER_EXPORT_METHOD(calculateWeeklyWages,1)
+   SEOBJWRAPPER_EXPORT_METHOD(printInfo,0)
+SEOBJWRAPPER_END_INTERFACE()
+
+SimpleEmployee::SimpleEmployee( jseContext jsecontext )
+  : SEObjectWrapper(jsecontext)
+{
+   if( !SEOBJWRAPPER_PARAMETER(m_name,string,0) )
+      return;
+   if( !SEOBJWRAPPER_PARAMETER(m_hourlyWage,float,1) )
+      return;
+}
+
+float
+SimpleEmployee::calculateWeeklyWages( jseContext )
+{
+   float hoursWorked;
+   if( !SEOBJWRAPPER_PARAMETER(hoursWorked,float,0) )
+      return 0;
+   return calculateWeeklyWages( hoursWorked );
+}
+
+void
+SimpleEmployee::printInfo( jseContext )
+{
+   printInfo();
+}</pre>
+  </code>
+</blockquote>
+<p>That's all the changes that need to made to the class.  Before you can use
+  the class, however, you must initialize the class when we create the root context. 
+  This varies from program to program but wherever you call <code>jseInitializeExternalLink()</code>
+  be sure to call the <code>init()</code> method of you new class as well  These
+  methods must be called for every object that inherits from the SEObjectWrapperclass. 
+  For most projects, this will look something similar to this:</p>
+<blockquote>
+<code><pre>// ... Create context with jseInitializeExternalLink()...
+
+SimpleEmployee::init( rootContext );
+
+// ... Use the context ...</pre></code>
+</blockquote>
+<p>Now your object is completely integrated with the ScriptEase engine.  Writing
+  these wrapper methods is significantly easier than trying to understand how
+  to maintain an object in both C++ and script form, and the automatic exporting
+  of methods and parameter retrieval makes writing wrapper functions easy.  With
+  what's been presented in this section, you should be able to integrate most
+  simple classes within your program.  The next subject covers dynamic objects,
+  which allow you to do things not possible with the mechanisms that have been
+  described in this section.</p>
+<b><i> </i></b>
+<h2>2. <a name="creatingdynamicobjects"></a>Creating Dynamic Objects</h2>
+<p>ScriptEase provides a number of number of facilities for managing dynamic objects. 
+  These objects can execute methods when members are set or retrieved to provide
+  greater functionality.  The SEDynamicObjectWrapper class provides two ways to
+  take advantage of the dynamic nature of ScriptEase objects.  The first option
+  is the dynamic sharing of data members, so that executing <code>&quot;foo.hourlyWage&nbsp;=&nbsp;40&quot;</code>
+  will set the <code>hourlyWage</code> member of the underlying C++ class.  This
+  ensures that the C++ class and script object always contain the same data at
+  any point.  The other option is to declare methods that get called when a property
+  is set or retrieved.  For our example, we will be using a modified version of
+  the SimpleEmployee class from the first section, with the addition of the manager
+  attribute, which translates to a $100 bonus per week.  This class looks like
+  this:</p>
+<blockquote>
+  <pre><code>class DynamicEmployee
+{
+public:
+   DynamicEmployee( string name, float hourlyWage, bool isManager )
+      : name(name), hourlyWage(hourlyWage)
+      {
+         setManager(isManager);
+      }
+
+   float calculateWeeklyWages( float hoursWorked )
+      { return hourlyWage*hoursWorked + m_bonus; }
+
+   void printInfo()
+      {
+         cout &lt;&lt; &quot;        Name: &quot; &lt;&lt; name;
+         if( m_isManager )
+            cout &lt;&lt; &quot; (Manager)&quot;;
+         cout &lt;&lt; endl &lt;&lt; &quot; Hourly Wage: &quot; &lt;&lt; hourlyWage &lt;&lt; endl;
+      }
+
+   void setManager( bool isManager )
+      {
+         m_isManager = isManager;
+         if( isManager )
+            m_bonus = 100;
+         else
+            m_bonus = 0;
+      }
+
+   string name;
+   float hourlyWage;
+
+private:
+   bool m_isManager;
+   float m_bonus;
+};</code></pre>
+</blockquote>
+<p>There are several important things to note about this class.  The <code>name</code>
+  and <code>hourlyWage</code> fields are public members, allowing the user to
+  change them.  These are the properties that we'll wish to expose to the script
+  engine.  The <code>setManager()</code> method performs some extra work when
+  changing to or from manager status in order to adjust the bonus.  While a method
+  is necessary in C++, from the ScriptEase point of view, it would be significantly
+  easier to allow direct assignment such as &quot;<code>employee.isManager&nbsp;=&nbsp;true</code>&quot;
+  and handle the extra code within the dynamic method.</p>
+<p>The first thing we need to do is similar to the first example.  We include
+  <code>&quot;jseobject.h&quot;</code> and inherit from <code>SEDynamicObjectWrapper</code>. 
+  The first line of our class must be an interface definition macro, called <code>SEDYNOBJWRAPPER_DECLARE_INTERFACE()</code>. 
+  Because the SEDynamicObjectWrapper class inherits from SEObjectWrapper, all
+  the methods and macros available to the simple objects are also available to
+  the dynamic objects.  The dynamic version of the interface declaration macro
+  automatically initializes the needed data, so DO NOT call <code>SEOBJWRAPPER_DECLARE_INTERFACE()</code>
+  in the same class as calling the dynamic version.  Our new class begins like
+  this:</p>
+<blockquote>
+  <pre><code>#include &quot;jseopt.h&quot;
+#include &quot;jseobject.h&quot;
+
+class DynamicEmployee : public SEDynamicObjectWrapper
+{
+   SEDYNOBJWRAPPER_DECLARE_INTERFACE(DynamicEmployee);
+
+public:</code></pre>
+</blockquote>
+<p>Since we can use the same simple methods as in the first example, we will export
+  the <code>printInfo()</code> and <code>calculateWeeklyWages()</code> methods
+  just as we did before.  What we are more concerned with is the integration of
+  dynamic methods.  We will begin by declaring the <code>name</code> and <code>hourlyWage</code>
+  dynamic values.  To do this, we use the <code>SEDYNOBJWRAPPER_DECLARE_VALUE()</code>
+  macro.  This macro takes two parameters, the name of the variable and the type
+  of the variable.  The types supported are the same as those stated in the first
+  section.  The values must first be declared elsewhere in the class.</p>
+<p>To make the <code>isManager</code> attribute a dynamic callback, we use the
+  <code>SEDYNOBJWRAPPER_DECLARE_CALLBACK()</code> macro.  This macro takes two
+  parameters, the name of the callback and the type that it expects.  It actually
+  generates the definitions for two methods, which you must fill in.  The methods
+  it creates are:</p>
+<blockquote><pre><code>retType SEGet_callbackName();
+void SEPut_callbackName( retType value );</code></pre>
+</blockquote>
+<p>Where <code>callbackName</code> is replaced by the name that you supply.  Simply
+  define these methods to do what you like within your .cpp file.  The header
+  for our class now looks like this:</p>
+<blockquote>
+  <pre><code>   // ...
+
+   DynamicEmployee( jseContext );
+
+   // ...
+
+   SEOBJWRAPPER_DECLARE_METHOD(calculateWeeklyWages,float);
+   SEOBJWRAPPER_DECLARE_METHOD(printInfo,void);
+
+   SEDYNOBJWRAPPER_DECLARE_VALUE(name,string);
+   SEDYNOBJWRAPPER_DECLARE_VALUE(hourlyWage,float);
+
+   SEDYNOBJWRAPPER_DECLARE_CALLBACK(isManager,bool);
+
+   // ...</code></pre>
+</blockquote>
+<p>We are finished with the header file at this point.  Now we must add the necessary
+  code to export our dynamic properties to the .cpp file.  Note that you MUST
+  still declare a <code>SEOBJWRAPPER_BEGIN_INTERFACE()</code> block even if you
+  are not exporting any methods.  To include dynamic object support, simply create
+  a <code>SEDYNOBJWRAPPER_BEGIN_INTERFACE()</code> block around the properties
+  we wish to export.  It is required to correctly initialize the object.  Within
+  the interface block, use the macros <code>SEDYNOBJWRAPPER_EXPORT_VALUE()</code>
+  and <code>SEDYNOBJWRAPPER_EXPORT_CALLBACK()</code>, each which takes the name
+  of the value or callback. Every value or callback declared in the header file
+  must be exported in the .cpp file.  For our example we have the following interface
+  definition blocks:</p>
+<blockquote><code>
+  <pre>#include &quot;DynamicEmployee.h&quot;
+
+SEOBJWRAPPER_BEGIN_INTERFACE(DynamicEmployee)
+   SEOBJWRAPPER_EXPORT_METHOD(calculateWeeklyWages,1)
+   SEOBJWRAPPER_EXPORT_METHOD(printInfo,0)
+SEOBJWRAPPER_END_INTERFACE()
+
+SEDYNOBJWRAPPER_BEGIN_INTERFACE(DynamicEmployee)
+   SEDYNOBJWRAPPER_EXPORT_VALUE(name)
+   SEDYNOBJWRAPPER_EXPORT_VALUE(hourlyWage)
+   SEDYNOBJWRAPPER_EXPORT_CALLBACK(isManager)
+SEDYNOBJWRAPPER_END_INTERFACE()</pre>
+  </code></blockquote>
+<p>The dynamic values are now fnished.  However, we still must define the callback
+  methods, <code>sePut_isManager()</code> and <code>seGet_isManager()</code>. 
+  The code for this is relatively simple, and can be seen in the final version
+  of our class:</p>
+<h3>DynamicEmployee.h</h3>
+<blockquote><code>
+  <pre>#include &quot;jseopt.h&quot;
+#include &quot;jseobject.h&quot;
+
+class DynamicEmployee : public SEDynamicObjectWrapper
+{
+   SEDYNOBJWRAPPER_DECLARE_INTERFACE(DynamicEmployee);
+
+public:
+   DynamicEmployee( string name, float hourlyWage, bool isManager )
+      : SEDynamicObjectWrapper(), name(name), hourlyWage(hourlyWage)
+      {
+         setManager(isManager);
+      }
+
+   DynamicEmployee(jseContext jsecontext);
+
+   float calculateWeeklyWages( float hoursWorked )
+      { return hourlyWage*hoursWorked + m_bonus; }
+
+   void printInfo()
+      {
+         cout &lt;&lt; &quot;        Name: &quot; &lt;&lt; name;
+         if( m_isManager )
+            cout &lt;&lt; &quot; (Manager)&quot;;
+         cout &lt;&lt; endl &lt;&lt; &quot; Hourly Wage: &quot; &lt;&lt; hourlyWage &lt;&lt; endl;
+      }
+
+   void setManager( bool isManager )
+      {
+         m_isManager = isManager;
+         if( isManager )
+            m_bonus = 100;
+         else
+            m_bonus = 0;
+      }
+
+   string name;
+   float hourlyWage;
+
+   SEOBJWRAPPER_DECLARE_METHOD(calculateWeeklyWages,float);
+   SEOBJWRAPPER_DECLARE_METHOD(printInfo,void);
+
+   SEDYNOBJWRAPPER_DECLARE_VALUE(name,string);
+   SEDYNOBJWRAPPER_DECLARE_VALUE(hourlyWage,float);
+
+   SEDYNOBJWRAPPER_DECLARE_CALLBACK(isManager,bool);
+
+private:
+   bool m_isManager;
+   float m_bonus;
+
+};</pre>
+  </code></blockquote>
+<h3>DynamicEmployee.cpp</h3>
+<blockquote><code>
+  <pre>#include &quot;DynamicEmployee.h&quot;
+
+SEOBJWRAPPER_BEGIN_INTERFACE(DynamicEmployee)
+   SEOBJWRAPPER_EXPORT_METHOD(calculateWeeklyWages,1)
+   SEOBJWRAPPER_EXPORT_METHOD(printInfo,0)
+SEOBJWRAPPER_END_INTERFACE()
+
+SEDYNOBJWRAPPER_BEGIN_INTERFACE(DynamicEmployee)
+   SEDYNOBJWRAPPER_EXPORT_VALUE(name)
+   SEDYNOBJWRAPPER_EXPORT_VALUE(hourlyWage)
+   SEDYNOBJWRAPPER_EXPORT_CALLBACK(isManager)
+SEDYNOBJWRAPPER_END_INTERFACE()
+
+DynamicEmployee::DynamicEmployee( jseContext jsecontext)
+   : SEDynamicObjectWrapper(jsecontext)
+{
+   if( !SEOBJWRAPPER_PARAMETER(name,string,0) )
+      return;
+   if( !SEOBJWRAPPER_PARAMETER(hourlyWage,float,1) )
+      return;
+   bool isManager;
+   if( !SEOBJWRAPPER_PARAMETER(isManager,bool,2) )
+      return;
+   setManager(isManager);
+}
+
+float
+DynamicEmployee::calculateWeeklyWages( jseContext )
+{
+   float hoursWorked;
+   if( !SEOBJWRAPPER_PARAMETER(hoursWorked,float,0) )
+      return 0;
+   return calculateWeeklyWages( hoursWorked );
+}
+
+void
+DynamicEmployee::printInfo( jseContext )
+{
+   printInfo();
+}
+
+bool
+DynamicEmployee::seGet_isManager()
+{
+   return m_isManager;
+}
+
+void
+DynamicEmployee::sePut_isManager( bool value )
+{
+   setManager(value);
+}</pre>
+  </code></blockquote>
+<p>That's all it takes to create effective dynamic C++ objects in ScriptEase. 
+  Remember, though, that you still must call the <code>init()</code>methods on
+  your class just as we did in the first example.  With the two methods of implementing
+  dynamic objects, you should be able to do nearly anything you wish.  If there
+  is some functionality not provided by these mechanisms, it is probably covered
+  in the next section</p>
+<b><i> </i></b>
+<h2>3. <a name="advancedtech"></a>Advanced Programming Techniques</h2>
+<p>What has been demonstrated in the first two sections is by no means the limit
+  to what you can do with these classes.  In this section we will describe several
+  of the more advanced techniques to interact with the SEObjectWrapper and SEDynamicObjectWrapper
+  interfaces.</p>
+<h3><i>Containment of Other Objects</i></h3>
+<p>Many of your objects probably contain other objects.  If you have SEObjectWrapper
+  classes that contain other SEObject classes, you will probably need some way
+  of exporting this information to the ScriptEase engine.  The simplest way to
+  manage members is through the use of two methods, <code>setMember()</code> and
+  <code>getMember()</code>.</p>
+<blockquote><code><pre>void setMember( const jsecharptr name, const type &amp;value );
+bool getMember( const jsecharptr name, type &amp;value);</pre></code></blockquote>
+<p>At their most basic level, the <code>setMember()</code> and <code>getMember()</code>
+  methods simply assign the given value to the appropriate member.  For <code>setMember</code>,
+  the first parameter is the name of the member, and the second member is the
+  value to assign.  For <code>getMember</code>, the first parameter is the name
+  of the member, and the second parameter is a reference to a variable to fill
+  in with the value.  The <code>getMember()</code> method returns true if the
+  member was present and of the appropriate type, false otherwise.</p>
+<p>The real power of containment comes with the use of the <code>SEObjectWrapperReference</code>
+  type.  This type is really a pointer to an SEObjectWrapper object, but it can
+  be used in any of the methods such as <code>getMember()</code>, <code>setMember()</code>,
+  <code>SEOBJWRAPPER_DECLARE_METHOD()</code>, <code>SEDYNOBJWRAPPER_DECLARE_VALUE()</code>,
+  <code>SEDYNOBJWRAPPER_DECLARE_CALLBACK()</code>, and <code>SEOBJWRAPPER_PARAMETER()</code>. 
+  In order to use this type, simply declare an SEObjectWrapperReference variable
+  and pass it to the appropriate macro or method.  Once you have gotten the value,
+  you must then typecast it to your derived type.  For systems that support RTII,
+  you should use the <code>dynamic_cast&lt;&gt;</code> operator to ensure type
+  safety.  Otherwise, simply typecast to the type you expect, but be warned that
+  the pointer returned could be a non-SEObjectWrapper, though it is unlikely unless
+  one of your libraries is also using j<code>seSetObjectData</code> on the same
+  objects.</p>
+<p>For our example, we will modify the DynamicEmployee class to contain a few
+  more members.  The first will be <code>'originalName'</code>, which serves no
+  practical purpose but demonstrates how to use <code>setMember()</code>.  This
+  is a string which gets set as a non-dynamic member when the object is created. 
+  If you are using non-dynamic objects, this is the way to add contained members
+  to you object.  We then add two members, <code>'coworker'</code> and <code>'boss'</code>,
+  both dynamic members defined in different ways.  The <code>coworker</code> member
+  is defined as a dynamic value, which means that it must be stored as an <code>SEObjectWrapperReference</code>
+  and be typecast when it is actually used.  The <code>boss</code> member, however,
+  uses callbacks to do the typecast automatically, so that the member can be access
+  directly without any trouble.  The code for this example follows:</p>
+<h3>DynamicEmployee.h</h3>
+<blockquote><code>
+                    <pre>#include &quot;jseopt.h&quot;
+#include &quot;jseobject.h&quot;
+
+class DynamicEmployee : public SEDynamicObjectWrapper
+{
+   SEDYNOBJWRAPPER_DECLARE_INTERFACE(DynamicEmployee);
+
+public:
+   DynamicEmployee( string name, float hourlyWage, bool isManager,
+                DynamicEmployee * boss = NULL)
+     : SEDynamicObjectWrapper(), name(name), hourlyWage(hourlyWage),
+       m_boss(boss), coworker(NULL)
+      {
+         setManager(isManager);
+      }
+
+   DynamicEmployee(jseContext jsecontext);
+
+   float calculateWeeklyWages( float hoursWorked )
+      { return hourlyWage*hoursWorked + m_bonus; }
+
+   void printInfo()
+      {
+       cout &lt;&lt; &quot;        Name: &quot; &lt;&lt; name;
+         if( m_isManager )
+         cout &lt;&lt; &quot; (Manager)&quot;;
+         cout &lt;&lt; endl &lt;&lt; &quot; Hourly Wage: &quot; &lt;&lt; hourlyWage &lt;&lt; endl;
+       if( coworker != NULL )
+         cout &lt;&lt; &quot;    Coworker: &quot;
+              &lt;&lt; ((DynamicEmployee *)coworker)-&gt;name &lt;&lt; endl;
+       if( m_boss != NULL )
+         cout &lt;&lt; &quot;        Boss: &quot; &lt;&lt; m_boss-&gt;name &lt;&lt; endl;
+      }
+
+   void setManager( bool isManager )
+      {
+         m_isManager = isManager;
+         if( isManager )
+            m_bonus = 100;
+         else
+            m_bonus = 0;
+      }
+
+   void setBoss( DynamicEmployee *boss );
+   virtual bool createVariable( const jsecharptr name = NULL,
+                        jseVariable ownerVar = NULL );
+
+   string name;
+   float hourlyWage;
+
+   SEOBJWRAPPER_DECLARE_METHOD(calculateWeeklyWages,float);
+   SEOBJWRAPPER_DECLARE_METHOD(printInfo,void);
+
+   SEDYNOBJWRAPPER_DECLARE_VALUE(name,string);
+   SEDYNOBJWRAPPER_DECLARE_VALUE(hourlyWage,float);
+   SEDYNOBJWRAPPER_DECLARE_VALUE(coworker,SEObjectWrapperReference);
+
+   SEDYNOBJWRAPPER_DECLARE_CALLBACK(isManager,bool);
+   SEDYNOBJWRAPPER_DECLARE_CALLBACK(boss,SEObjectWrapperReference);
+
+private:
+   bool m_isManager;
+   float m_bonus;
+  
+   DynamicEmployee * m_boss;
+  
+   SEObjectWrapperReference coworker;
+};</pre>
+  </code></blockquote>
+<h3>DynamicEmployee.cpp</h3>
+<blockquote><code>
+  <pre>#include &quot;DynamicEmployee.h&quot;
+
+SEOBJWRAPPER_BEGIN_INTERFACE(DynamicEmployee)
+   SEOBJWRAPPER_EXPORT_METHOD(calculateWeeklyWages,1)
+   SEOBJWRAPPER_EXPORT_METHOD(printInfo,0)
+SEOBJWRAPPER_END_INTERFACE()
+
+SEDYNOBJWRAPPER_BEGIN_INTERFACE(DynamicEmployee)
+  SEDYNOBJWRAPPER_EXPORT_VALUE(name)
+  SEDYNOBJWRAPPER_EXPORT_VALUE(hourlyWage)
+  SEDYNOBJWRAPPER_EXPORT_VALUE(coworker)
+  SEDYNOBJWRAPPER_EXPORT_CALLBACK(isManager)
+  SEDYNOBJWRAPPER_EXPORT_CALLBACK(boss)
+SEDYNOBJWRAPPER_END_INTERFACE()
+
+DynamicEmployee::DynamicEmployee( jseContext jsecontext )
+  : SEDynamicObjectWrapper(jsecontext),
+    m_boss(NULL), coworker(NULL)
+{
+   if( !SEOBJWRAPPER_PARAMETER(name,string,0) )
+      return;
+   if( !SEOBJWRAPPER_PARAMETER(hourlyWage,float,1) )
+      return;
+   bool isManager;
+   if( !SEOBJWRAPPER_PARAMETER(isManager,bool,2) )
+      return;
+   setManager(isManager);
+}
+
+bool
+DynamicEmployee::createVariable( const jsecharptr name,
+                         jseVariable ownerVar )
+{
+  if( !SEDynamicObjectWrapper::createVariable(name,ownerVar) )
+    return false;
+
+  setMember(&quot;originalName&quot;,this-&gt;name);
+  return true;
+}
+
+void
+DynamicEmployee::setBoss( DynamicEmployee *boss )
+{
+  m_boss = boss;
+
+  if( hasContext() &amp;&amp; hasVariable() )
+  {
+    if( boss != NULL )
+    {
+      if( !boss-&gt;hasContext() )
+      boss-&gt;setContext( getContext() );
+      if( !boss-&gt;hasVariable() )
+      boss-&gt;createVariable();
+    }
+  }
+}
+
+float
+DynamicEmployee::calculateWeeklyWages( jseContext )
+{
+   float hoursWorked;
+   if( !SEOBJWRAPPER_PARAMETER(hoursWorked,float,0) )
+      return 0;
+
+   return calculateWeeklyWages( hoursWorked );
+}
+
+void
+DynamicEmployee::printInfo( jseContext )
+{
+   printInfo();
+}
+
+bool
+DynamicEmployee::seGet_isManager()
+{
+   return m_isManager;
+}
+
+void
+DynamicEmployee::sePut_isManager( bool value )
+{
+   setManager(value);
+}
+
+SEObjectWrapperReference
+DynamicEmployee::seGet_boss()
+{
+  return (SEObjectWrapperReference) m_boss;
+}</pre>
+  </code></blockquote>
+<p>There are several important things to note about this example.  The first is
+  the overloaded <code>createVariable()</code> method.  We want any newly created
+  variables to have the '<code>.originalName</code>' member set correctly, so
+  we automatically add that to this method to ensure that it is added to all variables,
+  whether they are created from C++ code or from within ScriptEase.  You must
+  call the superclass <code>createVariable()</code> method before you can do anything
+  in your own method.</p>
+<p>The second note is the <code>setBoss()</code> member function.  This method
+  ensures that the class you are adding has a scriptEase variable associated with
+  it.  The object must have had <code>createVariable() </code>called on it or
+  it will not work.  While it can be assumed that the user will have already created
+  this variable before passing it to <code>setBoss()</code>, this extra code ensures
+  that the forgetful user doesn't cause a fatal error.</p>
+<p>The final important method is the <code>seGet_boss()</code> and <code>sePut_boss()</code>
+  methods, which get called when the user changes the boss member of a script
+  variable.  These methods convert the <code>SEObjectWrapperReference</code> into
+  a native pointer inline, so that the code that uses <code>m_boss</code> does
+  not need to do this cast.  This is preferred method of containment with dynamic
+  members, because the rest of your doesn't have to change (no explicit casts
+  are needed).</p>
+<h4>Advanced Method Declarations</h4>
+<p>The basic macros cover 95% of the situations that a developer may encounter. 
+  There are times, however, when the developer wants more control over the methods
+  and properties of the objects.  The SEObjectWrapper class provides a number
+  of mechanisms for greater control, as well as allowing the user to add arbitrary
+  methods to the engine.</p>
+<p><b>Accesing the raw object </b>- In any method function, you can simply access
+  the current object by calling <code>getVariable()</code>, or casting the (*this)
+  variable to a jseVariable.  Also, you can get the current executing context
+  by calling currentContext(), even if you aren't currently in a wrapper function.</p>
+<p><b>Using jseVariable </b>- In all of the macros that require types, one of
+  the possible types is a jseVariable.  This allows you to manipulate and edit
+  members directly, as well as return arbitrary variables from methods, without
+  having to rely on the auto-conversion techniques of the SEObjectWrapper class. 
+  For example, if you want to create a member that is an object, but not a SEObjectWrapper
+  object (so you can't use the SEObjectWrapperReference), you could do the following:</p>
+<blockquote><code>
+  <pre>jseVariable member = jseCreateVariable(currentContext(),jseTypeObject);
+
+// ... Do something with the object here ...
+
+setMember( &quot;myObject&quot;, member );
+
+jseDestroyVariable(currentContext(),member);</pre>
+  </code></blockquote>
+<p>The currentContext() method returns the current executing context based on
+  the context that this variable was created with.  It is important to note when
+  you use jseVariables, assignments take place you might not expect.  Any time
+  you call <code>setMember</code>, <code>getMember</code>, <code>SEOBJWRAPPER_PARAMETER</code>,
+  <code>SEOBJWRAPPER_DECLARE_METHOD</code>, the variable will be COPIED.  This
+  means that if you expect to get a parameter by reference, or if you try and
+  get a variable and modify it's contents, the original variable will NOT be modified. 
+  Of course if it is object, then any changes you make to the object's members
+  will still be reflected in the copy, but you cannot change the reference to
+  the object itself.  In order to do this type of manipulation, you will need
+  to use the <code>currentContext()</code> and <code>getVariable()</code> methods
+  to manually manipulate the object.  This allows you do something like this:</p>
+<blockquote><code>
+  <pre>jseVariable member = jseGetMemberEx(*this,getVariable(),jseCreateVar);
+
+// ... Do something with the object here ...
+
+jseDestroyVariable(currentContext(),member);</pre>
+  </code></blockquote>
+<p>Note that no explicit <code>setMember()</code> is needed, because we are modifying
+  the variable itself, instead of a copy as would be the case if we used <code>getMember()</code>. 
+  If you define a method that returns a jseVariable, simply return that variable
+  from your method.  Note however, that it will be returned as a temporary variable
+  and it will be destroyed when it is done being used.</p>
+<p><b>Advanced Method Exporting</b> - The <code>SEOBJWRAPPER_EXPORT_METHOD()</code>
+  macro is farily limited in it's use.  There is a different version, SEOBJWRAPPER_EXPORT_METHOD_EX(),
+  which includes all the parameters that can be passed to the function description
+  table.  This means that you can do something similar to this:</p>
+<blockquote><code><pre>SEOBJWRAPPER_BEGIN_INTERFACE(MyObject)
+ SEOBJWRAPPER_EXPORT_METHOD_EX(myMethod,2,-1,jseDontEnum,jseFuncSecure)
+SEOBJWRAPPER_END_INTERFACE()</pre></code></blockquote>
+<p>This declares the method to take a minimum of 2 arguments with no maximum,
+  as well as declaring it don't enumerate (the default without EX) and secure. 
+  For truly advanced use, the elements in between the begin and end interface
+  tags is really just a jseFunctionDescription table.  This means that you can
+  use any of the macros that you can normally use in the table.  By default, all
+  methods are declared with <code>JSE_PROTOMETH()</code>, and the methods are
+  wrapped by a dynamically generated wrapper function by the name of <code>__methodName</code>. 
+  Any lib methods that you declare within this block will be added to the global
+  object by the same name as your class.  For example, if you have a static method
+  that you wish to make available to the script engine, you might do this:</p>
+<blockquote><code>
+  <pre>SEOBJWRAPPER_BEGIN_INTERFACE(MyObject)
+
+ JSE_LIBMETHOD(&quot;myMethod&quot;,myMethod,2,-1,jseDontEnum,jseFuncSecure)
+SEOBJWRAPPER_END_INTERFACE()
+
+jseLibFunc(MyObject::myMethod)
+{
+   // .. Do stuff here
+}</pre>
+  </code></blockquote>
+<p>This would add the method <code>MyObject.myMethod</code> to the script engine. 
+  Any methods that you manually define and export to the ScriptEase engine can
+  get the this variable as a C++ pointer simply by calling getThisVariable() within
+  a wrapper function.</p>
+<h4>Lifetime Management (Control changes) </h4>
+<p>In most cases, a variable created in the C++ code will be deleted by the C++
+  code, and a variable created by the ScriptEase engine will also be deleted by
+  the ScriptEase engine.  There are cases, though, when you wish to create a C++
+  object and pass it to the ScritpEase engine, or where you wish to store a pointer
+  to a C++ object that was supplied from the ScriptEase engine.  You can't rely
+  on the object's lifetime in either case, which is why the SEObject has a built
+  in mechanism for deleting the variable at the appropriate time.  This is accomplished
+  through the methods <code>takeControl()</code> and <code>relinquishControl()</code>. 
+  An SEObjectWrapper object is viewed as being &quot;owned&quot; by either the
+  script engine or C++ code.  Whichever is the owner is responsible for deleting
+  it.  The reason that you can't store the pointer to an object created by the
+  script engine is that the script engine &quot;owns&quot; the variable and could
+  delete it at any time, which would invalidate the memory at that pointer.  The
+  owner of an object can be determined in C++ by calling the <code>isOwnedByScript()</code>
+  method.</p>
+<p>If an object is owned by the ScriptEase engine, then it will be deleted when
+  the object is no longer used.  If an object is owned by the user's code, there
+  are two options for deleting the object.  The first is to simply call <code>relinquishControl()</code>. 
+  This will turn control over to the script, and the object will be deleted when
+  there are no more references.  The second method is to delete the object yourself. 
+  In this case, the SEObjectWrapper invalidates the object and attempts to delete
+  references to the object.  There may still be references to the object in the
+  ScriptEase engine, in which case the user will try to interact with the objects
+  but nothing will happen, because they are no longer attached to any C++ object. 
+  For objects that depend on resources with a defined lifetime, this is the only
+  option.  For simple objects, calling <code>relinquishControl()</code> and letting
+  the ScriptEase engine delete the object is a better option.</p>
+<p>If you wish to manage an object, simply call <code>takeControl()</code> on
+  the object, and you will assume responsibility for deleting the object.  The
+  object will never be deleted by the script engine.  If you no longer want to
+  manage an object, simply call <code>relinquishControl()</code>, but do not attempt
+  to interact with the object except when receiving the object from script code
+  (or fetching it from a script object).  If you attempt to delete the object,
+  it will cause a failed assertion.  Make sure you take back control before you
+  attempt and explicit deletion.</p>
+<h4>Advanced Dynamic Programming </h4>
+<p>As stated before, the dynamic macros provided should be enough to satisfy most
+  cases.  There are times, however, where you need more control than these mechanisms
+  provide.  For these cases, there are a number of virtual methods which you can
+  override to do any type of dynamic object programming.  These methods are:</p>
+<blockquote><code><pre>// Returns true if it successfully put the value, false otherwise
+bool sePutProperty( jseContext jsecontext, string name,
+                    jseVariable var );
+// Returns the specified property, or NULL if it is not found
+jseVariable seGetProperty( jseContext jsecontext, string name );
+// Returns true if the specified property can be put
+bool seCanPut( jseContext jsecontext, string name );
+// Returns one of the values HP_HAS, HP_HASNOT, HP_CHECK, or
+// HP_DIRECTCHECK
+int seHasProperty( jseContext jsecontext, string name );</pre></code></blockquote>
+<p>With these methods you simply intercept any significant values and deal with
+  them as you feel appropriate.  In this way you can have objects that have dynamically
+  added members (such as a map of values).  Simply override the sePutProperty
+  to put those members into some kind of container.  For a description of the
+  <code>HP_XXX</code> values that <code>seHasProperty()</code> returns, see the
+  ScriptEase:SDK documentation.</p>
+<h4>Inheritance</h4>
+<p>There is no simple mechanism to implement inheritance with the SObjectWrapper
+  class.  With some effort, however, you can implement inheritance with just a
+  few steps.</p>
+<p>The first step is to establish the prototype chain so that methods of the superclass
+  are available to subclass objects.  This involves setting the _prototype property
+  of the subclass's prototype object to be the prototype of the superclass.  Essentially,
+  this translates to:</p>
+<blockquote><code><pre>Subclass.prototype._prototype = Superclass.prototype;</pre></code></blockquote>
+<p>To do this, modify the function table to include a JSE_VARASSIGN macro to do
+  this assignment.  If we were to have a class YetAnotherEmployee derive from
+  DynamicEmployee, our interface definition would look like this:</p>
+<blockquote><code><pre>SEOBJWRAPPER_BEGIN_INTERFACE(YetAnotherEmployee)
+  // ... Normal declarations ...
+  JSE_VARASSIGN(&quot;prototype._prototype&quot;,&quot;DynamicEmployee.prototype&quot;,0),
+SEOBJWRAPPER_END_INTERFACE()</pre></code></blockquote>
+<p>Now all the methods defined by DynamicEmployee will be available to this class. 
+  The second step is to override the <code>createVariable()</code> method in your
+  object to call the superclass version of <code>createVariable()</code>.  This
+  is only necessary if the superclass re-implements this method itself.  For our
+  example we would have to define the method:</p>
+<blockquote><code>
+  <pre>bool YetAnotherEmploye::createVariable(const jsecharptr name,
+                                       jseVariable ownerVar)
+{
+   if( !DynamicEmployee::createVariable(name,ownerVar) )
+      return false;
+   
+   // ... Do our stuff here ...
+}</pre>
+  </code></blockquote>
+<p>The laststep, which is more complicated, involved propagating dynamic methods
+  up to superclasses.  This applies ONLY to dynamic objects that need to have
+  their dynamic properties chained.  In order to do this, you will need to override
+  the virtual method <code>sePutProperty() and seGetProperty() </code>as defined
+  in the previous section and call the <code>putProperty()</code> method of the
+  superclass.  This method is not normally exposed, but it is available for this
+  express purpose.  In this example, we would have the following methods:</p>
+<blockquote><code>
+  <pre>bool
+YetAnotherEmployee::sePutProperty( jseContext jsecontext, string name,
+                                   jseVariable var )
+{
+   // ... Do what we need to here, if anything ...
+   return DynamicEmployee::putProperty(jsecontext,name,var);
+}
+
+jseVariable
+YetAnotherEmployee::seGetProperty( jseContext jsecontext, string name)
+{
+   // ... Do what we need to here, if anything ...
+   return DynamicEmployee::getProperty(jsecontext,name,var);
+}</pre>
+  </code></blockquote>
+<p>For the other dynamic methods, <code>hasProperty()</code> and <code>canPut()</code>,
+  you will need to call the methods <code>seHasProperty()</code> and <code>seCanPut()</code>
+  directly.  The reason that you don't call <code>setGetProperty()</code> and
+  <code>sePutProperty()</code> directly is that the other methods correctly handle
+  dynamic values and callbacks.  After you do this, inheritance of both methods
+  and dynamic properties should work propertly.</p></TD>
+              </TR>
+            </TABLE>
+          </TD>
+        </TR>
+      </TABLE>
+    </TD>
+  </TR>
+  <TR VALIGN=TOP ALIGN=LEFT>
+    <TD HEIGHT=2></TD>
+    <TD WIDTH=632 COLSPAN=2 height="2">
+      <TABLE BORDER=0 CELLSPACING=0 CELLPADDING=0 WIDTH=632 HEIGHT=20 bgcolor="#FFFFFF">
+        <TR ALIGN=LEFT VALIGN=TOP>
+          <TD>
+            <TABLE BORDER=0 CELLSPACING=0 CELLPADDING=0 WIDTH=632>
+              <TR VALIGN=TOP ALIGN=LEFT>
+                <TD WIDTH=20 HEIGHT=20 ALIGN=LEFT VALIGN=TOP><IMG ID="Picture13" HEIGHT=20 WIDTH=20 SRC="../../curve_botleft.gif" BORDER=0></TD>
+                <TD WIDTH=592><IMG SRC="../../clearpixel.gif" WIDTH=592 HEIGHT=1 BORDER=0></TD>
+                <TD WIDTH=20 ALIGN=LEFT VALIGN=TOP><IMG ID="Picture11" HEIGHT=20 WIDTH=20 SRC="../../curve_bot.gif" BORDER=0></TD>
+              </TR>
+            </TABLE>
+          </TD>
+        </TR>
+      </TABLE>
+    </TD>
+  </TR>
+  <TR VALIGN=TOP ALIGN=LEFT>
+    <TD WIDTH=5 HEIGHT=6><IMG SRC="../../clearpixel.gif" WIDTH=5 HEIGHT=1 BORDER=0></TD>
+    <TD WIDTH=613><IMG SRC="../../clearpixel.gif" WIDTH=613 HEIGHT=1 BORDER=0></TD>
+    <TD WIDTH=19><IMG SRC="../../clearpixel.gif" WIDTH=19 HEIGHT=1 BORDER=0></TD>
+  </TR>
+  <TR VALIGN=TOP ALIGN=LEFT>
+    <TD WIDTH=618 COLSPAN=2>
+      <P ALIGN=RIGHT><A HREF="../../index.htm"><FONT COLOR="#FFFFFF" SIZE="-2" FACE="Verdana,Tahoma,Arial,Helvetica">Home</FONT></A><FONT COLOR="#FFFFFF" SIZE="-2" FACE="Verdana,Tahoma,Arial,Helvetica">
+        | </FONT><A
+                 HREF="../../scripting/scripting.htm"><FONT COLOR="#FFFFFF" SIZE="-2" FACE="Verdana,Tahoma,Arial,Helvetica">Scripting</FONT></A><FONT COLOR="#FFFFFF" SIZE="-2" FACE="Verdana,Tahoma,Arial,Helvetica">
+        | </FONT><A
+                 HREF="../../products/products.htm"><FONT COLOR="#FFFFFF" SIZE="-2" FACE="Verdana,Tahoma,Arial,Helvetica">Products</FONT></A><FONT COLOR="#FFFFFF" SIZE="-2" FACE="Verdana,Tahoma,Arial,Helvetica">
+        | </FONT><A
+                 HREF="../../purchase/purchase.htm"><FONT COLOR="#FFFFFF" SIZE="-2" FACE="Verdana,Tahoma,Arial,Helvetica">Purchase</FONT></A><FONT COLOR="#FFFFFF" SIZE="-2" FACE="Verdana,Tahoma,Arial,Helvetica">
+        | </FONT><A
+                 HREF="../../download/ndownload.htm"><FONT COLOR="#FFFFFF" SIZE="-2" FACE="Verdana,Tahoma,Arial,Helvetica">Download</FONT></A><FONT COLOR="#FFFFFF" SIZE="-2" FACE="Verdana,Tahoma,Arial,Helvetica">
+        | </FONT><A
+                 HREF="http://support.nombas.com/"><FONT COLOR="#FFFFFF" SIZE="-2" FACE="Verdana,Tahoma,Arial,Helvetica">Support</FONT></A><FONT COLOR="#FFFFFF" SIZE="-2" FACE="Verdana,Tahoma,Arial,Helvetica">
+        | </FONT><A HREF="../../company/company.htm"> <FONT COLOR="#FFFFFF" SIZE="-2" FACE="Verdana,Tahoma,Arial,Helvetica">Company</FONT></A><FONT COLOR="#FFFFFF" SIZE="-2" FACE="Verdana,Tahoma,Arial,Helvetica"><BR>
+        <BR>
+        Copyright &#169;2001, Nombas, Inc. All Rights Reserved.<BR>
+        Questions? Visit </FONT><A HREF="http://support.nombas.com/"><FONT COLOR="#FFFFFF" SIZE="-2" FACE="Verdana,Tahoma,Arial,Helvetica">http://support.nombas.com/</FONT></A>
+    </TD>
+    <TD></TD>
+  </TR>
+</TABLE>
+<SCRIPT language=JavaScript1.2>
+  display_nombas_legacy_message();
+</SCRIPT>
+</BODY>
+</HTML>

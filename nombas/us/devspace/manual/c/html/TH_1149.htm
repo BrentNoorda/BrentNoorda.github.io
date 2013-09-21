@@ -1,0 +1,92 @@
+<html>
+<head>
+<title>Socket ready()</title>
+<link rel="stylesheet" href="semanualstyles.css" type="text/css">
+<style type="text/css">
+ p { margin-top: 0; margin-bottom: 0; }
+</style>
+<script language="JavaScript" src="TrueHelp.js"></script>
+</head>
+<body onload="thload()">
+<div id=ienav>
+<ilayer id=nsnav>
+<br>
+<center>
+<p class=normal><a href="seisdkc-toc.htm" target="left">contents</a> &nbsp; <a href="seisdkc-index.htm" target="left">index</a> &nbsp; <a href="TH_1148.htm">previous</a> &nbsp; <a href="TH_1150.htm">next</a></p>
+</center>
+<br>
+<hr noshade size=1>
+</ilayer>
+</div>
+<p class=sereffunclevel4>Socket ready()</p>
+<table cellpadding=0>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>syntax:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=sesyntax>socket.ready(<span class=truehelp-xe></span>[timeout])</p></td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>where:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>timeout - Maximum time to poll, in milliseconds, or -1 for no timeout</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>return:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>boolean - whether the socket is ready for reading in the specified time.</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>description:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>This method is very similar to <span class=sepopuptopic><a href="TH_1157.htm" onClick="return thwindow('TH_1157.htm', 'GenPopup')">Socket.select()</a></span>, except that it only polls the current socket for input.  If no timeout is specified or it is -1, then the socket is polled indefinitely, unless there is an error.  This method is useful for simple applications, when there are just a few sockets open, or in special instances where the <span class=secodephrase>Socket.select()</span> method is impractical or impossible.</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>see:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara><span class=secodephrase>#link &lt;sesock&gt;</span>, <span class=sejumptopic><a href="TH_1157.htm">Socket select()</a></span></p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>example:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=secodelines>var&nbsp;listenSocket&nbsp;=&nbsp;Socket(&nbsp;1000&nbsp;);</p>
+<p class=secodelines>&nbsp;</p>
+<p class=secodelines>//&nbsp;Assume&nbsp;'done'&nbsp;is&nbsp;a&nbsp;global&nbsp;flag</p>
+<p class=secodelines>if(&nbsp;listenSocket&nbsp;!=&nbsp;null&nbsp;)</p>
+<p class=secodelines>{</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;while(&nbsp;!done&nbsp;)</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;{</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if(&nbsp;listenSocket.ready(10)&nbsp;)</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//&nbsp;Open&nbsp;connection&nbsp;with&nbsp;accept()&nbsp;...</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}</p>
+<p class=secodelines>&nbsp;</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//&nbsp;Do&nbsp;other&nbsp;idle&nbsp;stuff...</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;}</p>
+<p class=secodelines>&nbsp;</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;listenSocket.close();</p>
+<p class=secodelines>}</p>
+<p class=secodelines>&nbsp;</p>
+<p class=secodelines>/*&nbsp;This&nbsp;code&nbsp;creates&nbsp;a&nbsp;socket&nbsp;listening</p>
+<p class=secodelines>&nbsp;*&nbsp;on&nbsp;port&nbsp;1000,&nbsp;and&nbsp;continuously</p>
+<p class=secodelines>&nbsp;*&nbsp;polls&nbsp;it&nbsp;to&nbsp;see&nbsp;if&nbsp;there&nbsp;is</p>
+<p class=secodelines>&nbsp;*&nbsp;an&nbsp;incoming&nbsp;connection,&nbsp;alternatively&nbsp;doing</p>
+<p class=secodelines>&nbsp;*&nbsp;idle&nbsp;code&nbsp;when&nbsp;there&nbsp;is&nbsp;no&nbsp;connection&nbsp;ready.</p>
+<p class=secodelines>&nbsp;*/</p></td>
+</tr>
+</table>
+<p class=normal>&nbsp;</p>
+<hr noshade size=1>
+<p class=normal><a href="TH_1150.htm"><img src="button.png" border=0></a><a href="TH_1150.htm" style="text-decoration:none;">Socket remoteHost()</a></p>
+<p>
+</body>
+</html>

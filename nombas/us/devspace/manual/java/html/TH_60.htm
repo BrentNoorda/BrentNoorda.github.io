@@ -1,0 +1,100 @@
+<html>
+<head>
+<title>seThrow</title>
+<link rel="stylesheet" href="semanualstyles.css" type="text/css">
+<style type="text/css">
+ p { margin-top: 0; margin-bottom: 0; }
+</style>
+<script language="JavaScript" src="TrueHelp.js"></script>
+</head>
+<body onload="thload()">
+<div id=ienav>
+<ilayer id=nsnav>
+<br>
+<center>
+<p class=normal><a href="seisdkj-toc.htm" target="left">contents</a> &nbsp; <a href="seisdkj-index.htm" target="left">index</a> &nbsp; <a href="TH_59.htm">previous</a> &nbsp; <a href="TH_61.htm">next</a></p>
+</center>
+<br>
+<hr noshade size=1>
+</ilayer>
+</div>
+<p class=sereffunclevel3>seThrow</p>
+<p class=sereffunclevel3-p>&nbsp;</p>
+<table cellpadding=0>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>syntax:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=sesyntax>&nbsp;&nbsp;&nbsp;void</p>
+<p class=sesyntax>SEContext.seThrow(String&nbsp;message);</p></td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>where:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara><span class=secodephrase>se</span> the current context</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara><span class=secodephrase>message</span> the message of the error message in standard ScriptEase format.</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>return:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>None</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>description:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>An error object is constructed and set up in the <span class=secodephrase>SE.RETURN</span> object. In addition, the error flag is turned on. If the wrapper function calling <span class=secodephrase>seThrow</span> returns after this call, it&#8217;s result will be the given error.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>The standard error message format for ScriptEase allows information on the type of the error to be included. By default, a stock <span class=secodephrase>Exception</span> object is constructed with the text passed to this function. The extended form of the string is:</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara><span class=secodephrase>!TYPE NUM: MESSAGE</span></p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>For instance, you could pass:</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara><span class=secodephrase>!SyntaxError 9999: You made a mistake.</span></p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>&nbsp;</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>The <span class=secodephrase>TYPE</span> indicates the type of the error. An error object of this type is constructed to contain the error. The error types are:</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara><span class=secodephrase>SyntaxError</span></p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>ReferenceError</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>ConversionError</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>ArrayLengthError</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>TypeError</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>URIError</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>EvalError</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>RegExpError</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>These types are defined by ECMA, including what errors are generated in normal error situations. When writing your own wrapper functions, pick the error type you feel is most appropriate.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>The <span class=secodephrase>NUM</span> indicates a resource number for your error message. Values of 10000 or more are reserved for user-errors, and you should use one. These numbers are used by the <span class=secodephrase>seGetResourceFunc</span> to internationalize the text associated with various text strings, including error messages.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara><span class=secodephrase>MESSAGE</span> is the text of the error message.</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>see:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>None</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+</table>
+<hr noshade size=1>
+<p class=normal><a href="TH_61.htm"><img src="button.png" border=0></a><a href="TH_61.htm" style="text-decoration:none;">EXECUTING SCRIPTS</a></p>
+<p>
+</body>
+</html>

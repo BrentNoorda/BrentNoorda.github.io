@@ -1,0 +1,90 @@
+<html>
+<head>
+<title>seEnableDynamicMethod</title>
+<link rel="stylesheet" href="semanualstyles.css" type="text/css">
+<style type="text/css">
+ p { margin-top: 0; margin-bottom: 0; }
+</style>
+<script language="JavaScript" src="TrueHelp.js"></script>
+</head>
+<body onload="thload()">
+<div id=ienav>
+<ilayer id=nsnav>
+<br>
+<center>
+<p class=normal><a href="seisdkj-toc.htm" target="left">contents</a> &nbsp; <a href="seisdkj-index.htm" target="left">index</a> &nbsp; <a href="TH_54.htm">previous</a> &nbsp; <a href="TH_56.htm">next</a></p>
+</center>
+<br>
+<hr noshade size=1>
+</ilayer>
+</div>
+<p class=sereffunclevel3>seEnableDynamicMethod</p>
+<p class=sereffunclevel3-p>&nbsp;</p>
+<table cellpadding=0>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>syntax:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=sesyntax>&nbsp;&nbsp;&nbsp;RestoreDynamicMethodState</p>
+<p class=sesyntax>SEContext.seEnableDynamicMethod(</p>
+<p class=sesyntax>&nbsp;&nbsp;&nbsp;SEObject&nbsp;obj,&nbsp;SEMemberDesc&nbsp;mem,</p>
+<p class=sesyntax>&nbsp;&nbsp;&nbsp;int&nbsp;whichCallback,</p>
+<p class=sesyntax>&nbsp;&nbsp;&nbsp;boolean&nbsp;enable,</p>
+<p class=sesyntax>&nbsp;&nbsp;&nbsp;RestoreDynamicMethodState&nbsp;restore_state);</p></td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>where:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara><span class=secodephrase>obj</span> the object half of the Object,Member pair</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara><span class=secodephrase>mem</span> the member half of the Object,Member pair</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara><span class=secodephrase>whichCallback</span> which method to enable/disable, this may be any of:</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=secodelinesindented>SE.GET_CALLBACK</p>
+<p class=secodelinesindented>SE.PUT_CALLBACK</p>
+<p class=secodelinesindented>SE.HASPROP_CALLBACK</p>
+<p class=secodelinesindented>SE.CANPUT_CALLBACK</p>
+<p class=secodelinesindented>SE.DELETEPROP_CALLBACK</p>
+<p class=secodelinesindented>SE.DEFAULTVALUE_CALLBACK</p>
+<p class=secodelinesindented>SE.OPERATOROVERLOAD_CALLBACK</p>
+<p class=secodelinesindented>SE.GETBYINDEX_CALLBACK</p>
+<p class=secodelinesindented>SE.GETNAMEBYINDEX_CALLBACK</p>
+<p class=secodelinesindented>SE.GETMAXINDEX_CALLBACK</p>
+<p class=secodelinesindented>SE.ALL_CALLBACK&nbsp;/*&nbsp;all&nbsp;of&nbsp;the&nbsp;above&nbsp;*/</p>
+<p class=secodelinesindented>&nbsp;</p>
+<p class=senormalpara><span class=secodephrase>enable</span> whether to enable dynamic method</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara><span class=secodephrase>restore_sate</span> <span class=secodephrase>null</span> for first call in pair, for second call set to value returned by the first call </p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>return:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>In first call in pair, this returns the value to be passed as <span class=secodephrase>retore_state</span> for second call.  For second call in pair the return value has no meaning.</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>description:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>Enable (if enable is <span class=secodephrase>true</span>) the calling of the dynamic method named methodName, else disable calling of that dynamic method.  These methods are disabled during a callback of that method (i.e. <span class=secodephrase>put</span> is disabled while within <span class=secodephrase>put</span> to prevent recursion).  This is a risky function and not a default part of the API.  To enable this API function compile with <span class=secodephrase>JSE_ENABLE_DYNAMETH</span>.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>This function is always used in a pair.  For the first call in the pair <span class=secodephrase>restore_state</span> should be <span class=secodephrase>null</span>.  For the second call, which will undo the first, <span class=secodephrase>restore_state</span> must be the value returned by the first call of the pair.</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>see:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara><span class=sepopuptopic><a href="TH_54.htm" onClick="return thwindow('TH_54.htm', 'GenPopup')">seSetCallbacks</a></span></p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+</table>
+<hr noshade size=1>
+<p class=normal><a href="TH_56.htm"><img src="button.png" border=0></a><a href="TH_56.htm" style="text-decoration:none;">seConvert</a></p>
+<p>
+</body>
+</html>

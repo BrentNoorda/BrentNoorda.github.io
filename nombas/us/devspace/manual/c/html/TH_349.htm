@@ -1,0 +1,32 @@
+<html>
+<head>
+<title>SE_SUSPEND</title>
+<link rel="stylesheet" href="semanualstyles.css" type="text/css">
+<style type="text/css">
+ p { margin-top: 0; margin-bottom: 0; }
+</style>
+<script language="JavaScript" src="TrueHelp.js"></script>
+</head>
+<body onload="thload()">
+<div id=ienav>
+<ilayer id=nsnav>
+<br>
+<center>
+<p class=normal><a href="seisdkc-toc.htm" target="left">contents</a> &nbsp; <a href="seisdkc-index.htm" target="left">index</a> &nbsp; <a href="TH_348.htm">previous</a> &nbsp; <a href="TH_350.htm">next</a></p>
+</center>
+<br>
+<hr noshade size=1>
+</ilayer>
+</div>
+<p class=heading-5>SE_SUSPEND</p>
+<p class=senormalpara>Similar to <span class=secodephrase>SE_YIELD</span>, in that the fiber drops back to the calling ScriptEase ISDK application. However, the fiber cannot be run until resumed by the application. Any calls to <span class=secodephrase>seExec</span> will return immediately. The application restores the fiber by putting <span class=secodephrase>FALSE</span> to that fiber's <span class=secodephrase>SE_RETURN,SE_SUSPEND</span> member. In addition, the application may also modify the return value after it does so, but before it <span class=secodephrase>seExec</span>s the fiber. This is useful for implementing wrapper functions that delay the fiber until some needed value is available, then return that value. The application manager can examine the wrapper function's return value to allow the wrapper function to communicate with the manager. The chapter on "<span class=sejumptopic><a href="TH_252.htm">Fibers and Threads</a></span>" has more details.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>In addition to a place to put your return, the <span class=secodephrase>SE_RETURN</span> object is also where you receive the result from <span class=sejumptopic><a href="TH_71.htm">seEval</a></span> API invocations. The reason for the dual use is simple; in many cases, you want to execute some code using <span class=secodephrase>seEval</span> then pass along the result. By putting it in this place, you can immediately return from your wrapper function, returning that value.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>Note that once <span class=secodephrase>SE_ERROR</span> is set to true, the return value is locked into place and cannot be changed. The reason is again for convenience. Many times you want to just run your snippet of code and not check for errors. In this way, if an error occurs, it takes precedence. You don't have to check for the error to avoid overwriting it. However, you can reset the <span class=secodephrase>SE_ERROR</span> boolean back to <span class=secodephrase>FALSE</span> if you want to erase the error and overwrite it.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<hr noshade size=1>
+<p class=normal><a href="TH_350.htm"><img src="button.png" border=0></a><a href="TH_350.htm" style="text-decoration:none;">SE_AT_EXIT</a></p>
+<p>
+</body>
+</html>

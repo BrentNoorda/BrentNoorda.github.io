@@ -1,0 +1,50 @@
+<html>
+<head>
+<title>DYNAMIC OBJECTS</title>
+<link rel="stylesheet" href="semanualstyles.css" type="text/css">
+<style type="text/css">
+ p { margin-top: 0; margin-bottom: 0; }
+</style>
+<script language="JavaScript" src="TrueHelp.js"></script>
+</head>
+<body onload="thload()">
+<div id=ienav>
+<ilayer id=nsnav>
+<br>
+<center>
+<p class=normal><a href="seisdkj-toc.htm" target="left">contents</a> &nbsp; <a href="seisdkj-index.htm" target="left">index</a> &nbsp; <a href="TH_193.htm">previous</a> &nbsp; <a href="TH_195.htm">next</a></p>
+</center>
+<br>
+<hr noshade size=1>
+</ilayer>
+</div>
+<p class=heading-2>DYNAMIC OBJECTS</p>
+<p class=heading-2-p>&nbsp;</p>
+<p class=senormalpara>We've seen how to make class objects constructors, and prototype functions. However, it is often desirable to produce objects that are more flexible than a standard object. For instance, you may want to map the object to a real entity in your application and have changes to it immediately reflected. You might want to map an object to your display screen such that when a user writes:</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=secodelinesindented>displayObj.background&nbsp;=&nbsp;BLUE;</p>
+<p class=secodelinesindented>&nbsp;</p>
+<p class=senormalpara>Your screen changes to the color blue. You do this using dynamic objects. While dynamic objects are most often used to make flexible class members, any object can be dynamic not just members of a class.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>Very often you will want to associate one or more Java Objects directly with your object, so that when your wrapper function retrieve that object that can also retrieve the Java Object.  Using seGetPointer() and sePutPointer() along with either SE.HIDDEN_MEM or SE.HIDDEN_UNIMEM or with an <span class=sepopuptopic><a href="TH_883.htm" onClick="return thwindow('TH_883.htm', 'GenPopup')">seInternalizeStringHidden</a></span> property, is an excellent way to keep the data on your Java side safe from the script code and always associated with the proper objects.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>SciptEase provides a related group of callback interfaces you can implement.  The object which implements the interfaces is then  associated with your object using the <span class=secodephrase>seSetCallbacks</span> API function.  Normally, you do this in your constructor when initializing an object of your class. These are interfaces for all the object manipulation tasks such as getting a member, putting a value to a member, deleting a member, etc.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>Your callbacks will override the normal behavior for the object. To implement the above example, you would override the <span class=secodephrase>put</span> behavior of the <span class=secodephrase>displayObj</span> object. Your code would check for your special property <span class=secodephrase>background</span> and changing the screen color to match the color being put to that member. You can override only some of the behaviors by implementing only the interfaces you are interested in. </p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>Here is a list of the callback interfaces.  When implementing any of these interfaces for your own object, remember that <span class=secodephrase>SE.THIS</span> refers to the object being manipulated.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<hr noshade size=1>
+<p class=normal><a href="TH_195.htm"><img src="button.png" border=0></a><a href="TH_195.htm" style="text-decoration:none;">interface: SEGetCallback</a></p>
+<p class=normal><a href="TH_196.htm"><img src="button.png" border=0></a><a href="TH_196.htm" style="text-decoration:none;">interface: SEPutCallback</a></p>
+<p class=normal><a href="TH_197.htm"><img src="button.png" border=0></a><a href="TH_197.htm" style="text-decoration:none;">interface: SEHasPropCallback</a></p>
+<p class=normal><a href="TH_198.htm"><img src="button.png" border=0></a><a href="TH_198.htm" style="text-decoration:none;">interface: SECanPutCallback</a></p>
+<p class=normal><a href="TH_199.htm"><img src="button.png" border=0></a><a href="TH_199.htm" style="text-decoration:none;">interface: SEDeletePropCallback</a></p>
+<p class=normal><a href="TH_200.htm"><img src="button.png" border=0></a><a href="TH_200.htm" style="text-decoration:none;">interface: SEDefaultValueCallback</a></p>
+<p class=normal><a href="TH_201.htm"><img src="button.png" border=0></a><a href="TH_201.htm" style="text-decoration:none;">interface: SEOperatorOverloadCallback</a></p>
+<p class=normal><a href="TH_202.htm"><img src="button.png" border=0></a><a href="TH_202.htm" style="text-decoration:none;">inteface: SEGetByIndexCallback</a></p>
+<p class=normal><a href="TH_203.htm"><img src="button.png" border=0></a><a href="TH_203.htm" style="text-decoration:none;">interface: SEGetNameByIndexCallback</a></p>
+<p class=normal><a href="TH_204.htm"><img src="button.png" border=0></a><a href="TH_204.htm" style="text-decoration:none;">interface: SEMaxIndexCallback</a></p>
+<p>
+</body>
+</html>

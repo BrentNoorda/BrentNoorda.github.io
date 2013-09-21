@@ -1,0 +1,90 @@
+<html>
+<head>
+<title>GD fillToBorder()</title>
+<link rel="stylesheet" href="semanualstyles.css" type="text/css">
+<style type="text/css">
+ p { margin-top: 0; margin-bottom: 0; }
+</style>
+<script language="JavaScript" src="TrueHelp.js"></script>
+</head>
+<body onload="thload()">
+<div id=ienav>
+<ilayer id=nsnav>
+<br>
+<center>
+<p class=normal><a href="seisdkc-toc.htm" target="left">contents</a> &nbsp; <a href="seisdkc-index.htm" target="left">index</a> &nbsp; <a href="TH_1041.htm">previous</a> &nbsp; <a href="TH_1043.htm">next</a></p>
+</center>
+<br>
+<hr noshade size=1>
+</ilayer>
+</div>
+<p class=sereffunclevel4>GD fillToBorder()</p>
+<table cellpadding=0>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>syntax:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=sesyntax>gd.fillToBorder(<span class=truehelp-xe></span>x,&nbsp;y,&nbsp;border,&nbsp;color)</p>
+<p class=sesyntax>gd.fillToBorder(point,&nbsp;border,&nbsp;color)</p></td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>where:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>x - Horizontal position of starting pixel</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>y - Vertical position of starting pixel</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>point - Point specification of starting pixel.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>border - Index border color to stop at</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>color - Fill color or style index</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>return:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>void.</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>description:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>This method fills the image with the selected color, until it hits a border with the color specified by <span class=secodephrase>border</span>. <span class=secodephrase>border</span> must be a color index, not one of the styled colors.  <span class=secodephrase>color</span> can be anything.</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>see:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara><span class=secodephrase>#link &lt;gd&gt;</span>, <span class=sejumptopic><a href="TH_1039.htm">GD fill()</a></span></p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>example:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=secodelines>/*&nbsp;Will&nbsp;draw&nbsp;a&nbsp;circle&nbsp;with&nbsp;color&nbsp;index&nbsp;1,</p>
+<p class=secodelines>&nbsp;*&nbsp;and&nbsp;then&nbsp;fill&nbsp;it&nbsp;with&nbsp;color</p>
+<p class=secodelines>&nbsp;*&nbsp;index&nbsp;2.&nbsp;&nbsp;The&nbsp;fill&nbsp;will&nbsp;stop</p>
+<p class=secodelines>&nbsp;*&nbsp;at&nbsp;the&nbsp;specified&nbsp;border,&nbsp;which&nbsp;means&nbsp;that</p>
+<p class=secodelines>&nbsp;*&nbsp;the&nbsp;second&nbsp;circle&nbsp;drawn,&nbsp;using&nbsp;color&nbsp;index&nbsp;3,</p>
+<p class=secodelines>&nbsp;*&nbsp;will&nbsp;be&nbsp;erased&nbsp;as&nbsp;the</p>
+<p class=secodelines>&nbsp;*&nbsp;outer&nbsp;circle&nbsp;is&nbsp;filled.</p>
+<p class=secodelines>&nbsp;*/</p>
+<p class=secodelines>var&nbsp;gd&nbsp;=&nbsp;new&nbsp;GD(65,&nbsp;65);</p>
+<p class=secodelines>gd.arc(&nbsp;[32,32],&nbsp;16,&nbsp;16,&nbsp;0,&nbsp;360,&nbsp;1&nbsp;);</p>
+<p class=secodelines>gd.arc(&nbsp;[32,32],&nbsp;14,&nbsp;14,&nbsp;0,&nbsp;360,&nbsp;3&nbsp;);</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;//&nbsp;will&nbsp;be&nbsp;erased</p>
+<p class=secodelines>gd.fillToBorder(&nbsp;[33,34],&nbsp;1,&nbsp;2&nbsp;);</p></td>
+</tr>
+</table>
+<p class=normal>&nbsp;</p>
+<hr noshade size=1>
+<p class=normal><a href="TH_1043.htm"><img src="button.png" border=0></a><a href="TH_1043.htm" style="text-decoration:none;">GD getInterlaced()</a></p>
+<p>
+</body>
+</html>

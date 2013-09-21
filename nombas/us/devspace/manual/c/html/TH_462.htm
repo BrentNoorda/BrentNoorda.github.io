@@ -1,0 +1,52 @@
+<html>
+<head>
+<title>delete operator</title>
+<link rel="stylesheet" href="semanualstyles.css" type="text/css">
+<style type="text/css">
+ p { margin-top: 0; margin-bottom: 0; }
+</style>
+<script language="JavaScript" src="TrueHelp.js"></script>
+</head>
+<body onload="thload()">
+<div id=ienav>
+<ilayer id=nsnav>
+<br>
+<center>
+<p class=normal><a href="seisdkc-toc.htm" target="left">contents</a> &nbsp; <a href="seisdkc-index.htm" target="left">index</a> &nbsp; <a href="TH_461.htm">previous</a> &nbsp; <a href="TH_463.htm">next</a></p>
+</center>
+<br>
+<hr noshade size=1>
+</ilayer>
+</div>
+<p class=heading-3>delete operator</p>
+<p class=heading-3-p>&nbsp;</p>
+<p class=senormalpara>The <span class=secodephrase>delete</span> operator deletes properties from objects and elements from arrays. Deleted properties and arrays are actually undefined. Any memory cleanup is handled by normal garbage collection.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>The following fragment defines an array with three elements: 0, 1, and 2, and an object with three properties: four, five, and six. It then deletes the middle, that is, the second, element of the array and property of the object.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=secodelinesindented>var&nbsp;a&nbsp;=&nbsp;["one",&nbsp;"two",&nbsp;"three"];</p>
+<p class=secodelinesindented>var&nbsp;o&nbsp;=&nbsp;{four:444,&nbsp;five:555,&nbsp;six:666};</p>
+<p class=secodelinesindented>&nbsp;</p>
+<p class=secodelinesindented>delete(a[1]);</p>
+<p class=secodelinesindented>delete(o.five);</p>
+<p class=secodelines>&nbsp;</p>
+<p class=senormalpara>There are several ways to eliminate the data in a property of an object or in an element of an array. The delete operator is the most complete way. Three other techniques use <span class=secodephrase>undefine()</span>, <span class=secodephrase>undefine</span>d, and <span class=secodephrase>void</span>, as illustrated next:</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=secodelinesindented>undefine(a[1]);</p>
+<p class=secodelinesindented>undefine(o.five);</p>
+<p class=secodelinesindented>&nbsp;</p>
+<p class=secodelinesindented>a[1]&nbsp;=&nbsp;undefined;</p>
+<p class=secodelinesindented>o.five&nbsp;=&nbsp;undefined;</p>
+<p class=secodelinesindented>&nbsp;</p>
+<p class=secodelinesindented>a[1]&nbsp;=&nbsp;void&nbsp;a[1];</p>
+<p class=secodelinesindented>o.five&nbsp;=&nbsp;void&nbsp;o.five;</p>
+<p class=secodelinesindented>&nbsp;</p>
+<p class=senormalpara>These three techniques may be used with any variable, whereas the delete operator may be used only with properties of objects and elements of arrays. Generally, delete is the best to use with properties of objects and elements of arrays, thought in specific situations the other techniques might be preferable.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>See <span class=sepopuptopic><a href="TH_840.htm" onClick="return thwindow('TH_840.htm', 'GenPopup')">global.undefine()</a></span> and <span class=sepopuptopic><a href="TH_445.htm" onClick="return thwindow('TH_445.htm', 'GenPopup')">undefined</a></span> for more information.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<hr noshade size=1>
+<p class=normal><a href="TH_463.htm"><img src="button.png" border=0></a><a href="TH_463.htm" style="text-decoration:none;">in operator</a></p>
+<p>
+</body>
+</html>

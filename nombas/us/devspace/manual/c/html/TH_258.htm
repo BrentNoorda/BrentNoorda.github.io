@@ -1,0 +1,35 @@
+<html>
+<head>
+<title>SHARED SERVICES</title>
+<link rel="stylesheet" href="semanualstyles.css" type="text/css">
+<style type="text/css">
+ p { margin-top: 0; margin-bottom: 0; }
+</style>
+<script language="JavaScript" src="TrueHelp.js"></script>
+</head>
+<body onload="thload()">
+<div id=ienav>
+<ilayer id=nsnav>
+<br>
+<center>
+<p class=normal><a href="seisdkc-toc.htm" target="left">contents</a> &nbsp; <a href="seisdkc-index.htm" target="left">index</a> &nbsp; <a href="TH_257.htm">previous</a> &nbsp; next</p>
+</center>
+<br>
+<hr noshade size=1>
+</ilayer>
+</div>
+<p class=heading-3>SHARED SERVICES</p>
+<p class=heading-3-p>&nbsp;</p>
+<p class=senormalpara>It is common practice for function libraries to initialize and store data in the <span class=sepopuptopic><a href="TH_365.htm" onClick="return thwindow('TH_365.htm', 'GenPopup')">SE_SERVICES</a></span> object for retrieval by their wrapper functions. However, the <span class=sepopuptopic><a href="TH_365.htm" onClick="return thwindow('TH_365.htm', 'GenPopup')">SE_SERVICES</a></span> object is per-context. If you create and store information in that object, it will only be accessable from the context that created it. If the libraries are to be made read-shared, they cannot use this object to store data that should be accessable from any context using it.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>Libraries that want to be able to be shared must use the <span class=sepopuptopic><a href="TH_366.htm" onClick="return thwindow('TH_366.htm', 'GenPopup')">SE_SHARED_SERVICES</a></span> object to store any data that needs to be accessable from any context using the code. This object functions similarly to <span class=sepopuptopic><a href="TH_365.htm" onClick="return thwindow('TH_365.htm', 'GenPopup')">SE_SERVICES</a></span>, you create members using a name that will not conflict with other applications and retrieve those members as needed.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>The <span class=sepopuptopic><a href="TH_366.htm" onClick="return thwindow('TH_366.htm', 'GenPopup')">SE_SHARED_SERVICES</a></span> object is a read-shared object and thus cannot be modified. The only time you can write to it is in the <span class=secodephrase>sePrepareContextFunc</span> callback of the first context. Therefore, you want to ensure any initialization code that may write to this object, such as <span class=secodephrase>seAddLibTable</span> calls, are put into the prepare context callback for your first context.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>Take care when designing your applications and carefully consider the purpose of the data you are storing in the <span class=sepopuptopic><a href="TH_365.htm" onClick="return thwindow('TH_365.htm', 'GenPopup')">SE_SERVICES</a></span> object. You may want that data to be per-context. In other cases, the data should be identical between contexts, and that is when you use the <span class=sepopuptopic><a href="TH_366.htm" onClick="return thwindow('TH_366.htm', 'GenPopup')">SE_SHARED_SERVICES</a></span> object.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>The <span class=sepopuptopic><a href="TH_366.htm" onClick="return thwindow('TH_366.htm', 'GenPopup')">SE_SHARED_SERVICES</a></span> object is a synonym for <span class=sepopuptopic><a href="TH_365.htm" onClick="return thwindow('TH_365.htm', 'GenPopup')">SE_SERVICES</a></span> if you do not have the read-only shared objects enabled. Thus, you can write your code to properly function when shared and use it unchanged in a non-shared build (determined by the options in your <span class=secodephrase>jseopt.h</span> file) by using <span class=sepopuptopic><a href="TH_366.htm" onClick="return thwindow('TH_366.htm', 'GenPopup')">SE_SHARED_SERVICES</a></span> when appropriate.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p>
+</body>
+</html>

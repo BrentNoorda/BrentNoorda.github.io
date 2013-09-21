@@ -1,0 +1,294 @@
+<HTML>
+ <HEAD>
+ 
+
+	<META NAME="VPSiteProject" CONTENT="file:///c|/visualpage/Nombas.vpp"><TITLE>ODBC Error Codes</TITLE>
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-1754630-10']);
+  _gaq.push(['_trackPageview']);
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+ </HEAD>
+ <BODY BACKGROUND="/us/bwback.gif" LINK=#FF0000>
+
+  <TABLE CELLPADDING=0 CELLSPACING=2 BORDER=0>
+   <TR>
+    <TD WIDTH=150 VALIGN=TOP>
+        <IMG SRC="/us/images/logo49b.gif" HEIGHT=49 WIDTH=107 ALT="Nombas Logo"><BR>
+        </TD>
+    <TD WIDTH=10 VALIGN=CENTER>
+        </TD>
+    <TD WIDTH=540 VALIGN=TOP>
+        <IMG SRC="../../spacers/space17h.gif" HEIGHT=17 WIDTH=2 ALT=" "><BR>
+
+        </TD>
+        </TR>
+   <TR>
+    <TD WIDTH=150 VALIGN=TOP>
+        <FONT COLOR="FF0000" SIZE="5"><B>ODBC Error Codes</B></FONT></TD>
+    <TD WIDTH=10 VALIGN=CENTER><IMG SRC="/us/spacers/sp10w.gif" WIDTH=10 HEIGHT=2 ALT="">
+        </TD>
+    <TD WIDTH=540 VALIGN=TOP>
+        <TABLE BORDER=0>
+          <TR><TD COLSPAN=3><IMG SRC="../../sewse/rb_bar.gif" HEIGHT=6 WIDTH=256 ALT=""></TD></TR>
+          <TR><TD VALIGN="TOP">01000</TD>
+              <TD VALIGN="TOP">General warning</TD>
+              <TD VALIGN="TOP">Driver-specific informational message. (Function returns
+              SQL_SUCCESS_WITH_INFO.)</TD></TR>
+          <TR><TD VALIGN="TOP">01006</TD>
+              <TD VALIGN="TOP">Privilege not revoked</TD>
+              <TD VALIGN="TOP">The prepared statement associated with the hstmt was REVOKE
+                  and the user did not have the specified privilege. (Function returns
+                  SQL_SUCCESS_WITH_INFO.)</TD></TR>
+          <TR><TD VALIGN="TOP">01006</TD>
+              <TD VALIGN="TOP">Privilege not revoked</TD>
+              <TD VALIGN="TOP">The prepared statement associated with the hstmt was REVOKE
+                  and the user did not have the specified privilege. (Function returns
+                  SQL_SUCCESS_WITH_INFO.)</TD></TR>
+          <TR><TD VALIGN="TOP">07001</TD>
+              <TD VALIGN="TOP">Wrong number of parameters</TD>
+              <TD VALIGN="TOP">The number of parameters specified in SQLSetParam was less
+                  than the number of parameters in the prepared statement associated with
+                  the hstmt.</TD></TR>
+          <TR><TD VALIGN="TOP">07006</TD>
+              <TD VALIGN="TOP">Restricted data type attribute violation</TD>
+              <TD VALIGN="TOP">The data value could not be converted to the data type
+                  specified by <I>fCType</I> in SQLBindCol.</TD></TR>
+          <TR><TD VALIGN="TOP">08003</TD>
+              <TD VALIGN="TOP">Connection not open</TD>
+              <TD VALIGN="TOP">The connection specified by the <I>hdbc</I> argument was
+                  not open. The conection process must be completed successfully (and the
+                  connecton must be open) for the driver to allocate and <I>hstmt</I>.</TD></TR>
+          <TR><TD VALIGN="TOP">08004</TD>
+              <TD VALIGN="TOP">Data source rejected establishment of connection</TD>
+              <TD VALIGN="TOP">The data source rejected the establishment of a connection
+                  for implementation defined reasons.</TD></TR>
+          <TR><TD VALIGN="TOP">08S01</TD>
+              <TD VALIGN="TOP">Communication link failure</TD>
+              <TD VALIGN="TOP">The communication link between the driver and the data
+                  source to which the driver was connected failed before the function
+                  completed processing.</TD></TR>
+          <TR><TD VALIGN="TOP">21S01</TD>
+              <TD VALIGN="TOP">Insert value list does not match column list</TD>
+              <TD VALIGN="TOP">The argument <I>szSqlStr</I> contained an INSERT statement
+                  and the number of values to be inserted did not match the degree of the
+                  derived table.</TD></TR>
+          <TR><TD VALIGN="TOP">21S02</TD>
+              <TD VALIGN="TOP">Degree of derived table does not match column list</TD>
+              <TD VALIGN="TOP">The argument <I>szSqlStr</I> contained a CREATE VIEW statement
+                  and the number of names specified is not the same degree as the derived
+                  table defined by the query specification.</TD></TR>
+          <TR><TD VALIGN="TOP">22001</TD>
+              <TD VALIGN="TOP">String data right truncation</TD>
+              <TD VALIGN="TOP">The prepared statement associated with the hstmt contained
+                  a character parameter and the parameter value exceeded the maximum length
+                  of the associated table column.</TD></TR>
+          <TR><TD VALIGN="TOP">22003</TD>
+              <TD VALIGN="TOP">Numeric value out of range</TD>
+              <TD VALIGN="TOP">The prepared statement associated with the hstmt contained a
+                  numeric parameter and the parameter value caused the whole part of the number
+                  to be truncated when assigned to the associated table column.</TD></TR>
+          <TR><TD VALIGN="TOP">22005</TD>
+              <TD VALIGN="TOP">Error in assignment</TD>
+              <TD VALIGN="TOP">The prepared statement associated with the hstmt contained a
+                  parameter and the value was incompatible with the data type of the associated
+                  table column.</TD></TR>
+          <TR><TD VALIGN="TOP">22008</TD>
+              <TD VALIGN="TOP">Datetime field overflow</TD>
+              <TD VALIGN="TOP">The prepared statement associated with the hstmt contained a
+                  date, time, or timestamp parameter or literal and the value was, respectively,
+                  an invalid date, time, or timestamp.</TD></TR>
+          <TR><TD VALIGN="TOP">22012</TD>
+              <TD VALIGN="TOP">Division by zero</TD>
+              <TD VALIGN="TOP">The prepared statement associated with the hstmt contained an
+              arithmetic expression which caused division by zero.</TD></TR>
+          <TR><TD VALIGN="TOP">22026</TD>
+              <TD VALIGN="TOP">String data, length mismatch</TD>
+              <TD VALIGN="TOP">The data sent for a parameter was less than the length of data
+              required. Typically, returned for SQL_LONGVARCHAR or SQL_LONGVARBINARY</TD></TR>
+          <TR><TD VALIGN="TOP">23000</TD>
+              <TD VALIGN="TOP">Integrity constraint violation</TD>
+              <TD VALIGN="TOP">The prepared statement associated with the hstmt contained a
+              parameter. The parameter value was NULL for a column defined as NOT NULL in the
+              associated table column, a duplicate value was supplied for a column constrained
+              to contain only unique values, or some other integrity constraint was violated.</TD></TR>
+          <TR><TD VALIGN="TOP">24000</TD>
+              <TD VALIGN="TOP">Invalid cursor state</TD>
+              <TD VALIGN="TOP">Results were pending on the hstmt from a previous SELECT statement
+                  or a cursor associated with the hstmt had not been closed.</TD></TR>
+          <TR><TD VALIGN="TOP"><BLINK><FONT COLOR=#009933>24000</FONT></BLINK></TD>
+              <TD VALIGN="TOP">Invalid authorization specification</TD>
+              <TD VALIGN="TOP">The value specified for the argument <I>szUID</I> or the value
+                  specified for the argument <I>szAuthStr</I> violated restrictions defined by
+                  the data source.</TD></TR>
+          <TR><TD VALIGN="TOP">34000</TD>
+              <TD VALIGN="TOP">Invalid cursor name</TD>
+              <TD VALIGN="TOP">The argument <I>szSqlStr</I> contained a dynamic positioned
+                  DELETE or a dynamic positioned UPDATE and the cursor referenced by the statment
+                  being prepared was not open.</TD></TR>
+          <TR><TD VALIGN="TOP">37000</TD>
+              <TD VALIGN="TOP">Syntax error or access violation</TD>
+              <TD VALIGN="TOP">The argument <I>szSqlStr</I> contained an SQL statement that
+                  was not preparable or contained a syntax error.</TD></TR>
+          <TR><TD VALIGN="TOP">40001</TD>
+              <TD VALIGN="TOP">Serialization failure</TD>
+              <TD VALIGN="TOP">The transaction to which the prepared statement associated with
+                  the hstmt belonged was terminated to prevent deadlock.</TD></TR>
+          <TR><TD VALIGN="TOP">42000</TD>
+              <TD VALIGN="TOP">Syntax error or access violation</TD>
+              <TD VALIGN="TOP">The user did not have permission to execute the prepared
+                  statement associated with the hstmt.</TD></TR>
+          <TR><TD VALIGN="TOP">70100</TD>
+              <TD VALIGN="TOP">Operation aborted</TD>
+              <TD VALIGN="TOP">The data source was unable to process the cancel request.</TD></TR>
+          <TR><TD VALIGN="TOP">IM001</TD>
+              <TD VALIGN="TOP">Driver does not support this function</TD>
+              <TD VALIGN="TOP">The driver associated with the hstmt does not support the
+                  function.</TD></TR>
+          <TR><TD VALIGN="TOP">IM002</TD>
+              <TD VALIGN="TOP">Data source not found and no default driver specified</TD>
+              <TD VALIGN="TOP">The data source name specified in the argument <I>szDSN</I> was not
+                  found in the ODBC initialization file nor was there a default driver specification.
+                  This message may also indicate that the ODBC initialization file could not be found.</TD></TR>
+          <TR><TD VALIGN="TOP">IM003</TD>
+              <TD VALIGN="TOP">Driver specified by data source could not be loaded</TD>
+              <TD VALIGN="TOP">The driver specified in the data source specification associated with the
+                  data source name in the ODBC initialization file was not found or could not be loaded for some
+                  other reason.</TD></TR>
+          <TR><TD VALIGN="TOP">IM004</TD>
+              <TD VALIGN="TOP">Driver's SQLAllocEnv failed.</TD>
+              <TD VALIGN="TOP">During SQLConnect, the Driver Manager called the driver's SQLAllocEnv
+                  function and the driver returned an error.</TD></TR>
+          <TR><TD VALIGN="TOP">IM005</TD>
+              <TD VALIGN="TOP">Driver's SQLAllocConnect failed.</TD>
+              <TD VALIGN="TOP">During SQLConnect, the Driver Manager called the driver's SQLAllocConnect
+                  function and the driver returned an error.</TD></TR>
+          <TR><TD VALIGN="TOP">IM006</TD>
+              <TD VALIGN="TOP">Driver's SQLSetConnectOption failed.</TD>
+              <TD VALIGN="TOP">During SQLConnect, the Driver Manager called the driver's SQLSetConnectOption
+                  function and the driver returned an error.</TD></TR>
+          <TR><TD VALIGN="TOP">IM009</TD>
+              <TD VALIGN="TOP">Unable to load translation DLL</TD>
+              <TD VALIGN="TOP">The driver was unable to load the translation DLL that was specified for the data source.</TD></TR>
+          <TR><TD VALIGN="TOP">S0001</TD>
+              <TD VALIGN="TOP">Base table or view already exists</TD>
+              <TD VALIGN="TOP">The argument <I>szSqlStr</I> contained a CREATE TABLE or CREATE VIEW statement
+              and the table name or view name specified already exists.</TD></TR>
+          <TR><TD VALIGN="TOP">S0002</TD>
+              <TD VALIGN="TOP">Table or view not found</TD>
+              <TD VALIGN="TOP">The argument <I>szSqlStr</I> contained a DROP TABLE or DROP VIEW statement
+                  and the specified table name or view name did not exist.
+                  <P>
+                  The argument <I>szSqlStr</I> contained an ALTER TABLE statement and the
+                  specified table name or view name did not exist.
+                  <P>
+                  The argument szSqlStr contained a CREATE VIEW statement and a table name
+                  or view name defined by the query specification did not exist.
+                  <P>
+                  The argument szSqlStr contained a CREATE INDEX statement and the
+                  specified table name did not exist.
+                  <P>
+                  The argument szSqlStr contained a GRANT or REVOKE statement and the
+                  specified table name or view name did not exist.
+                  <P>
+                  The argument szSqlStr contained a SELECT statement and a specified
+                  table name or view name did not exist.
+                  <P>
+                  The argument szSqlStr contained a DELETE, INSERT, or UPDATE statement
+                  and the specified table name did not exist.
+                  </TD></TR>
+          <TR><TD VALIGN="TOP">S0011</TD>
+              <TD VALIGN="TOP">Index already exists</TD>
+              <TD VALIGN="TOP">The argument <I>szSqlStr</I> contained a CREATE INDEX statement
+                  and the specified index name already existed.</TD></TR>
+          <TR><TD VALIGN="TOP">S0012</TD>
+              <TD VALIGN="TOP">Index not found</TD>
+              <TD VALIGN="TOP">The argument <I>szSqlStr</I> contained a DROP INDEX statement
+                  and the specified index name did not exist.</TD></TR>
+          <TR><TD VALIGN="TOP">S0021</TD>
+              <TD VALIGN="TOP">Column already exists</TD>
+              <TD VALIGN="TOP">The argument <I>szSqlStr</I> contained an ALTER TABLE statement
+                  and the column specified in the ADD clause is not unique or identifies and existing
+                  column in the base table.</TD></TR>
+          <TR><TD VALIGN="TOP">S0022</TD>
+              <TD VALIGN="TOP">Column not found</TD>
+              <TD VALIGN="TOP">The argument <I>szSqlStr</I> contained a CREATE INDEX statement
+                  and one or more of the column names specified in the column list did not exist
+                  <P>
+                  The argument <I>szSqlStr</I> contained a GRANT or REVOKE statement and a
+                  specified column name did not exist.
+                  <P>
+                  The argument <I>szSqlStr</I> contained a SELECT, DELETE, INSERT, or UPDATE
+                  statement and a specified column name did not exist..</TD></TR>
+          <TR><TD VALIGN="TOP">S1000</TD>
+              <TD VALIGN="TOP">General error</TD>
+              <TD VALIGN="TOP">An error occurred for which there was no specific SQLSTATE and
+                  for which no implementation specific SQLSTATE was defined. The error message
+                  returned by SQLError in the argument szErrorMsg describes the error and its
+                  cause.</TD></TR>
+          <TR><TD VALIGN="TOP">S1001</TD>
+              <TD VALIGN="TOP">Memory allocation failure</TD>
+              <TD VALIGN="TOP">The driver was unable to allocate memory required to
+              support execution or completion of the function.</TD></TR>
+          <TR><TD VALIGN="TOP">S1002</TD>
+              <TD VALIGN="TOP">Invalid column number</TD>
+              <TD VALIGN="TOP">The value specified for the argument <I>icol</I> was 0, or
+                  the value exceeded the maximum number of columns supported by the data
+                  source.</TD></TR>
+          <TR><TD VALIGN="TOP">S1003</TD>
+              <TD VALIGN="TOP">Program type out of range.</TD>
+              <TD VALIGN="TOP">The rgument <I>fCType</I> was not a valid data type or
+                  SQL_C_DEFAULT.</TD></TR>
+          <TR><TD VALIGN="TOP">S1008</TD>
+              <TD VALIGN="TOP">Operation canceled</TD>
+              <TD VALIGN="TOP"> Asynchronous processing was enabled for the hstmt. The function
+              was called and before it completed execution, SQLCancel was called on the hstmt.
+              Then the function was called again on the hstmt.</TD></TR>
+          <TR><TD VALIGN="TOP">S1009</TD>
+              <TD VALIGN="TOP">Invalid argument value</TD>
+              <TD VALIGN="TOP">The argument phdbc was a null pointer.</TD></TR>
+          <TR><TD VALIGN="TOP">S1010</TD>
+              <TD VALIGN="TOP">Function sequence error</TD>
+              <TD VALIGN="TOP">The specified hstmt was not in a prepared state.
+              SQLExecute was called without first calling SQLPrepare.
+              <P>
+              An asynchronously executing function (not this one) was called for the
+              hstmt and was still executing when this function was called.</TD></TR>
+          <TR><TD VALIGN="TOP">S1015</TD>
+              <TD VALIGN="TOP">No cursor name available</TD>
+              <TD VALIGN="TOP">There was no open cursor on the hstmt and no
+              cursor name ahd been set with SQLSetCursorName.
+              <P>
+              The statement associated with the hstmt does not support
+              the use of a cursor. For example, the CREATE TABLE statement.</TD></TR>
+          <TR><TD VALIGN="TOP">S1090</TD>
+              <TD VALIGN="TOP">Invalid string or buffer length</TD>
+              <TD VALIGN="TOP">A parameter value, set with SQLSetParam, was a null pointer and
+              the parameter length value was neither 0, SQL_NULL_DATA, or SQL_NULL_DATA.
+              <P>
+              A parameter value, set with SQLSetParam,  was not a null pointer and the
+              parameter length value was less than 0, but not equal to SQL_NTS,
+              SQL_NULL_DATA, or SQL_DATA_AT_EXEC.</TD></TR>
+          <TR><TD VALIGN="TOP">S1092</TD>
+              <TD VALIGN="TOP">Option type out of range</TD>
+              <TD VALIGN="TOP">The value specified for the argument <I>fOption</I> was
+                 not SQL_CLOSE, SQL_DROP, SQL_UNBIND, or SQL_RESET_PARAMS</TD></TR>
+          <TR><TD VALIGN="TOP">S1C00</TD>
+              <TD VALIGN="TOP">Driver not capable</TD>
+              <TD VALIGN="TOP">The driver does not support the data type specified in the argument <I>fCType</I>.</TD></TR>
+          <TR><TD VALIGN="TOP">S1T00</TD>
+              <TD VALIGN="TOP">Timeout expired</TD>
+              <TD VALIGN="TOP">The timeout period expired before the data source returned the
+              result set. The timeout period is set through SQLS</TD></TR>
+       </TABLE>
+    <BR>
+      <A HREF="../../index.htm"><FONT SIZE=1>Home</FONT></A></TD>
+  </TR>
+  </TABLE>
+
+ </BODY></HTML>

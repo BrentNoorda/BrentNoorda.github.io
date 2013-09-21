@@ -1,0 +1,68 @@
+<html>
+<head>
+<title>Methods - assigning functions to objects</title>
+<link rel="stylesheet" href="semanualstyles.css" type="text/css">
+<style type="text/css">
+ p { margin-top: 0; margin-bottom: 0; }
+</style>
+<script language="JavaScript" src="TrueHelp.js"></script>
+</head>
+<body onload="thload()">
+<div id=ienav>
+<ilayer id=nsnav>
+<br>
+<center>
+<p class=normal><a href="seisdkc-toc.htm" target="left">contents</a> &nbsp; <a href="seisdkc-index.htm" target="left">index</a> &nbsp; <a href="TH_489.htm">previous</a> &nbsp; <a href="TH_491.htm">next</a></p>
+</center>
+<br>
+<hr noshade size=1>
+</ilayer>
+</div>
+<p class=heading-3>Methods - assigning functions to objects</p>
+<p class=heading-3-p>&nbsp;</p>
+<p class=senormalpara>Objects may contain functions as well as variables. A function assigned to an object is called a method of that object.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>Like a constructor function, a method refers to its variables with the <span class=secodephrase>this</span> operator. The following fragment is an example of a method that computes the area of a rectangle.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=secodelinesindented>function&nbsp;rectangle_area()</p>
+<p class=secodelinesindented>{</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;return&nbsp;this.width&nbsp;*&nbsp;this.height;</p>
+<p class=secodelinesindented>}</p>
+<p class=secodelinesindented>&nbsp;</p>
+<p class=senormalpara>Because there are no parameters passed to it, this function is meaningless unless it is called from an object. It needs to have an object to provide values for <span class=secodephrase>this.width</span> and <span class=secodephrase>this.height</span>.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>A method is assigned to an object as the following lines illustrates.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=secodelinesindented>joe.area&nbsp;=&nbsp;rectangle_area;</p>
+<p class=secodelinesindented>&nbsp;</p>
+<p class=senormalpara>The function will now use the values for height and width that were defined when we created the rectangle object joe.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>Methods may also be assigned in a constructor function, again using the this keyword. For example, the following code:</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=secodelinesindented>function&nbsp;rectangle_area()</p>
+<p class=secodelinesindented>{</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;return&nbsp;this.width&nbsp;*&nbsp;this.height;</p>
+<p class=secodelinesindented>}</p>
+<p class=secodelinesindented>&nbsp;</p>
+<p class=secodelinesindented>function&nbsp;Rectangle(width,&nbsp;height)</p>
+<p class=secodelinesindented>{</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;this.width&nbsp;=&nbsp;width;</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;this.height&nbsp;=&nbsp;height;</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;this.area&nbsp;=&nbsp;rectangle_area;</p>
+<p class=secodelinesindented>}</p>
+<p class=secodelinesindented>&nbsp;</p>
+<p class=senormalpara>creates an object class Rectangle with the rectangle_area method included as one of its properties. The method is available to any instance of the class:</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=secodelinesindented>var&nbsp;joe&nbsp;=&nbsp;Rectangle(3,4);</p>
+<p class=secodelinesindented>var&nbsp;sally&nbsp;=&nbsp;Rectangle(5,3);</p>
+<p class=secodelinesindented>&nbsp;</p>
+<p class=secodelinesindented>var&nbsp;area1&nbsp;=&nbsp;joe.area;</p>
+<p class=secodelinesindented>var&nbsp;area2&nbsp;=&nbsp;sally.area;</p>
+<p class=secodelinesindented>&nbsp;</p>
+<p class=senormalpara>This code sets the value of area1 to 12, and the values of area2 to 15.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<hr noshade size=1>
+<p class=normal><a href="TH_491.htm"><img src="button.png" border=0></a><a href="TH_491.htm" style="text-decoration:none;">Object prototypes</a></p>
+<p>
+</body>
+</html>

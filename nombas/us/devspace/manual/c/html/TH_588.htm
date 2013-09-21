@@ -1,0 +1,86 @@
+<html>
+<head>
+<title>Clib.vprintf()</title>
+<link rel="stylesheet" href="semanualstyles.css" type="text/css">
+<style type="text/css">
+ p { margin-top: 0; margin-bottom: 0; }
+</style>
+<script language="JavaScript" src="TrueHelp.js"></script>
+</head>
+<body onload="thload()">
+<div id=ienav>
+<ilayer id=nsnav>
+<br>
+<center>
+<p class=normal><a href="seisdkc-toc.htm" target="left">contents</a> &nbsp; <a href="seisdkc-index.htm" target="left">index</a> &nbsp; <a href="TH_587.htm">previous</a> &nbsp; <a href="TH_589.htm">next</a></p>
+</center>
+<br>
+<hr noshade size=1>
+</ilayer>
+</div>
+<p class=sereffunclevel4>Clib.vprintf()</p>
+<table cellpadding=0>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>syntax:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=sesyntax>Clib.vprintf(<span class=truehelp-xe></span>formatString,&nbsp;valist)</p></td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>where:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>formatString - string that specifies the final format.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>valist - a variable list of arguments to be used according to formatString.</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>return:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>number - number of characters written on success, else a negative number.</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>description:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>This method displays formatted output on the standard output stream, screen, using a variable number of arguments. This method is similar to <span class=secodephrase>Clib.printf()</span> except that it takes a variable argument list using valist.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>See <span class=sepopuptopic><a href="TH_579.htm" onClick="return thwindow('TH_579.htm', 'GenPopup')">Clib.printf()</a></span> and <span class=sepopuptopic><a href="TH_738.htm" onClick="return thwindow('TH_738.htm', 'GenPopup')">Clib.va_start()</a></span> for more information. The method <span class=sejumptopic><a href="TH_588.htm">Clib.vprintf()</a></span> returns the number of characters written on success, else a negative number on error.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>The example function acts just like a <span class=secodephrase>Clib.printf()</span> statement except that it beeps, displays a message, beeps again, and waits a second before returning. This method could be a wrapper for the <span class=secodephrase>Clib.printf()</span> method to display urgent messages.</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>see:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara><span class=sejumptopic><a href="TH_579.htm">Clib.printf()</a></span>, <span class=sejumptopic><a href="TH_738.htm">Clib.va_start()</a></span></p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>example:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=secodelines>function&nbsp;UrgentPrintf(FormatString[&nbsp;arg1&nbsp;...])</p>
+<p class=secodelines>{&nbsp;</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;//&nbsp;create&nbsp;variable&nbsp;arg&nbsp;list</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;Clib.va_start(valist,&nbsp;FormatString);</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;Screen.write("\a");&nbsp;//&nbsp;audible&nbsp;beep</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;//&nbsp;printf&nbsp;original&nbsp;statement</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;var&nbsp;ret&nbsp;=&nbsp;Clib.vprintf(FormatString,&nbsp;valist);</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;Screen.write("\a");&nbsp;//&nbsp;beep&nbsp;again</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;SElib.suspend(1000);&nbsp;//&nbsp;wait&nbsp;before&nbsp;returning</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;Clib.va_end(valist);&nbsp;//&nbsp;end&nbsp;using&nbsp;valist</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;return(ret);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//&nbsp;return&nbsp;as&nbsp;printf&nbsp;would&nbsp;}</p>
+<p class=secodelines>}</p></td>
+</tr>
+</table>
+<p class=normal>&nbsp;</p>
+<hr noshade size=1>
+<p class=normal><a href="TH_589.htm"><img src="button.png" border=0></a><a href="TH_589.htm" style="text-decoration:none;">Clib.vscanf()</a></p>
+<p>
+</body>
+</html>

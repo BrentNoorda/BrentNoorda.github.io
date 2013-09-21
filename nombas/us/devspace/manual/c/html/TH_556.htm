@@ -1,0 +1,127 @@
+<html>
+<head>
+<title>Buffer Object</title>
+<link rel="stylesheet" href="semanualstyles.css" type="text/css">
+<style type="text/css">
+ p { margin-top: 0; margin-bottom: 0; }
+</style>
+<script language="JavaScript" src="TrueHelp.js"></script>
+</head>
+<body onload="thload()">
+<div id=ienav>
+<ilayer id=nsnav>
+<br>
+<center>
+<p class=normal><a href="seisdkc-toc.htm" target="left">contents</a> &nbsp; <a href="seisdkc-index.htm" target="left">index</a> &nbsp; previous &nbsp; <a href="TH_557.htm">next</a></p>
+</center>
+<br>
+<hr noshade size=1>
+</ilayer>
+</div>
+<p class=heading-2>Buffer Object</p>
+<p class=heading-2-p>&nbsp;</p>
+<p class=senormalpara>The Buffer object provides a way to manipulate data at a very basic level. It is needed whenever the relative location of data in memory is important. Any type of data may be stored in a Buffer object. A new Buffer object may be created from scratch, from a string, another Buffer object, or from most any data type or object (see <span class=sepopuptopic><a href="TH_828.htm" onClick="return thwindow('TH_828.htm', 'GenPopup')">global.ToBuffer()</a></span>).</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>(See the helper file buffer.jsh for enhancements to the Buffer object.)</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>ScriptEase 5.00 introduced an important change in buffers. Prior to version 5.00 ScriptEase JavaScript had a buffer data type, as well as, a Buffer object. Beginning with ScriptEase 5.00, buffer data types no longer exist, only the Buffer object. The scripts distributed with ScriptEase Desktop have been updated to reflect the changes, but users might have some personal scripts that need changing. So, some key differences in working with buffers as objects only, without a unique data type, are discussed now.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>First, many (probably most) script statements, using buffers, do need to be changed. All of the Buffer and Blob methods still work as they did before. The primary difference is in the use of the <span class=sepopuptopic><a href="TH_564.htm" onClick="return thwindow('TH_564.htm', 'GenPopup')">Buffer()</a></span> function without the <span class=secodephrase>new</span> constructor, the use of the <span class=secodephrase>data</span> property in a Buffer object, and the use of the <span class=secodephrase>length</span> and <span class=secodephrase>size</span> properties.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>Previously, the <span class=secodephrase>Buffer()</span> function returned a buffer data type and the <span class=secodephrase>new Buffer()</span> constructor returned a Buffer object. The <span class=secodephrase>data</span> property of the Buffer object could be used to access the actual buffer data in the object. The <span class=secodephrase>length</span> property could be used with a buffer data type to get the length of a buffer. Now both <span class=secodephrase>Buffer()</span> and <span class=secodephrase>new Buffer()</span> return a Buffer object, and the data property no longer exists. Plus, only the <span class=secodephrase>size</span> property may be used to get the size or length of a buffer. The following fragments illustrate these differences.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>Prior to ScriptEase 5.00</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=secodelinesindented>var&nbsp;b1&nbsp;=&nbsp;Buffer("abc");&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//&nbsp;b1&nbsp;is&nbsp;buffer&nbsp;data&nbsp;type</p>
+<p class=secodelinesindented>var&nbsp;b2&nbsp;=&nbsp;new&nbsp;Buffer("abc");&nbsp;//&nbsp;b2&nbsp;is&nbsp;Buffer&nbsp;object</p>
+<p class=secodelinesindented>Screen.writeln(b1);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//&nbsp;abc</p>
+<p class=secodelinesindented>Screen.writeln(b1.data);&nbsp;&nbsp;&nbsp;&nbsp;//&nbsp;abc</p>
+<p class=secodelinesindented>Screen.writeln(b1.length);&nbsp;&nbsp;//&nbsp;3</p>
+<p class=secodelinesindented>Screen.writeln(b2.length);&nbsp;&nbsp;//&nbsp;3</p>
+<p class=secodelinesindented>Screen.writeln(b2);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//&nbsp;abc</p>
+<p class=secodelinesindented>Screen.writeln(b2.data);&nbsp;&nbsp;&nbsp;&nbsp;//&nbsp;abc</p>
+<p class=secodelinesindented>Screen.writeln(b1.size);&nbsp;&nbsp;&nbsp;&nbsp;//&nbsp;3</p>
+<p class=secodelinesindented>Screen.writeln(b2.size);&nbsp;&nbsp;&nbsp;&nbsp;//&nbsp;3</p>
+<p class=secodelinesindented>&nbsp;</p>
+<p class=senormalpara>Starting with ScriptEase 5.00</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=secodelinesindented>var&nbsp;b1&nbsp;=&nbsp;Buffer("abc");&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//&nbsp;b1&nbsp;is&nbsp;Buffer&nbsp;object</p>
+<p class=secodelinesindented>var&nbsp;b2&nbsp;=&nbsp;new&nbsp;Buffer("abc");&nbsp;//&nbsp;b2&nbsp;is&nbsp;Buffer&nbsp;object</p>
+<p class=secodelinesindented>Screen.writeln(b1);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//&nbsp;abc</p>
+<p class=secodelinesindented>Screen.writeln(b1.data);&nbsp;&nbsp;&nbsp;&nbsp;//&nbsp;undefined</p>
+<p class=secodelinesindented>Screen.writeln(b1.length);&nbsp;&nbsp;//&nbsp;undefined</p>
+<p class=secodelinesindented>Screen.writeln(b2.length);&nbsp;&nbsp;//&nbsp;undefined</p>
+<p class=secodelinesindented>Screen.writeln(b2);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//&nbsp;abc</p>
+<p class=secodelinesindented>Screen.writeln(b2.data);&nbsp;&nbsp;&nbsp;&nbsp;//&nbsp;undefined</p>
+<p class=secodelinesindented>Screen.writeln(b1.size);&nbsp;&nbsp;&nbsp;&nbsp;//&nbsp;3</p>
+<p class=secodelinesindented>Screen.writeln(b2.size);&nbsp;&nbsp;&nbsp;&nbsp;//&nbsp;3</p>
+<p class=secodelinesindented>&nbsp;</p>
+<p class=senormalpara>Most ScriptEase functions and methods are now smart enough to handle Buffer objects as they once did buffer data types, but small changes might be needed in some places. For example, previously, some SElib.dynamicLink() calls required a buffer data type. But now a Buffer object may be used. So if you have code (prior to ScriptEase 5.00) like:</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=secodelinesindented>var&nbsp;buf&nbsp;=&nbsp;Buffer(256);&nbsp;//&nbsp;creates&nbsp;a&nbsp;buffer&nbsp;data&nbsp;type</p>
+<p class=secodelinesindented>SElib.dynamicLink("user32",&nbsp;"GetClassNameA",&nbsp;STDCALL,</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;this.handle,&nbsp;buf,&nbsp;buf.<b>length</b>);</p>
+<p class=secodelinesindented>this.className&nbsp;=&nbsp;buf.getString();</p>
+<p class=secodelinesindented>return&nbsp;this.className;</p>
+<p class=secodelinesindented>&nbsp;</p>
+<p class=senormalpara>With code starting after ScriptEase 5.00, the fragment above should work with the one correction, <span class=secodephrase>length</span> to <span class=secodephrase>size</span>, as shown in bold.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=secodelinesindented>var&nbsp;buf&nbsp;=&nbsp;Buffer(256);&nbsp;//&nbsp;creates&nbsp;a&nbsp;Buffer&nbsp;object</p>
+<p class=secodelinesindented>SElib.dynamicLink("user32",&nbsp;"GetClassNameA",&nbsp;STDCALL,</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;this.handle,&nbsp;buf,&nbsp;buf.<b>size</b>);</p>
+<p class=secodelinesindented>this.className&nbsp;=&nbsp;buf.getString();</p>
+<p class=secodelinesindented>return&nbsp;this.className;</p>
+<p class=secodelinesindented>&nbsp;</p>
+<p class=senormalpara>The example above is taken from the <span class=secodephrase>Window.prototype.getClassName()</span> instance method definition in <i>winobj.jsh</i>. To illustrate changes due to the use of the data property, we take our example from the <span class=secodephrase>Window.prototype.getClientRect()</span> instance method defined in <i>winobj.jsh</i>. Prior to ScriptEase 5.00 it was defined as:</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=secodelinesindented>var&nbsp;rtn;</p>
+<p class=secodelinesindented>var&nbsp;Rect&nbsp;=&nbsp;new&nbsp;Buffer(4+4+4+4);&nbsp;&nbsp;//&nbsp;hold&nbsp;4&nbsp;integers&nbsp;of&nbsp;4&nbsp;bytes</p>
+<p class=secodelinesindented>&nbsp;</p>
+<p class=secodelinesindented>if&nbsp;(rtn&nbsp;=&nbsp;SElib.dynamicLink("user32",&nbsp;"GetClientRect",&nbsp;STDCALL,</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;this.handle,&nbsp;Rect<b>.data</b>))</p>
+<p class=secodelinesindented>{</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;this.client.left&nbsp;&nbsp;&nbsp;=&nbsp;Rect.getValue(4);</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;this.client.top&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;Rect.getValue(4);</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;this.client.right&nbsp;&nbsp;=&nbsp;Rect.getValue(4);</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;this.client.bottom&nbsp;=&nbsp;Rect.getValue(4);</p>
+<p class=secodelinesindented>}</p>
+<p class=secodelinesindented>&nbsp;</p>
+<p class=senormalpara>In ScriptEase 5.00 it needs to be corrected in one place: the removal of the data property.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=secodelinesindented>return&nbsp;rtn&nbsp;!=&nbsp;NULL;</p>
+<p class=secodelinesindented>&nbsp;</p>
+<p class=secodelinesindented>var&nbsp;rtn;</p>
+<p class=secodelinesindented>var&nbsp;Rect&nbsp;=&nbsp;new&nbsp;Buffer(4+4+4+4);&nbsp;&nbsp;//&nbsp;hold&nbsp;4&nbsp;integers&nbsp;of&nbsp;4&nbsp;bytes</p>
+<p class=secodelinesindented>&nbsp;</p>
+<p class=secodelinesindented>if&nbsp;(rtn&nbsp;=&nbsp;SElib.dynamicLink("user32",&nbsp;"GetClientRect",&nbsp;STDCALL,</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;this.handle,&nbsp;Rect))</p>
+<p class=secodelinesindented>{</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;this.client.left&nbsp;&nbsp;&nbsp;=&nbsp;Rect.getValue(4);</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;this.client.top&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;Rect.getValue(4);</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;this.client.right&nbsp;&nbsp;=&nbsp;Rect.getValue(4);</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;this.client.bottom&nbsp;=&nbsp;Rect.getValue(4);</p>
+<p class=secodelinesindented>}</p>
+<p class=secodelinesindented>&nbsp;</p>
+<p class=secodelinesindented>return&nbsp;rtn&nbsp;!=&nbsp;NULL;</p>
+<p class=senormalpara>&nbsp;</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>&nbsp;</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=normal>&nbsp;</p>
+<table cellpadding=0>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>see:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara><span class=sejumptopic><a href="TH_545.htm">Blob object</a></span></p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+</table>
+<p class=normal>&nbsp;</p>
+<hr noshade size=1>
+<p class=normal><a href="TH_557.htm"><img src="button.png" border=0></a><a href="TH_557.htm" style="text-decoration:none;">Buffer object instance properties</a></p>
+<p class=normal><a href="TH_563.htm"><img src="button.png" border=0></a><a href="TH_563.htm" style="text-decoration:none;">Buffer object instance methods</a></p>
+<p class=normal><a href="TH_573.htm"><img src="button.png" border=0></a><a href="TH_573.htm" style="text-decoration:none;">Buffer object static methods</a></p>
+<p>
+</body>
+</html>

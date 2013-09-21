@@ -1,0 +1,83 @@
+<html>
+<head>
+<title>SElib.ShellFilterCharacter()</title>
+<link rel="stylesheet" href="semanualstyles.css" type="text/css">
+<style type="text/css">
+ p { margin-top: 0; margin-bottom: 0; }
+</style>
+<script language="JavaScript" src="TrueHelp.js"></script>
+</head>
+<body onload="thload()">
+<div id=ienav>
+<ilayer id=nsnav>
+<br>
+<center>
+<p class=normal><a href="seisdkj-toc.htm" target="left">contents</a> &nbsp; <a href="seisdkj-index.htm" target="left">index</a> &nbsp; <a href="TH_831.htm">previous</a> &nbsp; <a href="TH_833.htm">next</a></p>
+</center>
+<br>
+<hr noshade size=1>
+</ilayer>
+</div>
+<p class=sereffunclevel4>SElib.ShellFilterCharacter()</p>
+<table cellpadding=0>
+<tr>
+<td valign=top style="width: 0.774306in">
+<p class=serefkey>syntax:</p></td>
+<td valign=top style="width: 4.4in">
+<p class=sesyntax>SElib.ShellFilterCharacter(functionFilterCharacter,</p>
+<p class=sesyntax>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;allKeys)</p></td>
+</tr>
+<tr>
+<td valign=top style="width: 0.774306in">
+<p class=serefkey>where:</p></td>
+<td valign=top style="width: 4.4in">
+<p class=senormalpara>functionFilterCharacter - identifier, the name of a ScriptEase function to use to filter characters.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>allKeys - boolean, specifies whether the functionFilterCharacter is called for every keystroke or just for keys that are not ordinary printable characters, such as function keys. The return of the method <span class=sepopuptopic><a href="TH_547.htm" onClick="return thwindow('TH_547.htm', 'GenPopup')">Clib.isprint()</a></span> corresponds to the difference in keys that allKeys affects. </p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.774306in">
+<p class=serefkey>return:</p></td>
+<td valign=top style="width: 4.4in">
+<p class=senormalpara>void.</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.774306in">
+<p class=serefkey>description:</p></td>
+<td valign=top style="width: 4.4in">
+<p class=senormalpara>Adds a character filter function to a ScriptEase shell. When ScriptEase is running as a command shell, that is, when a ScriptEase interpreter is executed with no arguments, this method allows the installation of a function to be called when keystrokes are pressed. For example, the autoload.jse script that ships with ScriptEase uses this method to implement command line history and filename completion.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>The function, functionFilterCharacter, must conform to the following: </p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=secodelinesindented>function&nbsp;functionFilterCharacter(command,</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;position,&nbsp;key,&nbsp;extended,&nbsp;alphaNumeric)</p>
+<p class=secodelinesindented>&nbsp;</p>
+<p class=senormalpara>command - string, the current string on the shell command line. This string is read/write and may be changed by this function.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>position - number, the current cursor position within the command string. This position may be altered by this function.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>key - number, the key being pressed. This parameter may be altered by the function. Set key to zero, 0, to ignore keyboard input.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>extended - boolean, <span class=secodephrase>true</span> if the current keystroke is an extended keyboard character, that is, a function key, a keyboard combination, and so forth.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>alphaNumeric - <span class=secodephrase>true</span> if the current keystroke is an alphabetic or numeric key. The return of the method <span class=sepopuptopic><a href="TH_540.htm" onClick="return thwindow('TH_540.htm', 'GenPopup')">Clib.isalnum()</a></span> corresponds to alphaNumeric.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>return - boolean, <span class=secodephrase>true</span> if the command line must be redrawn or the cursor position moved, based on the actions in this function.</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.774306in">
+<p class=serefkey>see:</p></td>
+<td valign=top style="width: 4.4in">
+<p class=senormalpara><span class=sejumptopic><a href="TH_833.htm">SElib.ShellFilterCommand()</a></span>, <span class=sejumptopic><a href="TH_540.htm">Clib.isalnum()</a></span>, <i>autoload.jse</i></p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+</table>
+<p class=normal>&nbsp;</p>
+<hr noshade size=1>
+<p class=normal><a href="TH_833.htm"><img src="button.png" border=0></a><a href="TH_833.htm" style="text-decoration:none;">SElib.ShellFilterCommand()</a></p>
+<p>
+</body>
+</html>

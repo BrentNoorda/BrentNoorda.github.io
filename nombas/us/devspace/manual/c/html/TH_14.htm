@@ -1,0 +1,89 @@
+<html>
+<head>
+<title>seVarParse</title>
+<link rel="stylesheet" href="semanualstyles.css" type="text/css">
+<style type="text/css">
+ p { margin-top: 0; margin-bottom: 0; }
+</style>
+<script language="JavaScript" src="TrueHelp.js"></script>
+</head>
+<body onload="thload()">
+<div id=ienav>
+<ilayer id=nsnav>
+<br>
+<center>
+<p class=normal><a href="seisdkc-toc.htm" target="left">contents</a> &nbsp; <a href="seisdkc-index.htm" target="left">index</a> &nbsp; <a href="TH_13.htm">previous</a> &nbsp; <a href="TH_15.htm">next</a></p>
+</center>
+<br>
+<hr noshade size=1>
+</ilayer>
+</div>
+<p class=sereffunclevel3>seVarParse</p>
+<p class=sereffunclevel3-p>&nbsp;</p>
+<table cellpadding=0>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>syntax:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=sesyntax>&nbsp;&nbsp;&nbsp;sebool</p>
+<p class=sesyntax>seVarParse(secontext&nbsp;se,</p>
+<p class=sesyntax>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;seobject&nbsp;start_object,</p>
+<p class=sesyntax>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;seconstcharptr&nbsp;string,</p>
+<p class=sesyntax>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;seobject&nbsp;*object,</p>
+<p class=sesyntax>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;sestring&nbsp;*member,</p>
+<p class=sesyntax>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;uint&nbsp;flags);</p></td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>where:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara><span class=secodephrase>se</span> the context to look for the variable in</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara><span class=secodephrase>start_object</span> the object to start seaching from</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara><span class=secodephrase>string</span> the string name of the variable</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara><span class=secodephrase>object</span> an output parameter filled in with the object</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara><span class=secodephrase>member</span> an output parameter filled in with the member</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara><span class=secodephrase>flags</span> flags to control variable resolution.</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>return:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>A boolean indicating if the variable was found.</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>description:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>Turn a text variable name into the correspond Object,member pair. Both output-only parameters, <span class=secodephrase>object</span> and <span class=secodephrase>member</span>, follow the usual ScriptEase lifetime rules for the returned value types. See <span class=sepopuptopic><a href="TH_28.htm" onClick="return thwindow('TH_28.htm', 'GenPopup')">seGetObject</a></span> and <span class=sepopuptopic><a href="TH_16.htm" onClick="return thwindow('TH_16.htm', 'GenPopup')">seInternalizeString</a></span> for more information on the <span class=secodephrase>object</span> and <span class=secodephrase>member</span> respectively.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>This routine parses a variable name and returns the given variable's location. This allows you to read and update the variable's value. The variable name must be constant. For instance, <span class=secodephrase>foo[5].goo</span> is acceptable but <span class=secodephrase>foo[goo].goo</span> is not because in this case <span class=secodephrase>[goo]</span> would mean to access the variable <span class=secodephrase>goo</span> as a string and use that member name. Similarly, <span class=secodephrase>goo(5).zoo</span> is not allowed because it calls a function. The reasoning is that this routine is used to access variables by name, but it should be quick. If you need to use full-fledged expressions, you should use the <span class=sepopuptopic><a href="TH_71.htm" onClick="return thwindow('TH_71.htm', 'GenPopup')">seEval</a></span> routine instead although that is much slower.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>The primary return is the output parameters which are filled in with an Object,Member pair you use to access or update that variable. You would later pass the <span class=secodephrase>object</span> and <span class=secodephrase>SE_STR(member)</span> to any of the other API functions to manipulate that variable.  These return values follow standard rules for <span class=sepopuptopic><a href="TH_279.htm" onClick="return thwindow('TH_279.htm', 'GenPopup')">Lifetimes</a></span>, and so may need extra code for cleaning up if this is not called in a wrapper function.  You may often choose SE_COMPOUND_MEM or SE_COMPOUND_UNIMEM along with standard seGet and sePut calls for simple access to complex representations of a single variable.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>The flags may be any combination of the follows, <span class=secodephrase>|</span>'ed togethor:</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara><span class=secodephrase>SE_DEFAULT</span></p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>SE_GF_COMPOUND_CREATE - objects will be created if they don't yet exist. see <span class=sepopuptopic><a href="TH_21.htm" onClick="return thwindow('TH_21.htm', 'GenPopup')">VARIABLE READING</a></span> for more information on this flag.</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>see:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara><span class=sepopuptopic><a href="TH_28.htm" onClick="return thwindow('TH_28.htm', 'GenPopup')">seGetObject</a></span>, <span class=sepopuptopic><a href="TH_16.htm" onClick="return thwindow('TH_16.htm', 'GenPopup')">seInternalizeString</a></span></p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+</table>
+<hr noshade size=1>
+<p class=normal><a href="TH_15.htm"><img src="button.png" border=0></a><a href="TH_15.htm" style="text-decoration:none;">seGetName</a></p>
+<p>
+</body>
+</html>

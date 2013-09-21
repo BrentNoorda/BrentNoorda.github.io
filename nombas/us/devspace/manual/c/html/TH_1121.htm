@@ -1,0 +1,83 @@
+<html>
+<head>
+<title>SimpleDataset findDistinct()</title>
+<link rel="stylesheet" href="semanualstyles.css" type="text/css">
+<style type="text/css">
+ p { margin-top: 0; margin-bottom: 0; }
+</style>
+<script language="JavaScript" src="TrueHelp.js"></script>
+</head>
+<body onload="thload()">
+<div id=ienav>
+<ilayer id=nsnav>
+<br>
+<center>
+<p class=normal><a href="seisdkc-toc.htm" target="left">contents</a> &nbsp; <a href="seisdkc-index.htm" target="left">index</a> &nbsp; <a href="TH_1120.htm">previous</a> &nbsp; <a href="TH_1122.htm">next</a></p>
+</center>
+<br>
+<hr noshade size=1>
+</ilayer>
+</div>
+<p class=sereffunclevel4>SimpleDataset findDistinct()</p>
+<table cellpadding=0>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>syntax:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=sesyntax>simpledataset.findDistinct(<span class=truehelp-xe></span>field)</p></td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>where:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>field - string indicating for which field duplicate values should be filtered out.</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>return:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>boolean - value indicating success.  In the case that the operation failed, use the <span class=secodephrase>getLastErrorCode()</span> and <span class=secodephrase>getLastError()</span> methods to determine the reason for the failure.</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>description:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>This method removes all records from the <span class=secodephrase>SimpleDataset</span> that have duplicate values for the indicated fields.  In other words, for the given field, only one record with each value is left in the <span class=secodephrase>SimpleDataset</span>.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>Note that no guarantees are made as to which records are left in the <span class=secodephrase>SimpleDataset</span> for each value of the field.</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>see:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara><span class=secodephrase>#include &lt;smdtset.jsh&gt;</span>, <span class=sejumptopic><a href="TH_1118.htm">SimpleDataset find() with template</a></span>, <span class=sejumptopic><a href="TH_1119.htm">SimpleDataset find() with clause</a></span>, <span class=sejumptopic><a href="TH_1120.htm">SimpleDataset findAll()</a></span></p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>example:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=secodelines>//&nbsp;print&nbsp;the&nbsp;unique&nbsp;country&nbsp;values</p>
+<p class=secodelines>//&nbsp;in&nbsp;a&nbsp;SimpleDataset&nbsp;</p>
+<p class=secodelines>function&nbsp;unique_countries(db,&nbsp;table,&nbsp;user,&nbsp;passwd)</p>
+<p class=secodelines>{</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;var&nbsp;ds&nbsp;=&nbsp;new&nbsp;SimpleDataset(db,&nbsp;table,&nbsp;user,</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;passwd&nbsp;);</p>
+<p class=secodelines>&nbsp;</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;//&nbsp;find&nbsp;the&nbsp;distinct&nbsp;country&nbsp;values</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;ds.findDistinct(&nbsp;"country"&nbsp;);</p>
+<p class=secodelines>&nbsp;</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;while(&nbsp;var&nbsp;rec&nbsp;=&nbsp;ds.nextRecord()&nbsp;)</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Clib.printf(var.country&nbsp;+&nbsp;"\n");</p>
+<p class=secodelines>}</p></td>
+</tr>
+</table>
+<p class=normal>&nbsp;</p>
+<hr noshade size=1>
+<p class=normal><a href="TH_1122.htm"><img src="button.png" border=0></a><a href="TH_1122.htm" style="text-decoration:none;">SimpleDataset addRecord()</a></p>
+<p>
+</body>
+</html>

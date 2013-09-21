@@ -1,0 +1,1804 @@
+ 
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 FINAL//EN">
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=ISO-8859-1">
+<TITLE>ScriptEase Tips - Migrating from Mozilla</TITLE>
+<!-- begin metaTags --> 
+<META NAME="keywords" CONTENT="javascript,ecmascript,ecma,scriptease,jscript,scripting,nombas,isdk,sedesk,web application development,embedded devices,distributed computing,peer-to-peer,p2p,peer,data mining,javascript.com,cycletraders,integrated sdk,script ease,java,c++,c,simplicity,power,palm,windows ce,integration: sdk,integration:sdk,scriptease:desktop,scriptease: desktop,se:desktop,se:desk,se:isdk, se: isdk,development tools,devtools">
+<META HTTP-EQUIV="DESCRIPTION" CONTENT="Nombas delivers simplicity and power through scripting by providing market-leading development tools and software for JavaScript and ECMAScript.">
+<!-- end metaTags --> <!-- begin navbar includes --> 
+<SCRIPT language=JavaScript1.2>
+  navbarPath = '../../'; 
+</SCRIPT>
+<SCRIPT language=JavaScript1.2 SRC="../../navbarData.js"></SCRIPT>
+<SCRIPT language=JavaScript1.2 SRC="../../navbarMenu.js"></SCRIPT>
+<SCRIPT language=JavaScript SRC="../../imgRollover.js"></SCRIPT>
+<!-- end navbar includes --> <!-- begin style and icon definition --> 
+<LINK REL="SHORTCUT ICON" HREF="../../nombas.ico">
+<STYLE> 
+A:hover { color:#941810;} 
+</STYLE>
+<!-- end style and icon definition --> 
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-1754630-10']);
+  _gaq.push(['_trackPageview']);
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+</HEAD>
+<BODY BGCOLOR="#06086F" LINK="#0000FF" VLINK="#800080" TEXT="#000000" TOPMARGIN=0 LEFTMARGIN=0 MARGINWIDTH=0 MARGINHEIGHT=0>
+<TABLE BORDER=0 CELLSPACING=0 CELLPADDING=0 WIDTH=213>
+  <TR VALIGN=TOP ALIGN=LEFT> 
+    <TD WIDTH=28 HEIGHT=4><IMG SRC="../../clearpixel.gif" WIDTH=28 HEIGHT=1 BORDER=0></TD>
+    <TD></TD>
+  </TR>
+  <TR VALIGN=TOP ALIGN=LEFT> 
+    <TD HEIGHT=60></TD>
+    <TD WIDTH=185 ALIGN=LEFT VALIGN=TOP><A HREF="../../index.htm"><IMG ID="Picture1" HEIGHT=60 WIDTH=185 SRC="../../logo.gif" BORDER=0></A></TD>
+  </TR>
+</TABLE>
+    <div id="nombas-legacy"></div>
+<TABLE BORDER=0 CELLSPACING=0 CELLPADDING=0>
+  <TR VALIGN=TOP ALIGN=LEFT> 
+    <TD WIDTH=30 HEIGHT=10><IMG SRC="../../clearpixel.gif" WIDTH=30 HEIGHT=1 BORDER=0></TD>
+    <TD></TD>
+  </TR>
+  <TR VALIGN=TOP ALIGN=LEFT> 
+    <TD></TD>
+    <TD WIDTH=582> 
+      <TABLE ID="Table1" BORDER=0 CELLSPACING=0 CELLPADDING=0 WIDTH=582>
+        <TR> 
+          <TD WIDTH=97> 
+            <P><A HREF="../../scripting/scripting.htm" 
+                            onmouseover="changeImages('scripting', '../../htab_scripting.gif'); popUp('elMenu1',event); return true;" 
+onmouseout="changeImages('scripting', '../../tab_scripting.gif'); popDown('elMenu1'); return true;"
+><IMG
+                             ID="scripting" HEIGHT=21 WIDTH=97 SRC="../../tab_scripting.gif" VSPACE=0 HSPACE=0 ALIGN="TOP" BORDER=0 name="scripting"></A> 
+          </TD>
+          <TD WIDTH=97> 
+            <P><A HREF="../../products/products.htm" 
+                            onmouseover="changeImages('products', '../../htab_products.gif'); popUp('elMenu2',event); return true;" 
+onmouseout="changeImages('products', '../../tab_products.gif'); popDown('elMenu2'); return true;"><IMG ID="products"
+                             HEIGHT=21 WIDTH=97 SRC="../../tab_products.gif" VSPACE=0 HSPACE=0 ALIGN="TOP" BORDER=0 name=products></A> 
+          </TD>
+          <TD WIDTH=97> 
+            <P><A HREF="../../purchase/purchase.htm" onmouseover="changeImages('purchase', '../../htab_purchase.gif');return true;" 
+onmouseout="changeImages('purchase', '../../tab_purchase.gif');return true;"><IMG ID="purchase"
+                             HEIGHT=21 WIDTH=97 SRC="../../tab_purchase.gif" VSPACE=0 HSPACE=0 ALIGN="TOP" BORDER=0 name=purchase></A> 
+          </TD>
+          <TD WIDTH=97> 
+            <P><A HREF="../../download/ndownload.htm" onmouseover="changeImages('download', '../../htab_download.gif');return true;" 
+onmouseout="changeImages('download', '../../tab_download.gif');return true;"><IMG ID="download"
+                             HEIGHT=21 WIDTH=97 SRC="../../tab_download.gif" VSPACE=0 HSPACE=0 ALIGN="TOP" BORDER=0 name=download></A> 
+          </TD>
+          <TD WIDTH=97> 
+            <P><a target="support" href="http://support.nombas.com/" onmouseover="changeImages('support', '../../htab_support.gif'); return true;" 
+onmouseout="changeImages('support', '../../tab_support.gif'); return true;"><IMG ID="support"
+                             HEIGHT=21 WIDTH=97 SRC="../../tab_support.gif" VSPACE=0 HSPACE=0 ALIGN="TOP" BORDER=0 name=support></A> 
+          </TD>
+          <TD WIDTH=97> 
+            <P><A HREF="../../company/company.htm" 
+                            onmouseover="changeImages('company', '../../htab_company.gif'); popUp('elMenu6',event); return true;" 
+onmouseout="changeImages('company', '../../tab_company.gif'); popDown('elMenu6'); return true;"><IMG ID="company"
+                             HEIGHT=21 WIDTH=97 SRC="../../tab_company.gif" VSPACE=0 HSPACE=0 ALIGN="TOP" BORDER=0 name=company></A> 
+          </TD>
+        </TR>
+      </TABLE>
+    </TD>
+  </TR>
+</TABLE>
+<TABLE BORDER=0 CELLSPACING=0 CELLPADDING=0 WIDTH=637>
+  <TR VALIGN=TOP ALIGN=LEFT> 
+    <TD WIDTH=5 HEIGHT=20><IMG SRC="../../clearpixel.gif" WIDTH=5 HEIGHT=1 BORDER=0></TD>
+    <TD WIDTH=632> 
+      <TABLE BORDER=0 CELLSPACING=0 CELLPADDING=0 WIDTH=632 HEIGHT=20 bgcolor="#FFFFFF">
+        <TR ALIGN=LEFT VALIGN=TOP> 
+          <TD> 
+            <TABLE BORDER=0 CELLSPACING=0 CELLPADDING=0 WIDTH=632>
+              <TR VALIGN=TOP ALIGN=LEFT> 
+                <TD WIDTH=20 HEIGHT=20 ALIGN=LEFT VALIGN=TOP><IMG ID="Picture12" HEIGHT=20 WIDTH=20 SRC="../../curve_topleft.gif" BORDER=0></TD>
+                <TD WIDTH=592><IMG SRC="../../clearpixel.gif" WIDTH=592 HEIGHT=1 BORDER=0></TD>
+                <TD WIDTH=20 ALIGN=LEFT VALIGN=TOP><IMG ID="Picture10" HEIGHT=20 WIDTH=20 SRC="../../curve_top.gif" BORDER=0></TD>
+              </TR>
+            </TABLE>
+          </TD>
+        </TR>
+      </TABLE>
+    </TD>
+  </TR>
+</TABLE>
+<TABLE BORDER=0 CELLSPACING=0 CELLPADDING=0 WIDTH=637>
+  <TR VALIGN=TOP ALIGN=LEFT> 
+    <TD HEIGHT=245></TD>
+    <TD WIDTH=632 COLSPAN=2 height="245"> 
+      <TABLE BORDER=0 CELLSPACING=0 CELLPADDING=0 WIDTH=632 HEIGHT=200 bgcolor="#FFFFFF">
+        <TR ALIGN=LEFT VALIGN=TOP> 
+          <TD height="236"> 
+            <TABLE BORDER=0 CELLSPACING=0 CELLPADDING=0 WIDTH=600>
+              <TR VALIGN=TOP ALIGN=LEFT> 
+                <TD WIDTH=14 HEIGHT=1><IMG SRC="../../clearpixel.gif" WIDTH=13 HEIGHT=1 BORDER=0></TD>
+                <TD WIDTH=586><IMG SRC="../../clearpixel.gif" WIDTH=316 HEIGHT=1 BORDER=0></TD>
+              </TR>
+              <TR VALIGN=TOP ALIGN=LEFT> 
+                <TD width="14"></TD>
+                <TD WIDTH=586> 
+                  <P ALIGN=LEFT><A HREF="../../index.htm"><FONT SIZE="-2" FACE="Verdana,Tahoma,Arial,Helvetica">Nombas</FONT></A><FONT SIZE="-2" FACE="Verdana,Tahoma,Arial,Helvetica"> 
+                    &gt; <a href="../index.htm">SE:ISDK DevSpace</a> &gt; <a href="../tips/index.htm">Tips</a> 
+                    &gt; Migrating From Mozilla</FONT> 
+                </TD>
+              </TR>
+            </TABLE>
+            <TABLE BORDER=0 CELLSPACING=0 CELLPADDING=0 WIDTH=615>
+              <TR VALIGN=TOP ALIGN=LEFT> 
+                <TD WIDTH=15 HEIGHT=5><IMG SRC="../../clearpixel.gif" WIDTH=15 HEIGHT=1 BORDER=0></TD>
+                <TD></TD>
+              </TR>
+              <TR VALIGN=TOP ALIGN=LEFT> 
+                <TD HEIGHT=80></TD>
+                <TD WIDTH=600 ALIGN=LEFT VALIGN=TOP><IMG ID="Picture14" HEIGHT=80 WIDTH=600 SRC="../../devspace/bnr_devspace.gif" BORDER=0></TD>
+              </TR>
+              <TR VALIGN=TOP ALIGN=LEFT> 
+                <TD HEIGHT=135></TD>
+                <TD WIDTH=600 ALIGN=LEFT VALIGN=TOP height="135"> 
+                  <table width="100%" border="0">
+                    <tr> 
+                      <td colspan="1" height="9"><img SRC="../../clearpixel.gif" width="1" height="1"></td>
+                    </tr>
+                    <tr> 
+                      <td width="1" height="100%">&nbsp;</td>
+                      <td valign="top" width="100%"> 
+                        <h1><font face="Verdana, Arial, Helvetica, sans-serif" size="4">Migrating 
+                          From Mozilla</font></h1>
+                        <h2><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><i><font size="3">ScriptEase 
+                          equivalents of the Mozilla JS API</font></i></font></h2>
+                        <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2">Frequently 
+                          those coming to the ScriptEase:ISDK for Embedded JavaScript 
+                          have previously been using the Mozilla SpiderMonkey 
+                          or Rhino source. For any number of reasons (<a target="support" href="http://nombas.custhelp.com/cgi-bin/nombas.cfg/php/enduser/std_adp.php?p_refno=000818-000003&p_created=966644143">performance</a>, 
+                          <a target="support" href="http://nombas.custhelp.com/cgi-bin/nombas.cfg/php/enduser/std_adp.php?p_refno=000818-000003&p_created=966644143">memory 
+                          footprint</a>, platform support, thread needs, long-term 
+                          rapid technical support, extra functionality, etc...) 
+                          the time has come to move to Nombas' ScriptEase API. 
+                          This page provides a starting point for making the migration 
+                          from the Mozilla API to ScriptEase.</font></p>
+                        <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2">The 
+                          Mozilla API in the following table is taken from the 
+                          <a href="http://www.mozilla.org/js/spidermonkey/apidoc/complete-frameset.html" target="mozwindow">SpiderMonkey 
+                          JavaScript 1.5 Reference</a>, and the accompanying reference 
+                          manuals at that site. We welcome any further help with 
+                          this table. Note that this is a reference only for converting 
+                          from Mozilla to ScriptEase API, and does not contain 
+                          the information for going the other direction; i.e., 
+                          the ScriptEase API functions that have no Mozilla counterpart 
+                          are not in this table. In the following table &quot;N/A&quot; 
+                          means that the function is not applicable for ScriptEase 
+                          (i.e. it is not necessary in the SE way of doing things), 
+                          &quot;-&quot; means that there is no equivalent ScriptEase 
+                          function. The Rhino API is not listed here because the 
+                          API's are so similar between the C and Java versions. 
+                          Note also that this chart is for the 4.4 ScriptEase 
+                          API; significant simplification of the API is expected 
+                          with the 5.0 relase (due end-of-summer 2001). Mozilla 
+                          JS_xxxUCxxx function are not listed here because they 
+                          are the same as the ascii versions, and ScriptEase provides 
+                          ASCII, Unicode, or MBCS versions of all of the API.</font></p>
+                        <table border=1 cellspacing=0 cellpadding=0 width="95%">
+                          <tr bgcolor="#000066"> 
+                            <td valign="top"><b><font face="Verdana, Arial, Helvetica, sans-serif" size="2" color="#FFFFFF"> 
+                              Mozilla API</font></b></td>
+                            <td valign="top"><b><font face="Verdana, Arial, Helvetica, sans-serif" size="2" color="#FFFFFF"> 
+                              ScriptEase API</font></b></td>
+                            <td valign="top"><b><font face="Verdana, Arial, Helvetica, sans-serif" size="2" color="#FFFFFF">Comments</font></b></td>
+                          </tr>
+                          <tr> 
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                              BOOLEAN_TO_JSVAL </font></td>
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                              jsePutBoolean </font></td>
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"></font></td>
+                          </tr>
+                          <tr> 
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                              DOUBLE_TO_JSVAL </font></td>
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                              jsePutNumber </font></td>
+                            <td valign="top"> <font face="Verdana, Arial, Helvetica, sans-serif" size="2">“jsenumber” 
+                              is a double by default, but may be any type NYI 
+                              </font></td>
+                          </tr>
+                          <tr> 
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                              INT_FITS_IN_JSVAL </font></td>
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                              N/A </font></td>
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                              SE has one internal number type. All ints will fit 
+                              into that type. </font></td>
+                          </tr>
+                          <tr> 
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                              INT_TO_JSVAL </font></td>
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                              jsePutLong </font></td>
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"></font> 
+                            </td>
+                          </tr>
+                          <tr> 
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                              JSCLASS_HAS_PRIVATE </font></td>
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                              True </font></td>
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                              all SE objects have jseGetObjectData and jseSetObjectData 
+                              </font></td>
+                          </tr>
+                          <tr> 
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                              JSCLASS_NEW_ENUMERATE </font></td>
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                              - </font></td>
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                              SE does not provide an enumarate callback in the 
+                              4.0 API </font></td>
+                          </tr>
+                          <tr> 
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                              JSCLASS_NEW_RESOLVE </font></td>
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                              - </font></td>
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"></font> 
+                            </td>
+                          </tr>
+                          <tr> 
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                              JSClass </font></td>
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                              jseObjectCallbacks, JSE_LIBOBJECT, &amp; jseAddLibrary 
+                              </font></td>
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                              SE API objects act as a “class” the same as script-language 
+                              objects, with jseObjectCallbacks and jseAddLibrary 
+                              to assist in common situations </font></td>
+                          </tr>
+                          <tr> 
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                              JSConstDoubleSpec </font></td>
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                              jsePutNumber, JSE_VARNUMBER </font></td>
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"></font> 
+                            </td>
+                          </tr>
+                          <tr> 
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                              JSErrorReport </font></td>
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                              jseLibErrorPrintf, jseAtErrorFunc, &amp; jseErrorMessageFunc 
+                              </font></td>
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"></font> 
+                            </td>
+                          </tr>
+                          <tr> 
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                              JSFunctionSpec </font></td>
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                              jseCreateWrapperFunction, jseMemberWrapperFunction, 
+                              jseFunctionDescription and related macros (JSE_LIBOBJECT, 
+                              JSE_LIBMETHOD, etc…) </font></td>
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"></font> 
+                            </td>
+                          </tr>
+                          <tr> 
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                              JSObjectOps </font></td>
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                              jseObjectCallbacks </font></td>
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"></font> 
+                            </td>
+                          </tr>
+                          <tr> 
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                              JSPRINCIPALS_DROP </font></td>
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                              jseSecurityTerm? </font></td>
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"></font> 
+                            </td>
+                          </tr>
+                          <tr> 
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                              JSPRINCIPALS_HOLD </font></td>
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                              jseSecurityInit? </font></td>
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"></font> 
+                            </td>
+                          </tr>
+                          <tr> 
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                              JSPROP_ENUMERATE </font></td>
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                              jseDontEnum </font></td>
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"></font> 
+                            </td>
+                          </tr>
+                          <tr> 
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                              JSPROP_EXPORTED </font></td>
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                              - </font></td>
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"></font> 
+                            </td>
+                          </tr>
+                          <tr> 
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                              JSPROP_INDEX </font></td>
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                              N/A </font></td>
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                              SE indices are encoded internally in bit patterns, 
+                              externally as indices or strongs </font></td>
+                          </tr>
+                          <tr> 
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                              JSPROP_PERMANENT </font></td>
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                              jseDontDelete </font></td>
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"></font> 
+                            </td>
+                          </tr>
+                          <tr> 
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                              JSPROP_READONLY </font></td>
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                              jseReadOnly </font></td>
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"></font> 
+                            </td>
+                          </tr>
+                          <tr> 
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                              JSPrincipals </font></td>
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                              jseSecurityGuard? </font></td>
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                              see Security Manager chapter in SE manual </font></td>
+                          </tr>
+                          <tr> 
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                              JSPropertySpec </font></td>
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                              jseGetXXX(), jsePutXXX(), or jseAddLibrary() </font></td>
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"></font> 
+                            </td>
+                          </tr>
+                          <tr> 
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                              JSRESOLVE_ASSIGNING </font></td>
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                              - </font></td>
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"></font> 
+                            </td>
+                          </tr>
+                          <tr> 
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                              JSRESOLVE_QUALIFIED </font></td>
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                              - </font></td>
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"></font> 
+                            </td>
+                          </tr>
+                          <tr> 
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                              JSVAL_FALSE </font></td>
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                              jsePutBoolean, jseGetBoolean </font></td>
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"></font> 
+                            </td>
+                          </tr>
+                          <tr> 
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                              JSVAL_IS_BOOLEAN </font></td>
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                              jseGetType() == jseTypeBoolean </font></td>
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"></font> 
+                            </td>
+                          </tr>
+                          <tr> 
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                              JSVAL_IS_DOUBLE </font></td>
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                              jseGetType() == jseTypeNumber </font></td>
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"></font> 
+                            </td>
+                          </tr>
+                          <tr> 
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                              JSVAL_IS_GCTHING </font></td>
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                              N/A </font></td>
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"></font> 
+                            </td>
+                          </tr>
+                          <tr> 
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                              JSVAL_IS_INT </font></td>
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                              N/A </font></td>
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"></font> 
+                            </td>
+                          </tr>
+                          <tr> 
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                              JSVAL_IS_NULL </font></td>
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                              jseGetType() == jseTypeNull </font></td>
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"></font> 
+                            </td>
+                          </tr>
+                          <tr> 
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                              JSVAL_IS_NUMBER </font></td>
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                              jseGetType() == jseTypeNumber </font></td>
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"></font> 
+                            </td>
+                          </tr>
+                          <tr> 
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                              JSVAL_IS_OBJECT </font></td>
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                              jseGetType() == jseTypeObject </font></td>
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"></font> 
+                            </td>
+                          </tr>
+                          <tr> 
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                              JSVAL_IS_PRIMITIVE </font></td>
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                              jseGetType() != jseTypeObject </font></td>
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"></font> 
+                            </td>
+                          </tr>
+                          <tr> 
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                              JSVAL_IS_STRING </font></td>
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                              jseGetType() == jseTypeString </font></td>
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"></font> 
+                            </td>
+                          </tr>
+                          <tr> 
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                              JSVAL_IS_VOID </font></td>
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                              jseGetType() == jseTypeUndfined </font></td>
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"></font> 
+                            </td>
+                          </tr>
+                          <tr> 
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                              JSVAL_NULL </font></td>
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                              N/A </font></td>
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                              SE variables jseTypeNull </font></td>
+                          </tr>
+                          <tr> 
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                              JSVAL_ONE </font></td>
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                              jseOne </font></td>
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"></font> 
+                            </td>
+                          </tr>
+                          <tr> 
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                              JSVAL_TO_BOOLEAN </font></td>
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                              jseGetBoolean() </font></td>
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"></font> 
+                            </td>
+                          </tr>
+                          <tr> 
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                              JSVAL_TO_DOUBLE </font></td>
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                              jseGetNumber() </font></td>
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"></font> 
+                            </td>
+                          </tr>
+                          <tr> 
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                              JSVAL_TO_GCTHING </font></td>
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                              N/A </font></td>
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                              All SE APIVars are free for GC when their reference 
+                              is dropped with jseDestroyVariable </font></td>
+                          </tr>
+                          <tr> 
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                              JSVAL_TO_INT </font></td>
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                              jseGetLong() </font></td>
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"></font> 
+                            </td>
+                          </tr>
+                          <tr> 
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                              JSVAL_TO_OBJECT </font></td>
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                              N/A </font></td>
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"></font> 
+                            </td>
+                          </tr>
+                          <tr> 
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                              JSVAL_TO_PRIVATE </font></td>
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                              jseLibraryData() </font></td>
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"></font> 
+                            </td>
+                          </tr>
+                          <tr> 
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                              JSVAL_TO_STRING </font></td>
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                              N/A </font></td>
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"></font> 
+                            </td>
+                          </tr>
+                          <tr> 
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                              JSVAL_TRUE </font></td>
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                              jsePutBoolean(True) </font></td>
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"></font> 
+                            </td>
+                          </tr>
+                          <tr> 
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                              JSVAL_VOID </font></td>
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                              jseCreateVariable( jseTypeUndefined ) </font></td>
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"></font> 
+                            </td>
+                          </tr>
+                          <tr> 
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                              JSVAL_ZERO </font></td>
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                              jseZero </font></td>
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"></font> 
+                            </td>
+                          </tr>
+                          <tr> 
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                              JS_AddNamedRoot </font></td>
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                              N/A </font></td>
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                              All SE APIVars are free for GC when their reference 
+                              is dropped with jseDestroyVariable </font></td>
+                          </tr>
+                          <tr> 
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                              JS_AddRoot </font></td>
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                              N/A </font></td>
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                              see above </font></td>
+                          </tr>
+                          <tr> 
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                              JS_BeginRequest </font></td>
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                              N/A </font></td>
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                              SE engine is thread-safe, see jseCreateFiber for 
+                              sharing objects between contexts </font></td>
+                          </tr>
+                          <tr> 
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                              JS_CallFunction </font></td>
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                              jseCallFunction() </font></td>
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"></font> 
+                            </td>
+                          </tr>
+                          <tr> 
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                              JS_CallFunctionName </font></td>
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                              jseCallFunction() </font></td>
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"></font> 
+                            </td>
+                          </tr>
+                          <tr> 
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                              JS_CallFunctionValue </font></td>
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                              jseCallFunction() </font></td>
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"></font> 
+                            </td>
+                          </tr>
+                          <tr> 
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                              JS_CheckAccess </font></td>
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                              N/A </font></td>
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                              access determined by attributes of function (jseImplicitParents) 
+                              </font></td>
+                          </tr>
+                          <tr> 
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                              JS_ClearContextThread </font></td>
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                              N/A </font></td>
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                              SE Engine is always threadsafe </font></td>
+                          </tr>
+                          <tr> 
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                              JS_ClearScope </font></td>
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                              - </font></td>
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                              convert to type NULL, remove each member, or re-create 
+                              blank object </font></td>
+                          </tr>
+                          <tr> 
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                              JS_CloneFunctionObject </font></td>
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                              - </font></td>
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                              see srcmisc/seobjfun.c for similar helper functions 
+                              </font></td>
+                          </tr>
+                          <tr> 
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                              JS_CompareStrings </font></td>
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                              jsecharCompare( jseGetString(), jseGetString(), 
+                              ...) </font></td>
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"></font> 
+                            </td>
+                          </tr>
+                          <tr> 
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                              JS_CompileFile </font></td>
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                              jseCreateCodeTokenBuffer </font></td>
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"></font> 
+                            </td>
+                          </tr>
+                          <tr> 
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                              JS_CompileFunction </font></td>
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                              N/A </font></td>
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                              call Function constructor, as implemented in srclib/ecma/seobject.c 
+                              </font></td>
+                          </tr>
+                          <tr> 
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                              JS_CompileFunctionForPrincipals </font></td>
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                              N/A </font></td>
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                              see above, and Security Manager </font></td>
+                          </tr>
+                          <tr> 
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                              JS_CompileScript </font></td>
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                              jseCreateCodeTokenBuffer </font></td>
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"></font> 
+                            </td>
+                          </tr>
+                          <tr> 
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                              JS_CompileScriptForPrincipals </font></td>
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                              jseCreateCodeTokenBuffer </font></td>
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"></font> 
+                            </td>
+                          </tr>
+                          <tr> 
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                              JS_ConstructObject </font></td>
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                              jseCallFunctionEx( …, JSE_FUNC_CONSTRUCT … ) </font></td>
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                              also see srcmisc/seobjfun.c for jseConstructObject() 
+                              helper function </font></td>
+                          </tr>
+                          <tr> 
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                              JS_ContextIterator </font></td>
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                              - </font></td>
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"></font> 
+                            </td>
+                          </tr>
+                          <tr> 
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                              JS_ConvertArguments </font></td>
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                              N/A </font></td>
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                              arguments may be converted automatically when pulled 
+                              from the stack, as in JSE_FUNC_VAR_NEED, jseCreateConvertedVariable, 
+                              or jseGetXXX helpers in srcmisc/seobfun.c </font></td>
+                          </tr>
+                          <tr> 
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                              JS_ConvertStub </font></td>
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                              N/A </font></td>
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"></font> 
+                            </td>
+                          </tr>
+                          <tr> 
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                              JS_ConvertValue </font></td>
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                              jseCreateConvertedVariable </font></td>
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"></font> 
+                            </td>
+                          </tr>
+                          <tr> 
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                              JS_DecompileFunction </font></td>
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                              N/A </font></td>
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                              call Funcion.toSource </font></td>
+                          </tr>
+                          <tr> 
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                              JS_DecompileFunctionBody </font></td>
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                              - </font></td>
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"></font> 
+                            </td>
+                          </tr>
+                          <tr> 
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                              JS_DecompileScript </font></td>
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                              - </font></td>
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"></font> 
+                            </td>
+                          </tr>
+                          <tr> 
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                              JS_DefineConstDoubles </font></td>
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                              JSE_VARNUMBER </font></td>
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                              Used in jseAddLibrary </font></td>
+                          </tr>
+                          <tr> 
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                              JS_DefineElement </font></td>
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                              jseMemberXXX(), then jsePutXXX() </font></td>
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"></font> 
+                            </td>
+                          </tr>
+                          <tr> 
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                              JS_DefineFunction </font></td>
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                              jseCreateWrapperFunction, jseMemberWrapperFunction, 
+                              or jseAddLibrary </font></td>
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"></font> 
+                            </td>
+                          </tr>
+                          <tr> 
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                              JS_DefineFunctions </font></td>
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                              jseAddLibrary </font></td>
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"></font> 
+                            </td>
+                          </tr>
+                          <tr> 
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                              JS_DefineObject </font></td>
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                              jseMember( …, jseTypeObject ) </font></td>
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                              also see jseAddLibrary </font></td>
+                          </tr>
+                          <tr> 
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                              JS_DefineProperties </font></td>
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                              jseMember( … ) </font></td>
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                              also see jseAddLibrary </font></td>
+                          </tr>
+                          <tr> 
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                              JS_DefineProperty </font></td>
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                              jseMember( … ) </font></td>
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"></font> 
+                            </td>
+                          </tr>
+                          <tr> 
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                              JS_DefinePropertyWithTinyId </font></td>
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                              N/A </font></td>
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                              see jseInternalizeString() for faster access to 
+                              property names in callbacks </font></td>
+                          </tr>
+                          <tr> 
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                              JS_DeleteElement </font></td>
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                              jseDeleteMember() </font></td>
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"></font> 
+                            </td>
+                          </tr>
+                          <tr> 
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                              JS_DeleteElement2 </font></td>
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                              jseDeleteMember() </font></td>
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"></font> 
+                            </td>
+                          </tr>
+                          <tr> 
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                              JS_DeleteProperty </font></td>
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                              jseDeleteMember() </font></td>
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"></font> 
+                            </td>
+                          </tr>
+                          <tr> 
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                              JS_DeleteProperty2 </font></td>
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                              jseDeleteMember() </font></td>
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"></font> 
+                            </td>
+                          </tr>
+                          <tr> 
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                              JS_DestroyContext </font></td>
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                              jseTerminateExternalLink </font></td>
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"></font> 
+                            </td>
+                          </tr>
+                          <tr> 
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                              JS_DestroyIdArray </font></td>
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                              N/A </font></td>
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"></font> 
+                            </td>
+                          </tr>
+                          <tr> 
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                              JS_DestroyRuntime </font></td>
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                              jseTerminateEngine </font></td>
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"></font> 
+                            </td>
+                          </tr>
+                          <tr> 
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                              JS_DestroyScript </font></td>
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                              jseDestroyCodeTokenBuffer </font></td>
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"></font> 
+                            </td>
+                          </tr>
+                          <tr> 
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                              JS_DumpNamedRoots </font></td>
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                              N/A </font></td>
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                              all API variables used by the application are GC’ed 
+                              when the application calls jseDestroyVariable() 
+                              </font></td>
+                          </tr>
+                          <tr> 
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                              JS_EndRequest </font></td>
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                              N/A </font></td>
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                              see JSE_BeginRequest </font></td>
+                          </tr>
+                          <tr> 
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                              JS_Enumerate </font></td>
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                              jseGetNextMember </font></td>
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"></font> 
+                            </td>
+                          </tr>
+                          <tr> 
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                              JS_EnumerateStub </font></td>
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                              N/A </font></td>
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"></font> 
+                            </td>
+                          </tr>
+                          <tr> 
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                              JS_EvaluateScript </font></td>
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                              jseInterpret() </font></td>
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                              also see jseInterpInit(), jseInterpExec, and jseInterpTerm() 
+                              </font></td>
+                          </tr>
+                          <tr> 
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                              JS_EvaluateScriptForPrincipals </font></td>
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                              N/A </font></td>
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                              see Security Manager </font></td>
+                          </tr>
+                          <tr> 
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                              JS_ExecuteScript </font></td>
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                              jseInterpret() </font></td>
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                              jseInterpret takes raw text, file information, or 
+                              bytecodes from jseCreateCodeTokenBuffer </font></td>
+                          </tr>
+                          <tr> 
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                              JS_FinalizeStub </font></td>
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                              N/A </font></td>
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                              use NULL to indicate no delete callback </font></td>
+                          </tr>
+                          <tr> 
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                              JS_GC </font></td>
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                              jseGarbageCollect </font></td>
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"></font> 
+                            </td>
+                          </tr>
+                          <tr> 
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                              JS_GetArrayLength </font></td>
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                              jseGetArrayLength() </font></td>
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"></font> 
+                            </td>
+                          </tr>
+                          <tr> 
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                              JS_GetClass </font></td>
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                              jseGetObjectCallbacks() </font></td>
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                              a class object as defined by the API implements 
+                              inherited behavior through _prototype same as script 
+                              objects </font></td>
+                          </tr>
+                          <tr> 
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                              JS_GetConstructor </font></td>
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                              jseGetFunction(… CONSTRUCT_PROPERTY ) </font></td>
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"></font> 
+                            </td>
+                          </tr>
+                          <tr> 
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                              JS_GetContextPrivate </font></td>
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                              jseGetLinkData() </font></td>
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"></font> 
+                            </td>
+                          </tr>
+                          <tr> 
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                              JS_GetContextThread </font></td>
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                              N/A </font></td>
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"></font> 
+                            </td>
+                          </tr>
+                          <tr> 
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                              JS_GetElement </font></td>
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                              jseGetMember </font></td>
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"></font> 
+                            </td>
+                          </tr>
+                          <tr> 
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                              JS_GetEmptyStringValue </font></td>
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                              N/A </font></td>
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                              jseCreateVarieble or jseMember with jseTypeString 
+                              will create an empty string </font></td>
+                          </tr>
+                          <tr> 
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                              JS_GetFunctionName </font></td>
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                              jseCurrentFunctionName </font></td>
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"></font> 
+                            </td>
+                          </tr>
+                          <tr> 
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                              JS_GetFunctionObject </font></td>
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                              jseGetObjectData() or jseLibraryData() </font></td>
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                              All functions are objects, so have jseGetObjectData() 
+                              but may also have jseLibraryData </font></td>
+                          </tr>
+                          <tr> 
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                              JS_GetGlobalObject </font></td>
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                              jseGlobalObject </font></td>
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"></font> 
+                            </td>
+                          </tr>
+                          <tr> 
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                              JS_GetImplementationVersion </font></td>
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                              jseInitializeEngine </font></td>
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                              returns version information </font></td>
+                          </tr>
+                          <tr> 
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                              JS_GetInstancePrivate </font></td>
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                              jseGetObjectData() </font></td>
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"></font> 
+                            </td>
+                          </tr>
+                          <tr> 
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                              JS_GetNaNValue </font></td>
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                              jseNaN </font></td>
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"></font> 
+                            </td>
+                          </tr>
+                          <tr> 
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                              JS_GetNegativeInfinityValue </font></td>
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                              jseNegInfinity </font></td>
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"></font> 
+                            </td>
+                          </tr>
+                          <tr> 
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                              JS_GetParent </font></td>
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                              jseGetMember( … PARENT_PROPERTY … ) </font></td>
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"></font> 
+                            </td>
+                          </tr>
+                          <tr> 
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                              JS_GetPositiveInfinityValue </font></td>
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                              jseInfinity </font></td>
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"></font> 
+                            </td>
+                          </tr>
+                          <tr> 
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                              JS_GetPrivate </font></td>
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                              jseGetObjectData() </font></td>
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"></font> 
+                            </td>
+                          </tr>
+                          <tr> 
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                              JS_GetProperty </font></td>
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                              jseGetMember() </font></td>
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"></font> 
+                            </td>
+                          </tr>
+                          <tr> 
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                              JS_GetPropertyAttributes </font></td>
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                              jseGetAttributes() </font></td>
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"></font> 
+                            </td>
+                          </tr>
+                          <tr> 
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                              JS_GetPrototype </font></td>
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                              jseGetMember(… PROTOTYPE_PROPERTY … ) </font></td>
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                              Will always return something, since all object inherit 
+                              from Function or Object </font></td>
+                          </tr>
+                          <tr> 
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                              JS_GetRuntime </font></td>
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                              N/A </font></td>
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"></font> 
+                            </td>
+                          </tr>
+                          <tr> 
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                              JS_GetScopeChain </font></td>
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                              - </font></td>
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"></font> 
+                            </td>
+                          </tr>
+                          <tr> 
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                              JS_GetStringBytes </font></td>
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                              jseGetString() </font></td>
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"></font> 
+                            </td>
+                          </tr>
+                          <tr> 
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                              JS_GetStringChars </font></td>
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                              jseGetString() </font></td>
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"></font> 
+                            </td>
+                          </tr>
+                          <tr> 
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                              JS_GetStringLength </font></td>
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                              jseGetString( … &amp;length ) or jseGetArrayLength() 
+                              </font></td>
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"></font> 
+                            </td>
+                          </tr>
+                          <tr> 
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                              JS_GetTypeName </font></td>
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                              - </font></td>
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"></font> 
+                            </td>
+                          </tr>
+                          <tr> 
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                              JS_GetVersion </font></td>
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                              - </font></td>
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"></font> 
+                            </td>
+                          </tr>
+                          <tr> 
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                              JS_HasArrayLength </font></td>
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                              jseGetMember( … LENGTH_PROPERY ) </font></td>
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"></font> 
+                            </td>
+                          </tr>
+                          <tr> 
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                              JS_IdToValue </font></td>
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                              N/A </font></td>
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"></font> 
+                            </td>
+                          </tr>
+                          <tr> 
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                              JS_InitClass </font></td>
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                              jseAddLibrary() </font></td>
+                            <td valign="top"> <font face="Verdana, Arial, Helvetica, sans-serif" size="2">“classes” 
+                              built with API are same as classes in the script 
+                              language; jseAddLibrary() is for convenience </font></td>
+                          </tr>
+                          <tr> 
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                              JS_InitStandardClasses </font></td>
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                              LoadLibrary_All() </font></td>
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                              options in JSEOPT.H will determine what objects 
+                              are initialized </font></td>
+                          </tr>
+                          <tr> 
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                              JS_InstanceOf </font></td>
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                              jseInstanceof() </font></td>
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                              helper function in srcmisc/seobjfun.c </font></td>
+                          </tr>
+                          <tr> 
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                              JS_InternString </font></td>
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                              jseInternalizeString </font></td>
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                              used only for property names </font></td>
+                          </tr>
+                          <tr> 
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                              JS_IsArrayObject </font></td>
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                              jseInstanceof( … Array …) </font></td>
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                              helper function in srcmisc/seobjfun.h </font></td>
+                          </tr>
+                          <tr> 
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                              JS_IsConstructing </font></td>
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                              N/A </font></td>
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"></font> 
+                            </td>
+                          </tr>
+                          <tr> 
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                              JS_IsRunning </font></td>
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                              N/A </font></td>
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"></font> 
+                            </td>
+                          </tr>
+                          <tr> 
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                              JS_Lock </font></td>
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                              N/A </font></td>
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                              SE engine is threadsafe </font></td>
+                          </tr>
+                          <tr> 
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                              JS_LookupElement </font></td>
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                              jseGetMember() or jseGetIndexMember() </font></td>
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"></font> 
+                            </td>
+                          </tr>
+                          <tr> 
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                              JS_LookupProperty </font></td>
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                              jseGetMember() or jseGetIndexMember() </font></td>
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"></font> 
+                            </td>
+                          </tr>
+                          <tr> 
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                              JS_MaybeGC </font></td>
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                              jseGarbageCollect() </font></td>
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                              jseGarbageCollect() always collects </font></td>
+                          </tr>
+                          <tr> 
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                              JS_NewArrayObject </font></td>
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                              use jseConstructObject( … Array … ) or jseSetAttributes( 
+                              jseEcmaArray ) </font></td>
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                              SE API does not have a single call to populate all 
+                              of the array. Use jseIndexMember() and jsePutXXX() 
+                              </font></td>
+                          </tr>
+                          <tr> 
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                              JS_NewContext </font></td>
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                              jseInitializeExternalLink or jseCreateFiber </font></td>
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"></font> 
+                            </td>
+                          </tr>
+                          <tr> 
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                              JS_NewDouble </font></td>
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                              jseCreateVariable(…jseTypeNumber…), jsePutNumber() 
+                              </font></td>
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"></font> 
+                            </td>
+                          </tr>
+                          <tr> 
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                              JS_NewDoubleValue </font></td>
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                              jseCreateVariable(…jseTypeNumber…), jsePutNumber() 
+                              </font></td>
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"></font> 
+                            </td>
+                          </tr>
+                          <tr> 
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                              JS_NewFunction </font></td>
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                              jseCreateWrapperFunction or jseMemberWrapperFunction 
+                              </font></td>
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"></font> 
+                            </td>
+                          </tr>
+                          <tr> 
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                              JS_NewIdArray </font></td>
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                              N/A </font></td>
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"></font> 
+                            </td>
+                          </tr>
+                          <tr> 
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                              JS_NewNumberValue </font></td>
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                              jseCreateVariable(…jseTypeNumber…), jsePutNumber() 
+                              </font></td>
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"></font> 
+                            </td>
+                          </tr>
+                          <tr> 
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                              JS_NewObject </font></td>
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                              jseCreateVariable( … jseTypeObject … ) </font></td>
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                              also see jseAddLibrary, jseConstructObject, and 
+                              JSClass description (above) for more methods </font></td>
+                          </tr>
+                          <tr> 
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                              JS_NewScriptObject </font></td>
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                              - </font></td>
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"></font> 
+                            </td>
+                          </tr>
+                          <tr> 
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                              JS_NewString </font></td>
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                              jsePutString() </font></td>
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"></font> 
+                            </td>
+                          </tr>
+                          <tr> 
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                              JS_NewStringCopyN </font></td>
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                              jsePutStringLength() </font></td>
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"></font> 
+                            </td>
+                          </tr>
+                          <tr> 
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                              JS_NewStringCopyZ </font></td>
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                              jsePutString() </font></td>
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"></font> 
+                            </td>
+                          </tr>
+                          <tr> 
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                              JS_PropertyStub </font></td>
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                              N/A </font></td>
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"></font> 
+                            </td>
+                          </tr>
+                          <tr> 
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                              JS_RemoveRoot </font></td>
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                              jseDestroyVariable() </font></td>
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                              GC locks are created automatically when any jseVariable 
+                              is return via API </font></td>
+                          </tr>
+                          <tr> 
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                              JS_ReportError </font></td>
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                              jseLibErrorPrintf </font></td>
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"></font> 
+                            </td>
+                          </tr>
+                          <tr> 
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                              JS_ReportOutOfMemory </font></td>
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                              jseLibErrorPrintf </font></td>
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                              use MEMORY_EXCEPTION </font></td>
+                          </tr>
+                          <tr> 
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                              JS_ResolveStub </font></td>
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                              N/A </font></td>
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"></font> 
+                            </td>
+                          </tr>
+                          <tr> 
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                              JS_ResumeRequest </font></td>
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                              N/A </font></td>
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                              see jseResumeFiber for jseCreateFiber() </font></td>
+                          </tr>
+                          <tr> 
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                              JS_SetArrayLength </font></td>
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                              jseSetArrayLength </font></td>
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"></font> 
+                            </td>
+                          </tr>
+                          <tr> 
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                              JS_SetBranchCallback </font></td>
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                              jseMayIContinue </font></td>
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                              freqeuency set by JSE_INFREQUENT_COUNT </font></td>
+                          </tr>
+                          <tr> 
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                              JS_SetContextPrivate </font></td>
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                              jseInitializeExternalLink or jseCreateFiber </font></td>
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"></font> 
+                            </td>
+                          </tr>
+                          <tr> 
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                              JS_SetContextThread </font></td>
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                              N/A </font></td>
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                              use jseCreateFiber for coopertive contexts, all 
+                              other jseContexts are thread-safe </font></td>
+                          </tr>
+                          <tr> 
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                              JS_SetElement </font></td>
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                              jseMember(), jsePutXXX() </font></td>
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"></font> 
+                            </td>
+                          </tr>
+                          <tr> 
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                              JS_SetErrorReporter </font></td>
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                              jseInitializeExternalLink and jseGetLinkData </font></td>
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                              see jseAtErrorFunc and jseErrorMessageFunc </font></td>
+                          </tr>
+                          <tr> 
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                              JS_SetGCCallback </font></td>
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                              - </font></td>
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"></font> 
+                            </td>
+                          </tr>
+                          <tr> 
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                              JS_SetGlobalObject </font></td>
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                              jseSetGlobalObject </font></td>
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"></font> 
+                            </td>
+                          </tr>
+                          <tr> 
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                              JS_SetParent </font></td>
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                              jseMember( … PARENT_PROPERTY … ) </font></td>
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"></font> 
+                            </td>
+                          </tr>
+                          <tr> 
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                              JS_SetPrivate </font></td>
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                              jseSetObjectData </font></td>
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"></font> 
+                            </td>
+                          </tr>
+                          <tr> 
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                              JS_SetProperty </font></td>
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                              jseGetMember(), jsePutXXX() </font></td>
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"></font> 
+                            </td>
+                          </tr>
+                          <tr> 
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                              JS_SetPropertyAttributes </font></td>
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                              jseSetAttributes() </font></td>
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"></font> 
+                            </td>
+                          </tr>
+                          <tr> 
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                              JS_SetPrototype </font></td>
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                              jseMember( PROTOYPE_PROPERTY ), jseAssign() </font></td>
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"></font> 
+                            </td>
+                          </tr>
+                          <tr> 
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                              JS_SetVersion </font></td>
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                              - </font></td>
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"></font> 
+                            </td>
+                          </tr>
+                          <tr> 
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                              JS_SuspendRequest </font></td>
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                              N/A </font></td>
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                              all contexts are thread-safe, us jseMayIContinue, 
+                              jseInterpExec, or jseSuspendFiber to relinquish 
+                              control </font></td>
+                          </tr>
+                          <tr> 
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                              JS_TypeOfValue </font></td>
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                              jseGetType </font></td>
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"></font> 
+                            </td>
+                          </tr>
+                          <tr> 
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                              JS_Unlock </font></td>
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                              N/A </font></td>
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"></font> 
+                            </td>
+                          </tr>
+                          <tr> 
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                              JS_ValueToBoolean </font></td>
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                              jseCreateConvertedVariable( jseToBoolean ) </font></td>
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"></font> 
+                            </td>
+                          </tr>
+                          <tr> 
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                              JS_ValueToECMAInt32 </font></td>
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                              jseCreateConvertedVariable( jseToInt32 ) </font></td>
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"></font> 
+                            </td>
+                          </tr>
+                          <tr> 
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                              JS_ValueToECMAUint32 </font></td>
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                              jseCreateConvertedVariable( jseToUint32 ) </font></td>
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"></font> 
+                            </td>
+                          </tr>
+                          <tr> 
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                              JS_ValueToFunction </font></td>
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                              - </font></td>
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                              functions are objects, but objects may not be functions; 
+                              see jseGetFunction and jseIsFunction </font></td>
+                          </tr>
+                          <tr> 
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                              JS_ValueToId </font></td>
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                              N/A </font></td>
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"></font> 
+                            </td>
+                          </tr>
+                          <tr> 
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                              JS_ValueToInt32 </font></td>
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                              jseCreateConvertedVariable( jseToInt32 ) </font></td>
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"></font> 
+                            </td>
+                          </tr>
+                          <tr> 
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                              JS_ValueToNumber </font></td>
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                              jseCreateConvertedVariable( jseToNumber ) </font></td>
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"></font> 
+                            </td>
+                          </tr>
+                          <tr> 
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                              JS_ValueToObject </font></td>
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                              jseCreateConvertedVariable( jseToObject ) </font></td>
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"></font> 
+                            </td>
+                          </tr>
+                          <tr> 
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                              JS_ValueToString </font></td>
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                              jseCreateConvertedVariable( jseToString ) </font></td>
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"></font> 
+                            </td>
+                          </tr>
+                          <tr> 
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                              JS_ValueToUint16 </font></td>
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                              jseCreateConvertedVariable( jseToUint16 ) </font></td>
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"></font> 
+                            </td>
+                          </tr>
+                          <tr> 
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                              JS_free </font></td>
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                              jseMustFree </font></td>
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"></font> 
+                            </td>
+                          </tr>
+                          <tr> 
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                              JS_malloc </font></td>
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                              jseMalloc </font></td>
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"></font> 
+                            </td>
+                          </tr>
+                          <tr> 
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                              JS_realloc </font></td>
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                              jseReMalloc </font></td>
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"></font> 
+                            </td>
+                          </tr>
+                          <tr> 
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                              JS_strdup </font></td>
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                              StrCpyMalloc </font></td>
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"></font> 
+                            </td>
+                          </tr>
+                          <tr> 
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                              OBJECT_TO_JSVAL </font></td>
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                              N/A </font></td>
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"></font> 
+                            </td>
+                          </tr>
+                          <tr> 
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                              PRIVATE_TO_JSVAL </font></td>
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                              N/A </font></td>
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"></font> 
+                            </td>
+                          </tr>
+                          <tr> 
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                              STRING_TO_JSVAL </font></td>
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                              jsePutString() </font></td>
+                            <td valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"></font> 
+                            </td>
+                          </tr>
+                        </table>
+                        <p>&nbsp;</p>
+                        <p>&nbsp; </p>
+                        </td>
+                    </tr>
+                  </table>
+                </TD>
+              </TR>
+            </TABLE>
+          </TD>
+        </TR>
+      </TABLE>
+    </TD>
+  </TR>
+  <TR VALIGN=TOP ALIGN=LEFT> 
+    <TD HEIGHT=2></TD>
+    <TD WIDTH=632 COLSPAN=2 height="2"> 
+      <TABLE BORDER=0 CELLSPACING=0 CELLPADDING=0 WIDTH=632 HEIGHT=20 bgcolor="#FFFFFF">
+        <TR ALIGN=LEFT VALIGN=TOP> 
+          <TD> 
+            <TABLE BORDER=0 CELLSPACING=0 CELLPADDING=0 WIDTH=632>
+              <TR VALIGN=TOP ALIGN=LEFT> 
+                <TD WIDTH=20 HEIGHT=2 ALIGN=LEFT VALIGN=TOP><IMG ID="Picture13" HEIGHT=20 WIDTH=20 SRC="../../curve_botleft.gif" BORDER=0></TD>
+                <TD WIDTH=592 height="2"><IMG SRC="../../clearpixel.gif" WIDTH=592 HEIGHT=1 BORDER=0></TD>
+                <TD WIDTH=20 ALIGN=LEFT VALIGN=TOP height="2"><IMG ID="Picture11" HEIGHT=20 WIDTH=20 SRC="../../curve_bot.gif" BORDER=0></TD>
+              </TR>
+            </TABLE>
+          </TD>
+        </TR>
+      </TABLE>
+    </TD>
+  </TR>
+  <TR VALIGN=TOP ALIGN=LEFT> 
+    <TD WIDTH=5 HEIGHT=6><IMG SRC="../../clearpixel.gif" WIDTH=5 HEIGHT=1 BORDER=0></TD>
+    <TD WIDTH=613><IMG SRC="../../clearpixel.gif" WIDTH=613 HEIGHT=1 BORDER=0></TD>
+    <TD WIDTH=19><IMG SRC="../../clearpixel.gif" WIDTH=19 HEIGHT=1 BORDER=0></TD>
+  </TR>
+  <TR VALIGN=TOP ALIGN=LEFT> 
+    <TD WIDTH=618 COLSPAN=2> 
+      <P ALIGN=RIGHT><A HREF="../../index.htm"><FONT COLOR="#FFFFFF" SIZE="-2" FACE="Verdana,Tahoma,Arial,Helvetica">Home</FONT></A><FONT COLOR="#FFFFFF" SIZE="-2" FACE="Verdana,Tahoma,Arial,Helvetica"> 
+        | </FONT><A
+                 HREF="../../scripting/scripting.htm"><FONT COLOR="#FFFFFF" SIZE="-2" FACE="Verdana,Tahoma,Arial,Helvetica">Scripting</FONT></A><FONT COLOR="#FFFFFF" SIZE="-2" FACE="Verdana,Tahoma,Arial,Helvetica"> 
+        | </FONT><A
+                 HREF="../../products/products.htm"><FONT COLOR="#FFFFFF" SIZE="-2" FACE="Verdana,Tahoma,Arial,Helvetica">Products</FONT></A><FONT COLOR="#FFFFFF" SIZE="-2" FACE="Verdana,Tahoma,Arial,Helvetica"> 
+        | </FONT><A
+                 HREF="../../purchase/purchase.htm"><FONT COLOR="#FFFFFF" SIZE="-2" FACE="Verdana,Tahoma,Arial,Helvetica">Purchase</FONT></A><FONT COLOR="#FFFFFF" SIZE="-2" FACE="Verdana,Tahoma,Arial,Helvetica"> 
+        | </FONT><A
+                 HREF="../../download/ndownload.htm"><FONT COLOR="#FFFFFF" SIZE="-2" FACE="Verdana,Tahoma,Arial,Helvetica">Download</FONT></A><FONT COLOR="#FFFFFF" SIZE="-2" FACE="Verdana,Tahoma,Arial,Helvetica"> 
+        | </FONT><A
+                 HREF="http://support.nombas.com/"><FONT COLOR="#FFFFFF" SIZE="-2" FACE="Verdana,Tahoma,Arial,Helvetica">Support</FONT></A><FONT COLOR="#FFFFFF" SIZE="-2" FACE="Verdana,Tahoma,Arial,Helvetica"> 
+        | </FONT><A HREF="../../company/company.htm"> <FONT COLOR="#FFFFFF" SIZE="-2" FACE="Verdana,Tahoma,Arial,Helvetica">Company</FONT></A><FONT COLOR="#FFFFFF" SIZE="-2" FACE="Verdana,Tahoma,Arial,Helvetica"><BR>
+        <BR>
+        Copyright &#169;2001, Nombas, Inc. All Rights Reserved.<BR>
+        Questions? Visit </FONT><A HREF="http://support.nombas.com/"><FONT COLOR="#FFFFFF" SIZE="-2" FACE="Verdana,Tahoma,Arial,Helvetica">http://support.nombas.com/</FONT></A> 
+    </TD>
+    <TD></TD>
+  </TR>
+</TABLE>
+<SCRIPT language=JavaScript1.2>
+  display_nombas_legacy_message();
+</SCRIPT>
+</BODY>
+</HTML>

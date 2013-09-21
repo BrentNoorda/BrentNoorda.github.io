@@ -1,0 +1,60 @@
+<html>
+<head>
+<title>Variable scope</title>
+<link rel="stylesheet" href="semanualstyles.css" type="text/css">
+<style type="text/css">
+ p { margin-top: 0; margin-bottom: 0; }
+</style>
+<script language="JavaScript" src="TrueHelp.js"></script>
+</head>
+<body onload="thload()">
+<div id=ienav>
+<ilayer id=nsnav>
+<br>
+<center>
+<p class=normal><a href="seisdkj-toc.htm" target="left">contents</a> &nbsp; <a href="seisdkj-index.htm" target="left">index</a> &nbsp; <a href="TH_314.htm">previous</a> &nbsp; <a href="TH_316.htm">next</a></p>
+</center>
+<br>
+<hr noshade size=1>
+</ilayer>
+</div>
+<p class=heading-3>Variable scope</p>
+<p class=heading-3-p>&nbsp;</p>
+<p class=senormalpara>Variables in ScriptEase may be either global or local. Global variables may be accessed and modified from anywhere in a script. Local variables may only be accessed from the functions in which they are created. There are no absolute rules for preferring or using global or local variables. Each type has value. In general, programmers prefer to use local variables when reasonable since they facilitate modular code that is easier to alter and develop over time. It is generally easier to understand how local variables are used in a single function than how global variables are used throughout an entire program. Further, local variables conserve system resources.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>To make a local variable, declare it in a function using the var keyword:</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=secodelinesindented>var&nbsp;perfectNumber;</p>
+<p class=secodelinesindented>&nbsp;</p>
+<p class=senormalpara>A value may be assigned to a variable when it is declared:</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=secodelinesindented>var&nbsp;perfectNumber&nbsp;=&nbsp;28;</p>
+<p class=secodelinesindented>&nbsp;</p>
+<p class=senormalpara>The default behavior of ScriptEase is that variables declared outside of any function or inside a function without the <span class=secodephrase>var</span> keyword are global variables. However, this behavior can be changed by the <span class=secodephrase>DefaultLocalVars</span> and <span class=secodephrase>RequireVarKeyword</span> settings of the <span class=secodephrase>#option</span> preprocessor directive. This directive is explained in the section on preprocessing. For now, consider the following code fragment.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=secodelinesindented>var&nbsp;a&nbsp;=&nbsp;1;</p>
+<p class=secodelinesindented>function&nbsp;main()</p>
+<p class=secodelinesindented>{</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;b&nbsp;=&nbsp;1;</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;var&nbsp;d&nbsp;=&nbsp;3;</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;someFunction(d);</p>
+<p class=secodelinesindented>}</p>
+<p class=secodelinesindented>&nbsp;</p>
+<p class=secodelinesindented>function&nbsp;someFunction(e)</p>
+<p class=secodelinesindented>{</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;var&nbsp;c&nbsp;=&nbsp;2</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;...</p>
+<p class=secodelinesindented>}</p>
+<p class=secodelinesindented>&nbsp;</p>
+<p class=senormalpara>In this example, a and b are both global variables, since a is declared outside of a function and b is defined without the var keyword. The variables, d and c, are both local, since they are defined within functions with the var keyword. The variable c may not be used in the main() function, since it is <span class=secodephrase>undefined</span> in the scope of that function. The variable d may be used in the <span class=sepopuptopic><a href="TH_374.htm" onClick="return thwindow('TH_374.htm', 'GenPopup')">main() function</a></span> and is explicitly passed as an argument to someFunction() as the parameter e. The following lines show which variables are available to the two functions:</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=secodelinesindented>main():			a,&nbsp;b,&nbsp;d</p>
+<p class=secodelinesindented>someFunction():	a,&nbsp;b,&nbsp;c,&nbsp;e</p>
+<p class=secodelinesindented>&nbsp;</p>
+<p class=senormalpara>It is possible, though not usually a good idea, to have local and global variables with the same name. In such a case, a global variable must be referenced as a property of the global object, and the variable name used by itself refers to the local variable. In the fragment above, the global variable a can be referenced anywhere in its script by using: <span class=secodephrase>global.a</span>.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<hr noshade size=1>
+<p class=normal><a href="TH_316.htm"><img src="button.png" border=0></a><a href="TH_316.htm" style="text-decoration:none;">Function identifier</a></p>
+<p>
+</body>
+</html>

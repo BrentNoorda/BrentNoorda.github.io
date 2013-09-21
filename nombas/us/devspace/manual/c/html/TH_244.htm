@@ -1,0 +1,69 @@
+<html>
+<head>
+<title>PARAMS</title>
+<link rel="stylesheet" href="semanualstyles.css" type="text/css">
+<style type="text/css">
+ p { margin-top: 0; margin-bottom: 0; }
+</style>
+<script language="JavaScript" src="TrueHelp.js"></script>
+</head>
+<body onload="thload()">
+<div id=ienav>
+<ilayer id=nsnav>
+<br>
+<center>
+<p class=normal><a href="seisdkc-toc.htm" target="left">contents</a> &nbsp; <a href="seisdkc-index.htm" target="left">index</a> &nbsp; <a href="TH_243.htm">previous</a> &nbsp; <a href="TH_245.htm">next</a></p>
+</center>
+<br>
+<hr noshade size=1>
+</ilayer>
+</div>
+<p class=heading-3>PARAMS</p>
+<p class=heading-3-p>&nbsp;</p>
+<p class=normal>This parameter is a pointer to a structure that contains several optional variables. You can pass <span class=secodephrase>NULL</span> to not specify any of them. If you do pass a pointer to a structure, you can leave any element of this structure <span class=secodephrase>NULL</span> to use the default for that element. Here are the fields of this structure:</p>
+<p class=normal>&nbsp;</p>
+<p class=secodelines>seobject&nbsp;scopestart;</p>
+<p class=secodelines>seobject&nbsp;scopeend;</p>
+<p class=normal>&nbsp;</p>
+<p class=senormalpara>The scope chain is how ScriptEase determines what a variable name is referring to. The scope chain is a list of objects. For a typical function, the list contains the activation object in which local variables are stored and the global object in which global variables are stored. The variables themselves are members of the object they are a part of. As a result, for a typical function, the local variables are searched first to try to resolve a variable name followed by the global variables. You can specify your own objects to be added to the list.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>The <span class=secodephrase>scopestart</span> and <span class=secodephrase>scopeend</span> parameters are objects created using the <span class=secodephrase>seMakeStack</span> API call. The members of these objects should themselves be objects to be added to the scope chain. In other words, <span class=secodephrase>SE_INDEX(0)</span> should be the first object to be added to the scope chain, <span class=secodephrase>SE_INDEX(1)</span> will be the second, and so forth. These objects are added at the start or end of the scope chain respectively. Those added at scopestart are searched first during script execution.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>Note that during execution the scope object is searched from the highest index to the lowest.  For example, if you provide a scopestart object with 3 members and a scopeend object with 2 parameters, when scopig a variables objects will be searched in this order</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara><span class=semonospaced>  scopestart[2] -- this object searched first</span><br>
+  scopestart[1]<br>
+  scopestart[0]<br>
+  .. inherited globals ..<br>
+  this object if implicit this<br>
+  this.__parent__ chain if implicit parents<br>
+  activation object<br>
+  scopeend[1]<br>
+  scopeend[0] -- this object will be searched last</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>Adding objects to the start of the scope chain is analogous to a script execution inside a <span class=secodephrase>with</span> statement. A <span class=secodephrase>with</span> statement adds a single object to the start of the scope chain. <span class=secodephrase>scopestart</span> allows you to add a list of objects, but the same principle applies. <span class=secodephrase>scopeend</span> works similarly but adds objects to be searched after all other places to search for a variable name.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=secodelines>&nbsp;&nbsp;seobject&nbsp;global;</p>
+<p class=secodelines>&nbsp;</p>
+<p class=normal>Indicates a new global variable to evaluate the script using.</p>
+<p class=normal>&nbsp;</p>
+<p class=secodelines>&nbsp;&nbsp;seobject&nbsp;default_this;</p>
+<p class=normal>&nbsp;</p>
+<p class=normal>The <span class=secodephrase>default_this</span> parameter allows you to determine which object will be the <span class=secodephrase>this</span> variable for the executed script or function. For a script, the <span class=secodephrase>NULL</span> value is traditionally used which makes the global variable the default <span class=secodephrase>this</span> for the evaluated script as well. For a function, if the function is being invoked as a member of some object, that object should be passed as the <span class=secodephrase>default_this</span> variable instead.</p>
+<p class=normal>&nbsp;</p>
+<p class=secodelines>seobject&nbsp;security_init;</p>
+<p class=secodelines>seobject&nbsp;security_term;</p>
+<p class=secodelines>seobject&nbsp;security_guard;</p>
+<p class=secodelines>seobject&nbsp;security_object;</p>
+<p class=normal>&nbsp;</p>
+<p class=normal>These are the standard security functions as described in the ScriptEase language manual chapter on security. These objects work exactly the same in the ScriptEase ISDK as they do for any other ScriptEase security application.</p>
+<p class=secodelines>&nbsp;</p>
+<p class=secodelines>seconstcharptr&nbsp;filename;</p>
+<p class=secodelines>uint&nbsp;line_num;</p>
+<p class=normal>&nbsp;</p>
+<p class=normal>These parameters are used when the <span class=secodephrase>SE_TEXT</span> form of script is executed. They specify the virtual filename and starting line number for the script text. This is helpful in reporting errors that might occur in the script text.</p>
+<hr noshade size=1>
+<p class=normal><a href="TH_245.htm"><img src="button.png" border=0></a><a href="TH_245.htm" style="text-decoration:none;">FUNCTION GLOBALS</a></p>
+<p>
+</body>
+</html>

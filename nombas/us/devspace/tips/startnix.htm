@@ -1,0 +1,1264 @@
+ 
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 FINAL//EN">
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=ISO-8859-1">
+<TITLE>ScriptEase Tips - Getting Started for Unix</TITLE>
+<!-- begin metaTags --> 
+<META NAME="keywords" CONTENT="javascript,ecmascript,ecma,scriptease,jscript,scripting,nombas,isdk,sedesk,web application development,embedded devices,distributed computing,peer-to-peer,p2p,peer,data mining,javascript.com,cycletraders,integrated sdk,script ease,java,c++,c,simplicity,power,palm,windows ce,integration: sdk,integration:sdk,scriptease:desktop,scriptease: desktop,se:desktop,se:desk,se:isdk, se: isdk,development tools,devtools">
+<META HTTP-EQUIV="DESCRIPTION" CONTENT="Nombas delivers simplicity and power through scripting by providing market-leading development tools and software for JavaScript and ECMAScript.">
+<!-- end metaTags --> <!-- begin navbar includes --> 
+<SCRIPT language=JavaScript1.2>
+  navbarPath = '../../'; 
+</SCRIPT>
+<SCRIPT language=JavaScript1.2 SRC="../../navbarData.js"></SCRIPT>
+<SCRIPT language=JavaScript1.2 SRC="../../navbarMenu.js"></SCRIPT>
+<SCRIPT language=JavaScript SRC="../../imgRollover.js"></SCRIPT>
+<!-- end navbar includes --> <!-- begin style and icon definition --> 
+<LINK REL="SHORTCUT ICON" HREF="../../nombas.ico">
+<STYLE> 
+A:hover { color:#941810;} 
+</STYLE>
+<!-- end style and icon definition --> 
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-1754630-10']);
+  _gaq.push(['_trackPageview']);
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+</HEAD>
+<BODY BGCOLOR="#06086F" LINK="#0000FF" VLINK="#800080" TEXT="#000000" TOPMARGIN=0 LEFTMARGIN=0 MARGINWIDTH=0 MARGINHEIGHT=0>
+<TABLE BORDER=0 CELLSPACING=0 CELLPADDING=0 WIDTH=213>
+  <TR VALIGN=TOP ALIGN=LEFT> 
+    <TD WIDTH=28 HEIGHT=4><IMG SRC="../../clearpixel.gif" WIDTH=28 HEIGHT=1 BORDER=0></TD>
+    <TD></TD>
+  </TR>
+  <TR VALIGN=TOP ALIGN=LEFT> 
+    <TD HEIGHT=60></TD>
+    <TD WIDTH=185 ALIGN=LEFT VALIGN=TOP><A HREF="../../index.htm"><IMG ID="Picture1" HEIGHT=60 WIDTH=185 SRC="../../logo.gif" BORDER=0></A></TD>
+  </TR>
+</TABLE>
+    <div id="nombas-legacy"></div>
+<TABLE BORDER=0 CELLSPACING=0 CELLPADDING=0>
+  <TR VALIGN=TOP ALIGN=LEFT> 
+    <TD WIDTH=30 HEIGHT=10><IMG SRC="../../clearpixel.gif" WIDTH=30 HEIGHT=1 BORDER=0></TD>
+    <TD></TD>
+  </TR>
+  <TR VALIGN=TOP ALIGN=LEFT> 
+    <TD></TD>
+    <TD WIDTH=582> 
+      <TABLE ID="Table1" BORDER=0 CELLSPACING=0 CELLPADDING=0 WIDTH=582>
+        <TR> 
+          <TD WIDTH=97> 
+            <P><A HREF="../../scripting/scripting.htm" 
+                            onmouseover="changeImages('scripting', '../../htab_scripting.gif'); popUp('elMenu1',event); return true;" 
+onmouseout="changeImages('scripting', '../../tab_scripting.gif'); popDown('elMenu1'); return true;"
+><IMG
+                             ID="scripting" HEIGHT=21 WIDTH=97 SRC="../../tab_scripting.gif" VSPACE=0 HSPACE=0 ALIGN="TOP" BORDER=0 name="scripting"></A> 
+          </TD>
+          <TD WIDTH=97> 
+            <P><A HREF="../../products/products.htm" 
+                            onmouseover="changeImages('products', '../../htab_products.gif'); popUp('elMenu2',event); return true;" 
+onmouseout="changeImages('products', '../../tab_products.gif'); popDown('elMenu2'); return true;"><IMG ID="products"
+                             HEIGHT=21 WIDTH=97 SRC="../../tab_products.gif" VSPACE=0 HSPACE=0 ALIGN="TOP" BORDER=0 name=products></A> 
+          </TD>
+          <TD WIDTH=97> 
+            <P><A HREF="../../purchase/purchase.htm" onmouseover="changeImages('purchase', '../../htab_purchase.gif');return true;" 
+onmouseout="changeImages('purchase', '../../tab_purchase.gif');return true;"><IMG ID="purchase"
+                             HEIGHT=21 WIDTH=97 SRC="../../tab_purchase.gif" VSPACE=0 HSPACE=0 ALIGN="TOP" BORDER=0 name=purchase></A> 
+          </TD>
+          <TD WIDTH=97> 
+            <P><A HREF="../../download/ndownload.htm" onmouseover="changeImages('download', '../../htab_download.gif');return true;" 
+onmouseout="changeImages('download', '../../tab_download.gif');return true;"><IMG ID="download"
+                             HEIGHT=21 WIDTH=97 SRC="../../tab_download.gif" VSPACE=0 HSPACE=0 ALIGN="TOP" BORDER=0 name=download></A> 
+          </TD>
+          <TD WIDTH=97> 
+            <P><a target="support" href="http://support.nombas.com/" onmouseover="changeImages('support', '../../htab_support.gif'); return true;" 
+onmouseout="changeImages('support', '../../tab_support.gif'); return true;"><IMG ID="support"
+                             HEIGHT=21 WIDTH=97 SRC="../../tab_support.gif" VSPACE=0 HSPACE=0 ALIGN="TOP" BORDER=0 name=support></A> 
+          </TD>
+          <TD WIDTH=97> 
+            <P><A HREF="../../company/company.htm" 
+                            onmouseover="changeImages('company', '../../htab_company.gif'); popUp('elMenu6',event); return true;" 
+onmouseout="changeImages('company', '../../tab_company.gif'); popDown('elMenu6'); return true;"><IMG ID="company"
+                             HEIGHT=21 WIDTH=97 SRC="../../tab_company.gif" VSPACE=0 HSPACE=0 ALIGN="TOP" BORDER=0 name=company></A> 
+          </TD>
+        </TR>
+      </TABLE>
+    </TD>
+  </TR>
+</TABLE>
+<TABLE BORDER=0 CELLSPACING=0 CELLPADDING=0 WIDTH=637>
+  <TR VALIGN=TOP ALIGN=LEFT> 
+    <TD WIDTH=5 HEIGHT=20><IMG SRC="../../clearpixel.gif" WIDTH=5 HEIGHT=1 BORDER=0></TD>
+    <TD WIDTH=632> 
+      <TABLE BORDER=0 CELLSPACING=0 CELLPADDING=0 WIDTH=632 HEIGHT=20 bgcolor="#FFFFFF">
+        <TR ALIGN=LEFT VALIGN=TOP> 
+          <TD> 
+            <TABLE BORDER=0 CELLSPACING=0 CELLPADDING=0 WIDTH=632>
+              <TR VALIGN=TOP ALIGN=LEFT> 
+                <TD WIDTH=20 HEIGHT=20 ALIGN=LEFT VALIGN=TOP><IMG ID="Picture12" HEIGHT=20 WIDTH=20 SRC="../../curve_topleft.gif" BORDER=0></TD>
+                <TD WIDTH=592><IMG SRC="../../clearpixel.gif" WIDTH=592 HEIGHT=1 BORDER=0></TD>
+                <TD WIDTH=20 ALIGN=LEFT VALIGN=TOP><IMG ID="Picture10" HEIGHT=20 WIDTH=20 SRC="../../curve_top.gif" BORDER=0></TD>
+              </TR>
+            </TABLE>
+          </TD>
+        </TR>
+      </TABLE>
+    </TD>
+  </TR>
+</TABLE>
+<TABLE BORDER=0 CELLSPACING=0 CELLPADDING=0 WIDTH=637>
+  <TR VALIGN=TOP ALIGN=LEFT> 
+    <TD HEIGHT=245></TD>
+    <TD WIDTH=632 COLSPAN=2 height="245"> 
+      <TABLE BORDER=0 CELLSPACING=0 CELLPADDING=0 WIDTH=632 HEIGHT=200 bgcolor="#FFFFFF">
+        <TR ALIGN=LEFT VALIGN=TOP> 
+          <TD height="236"> 
+            <TABLE BORDER=0 CELLSPACING=0 CELLPADDING=0 WIDTH=600>
+              <TR VALIGN=TOP ALIGN=LEFT> 
+                <TD WIDTH=14 HEIGHT=1><IMG SRC="../../clearpixel.gif" WIDTH=13 HEIGHT=1 BORDER=0></TD>
+                <TD WIDTH=586><IMG SRC="../../clearpixel.gif" WIDTH=316 HEIGHT=1 BORDER=0></TD>
+              </TR>
+              <TR VALIGN=TOP ALIGN=LEFT> 
+                <TD width="14"></TD>
+                <TD WIDTH=586> 
+                  <P ALIGN=LEFT><A HREF="../../index.htm"><FONT SIZE="-2" FACE="Verdana,Tahoma,Arial,Helvetica">Nombas</FONT></A><FONT SIZE="-2" FACE="Verdana,Tahoma,Arial,Helvetica"> 
+                    &gt; <a href="../index.htm">SE:ISDK DevSpace</a> &gt; <a href="../tips/index.htm">Tips</a> 
+                    &gt; Getting Started The UNIX Way</FONT> 
+                </TD>
+              </TR>
+            </TABLE>
+            <TABLE BORDER=0 CELLSPACING=0 CELLPADDING=0 WIDTH=615>
+              <TR VALIGN=TOP ALIGN=LEFT> 
+                <TD WIDTH=15 HEIGHT=5><IMG SRC="../../clearpixel.gif" WIDTH=15 HEIGHT=1 BORDER=0></TD>
+                <TD></TD>
+              </TR>
+              <TR VALIGN=TOP ALIGN=LEFT> 
+                <TD HEIGHT=80></TD>
+                <TD WIDTH=600 ALIGN=LEFT VALIGN=TOP><IMG ID="Picture14" HEIGHT=80 WIDTH=600 SRC="../../devspace/bnr_devspace.gif" BORDER=0></TD>
+              </TR>
+              <TR VALIGN=TOP ALIGN=LEFT> 
+                <TD HEIGHT=135></TD>
+                <TD WIDTH=600 ALIGN=LEFT VALIGN=TOP height="135"> 
+                  <table width="100%" border="0">
+                    <tr> 
+                      <td colspan="1" height="9"><img SRC="../../clearpixel.gif" width="1" height="1"></td>
+                    </tr>
+                    <tr> 
+                      <td width="1" height="100%">&nbsp;</td>
+                      <td valign="top" width="100%"> 
+                        <p><font face="Verdana, Arial, Helvetica, sans-serif" size="3"><b><font size="4">Getting 
+                          Started The UNIX Way </font></b></font></p>
+                        <p><font face="Verdana, Arial, Helvetica, sans-serif" size="3"><b><font size="2"><i>Using 
+                          ScriptEase ISDK With Linux, SunOS, Solaris, FreeBSD, 
+                          and AIX</i></font></b></font></p>
+                        <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                          <b>Working with the SE:ISDK Ver. 4.03 and various IDE's 
+                          </b> </font> 
+                        <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                          When adding the ScriptEase:Integration SDK (ScriptEase:ISDK) 
+                          to our application, there are several steps that you 
+                          should follow to make the process as easy as possible. 
+                          We have outlined this getting started process into 7 
+                          steps. The ScriptEase:Integration <br>
+                          SDK is designed to be flexible and powerful for the 
+                          widest range of uses possible. The downside of this 
+                          is that there is a lot to the package. And, there are 
+                          many options. Options are a good thing, but can be confusing 
+                          on initial exposure. This document is <br>
+                          designed to assist the 75% of the population that doesn't 
+                          need all of this flexibility at once. </font> 
+                        <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                          This file outlines Step-by-Step instructions for adding 
+                          the SE:ISDK libraries and source files with various 
+                          compilers. The compilers covered are: </font> 
+                        <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><br>
+                          BORLAND 4.5 <br>
+                          MSVC 1.52, 4.X and 5.0 <br>
+                          WATCOM 10.X and 11.0 </font> 
+                        <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                          UNIX (all compilers and systems) </font> 
+                        <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                          The package you received consists of 3 basic parts. 
+                          They are the <br>
+                          various ScriptEase:ISDK Interpreter Engines, the ScriptEase 
+                          Standard <br>
+                          Function Library source code, and miscellaneous source 
+                          files required <br>
+                          to support the interpreter engine. ScriptEase:ISDK Interpreter 
+                          Engines <br>
+                          are the static and dynamic linked libraries in the libs 
+                          directory. The <br>
+                          ScriptEase:ISDK Interpreter Engine contains the complete 
+                          interpreter <br>
+                          (i.e. parser, interpreter, operator and flow-control 
+                          commands), but does <br>
+                          not include any function libraries. </font> 
+                        <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                          You will find one or more interpreter engines in your 
+                          installation tree. <br>
+                          All of the engines interpret identically, the different 
+                          versions are for <br>
+                          different compilers and operating systems. You are ready 
+                          to begin the <br>
+                          integration process. </font> 
+                        <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                          BORLAND 4.5 <br>
+                          ----------- <br>
+                          You will need to provide a jseopt.h file in your project 
+                          directory. <br>
+                          The jseopt.h file is designed to allow you to configure 
+                          the SE:ISDK <br>
+                          to fit the particulars of your platform and specify 
+                          the options you <br>
+                          choose to use. The jseopt.h is designed to be the fundamental 
+                          file <br>
+                          for specifying which operating system is being targeted, 
+                          which other <br>
+                          include files will be required, and which elements of 
+                          the standard <br>
+                          library will be included. In most cases it will be sufficient 
+                          to <br>
+                          copy a jseopt.h from one of the sample applications 
+                          that closely <br>
+                          resembles your application. Refer to the manual for 
+                          details on the <br>
+                          various options that can be specified in a jseopt.h 
+                          </font> 
+                        <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                          This is where you will add the ScriptEase Interpreter 
+                          Engine library <br>
+                          file to your application. Start the Borland IDE and 
+                          open the project <br>
+                          in which you wish to integrate the SE:ISDK. Select the 
+                          target name <br>
+                          in the project window and press the insert key. Using 
+                          the &quot;Add to <br>
+                          Project List&quot; dialog box, browse to and select 
+                          the serte.lib file. <br>
+                          The runtime engine should now show up as the second 
+                          item in the project <br>
+                          window. </font> 
+                        <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                          ScriptEase:Integration SDK projects need to have several 
+                          include <br>
+                          search paths added so the compiler can find the SE:ISDK 
+                          headers. <br>
+                          From the &quot;Options&quot; menu choice, select &quot;Project...&quot;. 
+                          The first topic <br>
+                          is &quot;Directories&quot;, make sure this selection 
+                          is highlighted. Add to the <br>
+                          existing path the additional paths: <br>
+                          \seisdk\incjse;\seisdk\seclib;\seisdk\srcmisc;\seisdk\srcapp 
+                          <br>
+                          in the &quot;Include&quot; edit field. Substitute the 
+                          above paths with the correct <br>
+                          paths if you have install the ISDK somewhere other than 
+                          the default <br>
+                          locations. If you have not added the path to your project 
+                          to the <br>
+                          includes path, now is a good time to do it. </font> 
+                        <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                          With the &quot;Project Options&quot; dialog box still 
+                          open, expand the &quot;Compiler&quot; <br>
+                          topic and highlight &quot;Defines&quot;. In the &quot;Defines&quot; 
+                          edit field, add the <br>
+                          following defines: <br>
+                          JSETOOLKIT_APP <br>
+                          __JSE_LIB__ <br>
+                          __JSE_XXXXX__ <br>
+                          NDEBUG <br>
+                          Substitute XXXXX with the proper platform you are targeting. 
+                          Refer to <br>
+                          the manual for the options available. Alternatively, 
+                          these defines <br>
+                          can be added to the jseopt.h file described earlier. 
+                          <br>
+                          Click the &quot;OK&quot; button to dismiss this dialog 
+                          box. </font> 
+                        <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                          Next add the base support source files. Again, select 
+                          the target <br>
+                          name in the project window and press the insert key. 
+                          Using the &quot;Add <br>
+                          to Project List&quot; dialog box, browse to the srcmisc 
+                          directory and add <br>
+                          globldat.cpp, dirparts.cpp, jsemem.cpp, and utilstr.cpp 
+                          source files. <br>
+                          (See Note 1.) </font> 
+                        <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                          Now you can compile and link your application to insure 
+                          that you've <br>
+                          accomplished the above steps correctly. If you get a 
+                          compiler error <br>
+                          stating that a header could not be found, check to make 
+                          sure that <br>
+                          you've typed in the include paths as you have them installed. 
+                          If <br>
+                          you get a linker error be sure that you've added the 
+                          correct runtime <br>
+                          engine for your operating system. </font> 
+                        <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                          MSVC 1.52 <br>
+                          --------- <br>
+                          You will need to provide a jseopt.h file in your project 
+                          directory. <br>
+                          The jseopt.h file is designed to allow you to configure 
+                          the SE:ISDK <br>
+                          to fit the particulars of your platform and specify 
+                          the options you <br>
+                          choose to use. The jseopt.h is designed to be the fundamental 
+                          file <br>
+                          for specifying which operating system is being targeted, 
+                          which other <br>
+                          include files will be required, and which elements of 
+                          the standard <br>
+                          library will be included. In most cases it will be sufficient 
+                          to <br>
+                          copy a jseopt.h from one of the sample applications 
+                          that closely <br>
+                          resembles your application. Refer to the manual for 
+                          details on the <br>
+                          various options that can be specified in a jseopt.h 
+                          </font> 
+                        <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                          This is where you will add the ScriptEase Interpreter 
+                          Engine library <br>
+                          file to your application. Start Visual C++ and open 
+                          the project in <br>
+                          which you wish to integrate the SE:ISDK. Select &quot;Project&quot; 
+                          from the <br>
+                          menu and then select &quot;Edit...&quot;. Using the 
+                          &quot;Edit - PROJECT&quot; dialog box, <br>
+                          browse to and add the serte.lib file. The runtime engine 
+                          should <br>
+                          now show up as an item in the &quot;Files in Project&quot; 
+                          list. </font> 
+                        <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                          ScriptEase:Integration SDK projects need to have several 
+                          include <br>
+                          search paths added so the compiler can find the SE:ISDK 
+                          headers. <br>
+                          From the &quot;Options&quot; menu choice, select &quot;Project...&quot;. 
+                          Click on the <br>
+                          &quot;Compiler&quot; button and then select &quot;Preprocessor&quot; 
+                          from the listbox. <br>
+                          Click the &quot;Common to Both&quot; radio button and 
+                          then type in the <br>
+                          additional paths: <br>
+                          \seisdk\incjse;\seisdk\seclib;\seisdk\srcmisc;\seisdk\srcapp 
+                          <br>
+                          in the &quot;Include Path&quot; edit field. Substitute 
+                          the above paths with <br>
+                          the correct paths if you have install the ISDK somewhere 
+                          other than <br>
+                          the default locations. If you have not added the path 
+                          to your project <br>
+                          to the includes path, now is a good time to do it. </font> 
+                        <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                          With the &quot;C/C++ Complier Options&quot; dialog box 
+                          still open and <br>
+                          &quot;Preprocessor&quot; still highlighted, add the 
+                          following defines to the <br>
+                          &quot;Symbols and Macros to Define&quot; edit field: 
+                          <br>
+                          JSETOOLKIT_APP <br>
+                          __JSE_LIB__ <br>
+                          __JSE_XXXXX__ <br>
+                          NDEBUG <br>
+                          Substitute XXXXX with the proper platform you are targeting. 
+                          Refer to <br>
+                          the manual for the options available. Alternatively, 
+                          these defines <br>
+                          can be added to the jseopt.h file described earlier. 
+                          Click the &quot;OK&quot; <br>
+                          button to dismiss this and the &quot;Project Options&quot; 
+                          dialog boxes. </font> 
+                        <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                          Next add the base support source files. Select &quot;Project&quot; 
+                          from the <br>
+                          menu and then select &quot;Edit...&quot;. Using the 
+                          &quot;Edit - PROJECT&quot; dialog box, <br>
+                          browse to the srcmisc directory and add the globldat.cpp, 
+                          dirparts.cpp, <br>
+                          jsemem.cpp, and utilstr.cpp source files. (See Note 
+                          1 &amp; 2.) </font> 
+                        <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                          Now you can compile and link your application to insure 
+                          that you've <br>
+                          accomplished the above steps correctly. If you get a 
+                          compiler error <br>
+                          stating that a header could not be found, check to make 
+                          sure that <br>
+                          you've typed in the include paths as you have them installed. 
+                          If <br>
+                          you get a linker error be sure that you've added the 
+                          correct runtime <br>
+                          engine for your operating system. </font> 
+                        <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                          MSVC 4.X <br>
+                          -------- <br>
+                          You will need to provide a jseopt.h file in your project 
+                          directory. <br>
+                          The jseopt.h file is designed to allow you to configure 
+                          the SE:ISDK <br>
+                          to fit the particulars of your platform and specify 
+                          the options you <br>
+                          choose to use. The jseopt.h is designed to be the fundamental 
+                          file <br>
+                          for specifying which operating system is being targeted, 
+                          which other <br>
+                          include files will be required, and which elements of 
+                          the standard <br>
+                          library will be included. In most cases it will be sufficient 
+                          to <br>
+                          copy a jseopt.h from one of the sample applications 
+                          that closely <br>
+                          resembles your application. Refer to the manual for 
+                          details on the <br>
+                          various options that can be specified in a jseopt.h 
+                          </font> 
+                        <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                          This is where you will add the ScriptEase Interpreter 
+                          Engine library <br>
+                          file to your application. Start the Developer's Studio 
+                          and open the <br>
+                          workspace for the project in which you wish to integrate 
+                          the SE:ISDK. <br>
+                          Select the target from the combo box. Select &quot;Insert&quot; 
+                          from the menu <br>
+                          and then select &quot;Files into Project...&quot;. Using 
+                          the &quot;Insert Files into <br>
+                          Project&quot; dialog box, browse to and select the serte.lib 
+                          file. The <br>
+                          runtime engine should now show up as an item in the 
+                          project file list <br>
+                          window. </font> 
+                        <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                          ScriptEase:Integration SDK projects need to have several 
+                          include <br>
+                          search paths added so the compiler can find the SE:ISDK 
+                          headers. <br>
+                          From the &quot;Build&quot; menu choice, select &quot;Settings...&quot;. 
+                          Click on the <br>
+                          &quot;C/C++&quot; tab and then select &quot;Preprocessor&quot; 
+                          from the dropdown list. <br>
+                          Type in the additional paths: <br>
+                          \seisdk\incjse;\seisdk\seclib;\seisdk\srcmisc;\seisdk\srcapp 
+                          <br>
+                          in the &quot;Additional include directories&quot; edit 
+                          field. Substitute the <br>
+                          above paths with the correct paths if you have install 
+                          the ISDK <br>
+                          somewhere other than the default locations. Substitute 
+                          the <br>
+                          above paths with the correct paths if you have install 
+                          the ISDK <br>
+                          somewhere other than the default locations. If you have 
+                          not <br>
+                          added the path to your project to the includes path, 
+                          now is a good <br>
+                          time to do it. </font> 
+                        <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                          With the &quot;Project Settings&quot; dialog box still 
+                          open and &quot;Preprocessor&quot; <br>
+                          still selected from the &quot;C/C++&quot; tab , add 
+                          the following defines to the <br>
+                          &quot;Preprocessor Definitions&quot; edit field: <br>
+                          JSETOOLKIT_APP <br>
+                          __JSE_LIB__ <br>
+                          __JSE_XXXXX__ <br>
+                          NDEBUG <br>
+                          Substitute XXXXX with the proper platform you are targeting. 
+                          Refer to <br>
+                          the manual for the options available. Alternatively, 
+                          these defines <br>
+                          can be added to the jseopt.h file described earlier. 
+                          Click the &quot;OK&quot; <br>
+                          button to dismiss this dialog box. </font> 
+                        <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                          Next add the base support source files. Again, Select 
+                          &quot;Insert&quot; from <br>
+                          the menu and then select &quot;Files into Project...&quot;. 
+                          Using the &quot;Insert <br>
+                          Files into Project&quot; dialog box, browse to and select 
+                          the globldat.cpp, <br>
+                          dirparts.cpp, jsemem.cpp, and utilstr.cpp source files. 
+                          </font> 
+                        <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                          Now you can compile and link your application to insure 
+                          that you've <br>
+                          accomplished the above steps correctly. If you get a 
+                          compiler error <br>
+                          stating that a header could not be found, check to make 
+                          sure that <br>
+                          you've typed in the include paths as you have them installed. 
+                          If <br>
+                          you get a linker error be sure that you've added the 
+                          correct runtime <br>
+                          engine for your operating system. </font> 
+                        <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                          MSVC 5.0 <br>
+                          -------- <br>
+                          You will need to provide a jseopt.h file in your project 
+                          directory. <br>
+                          The jseopt.h file is designed to allow you to configure 
+                          the SE:ISDK <br>
+                          to fit the particulars of your platform and specify 
+                          the options you <br>
+                          choose to use. The jseopt.h is designed to be the fundamental 
+                          file <br>
+                          for specifying which operating system is being targeted, 
+                          which other <br>
+                          include files will be required, and which elements of 
+                          the standard <br>
+                          library will be included. In most cases it will be sufficient 
+                          to <br>
+                          copy a jseopt.h from one of the sample applications 
+                          that closely <br>
+                          resembles your application. Refer to the manual for 
+                          details on the <br>
+                          various options that can be specified in a jseopt.h 
+                          </font> 
+                        <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                          This is where you will add the ScriptEase Interpreter 
+                          Engine library <br>
+                          file to your application. Start the Developer's Studio 
+                          and open the <br>
+                          workspace for the project in which you wish to integrate 
+                          the SE:ISDK. <br>
+                          Select the target Workspace. Select &quot;Project&quot; 
+                          from the menu and then <br>
+                          select &quot;Add to Project&quot; and then &quot;Files&quot;. 
+                          Using the &quot;Insert Files <br>
+                          into Project&quot; dialog box, browse to and select 
+                          the serte.lib file. <br>
+                          The runtime engine should now show up as an item in 
+                          the project FileView <br>
+                          list window. </font> 
+                        <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                          ScriptEase:Integration SDK projects need to have several 
+                          include <br>
+                          search paths added so the compiler can find the SE:ISDK 
+                          headers. <br>
+                          From the &quot;Project&quot; menu choice, select &quot;Settings...&quot;. 
+                          Click on the <br>
+                          &quot;C/C++&quot; tab and then select &quot;Preprocessor&quot; 
+                          from the &quot;Category&quot; dropdown <br>
+                          list. Type in the additional paths: <br>
+                          \seisdk\incjse;\seisdk\seclib;\seisdk\srcmisc;\seisdk\srcapp 
+                          <br>
+                          in the &quot;Additional include directories&quot; edit 
+                          field. Substitute the <br>
+                          above paths with the correct paths if you have install 
+                          the ISDK <br>
+                          somewhere other than the default locations. Substitute 
+                          the <br>
+                          above paths with the correct paths if you have install 
+                          the ISDK <br>
+                          somewhere other than the default locations. If you have 
+                          not <br>
+                          added the path to your project to the includes path, 
+                          now is a good <br>
+                          time to do it. </font> 
+                        <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                          With the &quot;Project Settings&quot; dialog box still 
+                          open and &quot;Preprocessor&quot; <br>
+                          still selected from the &quot;C/C++&quot; tab , add 
+                          the following defines to the <br>
+                          &quot;Preprocessor Definitions&quot; edit field: <br>
+                          JSETOOLKIT_APP <br>
+                          __JSE_LIB__ <br>
+                          __JSE_XXXXX__ <br>
+                          NDEBUG <br>
+                          Substitute XXXXX with the proper platform you are targeting. 
+                          Refer to <br>
+                          the manual for the options available. Alternatively, 
+                          these defines <br>
+                          can be added to the jseopt.h file described earlier. 
+                          Click the &quot;OK&quot; <br>
+                          button to dismiss this dialog box. </font> 
+                        <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                          Next add the base support source files. Again, Select 
+                          &quot;Project&quot; from <br>
+                          the menu and then select &quot;Add to Project&quot; 
+                          and then &quot;Files&quot;. Using the <br>
+                          &quot;Insert Files into Project&quot; dialog box, browse 
+                          to the srcmisc directory <br>
+                          and select the globldat.cpp, dirparts.cpp, jsemem.cpp, 
+                          and utilstr.cpp <br>
+                          source files. </font> 
+                        <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                          Now you can compile and link your application to insure 
+                          that you've <br>
+                          accomplished the above steps correctly. If you get a 
+                          compiler error <br>
+                          stating that a header could not be found, check to make 
+                          sure that <br>
+                          you've typed in the include paths as you have them installed. 
+                          If <br>
+                          you get a linker error be sure that you've added the 
+                          correct runtime <br>
+                          engine for your operating system. </font> 
+                        <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                          WATCOM 10.X and 11.0 <br>
+                          -------------------- <br>
+                          You will need to provide a jseopt.h file in your project 
+                          directory. <br>
+                          The jseopt.h file is designed to allow you to configure 
+                          the SE:ISDK <br>
+                          to fit the particulars of your platform and specify 
+                          the options you <br>
+                          choose to use. The jseopt.h is designed to be the fundamental 
+                          file <br>
+                          for specifying which operating system is being targeted, 
+                          which other <br>
+                          include files will be required, and which elements of 
+                          the standard <br>
+                          library will be included. In most cases it will be sufficient 
+                          to <br>
+                          copy a jseopt.h from one of the sample applications 
+                          that closely <br>
+                          resembles your application. Refer to the manual for 
+                          details on the <br>
+                          various options that can be specified in a jseopt.h 
+                          </font> 
+                        <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                          This is where you will add the ScriptEase Interpreter 
+                          Engine library <br>
+                          file to your application. Start Watcom's IDE and open 
+                          the project <br>
+                          in which you wish to integrate the SE:ISDK. Activate 
+                          the target child <br>
+                          window and press the insert key. Using the &quot;Add 
+                          File(s) to 'target'&quot; <br>
+                          dialog box, browse to and select the serte.lib file. 
+                          The runtime <br>
+                          engine should now show up as an item in the target child 
+                          window. </font> 
+                        <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                          ScriptEase:Integration SDK projects need to have several 
+                          include <br>
+                          search paths added so the compiler can find the SE:ISDK 
+                          headers. <br>
+                          From the &quot;Options&quot; menu choice, select &quot;C++ 
+                          Compiler switches...&quot;. <br>
+                          The first switches page is &quot;File Option Switches&quot;. 
+                          In the &quot;Include <br>
+                          directories:(-i) edit field type in the additional paths: 
+                          <br>
+                          \seisdk\incjse;\seisdk\seclib;\seisdk\srcmisc;\seisdk\srcapp 
+                          <br>
+                          Make sure to preserve the default include path $(%WATCOM)\h. 
+                          Substitute <br>
+                          the above paths with the correct paths if you have install 
+                          the ISDK <br>
+                          somewhere other than the default locations. If you have 
+                          not added the <br>
+                          path to your project to the includes path, now is a 
+                          good time to do it. </font> 
+                        <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                          With the &quot;C++ Compiler switches&quot; dialog box 
+                          still open select &quot;3. Source <br>
+                          Switches&quot; from the switch pages. Add the following 
+                          defines to the &quot;Macro <br>
+                          Definitions:(-d)&quot; edit field: <br>
+                          JSETOOLKIT_APP <br>
+                          __JSE_LIB__ <br>
+                          __JSE_XXXXX__ <br>
+                          NDEBUG <br>
+                          Substitute XXXXX with the proper platform you are targeting. 
+                          Refer to <br>
+                          the manual for the options available. Alternatively, 
+                          these defines <br>
+                          can be added to the jseopt.h file described earlier. 
+                          Click the &quot;OK&quot; <br>
+                          button to dismiss this dialog box. </font> 
+                        <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                          Next add the base support source files. Activate the 
+                          target child <br>
+                          window and press the insert key. Using the &quot;Add 
+                          File(s) to 'target'&quot; <br>
+                          dialog box, browse to the srcmisc directory and add 
+                          the globldat.cpp, <br>
+                          dirparts.cpp, jsemem.cpp, and utilstr.cpp source files. 
+                          (See Note 1.) </font> 
+                        <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                          Now you can compile and link your application to insure 
+                          that you've <br>
+                          accomplished the above steps correctly. If you get a 
+                          compiler error <br>
+                          stating that a header could not be found, check to make 
+                          sure that <br>
+                          you've typed in the include paths as you have them installed. 
+                          If <br>
+                          you get a linker error be sure that you've added the 
+                          correct runtime <br>
+                          engine for your operating system. </font> 
+                        <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                          UNIX (All versions and compilers) NOTES <br>
+                          --------------------------------------- <br>
+                          After unpacking the archive, the toolkit is similar 
+                          to other versions of <br>
+                          the ScriptEase toolkit. You compile the libraries you 
+                          wish available to <br>
+                          your users and link them with your source. You also 
+                          link in the routines in <br>
+                          'libserte40.a' or 'libserte40.so' (the second is a dynamic 
+                          library, and is <br>
+                          loaded at compile time rather than integrated at link 
+                          time.) See the <br>
+                          toolkit manual for more information. </font> 
+                        <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                          The 'libserte40.so' deserves note. Usually, the ScriptEase 
+                          run-time routines <br>
+                          are linked directly to your application. This makes 
+                          your application <br>
+                          self-contained, but increases its size. You can choose 
+                          to not link in <br>
+                          the routines until the program is actually run. To do 
+                          so, simply link <br>
+                          with the '.so' version of the SE:ISDK routines rather 
+                          than the static <br>
+                          versions (the '.a' file.) In order to make your application 
+                          as portable <br>
+                          as possible, copy 'libserte40.so' into your '/usr/lib' 
+                          directory, and <br>
+                          when linking with it, do not give it an absolute path 
+                          (link with <br>
+                          'libserte40.so', not with '/usr/lib/libserte40.so'.) 
+                          To run the application, <br>
+                          'libserte40.so' must exist on the machine the application 
+                          is to be run on. </font> 
+                        <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                          Several example applications are provided in the 'samples' 
+                          subdirectory, <br>
+                          along with the makefile needed to build them. To build 
+                          any of the samples, <br>
+                          change to the sample directory (ex: 'cd samples/simple1') 
+                          and then type <br>
+                          'make'. See the accompanying readme for instructions 
+                          on enterring the <br>
+                          access key you received to get the samples to work. 
+                          </font> 
+                        <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                          We use gcc to build everything. There are a few warnings 
+                          about functions <br>
+                          not being defined (select, endpwent, bcopy and gettimeofday). 
+                          These can be <br>
+                          ignored. However, the compilers provided with most Unix 
+                          operating systems <br>
+                          work equally well. </font> 
+                        <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                          UNIX (All versions and compilers) <br>
+                          --------------------------------- <br>
+                          The SE:ISDK manual describes how to add the ScriptEase 
+                          engine to your <br>
+                          application. This process can be intimidating at first. 
+                          This section gives <br>
+                          you three quick ways to add the toolkit to an existing 
+                          application. Once you <br>
+                          have gotten your feet wet, we encourage you to read 
+                          the entire manual <br>
+                          carefully, as it allows you to tweak the ScriptEase 
+                          ISDK exactly to your <br>
+                          liking. </font> 
+                        <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                          First, you must untar the distribution and put it somewhere. 
+                          A common place <br>
+                          might be '/usr/src'. For this example, we will assume 
+                          you have copied the <br>
+                          'seisdkli.tgz' file (the ScriptEase distribution, it 
+                          will be named <br>
+                          differently for different flavors of Unix, but the procedure 
+                          is the same) <br>
+                          to '/usr/src/scriptease/linux' and unpacked it. Here 
+                          is a short example of doing <br>
+                          this ('$' represents the shell prompt, don't type it 
+                          in:) </font> 
+                        <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                          $ mkdir /usr/src/scriptease <br>
+                          $ mkdir /usr/src/scriptease/linux <br>
+                          $ cd /usr/src/scriptease/linux <br>
+                          (note on this next line, replace /tmp/ with wherever 
+                          seisdkli.tgz currently <br>
+                          resides) <br>
+                          $ cp /tmp/seisdkli.tgz . <br>
+                          $ gunzip seisdkli.tgz <br>
+                          $ tar -xf seisdkli.tar </font> 
+                        <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                          EXAMPLE 1: </font> 
+                        <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                          You don't care about our example libraries since you 
+                          will provide wrappers <br>
+                          for any functions you want the user to have. In this 
+                          case, you must <br>
+                          initialize the engine, invoke any jse calls you might 
+                          want (such as running <br>
+                          scripts as macros when the user desires) and shut down 
+                          the engine. Here is <br>
+                          some sample code to add to your application. You can 
+                          simply cut all of the <br>
+                          code between the '---start---' and '---end---' and paste 
+                          it verbatim into <br>
+                          your application. You can put it into an existing source 
+                          file, or create a <br>
+                          new source file solely for it. However, it must be put 
+                          into a C++ source <br>
+                          file, not a C source file. </font> 
+                        <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                          ---start--- <br>
+                          #include &quot;jseopt.h&quot; <br>
+                          #include &quot;fsearch.h&quot; </font> 
+                        <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                          jsebool JSE_CFUNC FAR_CALL <br>
+                          ContinueFunction(jseContext) <br>
+                          { <br>
+                          return True; <br>
+                          } </font> 
+                        <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                          void JSE_CFUNC FAR_CALL <br>
+                          ErrorFunction(jseContext jsecontext, JSE_CPP_CONST char 
+                          _FAR_ *ErrorString) <br>
+                          { <br>
+                          fprintf(stderr,&quot;%s&quot;,ErrorString); <br>
+                          } </font> 
+                        <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                          jsebool JSE_CFUNC FAR_CALL <br>
+                          ToolkitAppFileSearch(jseContext,JSE_CPP_CONST char _FAR_ 
+                          * FileSpec,char _FAR_ * FilePathResults,uint FilePathLen,jsebool) 
+                          <br>
+                          { <br>
+                          strncpy(FilePathResults,FileSpec,FilePathLen); <br>
+                          return True; <br>
+                          } </font> 
+                        <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                          jseContext initialize_scriptease(const char *access_key) 
+                          <br>
+                          { <br>
+                          struct jseExternalLinkParameters LinkParms; <br>
+                          char fullname[_MAX_PATH]; </font> 
+                        <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                          long ver = jseInitializeEngine(); <br>
+                          if( JSE_ENGINE_VERSION_ID != ver ) { <br>
+                          printf(&quot;Failed to initialize interpreter engine\n&quot;); 
+                          <br>
+                          } </font> 
+                        <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                          memset(&amp;LinkParms,0,sizeof(jseExternalLinkParameters)); 
+                          <br>
+                          LinkParms.PrintErrorFunc = ErrorFunction; <br>
+                          LinkParms.MayIContinue = ContinueFunction; <br>
+                          LinkParms.FileFindFunc = ToolkitAppFileSearch; <br>
+                          jseContext jsecontext = jseInitializeExternalLink(NULL,&amp;LinkParms,&quot;global&quot;,access_key); 
+                          <br>
+                          if( jsecontext==NULL ) return NULL; </font> 
+                        <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                          // Remove the '//' from the following line during EXAMPLE 
+                          2. <br>
+                          // InitializeInternalLibraries(jsecontext); </font> 
+                        <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                          // Initialize any wrapper functions you'd like to make 
+                          available here. <br>
+                          // Please see the toolkit manual for how to do this. 
+                          </font> 
+                        <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                          return jsecontext; <br>
+                          } </font> 
+                        <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                          void terminate_scriptease(jseContext jsecontext) <br>
+                          { <br>
+                          jseTerminateExternalLink(jsecontext); <br>
+                          jseTerminateEngine(); <br>
+                          } <br>
+                          ---end--- </font> 
+                        <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                          When compiling the file containing this code, (again 
+                          assuming you installed <br>
+                          the toolkit as described above), add this snipped to 
+                          your makefile: </font> 
+                        <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                          ---start--- <br>
+                          SELOC = /usr/src/scriptease/linux </font> 
+                        <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                          SCRIPTEASE_FLAGS = -DNDEBUG -DJSETOOLKIT_APP -D__JSE_LIB__ 
+                          \ <br>
+                          -DJSE_LINK=1 -D__JSE_UNIX__ -D__SEISDKSAMPLES__ \ <br>
+                          -I$(SELOC)/samples/inclnone/ \ <br>
+                          -I$(SELOC)/incjse/ \ <br>
+                          -I$(SELOC)/srcmisc/ \ <br>
+                          -I$(SELOC)/seclib/ -I$(SELOC)/seclib/pro/ -I$(SELOC)/seclib/unix/ 
+                          \ <br>
+                          -I$(SELOC)/srcapp/ \ <br>
+                          -I$(SELOC)/ecmalib/ <br>
+                          ---end--- </font> 
+                        <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                          And change your compile to use it. For example, if you 
+                          copied the above code <br>
+                          into your source file 'main.cc' and you were compiling 
+                          it using: </font> 
+                        <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                          $ gcc -c -o main.o main.cc </font> 
+                        <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                          change that to </font> 
+                        <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                          $ gcc $(SCRIPTEASE_FLAGS) -c -o main.o main.cc </font> 
+                        <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                          To use the engine, add: </font> 
+                        <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                          jseContext jsecontext = initialize_scriptease(&lt;your 
+                          access key&gt;); <br>
+                          if( jsecontext==NULL ) { exit(0); /* BAD! */ } </font> 
+                        <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                          near the beginning of your program (near the top of 
+                          main() is perfect). <br>
+                          You must replace &lt;your access key&gt; with whatever 
+                          access key was provided <br>
+                          to you by Nombas. You may also want to have more graceful 
+                          error recovery. </font> 
+                        <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                          Use the jseInterpret() API call to actually interpret 
+                          Scripts using <br>
+                          the jsecontext you just saved in your program (see the 
+                          manual for using <br>
+                          this call.) Here is an example: </font> 
+                        <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                          char *script_file = &quot;myscript.jse&quot;; <br>
+                          int ReturnCode; <br>
+                          jseInterpret(jsecontext,script_file,NULL,NULL,jseNewNone,0,NULL,&amp;ReturnCode); 
+                          </font> 
+                        <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                          which simply interprets the file named &quot;myscript.jse&quot;. 
+                          Finally, before you <br>
+                          exit your program, add the following line: </font> 
+                        <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                          terminate_scriptease(jsecontext); </font> 
+                        <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                          Putting this right at the end of main() is appropriate. 
+                          When you link your <br>
+                          executable, you must link the ScriptEase core to it. 
+                          It is simply an <br>
+                          additional object to be linked with the name <br>
+                          '/usr/src/scriptease/linux/seisdk/libs/linux/libserte40.a' 
+                          (or <br>
+                          wherever you put it on your system.) Also, you must 
+                          link in the math library <br>
+                          if you have not already done so using the '-lm' switch. 
+                          For example, suppose your <br>
+                          link was: </font> 
+                        <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                          gcc -o myapp main.o </font> 
+                        <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                          In this case, you'd simply change it to: </font> 
+                        <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                          gcc -o myapp main.o $(SELOC)/seisdk/libs/linux/libserte40.a 
+                          -lm </font> 
+                        <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                          Finally, on some systems, the library 'dl' is required 
+                          to get access to <br>
+                          the dynamic loader functions. If your link complains 
+                          about undefined references <br>
+                          to 'dlopen', 'dlclose' and so forth, add '-ldl' to your 
+                          link line. <br>
+                          Continuing with the above example, change it to: </font> 
+                        <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                          gcc -o myapp main.o $(SELOC)/seisdk/libs/linux/libserte40.a 
+                          -lm -ldl </font> 
+                        <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                          Recompile and link your program, and away you go. You 
+                          can now go about adding your <br>
+                          own wrapper functions, which is fully covered in the 
+                          toolkit manual. </font> 
+                        <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                          EXAMPLE 2: </font> 
+                        <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                          You still don't want any ScriptEase function libraries, 
+                          but you do want the <br>
+                          ECMAScript standard objects, such as Date, Math, String, 
+                          and so forth. Start <br>
+                          by adding the base toolkit to your application as was 
+                          described in example 1. <br>
+                          Now, you will make a few changes to get everything working. 
+                          After <br>
+                          you have done so, uncomment the line: </font> 
+                        <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                          // InitializeInternalLibraries(jsecontext); </font> 
+                        <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                          in the initialize_scriptease() function. Change it to: 
+                          </font> 
+                        <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                          InitializeInternalLibraries(jsecontext); </font> 
+                        <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                          Also note that there is a full version of ToolkitAppFileSearch() 
+                          included <br>
+                          in the libraries, so you can remove the one in the example 
+                          source if you <br>
+                          like. Alternately, you can keep it and determine the 
+                          locations of files <br>
+                          as you choose. This is documented fully in the toolkit 
+                          manual. </font> 
+                        <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                          In addition, you need to add several source files to 
+                          your compile. First, <br>
+                          add all the files in the 'ecamlib' directory to your 
+                          makefile as the <br>
+                          define 'ECMALIB'. You can accomplish this easily by 
+                          executing the following <br>
+                          shell command: </font> 
+                        <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                          $ cd /usr/src/scriptease/linux/ecmalib <br>
+                          $ echo &quot;ECMALIB = &quot; *.cc | sed -e s,\\.cc,\\.o,g 
+                          &gt;&gt; &lt;your makefile&gt; </font> 
+                        <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                          Then edit your makefile. First, find the define of ECMALIB 
+                          which will be <br>
+                          at the bottom of the makefile, and move it to the top. 
+                          Then add the following <br>
+                          lines just after it. </font> 
+                        <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                          ---start--- </font> 
+                        <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                          SEGLUE = selib.o setxtlib.o <br>
+                          SESTUFF = $(ECMALIB) $(SEGLUE) </font> 
+                        <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                          %.o: $(SELOC)/ecmalib/%.cc <br>
+                          gcc -c -o $*.o $(SCRIPTEASE_FLAGS) $(SELOC)/ecmalib/$*.cc 
+                          <br>
+                          %.o: $(SELOC)/seclib/%.cc <br>
+                          gcc -c -o $*.o $(SCRIPTEASE_FLAGS) $(SELOC)/seclib/$*.cc 
+                          </font> 
+                        <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                          ---end--- </font> 
+                        <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                          Also, find the lines that define SCRIPTEASE_FLAGS, and 
+                          change the reference <br>
+                          to the directory 'inclnone' to 'inclecma'. Finally, 
+                          add $(SESTUFF) to the <br>
+                          dependencies for you application and link with the same. 
+                          For example, if your <br>
+                          old makefile entry was </font> 
+                        <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                          myapp: main.o <br>
+                          gcc -o myapp main.o $(SELOC)/seisdk/libs/linux/libserte40.a 
+                          -lm -ldl </font> 
+                        <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                          you would change that to: </font> 
+                        <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                          myapp: main.o $(SESTUFF) <br>
+                          gcc -o myapp main.o $(SESTUFF) $(SELOC)/seisdk/libs/linux/libserte40.a 
+                          -lm -ldl </font> 
+                        <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                          Remake your application, and now all of the standard 
+                          ECMAScript functions are <br>
+                          available. Hopefully, that hasn't been too hard so far. 
+                          Lets move on to the next <br>
+                          example. </font> 
+                        <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                          EXAMPLE 3: </font> 
+                        <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                          You want to add the ScriptEase engine to your program 
+                          and you may have some <br>
+                          functions you want available to the user. However, you'd 
+                          also like the user <br>
+                          to have access to all of the ECMAScript objects as well 
+                          as the standard <br>
+                          library functions Nombas provides such as printf(), 
+                          fopen(), directory(), <br>
+                          and so forth. You aren't going to pick and choose and 
+                          just want them all. </font> 
+                        <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                          Start by adding the base toolkit to your application 
+                          as was described in <br>
+                          example 1. Now, you will make a few changes to get everything 
+                          working. <br>
+                          After you have done so, uncomment the line: </font> 
+                        <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                          // InitializeInternalLibraries(jsecontext); </font> 
+                        <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                          in the initialize_scriptease() function. Change it to: 
+                          </font> 
+                        <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                          InitializeInternalLibraries(jsecontext); </font> 
+                        <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                          Also note that there is a full version of ToolkitAppFileSearch() 
+                          included <br>
+                          in the libraries, so you can remove the one in the example 
+                          source if you <br>
+                          like. Alternately, you can keep it and determine the 
+                          locations of files <br>
+                          as you choose. This is documented fully in the toolkit 
+                          manual. </font> 
+                        <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                          In addition, you need to add several source files to 
+                          your compile. First, <br>
+                          add all the files in the 'ecamlib' directory to your 
+                          makefile as the <br>
+                          define 'ECMALIB'. You can accomplish this easily by 
+                          executing the following <br>
+                          shell command: </font> 
+                        <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                          $ cd /usr/src/scriptease/linux/ecmalib <br>
+                          $ echo &quot;ECMALIB = &quot; *.o &gt;&gt; &lt;your 
+                          makefile&gt; </font> 
+                        <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                          Next, do the same for the files in 'seclib' and its 
+                          subdirectories <br>
+                          'pro' and 'unix as well as 'srcapp'. Again, some shell 
+                          commands to accomplish <br>
+                          this are: </font> 
+                        <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                          $ cd /usr/src/se403/linux/srcapp <br>
+                          $ echo &quot;SEAPP = &quot; *.cc | sed -e s,\\.cc,\\.o,g 
+                          &gt;&gt; &lt;your makefile&gt; <br>
+                          $ cd /usr/src/se403/linux/seclib <br>
+                          $ echo &quot;SECLIB = &quot; *.cc | sed -e s,\\.cc,\\.o,g 
+                          &gt;&gt; &lt;your makefile&gt; <br>
+                          $ cd pro <br>
+                          $ echo &quot;SECLIBPRO = &quot; *.cc | sed -e s,\\.cc,\\.o,g 
+                          &gt;&gt; &lt;your makefile&gt; <br>
+                          $ cd ../unix <br>
+                          $ echo &quot;SECLIBUNIX = &quot; *.cc | sed -e s,\\.cc,\\.o,g 
+                          &gt;&gt; &lt;your makefile&gt; </font> 
+                        <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                          Then edit your makefile. First, find the defines of 
+                          ECMALIB, SECLIB, SECLIBPRO, <br>
+                          SEAPP, and SECLIBUNIX which will be at the bottom of 
+                          the makefile and move them <br>
+                          to the top. Then add the following lines just after 
+                          them. </font> 
+                        <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                          Then edit your makefile, and add the following lines 
+                          to the bottom. </font> 
+                        <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                          ---start--- </font> 
+                        <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                          SESTUFF = $(ECMALIB) $(SECLIB) $(SECLIBPRO) $(SECLIBUNIX) 
+                          $(SEAPP) </font> 
+                        <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                          %.o: $(SELOC)/ecmalib/%.cc <br>
+                          gcc -c -o $*.o $(SCRIPTEASE_FLAGS) $(SELOC)/ecmalib/$*.cc 
+                          <br>
+                          %.o: $(SELOC)/seclib/%.cc <br>
+                          gcc -c -o $*.o $(SCRIPTEASE_FLAGS) $(SELOC)/seclib/$*.cc 
+                          <br>
+                          %.o: $(SELOC)/seclib/pro/%.cc <br>
+                          gcc -c -o $*.o $(SCRIPTEASE_FLAGS) $(SELOC)/seclib/pro/$*.cc 
+                          <br>
+                          %.o: $(SELOC)/seclib/unix/%.cc <br>
+                          gcc -c -o $*.o $(SCRIPTEASE_FLAGS) $(SELOC)/seclib/unix/$*.cc 
+                          <br>
+                          %.o: $(SELOC)/srcapp/%.cc <br>
+                          gcc -c -o $*.o $(SCRIPTEASE_FLAGS) $(SELOC)/srcapp/$*.cc 
+                          </font> 
+                        <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                          ---end--- </font> 
+                        <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                          Also, find the lines that define SCRIPTEASE_FLAGS, and 
+                          change the reference <br>
+                          to the directory 'inclnone' to 'inclall'. Finally, add 
+                          $(SESTUFF) to the <br>
+                          dependencies for you application and link with the same. 
+                          For example, if your <br>
+                          old makefile entry was </font> 
+                        <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                          myapp: main.o <br>
+                          gcc -o myapp main.o $(SELOC)/seisdk/libs/linux/libserte40.a 
+                          -lm -ldl </font> 
+                        <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                          you would change that to: </font> 
+                        <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                          myapp: main.o $(SESTUFF) <br>
+                          gcc -o myapp main.o $(SESTUFF) $(SELOC)/seisdk/libs/linux/libserte40.a 
+                          -lm -ldl </font> 
+                        <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                          Rebuild your application, and every ScriptEase function 
+                          provided by Nombas <br>
+                          is usable from within your scripts. </font> 
+                        <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                          ---- </font> 
+                        <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                          Of course, these three examples represent only a small 
+                          fraction of what you <br>
+                          can do with the ScriptEase ISDK. Much more information 
+                          is available in <br>
+                          the manual. If you have any questions about the toolkit, 
+                          please visit <br>
+                          <a href="http://support.nombas.com/">http://support.nombas.com/</a>. 
+                          </font> 
+                        <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                          Notes: <br>
+                          1) DOS applications will also need utilhuge,cpp, hmemcpy.asm 
+                          from the <br>
+                          srcmisc directory. </font> 
+                        <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                          2) MSVC 1.52 users will need to include setxtlib.cpp 
+                          from the seclib <br>
+                          directory as well. </font> 
+                        <p>&nbsp;</p>
+                        <p>&nbsp; </p>
+                        <p>&nbsp; </p>
+                        </td>
+                    </tr>
+                  </table>
+                </TD>
+              </TR>
+            </TABLE>
+          </TD>
+        </TR>
+      </TABLE>
+    </TD>
+  </TR>
+  <TR VALIGN=TOP ALIGN=LEFT> 
+    <TD HEIGHT=2></TD>
+    <TD WIDTH=632 COLSPAN=2 height="2"> 
+      <TABLE BORDER=0 CELLSPACING=0 CELLPADDING=0 WIDTH=632 HEIGHT=20 bgcolor="#FFFFFF">
+        <TR ALIGN=LEFT VALIGN=TOP> 
+          <TD> 
+            <TABLE BORDER=0 CELLSPACING=0 CELLPADDING=0 WIDTH=632>
+              <TR VALIGN=TOP ALIGN=LEFT> 
+                <TD WIDTH=20 HEIGHT=2 ALIGN=LEFT VALIGN=TOP><IMG ID="Picture13" HEIGHT=20 WIDTH=20 SRC="../../curve_botleft.gif" BORDER=0></TD>
+                <TD WIDTH=592 height="2"><IMG SRC="../../clearpixel.gif" WIDTH=592 HEIGHT=1 BORDER=0></TD>
+                <TD WIDTH=20 ALIGN=LEFT VALIGN=TOP height="2"><IMG ID="Picture11" HEIGHT=20 WIDTH=20 SRC="../../curve_bot.gif" BORDER=0></TD>
+              </TR>
+            </TABLE>
+          </TD>
+        </TR>
+      </TABLE>
+    </TD>
+  </TR>
+  <TR VALIGN=TOP ALIGN=LEFT> 
+    <TD WIDTH=5 HEIGHT=6><IMG SRC="../../clearpixel.gif" WIDTH=5 HEIGHT=1 BORDER=0></TD>
+    <TD WIDTH=613><IMG SRC="../../clearpixel.gif" WIDTH=613 HEIGHT=1 BORDER=0></TD>
+    <TD WIDTH=19><IMG SRC="../../clearpixel.gif" WIDTH=19 HEIGHT=1 BORDER=0></TD>
+  </TR>
+  <TR VALIGN=TOP ALIGN=LEFT> 
+    <TD WIDTH=618 COLSPAN=2> 
+      <P ALIGN=RIGHT><A HREF="../../index.htm"><FONT COLOR="#FFFFFF" SIZE="-2" FACE="Verdana,Tahoma,Arial,Helvetica">Home</FONT></A><FONT COLOR="#FFFFFF" SIZE="-2" FACE="Verdana,Tahoma,Arial,Helvetica"> 
+        | </FONT><A
+                 HREF="../../scripting/scripting.htm"><FONT COLOR="#FFFFFF" SIZE="-2" FACE="Verdana,Tahoma,Arial,Helvetica">Scripting</FONT></A><FONT COLOR="#FFFFFF" SIZE="-2" FACE="Verdana,Tahoma,Arial,Helvetica"> 
+        | </FONT><A
+                 HREF="../../products/products.htm"><FONT COLOR="#FFFFFF" SIZE="-2" FACE="Verdana,Tahoma,Arial,Helvetica">Products</FONT></A><FONT COLOR="#FFFFFF" SIZE="-2" FACE="Verdana,Tahoma,Arial,Helvetica"> 
+        | </FONT><A
+                 HREF="../../purchase/purchase.htm"><FONT COLOR="#FFFFFF" SIZE="-2" FACE="Verdana,Tahoma,Arial,Helvetica">Purchase</FONT></A><FONT COLOR="#FFFFFF" SIZE="-2" FACE="Verdana,Tahoma,Arial,Helvetica"> 
+        | </FONT><A
+                 HREF="../../download/ndownload.htm"><FONT COLOR="#FFFFFF" SIZE="-2" FACE="Verdana,Tahoma,Arial,Helvetica">Download</FONT></A><FONT COLOR="#FFFFFF" SIZE="-2" FACE="Verdana,Tahoma,Arial,Helvetica"> 
+        | </FONT><A
+                 HREF="http://support.nombas.com/"><FONT COLOR="#FFFFFF" SIZE="-2" FACE="Verdana,Tahoma,Arial,Helvetica">Support</FONT></A><FONT COLOR="#FFFFFF" SIZE="-2" FACE="Verdana,Tahoma,Arial,Helvetica"> 
+        | </FONT><A HREF="../../company/company.htm"> <FONT COLOR="#FFFFFF" SIZE="-2" FACE="Verdana,Tahoma,Arial,Helvetica">Company</FONT></A><FONT COLOR="#FFFFFF" SIZE="-2" FACE="Verdana,Tahoma,Arial,Helvetica"><BR>
+        <BR>
+        Copyright &#169;2001, Nombas, Inc. All Rights Reserved.<BR>
+        Questions? Visit </FONT><A HREF="http://support.nombas.com/"><FONT COLOR="#FFFFFF" SIZE="-2" FACE="Verdana,Tahoma,Arial,Helvetica">http://support.nombas.com/</FONT></A> 
+    </TD>
+    <TD></TD>
+  </TR>
+</TABLE>
+<SCRIPT language=JavaScript1.2>
+  display_nombas_legacy_message();
+</SCRIPT>
+</BODY>
+</HTML>

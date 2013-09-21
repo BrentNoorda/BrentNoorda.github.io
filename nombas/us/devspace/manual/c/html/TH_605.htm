@@ -1,0 +1,69 @@
+<html>
+<head>
+<title>Clib.system()</title>
+<link rel="stylesheet" href="semanualstyles.css" type="text/css">
+<style type="text/css">
+ p { margin-top: 0; margin-bottom: 0; }
+</style>
+<script language="JavaScript" src="TrueHelp.js"></script>
+</head>
+<body onload="thload()">
+<div id=ienav>
+<ilayer id=nsnav>
+<br>
+<center>
+<p class=normal><a href="seisdkc-toc.htm" target="left">contents</a> &nbsp; <a href="seisdkc-index.htm" target="left">index</a> &nbsp; <a href="TH_604.htm">previous</a> &nbsp; <a href="TH_606.htm">next</a></p>
+</center>
+<br>
+<hr noshade size=1>
+</ilayer>
+</div>
+<p class=sereffunclevel4>Clib.system()</p>
+<table cellpadding=0>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>syntax:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=sesyntax>Clib.system(<span class=truehelp-xe></span>[P_SWAP<span class=truehelp-xe></span>,]&nbsp;commandString)</p></td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>where:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>P_SWAP - in DOS version, determines whether the ScriptEase interpreter is swapped out of normal memory.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>commandString - the command string to be executed, a command as would be entered at a command prompt.</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>return:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>value - the value returned by a command processor.</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>description:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>Passes commandString to the command processor and returns whatever value was returned by the command processor. commandString may be a formatted string followed by variables according to the rules defined in <span class=sepopuptopic><a href="TH_667.htm" onClick="return thwindow('TH_667.htm', 'GenPopup')">Clib.sprintf()</a></span>.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=list-bullet>&#8226;</p><p class=list-bullet-tab1>DOS<br>
+In the DOS version of ScriptEase, if the special argument <span class=secodephrase>P_SWAP</span> is used then SeDos.exe is swapped to EMS/XMS/INT15 memory or disk while the system command is executed. This leaves almost all available memory for executing the command. See <span class=sepopuptopic><a href="TH_945.htm" onClick="return thwindow('TH_945.htm', 'GenPopup')">SElib.spawn()</a></span> for a discussion of <span class=secodephrase>P_SWAP</span>.</p>
+<p class=list-bullet>&#8226;</p><p class=list-bullet-tab1>DOS32<br>
+The 32 bit protected mode version of DOS ignores the first parameter if it is not a string; in other words, <span class=secodephrase>P_SWAP</span> is ignored.</p></td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>see:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara><span class=sejumptopic><a href="TH_945.htm">SElib.spawn()</a></span></p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+</table>
+<p class=normal>&nbsp;</p>
+<hr noshade size=1>
+<p class=normal><a href="TH_606.htm"><img src="button.png" border=0></a><a href="TH_606.htm" style="text-decoration:none;">Error</a></p>
+<p>
+</body>
+</html>

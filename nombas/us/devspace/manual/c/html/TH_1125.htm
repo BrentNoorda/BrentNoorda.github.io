@@ -1,0 +1,95 @@
+<html>
+<head>
+<title>SimpleDataset replaceRecord()</title>
+<link rel="stylesheet" href="semanualstyles.css" type="text/css">
+<style type="text/css">
+ p { margin-top: 0; margin-bottom: 0; }
+</style>
+<script language="JavaScript" src="TrueHelp.js"></script>
+</head>
+<body onload="thload()">
+<div id=ienav>
+<ilayer id=nsnav>
+<br>
+<center>
+<p class=normal><a href="seisdkc-toc.htm" target="left">contents</a> &nbsp; <a href="seisdkc-index.htm" target="left">index</a> &nbsp; <a href="TH_1124.htm">previous</a> &nbsp; <a href="TH_1126.htm">next</a></p>
+</center>
+<br>
+<hr noshade size=1>
+</ilayer>
+</div>
+<p class=sereffunclevel4>SimpleDataset replaceRecord()</p>
+<table cellpadding=0>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>syntax:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=sesyntax>simpledataset.replaceRecord(<span class=truehelp-xe></span>record)</p></td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>where:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>record - object whose properties contain the values of the fields of the record to replace the current record with.</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>return:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>boolean - value indicating success.  In the case that the operation failed, use the <span class=secodephrase>getLastErrorCode()</span> and <span class=secodephrase>getLastError()</span> methods to determine the reason for the failure.</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>description:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>This method replaces the current record in the <span class=secodephrase>SimpleDataset</span> with the specified record.  The record that the current record will be replaced with will have the field values indicated by the properties of the object passed into <span class=secodephrase>addRecord</span>.  After inserting a new record, the current record remains unchanged; that is, the current record is the record that replaced the previous current record.</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>see:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara><span class=secodephrase>#include &lt;smdtset.jsh&gt;</span>, <span class=sejumptopic><a href="TH_1122.htm">SimpleDataset addRecord()</a></span>, <span class=sejumptopic><a href="TH_1123.htm">SimpleDataset deleteRecord()</a></span></p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>example:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=secodelines>//&nbsp;This&nbsp;function&nbsp;will&nbsp;set&nbsp;the&nbsp;population</p>
+<p class=secodelines>//&nbsp;of&nbsp;the&nbsp;first&nbsp;record</p>
+<p class=secodelines>//&nbsp;with&nbsp;USA&nbsp;as&nbsp;its&nbsp;country&nbsp;to&nbsp;100,000</p>
+<p class=secodelines>function&nbsp;replace_population(db,&nbsp;table,&nbsp;user,</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;passwd)</p>
+<p class=secodelines>{</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;var&nbsp;ds&nbsp;=&nbsp;new&nbsp;SimpleDataset(db,&nbsp;table,&nbsp;user,</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;passwd&nbsp;);</p>
+<p class=secodelines>&nbsp;</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;//&nbsp;find&nbsp;the&nbsp;entries&nbsp;whose&nbsp;country&nbsp;is&nbsp;USA</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;var&nbsp;template;</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;template.country&nbsp;=&nbsp;"USA";</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;ds.find(template);</p>
+<p class=secodelines>&nbsp;</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;//&nbsp;advance&nbsp;to&nbsp;first&nbsp;record&nbsp;in&nbsp;the&nbsp;result&nbsp;set</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;var&nbsp;rec&nbsp;=&nbsp;ds.nextRecord();</p>
+<p class=secodelines>&nbsp;</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;if(&nbsp;null&nbsp;!=&nbsp;rec&nbsp;)</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;{</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//&nbsp;set&nbsp;the&nbsp;new&nbsp;population&nbsp;value</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;rec.population&nbsp;=&nbsp;100000;</p>
+<p class=secodelines>&nbsp;</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//&nbsp;replace&nbsp;the&nbsp;record&nbsp;and&nbsp;clean&nbsp;up</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ds.replaceRecord(rec);</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;}</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;ds.close();</p>
+<p class=secodelines>}</p></td>
+</tr>
+</table>
+<p class=normal>&nbsp;</p>
+<hr noshade size=1>
+<p class=normal><a href="TH_1126.htm"><img src="button.png" border=0></a><a href="TH_1126.htm" style="text-decoration:none;">SimpleDataset cursor()</a></p>
+<p>
+</body>
+</html>

@@ -1,0 +1,83 @@
+<html>
+<head>
+<title>Cursor insertRow()</title>
+<link rel="stylesheet" href="semanualstyles.css" type="text/css">
+<style type="text/css">
+ p { margin-top: 0; margin-bottom: 0; }
+</style>
+<script language="JavaScript" src="TrueHelp.js"></script>
+</head>
+<body onload="thload()">
+<div id=ienav>
+<ilayer id=nsnav>
+<br>
+<center>
+<p class=normal><a href="seisdkc-toc.htm" target="left">contents</a> &nbsp; <a href="seisdkc-index.htm" target="left">index</a> &nbsp; <a href="TH_1082.htm">previous</a> &nbsp; <a href="TH_1084.htm">next</a></p>
+</center>
+<br>
+<hr noshade size=1>
+</ilayer>
+</div>
+<p class=sereffunclevel4>Cursor insertRow()</p>
+<table cellpadding=0>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>syntax:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=sesyntax>cursor.insertRow()<span class=truehelp-xe></span></p></td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>return:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>number - 0 if the call was successful; otherwise, a nonzero status code based on the error message produced by the database.  If the method returns a nonzero status code, use the associated Database's <span class=secodephrase>majorErrorCode</span> and <span class=secodephrase>majorErrorMessage</span> methods to interpret the meaning of the error.</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>description:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>This function, only available on undatable cursors, inserts a row into the associated database table.  The location of the inserted row may vary depending on the database vendor's implementation, and thus row ordering is not guaranteed. There are several ways to specify values for the row being inserted:</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>Explicitly assigning values to each column in the cursor and then calling <span class=secodephrase>insertRow</span>.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>Choosing to a row using the <span class=secodephrase>next</span> or <span class=secodephrase>previous</span> methods, changing the values of some of the columns and then calling <span class=secodephrase>insertRow</span>.  Columns that were not explicitly assigned values will receive values from that initially chosen row.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>Do not choose a row with <span class=secodephrase>next</span> or <span class=secodephrase>previous</span> and call <span class=secodephrase>insertRow</span>.  Since there is no current row in this case, all of the columns for the new row will be <span class=secodephrase>null</span>.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>Any columns in the cursor that contain unassigned values when <span class=secodephrase>insertRow</span> is called will be <span class=secodephrase>null</span> in the new row.</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>see:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara><span class=secodephrase>#link &lt;sedbc&gt;</span>, <span class=sejumptopic><a href="TH_1085.htm">Cursor next()</a></span>, <span class=sejumptopic><a href="TH_1086.htm">Cursor previous()</a></span>, <span class=sejumptopic><a href="TH_1092.htm">Database commitTransaction()</a></span>, <span class=sejumptopic><a href="TH_1104.htm">Database rollbackTransaction()</a></span></p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>example:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=secodelines>//&nbsp;assume&nbsp;'database'&nbsp;is&nbsp;a&nbsp;valid&nbsp;Database&nbsp;object</p>
+<p class=secodelines>var&nbsp;curs&nbsp;=&nbsp;database.table("customer");</p>
+<p class=secodelines>&nbsp;</p>
+<p class=secodelines>//&nbsp;choose&nbsp;the&nbsp;first&nbsp;row&nbsp;to&nbsp;act&nbsp;as&nbsp;a&nbsp;"template"</p>
+<p class=secodelines>//&nbsp;for&nbsp;the&nbsp;new&nbsp;row</p>
+<p class=secodelines>curs.next();</p>
+<p class=secodelines>&nbsp;</p>
+<p class=secodelines>//&nbsp;plug&nbsp;in&nbsp;some&nbsp;values&nbsp;for&nbsp;the&nbsp;new&nbsp;row</p>
+<p class=secodelines>curs.Name&nbsp;=&nbsp;"Fred&nbsp;Flintstone";</p>
+<p class=secodelines>curs.City&nbsp;=&nbsp;"Bedrock";</p>
+<p class=secodelines>&nbsp;</p>
+<p class=secodelines>//&nbsp;add&nbsp;the&nbsp;row&nbsp;to&nbsp;the&nbsp;database</p>
+<p class=secodelines>err&nbsp;=&nbsp;curs.insertRow();</p>
+<p class=secodelines>database.commitTransaction();</p></td>
+</tr>
+</table>
+<p class=normal>&nbsp;</p>
+<hr noshade size=1>
+<p class=normal><a href="TH_1084.htm"><img src="button.png" border=0></a><a href="TH_1084.htm" style="text-decoration:none;">Cursor last()</a></p>
+<p>
+</body>
+</html>

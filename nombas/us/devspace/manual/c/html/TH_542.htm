@@ -1,0 +1,82 @@
+<html>
+<head>
+<title>Array splice()</title>
+<link rel="stylesheet" href="semanualstyles.css" type="text/css">
+<style type="text/css">
+ p { margin-top: 0; margin-bottom: 0; }
+</style>
+<script language="JavaScript" src="TrueHelp.js"></script>
+</head>
+<body onload="thload()">
+<div id=ienav>
+<ilayer id=nsnav>
+<br>
+<center>
+<p class=normal><a href="seisdkc-toc.htm" target="left">contents</a> &nbsp; <a href="seisdkc-index.htm" target="left">index</a> &nbsp; <a href="TH_541.htm">previous</a> &nbsp; <a href="TH_543.htm">next</a></p>
+</center>
+<br>
+<hr noshade size=1>
+</ilayer>
+</div>
+<p class=sereffunclevel4>Array splice()</p>
+<table cellpadding=0>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>syntax:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=sesyntax>array.splice(<span class=truehelp-xe></span>start,&nbsp;deleteCount[,&nbsp;element1,&nbsp;...])</p></td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>where:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>start - the index at which to splice in the items.  If this is negative, then (length+start) is used instead, and if it beyond the end of the array, then the length of the array is used.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>deletecount - the number of items to remove from the array.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>elementN - a list of elements to insert into the array in place of the ones which were deleted. </p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>return:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>object - an array consisting of the elements which were removed from the current <span class=sepopuptopic><a href="TH_527.htm" onClick="return thwindow('TH_527.htm', 'GenPopup')">Array object</a></span>.</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>description:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>This method splices in any supplied elements in place of any elements deleted.  Beginning at index <span class=secodephrase>start</span>, <span class=secodephrase>deleteCount elements</span> are first deleted from the array and inserted into the newly created return array in the same order. The elements of the current object are then adjusted to make room for the all of the items passed to this method.  The remaining arguments are then inserted sequentially in the space created in the current object.</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>see:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara><span class=sejumptopic><a href="TH_537.htm">Array push()</a></span></p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>example:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=secodelines>//&nbsp;The&nbsp;following&nbsp;code:</p>
+<p class=secodelines>&nbsp;</p>
+<p class=secodelines>var&nbsp;array&nbsp;=&nbsp;new&nbsp;Array(&nbsp;1,&nbsp;2,&nbsp;3,&nbsp;4,&nbsp;5&nbsp;);</p>
+<p class=secodelines>Screen.writeln(&nbsp;array.splice(&nbsp;1,&nbsp;2,&nbsp;6,&nbsp;7,&nbsp;8&nbsp;);</p>
+<p class=secodelines>Screen.writeln(&nbsp;array&nbsp;);</p>
+<p class=secodelines>&nbsp;</p>
+<p class=secodelines>//&nbsp;Will&nbsp;print&nbsp;"2,3"&nbsp;and&nbsp;then&nbsp;"1,6,7,8,4,5".//</p>
+<p class=secodelines>//&nbsp;The&nbsp;array&nbsp;has&nbsp;been&nbsp;modified&nbsp;to&nbsp;include</p>
+<p class=secodelines>//&nbsp;the&nbsp;extra&nbsp;items&nbsp;in&nbsp;place&nbsp;of&nbsp;those</p>
+<p class=secodelines>//&nbsp;that&nbsp;were&nbsp;deleted.</p></td>
+</tr>
+</table>
+<p class=normal>&nbsp;</p>
+<hr noshade size=1>
+<p class=normal><a href="TH_543.htm"><img src="button.png" border=0></a><a href="TH_543.htm" style="text-decoration:none;">Array toString()</a></p>
+<p>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<html>
+<head>
+<title>SCOPING - FUNCTIONS</title>
+<link rel="stylesheet" href="semanualstyles.css" type="text/css">
+<style type="text/css">
+ p { margin-top: 0; margin-bottom: 0; }
+</style>
+<script language="JavaScript" src="TrueHelp.js"></script>
+</head>
+<body onload="thload()">
+<div id=ienav>
+<ilayer id=nsnav>
+<br>
+<center>
+<p class=normal><a href="seisdkj-toc.htm" target="left">contents</a> &nbsp; <a href="seisdkj-index.htm" target="left">index</a> &nbsp; <a href="TH_165.htm">previous</a> &nbsp; <a href="TH_167.htm">next</a></p>
+</center>
+<br>
+<hr noshade size=1>
+</ilayer>
+</div>
+<p class=heading-3>SCOPING - FUNCTIONS</p>
+<p class=heading-3-p>&nbsp;</p>
+<p class=senormalpara>Functions are more complex. The normal behavior for a function is to search its local variables and parameters first. Next, the local variables and parameters of its parent function are searched. This only applies if the function is nested inside a parent function, and it includes all parents if it is nested several levels deep. Finally, the global variables are searched. Again, the user can modify this behavior using the <span class=secodephrase>with</span> statement.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=normal>There are several methods for controlling the scope of functions. If you call the function directly using <span class=secodephrase>seEval</span>, you can specify additions to the scope chain using the <span class=secodephrase>ssetScopeStart</span> and <span class=secodephrase>setScopeEnd</span> methods of the <span class=secodephrase>SEEvalParams</span> class as described above. This method is rarely used because functions are usually called from within a script.</p>
+<p class=normal> </p>
+<p class=senormalpara>The second method is to use the <span class=secodephrase>SE.IMPLICIT_THIS</span> and <span class=secodephrase>SE.IMPLICIT_PARENTS</span> attributes. A script function can be given these attributes using the <span class=secodephrase>seSetAttribs</span> API call. Both of these attributes modify the function's scope chain by adding elements to the scope chain after the local variables, but before the global variables. The <span class=secodephrase>SE.IMPLICIT_THIS</span> flag makes the function add its <span class=secodephrase>this</span> object to the scope chain. This makes the function behave much like a Java method in that members of the <span class=secodephrase>this</span> object can be referred to directly without having to qualify them with <span class=secodephrase>this.</span> as is normal for JavaScript. <span class=secodephrase>SE.IMPLICIT_PARENTS</span> is similar, except the parents of the <span class=secodephrase>this</span> variable are added to the scope chain. Parents are linked through the <span class=secodephrase>__parent__</span> (two underscores on each side) member. <span class=secodephrase>this.__parent__</span> is the parent of the <span class=secodephrase>this</span> variable and is added to the scope chain if <span class=secodephrase>SE.IMPLICIT_PARENTS</span> attribute is set in the called function. Next, the parent of that object is added and so forth for all parents in the chain. This is most useful for implementing browser behavior, notably event handlers. The parents of an event handler, the element it belongs to, the document it is in, and the window it is part of, are all implicitly added in this fashion.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<hr noshade size=1>
+<p class=normal><a href="TH_167.htm"><img src="button.png" border=0></a><a href="TH_167.htm" style="text-decoration:none;">CONTINUE FUNCTION</a></p>
+<p>
+</body>
+</html>

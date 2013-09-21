@@ -1,0 +1,78 @@
+<html>
+<head>
+<title>Date Object</title>
+<link rel="stylesheet" href="semanualstyles.css" type="text/css">
+<style type="text/css">
+ p { margin-top: 0; margin-bottom: 0; }
+</style>
+<script language="JavaScript" src="TrueHelp.js"></script>
+</head>
+<body onload="thload()">
+<div id=ienav>
+<ilayer id=nsnav>
+<br>
+<center>
+<p class=normal><a href="seisdkj-toc.htm" target="left">contents</a> &nbsp; <a href="seisdkj-index.htm" target="left">index</a> &nbsp; previous &nbsp; <a href="TH_632.htm">next</a></p>
+</center>
+<br>
+<hr noshade size=1>
+</ilayer>
+</div>
+<p class=heading-2>Date Object</p>
+<p class=heading-2-p>&nbsp;</p>
+<p class=senormalpara>ScriptEase shines in its ability to work with dates and provides two different systems for working with them. One is the standard Date object of JavaScript and the other is part of the Clib object which implements powerful routines from C. Two methods, <span class=sepopuptopic><a href="TH_680.htm" onClick="return thwindow('TH_680.htm', 'GenPopup')">Date.fromSystem()</a></span> and <span class=sepopuptopic><a href="TH_675.htm" onClick="return thwindow('TH_675.htm', 'GenPopup')">Date toSystem()</a></span>, convert dates in the format of one system to the format of the other. The standard JavaScript Date object is described in this section.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>To create a Date object which is set to the current date and time, use the new operator, as you would with any object.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=secodelinesindented>var&nbsp;currentDate&nbsp;=&nbsp;new&nbsp;Date();</p>
+<p class=secodelinesindented>&nbsp;</p>
+<p class=senormalpara>There are several ways to create a Date object which is set to a date and time. The following lines all demonstrate ways to get and set dates and times. See <span class=sepopuptopic><a href="TH_633.htm" onClick="return thwindow('TH_633.htm', 'GenPopup')">Date()</a></span> for a summary.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=secodelinesindented>var&nbsp;aDate&nbsp;=&nbsp;new&nbsp;Date(milliseconds);</p>
+<p class=secodelinesindented>var&nbsp;bDate&nbsp;=&nbsp;new&nbsp;Date(datestring);</p>
+<p class=secodelinesindented>var&nbsp;cDate&nbsp;=&nbsp;new&nbsp;Date(year,&nbsp;month,&nbsp;day);</p>
+<p class=secodelinesindented>var&nbsp;dDate&nbsp;=&nbsp;new&nbsp;Date(year,&nbsp;month,&nbsp;day,&nbsp;hour,&nbsp;minute,&nbsp;second,&nbsp;millisecond);</p>
+<p class=secodelinesindented>&nbsp;</p>
+<p class=senormalpara>The first syntax returns a date and time represented by the number of milliseconds since midnight, January 1, 1970. This representation in milliseconds is a standard way of representing dates and times that makes it easy to calculate the amount of time between one date and another. Generally, you do not create dates in this way. Instead, you convert them to milliseconds format before doing calculations. </p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>The second syntax accepts a string representing a date and optional time. The format of such a datestring is:</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=secodelinesindented>month&nbsp;day,&nbsp;year&nbsp;hours:minutes:seconds</p>
+<p class=secodelinesindented>&nbsp;</p>
+<p class=senormalpara>For example, the following string:</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=secodelinesindented>"Friday&nbsp;13,&nbsp;1995&nbsp;13:13:15"</p>
+<p class=secodelinesindented>&nbsp;</p>
+<p class=senormalpara>specifies the date, Friday 13, 1995, and the time, one thirteen and 15 seconds p.m., which, expressed in 24 hour time, is 13:13 hours and 15 seconds. The time specification is optional and if included, the seconds specification is optional.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>The third and fourth syntaxes are selfexplanatory. All parameters passed to them are integers.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=list-bullet>&#8226;</p><p class=list-bullet-tab1><b>year<br>
+</b>If a year is in the twentieth century, the 1900s, you need only supply the final two digits. Otherwise four digits must be supplied.</p>
+<p class=list-bullet>&#8226;</p><p class=list-bullet-tab1><b>month<br>
+</b>A month is specified as a number from 0 to 11. January is 0, and December is 11.</p>
+<p class=list-bullet>&#8226;</p><p class=list-bullet-tab1><b>day<br>
+</b>A day of the month is specified as a number from 1 to 31. The first day of a month is 1 and the last is 28, 29, 30, or 31.</p>
+<p class=list-bullet>&#8226;</p><p class=list-bullet-tab1><b>hour<br>
+</b>An hour is specified as a number from 0 to 23. Midnight is 0, and 11 p.m. is 23.</p>
+<p class=list-bullet>&#8226;</p><p class=list-bullet-tab1><b>minute<br>
+</b>A minute is specified as a number from 0 to 59. The first minute of an hour is 0, and the last is 59.</p>
+<p class=list-bullet>&#8226;</p><p class=list-bullet-tab1><b>second<br>
+</b>A second is specified as a number from 0 to 59. The first second of a minute is 0, and the last is 59.</p>
+<p class=normal>&nbsp;</p>
+<p class=senormalpara>For example, the following line of code:</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=secodelinesindented>var&nbsp;aDate&nbsp;=&nbsp;new&nbsp;Date(1492,&nbsp;9,&nbsp;12)</p>
+<p class=secodelinesindented>&nbsp;</p>
+<p class=senormalpara>creates a Date object containing the date, October 12, 1492.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>ScriptEase has a rich and full set of methods to work with dates and times. A programmer has a very complete set of tools to use when including date and time routines in a script. The <span class=sepopuptopic><a href="TH_466.htm" onClick="return thwindow('TH_466.htm', 'GenPopup')">Clib object</a></span> also has methods for working with date and times that extend the power of ScriptEase beyond standard JavaScript.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>The following list of methods has brief descriptions of the methods of the Date object. Instance methods are shown with a period, ".", in the syntax: line. A specific instance of a variable should be put in front of the period to call a method. For example, the Date object aDate was created above, and, to call the <span class=sepopuptopic><a href="TH_634.htm" onClick="return thwindow('TH_634.htm', 'GenPopup')">Date getDate()</a></span> method, the call would be: <span class=secodephrase>aDate.getDate()</span>. Static methods have "<span class=secodephrase>Date.</span>" at their beginnings since these methods are called with literal calls, such as <span class=secodephrase>Date.parse()</span>. These methods are part of the Date object itself instead of instances of the Date object.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<hr noshade size=1>
+<p class=normal><a href="TH_632.htm"><img src="button.png" border=0></a><a href="TH_632.htm" style="text-decoration:none;">Date object instance methods</a></p>
+<p class=normal><a href="TH_679.htm"><img src="button.png" border=0></a><a href="TH_679.htm" style="text-decoration:none;">Date object static methods</a></p>
+<p>
+</body>
+</html>

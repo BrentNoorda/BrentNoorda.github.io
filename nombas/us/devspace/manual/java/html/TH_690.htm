@@ -1,0 +1,66 @@
+<html>
+<head>
+<title>Dos.offset()</title>
+<link rel="stylesheet" href="semanualstyles.css" type="text/css">
+<style type="text/css">
+ p { margin-top: 0; margin-bottom: 0; }
+</style>
+<script language="JavaScript" src="TrueHelp.js"></script>
+</head>
+<body onload="thload()">
+<div id=ienav>
+<ilayer id=nsnav>
+<br>
+<center>
+<p class=normal><a href="seisdkj-toc.htm" target="left">contents</a> &nbsp; <a href="seisdkj-index.htm" target="left">index</a> &nbsp; <a href="TH_689.htm">previous</a> &nbsp; <a href="TH_691.htm">next</a></p>
+</center>
+<br>
+<hr noshade size=1>
+</ilayer>
+</div>
+<p class=sereffunclevel4>Dos.offset()</p>
+<table cellpadding=0>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>syntax:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=sesyntax>Dos.offset(<span class=truehelp-xe></span>buf)</p>
+<p class=sesyntax>Dos.offset(address)</p></td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>where:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>buf - a byte buffer.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>address - address in memory.</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>return:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>number - offset of buffer such that 8086 would recognize the address segment::buffer as pointing to the first byte of buf.</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>description:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara><span class=sepopuptopic><a href="TH_693.htm" onClick="return thwindow('TH_693.htm', 'GenPopup')">Dos.segment()</a></span> and <span class=secodephrase>Dos.offset()</span> return the segment and offset of the data at index 0 of buf, which must be a byte array. The buffer must be big enough for whatever purpose it is used, and no changes may be made to the size of buf after these values are determined since changing the size of buf might change its absolute address. If the address versions are used, then address is assumed to be a far pointer to data, and segment will be the high word while address will be the low word. See <span class=sepopuptopic><a href="TH_685.htm" onClick="return thwindow('TH_685.htm', 'GenPopup')">Dos.address()</a></span> for converting segment and offset into a single address.</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>see:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara><span class=sejumptopic><a href="TH_690.htm">Dos.offset()</a></span>, <span class=sejumptopic><a href="TH_685.htm">Dos.address()</a></span></p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+</table>
+<p class=normal>&nbsp;</p>
+<hr noshade size=1>
+<p class=normal><a href="TH_691.htm"><img src="button.png" border=0></a><a href="TH_691.htm" style="text-decoration:none;">Dos.outport()</a></p>
+<p>
+</body>
+</html>

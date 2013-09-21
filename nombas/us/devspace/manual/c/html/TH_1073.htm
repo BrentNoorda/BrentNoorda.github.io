@@ -1,0 +1,52 @@
+<html>
+<head>
+<title>Cursor object</title>
+<link rel="stylesheet" href="semanualstyles.css" type="text/css">
+<style type="text/css">
+ p { margin-top: 0; margin-bottom: 0; }
+</style>
+<script language="JavaScript" src="TrueHelp.js"></script>
+</head>
+<body onload="thload()">
+<div id=ienav>
+<ilayer id=nsnav>
+<br>
+<center>
+<p class=normal><a href="seisdkc-toc.htm" target="left">contents</a> &nbsp; <a href="seisdkc-index.htm" target="left">index</a> &nbsp; <a href="TH_1072.htm">previous</a> &nbsp; <a href="TH_1074.htm">next</a></p>
+</center>
+<br>
+<hr noshade size=1>
+</ilayer>
+</div>
+<p class=heading-3>Cursor object</p>
+<p class=heading-3-p>&nbsp;</p>
+<p class=secodelinesindented>platform:	Win32;&nbsp;all&nbsp;versions&nbsp;of&nbsp;SE</p>
+<p class=secodelinesindented>&nbsp;&nbsp;source:	#link&nbsp;&lt;sedbc&gt;</p>
+<p class=secodelinesindented>&nbsp;</p>
+<p class=senormalpara>A Cursor object represents a database cursor for a specified SQL SELECT statement or specified database table.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>A Cursor is a structure, created from a database table, which represents a subset of that table. When performing a query on a database, the results of the query are returned as a Cursor.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>A Cursor object can be used to perform the following operations:</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=list-bullet>&#8226;</p><p class=list-bullet-tab1>Modify data in a database table.</p>
+<p class=list-bullet>&#8226;</p><p class=list-bullet-tab1>Navigate in a database table.</p>
+<p class=list-bullet>&#8226;</p><p class=list-bullet-tab1>Customize the display of the virtual table returned by a database query.</p>
+<p class=normal>&nbsp;</p>
+<p class=senormalpara>A Cursor object can be constructed in the following manners:</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=list-bullet>&#8226;</p><p class=list-bullet-tab1>The cursor method of a database object.</p>
+<p class=list-bullet>&#8226;</p><p class=list-bullet-tab1>The table method of a database object.</p>
+<p class=list-bullet>&#8226;</p><p class=list-bullet-tab1>The cursor method of an Stproc object.</p>
+<p class=normal>&nbsp;</p>
+<p class=senormalpara>There is no need to call a Cursor constructor.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>A Cursor object has the notion of a "current" row. When operations are performed on a Cursor, they usually affect this row.  The current row can be moved forward and backward through a Cursor using the <span class=secodephrase>next</span> and <span class=secodephrase>previous</span> methods, respectively.  Similarly, the <span class=secodephrase>first</span> and <span class=secodephrase>last</span> methods set the current row to the first or last row in the cursor.  Each of these methods will return <span class=secodephrase>false</span> if the desired row does not exist within the Cursor.  Thus, if the Cursor does not have any rows in it (perhaps because the SELECT statement used to create the cursor did not return any results), each of these methods will return <span class=secodephrase>false</span>.  Don't forget to check for this condition!</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara><b>Important</b> - A Cursor does not guarantee the order or positioning of its rows.  For example, if a row is added to a Cursor, there is no way of knowing where that row will actually appear within in the cursor.  Thus, do not make any assumptions about the ordering of rows within the Cursor. When finished with a Cursor object, use the <span class=secodephrase>close</span> method to close it and release the memory it uses.  If a database connection that has an open Cursor is released, the runtime engine waits until that Cursor is closed before actually releasing the connection to the database, so it is important to remember to close Cursors.  If a Cursor has not been not explicitly closed using the close method by the time the associated Database or DbPool object goes out of scope, the runtime engine will try to close it.  This may tie up system resources unnecessarily and/or lead to unpredictable results. Use the <span class=secodephrase>prototype</span> property of the Cursor class to add a property to all Cursor instances.  The addition applies to all Cursor instances running in all applications on the server, not just the application that made the change.  This allows the capabilities of the object to be expanded for the entire server.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<hr noshade size=1>
+<p class=normal><a href="TH_1074.htm"><img src="button.png" border=0></a><a href="TH_1074.htm" style="text-decoration:none;">Cursor Instance Properties</a></p>
+<p>
+</body>
+</html>

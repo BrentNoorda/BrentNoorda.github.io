@@ -1,0 +1,93 @@
+<html>
+<head>
+<title>GD copy()</title>
+<link rel="stylesheet" href="semanualstyles.css" type="text/css">
+<style type="text/css">
+ p { margin-top: 0; margin-bottom: 0; }
+</style>
+<script language="JavaScript" src="TrueHelp.js"></script>
+</head>
+<body onload="thload()">
+<div id=ienav>
+<ilayer id=nsnav>
+<br>
+<center>
+<p class=normal><a href="seisdkc-toc.htm" target="left">contents</a> &nbsp; <a href="seisdkc-index.htm" target="left">index</a> &nbsp; <a href="TH_1034.htm">previous</a> &nbsp; <a href="TH_1036.htm">next</a></p>
+</center>
+<br>
+<hr noshade size=1>
+</ilayer>
+</div>
+<p class=sereffunclevel4>GD copy()</p>
+<table cellpadding=0>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>syntax:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=sesyntax>gd.copy(<span class=truehelp-xe></span>source,&nbsp;dstX,&nbsp;dstY,&nbsp;srcX,&nbsp;srcY,&nbsp;width,</p>
+<p class=sesyntax>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;height)</p>
+<p class=sesyntax>gd.copy(source,&nbsp;dstPoint,&nbsp;srcPoint,&nbsp;width,</p>
+<p class=sesyntax>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;height)</p></td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>where:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>source - A gd object to copy from</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>dstX - Horizontal destination pixel in current object</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>dstY - Vertical destination pixel in current object</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>dstPoint - Destination pixel in current object.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>srcX - Horizontal source pixel in source object</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>srcY - Vertical source pixel in source object</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>srcPoint - Source pixel in source object.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>width - Width of section to copy</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>height - Height of section to copy</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>return:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>void.</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>description:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>This method copies a section from one GD image to another.  The portion of <span class=secodephrase>source</span>, starting at the specified point (which is the upper-left corner of the region) and extending <span class=secodephrase>width</span> and <span class=secodephrase>height</span> in either direction.  This region is then copied to the current GD object at the specified location (which is again the upper-left corner of the region).  In copying the region, this method attempts to preserve the colors of the original source as best as possible.  The method first tries calling colorExact() on the current image, and if that doesn't work then colorAllocate(), and finally if that fails, then colorClosest().  If you specify the same source image as the current image, then the method will work appropriately as long as the regions to not overlap.  If they do, then the result is <span class=secodephrase>undefined</span>.</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>see:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara><span class=secodephrase>#link &lt;gd&gt;</span>, <span class=sejumptopic><a href="TH_1036.htm">GD copyResized()</a></span></p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>example:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=secodelines>//&nbsp;Copy&nbsp;top-left&nbsp;16x16&nbsp;from&nbsp;"test.gif"</p>
+<p class=secodelines>//&nbsp;while&nbsp;attempting&nbsp;to&nbsp;preserve</p>
+<p class=secodelines>//&nbsp;necessary&nbsp;colors.</p>
+<p class=secodelines>var&nbsp;source&nbsp;=&nbsp;GD.fromGif("test.gif");</p>
+<p class=secodelines>var&nbsp;dest&nbsp;=&nbsp;new&nbsp;GD(&nbsp;16,&nbsp;16&nbsp;);</p>
+<p class=secodelines>dest.copy(&nbsp;source,&nbsp;[0,0],&nbsp;[0,0],&nbsp;16,&nbsp;16&nbsp;);</p></td>
+</tr>
+</table>
+<p class=normal>&nbsp;</p>
+<hr noshade size=1>
+<p class=normal><a href="TH_1036.htm"><img src="button.png" border=0></a><a href="TH_1036.htm" style="text-decoration:none;">GD copyResized()</a></p>
+<p>
+</body>
+</html>

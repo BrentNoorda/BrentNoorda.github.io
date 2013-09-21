@@ -1,0 +1,58 @@
+<html>
+<head>
+<title>INVOKING THE DEBUGGER</title>
+<link rel="stylesheet" href="semanualstyles.css" type="text/css">
+<style type="text/css">
+ p { margin-top: 0; margin-bottom: 0; }
+</style>
+<script language="JavaScript" src="TrueHelp.js"></script>
+</head>
+<body onload="thload()">
+<div id=ienav>
+<ilayer id=nsnav>
+<br>
+<center>
+<p class=normal><a href="seisdkc-toc.htm" target="left">contents</a> &nbsp; <a href="seisdkc-index.htm" target="left">index</a> &nbsp; <a href="TH_200.htm">previous</a> &nbsp; <a href="TH_202.htm">next</a></p>
+</center>
+<br>
+<hr noshade size=1>
+</ilayer>
+</div>
+<p class=heading-3>INVOKING THE DEBUGGER</p>
+<p class=heading-3-p>&nbsp;</p>
+<p class=senormalpara>To connect to the debugger, the application needs to know the host machine name and the port the debugger is running on. This information can be obtained in a number of ways such as by preferences settings for the application user. However, when an application is started by the debugger, it is always given a command-line switch to tell it this information. The switch is of the form:</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=secodelinesindented>/debug=&lt;host&gt;:&lt;port&gt;</p>
+<p class=secodelinesindented>&nbsp;</p>
+<p class=senormalpara>The application should extract and use the provided host and port if this switch is passed to it. In addition, it should immediately connect to the debugger and execute the script passed on its command-line, as previously described. If there is no such switch, the application can debug at any time by connecting to an arbitrary debugger on any machine. The usual port for a ScriptEase debugger is <span class=secodephrase>SEDBG_STANDARD_PORT</span>.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>In any case, once the application has the host and port, it connects to the debugger using the following ScriptEase debug API call.  The <span class=secodephrase>password</span> is optional, needed if you want the debugger&#8217;s user to provide this password before debugging your application. Use <span class=secodephrase>NULL</span> if you don&#8217;t want a password. The <span class=secodephrase>application_id</span> is arbitrary text to identify your application.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;sebool</p>
+<p class=secodelinesindented>seDbgConnect(secontext&nbsp;se,</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;seconstcharptr&nbsp;host,</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;uint&nbsp;port,</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;seconstcharptr&nbsp;application_id,</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;seconstcharptr&nbsp;password);</p>
+<p class=secodelinesindented>&nbsp;</p>
+<p class=senormalpara>The result is a boolean indicating success. If it is <span class=secodephrase>FALSE</span>, then the debugging connection could not be established. To determine the reason for the failure, use this ScriptEase Debug API call:</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;seconstcharptr</p>
+<p class=secodelinesindented>seDbgLastError(secontext&nbsp;se);</p>
+<p class=secodelinesindented>&nbsp;</p>
+<p class=senormalpara>If a connection cannot be established, a text explanation of the failure can be retrieved using this call.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>Once the debug session is begun, is must be terminated with this call:</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;void</p>
+<p class=secodelinesindented>seDbgStop(secontext&nbsp;se);</p>
+<p class=secodelinesindented>&nbsp;</p>
+<p class=senormalpara>Normally this call is used when the script finishes executing. However, it can be used while the script is executing to terminate debugging of the script. The script will continue as normal as this call only stops the debugger control of the application.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>Between connecting and stopping, you execute a script using <span class=secodephrase>seEval</span>. It is possible to leave the connection open and run multiple scripts. The debugger will handle them all. However, doing so may confuse the debugger user. It is usually better to use <span class=secodephrase>seDbgStop</span> after the script is done and reconnect to the debugger if another script needs to be debugged.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<hr noshade size=1>
+<p class=normal><a href="TH_202.htm"><img src="button.png" border=0></a><a href="TH_202.htm" style="text-decoration:none;">INVOKING THE DEBUGGER ON AN ERROR</a></p>
+<p>
+</body>
+</html>

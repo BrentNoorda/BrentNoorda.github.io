@@ -1,0 +1,96 @@
+<html>
+<head>
+<title>String match()</title>
+<link rel="stylesheet" href="semanualstyles.css" type="text/css">
+<style type="text/css">
+ p { margin-top: 0; margin-bottom: 0; }
+</style>
+<script language="JavaScript" src="TrueHelp.js"></script>
+</head>
+<body onload="thload()">
+<div id=ienav>
+<ilayer id=nsnav>
+<br>
+<center>
+<p class=normal><a href="seisdkc-toc.htm" target="left">contents</a> &nbsp; <a href="seisdkc-index.htm" target="left">index</a> &nbsp; <a href="TH_970.htm">previous</a> &nbsp; <a href="TH_972.htm">next</a></p>
+</center>
+<br>
+<hr noshade size=1>
+</ilayer>
+</div>
+<p class=sereffunclevel4>String match()</p>
+<table cellpadding=0>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>syntax:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=sesyntax>string.match(<span class=truehelp-xe></span>pattern)</p></td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>where:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>pattern - a regular expression pattern to find or match in string. May be a regular expression or a value, such as, a string, that may be converted into a regular expression using the <span class=sepopuptopic><a href="TH_912.htm" onClick="return thwindow('TH_912.htm', 'GenPopup')">RegExp()</a></span> constructor. For example, both of the following are equivalent:</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=secodelinesindented>var&nbsp;rtn&nbsp;=&nbsp;"one&nbsp;two&nbsp;three".match(/two/);</p>
+<p class=secodelinesindented>var&nbsp;rtn&nbsp;=&nbsp;"one&nbsp;two&nbsp;three".match("two");</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>return:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>array - an array with various elements and properties set depending on the attributes of a regular expression. Returns <span class=secodephrase>null</span> if no match is found.</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>description:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>This method behaves differently depending on whether pattern has the "g" attribute, that is, on whether the match is global.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>If the match is not global, string is searched for the first match to pattern. A <span class=secodephrase>null</span> is returned if no match is found. If a match is found, the return is an array with information about the match. Element 0 has the text matched. Elements 1 and following have the text matched by sub patterns in parentheses. The element numbers correspond to group numbers in regular expression reference characters and regular expression replacement characters. The array has two extra properties: index and <span class=secodephrase>input</span>. The property <span class=secodephrase>index</span> has the position of the first character of the text matched, and <span class=secodephrase>input</span> has the target string.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>If the match is global, string is searched for all matches to pattern. A <span class=secodephrase>null</span> is returned if no match is found. If one or more matches are found, the return is an array in which each element has the text matched for each find. There are no <span class=secodephrase>index</span> and <span class=secodephrase>input</span> properties. The <span class=secodephrase>length</span> property of the array indicates how many matches there were in the target string.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>If any matches are made, appropriate RegExp object static properties, such as RegExp.leftContext, RegExp.rightContext, RegExp.$n, and so forth are set, providing more information about the matches.</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>see:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>RegExp exec(), <span class=sejumptopic><a href="TH_972.htm">String replace()</a></span>, <span class=sejumptopic><a href="TH_973.htm">String search()</a></span>, Regular expression replacement characters, RegExp object static properties</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>example:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=secodelines>&nbsp;&nbsp;&nbsp;//&nbsp;not&nbsp;global</p>
+<p class=secodelines>var&nbsp;pat&nbsp;=&nbsp;/(t(.)o)/;</p>
+<p class=secodelines>var&nbsp;str&nbsp;=&nbsp;"one&nbsp;two&nbsp;three&nbsp;tio&nbsp;one";</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;//&nbsp;rtn&nbsp;==&nbsp;"two"</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;//&nbsp;rtn[0]&nbsp;==&nbsp;"two"</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;//&nbsp;rtn[1]&nbsp;==&nbsp;"two"</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;//&nbsp;rtn[2]&nbsp;==&nbsp;"w"</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;//&nbsp;rtn.index&nbsp;==&nbsp;4</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;//&nbsp;rtn.input&nbsp;==&nbsp;"one&nbsp;two&nbsp;three&nbsp;two&nbsp;one"</p>
+<p class=secodelines>rtn&nbsp;=&nbsp;str.match(pat);</p>
+<p class=secodelines>&nbsp;</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;//&nbsp;global</p>
+<p class=secodelines>var&nbsp;pat&nbsp;=&nbsp;/(t(.)o)/g;</p>
+<p class=secodelines>var&nbsp;str&nbsp;=&nbsp;"one&nbsp;two&nbsp;three&nbsp;tio&nbsp;one";</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;//&nbsp;rtn[0]&nbsp;==&nbsp;"two"</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;//&nbsp;rtn[1]&nbsp;==&nbsp;"tio"</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;//&nbsp;rtn.length&nbsp;==&nbsp;2</p>
+<p class=secodelines>rtn&nbsp;=&nbsp;str.match(pat);</p>
+</td>
+</tr>
+</table>
+<p class=normal>&nbsp;</p>
+<hr noshade size=1>
+<p class=normal><a href="TH_972.htm"><img src="button.png" border=0></a><a href="TH_972.htm" style="text-decoration:none;">String replace()</a></p>
+<p>
+</body>
+</html>

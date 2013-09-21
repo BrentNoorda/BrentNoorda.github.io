@@ -1,0 +1,107 @@
+<html>
+<head>
+<title>seGetStringEx</title>
+<link rel="stylesheet" href="semanualstyles.css" type="text/css">
+<style type="text/css">
+ p { margin-top: 0; margin-bottom: 0; }
+</style>
+<script language="JavaScript" src="TrueHelp.js"></script>
+</head>
+<body onload="thload()">
+<div id=ienav>
+<ilayer id=nsnav>
+<br>
+<center>
+<p class=normal><a href="seisdkj-toc.htm" target="left">contents</a> &nbsp; <a href="seisdkj-index.htm" target="left">index</a> &nbsp; <a href="TH_24.htm">previous</a> &nbsp; <a href="TH_26.htm">next</a></p>
+</center>
+<br>
+<hr noshade size=1>
+</ilayer>
+</div>
+<p class=sereffunclevel3>seGetStringEx</p>
+<p class=sereffunclevel3-p>&nbsp;</p>
+<table cellpadding=0>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>syntax:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=sesyntax>&nbsp;&nbsp;&nbsp;boolean</p>
+<p class=sesyntax>SEContext.seGetBoolEx(SEObject&nbsp;object,</p>
+<p class=sesyntax>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;SEMemberDesc&nbsp;member,</p>
+<p class=sesyntax>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;int&nbsp;fl);</p>
+<p class=sesyntax>&nbsp;</p>
+<p class=sesyntax>&nbsp;&nbsp;&nbsp;double</p>
+<p class=sesyntax>SEContext.seGetNumberEx(SEObject&nbsp;object,</p>
+<p class=sesyntax>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;SEMemberDesc&nbsp;member,</p>
+<p class=sesyntax>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;int&nbsp;fl);</p>
+<p class=sesyntax>&nbsp;</p>
+<p class=sesyntax>&nbsp;&nbsp;&nbsp;Object</p>
+<p class=sesyntax>SEContext.seGetPointerEx(SEObject&nbsp;object,</p>
+<p class=sesyntax>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;SEMemberDesc&nbsp;member,</p>
+<p class=sesyntax>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;int&nbsp;fl);</p>
+<p class=sesyntax>&nbsp;</p>
+<p class=sesyntax>&nbsp;&nbsp;&nbsp;SEObject</p>
+<p class=sesyntax>SEContext.seGetObjectEx(SEObject&nbsp;object,</p>
+<p class=sesyntax>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;SEMemberDesc&nbsp;member,</p>
+<p class=sesyntax>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;int&nbsp;fl);</p>
+<p class=sesyntax>&nbsp;</p>
+<p class=sesyntax>&nbsp;&nbsp;&nbsp;String</p>
+<p class=sesyntax>SEContext.seGetStringEx(SEObject&nbsp;object,</p>
+<p class=sesyntax>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;SEMemberDesc&nbsp;member,</p>
+<p class=sesyntax>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;int&nbsp;fl);</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>where:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara><span class=secodephrase>object</span> the object half of an Object,Member pair</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara><span class=secodephrase>member</span> the member half of an Object,Member pair</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara><span class=secodephrase>fl</span> flags determining how the variable is retrieved</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>return:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>The Java value for the variable.</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>description:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>These routines are a core element of the ScriptEase API. Given an Object,Member pair, these routines extract the current value as the given type, converting if necessary, and return the result. Note that the underlying variable does not change type, its value is retrieved and converted without changing the source variable. A valid return will always result from these functions. If an internal error occurs, like an illegal conversion, that error will be set up as the result of your function (see <span class=secodephrase>seThrow</span>), but a valid result is still returned. The intent is that you can write a simple wrapper with no error checking that uses these routines. See the section SE.RETURN EXPLAINED in Chapter V for a discussion of the implications of this behavior. The value returned if an error occurs will always be a stock value. For numbers, it is <span class=secodephrase>SE.NAN</span> (or <span class=secodephrase>0</span> for non-floating point numbers). For strings, an empty string, <span class=secodephrase>&#147;&#148;</span>, is returned. For objects, <span class=secodephrase>SE.NOWHERE</span> is returned. Finally, for booleans <span class=secodephrase>false</span> is returned.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>The flags parameter can be any of the following <span class=secodephrase>|</span>'d togethor:</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara><span class=secodephrase>SE.DEFAULT</span></p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>SE.GF_DIRECT</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>SE.DEFAULT is the default. <span class=secodephrase>SE.GF_DIRECT</span> means to ignore the object's prototype and dynamic methods when looking for the property. It directly accesses the object's internal structure. It is intended for writing faster dynamic routines. See Chapter IX for more information on using this flag.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>In addition, you can specify the flags by using different named functions that have the flags as part of their name. In this case, you do not specify the flags, they are implicit. Taking <span class=secodephrase>seGetNumberEx</span> as an example:</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara><span class=secodephrase>seGetNumber(...) = seGetNumberEx(...,SE_DEFAULT)</span></p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>seGetDirectNumber(...) = seGetNumberEx(...,SE_GF_DIRECT)</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>The return from <span class=sepopuptopic><a href="TH_24.htm" onClick="return thwindow('TH_24.htm', 'GenPopup')">seGetObjectEx</a></span> follows the usual ScriptEase lifetime rules described in Chapter VIII.</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>see:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>None</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+</table>
+<hr noshade size=1>
+<p class=normal><a href="TH_26.htm"><img src="button.png" border=0></a><a href="TH_26.htm" style="text-decoration:none;">seFreeObject</a></p>
+<p>
+</body>
+</html>

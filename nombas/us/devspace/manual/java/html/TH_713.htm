@@ -1,0 +1,75 @@
+<html>
+<head>
+<title>global.parseInt()</title>
+<link rel="stylesheet" href="semanualstyles.css" type="text/css">
+<style type="text/css">
+ p { margin-top: 0; margin-bottom: 0; }
+</style>
+<script language="JavaScript" src="TrueHelp.js"></script>
+</head>
+<body onload="thload()">
+<div id=ienav>
+<ilayer id=nsnav>
+<br>
+<center>
+<p class=normal><a href="seisdkj-toc.htm" target="left">contents</a> &nbsp; <a href="seisdkj-index.htm" target="left">index</a> &nbsp; <a href="TH_712.htm">previous</a> &nbsp; <a href="TH_714.htm">next</a></p>
+</center>
+<br>
+<hr noshade size=1>
+</ilayer>
+</div>
+<p class=sereffunclevel4>global.parseInt()</p>
+<table cellpadding=0>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>syntax:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=sesyntax>parseInt(<span class=truehelp-xe></span>str[,&nbsp;radix])</p></td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>where:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>str - to be converted to an integer.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>radix - the number base to use, default is 10.</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>return:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>number - the integer to which string converts, else <span class=secodephrase>NaN</span>.</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>description:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>This method converts an alphanumeric string to an integer number. The first parameter, str, is the string to be converted, and the second parameter, radix, is an optional number indicating which base to use for the number. If the radix parameter is not supplied, the method defaults to base 10, which is decimal. If the first digit of string is a zero, radix defaults to base 8, which is octal. If the first digit is zero followed by an "x", that is, "0x", radix defaults to base 16, which is hexadecimal.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>White space characters at the beginning of the string are ignored. The first non-white space character must be either a digit or a minus sign (-). All numeric characters following the string will be read, up to the first non-numeric character, and the result will be converted into a number, expressed in the base specified by the radix variable. All characters including and following the first non-numeric character are ignored. If the string is unable to be converted to a number, the special value <span class=secodephrase>NaN</span> is returned.</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>see:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara><span class=sejumptopic><a href="TH_712.htm">global.parseFloat()</a></span></p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>example:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=secodelines>var&nbsp;i&nbsp;=&nbsp;parseInt("9");</p>
+<p class=secodelines>var&nbsp;i&nbsp;=&nbsp;parseInt("9.3");</p>
+<p class=secodelines>//&nbsp;In&nbsp;both&nbsp;cases,&nbsp;i&nbsp;==&nbsp;9</p></td>
+</tr>
+</table>
+<p class=normal>&nbsp;</p>
+<hr noshade size=1>
+<p class=normal><a href="TH_714.htm"><img src="button.png" border=0></a><a href="TH_714.htm" style="text-decoration:none;">global.setArrayLength()</a></p>
+<p>
+</body>
+</html>

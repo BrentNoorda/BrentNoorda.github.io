@@ -1,0 +1,405 @@
+                       CEnvi Demo Manual, Chapter 3:
+                      Cmm versus C, for C Programmers
+
+                           CEnvi version 2.11
+                            20 February 1996
+
+                 Copyright 1993, Nombas, All Rights Reserved.
+          Published by Nombas, 64 Salem Street, MEDFORD MA 02155 USA
+          
+             VOICE (617) 391-6595     EMAIL: nombas@nombas.com
+             BBS   (617) 391-3718     WWW: http://www.nombas.com
+             FAX   (617) 391-3842
+
+         Thank you for trying this shareware version of CEnvi from Nombas.
+
+                          _______
+                     ____|__     |                (R)
+                  --|       |    |-------------------
+                    |   ____|__  |  Association of
+                    |  |       |_|  Shareware
+                    |__|   o   |    Professionals
+                  -----|   |   |---------------------
+                       |___|___|    MEMBER
+
+
+
+3.  Cmm versus C: The Cmm language for C programmers
+
+
+          This chapter is for those who already know how to program in the
+          C language.  This chapter describes only those elements of Cmm
+          that differ from standard C, and so if you don't already
+          understand C, then this shouldn't have much meaning for you.
+          Non-C programmers should instead look at the previous chapter.
+
+          Since it is assumed that readers of this chapter are already
+          knowledgeable in C, only those aspects of Cmm that differ from C
+          are described here.  If it's not mentioned here, then assume that
+          Cmm behavior will be standard C.
+
+          Deviations from C are a result of these two harmonious Cmm
+          directives: Convenience and Safety.  Cmm is different from C
+          where the change makes Cmm more convenient for small programs,
+          command-line code, or scripting files, or if unaltered C rules
+          encourage coding that is potentially unsafe.
+
+3.1.  C Minus Minus
+
+          Cmm is "C minus minus" where the minuses are Type Declarations
+          and Pointers.  If you already know C and can remember to forget
+          these two aspects of C (I repeat, no Type Declarations and no
+          Pointers) then you know Cmm.  If you were to take C code, and
+          delete all the lines, code-words, and symbols that either declare
+          data types or explicitly point to data, then you would be left
+          with Cmm code; and although you would be removing bytes of source
+          code, you would not be removing capabilities.
+
+          All of the details below that compare Cmm against C follow from
+          the general rule:
+            *Cmm is C minus Type Declarations and minus Pointers.
+
+3.2.  Data Types
+
+          The only recognized data types are Float, Long, and Byte.  The
+          words "Float", "Long", and "Byte" do not appear in Cmm source
+          code; instead, the data types are determined by context.  For
+          instance 6 is a Long, 6.6 is a Float, and '6' is a Byte.  Byte is
+          unsigned, and the other types are signed.
+
+3.3.  Automatic Type Declaration
+
+          There are no type declarators and no type casting.  Types are
+          determined from context.  If the code says "i=6" then i is a
+          Long, unless a previous statement has indicated otherwise.
+
+          For instance, this C code:
+              int Max(int a,int b)
+              {
+                int result;
+                result = ( a < b ) ? b : a ;
+                return result;
+              }
+          could become this Cmm code:
+              Max(a,b)
+              {
+                result = ( a < b ) ? b : a ;
+                return result;
+              }
+
+3.4.  Array Representation
+
+          Arrays are used in Cmm much like they are in C, except that they
+          are stored differently: a first-order array (e.g., a string) is
+          stored in consecutive bytes in memory, but arrays of arrays are
+          not in consecutive memory locations.  The C declaration "char
+          c[3][3];" would state that there are nine consecutive bytes in
+          memory.  In Cmm a similar statement such as "c[2][2] = 'A'" would
+          tell you that there are (at least) three arrays of characters,
+          and the third array of arrays has (at least) three characters in
+          it; and although the characters in c[0] are in consecutive bytes,
+          and the characters in c[1] are in consecutive bytes, the two
+          arrays c[0] and c[1] are not necessarily adjacent in memory.
+
+3.4.1   Array Arithmetic
+
+          When one array is assigned to the other, as in:
+              foo = "cat";
+              goo = foo;
+          then both variables define the same array and start at the same
+          offset 0.  In this case, if foo[2] is changed then you will find
+          that goo[2] has also been changed.
+
+          Integer addition and subtraction can also be performed on arrays.
+          Array addition or subtraction sets where the array is based.  By
+          altering the previous code segment to:
+              foo = "cat";
+              goo = foo + 1;
+          goo and foo would now be arrays containing the same data, except
+          that now goo is based one element further, and foo[2] is now the
+          same data as goo[1].
+
+          To demonstrate:
+              foo = "cat";  // foo[0] is 'c', foo[1] = 'a'
+              goo = foo + 1;// goo[0] is 'a', goo[-1] = 'c'
+              goo[0] = 'u'; // goo[0] is 'u', foo[1] = 'u', foo is "cut"
+              goo++;        // goo[0] is 't', goo[-2] = 'c'
+              goo[-2] = 'b' // goo[0] is 't', foo[0] = 'b', foo is "but"
+
+3.4.2   Automatic Array Allocation
+
+          Arrays are dynamic, and any index, (positive or negative) into an
+          array is always valid.  If an element of an array is referred to,
+          then the Cmm must see to it that such an element will exist.  For
+          instance if the first statement in the Cmm source code is "foo[4]
+          = 7;" then the Cmm interpreter will make an array of 5 integers
+          referred to by the variable foo.  If a statement further on
+          refers to "foo[6]" then the Cmm interpreter will grow foo, if it
+          has to, to ensure that the element foo[6] exists.  This works
+          with negative indices as well.  When you refer to foo[-10], then
+          foo is grown in the other direction if it needs to be, but foo[4]
+          will still refer to that "7" you put there earlier.  Arrays can
+          reach any dimension order, so that foo[6][7][34][-1][4] is a
+          valid value.
+
+3.5.  Structures
+
+          Structures are created dynamically, and their elements are not
+          necessarily contiguous in memory.  When CEnvi comes across the
+          statement 'foo.animal = "dog"' it creates a structure element of
+          foo that is referred to as "animal" and is an array of
+          characters, and this "animal" variable is thereafter carried
+          around with "foo" (much like a stem variable in REXX).  The
+          resulting code looks very much like regular C code, except that
+          there is not a separate structure definition anywhere.
+
+
+          This C code:
+
+              struct Point {
+                int Row;
+                int Column;
+              };
+
+              struct Square {
+                struct Point BottomLeft;
+                struct Point TopRight;
+              };
+
+              void main()
+              {
+                struct Square sq;
+                int Area;
+                sq.BottomLeft.Row = 1;
+                sq.BottomLeft.Column = 15;
+                sq.TopRight.Row = 82;
+                sq.TopRight.Column = 120;
+                Area = AreaOfASquare(sq);
+              }
+
+              int AreaOfASquare(struct Square s)
+              {
+                int width, height;
+                width = s.TopRight.Column - s.BottomLeft.Column + 1;
+                height = s.TopRight.Row - s.BottomLeft.Row + 1;
+                return( length * height );
+              }
+
+          can be changed into the equivalent Cmm code simply be removing
+          declaration lines, resulting in:
+
+              main()
+              {
+                sq.BottomLeft.Row = 1;
+                sq.BottomLeft.Column = 15;
+                sq.TopRight.Row = 82;
+                sq.TopRight.Column = 120;
+                Area = AreaOfASquare(sq);
+              }
+
+              int AreaOfASquare(s)
+              {
+                width = s.TopRight.Column - s.BottomLeft.Column + 1;
+                height = s.TopRight.Row - s.BottomLeft.Row + 1;
+                return( length * height );
+              }
+
+          Structures can be passed, returned, and modified just as any
+          other variable.  Of course structures and arrays are independent,
+          so you could very well have the statement "foo[8].animal.forge[3]
+          = bil.bo".
+
+3.6.  Passing Variables by Reference
+
+          By default, LValues in Cmm are passed to functions by reference,
+          and so if the function alters a variable then the variable in the
+          calling function is altered as well IF IT IS AN LVALUE.  So
+          instead of this C code:
+
+              main() {
+                .
+                .
+                .
+                CQuadrupleInPlace(&i);
+                .
+                .
+                .
+              }
+
+              void CQuadrupleInPlace(int *j)
+              {
+                *j *= 4;
+              }
+
+          the Cmm version would be:
+
+              main() {
+                .
+                .
+                .
+                QuadrupleInPlace(i);
+                .
+                .
+                .
+              }
+
+              void QuadrupleInPlace(j)
+              {
+                j *= 4;
+              }
+
+          If the rare circumstance arises that you want to pass a copy of
+          an LValue to a function, instead of passing the variable by
+          reference, then you can use the Cmm "copy-of" operator "=".
+          foo(=i) can be interpreted as saying "pass a value equal to i,
+          but not i itself"; so that "foo(=i) ... foo(j) { j *= 4; }" would
+          not change the value at i.
+
+          Note that for this Cmm version, the following calls to
+          QuadrupleInPlace() would be valid, but no value will have changed
+          upon return from QuadrupleInPlace() because an LValue is not
+          being passed:
+              QuadrupleInPlace(8);
+              QuadrupleInPlace(i+1);
+              QuadrupleInPlace(=1);
+
+3.7.  Data Pointers(*) and Addresses(&)
+
+          No pointers.  None.  The "*" symbol NEVER means "pointer" and the
+          "&" symbol never means "address".  This may at first cause
+          seasoned C programmers to gasp in disbelief, but it turns out to
+          be not such a big deal, and these two operators are seldom
+          missed, after considering these two rules:
+              1) "*var" can be replaced in all instances by "var[0]"
+              2) variables (if LValues) are passed by reference
+
+3.8.  Case Statements
+
+          Case statements in a switch statement may be a constant, a
+          variable, or any other statement that can be evaluated to a
+          variable.  So you might see this Cmm code:
+
+              switch(i) {
+                case 4:
+                case foe():
+                case sqrt(foe()):
+                case (PILLBOX * 3 - 2):
+                default:
+              }
+
+3.9.  Initialization: Code external to functions
+
+          All code that is not inside any function block is interpreted
+          before main() is called.  So the following Cmm code:
+
+              printf("hey there ");
+
+              main()
+              {
+                printf("ho there ");
+              }
+
+              printf("hi there ");
+
+          would result in the output "hey there hi there ho there ".
+
+3.10. Unnecessary tokens
+
+          If symbols are redundant, then they are usually unnecessary in
+          Cmm.  This allows for more flexibility in the non-C-trained and
+          also lets more code get in the tiny space available on the
+          command line.  Besides, I got tired of my compiler saying
+          "missing semi-colon"; What good is a semi-colon if it doesn't
+          tell the compiler anything new?  So you can have the statement
+          "foo()" as well as "foo();".  It certainly doesn't hurt to have
+          the semi-colon there, especially when it can clarify a "return;"
+          statement, for example, but it isn't necessary.  Similarly, "("
+          and ")" are often unnecessary, so you may have "while a < b a++"
+          as a complete statement.
+
+3.11. #include
+
+          The #include statement has been enhanced for reading source
+          snippets from within other types of files.  So we have
+
+              #Include <filespec,Extension,Prefix,HeaderLine,FooterLine>
+
+          where filespec is the same as in C's #include <filespec>
+          statement, Extension is a file extension (such as BAT) that may
+          be added to the filespec (so batch files can say #include
+          <%0,bat>", Prefix specifies that only those lines in filespec
+          that begin with Prefix will be source, and HeaderLine and
+          FooterLine specify that source will be read only from sections of
+          filespec between HeaderLine and FooterLine.  If a full path is
+          not specified then CEnvi searches for the file in various paths
+          in this order:
+            *Search the current directory.
+            *If the code is run from a *.cmm source file, then search in
+              the source directory for the *.cmm file.
+            *If this is the Windows version of CEnvi, searches all the
+              files in the CMMPATH profile value (from WIN.INI in the
+              [CEnvi] section).
+            *Search all directories in the CMMPATH environment variable.
+            *Search the directory that CEnvi.exe is executed from.
+            *Search all directories from the PATH environment variable.
+
+          In CEnvi a file will not be included more than once, and so if it
+          has already been included, a second (or third) #include statement
+          will have no effect.
+
+3.12. Macros
+
+          Function macros are not supported.  Since speed is not of primary
+          importance, a macro gains little over a function call, and so any
+          macros may simply become functions.
+
+          Token replacement macros ("#define NULL 0") are supported in Cmm.
+
+3.13. Back-quote strings
+
+          The back-quote character (`), also known as a "back-tick" or
+          "grave accent", can be used in Cmm in place of a double quote (")
+          to specify a string where escape sequences are not to be
+          translated.  So, for example, here are two ways to describe the
+          same file name:
+              "c:\\autoexec.bat"  // traditional method
+              `c:\autoexec.bat`   // alternative method
+
+3.14. Converting existing C code to Cmm
+
+          Converting existing C code to Cmm, should you choose to do so, is
+          mostly a process of deleting unnecessary text.  You search on
+          type declarations, such as "int", "float", "struct", "char",
+          "[]", etc... and then delete these declaration strings.  For
+          instance, these instances of C code (or C++ code) on the left can
+          be replaced by the Cmm code on the right:
+
+                   C                               Cmm     
+              ----------                      -------------
+
+              int i;    ................... i (or nothing at all)
+
+              int foo = 3; ................ foo = 3;
+
+              struct {    ................... /* nothing */
+                int row;
+                int col;
+              }
+
+              char name[] = "George"; ..... name = "George";
+
+              int go(int a,char *s,int &c)    go(a,s,c)
+              int zoo[] = { 1, 2, 3 }; .... zoo = { 1, 2, 3 };
+
+          The next step in converting C to Cmm is to search for the address
+          and pointer operators ("*", "&").  If the '&' and '*' work
+          together so that the address of a variable is passed to a
+          function, then both of these operators become unnecessary because
+          Cmm passes lvars by reference.  If there are still "*" found then
+          they are usually referring to the zeroth value of a pointer
+          address, and so can be replaced with [0], as in "*foo = 4"
+          replaced by "foo[0] = 4".  Finally, the "->" operator for
+          structures must be replaced by "." either because the structure
+          is now being passed by referenced or because the element of the
+          structure is being referred to by its array index: "foo->row" may
+          need to become "foo[0].row".

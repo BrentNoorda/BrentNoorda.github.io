@@ -1,0 +1,463 @@
+<html>
+<head>
+<title>ScriptEase ISDK Newsletter November 13, 2002</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-1754630-10']);
+  _gaq.push(['_trackPageview']);
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+</head>
+
+<body bgcolor="#FFFFFF" TOPMARGIN=0 LEFTMARGIN=0 MARGINWIDTH=0 MARGINHEIGHT=0>
+<table width="640" border="0" cellspacing="0" cellpadding="0">
+  <tr> 
+    <td> 
+      <p><img src="images/newsbanner.jpg" width="640" height="70" border="0" alt="ScriptEase:ISDK Newsletter"></p>
+      <table width="630" border="0" cellspacing="0" cellpadding="0" align="center">
+        <tr> 
+          <td width="150" valign="top" align="left"> 
+            <p><font color="#0E2595" face="Verdana, Arial, Helvetica, sans-serif"><b>Nov 
+              13, 2002</b></font></p>
+            <p><b><font color="#990000" size="-2" face="Verdana,Tahoma,Arial,Helvetica">In 
+              This Issue</font></b></p>
+            <table width="150" border="0" cellspacing="0" cellpadding="0">
+              <tr> 
+                <td width="15" valign="top" align="center"> 
+                  <p><img src="images/bullet.gif" width="10" height="10" vspace="2" alt="&quot;&quot;"></p>
+                </td>
+                <td width="135" align="left" valign="top"> 
+                  <p><a href="#article1"><font size="-2" face="Verdana, Arial, Helvetica, sans-serif">SE:ISDK/C 
+                    5.00 upgrade</font></a><br>
+                    &nbsp; </p>
+                </td>
+              </tr>
+              <tr> 
+                <td width="15" align="center" valign="top"><img src="images/bullet.gif" width="10" height="10" vspace="2"></td>
+                <td width="135" align="left" valign="top"> 
+                  <p><a href="#c500derrata"><font size="-2" face="Verdana, Arial, Helvetica, sans-serif">ISDK/C 
+                    5.00d Errata</font></a><br>
+                    &nbsp; </p>
+                </td>
+              </tr>
+              <tr> 
+                <td width="15" align="center" valign="top"><img src="images/bullet.gif" width="10" height="10" vspace="2"></td>
+                <td width="135" align="left" valign="top"> 
+                  <p><a href="#c440eerrata"><font size="-2" face="Verdana, Arial, Helvetica, sans-serif">ISDK/C 
+                    4.40e Errata</font></a><br>
+                    &nbsp; </p>
+                </td>
+              </tr>
+              <tr> 
+                <td width="15" align="center" valign="top"><img src="images/bullet.gif" width="10" height="10" vspace="2"></td>
+                <td width="135" align="left" valign="top"> 
+                  <p> <a href="#c430ferrata"><font size="-2" face="Verdana, Arial, Helvetica, sans-serif">ISDK/C 
+                    4.30f Errata</font></a><br>
+                    &nbsp; </p>
+                </td>
+              </tr>
+              <tr> 
+                <td width="15" align="center" valign="top"><img src="images/bullet.gif" width="10" height="10" vspace="2"></td>
+                <td width="135" align="left" valign="top"> 
+                  <p><a href="#j500derrata"><font size="-2" face="Verdana, Arial, Helvetica, sans-serif">ISDK/Java 
+                    5.00d Errata</font></a><br>
+                  </p>
+                </td>
+              </tr>
+            </table>
+            <p><font size="-2" face="Verdana, Arial, Helvetica, sans-serif"><a href="../devspace/newsletters/index.htm">Other 
+              Newsletters</a></font></p>
+            <p><font size="-2" color="#990000" face="Verdana, Arial, Helvetica, sans-serif"><b>DevSpace 
+              Developer Support</b></font></p>
+            <p><font size="-2" face="Verdana, Arial, Helvetica, sans-serif">For 
+              more information and resources, <a
+                             href="../devspace/index.htm">visit ScriptEase: 
+              ISDK DevSpace online</a>.</font></p>
+            <p><font size="-2" color="#990000" face="Verdana, Arial, Helvetica, sans-serif"><b>Download 
+              Center</b></font></p>
+            <p></p>
+            <p align=LEFT><font face="Verdana, Arial, Helvetica, sans-serif" size="-2">For 
+              latest updates and extensions, <a href="http://www.nombasxxx.com/us/toolkit/isdkdownload.htm">visit 
+              the ISDK Download Center</a>. </font></p>
+          </td>
+          <td width="4"></td>
+          <td width="1" bgcolor="#CCCCFF"><img src="../devspace/pix/pixel.gif" width="1" height="1" border="0"></td>
+          <td width="5"></td>
+          <td width="470" valign="top" align="left"> 
+            <div align="left"> 
+              <h3><b><img src="images/drpotato.jpg" width="150" height="150" align="right" border="0" vspace="2" hspace="4" alt="&quot;&quot;"></b><font color="#0E2595"> 
+                <a name="article1"></a>SE:ISDK 5.00e upgrade now available</font></h3>
+              <p align=LEFT>SE:ISDK version 5.00e errata release is now available 
+                for C/C++ and Java &amp; J2ME. In addition to fixing <a href="../devspace/errata/isdk/index500.htm#v500d" target="errata">all 
+                known 5.00d errata items</a>, this 5.00e release includes important 
+                <a href="#improve">improvements</a>, <a href="#apiadd">API Additions</a>, 
+                and support for <a href="#newplat">new platforms</a>. It's worth 
+                the <a href="#upg">upgrade</a>.</p>
+            </div>
+            <div align="left"> 
+              <h4 align=LEFT><a name="improve"></a></h4>
+              <h4 align=LEFT><font color="#0E2595">Improvements</font></h4>
+              <ul>
+                <li> 
+                  <div align="left"><b>Lower memory use -</b> For small-memory 
+                    builds, sevars have been reduced by 1/3 and objects have been 
+                    reduced by almost 1/2. Most of the memory used by large scripts 
+                    is in sevars and objects, and so the overall reduction in 
+                    memory use is significant. For example, a 32-bit min-memory 
+                    build can now initialize the engine and all libraries in less 
+                    than 10K RAM.</div>
+                </li>
+                <li><b>Low-memory recovery -</b> When memory is extremely limited, 
+                  SE:ISDK/C 5.00e will take extreme measures (garbage collection, 
+                  dumping of pools, reducing request sizes, and trying again) 
+                  to recover. If all else fails an out-of-memory object is returned 
+                  to all exception handlers (the engine or libraries cannot abort 
+                  due to insufficient memory). The new MEMFAIL tester is included 
+                  to automate testing of out-of-memory conditions.</li>
+                <li><b>Faster compilation -</b> Scripts now compile faster. Typical 
+                  scripts compile about 40% faster than in earlier releases.</li>
+                <li><b>Browser Library Updated -</b> The browser library has been 
+                  rewritten to be as small as possible, as fast as possible (especially 
+                  on startup), and to comply with emerging browser expectations. 
+                  By creating data only when first accessed, this new library 
+                  loads up immediately and uses no more memory than necessary.</li>
+                <li><b>Faster SE_DYNA_UNDEF objects -</b> Dynamic objects created 
+                  using the SE_DYNA_UNDEF flag (so most objects do not need lookups) 
+                  are now nearly as fast as standard objects (about 1% performance 
+                  loss on standard members). This makes a big difference in overall 
+                  script performance when the global object has dynamic callbacks.</li>
+                <li><b>Workshop/Debugger -</b> The Workshop has been updated as 
+                  a complete product, as described by the new included manual.</li>
+              </ul>
+            </div>
+            <div align="left"> 
+              <div align="left"> 
+                <div align="left"> 
+                  <h4 align=LEFT><a name="apiadd"></a></h4>
+                  <h4 align=LEFT><font color="#0E2595">API Additions</font></h4>
+                  <ul>
+                    <li> 
+                      <div align="left"><b>seExistsDirect()/seExistsEx()</b> - 
+                        Check for whether a member exists without following prototype 
+                        chain</div>
+                    </li>
+                    <li> 
+                      <div align="left"><b>seAssignEx()</b> - Get the same SE_GF 
+                        flags as seGetXXX and sePutXXX functions</div>
+                    </li>
+                    <li><b>JSE_LINE_CONTINUATION</b> - This compile-time flag 
+                      allows a backslash at the end of a line to mean that the 
+                      string continues on the next line</li>
+                    <li><b>sePtrXXX()</b> - sePtrXXX() helper methods (e.g. sePtrAddObj(), 
+                      sePtrFromObj(), etc...) provide validation and inheritance 
+                      of SE_OBJECT_DATA associated with C/C++ objects</li>
+                    <li><b>seGetCallbacks()</b> - Retrieve the dynamic C callbacks 
+                      associated with an object</li>
+                    <li><b>SE_GF_UNDEF_OBJ_OK</b> - This flag for seGetObjectEx() 
+                      prevents an exception from being generated if the object 
+                      does not exist and so cannot be converted to an object</li>
+                    <li><b>seObjectMemberCountDirect()</b> - Retrieve number of 
+                      object members without inheritance</li>
+                    <li><b>JSE_TRACK_MEMUSE</b> added as default - This provides 
+                      complete descriptions for how memory is used when seGarbageCollect(...SE_COLLECT_AND_ANALYZE...) 
+                      is called</li>
+                    <li><b>SE:ISDK/Java now supports shared read-only objects</b>, 
+                      so multiple contexts can share shared a common set of global 
+                      scripts and libraries</li>
+                  </ul>
+                </div>
+                <h4 align=LEFT><a name="newplat"></a></h4>
+                <h4 align=LEFT><font color="#0E2595">New Platforms</font></h4>
+                <ul>
+                  <li><b>DOS 16-bit</b> - Large- and medium-memory models are 
+                    supported for the MSVC 1.52 DOS 16-bit compiler</li>
+                  <li><b>J2ME-MIDP</b> - A J2ME configured for MIDP is now available</li>
+                </ul>
+                <p><a name="upg"></a></p>
+              </div>
+              <h4><font color="#0E2595">Upgrade Now</font></h4>
+              This is a very robust release. All 5.00 users should upgrade to 
+              5.00e. To receive your SE:ISDK/C 5.00e upgrades contact <a href="http://support.nombasxxx.com/">http://support.nombasxxx.com/</a> 
+              with information about platforms and version needed. </div>
+            <div align="left"> 
+              <hr noshade width="90%" align="center" size="1">
+              <p align=LEFT><i>Have a question about how to use ScriptEase:ISDK? 
+                Let Dr. Scripter know at </i><a href="http://support.nombasxxx.com/"><i>http://support.nombasxxx.com/</i></a></p>
+            </div>
+          </td>
+        </tr>
+      </table>
+      <hr>
+      <h3>&nbsp;Errata <a name="c500derrata"></a> </h3>
+      <h4>&nbsp;&nbsp;&nbsp;ISDK/C 5.00d </h4>
+      <ul>
+        <li><a href="../devspace/errata/isdk/index500.htm#csecs"><b>Clib.system() 
+          does not return exit code on Solaris</b></a>: Solaris Clib.system doesn't 
+          return exit code of child properly. [<a href="../devspace/errata/isdk/index500.htm#csecs">Details</a>]</li>
+      </ul>
+      <ul>
+        <li><b><a href="../devspace/errata/isdk/index500.htm#vsvn7f">very 
+          short variable names incorrect if character > 0x7f</a></b>: If a variable 
+          name or identifier is 3 characters or less, and any of the characters 
+          is a value between 0x7f and 0xff (inclusive) (e.g. foo["\xb9"]) it will 
+          be converted incorrectly. [<a href="../devspace/errata/isdk/index500.htm#vsvn7f">Details</a>]</li>
+      </ul>
+      <ul>
+        <li><b><a href="../devspace/errata/isdk/index500.htm#ssres">string.split() 
+          incorrect if regular expression used as separator</a></b>: String.prototype.split(separator) 
+          returns the wrong results when separator is a regular expression and 
+          does not match the first character of the string. [<a href="../devspace/errata/isdk/index500.htm#ssres">Details</a>]</li>
+      </ul>
+      <ul>
+        <li><a href="../devspace/errata/isdk/index500.htm#dgnhp"><b>dynamic 
+          get is not being called if hasProp callback is NULL</b></a>: If an object 
+          has dynamic callbacks via seSetCallbacks, but does not implement a hasProp 
+          callback, then the get callback should be called to determine if the 
+          object has the given property. [<a href="../devspace/errata/isdk/index500.htm#dgnhp">Details</a>]</li>
+      </ul>
+      <ul>
+        <li><a href="../devspace/errata/isdk/index500.htm#dgnhp"><b>virtual-stack 
+          growth if retrieving values after an exception</b></a>: If an exception 
+          is generated during a call to the SE API, items may be left on the script 
+          stack. [<a href="../devspace/errata/isdk/index500.htm#dgnhp">Details</a>]</li>
+      </ul>
+      <ul>
+        <li><b><a href="../devspace/errata/isdk/index500.htm#mothra">sedbc 
+          bugs with long binary data</a></b>: SEDBC can crash when reading from 
+          or writing to database columns representing any of the large binary 
+          data types. [<a href="../devspace/errata/isdk/index500.htm#mothra">Details</a>]</li>
+      </ul>
+      <ul>
+        <li><b><a href="../devspace/errata/isdk/index500.htm#pphliv">during 
+          script compilation peephole optimizer accesses invalid memory</a></b>: 
+          The peephole optimizer can access invalid memory during script compilation. 
+          In rare circumstance this may cause a crash. [<a href="../devspace/errata/isdk/index500.htm#pphliv">Details</a>]</li>
+      </ul>
+      <ul>
+        <li><a href="../devspace/errata/isdk/index500.htm#dtvc"><b>default_this 
+          parameter ignored in seEval(...SE_CONSTRUCTOR...)</b></a>: Using the 
+          SE_CONSTRUCTOR option of seEval()ing a function, if you set a default_this 
+          in the params structure, it is ignored. [<a href="../devspace/errata/isdk/index500.htm#dtvc">Details</a>]</li>
+      </ul>
+      <ul>
+        <li><b><a href="../devspace/errata/isdk/index500.htm#eldv">Errors 
+          with extremely large Date values</a></b>: Date values larger than the 
+          maximum allowable to new Date() can cause nearly-infinite loops. [<a href="../devspace/errata/isdk/index500.htm#eldv">Details</a>]</li>
+      </ul>
+      <ul>
+        <li><b><a href="../devspace/errata/isdk/index500.htm#cfrfl">seCreateFiber 
+          reinitializes function libraries</a></b>: seCreateFiber is reinitializing 
+          the function libraries. [<a href="../devspace/errata/isdk/index500.htm#cfrfl">Details</a>]</li>
+      </ul>
+      <ul>
+        <li><b><a href="../devspace/errata/isdk/index500.htm#srcnm">string.replace 
+          crashes or consumes all memory when replacing with null string</a></b>: 
+          When using string.replace() to delete a character from a string, by 
+          replacing it with "", the call may crash or use too much memory. [<a href="../devspace/errata/isdk/index500.htm#srcnm">Details</a>]</li>
+        </ul>
+      <ul>
+        <li><b><a href="../devspace/errata/isdk/index500.htm#jclmc">JSE_COMPACT_LIBFUNCS 
+          may crash while expanding used functions</a></b>: Extensive testing 
+          shows that in a worst case, a crash may occur while expanding functions 
+          added with JSE_COMPACT_LIBFUNCS in effect. [<a href="../devspace/errata/isdk/index500.htm#jclmc">Details</a>]</li>
+      </ul>
+      <ul>
+        <li><b><a href="../devspace/errata/isdk/index500.htm#sgaae">seGetAttribs 
+          may cause asser error, or return wrong value</a></b>: seGetAttribs will 
+          not work correctly under certain circumstances. [<a href="../devspace/errata/isdk/index500.htm#sgaae">Details</a>]</li>
+      </ul>
+      <ul>
+        <li><b><a href="../devspace/errata/isdk/index500.htm#ronf">some 
+          objects made read-only with seShareReadObject() may never be freed</a></b>: 
+          Some objects made read-sharable are not freed. [<a href="../devspace/errata/isdk/index500.htm#ronf">Details</a>]</li>
+      </ul>
+      <ul>
+        <li><b><a href="../devspace/errata/isdk/index500.htm#clfns">JSE_COMPACT_LIBFUNCS 
+          not saving any memory</a></b>: Date values larger than the maximum allowable 
+          to new Date() can cause nearly-infinite loops. [<a href="../devspace/errata/isdk/index500.htm#clfns">Details</a>]</li>
+      </ul>
+      <ul>
+        <li><b><a href="../devspace/errata/isdk/index500.htm#sgido">seGetXXX() 
+          functions ignore dynamic object's hasProp when retrieving an object 
+          value</a></b>: seGetXXX ignores a dynamic object's hasProp when trying 
+          to get an object member's value. [<a href="../devspace/errata/isdk/index500.htm#sgido">Details</a>]</li>
+      </ul>
+      <ul>
+        <li><b><a href="../devspace/errata/isdk/index500.htm#pxnt">sePutXXX() 
+          not returning TRUE as documented</a></b>: sePutXXX is often not returning 
+          true on member creation. [<a href="../devspace/errata/isdk/index500.htm#pxnt">Details</a>]</li>
+      </ul>
+      <ul>
+        <li><b><a href="../devspace/errata/isdk/index500.htm#aomp">potential 
+          crash with arguments object when receiving many parameters</a></b>: 
+          possible memory leak and/or crashes with arguments object in certain 
+          configurations. [<a href="../devspace/errata/isdk/index500.htm#aomp">Details</a>]</li>
+      </ul>
+      <hr>
+      <h3></h3>
+      <h3>&nbsp;Errata <a name="c440eerrata"></a> </h3>
+      <h4>&nbsp;&nbsp;&nbsp;ISDK/C 4.40e </h4>
+      <ul>
+        <li><b><a href="../devspace/errata/isdk/index440.htm#vsvn7f">very 
+          short variable names incorrect if character > 0x7f</a></b>: If a variable 
+          name or identifier is 3 characters or less, and any of the characters 
+          is a value between 0x7f and 0xff (inclusive) (e.g. foo["\xb9"]) it will 
+          be converted incorrectly. [<a href="../devspace/errata/isdk/index440.htm#vsvn7f">Details</a>]</li>
+      </ul>
+      <ul>
+        <li><b><a href="../devspace/errata/isdk/index440.htm#ssres">string.split() 
+          incorrect if regular expression used as separator</a></b>: String.prototype.split(separator) 
+          returns the wrong results when separator is a regular expression and 
+          does not match the first character of the string. [<a href="../devspace/errata/isdk/index440.htm#ssres">Details</a>]</li>
+      </ul>
+      <ul>
+        <li><b><a href="../devspace/errata/isdk/index440.htm#mothra">sedbc 
+          bugs with long binary data</a></b>: SEDBC can crash when reading from 
+          or writing to database columns representing any of the large binary 
+          data types. [<a href="../devspace/errata/isdk/index440.htm#mothra">Details</a>]</li>
+      </ul>
+      <ul>
+        <li><b><a href="../devspace/errata/isdk/index440.htm#pphliv">during 
+          script compilation peephole optimizer accesses invalid memory</a></b>: 
+          The peephole optimizer can access invalid memory during script compilation. 
+          In rare circumstance this may cause a crash. [<a href="../devspace/errata/isdk/index440.htm#pphliv">Details</a>]</li>
+      </ul>
+      <ul>
+        <li><b><a href="../devspace/errata/isdk/index440.htm#eldv">Errors 
+          with extremely large Date values</a></b>: Date values larger than the 
+          maximum allowable to new Date() can cause nearly-infinite loops. [<a href="../devspace/errata/isdk/index440.htm#eldv">Details</a>]</li>
+      </ul>
+      <ul>
+        <li><a href="../devspace/errata/isdk/index440.htm#rsts"><b>invalid_regexp_instance.toString() 
+          crash</b></a>: Calling the RegExp toString operator on an object that 
+          is not a valid RegExp instance will crash. [<a href="../devspace/errata/isdk/index440.htm#rsts">Details</a>]</li>
+      </ul>
+      <ul>
+        <li><b><a href="../devspace/errata/isdk/index440.htm#srcnm">string.replace 
+          crashes or consumes all memory when replacing with null string</a></b>: 
+          When using string.replace() to delete a character from a string, by 
+          replacing it with "", the call may crash or use too much memory. [<a href="../devspace/errata/isdk/index440.htm#srcnm">Details</a>]</li>
+      </ul>
+      <hr>
+      <h3></h3>
+      <h3>&nbsp;Errata <a name="c430ferrata"></a> </h3>
+      <h4>&nbsp;&nbsp;&nbsp;ISDK/C 4.30f </h4>
+      <ul>
+        <li><a href="../devspace/errata/isdk/index430.htm#cucun"><b>useCache 
+          field of Call structure may not be initialized</b></a>: The call->useCache 
+          field is not initialized for new levels of interpret. [<a href="../devspace/errata/isdk/index430.htm#cucun">Details</a>]</li>
+      </ul>
+      <ul>
+        <li><b><a href="../devspace/errata/isdk/index430.htm#ssres">string.split() 
+          incorrect if regular expression used as separator</a></b>: String.prototype.split(separator) 
+          returns the wrong results when separator is a regular expression and 
+          does not match the first character of the string. [<a href="../devspace/errata/isdk/index430.htm#ssres">Details</a>]</li>
+      </ul>
+      <ul>
+        <li><b><a href="../devspace/errata/isdk/index430.htm#mothra">sedbc 
+          bugs with long binary data</a></b>: SEDBC can crash when reading from 
+          or writing to database columns representing any of the large binary 
+          data types. [<a href="../devspace/errata/isdk/index430.htm#mothra">Details</a>]</li>
+      </ul>
+      <ul>
+        <li><a href="../devspace/errata/isdk/index430.htm#rsts"><b>invalid_regexp_instance.toString() 
+          crash</b></a>: Calling the RegExp toString operator on an object that 
+          is not a valid RegExp instance will crash. [<a href="../devspace/errata/isdk/index430.htm#rsts">Details</a>]</li>
+      </ul>
+      <ul>
+        <li><b><a href="../devspace/errata/isdk/index430.htm#srcnm">string.replace 
+          crashes or consumes all memory when replacing with null string</a></b>: 
+          When using string.replace() to delete a character from a string, by 
+          replacing it with "", the call may crash or use too much memory. [<a href="../devspace/errata/isdk/index430.htm#srcnm">Details</a>]</li>
+      </ul>
+      <hr>
+      <h3>&nbsp;Errata <a name="j500derrata"></a> </h3>
+      <h4>&nbsp;&nbsp;&nbsp;ISDK/Java 5.00d </h4>
+      <ul>
+        <li><b><a href="../devspace/errata/jisdk/index500.htm#cfrfl">seCreateFiber 
+          reinitializes function libraries</a></b>: seCreateFiber is reinitializing 
+          the function libraries, when they should be shared. [<a href="../devspace/errata/jisdk/index500.htm#cfrfl">Details</a>]</li>
+      </ul>
+      <ul>
+        <li><a href="../devspace/errata/jisdk/index500.htm#eldv"><b>Errors 
+          with extremely large Date values</b></a>: Date values larger than the 
+          maximum allowable to new Date() can cause nearly-infinite loops. [<a href="../devspace/errata/jisdk/index500.htm#eldv">Details</a>]</li>
+      </ul>
+      <ul>
+        <li><a href="../devspace/errata/jisdk/index500.htm#vsgax"><b>virtual-stack 
+          growth if retrieving values after an exception</b></a>: If an exception 
+          is generated during a call to the SE API, items may be left on the script 
+          stack. [<a href="../devspace/errata/jisdk/index500.htm#vsgax">Details</a>]</li>
+      </ul>
+      <ul>
+        <li><a href="../devspace/errata/jisdk/index500.htm#dgnhp"><b>dynamic 
+          get is not being called if SEHasPropCallback not implemented</b></a>: 
+          If an object has dynamic callbacks via seSetCallbacks, but does not 
+          implement a hasProp callback, then the get callback should be called 
+          to determine if the object has the given property. [<a href="../devspace/errata/jisdk/index500.htm#dgnhp">Details</a>]</li>
+      </ul>
+      <ul>
+        <li><a href="../devspace/errata/jisdk/index500.htm#ssres"><b>string.split() 
+          incorrect if regular expression used as separator</b></a>: String.prototype.split(separator) 
+          returns the wrong results when separator is a regular expression and 
+          does not match the first character of the string. [<a href="../devspace/errata/jisdk/index500.htm#ssres">Details</a>]</li>
+      </ul>
+      <ul>
+        <li><a href="../devspace/errata/jisdk/index500.htm#sdisee"><b>seDestroyContext 
+          cannot be called within seEval</b></a>: seDestroyContext was written 
+          with the assumption that no seEvals would be currently executing inside 
+          it when called. This assumption is wrong.. [<a href="../devspace/errata/jisdk/index500.htm#sdisee">Details</a>]</li>
+      </ul>
+      <ul>
+        <li><a href="../devspace/errata/jisdk/index500.htm#cenf"><b>crash 
+          with eval() in nested function</b></a>: Crash in eval() inside nested 
+          function calls. [<a href="../devspace/errata/jisdk/index500.htm#cenf">Details</a>]</li>
+      </ul>
+      <ul>
+        <li><a href="../devspace/errata/jisdk/index500.htm#sicse"><b>STACK_INFO 
+          crashes within nested seEval()</b></a>: Using STACK_INFO within nested 
+          interprets can crash. [<a href="../devspace/errata/jisdk/index500.htm#sicse">Details</a>]</li>
+      </ul>
+      <ul>
+        <li><a href="../devspace/errata/jisdk/index500.htm#stosf"><b>stock 
+          objects passed to seEval with SE.FUNC will not work</b></a>: When calling 
+          seEval() with stock objects and the SE.FUNC flag (e.g. seEval(...,SE.THIS,...,SE.FUNC,...)) 
+          the stock object will not be recognized. [<a href="../devspace/errata/jisdk/index500.htm#stosf">Details</a>]</li>
+      </ul>
+      <ul>
+        <li><a href="../devspace/errata/jisdk/index500.htm#gtyp"><b>assert() 
+          or memory leak from seEval(...SE_FUNC..) if run-time error in script 
+          function</b></a>: When using seEval() to call a function, errors in 
+          the function could trigger assertions. [<a href="../devspace/errata/jisdk/index500.htm#gtyp">Details</a>]</li>
+      </ul>
+      <ul>
+        <li><a href="../devspace/errata/jisdk/index500.htm#ngfnw"><b>SE_NEW_GLOBALS 
+          flag for seEval() doesn't work</b></a>: Specifying a new global in calls 
+          to seEval using the seEval parameters structure can fail to take effect. 
+          [<a href="../devspace/errata/jisdk/index500.htm#ngfnw">Details</a>]</li>
+      </ul>
+      <ul>
+        <li><a href="../devspace/errata/jisdk/index500.htm#fpan"><b>Function.prototype.apply() 
+          not accepting null for thisObj parameter</b></a>: Function.prototype.apply() 
+          should accept null or undefined as the first parameter, using the global 
+          object for these cases. Instead an error message is generated. [<a href="../devspace/errata/jisdk/index500.htm#fpan">Details</a>]</li>
+      </ul>
+      <ul>
+        <li><b><a href="../devspace/errata/jisdk/index500.htm#evfx">seEval(...SE_FUNC...) 
+          does not generate exception if object is not a function</a></b>: Calling 
+          seEval() with a function (the SE.FUNC flag) will return false but will 
+          not generate an exception. [<a href="../devspace/errata/jisdk/index500.htm#evfx">Details</a>]</li>
+      </ul>
+      <p></p>
+      <p></p>
+      <p><a href="../index.htm"><img src="images/footer.jpg" width="640" height="30" border="0" alt="ScriptEase: ISDK is a product of Nombas, Inc. Visit us at ../index.htm"></a></p>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

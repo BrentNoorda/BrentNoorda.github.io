@@ -1,0 +1,35 @@
+<html>
+<head>
+<title>interface: SEGetResourceFunction</title>
+<link rel="stylesheet" href="semanualstyles.css" type="text/css">
+<style type="text/css">
+ p { margin-top: 0; margin-bottom: 0; }
+</style>
+<script language="JavaScript" src="TrueHelp.js"></script>
+</head>
+<body onload="thload()">
+<div id=ienav>
+<ilayer id=nsnav>
+<br>
+<center>
+<p class=normal><a href="seisdkj-toc.htm" target="left">contents</a> &nbsp; <a href="seisdkj-index.htm" target="left">index</a> &nbsp; <a href="TH_75.htm">previous</a> &nbsp; <a href="TH_77.htm">next</a></p>
+</center>
+<br>
+<hr noshade size=1>
+</ilayer>
+</div>
+<p class=heading-3>interface: SEGetResourceFunction</p>
+<p class=heading-3-p>&nbsp;</p>
+<p class=secodelinesindented><span class=secodephrase>public&nbsp;boolean&nbsp;seGetResourceFunc(SEContext&nbsp;se,&nbsp;int&nbsp;id,&nbsp;</span></p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;StringBuffer&nbsp;buf);</p>
+<p class=senormalpara>ScriptEase uses a number of text string resources, which it has internal string values for. You can implement this interface to override those values. This is useful for internalization, to translate the text strings into whatever language is appropriate. The <span class=secodephrase>id</span> parameter indicates which resource ScriptEase is trying to access. You fill in the <span class=secodephrase>buf</span> with the text you'd like to give the resource. </p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>The list of identifier numbers and the English strings corresponding to them can be found in <span class=secodephrase>Include\rsrccore.jh</span> and <span class=secodephrase>Include\rsrclib.jh</span>.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>&nbsp;</p>
+<p class=senormalpara-p>&nbsp;</p>
+<hr noshade size=1>
+<p class=normal><a href="TH_77.htm"><img src="button.png" border=0></a><a href="TH_77.htm" style="text-decoration:none;">interface: SEPrepareContext</a></p>
+<p>
+</body>
+</html>

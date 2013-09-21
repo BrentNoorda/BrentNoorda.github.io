@@ -1,0 +1,48 @@
+<html>
+<head>
+<title>Initialization and Contexts</title>
+<link rel="stylesheet" href="semanualstyles.css" type="text/css">
+<style type="text/css">
+ p { margin-top: 0; margin-bottom: 0; }
+</style>
+<script language="JavaScript" src="TrueHelp.js"></script>
+</head>
+<body onload="thload()">
+<div id=ienav>
+<ilayer id=nsnav>
+<br>
+<center>
+<p class=normal><a href="seisdkj-toc.htm" target="left">contents</a> &nbsp; <a href="seisdkj-index.htm" target="left">index</a> &nbsp; previous &nbsp; <a href="TH_69.htm">next</a></p>
+</center>
+<br>
+<hr noshade size=1>
+</ilayer>
+</div>
+<p class=heading-1>Initialization and Contexts</p>
+<p class=heading-1-p>&nbsp;</p>
+<p class=senormalpara>Initialization is necessary before you can actually perform the tasks related to executing scripts.  The first task is to initialize the engine itself. Your application only does this once when it starts and terminates the engine once when it exits. Even if you are running multiple threads in your application and running many different scripts, you only initialize the engine once.  Here is a code snippet demonstrating initializing and terminating the engine:</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=secodelinesindented>static&nbsp;public&nbsp;final&nbsp;void&nbsp;main(String[]&nbsp;argv)</p>
+<p class=secodelinesindented>{</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;SE.seInitialize();</p>
+<p class=secodelinesindented>&nbsp;</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;/*&nbsp;your&nbsp;application,&nbsp;including&nbsp;scripting.&nbsp;*/</p>
+<p class=secodelinesindented>&nbsp;</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;SE.seTerminate();</p>
+<p class=secodelinesindented>}</p>
+<p class=normal>&nbsp;</p>
+<p class=normal>The two initialization methods (<span class=secodephrase>seInitialize()</span> and <span class=secodephrase>seTerminate()</span>) are static members of the <span class=secodephrase>SE</span> object.  The <span class=secodephrase>SE</span> object contains all the API initialization methods along with all of the constants used by the API.  </p>
+<p class=normal>&nbsp;</p>
+<p class=senormalpara>The other initialization task is to create an <span class=secodephrase>SEContext </span><span class=secodephrase>object</span>. This is a handle that ties all of your scripting together. Each script you wish to run needs a context. It holds the variables, functions, preprocessor defines, and all the other information a script needs.  All of the API calls are methods of the <span class=secodephrase>SEContext</span> object.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>A single context may run more than one script one after the other but not simultaneously. Therefore, if you want to run multiple scripts at once, such as in a multithreaded application, each thread will need its own context. You can create as many contexts as you like. Most applications will create a single context that is used for the life of the application then destroyed.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>When a new context is created, none of the standard function libraries will be available for script in it to call.  You will need to add the desired function libraries using the <span class=secodephrase>SELibraryManager</span> object.  When function libraries are added to the context, the functions contained in the library are added to the global object.  In JavaScript, global variables are just the members of an object, the global object. Any scripts running can see the stock libraries as global variables. This is how a script access stock objects like <span class=secodephrase>eval</span>, <span class=secodephrase>Math</span>, <span class=secodephrase>String</span> and so forth.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>To create a context, you must use the SE.<span class=sepopuptopic><a href="TH_6.htm" onClick="return thwindow('TH_6.htm', 'GenPopup')">seCreateContext</a></span> ScriptEase method. The only required information for all versions is a context parameters object.  The context parameters object implements the <span class=secodephrase>SEContextParams</span> interface and is passed as the first parameter to <span class=secodephrase>seCreateContext</span>.  The newly created context keeps a reference to the parameter object.  The second parameter is a string. If you are using a trial version of the ScriptEase ISDK, you must give your userkey provided to you by Nombas. If you do not do so, the trial version will fail in its construction of a new context and return <span class=secodephrase>null</span>. If you have a purchased version of ScriptEase, this second parameter is ignored.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<hr noshade size=1>
+<p class=normal><a href="TH_69.htm"><img src="button.png" border=0></a><a href="TH_69.htm" style="text-decoration:none;">The ScriptEase Context Parameter Interfaces</a></p>
+<p>
+</body>
+</html>

@@ -1,0 +1,945 @@
+<HTML>
+ <HEAD>
+  
+	<META NAME="VPSiteProject" CONTENT="file:///c|/visualpage/Nombas.vpp"><TITLE>GD - Graphics generation library</TITLE>
+  <META NAME="GENERATOR" CONTENT="MicroVision Development / WebExpress">
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-1754630-10']);
+  _gaq.push(['_trackPageview']);
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+ </HEAD>
+ 
+<BODY BGCOLOR="WHITE" background="../allback.gif">
+<!-- remove this when gdimagefilltoborder is added --> <A NAME="gdimagefilltoborder"></A> 
+<A NAME="gdimagedashedline"></A> <A NAME="gdimagetransparent"></A> 
+<P>
+   <TABLE WIDTH="100%" CELLPADDING="5" CELLSPACING="0" BORDER="0">
+    <TR>
+     <TD COLSPAN="2" VALIGN=TOP>
+      <P>
+       <TABLE WIDTH="75%" CELLPADDING="2" CELLSPACING="0" BORDER="0">
+        <TR>
+         <TD WIDTH="2%" VALIGN=TOP></TD>
+         <TD COLSPAN="3" VALIGN=TOP>
+          <P>
+           <B>The following functions are part of GD.DLL:</B></TD>
+        </TR>
+        <TR>
+         <TD WIDTH="2%" VALIGN=TOP></TD>
+         <TD WIDTH="22%" VALIGN=TOP>
+          <P>
+           Functions dealing with creating and saving images:</TD>
+         <TD WIDTH="22%" VALIGN=TOP>
+          <P>
+           Functions that actually<BR>
+           draw stuff on the image:</TD>
+         <TD WIDTH="22%" VALIGN=TOP>
+          <P>
+           Functions used to access information about the image (or parts of it):</TD>
+        </TR>
+        <TR>
+         <TD WIDTH="2%" VALIGN=TOP></TD>
+         <TD WIDTH="22%" VALIGN=TOP>
+          <P>
+           <A HREF="#gdimagecopy">gdImageCopy</A><BR>
+           <A HREF="#gdimagecopyresized">gdImageCopyResized</A><BR>
+           <A HREF="#gdimagecreate">gdImageCreate</A><BR>
+           <A HREF="#gdimagecreatefromgd">gdImageCreateFromGd</A><BR>
+           <A HREF="#gdimagecreatefromgif">gdImageCreateFromGif</A><BR>
+           <A HREF="#gdimagecreatefromxbm">gdImageCreateFromXbm</A><BR>
+           <A HREF="#gdimagedestroy">gdImageDestroy</A><BR>
+           <A HREF="#gdimagegif">gdImageGif</A><BR>
+           <A HREF="#gdimagegd">gdImageGd</A><BR>
+           <A HREF="#gdimageinterlace">gdImageInterlace</A></TD>
+         <TD WIDTH="22%" VALIGN=TOP>
+          <P>
+           <A HREF="#gdimagefilledrectangle">gdImageFilledRectangle</A><BR>
+           <A HREF="#gdimagepolygon">gdImagePolygon</A><BR>
+           <A HREF="#gdimagefilledpolygon">gdImageFilledPolygon</A><BR>
+           <A HREF="#gdimagearc">gdImageArc</A><BR>
+           <A HREF="#gdimagerectangle">gdImageRectangle</A><BR>
+           <A HREF="#gdimageline">gdImageLine</A><BR>
+           <A HREF="#gdimagefill">gdImageFill</A><BR>
+           <A HREF="#gdimagefilltoborder">gdImageFillToBorder</A></TD>
+         <TD WIDTH="22%" VALIGN=TOP>
+          <P>
+           <A HREF="#gdimagegreen">gdImageGreen</A><BR>
+           <A HREF="#gdimagered">gdImageRed</A><BR>
+           <A HREF="#gdimagesx">gdImageSX</A><BR>
+           <A HREF="#gdimagesy">gdImageSY</A><BR>
+           <A HREF="#gdimagegetpixel">gdImageGetPixel</A><BR>
+           <A HREF="#gdimageblue">gdImageBlue</A><BR>
+           <A HREF="#gdimagegetinterlaced">gdImageGetInterlaced</A><BR>
+           <A HREF="#gdimagegettransparent">gdImageGetTransparent</A><BR>
+           <A HREF="#gdimageboundssafe">gdImageBoundsSafe</A></TD>
+        </TR>
+        <TR>
+         <TD WIDTH="2%" VALIGN=TOP></TD>
+         <TD WIDTH="22%" VALIGN=TOP>
+          <P>
+           Functions used to set attributes:</TD>
+         <TD WIDTH="22%" VALIGN=TOP>
+          <P>
+           Functions used to write <BR>
+           text to images:</TD>
+         <TD WIDTH="22%" VALIGN=TOP>
+          <P>
+           Functions used to access or modify the color palette</TD>
+        </TR>
+        <TR>
+         <TD WIDTH="2%" VALIGN=TOP></TD>
+         <TD WIDTH="22%" VALIGN=TOP>
+          <P>
+           <A HREF="#gdimagesetbrush">gdImageSetBrush</A><BR>
+           <A HREF="#gdimagesetpixel">gdImageSetPixel</A><BR>
+           <A HREF="#gdimagesetstyle">gdImageSetStyle</A><BR>
+           <A HREF="#gdimagesettile">gdImageSetTile</A></TD>
+         <TD WIDTH="22%" VALIGN=TOP>
+          <P>
+           <A HREF="#gdimagestring">gdImageString</A><BR>
+           <A HREF="#gdimagestringup">gdImageStringUp</A><BR>
+           <A HREF="#gdimagechar">gdImageChar</A><BR>
+           <A HREF="#gdimagecharup">gdImageCharUp</A></TD>
+         <TD WIDTH="22%" VALIGN=TOP>
+          <P>
+           <A HREF="#gdimagecolorallocate">gdImageColorAllocate</A><BR>
+           <A HREF="#gdimagecolorclosest">gdImageColorClosest</A><BR>
+           <A HREF="#gdimagecolordeallocate">gdImageColorDeallocate</A><BR>
+           <A HREF="#gdimagecolorexact">gdImageColorExact</A><BR>
+           <A HREF="#gdimagecolortransparent">gdImageColorTransparent</A></TD>
+        </TR>
+       </TABLE><p></P>
+      <P>
+       <B><FONT FACE="arial,helvetica,monaco"><A NAME="gdimagearc">gdImageArc</a>(imgHnd,
+        cx, cy, width, height, start, end, color)</FONT></B></TD>
+    </TR>
+    <TR>
+     <TD WIDTH="15" VALIGN=TOP></TD>
+     <TD WIDTH="96%" VALIGN=TOP>
+      <P>
+       gdImageArc draws a partial ellipse centered at the given point, with 
+       the specified width and height in pixels. The arc begins at the 
+       position in degrees specified by <I>s</I> and ends at the position 
+       specified by <I>e</I>. The arc is drawn in the color specified by the 
+       last argument. A circle can be drawn by beginning from 0 degrees and 
+       ending at 360 degrees, with width and height being equal. e must be 
+       greater than s. Values greater than 360 are interpreted modulo 360. 
+       The following code draws an ellipse on the screen.</P><PRE>     ... inside a function ...<BR>     im = gdImageCreate(100, 50);<BR>     /* Background color (first allocated) */<BR>     black = gdImageColorAllocate(im, 0, 0, 0);<BR>     /* Allocate the color white (red, green and blue all<BR>        maximum). */<BR>     white = gdImageColorAllocate(im, 255, 255, 255);<BR>     /* Inscribe an ellipse in the image. */<BR>     gdImageArc(im, 50, 25, 98, 48, 0, 360, white);<BR>     /* ...Do something with the image,... */<BR>     /* Destroy it */<BR>     gdImageDestroy(im);</pre></TD></TR>
+    <TR>
+     <TD COLSPAN="2" VALIGN=TOP>
+      <P>
+       <FONT FACE="arial,helvetica,monaco"><B><A NAME="gdimagefill">gdImageFill</A>(imgHnd,
+        x, y, color)</B></FONT></TD>
+    </TR>
+    <TR>
+     <TD WIDTH="15" VALIGN=TOP></TD>
+     <TD WIDTH="96%" VALIGN=TOP>
+      <P>
+       This function changes the color of an area. The pixel at <B>x</B>, <B>y</B> 
+       and all congruent pixels of the same color will be set to the color 
+       specified by <B>color</B>. For a way of flooding a region defined by 
+       a specific border color rather than by its interior color, see <A HREF="#gdimagefilltoborder">gdImageFillToBorder</A>.</P>
+      <P>
+       The fill color can be <A HREF="#gdtiled">gdTiled</A>, resulting in a 
+       tile fill using another image as the tile. However, the tile image 
+       cannot be transparent. If the image you wish to fill with has a 
+       transparent color index, call <A HREF="#gdimagetransparent">gdImageTransparent</A> 
+       on the tile image and set the transparent color index to -1 to turn 
+       off its transparency.</P>
+      <P>
+       Note that gdImageFill is recursive. It is not the most na&iuml;ve 
+       implementation possible, and the implementation is expected to 
+       improve, but there will always be degenerate cases in which the stack 
+       can become very deep. This can be a problem in MSDOS and MS Windows 
+       environments. (Of course, in a UNIX or NT environment with a proper 
+       stack, this is not a problem at all.)</TD>
+    </TR>
+    <TR>
+     <TD COLSPAN="2" VALIGN=TOP>
+      <P>
+       <B><FONT FACE="arial,helvetica,monaco"><FONT SIZE="3"><A NAME="gdimagefilledrectangle">gdImageFilledRectangle</A></FONT>(imgHnd,
+        x1, y1, x2, y2, color)</FONT></B></TD>
+    </TR>
+    <TR>
+     <TD WIDTH="14" VALIGN=TOP></TD>
+     <TD WIDTH="96%" VALIGN=TOP>
+      <P>
+       gdImageFilledRectangle() draws a solid rectangle with the upper left (<B>x1</B>,<B>y1</B>)
+        and lower right corners (<B>x2</B>, <B>y2</B>) specified, in the 
+       specified <B>color</B>.</P><PRE>     ... inside a function ...<BR>     im = gdImageCreate(100, 100);<BR>     /* Background color (first allocated) */<BR>     black = gdImageColorAllocate(im, 0, 0, 0);<BR>     /* Allocate the color white (red, green and blue all maximum). */<BR>     white = gdImageColorAllocate(im, 255, 255, 255);<BR>     /* Draw a filled rectangle occupying the central area. */<BR>     gdImageFilledRectangle(im, 25, 25, 74, 74, white);<BR>     /* ... Do something with the image, such as saving it to a file... */<BR>     /* Destroy it */<BR>     gdImageDestroy(im);</pre></TD></TR>
+    <TR>
+     <TD COLSPAN="2" VALIGN=TOP>
+      <P>
+       <FONT FACE="arial,helvetica,monaco"><B><A NAME="gdimagefilledpolygon">gdImageFilledPolygon</A>(gdImageHnd,
+        gdPointPtr points, int pointsTotal, int color)</B></FONT></TD>
+    </TR>
+    <TR>
+     <TD WIDTH="15" VALIGN=TOP></TD>
+     <TD WIDTH="96%" VALIGN=TOP>
+      <P>
+       gdImageFilledPolygon() fills a polygon defined by the points 
+       specified by the variable points. The polygon must have at least 
+       three points. It will be filled with the color specified by index. 
+       See also <A HREF="#gdimagepolygon">gdImagePolygon</A>.</TD>
+    </TR>
+    <TR>
+     <TD WIDTH="15" VALIGN=TOP></TD>
+     <TD WIDTH="96%" VALIGN=TOP>
+      <P>
+       ... inside a function ...</P><PRE>     imgHnd = gdImageCreate(100, 100);</PRE><PRE>     Background color (first allocated) */<BR>     black = gdImageColorAllocate(imgHnd, 0, 0, 0);<BR>       /* Allocate the color white (red, green and blue all maximum). */<BR>     white = gdImageColorAllocate(imgHnd, 255, 255, 255);<BR>       /* Allocate the color red. */<BR>     red = gdImageColorAllocate(imgHnd, 255, 0, 0);<BR><BR>       /* Draw a triangle. */<BR>     points[0].x = 50;<BR>     points[0].y = 0;<BR>     points[1].x = 99;<BR>     points[1].y = 99;<BR>     points[2].x = 0;<BR>     points[2].y = 99;</PRE><PRE>       /* Paint it in white */<BR>     gdImageFilledPolygon(imgHnd, points, 3, white);<BR>       /* Outline it in red; must be done second */<BR>     gdImagePolygon(imgHnd, points, 3, red);<BR>       /* ... Do something with the image... */<BR>       /* Destroy it */<BR>gdImageDestroy(im);</pre></TD></TR>
+    <TR>
+     <TD COLSPAN="2" VALIGN=TOP>
+      <P>
+       <FONT FACE="arial,helvetica,monaco"><B>gdImageLine<A NAME="gdimageline"></A>(imgHnd,
+        x1, y1, x2, y2, color)</B></FONT></TD>
+    </TR>
+    <TR>
+     <TD WIDTH="15" VALIGN=TOP></TD>
+     <TD WIDTH="96%" VALIGN=TOP>
+      <P>
+       gdImageLine is used to draws a line between <B>x1</B>,<B>y1</B> and <B>x2</B>,
+        <B>y2</B>.The line is drawn using the color index specified. Note 
+       that color index can be a color returned by <A HREF="#gdimagecolorallocate">gdImageColorAllocate</A> 
+       or one of <A HREF="#gdstyled">gdStyled</A>, <A HREF="#gdbrushed">gdBrushed</A> 
+       or <A HREF="#gdstyledbrushed">gdStyledBrushed</A>.</P><PRE>     im = gdImageCreate(100, 100);<BR>       /* Background color (first allocated) */<BR>     black = gdImageColorAllocate(im, 0, 0, 0);<BR>       /* Allocate the color white (red, green and blue all<BR>          maximum). */<BR>     white = gdImageColorAllocate(im, 255, 255, 255);<BR>       /* Draw a line from the upper left corner to the lower<BR>          right corner. */<BR>     gdImageLine(im, 0, 0, 99, 99, white);<BR>       /* ... Do something with the image, such as saving it to<BR>          a file... */<BR>       /* Destroy it */<BR>     gdImageDestroy(im);</pre></TD></TR>
+    <TR>
+     <TD COLSPAN="2" VALIGN=TOP>
+      <P>
+       <FONT FACE="arial,helvetica,monaco"><B>gdImagePolygon<A NAME="gdimagepolygon"></A>(gdImageHndl
+        im, gdPointPtr points, int pointsTotal, int colorIndex)</B></FONT></TD>
+    </TR>
+    <TR>
+     <TD WIDTH="15" VALIGN=TOP></TD>
+     <TD WIDTH="96%" VALIGN=TOP>
+      <P>
+       gdImagePolygon draws a polygon with the vertices specified by <B>points</B>,
+        in the color specified by <B>colorIndex</B>. There must be at least 
+       three points. See also <A HREF="#gdimagefilledpolygon">gdImageFilledPolygon</A>.</P><PRE>    imgHnd = gdImageCreate(100, 100);<BR>       /* Background color (first allocated) */<BR>     black = gdImageColorAllocate(imgHnd, 0, 0, 0);<BR>       /* Allocate the color white (red, green and blue all<BR>          maximum). */<BR>     white = gdImageColorAllocate(imgHnd, 255, 255, 255);<BR>       /* Draw a triangle. */<BR>     points[0].x = 50;<BR>     points[0].y = 0;<BR>     points[1].x = 99;<BR>     points[1].y = 99;<BR>     points[2].x = 0;<BR>     points[2].y = 99;<BR>     gdImagePolygon(im, points, 3, white);<BR>       /* ... Do something with the image, such as saving it to<BR>          a file... */<BR>       /* Destroy it */<BR>     gdImageDestroy(im);</pre></TD></TR>
+    <TR>
+     <TD COLSPAN="2" VALIGN=TOP>
+      <P>
+       <FONT FACE="arial,helvetica,monaco"><B>gdImageRectangle<A NAME="gdimagerectangle"></A>(</B></FONT><B><FONT FACE="arial,helvetica,monaco&gt;&lt;A NAME=">imgHnd</FONT></B><FONT FACE="arial,helvetica,monaco&gt;&lt;A NAME="><B>,
+        x1, y1, x2, y2, color)</B></FONT></TD>
+    </TR>
+    <TR>
+     <TD WIDTH="15" VALIGN=TOP></TD>
+     <TD WIDTH="96%" VALIGN=TOP>
+      <P>
+       gdImageRectangle draws a rectangle with the upper left (<B>x1</B>, <B>y1</B>)
+        then lower right (<B>y1</B>,<B>y2</B>) corners specified, using the 
+       color index specified.</P><PRE>     im = gdImageCreate(100, 100);<BR>       /* Background color (first allocated) */<BR>     black = gdImageColorAllocate(im, 0, 0, 0);<BR>       /* Allocate the color white (red, green and blue all maximum). */<BR>     white = gdImageColorAllocate(im, 255, 255, 255);<BR>       /* Draw a rectangle occupying the central area. */<BR>     gdImageRectangle(im, 25, 25, 74, 74, white);<BR>       /* ... Do something with the image, such as saving it to a file... */<BR>       /* Destroy it */<BR>     gdImageDestroy(im);     </pre></TD></TR>
+    <TR>
+     <TD COLSPAN="2" VALIGN=TOP>
+      <P>
+       <FONT FACE="ARIAL"><B>gdImageCopy<A NAME="gdimagecopy"></A>(destImgHnd,
+        src</B></FONT><B><FONT FACE="ARIAL">i</FONT></B><FONT FACE="ARIAL"><B>mgHnd,
+        d</B></FONT><B><FONT FACE="ARIAL">x</FONT></B><FONT FACE="ARIAL"><B>,
+        d</B></FONT><B><FONT FACE="ARIAL">y</FONT></B><FONT FACE="ARIAL"><B>,
+        s</B></FONT><B><FONT FACE="ARIAL">x</FONT></B><FONT FACE="ARIAL"><B>,
+        s</B></FONT><B><FONT FACE="ARIAL">y</FONT></B><FONT FACE="ARIAL"><B>,
+        width, height)</B></FONT></TD>
+    </TR>
+    <TR>
+     <TD WIDTH="15" VALIGN=TOP></TD>
+     <TD WIDTH="96%" VALIGN=TOP>
+      <P>
+       gdImageCopy copies a rectangular portion of srcimgHnd to destimgHng. 
+       (For a way of stretching or shrinking the image in the process, see <A HREF="#gdimagecopyresized">gdImageCopyResized</A>.)</P>
+      <P>
+       The <B>dx</B> and <B>dy</B> arguments specifies the upper left hand 
+       corner point in the destination image to which the region will be 
+       copied. The <B>sx</B> and <B>sy</B> arguments specify the upper left 
+       corner of the region in the source image. <B>width</B> and <B>height</B> 
+       specify the width and height of the region.</P>
+      <P>
+       When you copy a region from one location in an image to another 
+       location in the same image, gdImageCopy will perform as expected 
+       unless the regions overlap, in which case the result is unpredictable.</P>
+      <P>
+       Important note on copying between images: since different images do 
+       not necessarily have the same color tables, pixels are not simply set 
+       to the same color index values to copy them.</P>
+      <P>
+       gdImageCopy will attempt to find an identical RGB value in the 
+       destination image for each pixel in the copied portion of the source 
+       image by invoking <A HREF="#gdimagecolorexact">gdImageColorExact</A>. 
+       If such a value is not found, gdImageCopy will attempt to allocate 
+       colors as needed using <A HREF="#gdimagecolorallocate">gdImageColorAllocate</A>.
+        If both of these methods fail, gdImageCopy will invoke <A HREF="#gdimagecolorclosest">gdImageColorClosest</A> 
+       to find the color in the destination image which most closely 
+       approximates the color of the pixel being copied. The example above 
+       takes a small gif file, and creates a larger one with the smaller 
+       image tiled on the background.</P><PRE>       /* Load a small gif to tile the larger one with */<BR>     in = fopen(&quot;small.gif&quot;, &quot;rb&quot;);<BR>     im_in = gdImageCreateFromGif(&quot;small.gif&quot;);<BR>       /* Make the output image four times as large on both<BR>          axes */<BR>     im_out = gdImageCreate(im_in-&gt;sx * 4, im_in-&gt;sy * 4);<BR>       /* Now tile the larger image using the smaller one */<BR>     for (y = 0; (y < 4); y++) { for (x="0;" (x>< 4); x++) { gdImageCopy(im_out, im_in, x * im_in->sx, y * im_in-&gt;sy, 0, 0,<BR>                     im_in-&gt;sx, im_in-&gt;sy);<BR>       }<BR>     }<BR>     gdImageGif(im_out, &quot;tiled.gif&quot;);<BR>     gdImageDestroy(im_in);<BR>     gdImageDestroy(im_out);    </pre></TD></TR>
+    <TR>
+     <TD COLSPAN="2" VALIGN=TOP>
+      <P>
+       <FONT FACE="arial,helvetica,monaco"><B>gdImageCopyResized<A NAME="gdimagecopyresized"></A>(</B></FONT><B><FONT FACE="arial,helvetica,monaco&gt;&lt;A NAME=">destImg</FONT></B><FONT FACE="arial,helvetica,monaco&gt;&lt;A NAME="><B>,
+        </B></FONT><B><FONT FACE="arial,helvetica,monaco&gt;&lt;A NAME=">srcImg</FONT></B><FONT FACE="arial,helvetica,monaco&gt;&lt;A NAME="><B>,
+        dX, dY, sX, sY, dW, dH, sW, sH)</B></FONT></TD>
+    </TR>
+    <TR>
+     <TD WIDTH="15" VALIGN=TOP></TD>
+     <TD WIDTH="96%" VALIGN=TOP>
+      <P>
+       gdImageCopyResized copies a rectangular portion of <B>srcImg</B> to <B>destImg</B>.
+        <B>dx</B> and <B>dy</B> are the coordinates the upper left hand 
+       corner of the area being copied, and <B>sx</B> and <B>sy</B> are the 
+       coordinates the upper left hand corner of the region where the image 
+       is beng copied. The X and Y dimensions of the original region and the 
+       destination region can vary, resulting in stretching or shrinking of 
+       the region as appropriate. <B>sw</B> and <B>sh</B> are the width and 
+       height of the source image, and <B>dw</B> and <B>dh</B> are the width 
+       and height of the destination image.(For a simpler version of this 
+       function which does not deal with resizing, see <A HREF="#gdimagecopy">gdImageCopy</A>).
+        dw and dh do not have to be equal to sw and sh, allowing a region to 
+       be scaled during the copying process.</P>
+      <P>
+       When you copy a region from one location in an image to 
+       anotherlocation in the same image, gdImageCopy will perform 
+       asexpected unless the regions overlap, in which case the result 
+       isunpredictable. If this presents a problem, create a scratch image 
+       inwhich to keep intermediate results.</P>
+      <P>
+       Important note on copying between images: since images do not 
+       necessarily have the same color tables, pixels are not simply set to 
+       the same color index values to copy them. gdImageCopyResized will 
+       attempt to find an identical RGB value in the destination image 
+       foreach pixel in the copied portion of the source image by invoking <A HREF="#gdimagecolorexact">gdImageColorExact</A>.
+        If such a value is not found, gdImageCopyResized will attempt to 
+       allocate colors as needed using <A HREF="#gdimagecolorallocate">gdImageColorAllocate</A>.
+        If both of these methods fail, gdImageCopyResized will invoke <A HREF="#gdimagecolorclosest">gdImageColorClosest</A> 
+       to find the colorin the destination image which most closely 
+       approximates the colorof the pixel being copied.</P><PRE>     /* Load a small gif to expand in the larger one */<BR>     im_in = gdImageCreateFromGif(&quot;small.gif&quot;);<BR>     fclose(in);<BR>     /* Make the output image four times as large on both<BR>        axes */<BR>     im_out = gdImageCreate(im_in-&gt;sx * 4, im_in-&gt;sy * 4);<BR>     /* Now copy the smaller image, but four times larger */<BR>     gdImageCopyResized(im_out, im_in, 0, 0, 0, 0,<BR>                        im_out-&gt;sx, im_out-&gt;sy,<BR>                        im_in-&gt;sx, im_in-&gt;sy);<BR>     gdImageGif(im_out, &quot;large.gif&quot;);<BR>     gdImageDestroy(im_in);<BR>     gdImageDestroy(im_out);</pre></TD></TR>
+    <TR>
+     <TD COLSPAN="2" VALIGN=TOP>
+      <P>
+       <FONT FACE="ARIAL"><B>gdImageCreate<A NAME="gdimagecreate"></A>(sx, sy)</B></FONT></TD>
+    </TR>
+    <TR>
+     <TD WIDTH="15" VALIGN=TOP></TD>
+     <TD WIDTH="96%" VALIGN=TOP>
+      <P>
+       gdImageCreate creates an image that is <B>x</B> by <B>y</B> pixels. 
+       The image must eventually be destroyed with gdImageDestroy().</P><PRE>       im = gdImageCreate(64, 64);<BR>     /* ... Use the image ... */<BR>       gdImageDestroy(im);</pre></TD></TR>
+    <TR>
+     <TD COLSPAN="2" VALIGN=TOP>
+      <P>
+       <FONT FACE="arial,helvetica,monaco&gt;&lt;A NAME="><B>gdImageCreateFromGd<A NAME="gdimagecreatefromgd"></A>(filename)</B></FONT></TD>
+    </TR>
+    <TR>
+     <TD WIDTH="15" VALIGN=TOP></TD>
+     <TD WIDTH="96%" VALIGN=TOP>
+      <P>
+       gdImageCreateFromGd() opens the file filename, which must be saved in 
+       gd format.You can inspect the sx and sy members of the image to 
+       determine its size. The image must eventually be destroyed with <A HREF="#gdimagedestroy">gdImageDestroy</A>().</P><PRE>     gdImageHndl im;<BR><BR>     fp = Clib.fopen(&quot;mygd.gd&quot;, &quot;rb&quot;);<BR>     im = gdImageCreateFromGd(fp);<BR>     fclose(fp);<BR>     /* ... Use the image ... */<BR>     gdImageDestroy(im);</pre></TD></TR>
+    <TR>
+     <TD COLSPAN="2" VALIGN=TOP>
+      <P>
+       <FONT FACE="arial,helvetica,monaco&gt;&lt;A NAME="><B>gdImageCreateFromGif<A NAME="gdimagecreatefromgif"></A>(filename)</B></FONT></TD>
+    </TR>
+    <TR>
+     <TD WIDTH="15" VALIGN=TOP></TD>
+     <TD WIDTH="96%" VALIGN=TOP>
+      <P>
+       gdImageCreateFromGif() loads the .gif file specified by <B>filename </B>for
+        editing. It returns a handle to the file being opened, or NULL if it 
+       was unable to load the file (most likely because the file is corrupt 
+       or is not a valid .gif file). The image must eventually be destroyed 
+       with gdImageDestroy.</P><PRE>     fp = Clib.fopen(&quot;mygd.gd&quot;, &quot;rb&quot;);<BR>     im = gdImageCreateFromGif(fp);<BR>     fclose(fp);<BR>     /* ... Use the image ... */<BR>     gdImageDestroy(im);</pre></TD></TR>
+    <TR>
+     <TD COLSPAN="2" VALIGN=TOP>
+      <P>
+       <FONT FACE="arial,helvetica,monaco"><B>gdImageCreateFromXbm<A NAME="gdimagecreatefromxbm"></A>(filename)</B></FONT></TD>
+    </TR>
+    <TR>
+     <TD WIDTH="15" VALIGN=TOP></TD>
+     <TD WIDTH="96%" VALIGN=TOP>
+      <P>
+       gdImageCreateFromXbm() loads images from X bitmap format files.</P><PRE>     imgHnd = gdImageCreateFromXbm(&quot;myxbm.xbm&quot;);<BR>       /* ...use the image... */<BR>     gdImageDestroy(imgHnd);</pre></TD></TR>
+    <TR>
+     <TD COLSPAN="2" VALIGN=TOP>
+      <P>
+       <FONT FACE="ARIAL"><B>gdImageDestroy<A NAME="gdimagedestroy"></A>(</B></FONT><B><FONT FACE="ARIAL">imgHnd</FONT></B><FONT FACE="ARIAL"><B>)</B></FONT></TD>
+    </TR>
+    <TR>
+     <TD WIDTH="15" VALIGN=TOP></TD>
+     <TD WIDTH="96%" VALIGN=TOP>
+      <P>
+       gdImageDestroy() frees the memory allocated for the image. You must 
+       destroy all images created during your scripting session.</P><PRE>     gdImageHndl im;<BR>     im = gdImageCreate(10, 10);<BR>     /* ... Use the image ... */<BR>     /* Now destroy it */<BR>     gdImageDestroy(im);       </pre></TD></TR>
+    <TR>
+     <TD COLSPAN="2" VALIGN=TOP>
+      <P>
+       <FONT FACE="arial,helvetica,monaco&gt;&lt;A NAME="><B>gdImageGd<A NAME="gdimagegd"></A>(gdImageHndl
+        im, string filename)</B></FONT></TD>
+    </TR>
+    <TR>
+     <TD WIDTH="15" VALIGN=TOP></TD>
+     <TD VALIGN=TOP>
+      <P>
+       gdImageGd() saves the image specified by <B>imgHnd</B> as the file <B>filename</B> 
+       in GD format. GD format is used by this library to quickly open and 
+       close images.</P><PRE>       /* Create the image */<BR>     im = gdImageCreate(100, 100);<BR>       /* Allocate background */<BR>     white = gdImageColorAllocate(im, 255, 255, 255);<BR>       /* Allocate drawing color */<BR>     black = gdImageColorAllocate(im, 0, 0, 0);<BR>       /* Draw rectangle */<BR>     gdImageRectangle(im, 0, 0, 99, 99, black);<BR>       /* Write gd format file */<BR>     gdImageGd(im, &quot;rect.gd&quot;);<BR>       /* Destroy image */<BR>     gdImageDestroy(im);</pre></TD></TR>
+    <TR>
+     <TD COLSPAN="2" VALIGN=TOP>
+      <P>
+       <FONT FACE="ARIAL"><B>gdImageGif<A NAME="gdimagegif"></A>(</B></FONT><B><FONT FACE="ARIAL">img</FONT></B><FONT FACE="ARIAL"><B>Hnd
+        , filename)</B></FONT></TD>
+    </TR>
+    <TR>
+     <TD WIDTH="15" VALIGN=TOP></TD>
+     <TD WIDTH="96%" VALIGN=TOP>
+      <P>
+       gdImageGif() saves the image specified by <B>imgHnd</B> as the file <B>filename</B> 
+       in GIF format.</P><PRE>     /* Create the image */<BR>     im = gdImageCreate(100, 100);<BR>     /* Allocate background */<BR>     white = gdImageColorAllocate(im, 255, 255, 255);<BR>     /* Allocate drawing color */<BR>     black = gdImageColorAllocate(im, 0, 0, 0);<BR>     /* Draw rectangle */<BR>     gdImageRectangle(im, 0, 0, 99, 99, black);<BR>     /* Write GIF */<BR>     gdImageGif(im, &quot;rect.gif&quot;);<BR>     /* Destroy image */<BR>     gdImageDestroy(im);</pre></TD></TR>
+    <TR>
+     <TD COLSPAN="2" VALIGN=TOP>
+      <P>
+       <FONT FACE="arial,helvetica,monaco"><B>gdImageInterlace<A NAME="gdimageinterlace"></A>(imgHnd,
+        interlace)</B></FONT></TD>
+    </TR>
+    <TR>
+     <TD WIDTH="15" VALIGN=TOP></TD>
+     <TD WIDTH="96%" VALIGN=TOP>
+      <P>
+       gdImageInterlace is used to determine whether an image should be 
+       stored in a linear fashion, in which lines will appear on the display 
+       from first to last, or in an interlaced fashion, in which the image 
+       will &quot;fade in&quot; over several passes. Passing a non-zero 
+       value sets interlace to ON; a zero value turns it off. Note that only 
+       .gif images support interlace; if the file is saved in other formats 
+       this information will be lost.</P>
+      <P>
+       By default, images are not interlaced. Images loaded with <A HREF="#gdimagegif">gdImageGif</A>()
+        will have the interlace value set in the GIF file.</P><PRE>     /* ... Create or load the image... */<BR>     /* Now turn on interlace */<BR>     gdImageInterlace(im, 1);<BR>     /* And save the image */<BR>     gdImageGif(im, &quot;test.gif&quot;);<BR>     gdImageDestroy(im);   </pre></TD></TR>
+    <TR>
+     <TD COLSPAN="2" VALIGN=TOP>
+      <P>
+       <FONT FACE="arial,helvetica,monaco"><B>gdImageBlue<A NAME="gdimageblue"></A>(</B></FONT><B><FONT FACE="arial,helvetica,monaco">imgHnd</FONT></B><FONT FACE="arial,helvetica,monaco"><B>,
+        colorIndex)</B></FONT></TD>
+    </TR>
+    <TR>
+     <TD WIDTH="15" VALIGN=TOP></TD>
+     <TD WIDTH="96%" VALIGN=TOP>
+      <P>
+       gdImageBlue returns the blue component of the specified color index. 
+       Use this macro rather than accessing the image directly.</TD>
+    </TR>
+    <TR>
+     <TD COLSPAN="2" VALIGN=TOP>
+      <P>
+       <FONT FACE="arial,helvetica,monaco"><B>gdImageBoundsSafe<A NAME="gdimageboundssafe"></A>(imgHnd,
+        x, y)</B></FONT></TD>
+    </TR>
+    <TR>
+     <TD WIDTH="15" VALIGN=TOP></TD>
+     <TD WIDTH="96%" VALIGN=TOP>
+      <P>
+       gdImageBoundsSafe() returns true if the point <B>x</B>,<B>y</B> is 
+       within the bounds of the image specified by <B>imgHnd</B>; otherwise 
+       it returns false if it is not. This function is intended primarily 
+       for those who wish to add their own functions to the library; all of 
+       the functions in this document clip safely to the image.</P><PRE>     im = gdImageCreate(100, 100);<BR>     if (gdImageBoundsSafe(im, 50, 50)) {<BR>       printf(&quot;50, 50 is within the image bounds\n&quot;);<BR>     } else {<BR>       printf(&quot;50, 50 is outside the image bounds\n&quot;);<BR>     }       </pre></TD></TR>
+    <TR>
+     <TD COLSPAN="2" VALIGN=TOP>
+      <P>
+       <FONT FACE="arial,helvetica,monaco"><B>gdImageGetInterlaced<A NAME="gdimagegetinterlaced"></A>(imgHnd)</B></FONT></TD>
+    </TR>
+    <TR>
+     <TD WIDTH="15" VALIGN=TOP></TD>
+     <TD WIDTH="96%" VALIGN=TOP>
+      <P>
+       This function returns true if the image specified by <B>imgHnd</B> is 
+       interlaced, and false if it is not. The interlaced format only 
+       applies to .gif images. See <A HREF="#gdimageinterlace">gdImageInterlace</A> 
+       for a means of interlacing images.</TD>
+    </TR>
+    <TR>
+     <TD COLSPAN="2" VALIGN=TOP>
+      <P>
+       <FONT FACE="arial,helvetica,monaco"><B>gdImageGet</B></FONT><B><FONT FACE="arial,helvetica,monaco">Pixel</FONT></B><FONT FACE="arial,helvetica,monaco"><B><A NAME="gdimagegetpixel"></A>(imgHnd,
+        x, y)</B></FONT></TD>
+    </TR>
+    <TR>
+     <TD WIDTH="15" VALIGN=TOP></TD>
+     <TD VALIGN=TOP>
+      <P>
+       gdImageGetPixel() retrieves the color index of the pixel at the 
+       coordinates <B>x</B>,<B>y</B>.</TD>
+    </TR>
+    <TR>
+     <TD COLSPAN="2" VALIGN=TOP>
+      <P>
+       <FONT FACE="arial,helvetica,monaco"><B>gdImageGetTransparent<A NAME="gdimagegettransparent"></A>(imgHnd)</B></FONT></TD>
+    </TR>
+    <TR>
+     <TD WIDTH="15" VALIGN=TOP></TD>
+     <TD WIDTH="96%" VALIGN=TOP>
+      <P>
+       This function returns the color index of the trasparent color in the 
+       image specified by <B>imgHnd</B>, or -1 if there is no transparent color.</TD>
+    </TR>
+    <TR>
+     <TD COLSPAN="2" VALIGN=TOP>
+      <P>
+       <FONT FACE="arial,helvetica,monaco"><B>gdImageGreen<A NAME="gdimagegreen"></A>(imgHnd,
+        colorIndex)</B></FONT></TD>
+    </TR>
+    <TR>
+     <TD WIDTH="15" VALIGN=TOP></TD>
+     <TD WIDTH="96%" VALIGN=TOP>
+      <P>
+       gdImageGreen() returns the green component of the specified color 
+       index. Use this macro rather than accessing the image directly.</TD>
+    </TR>
+    <TR>
+     <TD COLSPAN="2" VALIGN=TOP>
+      <P>
+       <FONT FACE="arial,helvetica,monaco"><B>gdImage</B></FONT><B><FONT FACE="arial,helvetica,monaco">Red</FONT></B><FONT FACE="arial,helvetica,monaco"><B><A NAME="gdimagered"></A>(imgHnd,
+        colorIndex)</B></FONT></TD>
+    </TR>
+    <TR>
+     <TD WIDTH="15" VALIGN=TOP></TD>
+     <TD WIDTH="96%" VALIGN=TOP>
+      <P>
+       gdImageRed() returns the red component of the specified color index. 
+       Use this macro rather than accessing the image directly.</TD>
+    </TR>
+    <TR>
+     <TD COLSPAN="2" VALIGN=TOP>
+      <P>
+       <FONT FACE="arial,helvetica,monaco"><B>gdImage</B></FONT><B><FONT FACE="arial,helvetica,monaco">SX</FONT></B><FONT FACE="arial,helvetica,monaco"><B><A NAME="gdimagesx"></A>(imgHnd,
+        colorIndex)</B></FONT></TD>
+    </TR>
+    <TR>
+     <TD WIDTH="15" VALIGN=TOP></TD>
+     <TD WIDTH="96%" VALIGN=TOP>
+      <P>
+       gdImageSX() returns the width of the image of the specified specified 
+       by <B>imgHnd</B>. Use this macro rather than accessing the image directly.</TD>
+    </TR>
+    <TR>
+     <TD COLSPAN="2" VALIGN=TOP>
+      <P>
+       <FONT FACE="arial,helvetica,monaco"><B>gdImage</B></FONT><B><FONT FACE="arial,helvetica,monaco">SY</FONT></B><FONT FACE="arial,helvetica,monaco"><B><A NAME="gdimagesy"></A>(imgHnd,
+        colorIndex)</B></FONT></TD>
+    </TR>
+    <TR>
+     <TD WIDTH="15" VALIGN=TOP></TD>
+     <TD WIDTH="96%" VALIGN=TOP>
+      <P>
+       gdImageSY() returns the height of the image of the specified 
+       specified by <B>imgHnd</B>. Use this macro rather than accessing the 
+       image directly.</TD>
+    </TR>
+    <TR>
+     <TD COLSPAN="2" VALIGN=TOP>
+      <P>
+       <FONT FACE="arial,helvetica,monaco"><B>gdImageSetBrush<A NAME="gdimagesetbrush"></A>(imgHnd,
+        brush)</B></FONT></TD>
+    </TR>
+    <TR>
+     <TD WIDTH="15" VALIGN=TOP></TD>
+     <TD WIDTH="96%" VALIGN=TOP>
+      <P>
+       A &quot;brush&quot; is an image used to draw wide, shaped strokes in 
+       another image. Just as a paintbrush is not a single point, a brush 
+       image need not be a single pixel. Any gd image can be used as a 
+       brush, and by setting the transparent color index of the brush image 
+       with <A HREF="#gdimagecolortransparent">gdImageColorTransparent</A>, a 
+       brush of any shape can be created. All line-drawing functions, such 
+       as <A HREF="#gdimageline">gdImageLine</A> and <A HREF="#gdimagepolygon">gdImagePolygon</A>,
+        will use the current brush if the special &quot;color&quot; 
+       gdBrushed or gdStyledBrushed is used when calling them.</P>
+      <P>
+       You can set any image to be the brush. If the brush image does not 
+       have the same color map as the first image, any colors missing from 
+       the first image will be allocated. If not enough colors can be 
+       allocated, the closest colors already available will be used. This 
+       allows arbitrary GIFs to be used as brush images. It also means, 
+       however, that you should not set a brush unless you will actually use 
+       it; if you set a rapid succession of different brush images, you can 
+       quickly fill your color map, and the results will not be optimal.</P>
+      <P>
+       You need not take any special action when you are finished with a 
+       brush. As for any other image, if you will not be using the brush 
+       image for any further purpose, you should call <A HREF="#gdimagedestroy">gdImageDestroy</A>.
+        You must not use the color <A HREF="#gdbrushed">gdBrushed</A> if the 
+       current brush has been destroyed; you can of course set a new brush 
+       to replace it.</P><PRE>     im = gdImageCreate(100, 100);<BR>     /* Open the brush GIF. For best results, portions of the<BR>        brush that should be transparent (i.e., not part of<BR>        the brush shape) should have the transparent color<BR>        index. */<BR>     in = fopen(&quot;star.gif&quot;, &quot;rb&quot;);<BR>     brush = gdImageCreateFromGif(in);<BR>     /* Background color (first allocated) */<BR>     black = gdImageColorAllocate(im, 0, 0, 0);<BR>     gdImageSetBrush(im, brush);<BR>     /* Draw a line from the upper left corner to the lower right corner<BR>             using the brush. */<BR>     gdImageLine(im, 0, 0, 99, 99, gdBrushed);<BR>     /* ... Do something with the image, such as saving it to a file... */<BR>     /* Destroy it */<BR>     gdImageDestroy(im);<BR>     /* Destroy the brush image */<BR>     gdImageDestroy(brush);</pre></TD></TR>
+    <TR>
+     <TD COLSPAN="2" VALIGN=TOP>
+      <P>
+       <FONT FACE="arial,helvetica,monaco"><B>gdImageSetPixel<A NAME="gdimagesetpixel"></A>(</B></FONT><B><FONT FACE="arial,helvetica,monaco">imgHnd</FONT></B><FONT FACE="arial,helvetica,monaco"><B>,
+        x, y, </B></FONT><B><FONT FACE="arial,helvetica,monaco">colorIndex</FONT></B><FONT FACE="arial,helvetica,monaco"><B>)</B></FONT></TD>
+    </TR>
+    <TR>
+     <TD WIDTH="15" VALIGN=TOP></TD>
+     <TD WIDTH="96%" VALIGN=TOP>
+      <P>
+       This function sets the pixel at <B>x</B>,<B>y</B> to the color 
+       specified by <B>colorIndex</B>.</P><PRE>     im = gdImageCreate(100, 100);<BR>     /* Background color (first allocated) */<BR>     black = gdImageColorAllocate(im, 0, 0, 0);<BR>     /* Allocate the color white (red, green and blue all<BR>        maximum). */<BR>     white = gdImageColorAllocate(im, 255, 255, 255);<BR>     /* Set a pixel near the center. */<BR>     gdImageSetPixel(im, 50, 50, white);<BR>     /* ... Do something with the image, such as saving it to<BR>            a file... */<BR>     /* Destroy it */<BR>     gdImageDestroy(im);</pre></TD></TR>
+    <TR>
+     <TD COLSPAN="2" VALIGN=TOP>
+      <P>
+       <B><FONT FACE="arial,helvetica,monaco">gdImageSetStyle<A NAME="gdimagesetstyle"></A>(imgHnd,
+        *style, styleLength)</FONT></B></TD>
+    </TR>
+    <TR>
+     <TD WIDTH="15" VALIGN=TOP></TD>
+     <TD WIDTH="96%" VALIGN=TOP>
+      <P>
+       gdImageSetStyle() lets you draw dashed lines, dotted lines, and other 
+       variations on a broken line. It sets any desired series of colors 
+       (including a special color that leaves the background intact) to 
+       serve as a template for drawing the line.</P><PRE>     var imgHnd;<BR>     imgHnd = gdImageCreate(100, 100);<BR>       /* Background color (first allocated) */<BR>     black = gdImageColorAllocate(imgHnd, 0, 0, 0);<BR>     red = gdImageColorAllocate(imgHnd, 255, 0, 0);<BR>       /* Set up dotted style. Leave every other pixel alone. */<BR>     styleDotted[0] = red;<BR>     styleDotted[1] = gdTransparent;<BR>       /* Set up dashed style. Three on, three off. */<BR>     styleDashed[0] = red;<BR>     styleDashed[1] = red;<BR>     styleDashed[2] = red;<BR>     styleDashed[3] = gdTransparent;<BR>     styleDashed[4] = gdTransparent;<BR>     styleDashed[5] = gdTransparent;<BR>       /* Set dotted style. Note that we have to specify how<BR>         many pixels are in the style! */<BR>     gdImageSetStyle(imgHnd, styleDotted, 2);<BR>       /* Draw a line from the upper left corner to the lower<BR>         right corner. */<BR>     gdImageLine(imgHnd, 0, 0, 99, 99, gdStyled);<BR>       /* Now the dashed line. */<BR>     gdImageSetStyle(imgHnd, styleDashed, 6);<BR>     gdImageLine(imgHnd, 0, 99, 0, 99, gdStyled);<BR>       /* ... Do something with the image, such as saving it to<BR>          a file ... */<BR>       /* Destroy it */<BR>     gdImageDestroy(imgHnd);</pre></TD></TR>
+    <TR>
+     <TD COLSPAN="2" VALIGN=TOP>
+      <P>
+       <B><FONT FACE="arial,helvetica,monaco">gdImageSetTile<A NAME="gdimagesettile"></A>(imgHnd,
+        imgTile)</FONT></B></TD>
+    </TR>
+    <TR>
+     <TD WIDTH="15" VALIGN=TOP></TD>
+     <TD WIDTH="96%" VALIGN=TOP>
+      <P>
+       A tile is an image used to fill an area with a repeated pattern. Any 
+       gd image can be used as a tile, and by setting the transparent color 
+       index of the tile image with <A HREF="#gdimagecolortransparent">gdImageColorTransparent</A>,
+        a tile that allows certain parts of the underlying area to shine 
+       through can be created. All region-filling functions, such as <A HREF="#gdimagefill">gdImageFill</A> 
+       and <A HREF="#gdimagefilledpolygon">gdImageFilledPolygon</A>, will use 
+       the current tile if the special &quot;color&quot; gdTiled is used 
+       when calling them.</P>
+      <P>
+       You can set any image to be the tile. If the tile image does not have 
+       the same color map as the first image, any colors missing from the 
+       first image will be allocated. If not enough colors can be allocated, 
+       the closest colors already available will be used. This allows 
+       arbitrary GIFs to be used as tile images. It also means, however, 
+       that you should not set a tile unless you will actually use it; if 
+       you set a rapid succession of different tile images, you can quickly 
+       fill your color map, and the results will not be optimal.</P>
+      <P>
+       You need not take any special action when you are finished with a 
+       tile. As for any other image, if you will not be using the tile image 
+       for any further purpose, you should call <A HREF="#gdimagedestroy">gdImageDestroy</A>.
+        You must not use the color <A HREF="#gdtiled">gdTiled</A> if the 
+       current tile has been destroyed; you can of course set a new tile to 
+       replace it.</P><PRE>     im = gdImageCreate(100, 100);<BR>        /* Open the tile GIF. For best results, portions of the<BR>        tile that should be transparent (i.e., allowing<BR>        the background to shine through) should have<BR>        the transparent color index. */<BR>     tile = gdImageCreateFromGif(&quot;star.gif&quot;);<BR>        /* Background color (first allocated) */<BR>     black = gdImageColorAllocate(imgHnd, 0, 0, 0);<BR>     gdImageSetTile(imgHnd, tile);<BR>        /* Fill an area using the tile. */<BR>     gdImageFilledRectangle(imgHnd, 25, 25, 75, 75, gdTiled);<BR>        /* ... Do something with the image, such as saving it to<BR>               a file... */<BR>        /* Destroy it */<BR>     gdImageDestroy(imgHnd);<BR>        /* Destroy the tile image */<BR>     gdImageDestroy(tile);</pre></TD></TR>
+    <TR>
+     <TD COLSPAN="2" VALIGN=TOP>
+      <P>
+       <FONT FACE="arial,helvetica,monaco"><B>gdImageString<A NAME="gdimagestring"></A>(imgHnd,
+        fontPtr, x, y, string, colorIndex)</B></FONT></TD>
+    </TR>
+    <TR>
+     <TD WIDTH="15" VALIGN=TOP></TD>
+     <TD WIDTH="96%" VALIGN=TOP>
+      <P>
+       gdImageString() writes the contents of <B>string</B> on the image 
+       specified by imgHnd. The string will be drawn from left to right in 
+       the color indicated by <B>color</B> starting at the point <B>x</B>,<B>y</B>.
+        Pixels not set by a particular character retain their previous color.</P>
+      <P>
+       The second argument is a pointer to a font definition structure. Five 
+       fonts are provided with gd: gdFontTiny, gdFontSmall, 
+       gdFontMediumBold, gdFontLarge, and gdFontGiant. See <A HREF="#gdimagestringup">gdImageStringUp</A> 
+       for a way of drawing vertical text, and <A HREF="#gdimagechar">gdImageChar</A> 
+       for drawing single characters.</P><PRE>     /* String to draw. */<BR>     s = &quot;Hello.&quot;;<BR>     im = gdImageCreate(100, 100);<BR>     /* Background color (first allocated) */<BR>     black = gdImageColorAllocate(im, 0, 0, 0);<BR>     /* Allocate the color white (red, green and blue all<BR>        maximum). */<BR>     white = gdImageColorAllocate(im, 255, 255, 255);<BR>     /* Draw a centered string. */<BR>     gdImageString(im, gdFontLarge,<BR>             im-&gt;w / 2 - (strlen(s) * gdFontLarge-&gt;w / 2),<BR>             im-&gt;h / 2 - gdFontLarge-&gt;h / 2,<BR>             s, white);<BR>     /* ... Do something with the image, such as saving it to<BR>            a file... */<BR>     /* Destroy it */<BR>     gdImageDestroy(im);</pre></TD></TR>
+    <TR>
+     <TD COLSPAN="2" VALIGN=TOP>
+      <P>
+       <FONT FACE="arial,helvetica,monaco"><B>gdImageChar<A NAME="gdimagechar"></A>(imgHnd,
+        fontPtr, x, y, c, color)</B></FONT></TD>
+    </TR>
+    <TR>
+     <TD WIDTH="15" VALIGN=TOP></TD>
+     <TD WIDTH="96%" VALIGN=TOP>
+      <P>
+       gdImageChar() writes the character <B>c</B> on the image specified by <B>imgHnd</B>.
+        The character will be drawn in the color indicated by <B>color</B> 
+       starting at the point <B>x</B>,<B>y</B>. Pixels not set by a 
+       particular character retain their previous color.</P>
+      <P>
+       The second argument is a pointer to a font definition structure. Five 
+       fonts are provided with gd: gdFontTiny, gdFontSmall, 
+       gdFontMediumBold, gdFontLarge, and gdFontGiant. See <A HREF="#gdimagecharup">gdImageCharUp</A> 
+       for a way of drawing vertical text, and <A HREF="#gdimagestring">gdImageString</A> 
+       for drawing multiple characters (strings).</P><PRE>     im = gdImageCreate(100, 100);<BR>     /* Background color (first allocated) */<BR>     black = gdImageColorAllocate(im, 0, 0, 0);<BR>     /* Allocate the color white (red, green and blue all maximum). */<BR>     white = gdImageColorAllocate(im, 255, 255, 255);<BR>     /* Draw a character. */<BR>     gdImageChar(im, gdFontLarge, 0, 0, 'Q', white);<BR>     /* ... Do something with the image, such as saving it to a file... */<BR>     /* Destroy it */<BR>     gdImageDestroy(im);</pre></TD></TR>
+    <TR>
+     <TD COLSPAN="2" VALIGN=TOP>
+      <P>
+       <FONT FACE="arial,helvetica,monaco"><B>gdImageCharUp<A NAME="gdimagecharup"></A>(imgHnd,
+        fontPtr, x, y, c, color)</B></FONT></TD>
+    </TR>
+    <TR>
+     <TD WIDTH="15" VALIGN=TOP></TD>
+     <TD WIDTH="96%" VALIGN=TOP>
+      <P>
+       gdImageCharUp() writes the character <B>c</B> vertically on the image 
+       specified by <B>imgHnd</B>. The string will be drawn from left to 
+       right in the color indicated by <B>color</B> starting at the point <B>x</B>,<B>y</B>.
+        Pixels not set by a particular character retain their previous color.</P>
+      <P>
+       The second argument is a pointer to a font definition structure. Five 
+       fonts are provided with gd: gdFontTiny, gdFontSmall, 
+       gdFontMediumBold, gdFontLarge, and gdFontGiant. See <A HREF="#gdimagechar">gdImageChar</A> 
+       for a way of drawing horizontal text, and gdImageString() and <A HREF="#gdimagestringup">gdImageStringUp</A>()
+        for drawing multiple characters (strings).</TD>
+    </TR>
+    <TR>
+     <TD COLSPAN="2" VALIGN=TOP>
+      <P>
+       <FONT FACE="arial,helvetica,monaco"><B>gdImageStringUp<A NAME="gdimagestringup"></A>(imgHnd,
+        fontPtr, x, y, string, colorIndex)</B></FONT></TD>
+    </TR>
+    <TR>
+     <TD WIDTH="15" VALIGN=TOP></TD>
+     <TD WIDTH="96%" VALIGN=TOP>
+      <P>
+       gdImageString() writes the contents of <B>string</B> on the image 
+       specified by imgHnd. The string will be drawn from left to right in 
+       the color indicated by <B>color</B> starting at the point <B>x</B>,<B>y</B>.
+        Pixels not set by a particular character retain their previous color.</P>
+      <P>
+       The second argument is a pointer to a font definition structure. Five 
+       fonts are provided with gd: gdFontTiny, gdFontSmall, 
+       gdFontMediumBold, gdFontLarge, and gdFontGiant. See <A HREF="#gdimagestringup">gdImageStringUp</A> 
+       for a way of drawing vertical text, and <A HREF="#gdimagestringup">gdImageChar</A> 
+       for drawing single characters.</P><PRE>     var imgHnd;<BR>     var black;<BR>     var white;<BR><BR>       /* String to draw. */<BR>     string = &quot;Hello.&quot;;<BR>     imgHnd = gdImageCreate(100, 100);<BR>       /* Background color (first allocated) */<BR>     black = gdImageColorAllocate(im, 0, 0, 0);<BR>       /* Allocate the color white<BR>     (red, green and blue all maximum). */<BR>     white = gdImageColorAllocate(imgHnd, 255, 255, 255);<BR>       /* Draw a centered string going upwards.<BR>     Axes are reversed, and Y axis is<BR>     decreasing as the string is drawn. */<BR>     gdImageStringUp(imgHnd, gdFontLarge,<BR>                     imgHnd-&gt;w / 2 - gdFontLarge-&gt;h / 2,<BR>                     imgHnd-&gt;h / 2 + (strlen(s) * gdFontLarge-&gt;w / 2),<BR>                     string, white);<BR>       /* ... Do something with the image... */<BR>       /* Destroy it */<BR>     gdImageDestroy(im); </pre></TD></TR>
+    <TR>
+     <TD COLSPAN="2" VALIGN=TOP>
+      <P>
+       <FONT FACE="arial,helvetica,monaco"><B>gdImageColorAllocate<A NAME="gdimagecolorallocate"></A>(</B></FONT><B><FONT FACE="arial,helvetica,monaco">imgHnd</FONT></B><FONT FACE="arial,helvetica,monaco"><B>,
+        r, g, b)</B></FONT></TD>
+    </TR>
+    <TR>
+     <TD WIDTH="15" VALIGN=TOP></TD>
+     <TD WIDTH="96%" VALIGN=TOP>
+      <P>
+       gdImageColorAllocate finds the first available color index in the 
+       image specified, sets its RGB values to those requested (255 is the 
+       maximum for each), and returns the index of the new color table 
+       entry. When creating a new image, the first time you invoke this 
+       function you are setting the background color for this image. <B>r</B>,
+        <B>g</B>, and <B>b</B> are integers representing the red, green and 
+       blue components of the color being allocated.</P>
+      <P>
+       The index of the new color table entry. In the event that all 
+       gdMaxColors colors (256) have already been allocated, 
+       gdImageColorAllocate will return -1 to indicate failure. (This is not 
+       uncommon when working with existing GIF files that already use 256 colors.)</P>
+      <P>
+       Note that gdImageColorAllocate does not check for existing colors 
+       that match your request; see <A HREF="#gdimagecolorexact">gdImageColorExact</A> 
+       and <A HREF="#gdimagecolorclosest">gdImageColorClosest</A> for ways to 
+       locate existing colors that approximate the color desired in 
+       situations where a new color is not available.</P><PRE>     im = gdImageCreate(100, 100);<BR>       /* Background color (first allocated) */<BR>     black = gdImageColorAllocate(im, 0, 0, 0);<BR>       /* Allocate the color red. */<BR>     red = gdImageColorAllocate(im, 255, 0, 0);<BR>       /* Draw a dashed line from the one corner to the other. */<BR>     gdImageDashedLine(im, 0, 0, 99, 99, red);<BR>       /* ... Do something with the image... */<BR>       /* Destroy it */<BR>     gdImageDestroy(im);</pre></TD></TR>
+    <TR>
+     <TD COLSPAN="2" VALIGN=TOP>
+      <P>
+       <FONT FACE="arial,helvetica,monaco"><B>gdImageColorClosest<A NAME="gdimagecolorclosest"></A>(imgHnd,
+        r, g, b)</B></FONT></TD>
+    </TR>
+    <TR>
+     <TD WIDTH="15" VALIGN=TOP></TD>
+     <TD VALIGN=TOP>
+      <P>
+       gdImageColorClosest searches the colors which have been defined thus 
+       far in the image specified and returns the index of the color with 
+       RGB values closest to those of the request. Closeness is determined 
+       by Euclidean distance, which is used to determine the distance in 
+       three-dimensional color space between colors. It returns the index of 
+       the color with RGB values closest to those of the request. If no 
+       colors have yet been allocated in the image, gdImageColorClosest 
+       returns -1.</P>
+      <P>
+       This function is most useful for choosing a drawing color when an 
+       image already contains gdMaxColors (256) colors and no more can be 
+       allocated. (This is not uncommon when working with existing GIF files 
+       that already use many colors.) See <A HREF="#gdimagecolorexact">gdImageColorExact</A> 
+       for a method of locating exact matches only.</P><PRE>       /* Suppose photo.gif is an image with many colors. */<BR>     in = Clib.fopen(&quot;photo.gif&quot;, &quot;rb&quot;);<BR>     imgHnd = gdImageCreateFromGif(&quot;photo.gif&quot;);<BR>       /* Try to allocate red directly */<BR>     red = gdImageColorAllocate(imgHnd, 255, 0, 0);<BR>       /* If we fail to allocate red... */<BR>     if (red == (-1)) {<BR>             /* Find the closest color instead. */<BR>             red = gdImageColorClosest(imgHnd, 255, 0, 0);<BR>     }<BR>       /* Draw a dashed line from one corner to the other */<BR>     gdImageDashedLine(imgHnd, 0, 0, 99, 99, red);<BR>       /* ... Do something with the image... */<BR>       /* Destroy it */<BR>     gdImageDestroy(imgHnd); </pre></TD></TR>
+    <TR>
+     <TD COLSPAN="2" VALIGN=TOP>
+      <P>
+       <FONT FACE="arial,helvetica,monaco"><B>gdImageColorDeallocate<A NAME="gdimagecolordeallocate"></A>(gdImageHndl
+        im, int color)</B></FONT></TD>
+    </TR>
+    <TR>
+     <TD WIDTH="15" VALIGN=TOP></TD>
+     <TD VALIGN=TOP>
+      <P>
+       gdImageColorDeallocate marks the specified color as being available 
+       for reuse. It does not attempt to determine whether the color index 
+       is still in use in the image.</P>
+      <P>
+       After a call to this function, the next call to <A HREF="#gdimagecolorallocate">gdImageColorAllocate</A> 
+       for the same image will set new RGB values for that color index, 
+       changing the color of any pixels which have that index as a result. 
+       If multiple calls to gdImageColorDeallocate are made consecutively, 
+       the lowest-numbered index among them will be reused by the next 
+       gdImageColorAllocate call.</P><PRE>     im = gdImageCreateFromGif(&quot;photo.gif&quot;);<BR>       /* Look for red in the color table. */<BR>     red = gdImageColorExact(im, 255, 0, 0);<BR>       /* If red is present... */<BR>     if (red != (-1)) {<BR>       /* Deallocate it. */<BR>       gdImageColorDeallocate(im, red);<BR>       /* Allocate blue, reusing slot in table. <BR>          Existing red pixels will change color. */<BR>       blue = gdImageColorAllocate(im, 0, 0, 255);<BR>     }<BR>       /* ... Do something with the image... */<BR>       /* Destroy it */<BR>     gdImageDestroy(im);   </pre></TD></TR>
+    <TR>
+     <TD COLSPAN="2" VALIGN=TOP>
+      <P>
+       <FONT FACE="arial,helvetica,monaco"><B>gdImageColorExact<A NAME="gdimagecolorexact"></A>(gdImageHndl
+        im, int r, int g, int b)</B></FONT></TD>
+    </TR>
+    <TR>
+     <TD WIDTH="15" VALIGN=TOP></TD>
+     <TD VALIGN=TOP>
+      <P>
+       gdImageColorExact searches the colors which have been defined thus 
+       far in the image specified. It returns the index of the first color 
+       with RGB values that exactly match those of the request. If no 
+       allocated color matches the request precisely, gdImageColorExact 
+       returns -1.</P><PRE>       im = gdImageCreateFromGif(&quot;photo.gif&quot;);<BR>       /*The image may already contain red; if it does, we'll save a slot in the color table by using that color. */<BR>       /* Try to allocate red directly */&gt;<BR>     red = gdImageColorExact(im, 255, 0, 0);<BR>       /* If red isn't already present... */<BR>     if (red == (-1)) {<BR>         /* Second best: try to allocate it directly. */<BR>       red = gdImageColorAllocate(im, 255, 0, 0);<BR>         /* Out of colors, so find the closest color instead. */<BR>       red = gdImageColorClosest(im, 255, 0, 0);<BR>     }<BR>       /* Draw a dashed line from one corner to the other*/<BR>     gdImageDashedLine(im, 0, 0, 99, 99, red);<BR>       /* ... Do something with the image */<BR>       /* Destroy it */<BR>     gdImageDestroy(im);</pre></TD></TR>
+    <TR>
+     <TD COLSPAN="2" VALIGN=TOP>
+      <P>
+       <FONT FACE="arial,helvetica,monaco"><B>gdImageColorTransparent<A NAME="gdimagecolortransparent"></A>(gdImageHndl
+        im, int color)</B></FONT></TD>
+    </TR>
+    <TR>
+     <TD WIDTH="15" VALIGN=TOP></TD>
+     <TD VALIGN=TOP>
+      <P>
+       gdImageColorTransparent sets the transparent color index for the 
+       specified image to the specified index. To indicate that there should 
+       be no transparent color, invoke gdImageColorTransparent with a color 
+       index of -1.</P>
+      <P>
+       The color index used should be an index allocated by <A HREF="#gdimagecolorallocate">gdImageColorAllocate</A>,
+        whether explicitly invoked by your code or implicitly invoked by 
+       loading an image. In order to ensure that your image has a reasonable 
+       appearance when viewed by users who do not have transparent 
+       background capabilities, be sure to give reasonable RGB values to the 
+       color you allocate for use as a transparent color, even though it 
+       will be transparent on systems that support transparency.</P><PRE>     im = gdImageCreateFromGif(&quot;photo.gif&quot;);<BR>     /* Look for black in the color table and make it transparent. */<BR>     black = gdImageColorExact(im, 0, 0, 0);<BR>     /* If black is present... */<BR>     if (black != (-1)) {<BR>       /* Make it transparent */<BR>       gdImageColorTransparent(im, black);<BR>     }<BR>     /* Save the newly-transparent image back to the file */<BR>     gdImageGif(im, &quot;photo.gif&quot;);<BR>     /* Destroy it */<BR>     gdImageDestroy(im);  </pre></TD></TR>
+    <TR>
+     <TD COLSPAN="2" VALIGN=TOP>
+      <P>
+       <FONT FACE="ARIAL"><B>gdBrushed<A NAME="gdbrushed"></A></B></FONT></TD>
+    </TR>
+    <TR>
+     <TD WIDTH="15" VALIGN=TOP></TD>
+     <TD VALIGN=TOP>
+      <P>
+       This value may ve used in place of a color when invoking a 
+       line-drawing function such as <A HREF="#gdimageline">gdImageLine</A> 
+       or <A HREF="#gdimagerectangle">gdImageRectangle</A>. When gdBrushed is 
+       used as the color, the brush image (set with <A HREF="#gdimagesetbrush">gdImageSetBrush</A>)
+        is drawn in place of each pixel of the line (the brush is usually 
+       larger than one pixel, creating the effect of a wide paintbrush). See 
+       also <A HREF="#gdstyledbrushed">gdStyledBrushed</A> for a way to draw 
+       broken lines with a series of distinct copies of an image.()</TD>
+    </TR>
+    <TR>
+     <TD COLSPAN="2" WIDTH="15" VALIGN=TOP>
+      <P>
+       <B><FONT FACE="arial,helvetica,monaco">gdDashSize<A NAME="gddashsize"></A></FONT></B></TD>
+    </TR>
+    <TR>
+     <TD WIDTH="15" VALIGN=TOP></TD>
+     <TD VALIGN=TOP>
+      <P>
+       The length of a dash in a dashed line. Defined to be 4 for backwards 
+       compatibility with programs that use <A HREF="#gdimagedashedline">gdImageDashedLine</A>.
+        New programs should use <A HREF="#gdimagesetstyle">gdImageSetStyle</A> 
+       and call the standard <A HREF="#gdimageline">gdImageLine</A> function 
+       with the special &quot;color&quot; <A HREF="#gdstyled">gdStyled</A> or <A HREF="#gdstyledbrushed">gdStyledBrushed</A>.</TD>
+    </TR>
+    <TR>
+     <TD COLSPAN="2" WIDTH="15" VALIGN=TOP>
+      <P>
+       <B><FONT FACE="arial,helvetica,monaco">gdMaxColors<A NAME="gdmaxcolors"></A></FONT></B></TD>
+    </TR>
+    <TR>
+     <TD WIDTH="15" VALIGN=TOP></TD>
+     <TD VALIGN=TOP>
+      <P>
+       The constant 256. This is the maximum number of colors in a GIF file 
+       according to the GIF standard, and is also the maximum number of 
+       colors in a gd image.</TD>
+    </TR>
+    <TR>
+     <TD COLSPAN="2" WIDTH="15" VALIGN=TOP>
+      <P>
+       <FONT FACE="arial,helvetica,monaco"><B>gdStyled<A NAME="gdstyled"></A></B></FONT></TD>
+    </TR>
+    <TR>
+     <TD WIDTH="15" VALIGN=TOP></TD>
+     <TD VALIGN=TOP>
+      <P>
+       Used in place of a color when invoking a line-drawing function such 
+       as <A HREF="#gdimageline">gdImageLine</A> or <A HREF="#gdimagerectangle">gdImageRectangle</A>.
+        When gdStyled is used as the color, the colors of the pixels are 
+       drawn successively from the style that has been set with <A HREF="#gdimagesetstyle">gdImageSetStyle</A>.
+        If the color of a pixel is equal to <A HREF="#gdtransparent">gdTransparent</A>,
+        that pixel is not altered. (This mechanism is completely unrelated 
+       to the &quot;transparent color&quot; of the image itself; see <A HREF="#gdimagecolortransparent">gdImageColorTransparent</A> 
+       for that mechanism.) See also <A HREF="#gdstyledbrushed">gdStyledBrushed</A>.</TD>
+    </TR>
+    <TR>
+     <TD COLSPAN="2" WIDTH="15" VALIGN=TOP>
+      <P>
+       <FONT FACE="arial,helvetica,monaco"><B><A NAME="gdstyledbrushed">gdStyledBrushed</A></B></FONT></TD>
+    </TR>
+    <TR>
+     <TD WIDTH="15" VALIGN=TOP></TD>
+     <TD VALIGN=TOP>
+      <P>
+       Used in place of a color when invoking a line-drawing function such 
+       as <A HREF="#gdimageline">gdImageLine</A> or <A HREF="#gdimagerectangle">gdImageRectangle</A>.
+        When gdStyledBrushed is used as the color, the brush image set with <A HREF="#gdimagesetbrush">gdImageSetBrush</A> 
+       is drawn at each pixel of the line, providing that the style set with 
+       gdImageSetStyle contains a nonzero value (OR <A HREF="#gdtransparent">gdTransparent</A>,
+        which does not equal zero but is supported for consistency) for the 
+       current pixel. (Pixels are drawn successively from the style as the 
+       line is drawn, returning to the beginning when the available pixels 
+       in the style are exhausted.) Note that this differs from the behavior 
+       of <A HREF="#gdstyled">gdStyled</A>, in which the values in the style 
+       are used as actual pixel colors, except for gdTransparent.</TD>
+    </TR>
+    <TR>
+     <TD COLSPAN="2" WIDTH="15" VALIGN=TOP>
+      <P>
+       <B><FONT FACE="arial,helvetica,monaco">gdTiled<A NAME="gdtiled"></A></FONT></B></TD>
+    </TR>
+    <TR>
+     <TD WIDTH="15" VALIGN=TOP></TD>
+     <TD VALIGN=TOP>
+      <P>
+       Used in place of a normal color in <A HREF="#gdimagefilledrectangle">gdImageFilledRectangle</A>,
+        <A HREF="#gdimagefilledpolygon">gdImageFilledPolygon</A>, <A HREF="#gdimagefill">gdImageFill</A>,
+        and <A HREF="#gdimagefilltoborder">gdImageFillToBorder</A>. gdTiled 
+       selects a pixel from the tile image set with <A HREF="#gdimagesettile">gdImageSetTile</A> 
+       in such a way as to ensure that the filled area will be tiled with 
+       copies of the tile image. See the discussions of <A HREF="#gdimagefill">gdImageFill</A> 
+       and <A HREF="#gdimagefilltoborder">gdImageFillToBorder</A> for special 
+       restrictions regarding those functions.</TD>
+    </TR>
+    <TR>
+     <TD COLSPAN="2" WIDTH="15" VALIGN=TOP>
+      <P>
+       <FONT FACE="arial,helvetica,monaco"><B>gdTransparent<A NAME="gdtransparent"></A></B></FONT></TD>
+    </TR>
+    <TR>
+     <TD WIDTH="15" VALIGN=TOP></TD>
+     <TD VALIGN=TOP>
+      <P>
+       Used in place of a normal color in a style to be set with <A HREF="#gdimagesetstyle">gdImageSetStyle</A>.
+        gdTransparent is not the transparent color index of the image; for 
+       that functionality please see <A HREF="#gdimagecolortransparent">gdImageColorTransparent</A>.</TD>
+    </TR>
+   </TABLE>
+ </BODY>
+</HTML>

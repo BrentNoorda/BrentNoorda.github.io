@@ -1,0 +1,93 @@
+<html>
+<head>
+<title>SElib.version()</title>
+<link rel="stylesheet" href="semanualstyles.css" type="text/css">
+<style type="text/css">
+ p { margin-top: 0; margin-bottom: 0; }
+</style>
+<script language="JavaScript" src="TrueHelp.js"></script>
+</head>
+<body onload="thload()">
+<div id=ienav>
+<ilayer id=nsnav>
+<br>
+<center>
+<p class=normal><a href="seisdkc-toc.htm" target="left">contents</a> &nbsp; <a href="seisdkc-index.htm" target="left">index</a> &nbsp; <a href="TH_948.htm">previous</a> &nbsp; <a href="TH_950.htm">next</a></p>
+</center>
+<br>
+<hr noshade size=1>
+</ilayer>
+</div>
+<p class=sereffunclevel4>SElib.version()</p>
+<table cellpadding=0>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>syntax:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=sesyntax>SElib.version()</p></td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>return:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>object - an object with properties that provide information about the version and operating system of the currently executing ScriptEase interpreter. The object returned as the following properties:</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=secodelines>.os&nbsp;-&nbsp;string,&nbsp;identifying&nbsp;operating&nbsp;system</p>
+<p class=secodelines>.se.engineVersion&nbsp;-&nbsp;number,&nbsp;major&nbsp;minor&nbsp;version</p>
+<p class=secodelines>.se.versionString&nbsp;-&nbsp;string,&nbsp;sub&nbsp;minor&nbsp;version</p>
+<p class=secodelines>.buildTime&nbsp;-&nbsp;string,&nbsp;date/time&nbsp;of&nbsp;build</p>
+<p class=secodelines>.bindable&nbsp;-&nbsp;boolean,&nbsp;can&nbsp;bind&nbsp;to&nbsp;executable</p>
+<p class=secodelines>.security&nbsp;-&nbsp;boolean,&nbsp;uses&nbsp;security&nbsp;features</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>description:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>This method provides a variety of useful information about the version of the currently executing ScriptEase interpreter.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>The <span class=secodephrase>.os</span> string will be something like:</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=secodelinesindented>DOS</p>
+<p class=secodelinesindented>DOS32</p>
+<p class=secodelinesindented>MAC</p>
+<p class=secodelinesindented>NWNLM</p>
+<p class=secodelinesindented>OS2</p>
+<p class=secodelinesindented>WINDOWS</p>
+<p class=secodelinesindented>WIN32.NTCON</p>
+<p class=secodelinesindented>WIN32.NTWIN</p>
+<p class=secodelinesindented>WIN32.95CON</p>
+<p class=secodelinesindented>WIN32.95WIN</p>
+<p class=secodelinesindented>UNIX</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>see:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>getSEver(), getSEversion(), predefined constants and values <span class=secodephrase>VERSION_MAJOR</span>, <span class=secodephrase>VERSION_MINOR</span>, <span class=secodephrase>VERSION_STRING</span></p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>example:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=secodelines>var&nbsp;ver;</p>
+<p class=secodelines>ver&nbsp;=&nbsp;SElib.version();</p>
+<p class=secodelines>Screen.writeln(ver.os);</p>
+<p class=secodelines>Screen.writeln(ver.se.engineVersion);</p>
+<p class=secodelines>Screen.writeln(ver.se.versionString);</p>
+<p class=secodelines>Screen.writeln(ver.buildTime);</p>
+<p class=secodelines>//&nbsp;Displays&nbsp;something&nbsp;like:</p>
+<p class=secodelines>//&nbsp;&nbsp;WIN32.95CON</p>
+<p class=secodelines>//&nbsp;&nbsp;440</p>
+<p class=secodelines>//&nbsp;&nbsp;B</p>
+<p class=secodelines>//&nbsp;&nbsp;Apr&nbsp;26&nbsp;2001&nbsp;16:06:49</p></td>
+</tr>
+</table>
+<p class=normal>&nbsp;</p>
+<hr noshade size=1>
+<p class=normal><a href="TH_950.htm"><img src="button.png" border=0></a><a href="TH_950.htm" style="text-decoration:none;">SElib.windowList()</a></p>
+<p>
+</body>
+</html>

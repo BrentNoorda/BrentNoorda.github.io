@@ -1,0 +1,31 @@
+<html>
+<head>
+<title>MODIFYING VARIABLES</title>
+<link rel="stylesheet" href="semanualstyles.css" type="text/css">
+<style type="text/css">
+ p { margin-top: 0; margin-bottom: 0; }
+</style>
+<script language="JavaScript" src="TrueHelp.js"></script>
+</head>
+<body onload="thload()">
+<div id=ienav>
+<ilayer id=nsnav>
+<br>
+<center>
+<p class=normal><a href="seisdkc-toc.htm" target="left">contents</a> &nbsp; <a href="seisdkc-index.htm" target="left">index</a> &nbsp; <a href="TH_368.htm">previous</a> &nbsp; <a href="TH_370.htm">next</a></p>
+</center>
+<br>
+<hr noshade size=1>
+</ilayer>
+</div>
+<p class=heading-2>MODIFYING VARIABLES</p>
+<p class=heading-2-p>&nbsp;</p>
+<p class=senormalpara>The other thing you do with variables is to change their value. You use <span class=secodephrase>sePutXXX</span> to put a particular value into variable. Again, <span class=secodephrase>XXX</span> has various options for the various types of data you can store in a variable. Like a JavaScript assignment, whatever value the variable held before the call is discarded in favor of the new value. If the variable is a member of a dynamic object, a dynamic <span class=secodephrase>put</span> will be called to store the value.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>In the same way as for reading a variable's value, each API call that modifies a variable's value does so once, meaning one dynamic <span class=secodephrase>put</span> call will be made per API function call. You can use a similar technique to reading, build up the value in a temporary location then put the value once to the real location, so any dynamic <span class=secodephrase>put</span> is called only once.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<hr noshade size=1>
+<p class=normal><a href="TH_370.htm"><img src="button.png" border=0></a><a href="TH_370.htm" style="text-decoration:none;">USING SE_TEMP AND SE_WRAPPER_TEMP</a></p>
+<p>
+</body>
+</html>

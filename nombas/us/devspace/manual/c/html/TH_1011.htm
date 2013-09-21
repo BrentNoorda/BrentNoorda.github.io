@@ -1,0 +1,66 @@
+<html>
+<head>
+<title>DSP dspGetValue()</title>
+<link rel="stylesheet" href="semanualstyles.css" type="text/css">
+<style type="text/css">
+ p { margin-top: 0; margin-bottom: 0; }
+</style>
+<script language="JavaScript" src="TrueHelp.js"></script>
+</head>
+<body onload="thload()">
+<div id=ienav>
+<ilayer id=nsnav>
+<br>
+<center>
+<p class=normal><a href="seisdkc-toc.htm" target="left">contents</a> &nbsp; <a href="seisdkc-index.htm" target="left">index</a> &nbsp; <a href="TH_1010.htm">previous</a> &nbsp; <a href="TH_1012.htm">next</a></p>
+</center>
+<br>
+<hr noshade size=1>
+</ilayer>
+</div>
+<p class=sereffunclevel4>DSP dspGetValue()</p>
+<table cellpadding=0>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>syntax:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=sesyntax>dsp.dspGetValue()<span class=truehelp-xe></span></p></td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>return:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>variable - remote value of the current DSP reference.</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>description:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>This function provides an explicit way to convert a DSP reference into a value.  Such conversion is done automatically when the reference is converted to a primitive, or a value is assigned to a reference.  See the introduction, under <span class=sepopuptopic><a href="TH_1001.htm" onClick="return thwindow('TH_1001.htm', 'GenPopup')">creating a DSP object</a></span>, for more information on DSP references and getting remote values.</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>see:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara><span class=secodephrase>#link &lt;sedsp&gt;</span></p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>example:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=secodelines>var&nbsp;reference&nbsp;=&nbsp;connection.globalValue;</p>
+<p class=secodelines>var&nbsp;value&nbsp;=&nbsp;connection.globalValue.dspGetValue();</p>
+<p class=secodelines>reference&nbsp;=&nbsp;5;&nbsp;&nbsp;//&nbsp;This&nbsp;will&nbsp;change&nbsp;the&nbsp;remote&nbsp;value</p>
+<p class=secodelines>value&nbsp;=&nbsp;6;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
+<p class=secodelines>//&nbsp;This&nbsp;will&nbsp;change&nbsp;the&nbsp;local&nbsp;copy,&nbsp;not&nbsp;the&nbsp;remote</p></td>
+</tr>
+</table>
+<p class=normal>&nbsp;</p>
+<hr noshade size=1>
+<p class=normal><a href="TH_1012.htm"><img src="button.png" border=0></a><a href="TH_1012.htm" style="text-decoration:none;">DSP dspSecurityInit()</a></p>
+<p>
+</body>
+</html>

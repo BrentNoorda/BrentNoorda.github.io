@@ -1,0 +1,41 @@
+<html>
+<head>
+<title>GO number</title>
+<link rel="stylesheet" href="semanualstyles.css" type="text/css">
+<style type="text/css">
+ p { margin-top: 0; margin-bottom: 0; }
+</style>
+<script language="JavaScript" src="TrueHelp.js"></script>
+</head>
+<body onload="thload()">
+<div id=ienav>
+<ilayer id=nsnav>
+<br>
+<center>
+<p class=normal><a href="seisdkc-toc.htm" target="left">contents</a> &nbsp; <a href="seisdkc-index.htm" target="left">index</a> &nbsp; <a href="TH_211.htm">previous</a> &nbsp; <a href="TH_213.htm">next</a></p>
+</center>
+<br>
+<hr noshade size=1>
+</ilayer>
+</div>
+<p class=heading-4>GO number</p>
+<p class=senormalpara>Tells the application to start executing until it reaches one of the breakpoints, an error, or the depth equals the <span class=secodeterm>number</span> given above. The application responds:</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=secodelinesindented>GO&nbsp;COMPLETE</p>
+<p class=secodelinesindented>GO&nbsp;COMPLETE&nbsp;WITH&nbsp;ERROR</p>
+<p class=secodelinesindented>GO&nbsp;COMPLETE&nbsp;WITH&nbsp;TRAPPED&nbsp;ERROR</p>
+<p class=secodelinesindented>GO&nbsp;STOPPED</p>
+<p class=secodelinesindented>&nbsp;</p>
+<p class=senormalpara>depending on if the go stopped due to an error being received or because of reaching a breakpoint. In the case of an error, an untrapped error indicates that the error message is going to printed to the user and so should be printed to the debugger's user as well. See <span class=secodephrase>GET</span> below on how to get the error's value.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>Use the depth to implement step over and step out. A normal go should have depth as 0, meaning it only stops when it reaches depth 0 (i.e. the script ends). Use the current depth, retrieved by <span class=secodephrase>REPORT</span>, to step over. Use the current depth minus one to step out.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>Stopping with <span class=secodephrase>TRAPPED ERROR</span> means that the exception is going to be handled, perhaps by a <span class=secodephrase>try/catch</span> block. However, often debuggers will have the option to break on any error. If the debugger is not using this option, it will want to ignore trapped error returns. Use <span class=secodephrase>REPORT</span> to find the current depth and see if the action (step out/step over) is complete. If it is not complete, or in the case of a generic run, just call <span class=secodephrase>GO</span> again. This same mechanism can be used to trap some errors, such as range errors, but not others. Most debuggers have all kinds of options on exactly which errors should stop execution and which should not.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>The final possible response, <span class=secodephrase>GO STOPPED</span>, happens if the debugger stops the go command prematurely. It does this by sending a <span class=secodephrase>STOP</span> command to the application while the <span class=secodephrase>GO</span> is still processing. If this command is received at any other time, it is ignored completely with no response. This is because the debugger may send the command but the application finish its <span class=secodephrase>GO</span> before receiving it. The stop will then be the next command the application finds. If it made some kind of response to it, the debugger sends command, application responds format we be broken.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<hr noshade size=1>
+<p class=normal><a href="TH_213.htm"><img src="button.png" border=0></a><a href="TH_213.htm" style="text-decoration:none;">STEP</a></p>
+<p>
+</body>
+</html>

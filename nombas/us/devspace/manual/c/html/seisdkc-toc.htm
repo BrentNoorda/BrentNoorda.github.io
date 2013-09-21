@@ -1,0 +1,1506 @@
+<html>
+<head>
+<link rel="stylesheet" href="semanualstyles.css" type="text/css">
+<style type="text/css">
+	img	{ cursor: hand; }
+	span	{ cursor: hand; }
+	a:link	{ text-decoration: none; }
+	a:visited	{ text-decoration: none; }
+</style>
+</head>
+<script language="VBScript" src="TrueHelp.vbs"></script>
+<body language="VBScript" onClick=thclick>
+<div style="margin-left:5;"><p>SE:ISDK C/C++ version 5.01b<br/>wrong doc <a href="../../../../../bunchadox.htm" target="_parent">show me others</a></p>
+<img src="open.png" id=mi-284><span id=mt-284><a href="TH_284.htm" target="right">ScriptEase ISDK for C/C++</a></span><br>
+<div id=c-284 style="margin-left:15;">
+<img src="topic.png"><a href="TH_278.htm" target="right">Introduction</a><br>
+<img src="open.png" id=mi-259><span id=mt-259><a href="TH_259.htm" target="right">Integration Into Your C/C++ Application</a></span><br>
+<div id=c-259 style="margin-left:25;">
+<img src="open.png" id=mi-260><span id=mt-260><a href="TH_260.htm" target="right">Integration on Windows Systems</a></span><br>
+<div id=c-260 style="margin-left:35;">
+<img src="topic.png"><a href="TH_261.htm" target="right">Configuring A jseopt.h File</a><br>
+<img src="topic.png"><a href="TH_262.htm" target="right">Build ScriptEase Libraries</a><br>
+<img src="topic.png"><a href="TH_263.htm" target="right">Link ScriptEase Library Files</a><br>
+</div>
+<img src="open.png" id=mi-264><span id=mt-264><a href="TH_264.htm" target="right">Integration on Unix Systems</a></span><br>
+<div id=c-264 style="margin-left:35;">
+<img src="topic.png"><a href="TH_265.htm" target="right">Unpacking ScriptEase:ISDK/C</a><br>
+<img src="topic.png"><a href="TH_266.htm" target="right">Sample Applications</a><br>
+<img src="open.png" id=mi-267><span id=mt-267><a href="TH_267.htm" target="right">Integration Basics</a></span><br>
+<div id=c-267 style="margin-left:45;">
+<img src="topic.png"><a href="TH_268.htm" target="right">Edit your jseopt.h</a><br>
+<img src="topic.png"><a href="TH_269.htm" target="right">Rebuild the ScriptEase libraries</a><br>
+<img src="topic.png"><a href="TH_270.htm" target="right">Add ScriptEase compiler options</a><br>
+<img src="topic.png"><a href="TH_271.htm" target="right">Program your application to invoke ScriptEase</a><br>
+<img src="topic.png"><a href="TH_272.htm" target="right">Link with the ScriptEase libraries</a><br>
+<img src="topic.png"><a href="TH_273.htm" target="right">Using an alternate jseopt.h</a><br>
+</div>
+</div>
+<img src="open.png" id=mi-274><span id=mt-274><a href="TH_274.htm" target="right">Advanced Integration - Debugging</a></span><br>
+<div id=c-274 style="margin-left:35;">
+<img src="topic.png"><a href="TH_275.htm" target="right">Jsedebug.Log</a><br>
+<img src="topic.png"><a href="TH_276.htm" target="right">Memory Tracking</a><br>
+<img src="topic.png"><a href="TH_277.htm" target="right">Jsememreport</a><br>
+</div>
+</div>
+<img src="open.png" id=mi-296><span id=mt-296><a href="TH_296.htm" target="right">ScriptEase Types</a></span><br>
+<div id=c-296 style="margin-left:25;">
+<img src="topic.png"><a href="TH_297.htm" target="right">secontext</a><br>
+<img src="topic.png"><a href="TH_298.htm" target="right">sedatatype</a><br>
+<img src="topic.png"><a href="TH_299.htm" target="right">sebool</a><br>
+<img src="topic.png"><a href="TH_300.htm" target="right">senumber</a><br>
+<img src="topic.png"><a href="TH_301.htm" target="right">seobject</a><br>
+<img src="topic.png"><a href="TH_302.htm" target="right">sestring</a><br>
+<img src="topic.png"><a href="TH_303.htm" target="right">secharptr</a><br>
+<img src="topic.png"><a href="TH_304.htm" target="right">seconstcharptr</a><br>
+<img src="topic.png"><a href="TH_305.htm" target="right">sechar</a><br>
+<img src="topic.png"><a href="TH_306.htm" target="right">secharptrdatum</a><br>
+<img src="topic.png"><a href="TH_307.htm" target="right">sememcount</a><br>
+<img src="topic.png"><a href="TH_308.htm" target="right">sesmemcount</a><br>
+<img src="topic.png"><a href="TH_309.htm" target="right">SE_CALLBACK()</a><br>
+<img src="open.png" id=mi-310><span id=mt-310><a href="TH_310.htm" target="right">THE CHARACTER ACCESS ROUTINES</a></span><br>
+<div id=c-310 style="margin-left:35;">
+<img src="topic.png"><a href="TH_311.htm" target="right">SECHARPTR_INC(string)</a><br>
+<img src="topic.png"><a href="TH_312.htm" target="right">SECHARPTR_GETC(string)</a><br>
+<img src="topic.png"><a href="TH_313.htm" target="right">SECHARPTR_PUTC(string,char)</a><br>
+<img src="topic.png"><a href="TH_314.htm" target="right">SECHARPTR_OFFSET(string,offset)</a><br>
+<img src="topic.png"><a href="TH_315.htm" target="right">SECHARPTR_NEXT(string)</a><br>
+<img src="topic.png"><a href="TH_316.htm" target="right">SECHARPTR_DIFF(string1,string2)</a><br>
+</div>
+</div>
+<img src="open.png" id=mi-98><span id=mt-98><a href="TH_98.htm" target="right">Initialization and Contexts</a></span><br>
+<div id=c-98 style="margin-left:35;">
+<img src="topic.png"><a href="TH_99.htm" target="right">The seContextParams Structure</a><br>
+</div>
+</div>
+<img src="open.png" id=mi-317><span id=mt-317><a href="TH_317.htm" target="right">Working with Variables</a></span><br>
+<div id=c-317 style="margin-left:25;">
+<img src="open.png" id=mi-318><span id=mt-318><a href="TH_318.htm" target="right">IDENTIFYING A VARIABLE</a></span><br>
+<div id=c-318 style="margin-left:35;">
+<img src="open.png" id=mi-319><span id=mt-319><a href="TH_319.htm" target="right">LIST OF MEMBER SPECIFIERS</a></span><br>
+<div id=c-319 style="margin-left:45;">
+<img src="topic.png"><a href="TH_320.htm" target="right">SE_MEM("member name")</a><br>
+<img src="topic.png"><a href="TH_321.htm" target="right">SE_UNIMEM(seconstcharptr)</a><br>
+<img src="topic.png"><a href="TH_322.htm" target="right">SE_HIDDEN_MEM("member name")</a><br>
+<img src="topic.png"><a href="TH_323.htm" target="right">SE_HIDDEN_UNIMEM(seconstcharptr)</a><br>
+<img src="topic.png"><a href="TH_324.htm" target="right">SE_COMPOUND_MEM("compound.member.name")</a><br>
+<img src="topic.png"><a href="TH_325.htm" target="right">SE_COMPOUND_UNIMEM(seconstcharptr)</a><br>
+<img src="topic.png"><a href="TH_326.htm" target="right">SE_NUM(sememcount)</a><br>
+<img src="topic.png"><a href="TH_327.htm" target="right">SE_STR(sestring)</a><br>
+<img src="topic.png"><a href="TH_328.htm" target="right">SE_INDEX(num)</a><br>
+<img src="topic.png"><a href="TH_329.htm" target="right">SE_STRUCT(memdesc)</a><br>
+<img src="topic.png"><a href="TH_330.htm" target="right">SE_VALUE</a><br>
+<img src="topic.png"><a href="TH_331.htm" target="right">SE_STOCK(string)</a><br>
+<img src="topic.png"><a href="TH_332.htm" target="right">SE_FUNCTION_TEXT</a><br>
+<img src="topic.png"><a href="TH_333.htm" target="right">SE_FUNCTION_GLOBAL</a><br>
+<img src="topic.png"><a href="TH_334.htm" target="right">SE_LIBRARY_DATA</a><br>
+</div>
+<img src="open.png" id=mi-335><span id=mt-335><a href="TH_335.htm" target="right">LIST OF STOCK OBJECTS</a></span><br>
+<div id=c-335 style="margin-left:45;">
+<img src="topic.png"><a href="TH_336.htm" target="right">SE_GLOBAL</a><br>
+<img src="topic.png"><a href="TH_337.htm" target="right">SE_ARGS</a><br>
+<img src="topic.png"><a href="TH_338.htm" target="right">SE_ACTIVATION</a><br>
+<img src="topic.png"><a href="TH_339.htm" target="right">SE_THIS</a><br>
+<img src="topic.png"><a href="TH_340.htm" target="right">SE_SCOPE</a><br>
+<img src="topic.png"><a href="TH_341.htm" target="right">SE_TEMP</a><br>
+<img src="topic.png"><a href="TH_342.htm" target="right">SE_WRAPPER_TEMP</a><br>
+<img src="topic.png"><a href="TH_343.htm" target="right">SE_NOWHERE</a><br>
+<img src="topic.png"><a href="TH_344.htm" target="right">SE_DEFINES</a><br>
+<img src="open.png" id=mi-345><span id=mt-345><a href="TH_345.htm" target="right">SE_RETURN</a></span><br>
+<div id=c-345 style="margin-left:55;">
+<img src="topic.png"><a href="TH_346.htm" target="right">SE_ERROR</a><br>
+<img src="topic.png"><a href="TH_347.htm" target="right">SE_EXIT</a><br>
+<img src="topic.png"><a href="TH_348.htm" target="right">SE_YIELD</a><br>
+<img src="topic.png"><a href="TH_349.htm" target="right">SE_SUSPEND</a><br>
+</div>
+<img src="topic.png"><a href="TH_350.htm" target="right">SE_AT_EXIT</a><br>
+<img src="topic.png"><a href="TH_351.htm" target="right">SE_FILENAMES</a><br>
+<img src="open.png" id=mi-352><span id=mt-352><a href="TH_352.htm" target="right">SE_STACK_INFO(depth)</a></span><br>
+<div id=c-352 style="margin-left:55;">
+<img src="topic.png"><a href="TH_353.htm" target="right">SE_SI_WRAPPER</a><br>
+<img src="topic.png"><a href="TH_354.htm" target="right">SE_SI_FUNCTION</a><br>
+<img src="topic.png"><a href="TH_355.htm" target="right">SE_SI_FUNCNAME</a><br>
+<img src="topic.png"><a href="TH_356.htm" target="right">SE_SI_TRAPPED</a><br>
+<img src="topic.png"><a href="TH_357.htm" target="right">SE_SI_GLOBAL</a><br>
+<img src="topic.png"><a href="TH_358.htm" target="right">SE_SI_THIS</a><br>
+<img src="topic.png"><a href="TH_359.htm" target="right">SE_SI_DATA</a><br>
+<img src="topic.png"><a href="TH_360.htm" target="right">SE_SI_FILENAME</a><br>
+<img src="topic.png"><a href="TH_361.htm" target="right">SE_SI_LINENUM</a><br>
+<img src="topic.png"><a href="TH_362.htm" target="right">SE_SI_ACTIVATION</a><br>
+<img src="topic.png"><a href="TH_363.htm" target="right">SE_SI_SCOPECHAIN</a><br>
+<img src="topic.png"><a href="TH_364.htm" target="right">SE_SI_DEPTH</a><br>
+</div>
+<img src="topic.png"><a href="TH_365.htm" target="right">SE_SERVICES</a><br>
+<img src="topic.png"><a href="TH_366.htm" target="right">SE_SHARED_SERVICES</a><br>
+<img src="topic.png"><a href="TH_367.htm" target="right">SE_SELF</a><br>
+</div>
+</div>
+<img src="topic.png"><a href="TH_368.htm" target="right">EXAMINING VARIABLES</a><br>
+<img src="topic.png"><a href="TH_369.htm" target="right">MODIFYING VARIABLES</a><br>
+<img src="topic.png"><a href="TH_370.htm" target="right">USING SE_TEMP AND SE_WRAPPER_TEMP</a><br>
+<img src="topic.png"><a href="TH_371.htm" target="right">SE_RETURN EXPLAINED</a><br>
+</div>
+<img src="open.png" id=mi-222><span id=mt-222><a href="TH_222.htm" target="right">Script Execution Topics</a></span><br>
+<div id=c-222 style="margin-left:25;">
+<img src="open.png" id=mi-223><span id=mt-223><a href="TH_223.htm" target="right">Using seEval</a></span><br>
+<div id=c-223 style="margin-left:35;">
+<img src="topic.png"><a href="TH_224.htm" target="right">se</a><br>
+<img src="topic.png"><a href="TH_225.htm" target="right">TO_INTERPRET, INTERP_TYPE</a><br>
+<img src="topic.png"><a href="TH_226.htm" target="right">TEXT_ARGS, STACK_ARGS</a><br>
+<img src="open.png" id=mi-227><span id=mt-227><a href="TH_227.htm" target="right">FLAGS</a></span><br>
+<div id=c-227 style="margin-left:45;">
+<img src="topic.png"><a href="TH_228.htm" target="right">SE_NO_INHERIT</a><br>
+<img src="topic.png"><a href="TH_229.htm" target="right">SE_NO_LIBRARIES</a><br>
+<img src="topic.png"><a href="TH_230.htm" target="right">SE_NEW_GLOBALS</a><br>
+<img src="topic.png"><a href="TH_231.htm" target="right">SE_CALL_MAIN</a><br>
+<img src="topic.png"><a href="TH_232.htm" target="right">SE_FUNCS_ONLY</a><br>
+<img src="topic.png"><a href="TH_233.htm" target="right">SE_EXIT_LEVEL</a><br>
+<img src="topic.png"><a href="TH_234.htm" target="right">SE_NEW_DEFINES</a><br>
+<img src="topic.png"><a href="TH_235.htm" target="right">SE_NO_OLD_DEFINES</a><br>
+<img src="topic.png"><a href="TH_236.htm" target="right">SE_REPORT_ERRORS</a><br>
+<img src="topic.png"><a href="TH_237.htm" target="right">SE_INFREQUENT_CONT</a><br>
+<img src="topic.png"><a href="TH_238.htm" target="right">SE_START</a><br>
+<img src="topic.png"><a href="TH_239.htm" target="right">SE_CONSTRUCTOR</a><br>
+<img src="topic.png"><a href="TH_240.htm" target="right">SE_NAMED_PARAMS</a><br>
+<img src="topic.png"><a href="TH_241.htm" target="right">SE_INIT_IMPLICIT_THIS</a><br>
+<img src="topic.png"><a href="TH_242.htm" target="right">SE_INIT_IMPLICIT_PARENTS</a><br>
+<img src="topic.png"><a href="TH_243.htm" target="right">SE_DEFAULT</a><br>
+</div>
+<img src="topic.png"><a href="TH_244.htm" target="right">PARAMS</a><br>
+</div>
+<img src="topic.png"><a href="TH_245.htm" target="right">FUNCTION GLOBALS</a><br>
+<img src="open.png" id=mi-246><span id=mt-246><a href="TH_246.htm" target="right">SCOPING</a></span><br>
+<div id=c-246 style="margin-left:35;">
+<img src="topic.png"><a href="TH_247.htm" target="right">SCOPING - GLOBAL CODE</a><br>
+<img src="topic.png"><a href="TH_248.htm" target="right">SCOPING - FUNCTIONS</a><br>
+</div>
+<img src="topic.png"><a href="TH_249.htm" target="right">CONTINUE FUNCTION</a><br>
+</div>
+<img src="open.png" id=mi-372><span id=mt-372><a href="TH_372.htm" target="right">Wrapper functions</a></span><br>
+<div id=c-372 style="margin-left:25;">
+<img src="topic.png"><a href="TH_373.htm" target="right">THE FUNCTION HEADER</a><br>
+<img src="topic.png"><a href="TH_374.htm" target="right">THE ARGUMENTS</a><br>
+<img src="topic.png"><a href="TH_375.htm" target="right">THE RETURN</a><br>
+<img src="topic.png"><a href="TH_376.htm" target="right">WRAPPER TABLES</a><br>
+<img src="topic.png"><a href="TH_377.htm" target="right">WRAPPER MACROS</a><br>
+</div>
+<img src="topic.png"><a href="TH_279.htm" target="right">Lifetimes</a><br>
+<img src="open.png" id=mi-280><span id=mt-280><a href="TH_280.htm" target="right">Objects and Classes</a></span><br>
+<div id=c-280 style="margin-left:25;">
+<img src="topic.png"><a href="TH_281.htm" target="right">OBJECT CLASSES</a><br>
+<img src="topic.png"><a href="TH_282.htm" target="right">DYNAMIC OBJECTS</a><br>
+<img src="topic.png"><a href="TH_283.htm" target="right">FUNCTION REDIRECTION</a><br>
+</div>
+<img src="open.png" id=mi-2><span id=mt-2><a href="TH_2.htm" target="right">API Function List</a></span><br>
+<div id=c-2 style="margin-left:25;">
+<img src="open.png" id=mi-3><span id=mt-3><a href="TH_3.htm" target="right">INITIALIZATION/CONTEXT CREATION</a></span><br>
+<div id=c-3 style="margin-left:35;">
+<img src="topic.png"><a href="TH_4.htm" target="right">seInitialize</a><br>
+<img src="topic.png"><a href="TH_5.htm" target="right">seTerminate</a><br>
+<img src="topic.png"><a href="TH_6.htm" target="right">seCreateContext</a><br>
+<img src="topic.png"><a href="TH_7.htm" target="right">seCreateBlankContext</a><br>
+<img src="topic.png"><a href="TH_8.htm" target="right">seCreateFiber</a><br>
+<img src="topic.png"><a href="TH_9.htm" target="right">seGetContextParams</a><br>
+<img src="topic.png"><a href="TH_10.htm" target="right">seDestroyContext</a><br>
+<img src="topic.png"><a href="TH_11.htm" target="right">seAddLibTable</a><br>
+<img src="topic.png"><a href="TH_12.htm" target="right">seGarbageCollect</a><br>
+</div>
+<img src="open.png" id=mi-13><span id=mt-13><a href="TH_13.htm" target="right">VARIABLE LOCATING</a></span><br>
+<div id=c-13 style="margin-left:35;">
+<img src="topic.png"><a href="TH_14.htm" target="right">seVarParse</a><br>
+<img src="topic.png"><a href="TH_15.htm" target="right">seGetName</a><br>
+<img src="topic.png"><a href="TH_16.htm" target="right">seInternalizeString</a><br>
+<img src="topic.png"><a href="TH_17.htm" target="right">seInternalizeStringHidden</a><br>
+<img src="topic.png"><a href="TH_18.htm" target="right">seCloneInternalString</a><br>
+<img src="topic.png"><a href="TH_19.htm" target="right">seFreeInternalString</a><br>
+<img src="topic.png"><a href="TH_20.htm" target="right">seGetInternalString</a><br>
+</div>
+<img src="open.png" id=mi-21><span id=mt-21><a href="TH_21.htm" target="right">VARIABLE READING</a></span><br>
+<div id=c-21 style="margin-left:35;">
+<img src="topic.png"><a href="TH_22.htm" target="right">seGetBool</a><br>
+<img src="topic.png"><a href="TH_23.htm" target="right">seGetBoolEx</a><br>
+<img src="topic.png"><a href="TH_24.htm" target="right">seGetNumber</a><br>
+<img src="topic.png"><a href="TH_25.htm" target="right">seGetNumberEx</a><br>
+<img src="topic.png"><a href="TH_26.htm" target="right">seGetPointer</a><br>
+<img src="topic.png"><a href="TH_27.htm" target="right">seGetPointerEx</a><br>
+<img src="topic.png"><a href="TH_28.htm" target="right">seGetObject</a><br>
+<img src="topic.png"><a href="TH_29.htm" target="right">seGetObjectEx</a><br>
+<img src="topic.png"><a href="TH_30.htm" target="right">seGetString</a><br>
+<img src="topic.png"><a href="TH_31.htm" target="right">seGetStringEx</a><br>
+<img src="topic.png"><a href="TH_32.htm" target="right">seFreeObject</a><br>
+<img src="topic.png"><a href="TH_33.htm" target="right">seFreeString</a><br>
+<img src="topic.png"><a href="TH_34.htm" target="right">seCloneObject</a><br>
+<img src="topic.png"><a href="TH_35.htm" target="right">seCloneString</a><br>
+<img src="topic.png"><a href="TH_36.htm" target="right">seWeakLockObject</a><br>
+<img src="topic.png"><a href="TH_37.htm" target="right">seLockObject</a><br>
+<img src="topic.png"><a href="TH_38.htm" target="right">seLockString</a><br>
+<img src="topic.png"><a href="TH_39.htm" target="right">seGetType</a><br>
+<img src="topic.png"><a href="TH_40.htm" target="right">seExists</a><br>
+<img src="topic.png"><a href="TH_41.htm" target="right">seExistsDirect</a><br>
+<img src="topic.png"><a href="TH_42.htm" target="right">seGetAttribs</a><br>
+<img src="topic.png"><a href="TH_43.htm" target="right">seCompare</a><br>
+</div>
+<img src="open.png" id=mi-44><span id=mt-44><a href="TH_44.htm" target="right">OBJECT ACCESS ROUTINES</a></span><br>
+<div id=c-44 style="margin-left:35;">
+<img src="topic.png"><a href="TH_45.htm" target="right">seObjectMemberCount</a><br>
+<img src="topic.png"><a href="TH_46.htm" target="right">seObjectMemberCountDirect</a><br>
+<img src="topic.png"><a href="TH_47.htm" target="right">seObjectMemberName</a><br>
+<img src="topic.png"><a href="TH_48.htm" target="right">seIsFunc</a><br>
+<img src="topic.png"><a href="TH_49.htm" target="right">seIsArray</a><br>
+<img src="topic.png"><a href="TH_50.htm" target="right">seSetArray</a><br>
+<img src="topic.png"><a href="TH_51.htm" target="right">seShareReadObject</a><br>
+</div>
+<img src="open.png" id=mi-52><span id=mt-52><a href="TH_52.htm" target="right">VARIABLE WRITING</a></span><br>
+<div id=c-52 style="margin-left:35;">
+<img src="topic.png"><a href="TH_53.htm" target="right">sePutBoolEx</a><br>
+<img src="topic.png"><a href="TH_54.htm" target="right">sePutNumberEx</a><br>
+<img src="topic.png"><a href="TH_55.htm" target="right">sePutPointerEx</a><br>
+<img src="topic.png"><a href="TH_56.htm" target="right">sePutObjectEx</a><br>
+<img src="topic.png"><a href="TH_57.htm" target="right">sePutStringEx</a><br>
+<img src="topic.png"><a href="TH_58.htm" target="right">sePutUndefinedEx</a><br>
+<img src="topic.png"><a href="TH_59.htm" target="right">sePutNullEx</a><br>
+<img src="topic.png"><a href="TH_60.htm" target="right">seDelete</a><br>
+<img src="topic.png"><a href="TH_61.htm" target="right">seMakeObject</a><br>
+<img src="topic.png"><a href="TH_62.htm" target="right">seMakeStack</a><br>
+<img src="topic.png"><a href="TH_63.htm" target="right">sePutWrapper</a><br>
+<img src="topic.png"><a href="TH_64.htm" target="right">seSetCallbacks</a><br>
+<img src="topic.png"><a href="TH_65.htm" target="right">seEnableDynamicMethod</a><br>
+<img src="topic.png"><a href="TH_66.htm" target="right">seConvert</a><br>
+<img src="topic.png"><a href="TH_67.htm" target="right">seSetAttribs</a><br>
+<img src="topic.png"><a href="TH_68.htm" target="right">seAssignEx</a><br>
+<img src="topic.png"><a href="TH_69.htm" target="right">seThrow</a><br>
+</div>
+<img src="open.png" id=mi-70><span id=mt-70><a href="TH_70.htm" target="right">EXECUTING SCRIPTS</a></span><br>
+<div id=c-70 style="margin-left:35;">
+<img src="topic.png"><a href="TH_71.htm" target="right">seEval</a><br>
+<img src="topic.png"><a href="TH_72.htm" target="right">seExec</a><br>
+<img src="topic.png"><a href="TH_73.htm" target="right">seEnd</a><br>
+<img src="topic.png"><a href="TH_74.htm" target="right">sePrecompile</a><br>
+<img src="topic.png"><a href="TH_75.htm" target="right">seFreeBytecodes</a><br>
+<img src="topic.png"><a href="TH_76.htm" target="right">seIsBreakpoint</a><br>
+</div>
+</div>
+<img src="open.png" id=mi-195><span id=mt-195><a href="TH_195.htm" target="right">The Debugger</a></span><br>
+<div id=c-195 style="margin-left:25;">
+<img src="topic.png"><a href="TH_196.htm" target="right">SECONTINUEFUNC</a><br>
+<img src="topic.png"><a href="TH_197.htm" target="right">THE SIMPLE DEBUGGER</a><br>
+<img src="open.png" id=mi-198><span id=mt-198><a href="TH_198.htm" target="right">INTEGRATING THE SCRIPTEASE DEBUGGER</a></span><br>
+<div id=c-198 style="margin-left:35;">
+<img src="topic.png"><a href="TH_199.htm" target="right">THE CONTINUE FUNCTION</a><br>
+<img src="topic.png"><a href="TH_200.htm" target="right">THE AT ERROR FUNCTION</a><br>
+<img src="topic.png"><a href="TH_201.htm" target="right">INVOKING THE DEBUGGER</a><br>
+<img src="topic.png"><a href="TH_202.htm" target="right">INVOKING THE DEBUGGER ON AN ERROR</a><br>
+</div>
+<img src="open.png" id=mi-203><span id=mt-203><a href="TH_203.htm" target="right">THE SCRIPTEASE DEBUGGER PROTOCOL VERSION 1.0</a></span><br>
+<div id=c-203 style="margin-left:35;">
+<img src="topic.png"><a href="TH_204.htm" target="right">INITIALIZATION</a><br>
+<img src="open.png" id=mi-205><span id=mt-205><a href="TH_205.htm" target="right">MAIN DEBUG MODE</a></span><br>
+<div id=c-205 style="margin-left:45;">
+<img src="topic.png"><a href="TH_206.htm" target="right">REPORT</a><br>
+<img src="topic.png"><a href="TH_207.htm" target="right">SEND FILE filename</a><br>
+<img src="topic.png"><a href="TH_208.htm" target="right">CLEAR BREAKPOINTS</a><br>
+<img src="topic.png"><a href="TH_209.htm" target="right">BREAKPOINT ADD/REMOVE filename:line-number</a><br>
+<img src="topic.png"><a href="TH_210.htm" target="right">EXPR ADD expression</a><br>
+<img src="topic.png"><a href="TH_211.htm" target="right">EXPR REMOVE #number</a><br>
+<img src="topic.png"><a href="TH_212.htm" target="right">GO number</a><br>
+<img src="topic.png"><a href="TH_213.htm" target="right">STEP</a><br>
+<img src="topic.png"><a href="TH_214.htm" target="right">TEST BREAKPOINT filename:line-number</a><br>
+<img src="topic.png"><a href="TH_215.htm" target="right">EVAL expression</a><br>
+<img src="topic.png"><a href="TH_216.htm" target="right">GET object index</a><br>
+<img src="topic.png"><a href="TH_217.htm" target="right">STRING object index</a><br>
+<img src="topic.png"><a href="TH_218.htm" target="right">VARNAME object index</a><br>
+<img src="topic.png"><a href="TH_219.htm" target="right">STACK index</a><br>
+<img src="topic.png"><a href="TH_220.htm" target="right">RELEASE #object-id</a><br>
+<img src="topic.png"><a href="TH_221.htm" target="right">QUIT</a><br>
+</div>
+</div>
+</div>
+<img src="open.png" id=mi-250><span id=mt-250><a href="TH_250.htm" target="right">Extlibs</a></span><br>
+<div id=c-250 style="margin-left:45;">
+<img src="topic.png"><a href="TH_251.htm" target="right">BUILDING AN EXTLIB</a><br>
+</div>
+</div>
+</div>
+<img src="open.png" id=mi-100><span id=mt-100><a href="TH_100.htm" target="right">Core Customization Topics</a></span><br>
+<div id=c-100 style="margin-left:25;">
+<img src="open.png" id=mi-101><span id=mt-101><a href="TH_101.htm" target="right">CHARACTER SET CUSTOMIZATIONS</a></span><br>
+<div id=c-101 style="margin-left:35;">
+<img src="topic.png"><a href="TH_102.htm" target="right">JSE_ASCII (on)</a><br>
+<img src="topic.png"><a href="TH_103.htm" target="right">JSE_UNICODE (off)</a><br>
+<img src="topic.png"><a href="TH_104.htm" target="right">JSE_MBCS (off)</a><br>
+<img src="topic.png"><a href="TH_105.htm" target="right">JSE_USER_DEFINED_MBCS (off)</a><br>
+</div>
+<img src="open.png" id=mi-106><span id=mt-106><a href="TH_106.htm" target="right">CORE CUSTOMIZATION</a></span><br>
+<div id=c-106 style="margin-left:35;">
+<img src="topic.png"><a href="TH_107.htm" target="right">JSE_MIN_MEMORY (off for most systems)</a><br>
+<img src="topic.png"><a href="TH_108.htm" target="right">JSE_MULTIPLE_GLOBAL (on)</a><br>
+<img src="topic.png"><a href="TH_109.htm" target="right">JSE_HASH_SIZE (256)</a><br>
+<img src="topic.png"><a href="TH_110.htm" target="right">JSE_ONE_STRING_TABLE (off)</a><br>
+<img src="topic.png"><a href="TH_111.htm" target="right">JSE_INFREQUENT_COUNT (5000)</a><br>
+<img src="topic.png"><a href="TH_112.htm" target="right">JSE_INTERNAL_PROFILING (off)</a><br>
+<img src="topic.png"><a href="TH_113.htm" target="right">JSE_GET_RESOURCE (off)</a><br>
+<img src="topic.png"><a href="TH_114.htm" target="right">JSE_SHORT_RESOURCE (off)</a><br>
+<img src="topic.png"><a href="TH_115.htm" target="right">JSE_TRAP_NOWHERE (off)</a><br>
+<img src="topic.png"><a href="TH_116.htm" target="right">JSE_INLINES (on, off if JSE_MIN_MEMORY is defined)</a><br>
+<img src="topic.png"><a href="TH_117.htm" target="right">JSE_PEEPHOLE_OPTIMIZER (on)</a><br>
+<img src="topic.png"><a href="TH_118.htm" target="right">JSE_CACHE_GLOBAL_VARS (on)</a><br>
+<img src="topic.png"><a href="TH_119.htm" target="right">JSE_GLOBAL_CACHE_SIZE (10)</a><br>
+<img src="topic.png"><a href="TH_120.htm" target="right">JSE_COMPACT_LIBFUNCS (off)</a><br>
+<img src="topic.png"><a href="TH_121.htm" target="right">JSE_ALIGN_DATA (off)</a><br>
+<img src="topic.png"><a href="TH_122.htm" target="right">JSE_REFCOUNT (off)</a><br>
+<img src="topic.png"><a href="TH_123.htm" target="right">JSE_GC (on)</a><br>
+<img src="topic.png"><a href="TH_124.htm" target="right">SE_OBJ_POOL_SIZE (1024, 128 if JSE_MIN_MEMORY is on)</a><br>
+<img src="topic.png"><a href="TH_125.htm" target="right">SE_MEM_POOL_SIZE (1024, 128 if JSE_MIN_MEMORY is on)</a><br>
+<img src="topic.png"><a href="TH_126.htm" target="right">SE_STRING_POOL_SIZE (512, 64 if JSE_MIN_MEMORY is on)</a><br>
+<img src="topic.png"><a href="TH_127.htm" target="right">JSE_STRINGS_COLLECT (1000000, 100000 if JSE_MIN_MEMORY is on)</a><br>
+<img src="topic.png"><a href="TH_128.htm" target="right">JSE_PACK_OBJECTS (off, on is JSE_MIN_MEMORY is on)</a><br>
+<img src="topic.png"><a href="TH_129.htm" target="right">JSE_PACK_SECODES (off, on if JSE_MIN_MEMORY is on)</a><br>
+<img src="topic.png"><a href="TH_130.htm" target="right">JSE_POOL_STRINGDATA (on, off if JSE_MIN_MEMORY is on)</a><br>
+<img src="topic.png"><a href="TH_131.htm" target="right">JSE_PER_OBJECT_CACHE (on, off if JSE_MIN_MEMORY is on)</a><br>
+<img src="topic.png"><a href="TH_132.htm" target="right">JSE_PER_OBJECT_MISS_CACHE (on, off if JSE_MIN_MEMORY is on)</a><br>
+<img src="topic.png"><a href="TH_133.htm" target="right">SE_APISTRING_POOL_SIZE (5)</a><br>
+<img src="topic.png"><a href="TH_134.htm" target="right">SE_APIVARNAME_POOL_SIZE (5)</a><br>
+<img src="topic.png"><a href="TH_135.htm" target="right">SE_STACK_SIZE (2048, 512 if JSE_MIN_MEMORY is on)</a><br>
+<img src="topic.png"><a href="TH_136.htm" target="right">SE_MAX_STACK_INFO_DEPTH (64)</a><br>
+</div>
+<img src="open.png" id=mi-137><span id=mt-137><a href="TH_137.htm" target="right">FEATURE CUSTOMIZATION</a></span><br>
+<div id=c-137 style="margin-left:35;">
+<img src="topic.png"><a href="TH_138.htm" target="right">JSE_COMPILER (on)</a><br>
+<img src="topic.png"><a href="TH_139.htm" target="right">JSE_TOOLKIT_APPSOURCE (on)</a><br>
+<img src="topic.png"><a href="TH_140.htm" target="right">JSE_SAVE_FUNCTION_TEXT (on, off if JSE_MIN_MEMORY is on or JSE_COMPILER is off)</a><br>
+<img src="topic.png"><a href="TH_141.htm" target="right">JSE_PROTOTYPES (on)</a><br>
+<img src="topic.png"><a href="TH_142.htm" target="right">JSE_ALWAYS_IMPLICIT_THIS (off)</a><br>
+<img src="topic.png"><a href="TH_143.htm" target="right">JSE_ALWAYS_IMPLICIT_PARENTS (off)</a><br>
+<img src="topic.png"><a href="TH_144.htm" target="right">JSE_FUNCTION_ARGUMENTS (on)</a><br>
+<img src="topic.png"><a href="TH_145.htm" target="right">JSE_AUTO_OBJECT (off)</a><br>
+<img src="topic.png"><a href="TH_146.htm" target="right">JSE_REGEXP_LITERALS (on)</a><br>
+<img src="topic.png"><a href="TH_147.htm" target="right">JSE_FUNCTION_LENGTHS (on)</a><br>
+<img src="topic.png"><a href="TH_148.htm" target="right">JSE_HTML_COMMENT_STYLE (off)</a><br>
+<img src="topic.png"><a href="TH_149.htm" target="right">SE_ECMA_RETURNS (on)</a><br>
+</div>
+<img src="open.png" id=mi-150><span id=mt-150><a href="TH_150.htm" target="right">SCRIPTEASE FEATURE CUSTOMIZATION</a></span><br>
+<div id=c-150 style="margin-left:35;">
+<img src="topic.png"><a href="TH_151.htm" target="right">JSE_TOKENSRC (on)</a><br>
+<img src="topic.png"><a href="TH_152.htm" target="right">JSE_TOKENDST (on)</a><br>
+<img src="topic.png"><a href="TH_153.htm" target="right">JSE_DYNAMIC_CALLBACKS (on)</a><br>
+<img src="topic.png"><a href="TH_154.htm" target="right">JSE_OPERATOR_OVERLOADING (on)</a><br>
+<img src="topic.png"><a href="TH_155.htm" target="right">JSE_ENABLE_DYNAMETH (off)</a><br>
+<img src="topic.png"><a href="TH_156.htm" target="right">JSE_GETFILENAMELIST (off)</a><br>
+<img src="topic.png"><a href="TH_157.htm" target="right">JSE_BREAKPOINT_TEST (off)</a><br>
+<img src="topic.png"><a href="TH_158.htm" target="right">JSE_TASK_SCHEDULER (on)</a><br>
+<img src="topic.png"><a href="TH_159.htm" target="right">JSE_LINK (on)</a><br>
+<img src="topic.png"><a href="TH_160.htm" target="right">JSE_INCLUDE (on)</a><br>
+<img src="topic.png"><a href="TH_161.htm" target="right">JSE_DEFINE (on)</a><br>
+<img src="topic.png"><a href="TH_162.htm" target="right">JSE_CONDITIONAL_COMPILE (on)</a><br>
+<img src="topic.png"><a href="TH_163.htm" target="right">JSE_SECUREJSE (on)</a><br>
+<img src="topic.png"><a href="TH_164.htm" target="right">JSE_NUMTOSTRING_ROUNDING (on)</a><br>
+<img src="topic.png"><a href="TH_165.htm" target="right">JSE_MAIN_ARGC_ARGV (on)</a><br>
+<img src="topic.png"><a href="TH_166.htm" target="right">JSE_TOSOURCE (on)</a><br>
+<img src="topic.png"><a href="TH_167.htm" target="right">JSE_NAMED_PARAMS (on)</a><br>
+<img src="topic.png"><a href="TH_168.htm" target="right">JSE_TIMEZONE_GLOBAL (off)</a><br>
+<img src="topic.png"><a href="TH_169.htm" target="right">JSE_TOLOCALEDATE_FUNCTION (off)</a><br>
+<img src="topic.png"><a href="TH_170.htm" target="right">JSE_MILLENIUM (off)</a><br>
+<img src="topic.png"><a href="TH_171.htm" target="right">JSE_NO_AUTO_INIT (off)</a><br>
+<img src="topic.png"><a href="TH_172.htm" target="right">JSE_BROWSEROBJECTS (off)</a><br>
+<img src="topic.png"><a href="TH_173.htm" target="right">JSE_THREADSAFE_POSIX_CRTL (off)</a><br>
+<img src="topic.png"><a href="TH_174.htm" target="right">JSE_PREEMPTIVE_THREADS (on)</a><br>
+</div>
+<img src="open.png" id=mi-175><span id=mt-175><a href="TH_175.htm" target="right">DEBUGGING CUSTOMIZATION</a></span><br>
+<div id=c-175 style="margin-left:35;">
+<img src="topic.png"><a href="TH_176.htm" target="right">NDEBUG</a><br>
+<img src="topic.png"><a href="TH_177.htm" target="right">JSE_MEM_DEBUG (on if NDEBUG not defined)</a><br>
+<img src="topic.png"><a href="TH_178.htm" target="right">JSE_SLOW_MEM_ALLOC (off)</a><br>
+<img src="topic.png"><a href="TH_179.htm" target="right">JSE_ENFORCE_MEMCHECK (on)</a><br>
+<img src="topic.png"><a href="TH_180.htm" target="right">JSE_TRACK_MEMUSE (off)</a><br>
+<img src="topic.png"><a href="TH_181.htm" target="right">JSE_TRACK_OBJECT_USE (off)</a><br>
+<img src="topic.png"><a href="TH_182.htm" target="right">JSE_NEVER_FREE (off)</a><br>
+<img src="topic.png"><a href="TH_183.htm" target="right">JSE_DONT_POOL (off)</a><br>
+<img src="topic.png"><a href="TH_184.htm" target="right">JSE_ALWAYS_COLLECT (off)</a><br>
+<img src="topic.png"><a href="TH_185.htm" target="right">JSE_PSEUDO_PALMOS (off)</a><br>
+</div>
+<img src="open.png" id=mi-186><span id=mt-186><a href="TH_186.htm" target="right">FLOATING POINT CUSTOMIZATION</a></span><br>
+<div id=c-186 style="margin-left:35;">
+<img src="topic.png"><a href="TH_187.htm" target="right">JSE_FLOATING_POINT (on)</a><br>
+<img src="topic.png"><a href="TH_188.htm" target="right">JSE_FP_EMULATOR (off)</a><br>
+</div>
+<img src="open.png" id=mi-189><span id=mt-189><a href="TH_189.htm" target="right">MEMORY EXTENSIONS</a></span><br>
+<div id=c-189 style="margin-left:35;">
+<img src="topic.png"><a href="TH_190.htm" target="right">JSE_MEMEXT_MEMBERS (off)</a><br>
+<img src="topic.png"><a href="TH_191.htm" target="right">JSE_MEMEXT_OBJECTS (off)</a><br>
+<img src="topic.png"><a href="TH_192.htm" target="right">JSE_MEMEXT_SECODES (off)</a><br>
+<img src="topic.png"><a href="TH_193.htm" target="right">JSE_MEMEXT_STRINGS (off)</a><br>
+<img src="topic.png"><a href="TH_194.htm" target="right">JSE_MEMEXT_READONLY (off)</a><br>
+</div>
+</div>
+<img src="open.png" id=mi-252><span id=mt-252><a href="TH_252.htm" target="right">Fibers and Threads</a></span><br>
+<div id=c-252 style="margin-left:25;">
+<img src="open.png" id=mi-253><span id=mt-253><a href="TH_253.htm" target="right">USING SE_START</a></span><br>
+<div id=c-253 style="margin-left:35;">
+<img src="topic.png"><a href="TH_254.htm" target="right">GLOBAL MANIPULATION</a><br>
+</div>
+<img src="topic.png"><a href="TH_255.htm" target="right">YIELDING AND SUSPENDING</a><br>
+<img src="open.png" id=mi-256><span id=mt-256><a href="TH_256.htm" target="right">OTHER CONSIDERATIONS</a></span><br>
+<div id=c-256 style="margin-left:35;">
+<img src="topic.png"><a href="TH_257.htm" target="right">READ-ONLY SHARED OBJECTS</a><br>
+<img src="topic.png"><a href="TH_258.htm" target="right">SHARED SERVICES</a><br>
+</div>
+</div>
+<img src="open.png" id=mi-416><span id=mt-416><a href="TH_416.htm" target="right">ScriptEase JavaScript</a></span><br>
+<div id=c-416 style="margin-left:25;">
+<img src="open.png" id=mi-417><span id=mt-417><a href="TH_417.htm" target="right">Basics of ScriptEase</a></span><br>
+<div id=c-417 style="margin-left:35;">
+<img src="topic.png"><a href="TH_418.htm" target="right">Case sensitivity</a><br>
+<img src="topic.png"><a href="TH_419.htm" target="right">White space characters</a><br>
+<img src="topic.png"><a href="TH_420.htm" target="right">Comments</a><br>
+<img src="topic.png"><a href="TH_421.htm" target="right">Expressions, statements, and blocks</a><br>
+</div>
+<img src="open.png" id=mi-422><span id=mt-422><a href="TH_422.htm" target="right">Identifiers</a></span><br>
+<div id=c-422 style="margin-left:35;">
+<img src="topic.png"><a href="TH_423.htm" target="right">Prohibited identifiers</a><br>
+<img src="topic.png"><a href="TH_424.htm" target="right">Identifiers to avoid</a><br>
+<img src="topic.png"><a href="TH_425.htm" target="right">Variables</a><br>
+<img src="topic.png"><a href="TH_426.htm" target="right">Variable scope</a><br>
+<img src="topic.png"><a href="TH_427.htm" target="right">Function identifier</a><br>
+<img src="topic.png"><a href="TH_428.htm" target="right">Function scope</a><br>
+</div>
+<img src="open.png" id=mi-429><span id=mt-429><a href="TH_429.htm" target="right">Data types</a></span><br>
+<div id=c-429 style="margin-left:35;">
+<img src="open.png" id=mi-430><span id=mt-430><a href="TH_430.htm" target="right">Primitive data types</a></span><br>
+<div id=c-430 style="margin-left:45;">
+<img src="open.png" id=mi-431><span id=mt-431><a href="TH_431.htm" target="right">Number type</a></span><br>
+<div id=c-431 style="margin-left:55;">
+<img src="open.png" id=mi-432><span id=mt-432><a href="TH_432.htm" target="right">Integer</a></span><br>
+<div id=c-432 style="margin-left:65;">
+<img src="topic.png"><a href="TH_433.htm" target="right">Decimal</a><br>
+<img src="topic.png"><a href="TH_434.htm" target="right">Hexadecimal</a><br>
+<img src="topic.png"><a href="TH_435.htm" target="right">Octal</a><br>
+</div>
+<img src="open.png" id=mi-436><span id=mt-436><a href="TH_436.htm" target="right">Floating point</a></span><br>
+<div id=c-436 style="margin-left:65;">
+<img src="topic.png"><a href="TH_437.htm" target="right">Decimal floats</a><br>
+<img src="topic.png"><a href="TH_438.htm" target="right">Scientific floats</a><br>
+</div>
+</div>
+<img src="topic.png"><a href="TH_439.htm" target="right">Boolean type</a><br>
+<img src="topic.png"><a href="TH_440.htm" target="right">String type</a><br>
+</div>
+<img src="open.png" id=mi-441><span id=mt-441><a href="TH_441.htm" target="right">Composite data types</a></span><br>
+<div id=c-441 style="margin-left:45;">
+<img src="topic.png"><a href="TH_442.htm" target="right">Object type</a><br>
+<img src="topic.png"><a href="TH_443.htm" target="right">Array type</a><br>
+</div>
+<img src="open.png" id=mi-444><span id=mt-444><a href="TH_444.htm" target="right">Special values</a></span><br>
+<div id=c-444 style="margin-left:45;">
+<img src="topic.png"><a href="TH_445.htm" target="right">undefined</a><br>
+<img src="topic.png"><a href="TH_446.htm" target="right">null</a><br>
+<img src="topic.png"><a href="TH_447.htm" target="right">NaN</a><br>
+<img src="topic.png"><a href="TH_448.htm" target="right">Number constants</a><br>
+</div>
+</div>
+<img src="topic.png"><a href="TH_449.htm" target="right">Automatic type conversion</a><br>
+<img src="open.png" id=mi-450><span id=mt-450><a href="TH_450.htm" target="right">Properties and methods of basic data types</a></span><br>
+<div id=c-450 style="margin-left:35;">
+<img src="topic.png"><a href="TH_451.htm" target="right">toString()</a><br>
+<img src="topic.png"><a href="TH_452.htm" target="right">valueOf()</a><br>
+</div>
+<img src="open.png" id=mi-453><span id=mt-453><a href="TH_453.htm" target="right">Operators</a></span><br>
+<div id=c-453 style="margin-left:35;">
+<img src="topic.png"><a href="TH_454.htm" target="right">Object operator</a><br>
+<img src="open.png" id=mi-455><span id=mt-455><a href="TH_455.htm" target="right">Mathematical operators</a></span><br>
+<div id=c-455 style="margin-left:45;">
+<img src="topic.png"><a href="TH_456.htm" target="right">Basic arithmetic</a><br>
+<img src="topic.png"><a href="TH_457.htm" target="right">Assignment arithmetic</a><br>
+<img src="topic.png"><a href="TH_458.htm" target="right">Auto-increment (++) and auto-decrement (--)</a><br>
+</div>
+<img src="topic.png"><a href="TH_459.htm" target="right">Bit operators</a><br>
+<img src="topic.png"><a href="TH_460.htm" target="right">Logical operators and conditional expressions</a><br>
+<img src="topic.png"><a href="TH_461.htm" target="right">Concatenation operator</a><br>
+<img src="topic.png"><a href="TH_462.htm" target="right">delete operator</a><br>
+<img src="topic.png"><a href="TH_463.htm" target="right">in operator</a><br>
+<img src="topic.png"><a href="TH_464.htm" target="right">instanceof operator</a><br>
+<img src="topic.png"><a href="TH_465.htm" target="right">typeof operator</a><br>
+</div>
+<img src="open.png" id=mi-466><span id=mt-466><a href="TH_466.htm" target="right">Flow decisions statements</a></span><br>
+<div id=c-466 style="margin-left:35;">
+<img src="topic.png"><a href="TH_467.htm" target="right">if</a><br>
+<img src="topic.png"><a href="TH_468.htm" target="right">else</a><br>
+<img src="topic.png"><a href="TH_469.htm" target="right">while</a><br>
+<img src="topic.png"><a href="TH_470.htm" target="right">do {...} while</a><br>
+<img src="topic.png"><a href="TH_471.htm" target="right">for</a><br>
+<img src="topic.png"><a href="TH_472.htm" target="right">break</a><br>
+<img src="topic.png"><a href="TH_473.htm" target="right">continue</a><br>
+<img src="topic.png"><a href="TH_474.htm" target="right">switch, case, and default</a><br>
+<img src="topic.png"><a href="TH_475.htm" target="right">goto and labels</a><br>
+<img src="topic.png"><a href="TH_476.htm" target="right">Conditional operator</a><br>
+</div>
+<img src="topic.png"><a href="TH_477.htm" target="right">Exception handling</a><br>
+<img src="open.png" id=mi-478><span id=mt-478><a href="TH_478.htm" target="right">Functions</a></span><br>
+<div id=c-478 style="margin-left:35;">
+<img src="topic.png"><a href="TH_479.htm" target="right">Function return statement</a><br>
+<img src="topic.png"><a href="TH_480.htm" target="right">Passing information to functions</a><br>
+<img src="topic.png"><a href="TH_481.htm" target="right">Simulated named parameters</a><br>
+<img src="topic.png"><a href="TH_482.htm" target="right">Function property arguments[]</a><br>
+<img src="topic.png"><a href="TH_483.htm" target="right">Function recursion</a><br>
+<img src="topic.png"><a href="TH_484.htm" target="right">Error checking for functions</a><br>
+<img src="topic.png"><a href="TH_485.htm" target="right">main() function</a><br>
+</div>
+<img src="open.png" id=mi-486><span id=mt-486><a href="TH_486.htm" target="right">Objects</a></span><br>
+<div id=c-486 style="margin-left:35;">
+<img src="topic.png"><a href="TH_487.htm" target="right">Terminology for objects</a><br>
+<img src="topic.png"><a href="TH_488.htm" target="right">Predefining objects with constructor functions</a><br>
+<img src="topic.png"><a href="TH_489.htm" target="right">Initializers for objects and arrays</a><br>
+<img src="topic.png"><a href="TH_490.htm" target="right">Methods - assigning functions to objects</a><br>
+<img src="topic.png"><a href="TH_491.htm" target="right">Object prototypes</a><br>
+<img src="topic.png"><a href="TH_492.htm" target="right">for/in</a><br>
+<img src="topic.png"><a href="TH_493.htm" target="right">with</a><br>
+<img src="topic.png"><a href="TH_494.htm" target="right">_construct(...)</a><br>
+<img src="topic.png"><a href="TH_495.htm" target="right">_call(...)</a><br>
+</div>
+</div>
+<img src="open.png" id=mi-505><span id=mt-505><a href="TH_505.htm" target="right">ScriptEase versus C language</a></span><br>
+<div id=c-505 style="margin-left:25;">
+<img src="topic.png"><a href="TH_506.htm" target="right">Data types in C and SE</a><br>
+<img src="topic.png"><a href="TH_507.htm" target="right">Automatic type declaration</a><br>
+<img src="topic.png"><a href="TH_508.htm" target="right">Array representation</a><br>
+<img src="topic.png"><a href="TH_509.htm" target="right">Automatic array allocation</a><br>
+<img src="topic.png"><a href="TH_510.htm" target="right">Automatic and JavaScript Arrays</a><br>
+<img src="open.png" id=mi-511><span id=mt-511><a href="TH_511.htm" target="right">Literal strings</a></span><br>
+<div id=c-511 style="margin-left:35;">
+<img src="topic.png"><a href="TH_512.htm" target="right">Literal strings and assignments</a><br>
+<img src="topic.png"><a href="TH_513.htm" target="right">Literal strings and comparisons</a><br>
+<img src="topic.png"><a href="TH_514.htm" target="right">Literal strings and parameters</a><br>
+<img src="topic.png"><a href="TH_515.htm" target="right">Literal strings and returns</a><br>
+<img src="topic.png"><a href="TH_516.htm" target="right">Literal Strings and switch statements</a><br>
+</div>
+<img src="topic.png"><a href="TH_517.htm" target="right">Structures</a><br>
+<img src="topic.png"><a href="TH_518.htm" target="right">Passing variables by reference</a><br>
+<img src="topic.png"><a href="TH_519.htm" target="right">Pointer operator * and address operator &</a><br>
+<img src="topic.png"><a href="TH_520.htm" target="right">Case statements</a><br>
+<img src="topic.png"><a href="TH_521.htm" target="right">Initialization code which is external to functions</a><br>
+<img src="topic.png"><a href="TH_522.htm" target="right">Unnecessary tokens</a><br>
+<img src="topic.png"><a href="TH_523.htm" target="right">Macros</a><br>
+<img src="topic.png"><a href="TH_524.htm" target="right">Token replacement macros</a><br>
+<img src="topic.png"><a href="TH_525.htm" target="right">Back quote strings</a><br>
+<img src="topic.png"><a href="TH_526.htm" target="right">Converting existing C code to ScriptEase</a><br>
+</div>
+<img src="open.png" id=mi-496><span id=mt-496><a href="TH_496.htm" target="right">Security</a></span><br>
+<div id=c-496 style="margin-left:25;">
+<img src="open.png" id=mi-497><span id=mt-497><a href="TH_497.htm" target="right">Writing a Security Manager</a></span><br>
+<div id=c-497 style="margin-left:35;">
+<img src="topic.png"><a href="TH_498.htm" target="right">jseSecurityInit</a><br>
+<img src="topic.png"><a href="TH_499.htm" target="right">jseSecurityTerm</a><br>
+<img src="topic.png"><a href="TH_500.htm" target="right">jseSecurityGuard</a><br>
+<img src="topic.png"><a href="TH_501.htm" target="right">securityVariable</a><br>
+</div>
+<img src="topic.png"><a href="TH_502.htm" target="right">Specifying Security</a><br>
+<img src="topic.png"><a href="TH_503.htm" target="right">Wrapper Functions And Security</a><br>
+<img src="topic.png"><a href="TH_504.htm" target="right">Sample Script</a><br>
+</div>
+<img src="open.png" id=mi-841><span id=mt-841><a href="TH_841.htm" target="right">Internal Objects</a></span><br>
+<div id=c-841 style="margin-left:25;">
+<img src="open.png" id=mi-811><span id=mt-811><a href="TH_811.htm" target="right">Global object</a></span><br>
+<div id=c-811 style="margin-left:35;">
+<img src="open.png" id=mi-812><span id=mt-812><a href="TH_812.htm" target="right">Conversion or casting</a></span><br>
+<div id=c-812 style="margin-left:45;">
+<img src="topic.png"><a href="TH_813.htm" target="right">global._argc</a><br>
+<img src="topic.png"><a href="TH_814.htm" target="right">global._argv</a><br>
+</div>
+<img src="open.png" id=mi-815><span id=mt-815><a href="TH_815.htm" target="right">global object methods/functions</a></span><br>
+<div id=c-815 style="margin-left:45;">
+<img src="topic.png"><a href="TH_816.htm" target="right">global.defined()</a><br>
+<img src="topic.png"><a href="TH_817.htm" target="right">global.escape()</a><br>
+<img src="topic.png"><a href="TH_818.htm" target="right">global.eval()</a><br>
+<img src="topic.png"><a href="TH_819.htm" target="right">global.isFinite()</a><br>
+<img src="topic.png"><a href="TH_820.htm" target="right">global.isNaN()</a><br>
+<img src="topic.png"><a href="TH_821.htm" target="right">global.getArrayLength()</a><br>
+<img src="topic.png"><a href="TH_822.htm" target="right">global.getAttributes()</a><br>
+<img src="topic.png"><a href="TH_823.htm" target="right">global.parseFloat()</a><br>
+<img src="topic.png"><a href="TH_824.htm" target="right">global.parseInt()</a><br>
+<img src="topic.png"><a href="TH_825.htm" target="right">global.setArrayLength()</a><br>
+<img src="topic.png"><a href="TH_826.htm" target="right">global.setAttributes()</a><br>
+<img src="topic.png"><a href="TH_827.htm" target="right">global.ToBoolean()</a><br>
+<img src="topic.png"><a href="TH_828.htm" target="right">global.ToBuffer()</a><br>
+<img src="topic.png"><a href="TH_829.htm" target="right">global.ToBytes()</a><br>
+<img src="topic.png"><a href="TH_830.htm" target="right">global.ToInt32()</a><br>
+<img src="topic.png"><a href="TH_831.htm" target="right">global.ToInteger()</a><br>
+<img src="topic.png"><a href="TH_832.htm" target="right">global.ToNumber()</a><br>
+<img src="topic.png"><a href="TH_833.htm" target="right">global.ToObject()</a><br>
+<img src="topic.png"><a href="TH_834.htm" target="right">global.ToPrimitive</a><br>
+<img src="topic.png"><a href="TH_835.htm" target="right">global.ToSource()</a><br>
+<img src="topic.png"><a href="TH_836.htm" target="right">global.ToString()</a><br>
+<img src="topic.png"><a href="TH_837.htm" target="right">global.ToUint16()</a><br>
+<img src="topic.png"><a href="TH_838.htm" target="right">global.ToUint32()</a><br>
+<img src="topic.png"><a href="TH_839.htm" target="right">global.unescape()</a><br>
+<img src="topic.png"><a href="TH_840.htm" target="right">global.undefine()</a><br>
+</div>
+</div>
+<img src="open.png" id=mi-527><span id=mt-527><a href="TH_527.htm" target="right">Array object</a></span><br>
+<div id=c-527 style="margin-left:35;">
+<img src="open.png" id=mi-528><span id=mt-528><a href="TH_528.htm" target="right">Creating arrays</a></span><br>
+<div id=c-528 style="margin-left:45;">
+<img src="topic.png"><a href="TH_529.htm" target="right">Initializers for arrays and objects</a><br>
+</div>
+<img src="open.png" id=mi-530><span id=mt-530><a href="TH_530.htm" target="right">Array object instance properties</a></span><br>
+<div id=c-530 style="margin-left:45;">
+<img src="topic.png"><a href="TH_531.htm" target="right">Array length</a><br>
+</div>
+<img src="open.png" id=mi-532><span id=mt-532><a href="TH_532.htm" target="right">Array object instance methods</a></span><br>
+<div id=c-532 style="margin-left:45;">
+<img src="topic.png"><a href="TH_533.htm" target="right">Array()</a><br>
+<img src="topic.png"><a href="TH_534.htm" target="right">Array concat()</a><br>
+<img src="topic.png"><a href="TH_535.htm" target="right">Array join()</a><br>
+<img src="topic.png"><a href="TH_536.htm" target="right">Array pop()</a><br>
+<img src="topic.png"><a href="TH_537.htm" target="right">Array push()</a><br>
+<img src="topic.png"><a href="TH_538.htm" target="right">Array reverse()</a><br>
+<img src="topic.png"><a href="TH_539.htm" target="right">Array shift()</a><br>
+<img src="topic.png"><a href="TH_540.htm" target="right">Array slice()</a><br>
+<img src="topic.png"><a href="TH_541.htm" target="right">Array sort()</a><br>
+<img src="topic.png"><a href="TH_542.htm" target="right">Array splice()</a><br>
+<img src="topic.png"><a href="TH_543.htm" target="right">Array toString()</a><br>
+<img src="topic.png"><a href="TH_544.htm" target="right">Array unshift()</a><br>
+</div>
+</div>
+<img src="open.png" id=mi-545><span id=mt-545><a href="TH_545.htm" target="right">Blob Object</a></span><br>
+<div id=c-545 style="margin-left:35;">
+<img src="open.png" id=mi-546><span id=mt-546><a href="TH_546.htm" target="right">Blob object static methods</a></span><br>
+<div id=c-546 style="margin-left:45;">
+<img src="topic.png"><a href="TH_547.htm" target="right">Blob.get()</a><br>
+<img src="topic.png"><a href="TH_548.htm" target="right">Blob.put()</a><br>
+<img src="topic.png"><a href="TH_549.htm" target="right">Blob.size()</a><br>
+</div>
+<img src="open.png" id=mi-550><span id=mt-550><a href="TH_550.htm" target="right">blobDescriptor object</a></span><br>
+<div id=c-550 style="margin-left:45;">
+<img src="topic.png"><a href="TH_551.htm" target="right">blobDescriptor example</a><br>
+</div>
+</div>
+<img src="open.png" id=mi-552><span id=mt-552><a href="TH_552.htm" target="right">Boolean Object</a></span><br>
+<div id=c-552 style="margin-left:35;">
+<img src="open.png" id=mi-553><span id=mt-553><a href="TH_553.htm" target="right">Boolean object instance methods</a></span><br>
+<div id=c-553 style="margin-left:45;">
+<img src="topic.png"><a href="TH_554.htm" target="right">Boolean()</a><br>
+<img src="topic.png"><a href="TH_555.htm" target="right">Boolean.toString()</a><br>
+</div>
+</div>
+<img src="open.png" id=mi-556><span id=mt-556><a href="TH_556.htm" target="right">Buffer Object</a></span><br>
+<div id=c-556 style="margin-left:35;">
+<img src="open.png" id=mi-557><span id=mt-557><a href="TH_557.htm" target="right">Buffer object instance properties</a></span><br>
+<div id=c-557 style="margin-left:45;">
+<img src="topic.png"><a href="TH_558.htm" target="right">Buffer bigEndian</a><br>
+<img src="topic.png"><a href="TH_559.htm" target="right">Buffer cursor</a><br>
+<img src="topic.png"><a href="TH_560.htm" target="right">Buffer size</a><br>
+<img src="topic.png"><a href="TH_561.htm" target="right">Buffer unicode</a><br>
+<img src="topic.png"><a href="TH_562.htm" target="right">Buffer[] Array</a><br>
+</div>
+<img src="open.png" id=mi-563><span id=mt-563><a href="TH_563.htm" target="right">Buffer object instance methods</a></span><br>
+<div id=c-563 style="margin-left:45;">
+<img src="topic.png"><a href="TH_564.htm" target="right">Buffer()</a><br>
+<img src="topic.png"><a href="TH_565.htm" target="right">Buffer getString()</a><br>
+<img src="topic.png"><a href="TH_566.htm" target="right">Buffer compare()</a><br>
+<img src="topic.png"><a href="TH_567.htm" target="right">Buffer equal()</a><br>
+<img src="topic.png"><a href="TH_568.htm" target="right">Buffer getValue()</a><br>
+<img src="topic.png"><a href="TH_569.htm" target="right">Buffer putString()</a><br>
+<img src="topic.png"><a href="TH_570.htm" target="right">Buffer putValue()</a><br>
+<img src="topic.png"><a href="TH_571.htm" target="right">Buffer subBuffer()</a><br>
+<img src="topic.png"><a href="TH_572.htm" target="right">Buffer toString()</a><br>
+</div>
+<img src="open.png" id=mi-573><span id=mt-573><a href="TH_573.htm" target="right">Buffer object static methods</a></span><br>
+<div id=c-573 style="margin-left:45;">
+<img src="topic.png"><a href="TH_574.htm" target="right">Buffer.compare ()</a><br>
+<img src="topic.png"><a href="TH_575.htm" target="right">Buffer.equal ()</a><br>
+<img src="topic.png"><a href="TH_576.htm" target="right">internal_bufferobject-1</a><br>
+</div>
+</div>
+<img src="open.png" id=mi-577><span id=mt-577><a href="TH_577.htm" target="right">Clib Object</a></span><br>
+<div id=c-577 style="margin-left:35;">
+<img src="open.png" id=mi-578><span id=mt-578><a href="TH_578.htm" target="right">Console I/O functions</a></span><br>
+<div id=c-578 style="margin-left:45;">
+<img src="topic.png"><a href="TH_579.htm" target="right">Clib.printf()</a><br>
+<img src="topic.png"><a href="TH_580.htm" target="right">Clib.getch()</a><br>
+<img src="topic.png"><a href="TH_581.htm" target="right">Clib.getchar()</a><br>
+<img src="topic.png"><a href="TH_582.htm" target="right">Clib.getche()</a><br>
+<img src="topic.png"><a href="TH_583.htm" target="right">Clib.gets()</a><br>
+<img src="topic.png"><a href="TH_584.htm" target="right">Clib.kbhit()</a><br>
+<img src="topic.png"><a href="TH_585.htm" target="right">Clib.putchar()</a><br>
+<img src="topic.png"><a href="TH_586.htm" target="right">Clib.puts()</a><br>
+<img src="topic.png"><a href="TH_587.htm" target="right">Clib.scanf()</a><br>
+<img src="topic.png"><a href="TH_588.htm" target="right">Clib.vprintf()</a><br>
+<img src="topic.png"><a href="TH_589.htm" target="right">Clib.vscanf()</a><br>
+</div>
+<img src="open.png" id=mi-590><span id=mt-590><a href="TH_590.htm" target="right">Time functions</a></span><br>
+<div id=c-590 style="margin-left:45;">
+<img src="topic.png"><a href="TH_591.htm" target="right">Clib.asctime()</a><br>
+<img src="topic.png"><a href="TH_592.htm" target="right">Clib.clock()</a><br>
+<img src="topic.png"><a href="TH_593.htm" target="right">Clib.ctime()</a><br>
+<img src="topic.png"><a href="TH_594.htm" target="right">Clib.difftime()</a><br>
+<img src="topic.png"><a href="TH_595.htm" target="right">Clib.gmtime()</a><br>
+<img src="topic.png"><a href="TH_596.htm" target="right">Clib.localtime()</a><br>
+<img src="topic.png"><a href="TH_597.htm" target="right">Clib.mktime()</a><br>
+<img src="topic.png"><a href="TH_598.htm" target="right">Clib.strftime()</a><br>
+<img src="topic.png"><a href="TH_599.htm" target="right">Clib.time()</a><br>
+</div>
+<img src="open.png" id=mi-600><span id=mt-600><a href="TH_600.htm" target="right">Script execution</a></span><br>
+<div id=c-600 style="margin-left:45;">
+<img src="topic.png"><a href="TH_601.htm" target="right">Clib.abort()</a><br>
+<img src="topic.png"><a href="TH_602.htm" target="right">Clib.assert()</a><br>
+<img src="topic.png"><a href="TH_603.htm" target="right">Clib.atexit()</a><br>
+<img src="topic.png"><a href="TH_604.htm" target="right">Clib.exit()</a><br>
+<img src="topic.png"><a href="TH_605.htm" target="right">Clib.system()</a><br>
+</div>
+<img src="open.png" id=mi-606><span id=mt-606><a href="TH_606.htm" target="right">Error</a></span><br>
+<div id=c-606 style="margin-left:45;">
+<img src="topic.png"><a href="TH_607.htm" target="right">Clib.errno</a><br>
+<img src="topic.png"><a href="TH_608.htm" target="right">Clib.clearerr()</a><br>
+<img src="topic.png"><a href="TH_609.htm" target="right">Clib.ferror()</a><br>
+<img src="topic.png"><a href="TH_610.htm" target="right">Clib.perror()</a><br>
+<img src="topic.png"><a href="TH_611.htm" target="right">Clib.strerror()</a><br>
+</div>
+<img src="open.png" id=mi-612><span id=mt-612><a href="TH_612.htm" target="right">File I/O</a></span><br>
+<div id=c-612 style="margin-left:45;">
+<img src="topic.png"><a href="TH_613.htm" target="right">Clib.fopen()</a><br>
+<img src="topic.png"><a href="TH_614.htm" target="right">Clib.fclose()</a><br>
+<img src="topic.png"><a href="TH_615.htm" target="right">Clib.feof()</a><br>
+<img src="topic.png"><a href="TH_616.htm" target="right">Clib.fflush()</a><br>
+<img src="topic.png"><a href="TH_617.htm" target="right">Clib.fgetc()</a><br>
+<img src="topic.png"><a href="TH_618.htm" target="right">Clib.fgetpos()</a><br>
+<img src="topic.png"><a href="TH_619.htm" target="right">Clib.fgets()</a><br>
+<img src="topic.png"><a href="TH_620.htm" target="right">Clib.fprintf()</a><br>
+<img src="topic.png"><a href="TH_621.htm" target="right">Clib.fputc()</a><br>
+<img src="topic.png"><a href="TH_622.htm" target="right">Clib.fputs()</a><br>
+<img src="topic.png"><a href="TH_623.htm" target="right">Clib.fread()</a><br>
+<img src="topic.png"><a href="TH_624.htm" target="right">Clib.freopen()</a><br>
+<img src="topic.png"><a href="TH_625.htm" target="right">Clib.fscanf()</a><br>
+<img src="topic.png"><a href="TH_626.htm" target="right">Clib.fseek()</a><br>
+<img src="topic.png"><a href="TH_627.htm" target="right">Clib.fsetpos()</a><br>
+<img src="topic.png"><a href="TH_628.htm" target="right">Clib.ftell()</a><br>
+<img src="topic.png"><a href="TH_629.htm" target="right">Clib.fwrite()</a><br>
+<img src="topic.png"><a href="TH_630.htm" target="right">Clib.getc()</a><br>
+<img src="topic.png"><a href="TH_631.htm" target="right">Clib.putc()</a><br>
+<img src="topic.png"><a href="TH_632.htm" target="right">Clib.remove()</a><br>
+<img src="topic.png"><a href="TH_633.htm" target="right">Clib.rename()</a><br>
+<img src="topic.png"><a href="TH_634.htm" target="right">Clib.rewind()</a><br>
+<img src="topic.png"><a href="TH_635.htm" target="right">Clib.tmpfile()</a><br>
+<img src="topic.png"><a href="TH_636.htm" target="right">Clib.tmpnam()</a><br>
+<img src="topic.png"><a href="TH_637.htm" target="right">Clib.ungetc()</a><br>
+</div>
+<img src="open.png" id=mi-638><span id=mt-638><a href="TH_638.htm" target="right">Directory</a></span><br>
+<div id=c-638 style="margin-left:45;">
+<img src="topic.png"><a href="TH_639.htm" target="right">Clib.chdir()</a><br>
+<img src="topic.png"><a href="TH_640.htm" target="right">Clib.getcwd()</a><br>
+<img src="topic.png"><a href="TH_641.htm" target="right">Clib.flock()</a><br>
+<img src="topic.png"><a href="TH_642.htm" target="right">Clib.mkdir()</a><br>
+<img src="topic.png"><a href="TH_643.htm" target="right">Clib.rmdir()</a><br>
+</div>
+<img src="open.png" id=mi-644><span id=mt-644><a href="TH_644.htm" target="right">Sorting</a></span><br>
+<div id=c-644 style="margin-left:45;">
+<img src="topic.png"><a href="TH_645.htm" target="right">Clib.bsearch()</a><br>
+<img src="topic.png"><a href="TH_646.htm" target="right">Clib.qsort()</a><br>
+</div>
+<img src="open.png" id=mi-647><span id=mt-647><a href="TH_647.htm" target="right">Environment variables</a></span><br>
+<div id=c-647 style="margin-left:45;">
+<img src="topic.png"><a href="TH_648.htm" target="right">Clib.getenv()</a><br>
+<img src="topic.png"><a href="TH_649.htm" target="right">Clib.putenv()</a><br>
+</div>
+<img src="open.png" id=mi-650><span id=mt-650><a href="TH_650.htm" target="right">Character classification</a></span><br>
+<div id=c-650 style="margin-left:45;">
+<img src="topic.png"><a href="TH_651.htm" target="right">Clib.isalnum()</a><br>
+<img src="topic.png"><a href="TH_652.htm" target="right">Clib.isalpha()</a><br>
+<img src="topic.png"><a href="TH_653.htm" target="right">Clib.isascii()</a><br>
+<img src="topic.png"><a href="TH_654.htm" target="right">Clib.iscntrl()</a><br>
+<img src="topic.png"><a href="TH_655.htm" target="right">Clib.isdigit()</a><br>
+<img src="topic.png"><a href="TH_656.htm" target="right">Clib.isgraph()</a><br>
+<img src="topic.png"><a href="TH_657.htm" target="right">Clib.islower()</a><br>
+<img src="topic.png"><a href="TH_658.htm" target="right">Clib.isprint()</a><br>
+<img src="topic.png"><a href="TH_659.htm" target="right">Clib.ispunct()</a><br>
+<img src="topic.png"><a href="TH_660.htm" target="right">Clib.isspace()</a><br>
+<img src="topic.png"><a href="TH_661.htm" target="right">Clib.isupper()</a><br>
+<img src="topic.png"><a href="TH_662.htm" target="right">Clib.isxdigit()</a><br>
+</div>
+<img src="open.png" id=mi-663><span id=mt-663><a href="TH_663.htm" target="right">String manipulation</a></span><br>
+<div id=c-663 style="margin-left:45;">
+<img src="topic.png"><a href="TH_664.htm" target="right">Clib.rsprintf()</a><br>
+<img src="topic.png"><a href="TH_665.htm" target="right">Clib.rvsprintf()</a><br>
+<img src="topic.png"><a href="TH_666.htm" target="right">Clib.sscanf()</a><br>
+<img src="topic.png"><a href="TH_667.htm" target="right">Clib.sprintf()</a><br>
+<img src="topic.png"><a href="TH_668.htm" target="right">Clib.strcat()</a><br>
+<img src="topic.png"><a href="TH_669.htm" target="right">Clib.strchr()</a><br>
+<img src="topic.png"><a href="TH_670.htm" target="right">Clib.strcmp()</a><br>
+<img src="topic.png"><a href="TH_671.htm" target="right">Clib.strcmpi()</a><br>
+<img src="topic.png"><a href="TH_672.htm" target="right">Clib.strcpy()</a><br>
+<img src="topic.png"><a href="TH_673.htm" target="right">Clib.strcspn()</a><br>
+<img src="topic.png"><a href="TH_674.htm" target="right">Clib.stricmp()</a><br>
+<img src="topic.png"><a href="TH_675.htm" target="right">Clib.strlen()</a><br>
+<img src="topic.png"><a href="TH_676.htm" target="right">Clib.strlwr()</a><br>
+<img src="topic.png"><a href="TH_677.htm" target="right">Clib.strncat()</a><br>
+<img src="topic.png"><a href="TH_678.htm" target="right">Clib.strncmp()</a><br>
+<img src="topic.png"><a href="TH_679.htm" target="right">Clib.strncmpi()</a><br>
+<img src="topic.png"><a href="TH_680.htm" target="right">Clib.strncpy()</a><br>
+<img src="topic.png"><a href="TH_681.htm" target="right">Clib.strnicmp()</a><br>
+<img src="topic.png"><a href="TH_682.htm" target="right">Clib.strpbrk()</a><br>
+<img src="topic.png"><a href="TH_683.htm" target="right">Clib.strrchr()</a><br>
+<img src="topic.png"><a href="TH_684.htm" target="right">Clib.strspn()</a><br>
+<img src="topic.png"><a href="TH_685.htm" target="right">Clib.strstr()</a><br>
+<img src="topic.png"><a href="TH_686.htm" target="right">Clib.strstri()</a><br>
+<img src="topic.png"><a href="TH_687.htm" target="right">Clib.strtod()</a><br>
+<img src="topic.png"><a href="TH_688.htm" target="right">Clib.strtok()</a><br>
+<img src="topic.png"><a href="TH_689.htm" target="right">Clib.strtol()</a><br>
+<img src="topic.png"><a href="TH_690.htm" target="right">Clib.strupr()</a><br>
+<img src="topic.png"><a href="TH_691.htm" target="right">Clib.toascii()</a><br>
+<img src="topic.png"><a href="TH_692.htm" target="right">Clib.tolower()</a><br>
+<img src="topic.png"><a href="TH_693.htm" target="right">Clib.toupper()</a><br>
+<img src="topic.png"><a href="TH_694.htm" target="right">Clib.vsprintf()</a><br>
+</div>
+<img src="open.png" id=mi-695><span id=mt-695><a href="TH_695.htm" target="right">Memory manipulation</a></span><br>
+<div id=c-695 style="margin-left:45;">
+<img src="topic.png"><a href="TH_696.htm" target="right">Clib.memchr()</a><br>
+<img src="topic.png"><a href="TH_697.htm" target="right">Clib.memcmp()</a><br>
+<img src="topic.png"><a href="TH_698.htm" target="right">Clib.memcpy()</a><br>
+<img src="topic.png"><a href="TH_699.htm" target="right">Clib.memmove()</a><br>
+<img src="topic.png"><a href="TH_700.htm" target="right">Clib.memset()</a><br>
+</div>
+<img src="open.png" id=mi-701><span id=mt-701><a href="TH_701.htm" target="right">Math</a></span><br>
+<div id=c-701 style="margin-left:45;">
+<img src="topic.png"><a href="TH_702.htm" target="right">Clib.abs()</a><br>
+<img src="topic.png"><a href="TH_703.htm" target="right">Clib.acos()</a><br>
+<img src="topic.png"><a href="TH_704.htm" target="right">Clib.asin()</a><br>
+<img src="topic.png"><a href="TH_705.htm" target="right">Clib.atan()</a><br>
+<img src="topic.png"><a href="TH_706.htm" target="right">Clib.atan2()</a><br>
+<img src="topic.png"><a href="TH_707.htm" target="right">Clib.atof()</a><br>
+<img src="topic.png"><a href="TH_708.htm" target="right">Clib.atoi()</a><br>
+<img src="topic.png"><a href="TH_709.htm" target="right">Clib.atol()</a><br>
+<img src="topic.png"><a href="TH_710.htm" target="right">Clib.ceil()</a><br>
+<img src="topic.png"><a href="TH_711.htm" target="right">Clib.cos()</a><br>
+<img src="topic.png"><a href="TH_712.htm" target="right">Clib.cosh()</a><br>
+<img src="topic.png"><a href="TH_713.htm" target="right">Clib.div()</a><br>
+<img src="topic.png"><a href="TH_714.htm" target="right">Clib.exp()</a><br>
+<img src="topic.png"><a href="TH_715.htm" target="right">Clib.fabs()</a><br>
+<img src="topic.png"><a href="TH_716.htm" target="right">Clib.floor()</a><br>
+<img src="topic.png"><a href="TH_717.htm" target="right">Clib.fmod()</a><br>
+<img src="topic.png"><a href="TH_718.htm" target="right">Clib.frexp()</a><br>
+<img src="topic.png"><a href="TH_719.htm" target="right">Clib.labs()</a><br>
+<img src="topic.png"><a href="TH_720.htm" target="right">Clib.ldexp()</a><br>
+<img src="topic.png"><a href="TH_721.htm" target="right">Clib.ldiv()</a><br>
+<img src="topic.png"><a href="TH_722.htm" target="right">Clib.log()</a><br>
+<img src="topic.png"><a href="TH_723.htm" target="right">Clib.log10()</a><br>
+<img src="topic.png"><a href="TH_724.htm" target="right">Clib.max()</a><br>
+<img src="topic.png"><a href="TH_725.htm" target="right">Clib.min()</a><br>
+<img src="topic.png"><a href="TH_726.htm" target="right">Clib.modf()</a><br>
+<img src="topic.png"><a href="TH_727.htm" target="right">Clib.pow()</a><br>
+<img src="topic.png"><a href="TH_728.htm" target="right">Clib.rand()</a><br>
+<img src="topic.png"><a href="TH_729.htm" target="right">Clib.sin()</a><br>
+<img src="topic.png"><a href="TH_730.htm" target="right">Clib.sinh()</a><br>
+<img src="topic.png"><a href="TH_731.htm" target="right">Clib.sqrt()</a><br>
+<img src="topic.png"><a href="TH_732.htm" target="right">Clib.srand()</a><br>
+<img src="topic.png"><a href="TH_733.htm" target="right">Clib.tan()</a><br>
+<img src="topic.png"><a href="TH_734.htm" target="right">Clib.tanh()</a><br>
+</div>
+<img src="open.png" id=mi-735><span id=mt-735><a href="TH_735.htm" target="right">Variable argument lists</a></span><br>
+<div id=c-735 style="margin-left:45;">
+<img src="topic.png"><a href="TH_736.htm" target="right">Clib.va_arg()</a><br>
+<img src="topic.png"><a href="TH_737.htm" target="right">Clib.va_end()</a><br>
+<img src="topic.png"><a href="TH_738.htm" target="right">Clib.va_start()</a><br>
+<img src="topic.png"><a href="TH_739.htm" target="right">Clib.vfprintf()</a><br>
+<img src="topic.png"><a href="TH_740.htm" target="right">Clib.vfscanf()</a><br>
+<img src="topic.png"><a href="TH_741.htm" target="right">Clib.vsscanf()</a><br>
+</div>
+</div>
+<img src="open.png" id=mi-742><span id=mt-742><a href="TH_742.htm" target="right">Date Object</a></span><br>
+<div id=c-742 style="margin-left:35;">
+<img src="open.png" id=mi-743><span id=mt-743><a href="TH_743.htm" target="right">Date object instance methods</a></span><br>
+<div id=c-743 style="margin-left:45;">
+<img src="topic.png"><a href="TH_744.htm" target="right">Date()</a><br>
+<img src="topic.png"><a href="TH_745.htm" target="right">Date getDate()</a><br>
+<img src="topic.png"><a href="TH_746.htm" target="right">Date getDay()</a><br>
+<img src="topic.png"><a href="TH_747.htm" target="right">Date getFullYear()</a><br>
+<img src="topic.png"><a href="TH_748.htm" target="right">Date getHours()</a><br>
+<img src="topic.png"><a href="TH_749.htm" target="right">Date getMilliseconds()</a><br>
+<img src="topic.png"><a href="TH_750.htm" target="right">Date getMinutes()</a><br>
+<img src="topic.png"><a href="TH_751.htm" target="right">Date getMonth()</a><br>
+<img src="topic.png"><a href="TH_752.htm" target="right">Date getSeconds()</a><br>
+<img src="topic.png"><a href="TH_753.htm" target="right">Date getTime()</a><br>
+<img src="topic.png"><a href="TH_754.htm" target="right">Date getTimezoneOffset()</a><br>
+<img src="topic.png"><a href="TH_755.htm" target="right">Date getUTCDate()</a><br>
+<img src="topic.png"><a href="TH_756.htm" target="right">Date getUTCDay()</a><br>
+<img src="topic.png"><a href="TH_757.htm" target="right">Date getUTCFullYear()</a><br>
+<img src="topic.png"><a href="TH_758.htm" target="right">Date getUTCHours()</a><br>
+<img src="topic.png"><a href="TH_759.htm" target="right">Date getUTCMilliseconds()</a><br>
+<img src="topic.png"><a href="TH_760.htm" target="right">Date getUTCMinutes()</a><br>
+<img src="topic.png"><a href="TH_761.htm" target="right">Date getUTCMonth()</a><br>
+<img src="topic.png"><a href="TH_762.htm" target="right">Date getUTCSeconds()</a><br>
+<img src="topic.png"><a href="TH_763.htm" target="right">Date getYear()</a><br>
+<img src="topic.png"><a href="TH_764.htm" target="right">Date setDate()</a><br>
+<img src="topic.png"><a href="TH_765.htm" target="right">Date setFullYear()</a><br>
+<img src="topic.png"><a href="TH_766.htm" target="right">Date setHours()</a><br>
+<img src="topic.png"><a href="TH_767.htm" target="right">Date setMilliseconds()</a><br>
+<img src="topic.png"><a href="TH_768.htm" target="right">Date setMinutes()</a><br>
+<img src="topic.png"><a href="TH_769.htm" target="right">Date setMonth()</a><br>
+<img src="topic.png"><a href="TH_770.htm" target="right">Date setSeconds()</a><br>
+<img src="topic.png"><a href="TH_771.htm" target="right">Date setTime()</a><br>
+<img src="topic.png"><a href="TH_772.htm" target="right">Date setUTCDate()</a><br>
+<img src="topic.png"><a href="TH_773.htm" target="right">Date setUTCFullYear()</a><br>
+<img src="topic.png"><a href="TH_774.htm" target="right">Date setUTCHours()</a><br>
+<img src="topic.png"><a href="TH_775.htm" target="right">Date setUTCMilliseconds()</a><br>
+<img src="topic.png"><a href="TH_776.htm" target="right">Date setUTCMinutes()</a><br>
+<img src="topic.png"><a href="TH_777.htm" target="right">Date setUTCMonth()</a><br>
+<img src="topic.png"><a href="TH_778.htm" target="right">Date setUTCSeconds()</a><br>
+<img src="topic.png"><a href="TH_779.htm" target="right">Date setYear()</a><br>
+<img src="topic.png"><a href="TH_780.htm" target="right">Date toDateString()</a><br>
+<img src="topic.png"><a href="TH_781.htm" target="right">Date toGMTString()</a><br>
+<img src="topic.png"><a href="TH_782.htm" target="right">Date toLocaleDateString()</a><br>
+<img src="topic.png"><a href="TH_783.htm" target="right">Date toLocaleString()</a><br>
+<img src="topic.png"><a href="TH_784.htm" target="right">Date toLocaleTimeString()</a><br>
+<img src="topic.png"><a href="TH_785.htm" target="right">Date toString()</a><br>
+<img src="topic.png"><a href="TH_786.htm" target="right">Date toSystem()</a><br>
+<img src="topic.png"><a href="TH_787.htm" target="right">Date toTimeString()</a><br>
+<img src="topic.png"><a href="TH_788.htm" target="right">Date toUTCString()</a><br>
+<img src="topic.png"><a href="TH_789.htm" target="right">Date valueOf()</a><br>
+</div>
+<img src="open.png" id=mi-790><span id=mt-790><a href="TH_790.htm" target="right">Date object static methods</a></span><br>
+<div id=c-790 style="margin-left:45;">
+<img src="topic.png"><a href="TH_791.htm" target="right">Date.fromSystem()</a><br>
+<img src="topic.png"><a href="TH_792.htm" target="right">Date.parse()</a><br>
+<img src="topic.png"><a href="TH_793.htm" target="right">Date.UTC()</a><br>
+</div>
+</div>
+<img src="open.png" id=mi-794><span id=mt-794><a href="TH_794.htm" target="right">Dos Object</a></span><br>
+<div id=c-794 style="margin-left:35;">
+<img src="open.png" id=mi-795><span id=mt-795><a href="TH_795.htm" target="right">Dos object static methods</a></span><br>
+<div id=c-795 style="margin-left:45;">
+<img src="topic.png"><a href="TH_796.htm" target="right">Dos.address()</a><br>
+<img src="topic.png"><a href="TH_797.htm" target="right">Dos.asm()</a><br>
+<img src="topic.png"><a href="TH_798.htm" target="right">Dos.inport()</a><br>
+<img src="topic.png"><a href="TH_799.htm" target="right">Dos.inportw()</a><br>
+<img src="topic.png"><a href="TH_800.htm" target="right">Dos.interrupt()</a><br>
+<img src="topic.png"><a href="TH_801.htm" target="right">Dos.offset()</a><br>
+<img src="topic.png"><a href="TH_802.htm" target="right">Dos.outport()</a><br>
+<img src="topic.png"><a href="TH_803.htm" target="right">Dos.outportw()</a><br>
+<img src="topic.png"><a href="TH_804.htm" target="right">Dos.segment()</a><br>
+</div>
+</div>
+<img src="open.png" id=mi-805><span id=mt-805><a href="TH_805.htm" target="right">Function Object</a></span><br>
+<div id=c-805 style="margin-left:35;">
+<img src="open.png" id=mi-806><span id=mt-806><a href="TH_806.htm" target="right">Function object instance methods</a></span><br>
+<div id=c-806 style="margin-left:45;">
+<img src="topic.png"><a href="TH_807.htm" target="right">Function()</a><br>
+<img src="topic.png"><a href="TH_808.htm" target="right">Function apply()</a><br>
+<img src="topic.png"><a href="TH_809.htm" target="right">Function call()</a><br>
+<img src="topic.png"><a href="TH_810.htm" target="right">Function toString()</a><br>
+</div>
+</div>
+<img src="open.png" id=mi-842><span id=mt-842><a href="TH_842.htm" target="right">Math Object</a></span><br>
+<div id=c-842 style="margin-left:35;">
+<img src="open.png" id=mi-843><span id=mt-843><a href="TH_843.htm" target="right">Math object static properties</a></span><br>
+<div id=c-843 style="margin-left:45;">
+<img src="topic.png"><a href="TH_844.htm" target="right">Math.E</a><br>
+<img src="topic.png"><a href="TH_845.htm" target="right">Math.LN10</a><br>
+<img src="topic.png"><a href="TH_846.htm" target="right">Math.LN2</a><br>
+<img src="topic.png"><a href="TH_847.htm" target="right">Math.LOG2E</a><br>
+<img src="topic.png"><a href="TH_848.htm" target="right">Math.LOG10E</a><br>
+<img src="topic.png"><a href="TH_849.htm" target="right">Math.PI</a><br>
+<img src="topic.png"><a href="TH_850.htm" target="right">Math.SQRT1_2</a><br>
+<img src="topic.png"><a href="TH_851.htm" target="right">Math.SQRT2</a><br>
+</div>
+<img src="open.png" id=mi-852><span id=mt-852><a href="TH_852.htm" target="right">Math object static methods</a></span><br>
+<div id=c-852 style="margin-left:45;">
+<img src="topic.png"><a href="TH_853.htm" target="right">Math.abs()</a><br>
+<img src="topic.png"><a href="TH_854.htm" target="right">Math.acos()</a><br>
+<img src="topic.png"><a href="TH_855.htm" target="right">Math.asin()</a><br>
+<img src="topic.png"><a href="TH_856.htm" target="right">Math.atan()</a><br>
+<img src="topic.png"><a href="TH_857.htm" target="right">Math.atan2()</a><br>
+<img src="topic.png"><a href="TH_858.htm" target="right">Math.ceil()</a><br>
+<img src="topic.png"><a href="TH_859.htm" target="right">Math.cos()</a><br>
+<img src="topic.png"><a href="TH_860.htm" target="right">Math.exp()</a><br>
+<img src="topic.png"><a href="TH_861.htm" target="right">Math.floor()</a><br>
+<img src="topic.png"><a href="TH_862.htm" target="right">Math.log()</a><br>
+<img src="topic.png"><a href="TH_863.htm" target="right">Math.max()</a><br>
+<img src="topic.png"><a href="TH_864.htm" target="right">Math.min()</a><br>
+<img src="topic.png"><a href="TH_865.htm" target="right">Math.pow()</a><br>
+<img src="topic.png"><a href="TH_866.htm" target="right">Math.random()</a><br>
+<img src="topic.png"><a href="TH_867.htm" target="right">Math.round()</a><br>
+<img src="topic.png"><a href="TH_868.htm" target="right">Math.sin()</a><br>
+<img src="topic.png"><a href="TH_869.htm" target="right">Math.sqrt()</a><br>
+<img src="topic.png"><a href="TH_870.htm" target="right">Math.tan()</a><br>
+</div>
+</div>
+<img src="open.png" id=mi-871><span id=mt-871><a href="TH_871.htm" target="right">Number Object</a></span><br>
+<div id=c-871 style="margin-left:35;">
+<img src="open.png" id=mi-872><span id=mt-872><a href="TH_872.htm" target="right">Number object instance methods</a></span><br>
+<div id=c-872 style="margin-left:45;">
+<img src="topic.png"><a href="TH_873.htm" target="right">Number toExponential()</a><br>
+<img src="topic.png"><a href="TH_874.htm" target="right">Number toFixed()</a><br>
+<img src="topic.png"><a href="TH_875.htm" target="right">Number toLocaleString()</a><br>
+<img src="topic.png"><a href="TH_876.htm" target="right">Number toPrecision()</a><br>
+<img src="topic.png"><a href="TH_877.htm" target="right">Number toString()</a><br>
+</div>
+</div>
+<img src="open.png" id=mi-878><span id=mt-878><a href="TH_878.htm" target="right">Object Object</a></span><br>
+<div id=c-878 style="margin-left:35;">
+<img src="open.png" id=mi-879><span id=mt-879><a href="TH_879.htm" target="right">Object object instance methods</a></span><br>
+<div id=c-879 style="margin-left:45;">
+<img src="topic.png"><a href="TH_880.htm" target="right">Object()</a><br>
+<img src="topic.png"><a href="TH_881.htm" target="right">Object hasOwnProperty()</a><br>
+<img src="topic.png"><a href="TH_882.htm" target="right">Object isPrototypeOf()</a><br>
+<img src="topic.png"><a href="TH_883.htm" target="right">Object propertyIsEnumerable()</a><br>
+<img src="topic.png"><a href="TH_884.htm" target="right">Object toLocaleString()</a><br>
+<img src="topic.png"><a href="TH_885.htm" target="right">Object toSource()</a><br>
+<img src="topic.png"><a href="TH_886.htm" target="right">Object toString()</a><br>
+<img src="topic.png"><a href="TH_887.htm" target="right">Object valueOf()</a><br>
+</div>
+</div>
+<img src="open.png" id=mi-888><span id=mt-888><a href="TH_888.htm" target="right">RegExp Object</a></span><br>
+<div id=c-888 style="margin-left:35;">
+<img src="open.png" id=mi-889><span id=mt-889><a href="TH_889.htm" target="right">Regular expression syntax</a></span><br>
+<div id=c-889 style="margin-left:45;">
+<img src="topic.png"><a href="TH_890.htm" target="right">Regular expression literals</a><br>
+<img src="topic.png"><a href="TH_891.htm" target="right">Regular expression characters</a><br>
+<img src="topic.png"><a href="TH_892.htm" target="right">Regular expression attributes</a><br>
+</div>
+<img src="open.png" id=mi-893><span id=mt-893><a href="TH_893.htm" target="right">Regular expression special characters</a></span><br>
+<div id=c-893 style="margin-left:45;">
+<img src="topic.png"><a href="TH_894.htm" target="right">Regular expression summary</a><br>
+<img src="topic.png"><a href="TH_895.htm" target="right">Regular expression repetition characters</a><br>
+<img src="topic.png"><a href="TH_896.htm" target="right">Regular expression character classes</a><br>
+<img src="topic.png"><a href="TH_897.htm" target="right">Regular expression anchor characters</a><br>
+<img src="topic.png"><a href="TH_898.htm" target="right">Regular expression reference characters</a><br>
+<img src="topic.png"><a href="TH_899.htm" target="right">Regular expression escape sequences</a><br>
+<img src="topic.png"><a href="TH_900.htm" target="right">Regular expression replacement characters</a><br>
+</div>
+<img src="topic.png"><a href="TH_901.htm" target="right">Regular expression precedence</a><br>
+<img src="open.png" id=mi-902><span id=mt-902><a href="TH_902.htm" target="right">RegExp object instance properties</a></span><br>
+<div id=c-902 style="margin-left:45;">
+<img src="topic.png"><a href="TH_903.htm" target="right">RegExp global</a><br>
+<img src="topic.png"><a href="TH_904.htm" target="right">RegExp ignoreCase</a><br>
+<img src="topic.png"><a href="TH_905.htm" target="right">RegExp lastIndex</a><br>
+<img src="topic.png"><a href="TH_906.htm" target="right">RegExp multiline</a><br>
+<img src="topic.png"><a href="TH_907.htm" target="right">RegExp source</a><br>
+</div>
+<img src="open.png" id=mi-908><span id=mt-908><a href="TH_908.htm" target="right">RegExp returned array properties</a></span><br>
+<div id=c-908 style="margin-left:45;">
+<img src="topic.png"><a href="TH_909.htm" target="right">index (RegExp)</a><br>
+<img src="topic.png"><a href="TH_910.htm" target="right">input (RegExp)</a><br>
+</div>
+<img src="open.png" id=mi-911><span id=mt-911><a href="TH_911.htm" target="right">RegExp object instance methods</a></span><br>
+<div id=c-911 style="margin-left:45;">
+<img src="topic.png"><a href="TH_912.htm" target="right">RegExp()</a><br>
+<img src="topic.png"><a href="TH_913.htm" target="right">RegExp compile()</a><br>
+<img src="topic.png"><a href="TH_914.htm" target="right">RegExp exec()</a><br>
+<img src="topic.png"><a href="TH_915.htm" target="right">RegExp test()</a><br>
+</div>
+<img src="open.png" id=mi-916><span id=mt-916><a href="TH_916.htm" target="right">RegExp object static properties</a></span><br>
+<div id=c-916 style="margin-left:45;">
+<img src="topic.png"><a href="TH_917.htm" target="right">RegExp.$n</a><br>
+<img src="topic.png"><a href="TH_918.htm" target="right">RegExp.input</a><br>
+<img src="topic.png"><a href="TH_919.htm" target="right">RegExp.lastMatch</a><br>
+<img src="topic.png"><a href="TH_920.htm" target="right">RegExp.lastParen</a><br>
+<img src="topic.png"><a href="TH_921.htm" target="right">RegExp.leftContext</a><br>
+<img src="topic.png"><a href="TH_922.htm" target="right">RegExp.rightContext</a><br>
+</div>
+</div>
+<img src="open.png" id=mi-923><span id=mt-923><a href="TH_923.htm" target="right">SElib Object</a></span><br>
+<div id=c-923 style="margin-left:35;">
+<img src="open.png" id=mi-924><span id=mt-924><a href="TH_924.htm" target="right">SElib object static methods</a></span><br>
+<div id=c-924 style="margin-left:45;">
+<img src="topic.png"><a href="TH_925.htm" target="right">SElib.baseWindowFunction()</a><br>
+<img src="topic.png"><a href="TH_926.htm" target="right">SElib.bound()</a><br>
+<img src="topic.png"><a href="TH_927.htm" target="right">SElib.breakWindow()</a><br>
+<img src="topic.png"><a href="TH_928.htm" target="right">SElib.compileScript()</a><br>
+<img src="topic.png"><a href="TH_929.htm" target="right">SElib.directory()</a><br>
+<img src="topic.png"><a href="TH_930.htm" target="right">SElib.doWindows()</a><br>
+<img src="topic.png"><a href="TH_931.htm" target="right">SElib.fullpath()</a><br>
+<img src="topic.png"><a href="TH_932.htm" target="right">SElib.getObjectProperties()</a><br>
+<img src="topic.png"><a href="TH_933.htm" target="right">SElib.inSecurity()</a><br>
+<img src="topic.png"><a href="TH_934.htm" target="right">SElib.instance()</a><br>
+<img src="topic.png"><a href="TH_935.htm" target="right">SElib.interpret()</a><br>
+<img src="topic.png"><a href="TH_936.htm" target="right">SElib.interpretInNewThread()</a><br>
+<img src="topic.png"><a href="TH_937.htm" target="right">SElib.makeWindow()</a><br>
+<img src="topic.png"><a href="TH_938.htm" target="right">SElib.messageFilter()</a><br>
+<img src="topic.png"><a href="TH_939.htm" target="right">SElib.multiTask()</a><br>
+<img src="topic.png"><a href="TH_940.htm" target="right">SElib.peek()</a><br>
+<img src="topic.png"><a href="TH_941.htm" target="right">SElib.pointer()</a><br>
+<img src="topic.png"><a href="TH_942.htm" target="right">SElib.poke()</a><br>
+<img src="topic.png"><a href="TH_943.htm" target="right">SElib.ShellFilterCharacter()</a><br>
+<img src="topic.png"><a href="TH_944.htm" target="right">SElib.ShellFilterCommand()</a><br>
+<img src="topic.png"><a href="TH_945.htm" target="right">SElib.spawn()</a><br>
+<img src="topic.png"><a href="TH_946.htm" target="right">SElib.splitFilename()</a><br>
+<img src="topic.png"><a href="TH_947.htm" target="right">SElib.subclassWindow()</a><br>
+<img src="topic.png"><a href="TH_948.htm" target="right">SElib.suspend()</a><br>
+<img src="topic.png"><a href="TH_949.htm" target="right">SElib.version()</a><br>
+<img src="topic.png"><a href="TH_950.htm" target="right">SElib.windowList()</a><br>
+<img src="open.png" id=mi-951><span id=mt-951><a href="TH_951.htm" target="right">SElib.dynamicLink()</a></span><br>
+<div id=c-951 style="margin-left:55;">
+<img src="topic.png"><a href="TH_952.htm" target="right">SElib.dynamicLink() - for Win32</a><br>
+<img src="topic.png"><a href="TH_953.htm" target="right">SElib.dynamicLink() - for Win16</a><br>
+<img src="topic.png"><a href="TH_954.htm" target="right">SElib.dynamicLink() - for OS/2</a><br>
+</div>
+</div>
+</div>
+<img src="open.png" id=mi-955><span id=mt-955><a href="TH_955.htm" target="right">String Object</a></span><br>
+<div id=c-955 style="margin-left:35;">
+<img src="open.png" id=mi-956><span id=mt-956><a href="TH_956.htm" target="right">String as data type</a></span><br>
+<div id=c-956 style="margin-left:45;">
+<img src="topic.png"><a href="TH_957.htm" target="right">Escape sequences for characters</a><br>
+<img src="topic.png"><a href="TH_958.htm" target="right">Single quote</a><br>
+<img src="topic.png"><a href="TH_959.htm" target="right">Back quote</a><br>
+</div>
+<img src="topic.png"><a href="TH_960.htm" target="right">String as object</a><br>
+<img src="open.png" id=mi-961><span id=mt-961><a href="TH_961.htm" target="right">String object instance properties</a></span><br>
+<div id=c-961 style="margin-left:45;">
+<img src="topic.png"><a href="TH_962.htm" target="right">String length</a><br>
+</div>
+<img src="open.png" id=mi-963><span id=mt-963><a href="TH_963.htm" target="right">String object instance methods</a></span><br>
+<div id=c-963 style="margin-left:45;">
+<img src="topic.png"><a href="TH_964.htm" target="right">String()</a><br>
+<img src="topic.png"><a href="TH_965.htm" target="right">String charAt()</a><br>
+<img src="topic.png"><a href="TH_966.htm" target="right">String charCodeAt()</a><br>
+<img src="topic.png"><a href="TH_967.htm" target="right">String concat()</a><br>
+<img src="topic.png"><a href="TH_968.htm" target="right">String indexOf()</a><br>
+<img src="topic.png"><a href="TH_969.htm" target="right">String lastIndexOf()</a><br>
+<img src="topic.png"><a href="TH_970.htm" target="right">String localeCompare()</a><br>
+<img src="topic.png"><a href="TH_971.htm" target="right">String match()</a><br>
+<img src="topic.png"><a href="TH_972.htm" target="right">String replace()</a><br>
+<img src="topic.png"><a href="TH_973.htm" target="right">String search()</a><br>
+<img src="topic.png"><a href="TH_974.htm" target="right">String slice()</a><br>
+<img src="topic.png"><a href="TH_975.htm" target="right">String split()</a><br>
+<img src="topic.png"><a href="TH_976.htm" target="right">String substr()</a><br>
+<img src="topic.png"><a href="TH_977.htm" target="right">String substring()</a><br>
+<img src="topic.png"><a href="TH_978.htm" target="right">String toLocaleLowerCase()</a><br>
+<img src="topic.png"><a href="TH_979.htm" target="right">String toLocaleUpperCase()</a><br>
+<img src="topic.png"><a href="TH_980.htm" target="right">String toLowerCase()</a><br>
+<img src="topic.png"><a href="TH_981.htm" target="right">String toUpperCase()</a><br>
+</div>
+<img src="open.png" id=mi-982><span id=mt-982><a href="TH_982.htm" target="right">String object static methods</a></span><br>
+<div id=c-982 style="margin-left:45;">
+<img src="topic.png"><a href="TH_983.htm" target="right">String.fromCharCode()</a><br>
+</div>
+</div>
+<img src="open.png" id=mi-984><span id=mt-984><a href="TH_984.htm" target="right">Unix Object</a></span><br>
+<div id=c-984 style="margin-left:35;">
+<img src="open.png" id=mi-985><span id=mt-985><a href="TH_985.htm" target="right">Unix object static methods</a></span><br>
+<div id=c-985 style="margin-left:45;">
+<img src="topic.png"><a href="TH_986.htm" target="right">Unix.fork()</a><br>
+<img src="topic.png"><a href="TH_987.htm" target="right">Unix.kill()</a><br>
+<img src="topic.png"><a href="TH_988.htm" target="right">Unix.setgid()</a><br>
+<img src="topic.png"><a href="TH_989.htm" target="right">Unix.setsid()</a><br>
+<img src="topic.png"><a href="TH_990.htm" target="right">Unix.setuid()</a><br>
+<img src="topic.png"><a href="TH_991.htm" target="right">Unix.wait()</a><br>
+<img src="topic.png"><a href="TH_992.htm" target="right">Unix.waitpid()</a><br>
+</div>
+</div>
+</div>
+<img src="open.png" id=mi-993><span id=mt-993><a href="TH_993.htm" target="right">Link Libraries</a></span><br>
+<div id=c-993 style="margin-left:25;">
+<img src="open.png" id=mi-994><span id=mt-994><a href="TH_994.htm" target="right">COM Object Link Library</a></span><br>
+<div id=c-994 style="margin-left:35;">
+<img src="open.png" id=mi-995><span id=mt-995><a href="TH_995.htm" target="right">COM object</a></span><br>
+<div id=c-995 style="margin-left:45;">
+<img src="topic.png"><a href="TH_996.htm" target="right">COMCreateObject()</a><br>
+<img src="topic.png"><a href="TH_997.htm" target="right">COMGetObject()</a><br>
+<img src="topic.png"><a href="TH_998.htm" target="right">COMReleaseObject()</a><br>
+</div>
+</div>
+<img src="open.png" id=mi-999><span id=mt-999><a href="TH_999.htm" target="right">DSP Link Library</a></span><br>
+<div id=c-999 style="margin-left:35;">
+<img src="topic.png"><a href="TH_1000.htm" target="right">DSP Object</a><br>
+<img src="topic.png"><a href="TH_1001.htm" target="right">Creating a DSP object</a><br>
+<img src="topic.png"><a href="TH_1002.htm" target="right">Using a DSP object</a><br>
+<img src="open.png" id=mi-1003><span id=mt-1003><a href="TH_1003.htm" target="right">DSP object instance methods</a></span><br>
+<div id=c-1003 style="margin-left:45;">
+<img src="topic.png"><a href="TH_1004.htm" target="right">DSP()</a><br>
+<img src="topic.png"><a href="TH_1005.htm" target="right">DSP dspCloseConnection()</a><br>
+<img src="topic.png"><a href="TH_1006.htm" target="right">DSP dspReceive()</a><br>
+<img src="topic.png"><a href="TH_1007.htm" target="right">DSP dspSend()</a><br>
+<img src="topic.png"><a href="TH_1008.htm" target="right">DSP dspLoad()</a><br>
+<img src="topic.png"><a href="TH_1009.htm" target="right">DSP dspService()</a><br>
+<img src="topic.png"><a href="TH_1010.htm" target="right">DSP dspClose()</a><br>
+<img src="topic.png"><a href="TH_1011.htm" target="right">DSP dspGetValue()</a><br>
+<img src="topic.png"><a href="TH_1012.htm" target="right">DSP dspSecurityInit()</a><br>
+<img src="topic.png"><a href="TH_1013.htm" target="right">DSP dspSecurityTerm()</a><br>
+<img src="topic.png"><a href="TH_1014.htm" target="right">DSP dspSecurityGuard()</a><br>
+</div>
+<img src="open.png" id=mi-1015><span id=mt-1015><a href="TH_1015.htm" target="right">DSP object static properties</a></span><br>
+<div id=c-1015 style="margin-left:45;">
+<img src="topic.png"><a href="TH_1016.htm" target="right">DSP.remote</a><br>
+</div>
+</div>
+<img src="open.png" id=mi-1017><span id=mt-1017><a href="TH_1017.htm" target="right">GD Link Library</a></span><br>
+<div id=c-1017 style="margin-left:35;">
+<img src="open.png" id=mi-1018><span id=mt-1018><a href="TH_1018.htm" target="right">GD Object</a></span><br>
+<div id=c-1018 style="margin-left:45;">
+<img src="topic.png"><a href="TH_1019.htm" target="right">Point specifications</a><br>
+<img src="topic.png"><a href="TH_1020.htm" target="right">Font specifications</a><br>
+<img src="topic.png"><a href="TH_1021.htm" target="right">Color styles</a><br>
+</div>
+<img src="open.png" id=mi-1022><span id=mt-1022><a href="TH_1022.htm" target="right">GD object instance methods</a></span><br>
+<div id=c-1022 style="margin-left:45;">
+<img src="topic.png"><a href="TH_1023.htm" target="right">GD()</a><br>
+<img src="topic.png"><a href="TH_1024.htm" target="right">GD arc()</a><br>
+<img src="topic.png"><a href="TH_1025.htm" target="right">GD blue()</a><br>
+<img src="topic.png"><a href="TH_1026.htm" target="right">GD boundsSafe(</a><br>
+<img src="topic.png"><a href="TH_1027.htm" target="right">GD drawChar()</a><br>
+<img src="topic.png"><a href="TH_1028.htm" target="right">GD charUp()</a><br>
+<img src="topic.png"><a href="TH_1029.htm" target="right">GD colorAllocate()</a><br>
+<img src="topic.png"><a href="TH_1030.htm" target="right">GD colorClosest()</a><br>
+<img src="topic.png"><a href="TH_1031.htm" target="right">GD colorDeallocate()</a><br>
+<img src="topic.png"><a href="TH_1032.htm" target="right">GD colorExact()</a><br>
+<img src="topic.png"><a href="TH_1033.htm" target="right">GD colorsTotal()</a><br>
+<img src="topic.png"><a href="TH_1034.htm" target="right">GD colorTransparent()</a><br>
+<img src="topic.png"><a href="TH_1035.htm" target="right">GD copy()</a><br>
+<img src="topic.png"><a href="TH_1036.htm" target="right">GD copyResized()</a><br>
+<img src="topic.png"><a href="TH_1037.htm" target="right">GD dashedLine()</a><br>
+<img src="topic.png"><a href="TH_1038.htm" target="right">GD destroy()</a><br>
+<img src="topic.png"><a href="TH_1039.htm" target="right">GD fill()</a><br>
+<img src="topic.png"><a href="TH_1040.htm" target="right">GD filledPolygon()</a><br>
+<img src="topic.png"><a href="TH_1041.htm" target="right">GD filledRectangle()</a><br>
+<img src="topic.png"><a href="TH_1042.htm" target="right">GD fillToBorder()</a><br>
+<img src="topic.png"><a href="TH_1043.htm" target="right">GD getInterlaced()</a><br>
+<img src="topic.png"><a href="TH_1044.htm" target="right">GD getPixel()</a><br>
+<img src="topic.png"><a href="TH_1045.htm" target="right">GD getTransparent()</a><br>
+<img src="topic.png"><a href="TH_1046.htm" target="right">GD green()</a><br>
+<img src="topic.png"><a href="TH_1047.htm" target="right">GD height()</a><br>
+<img src="topic.png"><a href="TH_1048.htm" target="right">GD interlace()</a><br>
+<img src="topic.png"><a href="TH_1049.htm" target="right">GD line()</a><br>
+<img src="topic.png"><a href="TH_1050.htm" target="right">GD polygon()</a><br>
+<img src="topic.png"><a href="TH_1051.htm" target="right">GD rectangle()</a><br>
+<img src="topic.png"><a href="TH_1052.htm" target="right">GD red()</a><br>
+<img src="topic.png"><a href="TH_1053.htm" target="right">GD setBrush()</a><br>
+<img src="topic.png"><a href="TH_1054.htm" target="right">GD setPixel()</a><br>
+<img src="topic.png"><a href="TH_1055.htm" target="right">GD setStyle()</a><br>
+<img src="topic.png"><a href="TH_1056.htm" target="right">GD setTile()</a><br>
+<img src="topic.png"><a href="TH_1057.htm" target="right">GD string()</a><br>
+<img src="topic.png"><a href="TH_1058.htm" target="right">GD stringUp()</a><br>
+<img src="topic.png"><a href="TH_1059.htm" target="right">GD toGd()</a><br>
+<img src="topic.png"><a href="TH_1060.htm" target="right">GD toGif()</a><br>
+<img src="topic.png"><a href="TH_1061.htm" target="right">GD width()</a><br>
+</div>
+<img src="open.png" id=mi-1062><span id=mt-1062><a href="TH_1062.htm" target="right">GD object static methods</a></span><br>
+<div id=c-1062 style="margin-left:45;">
+<img src="topic.png"><a href="TH_1063.htm" target="right">GD.fromGd()</a><br>
+<img src="topic.png"><a href="TH_1064.htm" target="right">GD.fromGif()</a><br>
+<img src="topic.png"><a href="TH_1065.htm" target="right">GD.fromXbm()</a><br>
+</div>
+</div>
+<img src="open.png" id=mi-1066><span id=mt-1066><a href="TH_1066.htm" target="right">MD5 Checksum Link Library</a></span><br>
+<div id=c-1066 style="margin-left:35;">
+<img src="topic.png"><a href="TH_1067.htm" target="right">md5 Object</a><br>
+<img src="open.png" id=mi-1068><span id=mt-1068><a href="TH_1068.htm" target="right">md5 object instance methods</a></span><br>
+<div id=c-1068 style="margin-left:45;">
+<img src="topic.png"><a href="TH_1069.htm" target="right">md5()</a><br>
+<img src="topic.png"><a href="TH_1070.htm" target="right">term()</a><br>
+<img src="topic.png"><a href="TH_1071.htm" target="right">update()</a><br>
+</div>
+</div>
+<img src="open.png" id=mi-1072><span id=mt-1072><a href="TH_1072.htm" target="right">SEDBC Link Library</a></span><br>
+<div id=c-1072 style="margin-left:35;">
+<img src="topic.png"><a href="TH_1073.htm" target="right">Cursor object</a><br>
+<img src="open.png" id=mi-1074><span id=mt-1074><a href="TH_1074.htm" target="right">Cursor Instance Properties</a></span><br>
+<div id=c-1074 style="margin-left:45;">
+<img src="topic.png"><a href="TH_1075.htm" target="right">Cursor filter</a><br>
+<img src="topic.png"><a href="TH_1076.htm" target="right">Cursor sort</a><br>
+</div>
+<img src="open.png" id=mi-1077><span id=mt-1077><a href="TH_1077.htm" target="right">Cursor Instance Methods</a></span><br>
+<div id=c-1077 style="margin-left:45;">
+<img src="topic.png"><a href="TH_1078.htm" target="right">Cursor close()</a><br>
+<img src="topic.png"><a href="TH_1079.htm" target="right">Cursor columnName()</a><br>
+<img src="topic.png"><a href="TH_1080.htm" target="right">Cursor columns()</a><br>
+<img src="topic.png"><a href="TH_1081.htm" target="right">Cursor deleteRow()</a><br>
+<img src="topic.png"><a href="TH_1082.htm" target="right">Cursor first()</a><br>
+<img src="topic.png"><a href="TH_1083.htm" target="right">Cursor insertRow()</a><br>
+<img src="topic.png"><a href="TH_1084.htm" target="right">Cursor last()</a><br>
+<img src="topic.png"><a href="TH_1085.htm" target="right">Cursor next()</a><br>
+<img src="topic.png"><a href="TH_1086.htm" target="right">Cursor previous()</a><br>
+<img src="topic.png"><a href="TH_1087.htm" target="right">Cursor reload()</a><br>
+<img src="topic.png"><a href="TH_1088.htm" target="right">Cursor updateRow()</a><br>
+</div>
+<img src="topic.png"><a href="TH_1089.htm" target="right">Database Object</a><br>
+<img src="open.png" id=mi-1090><span id=mt-1090><a href="TH_1090.htm" target="right">Database transactions</a></span><br>
+<div id=c-1090 style="margin-left:45;">
+<img src="topic.png"><a href="TH_1091.htm" target="right">Database beginTransaction()</a><br>
+<img src="topic.png"><a href="TH_1092.htm" target="right">Database commitTransaction()</a><br>
+<img src="topic.png"><a href="TH_1093.htm" target="right">Database connect()</a><br>
+<img src="topic.png"><a href="TH_1094.htm" target="right">Database connected()</a><br>
+<img src="topic.png"><a href="TH_1095.htm" target="right">Database cursor()</a><br>
+<img src="topic.png"><a href="TH_1096.htm" target="right">Database disconnect()</a><br>
+<img src="topic.png"><a href="TH_1097.htm" target="right">Database execute()</a><br>
+<img src="topic.png"><a href="TH_1098.htm" target="right">Database majorErrorCode()</a><br>
+<img src="topic.png"><a href="TH_1099.htm" target="right">Database majorErrorMessage()</a><br>
+<img src="topic.png"><a href="TH_1100.htm" target="right">Database minorErrorCode()</a><br>
+<img src="topic.png"><a href="TH_1101.htm" target="right">Database minorErrorMessage()</a><br>
+<img src="topic.png"><a href="TH_1102.htm" target="right">Database procedureName()</a><br>
+<img src="topic.png"><a href="TH_1103.htm" target="right">Database procedures()</a><br>
+<img src="topic.png"><a href="TH_1104.htm" target="right">Database rollbackTransaction()</a><br>
+<img src="topic.png"><a href="TH_1105.htm" target="right">Database storedProc()</a><br>
+<img src="topic.png"><a href="TH_1106.htm" target="right">Database table()</a><br>
+<img src="topic.png"><a href="TH_1107.htm" target="right">Database tableName()</a><br>
+<img src="topic.png"><a href="TH_1108.htm" target="right">Database tables()</a><br>
+</div>
+<img src="topic.png"><a href="TH_1109.htm" target="right">SimpleDataset object</a><br>
+<img src="open.png" id=mi-1110><span id=mt-1110><a href="TH_1110.htm" target="right">SimpleDataset instance methods</a></span><br>
+<div id=c-1110 style="margin-left:45;">
+<img src="topic.png"><a href="TH_1111.htm" target="right">SimpleDataset()</a><br>
+<img src="topic.png"><a href="TH_1112.htm" target="right">SimpleDataset close()</a><br>
+<img src="topic.png"><a href="TH_1113.htm" target="right">SimpleDataset currentRecord()</a><br>
+<img src="topic.png"><a href="TH_1114.htm" target="right">SimpleDataset nextRecord()</a><br>
+<img src="topic.png"><a href="TH_1115.htm" target="right">SimpleDataset prevRecord()</a><br>
+<img src="topic.png"><a href="TH_1116.htm" target="right">SimpleDataset firstRecord()</a><br>
+<img src="topic.png"><a href="TH_1117.htm" target="right">SimpleDataset lastRecord()</a><br>
+<img src="topic.png"><a href="TH_1118.htm" target="right">SimpleDataset find() with template</a><br>
+<img src="topic.png"><a href="TH_1119.htm" target="right">SimpleDataset find() with clause</a><br>
+<img src="topic.png"><a href="TH_1120.htm" target="right">SimpleDataset findAll()</a><br>
+<img src="topic.png"><a href="TH_1121.htm" target="right">SimpleDataset findDistinct()</a><br>
+<img src="topic.png"><a href="TH_1122.htm" target="right">SimpleDataset addRecord()</a><br>
+<img src="topic.png"><a href="TH_1123.htm" target="right">SimpleDataset deleteRecord()</a><br>
+<img src="topic.png"><a href="TH_1124.htm" target="right">SimpleDataset deleteAll()</a><br>
+<img src="topic.png"><a href="TH_1125.htm" target="right">SimpleDataset replaceRecord()</a><br>
+<img src="topic.png"><a href="TH_1126.htm" target="right">SimpleDataset cursor()</a><br>
+<img src="topic.png"><a href="TH_1127.htm" target="right">SimpleDataset getLastErrorCode()</a><br>
+<img src="topic.png"><a href="TH_1128.htm" target="right">SimpleDataset getLastError()</a><br>
+</div>
+<img src="open.png" id=mi-1129><span id=mt-1129><a href="TH_1129.htm" target="right">SimpleDataset static properties</a></span><br>
+<div id=c-1129 style="margin-left:45;">
+<img src="topic.png"><a href="TH_1130.htm" target="right">SimpleDataset.caseSensitive</a><br>
+</div>
+<img src="topic.png"><a href="TH_1131.htm" target="right">Stproc object</a><br>
+<img src="topic.png"><a href="TH_1132.htm" target="right">Stproc instance properties</a><br>
+<img src="open.png" id=mi-1133><span id=mt-1133><a href="TH_1133.htm" target="right">Stproc instance methods</a></span><br>
+<div id=c-1133 style="margin-left:45;">
+<img src="topic.png"><a href="TH_1134.htm" target="right">Stproc close()</a><br>
+<img src="topic.png"><a href="TH_1135.htm" target="right">Stproc parameterName()</a><br>
+<img src="topic.png"><a href="TH_1136.htm" target="right">Stproc parameters()</a><br>
+<img src="topic.png"><a href="TH_1137.htm" target="right">Stproc cursor()</a><br>
+<img src="topic.png"><a href="TH_1138.htm" target="right">Stproc execute()</a><br>
+</div>
+</div>
+<img src="open.png" id=mi-1139><span id=mt-1139><a href="TH_1139.htm" target="right">Socket Link Library</a></span><br>
+<div id=c-1139 style="margin-left:35;">
+<img src="topic.png"><a href="TH_1140.htm" target="right">Socket object</a><br>
+<img src="open.png" id=mi-1141><span id=mt-1141><a href="TH_1141.htm" target="right">Socket object instance methods</a></span><br>
+<div id=c-1141 style="margin-left:45;">
+<img src="topic.png"><a href="TH_1142.htm" target="right">Socket() with hostname</a><br>
+<img src="topic.png"><a href="TH_1143.htm" target="right">Socket() with port</a><br>
+<img src="topic.png"><a href="TH_1144.htm" target="right">Socket accept()</a><br>
+<img src="topic.png"><a href="TH_1145.htm" target="right">Socket blocking()</a><br>
+<img src="topic.png"><a href="TH_1146.htm" target="right">Socket close()</a><br>
+<img src="topic.png"><a href="TH_1147.htm" target="right">Socket linger()</a><br>
+<img src="topic.png"><a href="TH_1148.htm" target="right">Socket read()</a><br>
+<img src="topic.png"><a href="TH_1149.htm" target="right">Socket ready()</a><br>
+<img src="topic.png"><a href="TH_1150.htm" target="right">Socket remoteHost()</a><br>
+<img src="topic.png"><a href="TH_1151.htm" target="right">Socket write()</a><br>
+</div>
+<img src="open.png" id=mi-1152><span id=mt-1152><a href="TH_1152.htm" target="right">Socket object static methods</a></span><br>
+<div id=c-1152 style="margin-left:45;">
+<img src="topic.png"><a href="TH_1153.htm" target="right">Socket.addressByName()</a><br>
+<img src="topic.png"><a href="TH_1154.htm" target="right">Socket.error()</a><br>
+<img src="topic.png"><a href="TH_1155.htm" target="right">Socket.hostByName()</a><br>
+<img src="topic.png"><a href="TH_1156.htm" target="right">Socket.hostName()</a><br>
+<img src="topic.png"><a href="TH_1157.htm" target="right">Socket.select()</a><br>
+</div>
+</div>
+<img src="open.png" id=mi-1158><span id=mt-1158><a href="TH_1158.htm" target="right">UUCode Link Library</a></span><br>
+<div id=c-1158 style="margin-left:35;">
+<img src="open.png" id=mi-1159><span id=mt-1159><a href="TH_1159.htm" target="right">UU object static methods</a></span><br>
+<div id=c-1159 style="margin-left:45;">
+<img src="topic.png"><a href="TH_1160.htm" target="right">UU.encode()</a><br>
+<img src="topic.png"><a href="TH_1161.htm" target="right">UU.decode()</a><br>
+</div>
+</div>
+</div>
+<img src="open.png" id=mi-285><span id=mt-285><a href="TH_285.htm" target="right">Productivity Tools</a></span><br>
+<div id=c-285 style="margin-left:25;">
+<img src="topic.png"><a href="TH_286.htm" target="right">ScriptEase ISDK Toolbox</a><br>
+<img src="open.png" id=mi-287><span id=mt-287><a href="TH_287.htm" target="right">Selib Assistant</a></span><br>
+<div id=c-287 style="margin-left:35;">
+<img src="topic.png"><a href="TH_288.htm" target="right">Description of Selib Assistant Modes</a><br>
+<img src="open.png" id=mi-289><span id=mt-289><a href="TH_289.htm" target="right">Set Options Mode</a></span><br>
+<div id=c-289 style="margin-left:45;">
+<img src="topic.png"><a href="TH_290.htm" target="right">Visually Edit Jseopt.h Using Explorer View</a><br>
+<img src="open.png" id=mi-291><span id=mt-291><a href="TH_291.htm" target="right">Manually Edit Jseopt.h Using Source View</a></span><br>
+<div id=c-291 style="margin-left:55;">
+<img src="topic.png"><a href="TH_292.htm" target="right">Syntax Updating Rules</a><br>
+</div>
+<img src="topic.png"><a href="TH_293.htm" target="right">Basic Instructions for Working with a Jseopt.h File</a><br>
+</div>
+<img src="topic.png"><a href="TH_294.htm" target="right">Build Libraries Mode</a><br>
+<img src="topic.png"><a href="TH_295.htm" target="right">Add To Project Mode</a><br>
+</div>
+</div>
+<img src="open.png" id=mi-1><span id=mt-1><a href="TH_1.htm" target="right">Appendices</a></span><br>
+<div id=c-1 style="margin-left:25;">
+<img src="open.png" id=mi-77><span id=mt-77><a href="TH_77.htm" target="right">Appendix 1: Standard Libraries</a></span><br>
+<div id=c-77 style="margin-left:35;">
+<img src="topic.png"><a href="TH_78.htm" target="right">BUFFER (#define JSE_BUFFER_ALL)</a><br>
+<img src="topic.png"><a href="TH_79.htm" target="right">CLIB (#define JSE_CLIB_ALL)</a><br>
+<img src="topic.png"><a href="TH_80.htm" target="right">CSTRING (#define JSE_CSTRING_ALL)</a><br>
+<img src="topic.png"><a href="TH_81.htm" target="right">DOS (#define JSE_DOS_ALL)</a><br>
+<img src="topic.png"><a href="TH_82.htm" target="right">DSP (#define JSE_DSP_ALL)</a><br>
+<img src="topic.png"><a href="TH_83.htm" target="right">ECMA (#define JSE_ECMA_ALL)</a><br>
+<img src="topic.png"><a href="TH_84.htm" target="right">GD (#define JSE_GD_ALL)</a><br>
+<img src="topic.png"><a href="TH_85.htm" target="right">IDSP (#define JSE_IDSP_ALL)</a><br>
+<img src="topic.png"><a href="TH_86.htm" target="right">LANG (#define JSE_LANG_ALL)</a><br>
+<img src="topic.png"><a href="TH_87.htm" target="right">MAC (#define JSE_MAC_ALL)</a><br>
+<img src="topic.png"><a href="TH_88.htm" target="right">MD5 (#define JSE_MD5_ALL)</a><br>
+<img src="topic.png"><a href="TH_89.htm" target="right">NLM (#define JSE_NLM_ALL)</a><br>
+<img src="topic.png"><a href="TH_90.htm" target="right">OS2 (#define JSE_OS2_ALL)</a><br>
+<img src="topic.png"><a href="TH_91.htm" target="right">SELIB (#define JSE_SELIB_ALL)</a><br>
+<img src="topic.png"><a href="TH_92.htm" target="right">SESOCK (#define JSE_SOCKET_ALL)</a><br>
+<img src="topic.png"><a href="TH_93.htm" target="right">TEST (#define JSE_TEST_ALL)</a><br>
+<img src="topic.png"><a href="TH_94.htm" target="right">UNIX (#define JSE_UNIX_ALL)</a><br>
+<img src="topic.png"><a href="TH_95.htm" target="right">UUCODE (#define JSE_UUCODE_ALL)</a><br>
+<img src="topic.png"><a href="TH_96.htm" target="right">WIN (#define JSE_WIN_ALL)</a><br>
+</div>
+<img src="topic.png"><a href="TH_97.htm" target="right">Appendix 2: Using Wrapper.jse</a><br>
+<img src="open.png" id=mi-378><span id=mt-378><a href="TH_378.htm" target="right">Appendix A: Grouped Functions</a></span><br>
+<div id=c-378 style="margin-left:35;">
+<img src="open.png" id=mi-379><span id=mt-379><a href="TH_379.htm" target="right">Routines for arrays</a></span><br>
+<div id=c-379 style="margin-left:45;">
+<img src="topic.png"><a href="TH_380.htm" target="right">For dynamic arrays</a><br>
+<img src="topic.png"><a href="TH_381.htm" target="right">For Array objects</a><br>
+<img src="topic.png"><a href="TH_382.htm" target="right">Array properties</a><br>
+</div>
+<img src="open.png" id=mi-383><span id=mt-383><a href="TH_383.htm" target="right">Routines for Buffers</a></span><br>
+<div id=c-383 style="margin-left:45;">
+<img src="topic.png"><a href="TH_384.htm" target="right">Buffer methods</a><br>
+<img src="topic.png"><a href="TH_385.htm" target="right">Buffer properties</a><br>
+</div>
+<img src="topic.png"><a href="TH_386.htm" target="right">Routines for character classification</a><br>
+<img src="topic.png"><a href="TH_387.htm" target="right">Routines for console I/O</a><br>
+<img src="topic.png"><a href="TH_388.htm" target="right">Routines for conversion/casting</a><br>
+<img src="open.png" id=mi-389><span id=mt-389><a href="TH_389.htm" target="right">Routines for data/variables</a></span><br>
+<div id=c-389 style="margin-left:45;">
+<img src="topic.png"><a href="TH_390.htm" target="right">Methods for data</a><br>
+</div>
+<img src="topic.png"><a href="TH_391.htm" target="right">Routines for date/time</a><br>
+<img src="topic.png"><a href="TH_392.htm" target="right">Routines for diagnostic/error</a><br>
+<img src="topic.png"><a href="TH_393.htm" target="right">Routines for directory, file, and OS</a><br>
+<img src="topic.png"><a href="TH_394.htm" target="right">Routines for DOS</a><br>
+<img src="topic.png"><a href="TH_395.htm" target="right">Routines for execution control</a><br>
+<img src="topic.png"><a href="TH_396.htm" target="right">Routines for file/stream I/O</a><br>
+<img src="topic.png"><a href="TH_397.htm" target="right">Routines for general use</a><br>
+<img src="open.png" id=mi-398><span id=mt-398><a href="TH_398.htm" target="right">Routines for math</a></span><br>
+<div id=c-398 style="margin-left:45;">
+<img src="topic.png"><a href="TH_399.htm" target="right">Math methods</a><br>
+<img src="topic.png"><a href="TH_400.htm" target="right">Math properties</a><br>
+</div>
+<img src="topic.png"><a href="TH_401.htm" target="right">Routines for memory manipulation</a><br>
+<img src="topic.png"><a href="TH_402.htm" target="right">Routines for miscellaneous</a><br>
+<img src="topic.png"><a href="TH_403.htm" target="right">Routines for objects and functions</a><br>
+<img src="topic.png"><a href="TH_404.htm" target="right">Routines for regular expressions</a><br>
+<img src="open.png" id=mi-405><span id=mt-405><a href="TH_405.htm" target="right">Routines for strings/byte arrays</a></span><br>
+<div id=c-405 style="margin-left:45;">
+<img src="topic.png"><a href="TH_406.htm" target="right">Methods for strings</a><br>
+<img src="topic.png"><a href="TH_407.htm" target="right">String properties</a><br>
+</div>
+<img src="topic.png"><a href="TH_408.htm" target="right">Routines for variable argument lists</a><br>
+<img src="topic.png"><a href="TH_409.htm" target="right">Routines for UNIX</a><br>
+</div>
+<img src="open.png" id=mi-410><span id=mt-410><a href="TH_410.htm" target="right">Appendix B: Instance and Static Notation</a></span><br>
+<div id=c-410 style="margin-left:35;">
+<img src="topic.png"><a href="TH_411.htm" target="right">String instance properties sample</a><br>
+<img src="topic.png"><a href="TH_412.htm" target="right">String instance methods sample</a><br>
+<img src="topic.png"><a href="TH_413.htm" target="right">String static properties sample</a><br>
+<img src="topic.png"><a href="TH_414.htm" target="right">String static methods sample</a><br>
+<img src="topic.png"><a href="TH_415.htm" target="right">Prototype property</a><br>
+</div>
+</div>
+</div>
+</div>
+</body>
+</html>

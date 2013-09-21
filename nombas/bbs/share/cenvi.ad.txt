@@ -1,0 +1,711 @@
+         The CEnvi Cmm Interpreter for DOS, Windows, OS/2, and NT.
+            There are a million solutions in this little tool.
+
+Nombas is pleased to introduce CEnvi, the first cross-application /
+cross-platform macro-language interpreter.  With CEnvi you can take control
+of your computer.  CEnvi scripts give you the full power of a computer
+language, without the hardware, time, and engineering resources needed for
+developing full-blown low-level programs.  Power, safety, and simplicity
+make CEnvi ideal for scripting/macro uses.
+
+Whether you're a programming professional or a computer-phobe, or somewhere
+in between, CEnvi gives you the tools you need to increase your computer
+productivity, to simplify your daily tasks, and to make your computer
+system work for you in your own personal style.
+
+CENVI FOR PROGRAMMING PROFESSIONALS
+
+     You are a programming professional, and a smart one, too: you
+     could program a computer to do anything--if you only had the time!
+
+ With CEnvi you can create small utilities in minutes, with the same
+ functionality of a compiled program but without the compiler's tedious
+ memory/data constraints or tiresome cycle of compile-test-debug
+ compile-test-debug.  CEnvi handles all of the memory and data
+ housekeeping for you; you don't need extra lines of code simply telling a
+ compiler how to set up memory and how to arrange data; instead you only
+ need to write the code that actually does the task.  In many cases, you
+ can write a CEnvi program in a single command line!  Turn to CEnvi when
+ you want to spend more time using a program than creating it.
+
+CENVI FOR IS, USER SUPPORT, & SYSTEM CONSULTANTS
+
+     You have to care for a slew of computer systems across an entire
+     department.  Your users range from those who cannot find the "ANY
+     KEY" to the ones who think they know what they are doing and try
+     to prove it by constantly "improving" their own systems.  You
+     never have time to sleep, and any sleep you do get is haunted by
+     nightmares about that upcoming department-wide upgrade.
+
+ Imagine what you could accomplish if every computer system you supported
+ had the same fully-functional, structured language, despite its
+ operating-system or hardware limits.  Now imagine that the toolbox for
+ this language was one tiny 150K package.  Stop imagining, and use CEnvi
+ to create tools for any particular computer or for all the computers you
+ support.  Setups, upgrades, and installation procedures on multiple
+ systems become a breeze because CEnvi allows you to automate all of the
+ steps in a CEnvi script, including programmatic control of any
+ application.  With CEnvi on everyone's system--or even on a floppy in
+ your shirt pocket--no matter where you are or what operating system
+ you're using, you have the right tool for the job.
+
+CENVI FOR COMPUTER USERS WITH A "REAL" JOB TO DO
+
+     You are not a programmer and you do not want to be a programmer.
+     You could not care less about the latest computer science
+     terminology, your glasses are not taped together, and you do not
+     wear a pocket protector.  Your computer is just a tool.  So why do
+     you spend so much time pampering and upgrading your computer
+     "tool" to make it work for you instead of against you?  You have a
+     life--and a real job to do!
+
+ Don't waste time and money on every new computer utility.  With CEnvi,
+ the mother of all utilities, chances are that the tool you need is
+ already in the CEnvi sample library--there are literally hundreds.  You
+ can combine or make small modifications to these CEnvi sample tools to
+ get the perfect custom script for doing your job: your own custom
+ utility.  CEnvi is also extremely useful for creating scripts to automate
+ your repetitive tasks.  Instead of repeating the same commands,
+ key-pushes, menu selections, and mouse clicks every time you perform a
+ multi-step action, a CEnvi script can automate these steps for you,
+ guaranteeing the same actions every time.
+
+CENVI FOR COMPUTER-PHOBICS
+
+     You are afraid to touch that keyboard, and who could blame you?!
+     Nothing can waste more time, eat more paper, and destroy more
+     projects faster than a computer.  Furthermore, if you were meant
+     to hold a mouse you would have been born a boa constrictor.
+
+ Nombas, creator of CEnvi, agrees: computers are much too difficult.  A
+ computer expert (i.e. "nerd") knows hundreds of arcane tricks, commands,
+ utilities, and programs to make a computer tick.  But to take control of
+ your computer you don't need to be an expert--you just need to know an
+ expert.  That expert can be the guy in the other office, your 14-year-old
+ nephew, or Nombas and the community of CEnvi users.  When asked, "How do
+ I get my computer to...?" the expert can usually answer with a short
+ CEnvi script.  CEnvi novices often direct such questions at Nombas (via
+ CompuServe, internet, or regular mail) and are surprised to learn how
+ simple the answer is when you're armed with CEnvi.  Whatever your
+ question ("How do I print my ToDo list each morning?", "How can I send a
+ midnight fax to Joe?", "How can I alphabetize my clipboard?") you'll
+ probably get a simple CEnvi script or discover the solution is already in
+ the CEnvi sample library.  When do feel adventurous, you'll find that no
+ other language is as easy to learn as CEnvi's Cmm.
+
+CENVI FEATURES...
+
+  * An extendible scripting language for creating your own custom utilities
+    in minutes
+
+  * Automation of any task through simulated keystroke, menu, & dialog
+    control
+
+  * Multiplatform support: DOS, OS/2, Windows, NT--all for one low price
+
+  * Hooks to exploit any operating system interrupt or DLL function
+
+  * Complete function sets for data, I/O, files, strings, math, time,
+    sorts, and more.
+
+  * 150+ built-in functions: the standard C library and more
+
+  * Hundreds of sample utilities in the growing CEnvi sample libraries; use
+    as they are or customize
+
+  * Low resource requirements: Interpreter and libraries all in about 150K
+
+  * Flexibility to add your own functions and include libraries of your
+    favorite routines
+
+  * Programming commands for full flow control: if, else, do, while,
+    switch, for, goto
+
+  * Data exchange through DDE, clipboard, shared memory, and named pipes
+
+
+  * Creation of royalty-free stand-alone executables
+
+  * Control of windows and GUI elements: handle window events or pass them
+    on
+  * Batch or REXX enhancement by embedding CEnvi statements within other
+    files
+
+  * Batch enhancement through user input, screen design, sound, and looping
+    features
+
+  * REXX enhancement through added access to DLL and I/O calls
+
+  * Code interpretation directly from the command line or from script files
+
+  * Direct mathematical and string manipulation of environment variables
+
+
+  * Event scheduling and event monitoring
+
+  * Unlimited free upgrade patches from the CEnvi-Cmm libraries
+
+  * The Cmm Tutorial: Learn to write and debug your own text editor one
+    step at a time
+
+  * Support through CompuServe, internet, or BBS
+
+  * A common language among all operating systems and applications that
+    share the Cmm macro language
+
+THE CENVI-CMM LIBRARIES: HUNDREDS OF USEFUL TOOLS
+
+ Included with CEnvi are hundreds of sample files, scripts, and utilities:
+ The CEnvi-Cmm Libraries.  Some of these samples may be exactly the
+ utilities you've been looking for, others may give you a starting point
+ to create your own custom utilities, while the rest may be useful just to
+ learn from.  This ever-growing library is maintained on the internet at
+ anonymous ftp site ftp.std.com in the /vendors/CEnvi-Cmm directories.
+ The library is also maintained at the Nombas BBS.  Nombas continually
+ adds new files to these libraries, and also encourages other CEnvi users
+ to upload helpful scripts to the CEnvi-Cmm libraries: in this way we can
+ help each other.
+
+ The CEnvi-Cmm libraries also contain information for CEnvi and Cmm users.
+ In addition, you can always upgrade to the latest version of CEnvi by
+ downloading new patches from these library sites.
+
+CMM: THE LANGUAGE WITHIN CENVI
+
+ The language that CEnvi interprets is called Cmm.  Cmm (C-minus-minus) is
+ 'C' without the hard stuff.  Cmm packs the power of C without C's
+ dangerous and time-consuming data worries.  Although Cmm is familiar and
+ immediately useful to hundreds of thousands of professional C programmers, Cmm is also easy to learn and easy to teach to people who
+ have never programmed anything.  Nowhere will you find a more
+ straightforward syntax, fewer keywords, and such simple, well-defined
+ rules as in the Cmm language.  Three features--power, safety, and
+ simplicity--make Cmm ideal for scripting/macro uses.  Developers: Contact
+ Nombas to learn more about seamlessly incorporating Cmm as a macro
+ language for your application.
+
+NOMBAS
+
+ The goal of Nombas is to unleash the power in every computer, and to make
+ that power available to everyone who is stuck with one of these infernal
+ machines on their desk.  Nombas may be reached at any of the following
+ addresses:
+
+ MAIL:         PHONE:          INTERNET:
+  Nombas        (617)391-6595   nombas@nombas.com
+  64 Salem St.
+  MEDFORD MA   COMPUSERVE:     BBS:             FAX:
+  02155         72212,1622      (617)391-3718    (617)391-3842
+  USA
+
+************************* CENVID.ZIP FILE LIST *************************
+
+CENVID.ZIP, the Unregistered Shareware CEnvi package for DOS, contains the
+following files:
+
+*CENVI.EXE: CEnvi shareware executable for DOS, OS/2, or Windows.
+*CENVI.DOC: CEnvi Shareware Manual, Chapter 1: CEnvi Unregistered Shareware
+*CMMTUTOR.DOC: CEnvi Shareware Manual, Chapter 2: Cmm Language Tutorial
+*CMM_VS_C.DOC: CEnvi Shareware Manual, Chapter 3: Cmm versus C, for C
+  Programmers
+*CENVILIB.DOC: CEnvi Shareware Manual, Chapter 4: Function Library
+*LICENSE.DOC: CEnvi Unregistered Shareware License Agreement
+*README.DOC: Introductory file. Read this first for quick intallation.
+*REGISTER.DOC: CEnvi registration form
+*INSTALL.CMM: Cmm source file for installing this shareware version
+*AllDirs.bat: Perform a command in this directory and all
+  sub-directories
+*AllFiles.bat: Perform a command on all files matching a given
+  file specification
+*Ascii.bat: Display the ascii character table
+*BatLoops.bat: Examples of various methods CEnvi can use to
+  allow looping within batch files
+*BattMem.cmm: Show values stored in a PC's battery-protected
+  memory
+*CDfind.bat: Change to directory based on name search
+*CmdCount.bat: Repeat DOS command Count times
+*CmmEdit.cmm: VERY simple text editor; developed step-by-step
+  in the tutorial chapter of the CEnvi User Manual.
+*DelOld.bat: Delete files older than specified age
+*DelTree.bat: Delete a directory tree
+*DirDiff.cmm: Compare two directory listings for differences
+*DirStat.bat: Extract specific fields from a DOS "DIR" listing
+*DiskFree.bat: Display free space on a disk drive
+*DoList.cmm: Perform action on every element of a list
+*DosTime.bat: Show time according to computer's internal clock
+*EnviAsk.bat: Prompt and receive user input with many options
+*EnviAsks.bat: Many examples of user input using EnviAsk.bat
+  and GetUKey.cmm
+*EnvSort.bat: Sort environment variables alphabetically
+*ErrLev.bat: Execute a command and set the ERRLEV value as the
+  return code, which makes ERRORLEVEL a variable
+*Fibonacc.cmm: Two methods for generating the Fibonacci
+  sequence
+*FileFind.bat: Wildcard search for files on current drive or on
+  all drives
+*Find#.cmm: Extract a number from wordy output; used by
+  DirStat.bat
+*FloppyIn.bat: Check if a floppy is in drive A: or B:
+*FranTick.cmm: Animated tick who drank too much coffee
+*GetUKey.cmm: Display a choice prompt and then set an
+  environment variable based on user's selection
+*Hello.cmm: My first Cmm program. Used to begin the Cmm
+  tutorial.
+*HexDump.bat: Display hexadecimal dump of a file
+*Install.cmm: Install this version of CEnvi.
+*Int16.bat: Display key code from keyboard interrupt 16 hex
+*IsDay_1.bat: One method to check if it is a specific day of
+  the week
+*IsDay_2.bat: Another method to check if it's a specific day of
+  the week
+*IsItFri.bat: Is it Friday?
+*KbdBuf.bat: Alter the size of the keyboard buffer
+*KbdRate.bat: Alter the typematic rate of the keyboard
+*KeyCode.bat: Display keycode of any key pressed
+*KeyState.bat: Get or set the state of the NumLock, CapsLock,
+  or Insert keys
+*KeyStuff.bat: Stuff characters into the keyboard buffer
+*MemBlock.bat: Trace through DOS's allocated memory blocks
+*Message.bat: Display very important message in box on screen
+*Mouse.bat: Demonstrate reading a mouse's position and state
+*MultiDir.bat: DOS's "DIR" command allowing multiple file
+  specifications
+*NumLock.bat: Set the NumLock key on
+*OneADay.bat: Perform any command(s) no more than once per day
+*OptParms.lib: Library of routines for parsing the optional
+  parameters for executing a program. #included in other files
+*OS2Sessn.cmm: Execute sessions from DOS under OS/2
+*PathAdd.bat: Add a directory to your PATH environment
+  variable.
+*PathDel.bat: Remove a directory from your PATH environment
+  variable
+*PathStak.bat: Multi-level save or restore of current drive and
+  directory so that you can change drives and directories and
+  still return to this one
+*PathSubs.bat: Use DOS's SUBST command to shorten your PATH
+  environment variable so that more paths can be fit with DOS'
+  127-byte limit
+*Primes.bat: Demonstrate automatic array allocation for
+  calculating prime numbers
+*Print.cmm: Copy file to printer, treating printer as a file
+*PrmptDay.bat: Change command-line-prompt to display today's
+  date
+*Quote.bat: Choose a "profound" quote at random
+*REBOOT_1.BAT: One method to reboot your computer
+*REBOOT_2.BAT: Another method to reboot your computer
+*Redirect.bat: Demonstrate how to redirect standard output,
+  input, and errors while running any command
+*Restrict.cmm: Allow a limited subset of DOS commands
+*RunTime.bat: Rudimentary scheme for executing a command at a
+  certain time of day.
+*Scrandom.bat: Use Screen.lib to draw randomly colored squares
+  around the screen
+*Screen.lib: Library, #included in other files, for screen
+  output: colors, boxes, lines, etc...
+*ScrnSave.bat: Use Screen.lib to save screen to a file
+*SortLen.bat: Sort any file based on line length
+*Sound.bat: Play a frequency for a given time period
+*Tee.cmm: Save screen output to a file while it is being
+  displayed on the screen
+*ValidDir.bat: Verify if a directory is valid
+*VLabel.bat: Read or set disk volume label
+*Wait.bat: Pause and do not return for specified number of
+  seconds
+*Which.bat: Find in PATH which command is executed
+*WinClip.cmm: Utility to access Windows clipboard from DOS
+*WinClib.lib: Function to access Windows clipboard from DOS
+*WinIni.lib: Modify Windows INI files from plain DOS
+*WinShell.bat: Start windows with a specific shell.  Run
+  Windows for a single program.
+
+
+************************* CENVI2.ZIP FILE LIST *************************
+
+CENVI2.ZIP, the Unregistered Shareware CEnvi package for OS/2, contains the
+following files:
+
+*CENVI.EXE: CEnvi shareware executable for DOS, OS/2, or Windows.
+*CENVI2PM.EXE: Gateway program, executed transparently by CEnvi, for access
+  to PM-dependent system calls
+*CENVI.DOC: CEnvi Shareware Manual, Chapter 1: CEnvi Unregistered Shareware
+*CMMTUTOR.DOC: CEnvi Shareware Manual, Chapter 2: Cmm Language Tutorial
+*CMM_VS_C.DOC: CEnvi Shareware Manual, Chapter 3: Cmm versus C, for C
+  Programmers
+*CENVILIB.DOC: CEnvi Shareware Manual, Chapter 4: Function Library
+*LICENSE.DOC: CEnvi Unregistered Shareware License Agreement
+*README.DOC: Introductory file. Read this first for quick intallation.
+*REGISTER.DOC: CEnvi registration form
+*INSTALL.CMM: Cmm source file for installing this shareware version
+*AllDirs.cmd: Perform a command in this directory and all
+  sub-directories
+*AllFiles.cmd: Perform a command on all files matching a given
+  file specification
+*AltHome.cmd: Switch OS/2 session between windowed and
+  full-screen, much like ALT-HOME works in DOS sessions
+*BarClock.cmd: Display time in title bar of active window
+*BatLoops.cmd: Examples of various methods CEnvi can use to
+  allow looping within batch files
+*BattMem.cmm: Show values stored in a PC's battery-protected
+  memory
+*BckGrnd.cmd: Specify a new file as your desktop background
+  image
+*Bouncy.cmd: Start a bouncy OS/2 Command Window. This
+  demonstrates moving windows and silliness.
+*BoxFont.cmd: Show and alter default font for DOS and OS/2
+  command-line windows
+*CDfind.cmd: Change to directory based on name search
+*CEnviSet.cmd: This file can be used instead of CEnvi.exe if
+  you are using environment variables as Cmm variables and need
+  them to be changed in the current OS/2 environment.
+*ClipBrd.cmd: Get or modify clipboard text
+*ClipBrd.lib: Library of routines for reading from or writing
+  to the clipboard
+*CmmEdit.cmm: VERY simple text editor; developed step-by-step
+  in the tutorial chapter of the CEnvi User Manual.
+*Comm.lib: Serial communications routines
+*DelOld.cmd: Delete files older than specified age
+*DelTree.cmd: Delete a directory tree
+*DeskLock.cmd: Lock or unlock desktop
+*DevIOCtl.lib: Function library for OS/2's DosDevIOCTL
+  functions
+*DirDiff.cmm: Compare two directory listings for differences
+*DiskFree.cmd: Display free space on a disk drive
+*DlgCtrl.lib: Library of routines for interactive with PM
+  dialog boxes and other windows with sub-windows - this
+  library is only in its early stages
+*DoFiles.cmd: Perform any command on a list of files selected
+  from a file dialog box
+*DoList.cmd: Perform action on every element of a list
+*DoMenu.cmd: Execute any menu selection of a PM application,
+  based on the name of the window and the menu text
+*DOS.cmd: Perform DOS command from an OS/2 session, with the
+  option to "see" output of the command; mirrors OS2.BAT
+*DosCalls.lib: Example library of "wrapper" function calls to
+  OS/2 API calls in the DosCalls library.  This file is
+  "#include"ed in many of the other example files.
+*DropMany.cmd: Drag many files for single launch of program
+  object
+*DumpIni.cmd: Display profile settings from a .INI file; uses
+  Profile.lib
+*EditCmd.cmd: Use PM's file dialog (via FileDlg.lib) to select
+  a *.cmd file to edit.
+*EnvSort.cmd: Sort environment variables alphabetically
+*ErrLev.cmd: Execute a command and set the ERRLEV value as the
+  return code, which makes ERRORLEVEL a variable
+*ExamineW.cmd: Display lots of data about any PM window on the
+  desktop, and sub-windows (this file in early stages)
+*Fibonacc.cmm: Two methods for generating the Fibonacci
+  sequence
+*FileDlg.lib: A simple interface to the WinFileDlg() PM
+  function.  This library file is #include'd in some of the
+  other CEnvi sample files.
+*FileFind.cmd: Wildcard search for files on current drive or on
+  all drives
+*FileIO.lib: Function to interface directly with OS/2's File IO
+*Find#.cmm: Extract a number from wordy output; used by
+  DirStat.bat
+*FranTick.cmm: Animated tick who drank too much coffee
+*FSSlave.cmm: Control full screen OS/2 session from
+  TEXTBOSS.LIB
+*GetUKey.cmd: Display a choice prompt and then set an
+  environment variable based on user's selection
+*GiveMem.lib: Library of routines for shareing memory with
+  other applications whose memory is otherwise "protected"
+*Hello.cmm: My first Cmm program. Used to begin the Cmm
+  tutorial.
+*HexDump.cmd: Display hexadecimal dump of a file
+*HideTask.cmd: Hide task from the Task List window
+*IDLE.cmd: Change process priority to run a CEnvi program only
+  during system idle time.
+*IdleProg.cmd: Execute a program in the background; i.e., run
+  only during system idle time.
+*Install.cmm: Install this version of CEnvi.
+*IsItFri.cmd: Is it Friday?
+*IsRun.cmd: Is process XXXXX running?
+*KbdRate.cmd: Alter the typematic rate of the keyboard; in many
+  cases faster than OS/2 Keyboard tool can set it
+*KeyCode.cmd: Display keycode of any key pressed
+*KeyGhost.cmd: Sample for using KeyPush.lib to determine if
+  CEnvi is worth the price of registration.
+*KeyPush.cmd: Send keystroke commands directly to a window by
+  window title; a quick interface into KeyPush.lib
+*KeyPush.lib: Library of routines for sending keystrokes to PM
+  or Windowed applications.
+*KeyState.cmd: Get or set the state of the NumLock, CapsLock,
+  or Insert keys for current session or for the whole WPS
+*Kill.cmd: Terminate a running process by Process ID, Window
+  title, full name, or partial name
+*MenuCtrl.lib: Library of routines for interactive with PM
+  menus
+*MiniTemp.cmd: Temporarily minimize all windows to icons
+*MsgBox.lib: A wrapper library for the PM WinMessageBox()
+  function.  This file is #include'd in other CEnvi sample
+  files.
+*MsgBoxes.cmd: Show various message box types using the
+  function in MsgBox.lib.
+*NamePipe.lib: Library for OS/2 Named Pipes
+*NoTitleB.cmd: Remove selected elements of a window title bar
+*NumLock.cmd: Turn on NUMLOCK key once, or maintain NUMLOCK ON.
+  A shadow of NumLock.cmd can be put in startup folder to
+  default computer to NumLock ON. "NumLock 1000" will check
+  every second to make sure that NUMLOCK is still set.
+*ObjSet.cmd: Alter WPS object and folder settings
+*OneADay.cmd: Perform any command(s) no more than once per day
+*OnTop.cmd: Float window to top of all other windows
+*OptParms.lib: Library of routines for parsing the optional
+  parameters for executing a program. #included in other files
+*OS2.bat: Perform OS/2 command from a DOS session, with the
+  option to "see" output of the command; mirrors DOS.CMD.  Note
+  that this requires CEnvi for DOS
+*OS2Time.cmd: Show time according to computer's internal clock
+*OS2Wait.bat: CEnvi for DOS tool to suspend DOS session for
+  specified interval
+*Parents.cmd: Show hierarchical list of ancestor's process ID's
+  and names
+*PathAdd.cmd: Add a directory to your PATH environment
+  variable.
+*PathDel.cmd: Remove a directory from your PATH environment
+  variable
+*PathStak.cmd: Multi-level save or restore of current drive and
+  directory so that you can change drives and directories and
+  still return to this one
+*PMdll.lib: Example library of "wrapper" routines to function
+  in the PM DLL (Presentatiom Manager Dynamic Link Library).
+  This file is "#include"ed in many of the other example files.
+*Print.cmm: Copy file to printer, treating printer as a file
+*PrmptDay.cmd: Change command-line-prompt to display today's
+  date
+*ProcList.cmd: Show list of all running processes; their names
+  and ID's
+*Profile.lib: Function library for accessing Profiles; i.e.
+  .INI files
+*Quote.cmd: Choose a text-mode "profound" quote at random
+*QuotePM.cmd: Choose a PM-mode "profound" quote at random
+*RndBckgr.cmd: Randomly select desktop background, at specified
+  interval, from a list of graphic file specifications
+*RunTime.cmd: Rudimentary scheme for executing a command at a
+  certain time of day.
+*ScanCode.lib: Retrieve keyboard scan codes for ascii
+  characters
+*ServeOS2.com: DOS TSR to work with TextBoss.lib for complete
+  keyboard control of DOS sessions
+*Session.cmd: Replace OS/2's START command for greater control
+  of starting sessions, including name, position, font,
+  notebook settings, etc...
+*Sessions.cmd: batch file to demonstarte various uses of
+  Session.cmd
+*ShutDown.cmd: Automated shutdown or reboot of OS/2 system
+*SortLen.cmd: Sort any file based on line length
+*Sound.cmd: Play a frequency for a given time period
+*Switch.cmd: Switch foreground application to another process
+  base on process ID, full name, or partial name
+*SysInfo.cmd: Display system configuration parameters
+*TempFldr.cmd: Open folder temporarily, to automatically close
+  when it no longer has focus; good for menus
+*Terminal.cmd: A VERY basic terminal program; demonstrates
+  COMM.LIB
+*TextBoss.lib: Library of routines to interactively windowed
+  DOS or OS/2 applications: can work with ServeOS2.com
+*TextEcho.cmd: Demonstrate TextBoss.lib by shadowing a DOS or
+  OS/2 box from an OS/2 box
+*TextWin.cmd: GET/PUT text from/to a windowed DOS or OS/2
+  session
+*Threads.cmd: Display list of all threads in all running
+  processes
+*UnHang.cmm: Monitor your system to detect OS/2 "hangs", where
+  the workplace shell stops responding, then kill or otherwise
+  handle the application that is causing the problem
+*ValidDir.cmd: Verify if a directory is valid
+*Wait.cmd: Pause and do not return for specified number of
+  seconds
+*Which.cmd: Find in PATH which command is executed
+*WinList.cmd: Display list of all PM windows
+*WinMsg.lib: Routines to send or post messages to PM windows
+*WinSet.cmd: Set the position, size, state, etc... of a PM
+  Window
+*WinSpawn.cmd: Pass simple commands to Windows session running
+  WinSpawn.cmm
+*WinSpawn.cmm: Run in Windows session from CEnvi for Windows to
+  receive commands from WinSpawn.lib
+*WinSpawn.lib: WinSpawn() function to send commands to Windows
+  session running CEnvi for Windows and WinSpawn.cmm
+*WinTools.cmd: Demonstrate many of the capabilities of
+  WinTools.lib
+*WinTools.lib: Library of routines for manipulating PM windows
+  by name or by handle
+*WIN_Boss.lib: work with CEnvi for Windows' ServeOS2.cmm
+  program to all full control of Windows applications from an
+  OS/2 script
+*WPFolder.cmd: Open a desktop folder for any specified
+  directory and optionally switch to that window
+
+
+************************* CENVIW.ZIP FILE LIST *************************
+
+CENVIW.ZIP, the Unregistered Shareware CEnvi package for Windows, contains
+the following files:
+
+*CENVI.EXE: CEnvi shareware executable for DOS, OS/2, or Windows.
+*CENVI.DOC: CEnvi Shareware Manual, Chapter 1: CEnvi Unregistered Shareware
+*CMMTUTOR.DOC: CEnvi Shareware Manual, Chapter 2: Cmm Language Tutorial
+*CMM_VS_C.DOC: CEnvi Shareware Manual, Chapter 3: Cmm versus C, for C
+  Programmers
+*CENVILIB.DOC: CEnvi Shareware Manual, Chapter 4: Function Library
+*LICENSE.DOC: CEnvi Unregistered Shareware License Agreement
+*README.DOC: Introductory file. Read this first for quick intallation.
+*REGISTER.DOC: CEnvi registration form
+*INSTALL.CMM: Cmm source file for installing this shareware version
+*AddItem.cmm: Add Group and Item to Program Manager
+*AllSave.cmm: Select SAVE option on all windows
+*Ascii.cmm: Display the ascii character table
+*BarClock.cmm: Display current time in title of active window
+*BattMem.cmm: Show values stored in a PC's battery-protected
+  memory
+*BMP.lib: Routines for reading and displaying .BMP files
+*BmpView.cmm: Demonstrate the BMP.LIB routines by reading any
+  number of .BMP files and displaying them
+*BootEd1.cmm: Start NotePad to edit c:\AutoExec.bat and
+  C:\Config.sys using Windows DLL's.
+*BootEd2.cmm: Start NotePad to edit c:\AutoExec.bat and
+  C:\Config.sys using CEnvi's spawn() function.
+*BugHunt.cmm: Example for using the ClipBrd.lib routines.
+  Constantly scan clipboard for "bug" in clipboard text
+*ClipBrd.lib: Library of routines for reading from or writing
+  to the Windows clipboard
+*ClipSort.cmm: Sort text in-place within the clipboard
+*CmmEdit.cmm: VERY simple text editor; developed step-by-step
+  in the tutorial chapter of the CEnvi User Manual.
+*CmmGroup.cmm: Create a CEnvi Programs group in Presentation
+  Manager with all of the .CMM files in it
+*Comm.lib: Simplified function interface into Windows' serial
+  communication routines
+*CommKybd.cmm: Send all data coming into serial port as
+  keystrokes to the active window
+*DDE.lib: Library of common routines and definitions for
+  Dynamic Data Exchange (DDE)
+*DDEcli.cmm: Sample DDE client; works with DDEsrv.cmm
+*DDEcli.lib: Library of routines for a DDE client
+*DDEdir.cmm: Show directory listing of all DDE servers
+*DDEsrv.cmm: Sample DDE server; works with DDEcli.cmm
+*DDEsrv.lib: Library of routines for a DDE server
+*DelOld.cmm: Delete files older than specified age
+*DirDiff.cmm: Compare two directory listings for differences
+*DlgCtrl.lib: Library of routines for interactive with Windows
+  dialog boxes and other windows with sub-window
+*DosTime.cmm: Show time according to computer's internal clock
+*DOS_BOSS.LIB: Functions for sending keystrokes to and reading
+  data from DOS sessions
+*DOS_ECHO.CMM: Demonstrate DOS_BOSS.LIB by echoing text to/from
+  DOS session
+*DOS_LOOK.CMM: Use DOS_BOSS.LIB to look at contents of a DOS
+  window
+*Dropper.cmm: Perform command for all files Drag-&-Dropped to
+  this tool
+*ExamineW.cmd: Display lots of data about any active window and
+  its sub-windows
+*ExitWin.cmm: Exit Windows; options to save files, force
+  applications to quit, restart Windows, and reboot computer
+*Fibonacc.cmm: Two methods for generating the Fibonacci
+  sequence
+*FranTick.cmm: Animated tick who drank too much coffee
+*FullScrn.cmm: Run any command started in maximized window
+*GDI.cmm: Demonstrate some of Windows' graphics functions from
+  GDI.lib
+*GDI.lib: Library of a few of Windows' graphics routines
+*GloblMem.lib: Functions to work with Windows' global memory
+  resources
+*Hello.cmm: My first Cmm program. Used to begin the Cmm
+  tutorial.
+*HexDump.cmm: Display hexadecimal dump of a file
+*Icon.lib: Functions for setting minimized icon
+*IconMany.cmm: Show all of the icons in Program Manager
+*Icons.cmm: Minimize all windows.  Demonstrate PostMessage()
+  from Message.lib.
+*IdleTime.cmm: "ScreenSaver" - Show clock if computer is idle
+*InputBox.cmm: Demonstrate uses of the InputBox() routine in
+  InputBox.lib
+*InputBox.lib: InputBox() function to allow for a dialog-like
+  box for user input
+*Install.cmm: Install this version of CEnvi.
+*KeyCode.cmm: Display keycodes returned by getch().
+*KeyGhost.cmm: Demonstrate how to use KeyPush.lib to control
+  other applications.
+*KeyPush.lib: Library of routines created for passing
+  keystrokes to a window with the current focus.
+*KillDOS.cmm: Force DOS window to close
+*MenuCtrl.lib: Library of routines for interactive with menus
+*MenuNot.cmm: Disable or delete a menu item
+*Message.lib: Wrapper for Windows' PostMessage() and
+  SendMessage() function to send commands to windows.
+*MsgBox.lib: A wrapper library for Windows' MessageBox()
+  function.  This file is #include'd in other CEnvi sample
+  files.
+*MsgBoxes.cmm: Show various message box types using the
+  function in MsgBox.lib.
+*MyCal.cmm: Start/menu/position calendar
+*NumLock.cmm: Set the NUMLOCK key ON
+*OneProg.cmm: Run one and only one program until it exits
+*OnTop.cmm: Float window to top of all other windows
+*OpenCmm.cmm: Use Windows' common dialog (via PickFile.lib) to
+  select a *.cmm file to edit.
+*OptParms.lib: Library of routines for parsing the optional
+  parameters for executing a program. #included in other files
+*OS2Sessn.cmm: Execute sessions from Windows under OS/2
+*PGroups.cmm: list all of the groups and items Program Manager;
+  uses ProgMan.lig
+*PickFile.lib: A simple interface to the GetOpenFileName()
+  function in the Windows Common Dialog DLL.  This library file
+  is #include'd in some of the other CEnvi sample files.
+*PMButt.cmm: Replace Program Manager with a tiny button in
+  upper-left corner for access to all PM items
+*PMCorner.cmm: Minimize Program Manager and then move its icon
+  to the lower-right corner of the screen.
+*PongTime.cmm: Bounce the Windows clock mini-app around
+*Print.cmm: Copy file to printer, treating printer as a file
+*Profile.lib: Function library for accessing Profiles; i.e.
+  .INI files
+*ProgMan.lib: Library of routines using DDE to communication
+  with Program Manager
+*Quote.cmm: Choose a "profound" quote at random
+*RebootNT.cmm: Reboot from Windows NT
+*RndWalls.cmm: Random wallpaper selection at timed intervals
+*RunAgain.cmm: Repeatedly run command at specified interval
+*RunTime.cmm: Schedule a command to execute at a specified hour
+  and minute.
+*SafeFMan.cmm: File Manager with dangerous menu options removed
+*SaveScrn.cmm: Start screen saver now
+*ServeOS2.cmm: Work with CEnvi for OS/2 and WIN_BOSS.LIB to
+  control Windows sessions from OS/2
+*ServeWIN.com: DOS TSR to work with DOS_BOSS.LIB for complete
+  keyboard control of DOS sessions
+*TaskButt: Task Manager replacement; 1-click access to tasks
+*Terminal.cmm: A simple terminal program; demonstrate some of
+  the functions in COMM.lib
+*WhoRYou.cmm: Design and implement a dialog box using CEnvi's
+  MakeWindow() and DoWindows() functions
+*WinBeep.cmm: Call Windows' MessageBeep() function.
+*Window.lib: A few functions and many defined values useful for
+  CEnvi's MakeWindow(), BreakWindow(), and DoWindows()
+  functions
+*WinExec.lib: A wrapper library for Windows' WinExec()
+  function.  This file is #include'd in other CEnvi sample
+  files.
+*WinExecs.cmm: Demonstration of Windows' WinExec() function
+  using the wrapper from WinExec.lib.
+*WinList.cmm: Show a list of all Windows, their handles, and
+  their children.
+*WinMsg.cmm: Demonstrate how to make a window, and show all the
+  messages that go to that window
+*WinRun.bat: Run Windows commands from DOS session; client to
+  work with WinRun.cmm
+*WinRun.cmm: Run Windows commands from DOS session; server for
+  WinRun.bat
+*WinShell.bat: Start windows with a specific shell.  Run
+  Windows for a single program.  This use CENVI.EXE for DOS.
+*WinTools.cmm: Demonstrate many of the capabilities of
+  WinTools.lib
+*WinTools.lib: Library of routines for directly manipulating
+  windows by name or by handle
+*WinUtil.lib: A small selection of utilities that may be
+  #include'd in CEnvi code to get simple access to Windows DLL
+  functions.
+

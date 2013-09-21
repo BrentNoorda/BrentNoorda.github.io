@@ -1,0 +1,83 @@
+<html>
+<head>
+<title>Math.round()</title>
+<link rel="stylesheet" href="semanualstyles.css" type="text/css">
+<style type="text/css">
+ p { margin-top: 0; margin-bottom: 0; }
+</style>
+<script language="JavaScript" src="TrueHelp.js"></script>
+</head>
+<body onload="thload()">
+<div id=ienav>
+<ilayer id=nsnav>
+<br>
+<center>
+<p class=normal><a href="seisdkj-toc.htm" target="left">contents</a> &nbsp; <a href="seisdkj-index.htm" target="left">index</a> &nbsp; <a href="TH_755.htm">previous</a> &nbsp; <a href="TH_757.htm">next</a></p>
+</center>
+<br>
+<hr noshade size=1>
+</ilayer>
+</div>
+<p class=sereffunclevel4>Math.round()</p>
+<table cellpadding=0>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>syntax:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=sesyntax>Math.round(<span class=truehelp-xe></span>x)</p></td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>where:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>x - a number.</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>return:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>number - value that is closest to the argument and is equal to a mathematical integer. <span class=secodephrase>X</span> is rounded up if its fractional part is equal to or greater than 0.5 and is rounded down if less than 0.5.</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>description:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>The value of <span class=secodephrase>Math.round(x)</span> is the same as the value of <span class=secodephrase>Math.floor(x+0.5)</span>, except when x is *0 or is less than 0 but greater than or equal to -0.5; for these cases <span class=secodephrase>Math.round(x)</span> returns *0, but <span class=secodephrase>Math.floor(x+0.5) returns +0</span>.</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>see:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara><span class=sejumptopic><a href="TH_750.htm">Math.floor()</a></span></p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>example:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=secodelines>//Return&nbsp;a&nbsp;mathematical&nbsp;integer:</p>
+<p class=secodelines>function&nbsp;compute_int(x)</p>
+<p class=secodelines>{</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;return&nbsp;Math.round(x)</p>
+<p class=secodelines>}</p>
+<p class=secodelines>//If&nbsp;the&nbsp;argument&nbsp;is&nbsp;NaN,&nbsp;the&nbsp;result&nbsp;is&nbsp;NaN</p>
+<p class=secodelines>//If&nbsp;the&nbsp;argument&nbsp;is&nbsp;already&nbsp;an&nbsp;integer&nbsp;</p>
+<p class=secodelines>//such&nbsp;as&nbsp;any&nbsp;of&nbsp;the</p>
+<p class=secodelines>//following&nbsp;values:&nbsp;-0,&nbsp;+0,&nbsp;4,&nbsp;9,&nbsp;8;&nbsp;</p>
+<p class=secodelines>//then&nbsp;the&nbsp;result&nbsp;is&nbsp;the</p>
+<p class=secodelines>//argument&nbsp;itself.</p>
+<p class=secodelines>//If&nbsp;the&nbsp;argument&nbsp;is&nbsp;.2,&nbsp;then&nbsp;the&nbsp;result&nbsp;is&nbsp;0.</p>
+<p class=secodelines>//If&nbsp;the&nbsp;argument&nbsp;is&nbsp;3.5,&nbsp;then&nbsp;the&nbsp;result&nbsp;is&nbsp;4</p>
+<p class=secodelines>//Note<b>:</b>&nbsp;Math.round(3.5)&nbsp;returns&nbsp;4,&nbsp;</p>
+<p class=secodelines>//but&nbsp;Math.round(-3.5)&nbsp;returns&nbsp;-3.</p></td>
+</tr>
+</table>
+<p class=normal>&nbsp;</p>
+<hr noshade size=1>
+<p class=normal><a href="TH_757.htm"><img src="button.png" border=0></a><a href="TH_757.htm" style="text-decoration:none;">Math.sin()</a></p>
+<p>
+</body>
+</html>

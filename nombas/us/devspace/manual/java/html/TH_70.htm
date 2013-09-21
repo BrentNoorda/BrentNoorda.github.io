@@ -1,0 +1,60 @@
+<html>
+<head>
+<title>interface: SEContextParams</title>
+<link rel="stylesheet" href="semanualstyles.css" type="text/css">
+<style type="text/css">
+ p { margin-top: 0; margin-bottom: 0; }
+</style>
+<script language="JavaScript" src="TrueHelp.js"></script>
+</head>
+<body onload="thload()">
+<div id=ienav>
+<ilayer id=nsnav>
+<br>
+<center>
+<p class=normal><a href="seisdkj-toc.htm" target="left">contents</a> &nbsp; <a href="seisdkj-index.htm" target="left">index</a> &nbsp; <a href="TH_69.htm">previous</a> &nbsp; <a href="TH_71.htm">next</a></p>
+</center>
+<br>
+<hr noshade size=1>
+</ilayer>
+</div>
+<p class=heading-3>interface: SEContextParams</p>
+<p class=heading-3-p>&nbsp;</p>
+<p class=secodelinesindented><span class=secodephrase>public&nbsp;int&nbsp;seGetOptions();&nbsp;</span></p>
+<p class=secodelinesindented>public&nbsp;void&nbsp;seSetOptions(int&nbsp;seOptions);</p>
+<p class=secodelinesindented>&nbsp;</p>
+<p class=normal>The SEContextParams interface is used by the interpreter to access the interpret options you have set for the created context.  The interpreter will call the <span class=secodephrase>seGetOptions</span> method whenever it needs to retrieve your options, and it will call <span class=secodephrase>seSetOptions</span> when it needs to temporarily turn off certain options for a particular section of code.  The following options can be |&#8217;ed together in any combination:</p>
+<p class=normal>&nbsp;</p>
+<p class=senormalpara>SE.DEFAULT</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>Default behavior</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>SE.OPT_REQUIREVAR</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>All variables must be declared using the <span class=secodephrase>var</span> keyword. If this flag is not used, the normal JavaScript behavior is in effect. When you write to an undeclared variable, the variable is automatically created as a global variable. Reading from an undeclared variable always results in an error.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>SE.OPT_DEFAULTLOCAL</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>Variables used without declaring them with the <span class=secodephrase>var</span> keyword are declared automatically as global variables as described above under <span class=secodephrase>SE_OPT_REQUIREVAR</span>. This flag makes them declared as local variables instead. JavaScript standard behavior is to create the variables as global variables.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>SE.OPT_WARNBADMATH</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>If any math operation involves NaN, flag an error. Normally, JavaScript allows NaN to be used in an operation and defines specific results.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>SE.OPT_EXTRAPARAMS</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>Wrapper functions indicate the maximum number of parameters they can take, and extras will cause an error. This flag causes all library functions to take any number of parameters, ignoring excess parameters. It is normally useful to leave out this option, as extra parameters usually signal an incorrect usage of these functions.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>SE.OPT_TOBOOLOBJECTS</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>JavaScript states that any object converted to a Boolean results in <span class=secodephrase>TRUE</span>. If this flag is on, objects are first converted to a primitive then to a boolean. For instance, without this flag the object <span class=secodephrase>new Boolean(False)</span> or <span class=secodephrase>new Number(0)</span> will convert to <span class=secodephrase>TRUE</span>, but with the flag they become <span class=secodephrase>FALSE</span>.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>SE.OPT_DEBUGGER</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>A debugger is in use, so ignore <span class=secodephrase>SE.INFREQUENT_CONT</span> for all <span class=secodephrase>seEval</span> calls.  </p>
+<p class=senormalpara-p>&nbsp;</p>
+<hr noshade size=1>
+<p class=normal><a href="TH_71.htm"><img src="button.png" border=0></a><a href="TH_71.htm" style="text-decoration:none;">interface: SEErrorHandler</a></p>
+<p>
+</body>
+</html>

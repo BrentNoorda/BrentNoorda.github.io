@@ -1,0 +1,943 @@
+<HTML>
+ <HEAD>
+ 
+ <TITLE>ScriptEase:Desktop v3 Manual: </TITLE><META
+  NAME="GENERATOR" CONTENT="Adobe FrameMaker 5.5/HTML Export Filter">
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-1754630-10']);
+  _gaq.push(['_trackPageview']);
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+ </HEAD>
+ <BODY BACKGROUND="chapters/desk3pat.gif">
+ <P>
+ <LINK REL="STYLESHEET" HREF="chapters/desk3man.css">
+ </P>
+ <H2 CLASS="Body">ScriptEase:Desktop version 3.0 User Manual</H2>
+
+<TABLE WIDTH=100% BORDER="0" CELLSPACING="0" CELLPADDING="0">
+  <TR>
+    <TD WIDTH=50%>
+
+<p><i>This user manual is for one of the last versions of SE:DESK before a complete
+switch from Cmm to JavaScript, and so it is mostly applicable to the CEnvi
+application (for which there is very little remaining documentation).<br/><br/>
+The best part of this manual (IMHO) is the is the <a href="chapters/3-tutor.htm">Tutorial Chapter</a> which
+teaches computer programing in Cmm, from zero to writing a complete
+text editor, in 17 easy steps.<br/><br/>
+See <a href="../../../bunchadox.htm">Other Nombas Documentation</a> for other ancient Nombas products.</i></p>
+   <P CLASS="TitleTOC">
+   <LI><A HREF="chapters/0-intro.htm">Introduction</A>
+   <LI><A HREF="chapters/1-lang.htm">The ScriptEase Language</A>
+   <LI><A HREF="chapters/2-sevsc.htm">ScriptEase vs. C</A>
+   <LI><A HREF="chapters/3-tutor.htm">ScriptEase Tutorial and Annotated Scripts</A>
+   <LI><A HREF="chapters/4-exe.htm">The ScriptEase Processor</A>
+   <LI><A HREF="chapters/5-debug.htm">The Integrated Debugging Environment</A>
+   <LI><A HREF="chapters/6-stdlib.htm">ScriptEase Standard Library</A>
+   <LI><A HREF="chapters/7-libext.htm">ScriptEase Standard Library Extensions</A>
+   <LI><A HREF="chapters/8-prolib.htm">ScriptEase Professional Library</A>
+   <LI><A HREF="chapters/9-doswin.htm">DOS (and Windows) Library</A>
+   <LI><A HREF="chapters/a-os2lib.htm">OS/2 Library</A>
+   <LI><A HREF="chapters/b-win3lb.htm">Windows 3.x Library</A>
+   <LI><A HREF="chapters/c-nt95lb.htm">The Windows NT and `95 Library</A>
+   <LI><A HREF="chapters/d-unixlb.htm">UNIX Library</A>
+   <LI><A HREF="chapters/e-fncgrp.htm">Appendix A - Grouped Functions</A></P>
+   
+   </TD>
+    <TD WIDTH=50% valign=top><IMG SRC="chapters/desk3.gif" height="82" width="320"></TD>
+  </TR>
+</TABLE>
+
+
+   <P ALIGN=CENTER>
+   <CENTER><HR ALIGN=CENTER WIDTH=100% SIZE=2>
+   </CENTER>
+   </P>
+   <H1
+    CLASS="Title">
+   INDEX</H1>
+   <H3
+    CLASS="GroupTitlesIOM">
+   Symbols<A NAME="symbols"></A></H3>
+   <P CLASS="Level1IOM">
+   <A HREF="chapters/4-exe.htm#997205" CLASS="Index">#! (for UNIX) 85</A></P>
+   <P CLASS="Level1IOM">
+   <A HREF="chapters/1-lang.htm#1000863" CLASS="Index">#elif 38</A></P>
+   <P CLASS="Level1IOM">
+   <A HREF="chapters/1-lang.htm#1000864" CLASS="Index">#else 38</A></P>
+   <P CLASS="Level1IOM">
+   <A HREF="chapters/1-lang.htm#1000865" CLASS="Index">#endif 38</A></P>
+   <P CLASS="Level1IOM">
+   <A HREF="chapters/1-lang.htm#1000861" CLASS="Index">#if 38</A></P>
+   <P CLASS="Level1IOM">
+   <A HREF="chapters/1-lang.htm#1000862" CLASS="Index">#ifdef 38</A></P>
+   <P CLASS="Level1IOM">
+   <A HREF="chapters/1-lang.htm#1000859" CLASS="Index">#include 36</A>, <A HREF="chapters/2-sevsc.htm#997286" CLASS="Index">48</A></P>
+   <P CLASS="Level1IOM">
+   <A HREF="chapters/1-lang.htm#1000860" CLASS="Index">#link 37</A></P>
+   <P CLASS="Level1IOM">
+   <A HREF="chapters/4-exe.htm#997208" CLASS="Index">/BIND 86</A></P>
+   <P CLASS="Level1IOM">
+   <A HREF="chapters/7-libext.htm#1000597" CLASS="Index">_95CON_ 161</A></P>
+   <P CLASS="Level1IOM">
+   <A HREF="chapters/7-libext.htm#1000592" CLASS="Index">_95WIN_ 161</A></P>
+   <P CLASS="Level1IOM">
+   <A HREF="chapters/1-lang.htm#1000871" CLASS="Index">_argc 40</A></P>
+   <P CLASS="Level1IOM">
+   <A HREF="chapters/1-lang.htm#1000872" CLASS="Index">_argv 40</A></P>
+   <P CLASS="Level1IOM">
+   <A HREF="chapters/7-libext.htm#1000500" CLASS="Index">_BigEndianMode 162</A></P>
+   <P CLASS="Level1IOM">
+   <A HREF="chapters/7-libext.htm#1000485" CLASS="Index">_DOS_ 161</A></P>
+   <P CLASS="Level1IOM">
+   <A HREF="chapters/7-libext.htm#1000486" CLASS="Index">_DOS32_ 161</A></P>
+   <P CLASS="Level1IOM">
+   <A HREF="chapters/7-libext.htm#1000496" CLASS="Index">_MAC_ 161</A></P>
+   <P CLASS="Level1IOM">
+   <A HREF="chapters/7-libext.htm#1000581" CLASS="Index">_NTCON_ 161</A></P>
+   <P CLASS="Level1IOM">
+   <A HREF="chapters/7-libext.htm#1000586" CLASS="Index">_NTWIN_ 161</A></P>
+   <P CLASS="Level1IOM">
+   <A HREF="chapters/7-libext.htm#1000494" CLASS="Index">_NWNLM_ 161</A></P>
+   <P CLASS="Level1IOM">
+   <A HREF="chapters/7-libext.htm#1000487" CLASS="Index">_OS2_ 161</A></P>
+   <P CLASS="Level1IOM">
+   <A HREF="chapters/7-libext.htm#1000497" CLASS="Index">_SHELL_ 161</A></P>
+   <P CLASS="Level1IOM">
+   <A HREF="chapters/7-libext.htm#1000495" CLASS="Index">_UNIX_ 161</A></P>
+   <P CLASS="Level1IOM">
+   <A HREF="chapters/7-libext.htm#1000491" CLASS="Index">_WIN32_ 161</A></P>
+   <P CLASS="Level1IOM">
+   <A HREF="chapters/7-libext.htm#1000488" CLASS="Index">_WINDOWS_ 161</A></P>
+   <H3
+    CLASS="GroupTitlesIOM">
+   A<A NAME="numerics"></A><A NAME="a"></A></H3>
+   <P CLASS="Level1IOM">
+   <A HREF="chapters/6-stdlib.htm#1006403" CLASS="Index">abort 98</A></P>
+   <P CLASS="Level1IOM">
+   <A HREF="chapters/6-stdlib.htm#1006405" CLASS="Index">abs 99</A></P>
+   <P CLASS="Level1IOM">
+   <A HREF="chapters/6-stdlib.htm#1006406" CLASS="Index">acos 99</A></P>
+   <P CLASS="Level1IOM">
+   <A HREF="chapters/9-doswin.htm#997392" CLASS="Index">address 189</A></P>
+   <P CLASS="Level1IOM">
+   <A HREF="chapters/2-sevsc.htm#997282" CLASS="Index">addresses (&amp;) 47</A></P>
+   <P CLASS="Level1IOM">
+   <A HREF="chapters/1-lang.htm#1000824" CLASS="Index">AND 23</A></P>
+   <P CLASS="Level1IOM">
+   <A HREF="chapters/1-lang.htm#1000873" CLASS="Index">argc 40</A></P>
+   <P CLASS="Level1IOM">
+   <A HREF="chapters/1-lang.htm#1000869" CLASS="Index">ArgCount 39</A></P>
+   <P CLASS="Level1IOM">
+   <A HREF="chapters/1-lang.htm#1000870" CLASS="Index">ArgStrings 39</A></P>
+   <P CLASS="Level1IOM">
+   <A HREF="chapters/1-lang.htm#1000808" CLASS="Index">arrays 16</A></P>
+   <P CLASS="Level2IOM">
+   <A HREF="chapters/1-lang.htm#1000815" CLASS="Index">array arithmetic 19</A></P>
+   <P CLASS="Level2IOM">
+   <A HREF="chapters/2-sevsc.htm#997274" CLASS="Index">automatic allocation 42</A></P>
+   <P CLASS="Level2IOM">
+   <A HREF="chapters/1-lang.htm#1000818" CLASS="Index">further discussion 20</A></P>
+   <P CLASS="Level2IOM">
+   <A HREF="chapters/1-lang.htm#1000810" CLASS="Index">initialization 17</A></P>
+   <P CLASS="Level2IOM">
+   <A HREF="chapters/1-lang.htm#1000816" CLASS="Index">multi-dimensional 20</A></P>
+   <P CLASS="Level2IOM">
+   <A HREF="chapters/1-lang.htm#1000817" CLASS="Index">of arrays 20</A></P>
+   <P CLASS="Level2IOM">
+   <A HREF="chapters/2-sevsc.htm#997273" CLASS="Index">representation 42</A></P>
+   <P CLASS="Level1IOM">
+   <A HREF="chapters/6-stdlib.htm#1006404" CLASS="Index">asctime 98</A></P>
+   <P CLASS="Level1IOM">
+   <A HREF="chapters/6-stdlib.htm#1006407" CLASS="Index">asin 99</A></P>
+   <P CLASS="Level1IOM">
+   <A HREF="chapters/9-doswin.htm#997393" CLASS="Index">asm 190</A>, <A HREF="chapters/a-os2lib.htm#999291" CLASS="Index">193</A>, <A HREF="chapters/c-nt95lb.htm#997943" CLASS="Index">215</A></P>
+   <P CLASS="Level1IOM">
+   <A HREF="chapters/6-stdlib.htm#1006408" CLASS="Index">assert 100</A></P>
+   <P CLASS="Level1IOM">
+   <A HREF="chapters/1-lang.htm#999885" CLASS="Index">assignment arithmetic 15</A></P>
+   <P CLASS="Level1IOM">
+   <A HREF="chapters/6-stdlib.htm#1006409" CLASS="Index">atan 100</A></P>
+   <P CLASS="Level1IOM">
+   <A HREF="chapters/6-stdlib.htm#1006410" CLASS="Index">atan2 100</A></P>
+   <P CLASS="Level1IOM">
+   <A HREF="chapters/6-stdlib.htm#1006411" CLASS="Index">atexit 100</A></P>
+   <P CLASS="Level1IOM">
+   <A HREF="chapters/6-stdlib.htm#1006412" CLASS="Index">atof 101</A></P>
+   <P CLASS="Level1IOM">
+   <A HREF="chapters/6-stdlib.htm#1006413" CLASS="Index">atoi 101</A></P>
+   <P CLASS="Level1IOM">
+   <A HREF="chapters/6-stdlib.htm#1006414" CLASS="Index">atol 101</A></P>
+   <P CLASS="Level1IOM">
+   <A HREF="chapters/1-lang.htm#999887" CLASS="Index">auto-decrement 15</A></P>
+   <P CLASS="Level1IOM">
+   <A HREF="chapters/1-lang.htm#999886" CLASS="Index">auto-increment 15</A></P>
+   <P CLASS="Level1IOM">
+   <A HREF="chapters/4-exe.htm#997200" CLASS="Index">AUTOLOAD.CMM 83</A></P>
+   <H3
+    CLASS="GroupTitlesIOM">
+   B<A NAME="b"></A></H3>
+   <P CLASS="Level1IOM">
+   <A HREF="chapters/b-win3lb.htm#998947" CLASS="Index">BaseWindowFunction 201</A>, <A HREF="chapters/c-nt95lb.htm#998947" CLASS="Index">216</A></P>
+   <P CLASS="Level1IOM">
+   <A HREF="chapters/3-tutor.htm#419257" CLASS="Index">batch files 72</A></P>
+   <P CLASS="Level1IOM">
+   <A HREF="chapters/7-libext.htm#1000498" CLASS="Index">BIG_ENDIAN 161</A></P>
+   <P CLASS="Level1IOM">
+   <A HREF="chapters/7-libext.htm#1000501" CLASS="Index">BLObGet 162</A></P>
+   <P CLASS="Level1IOM">
+   <A HREF="chapters/7-libext.htm#1000502" CLASS="Index">BLObPut 163</A></P>
+   <P CLASS="Level1IOM">
+   <A HREF="chapters/7-libext.htm#1000503" CLASS="Index">BLObSize 165</A></P>
+   <P CLASS="Level1IOM">
+   <A HREF="chapters/1-lang.htm#999879" CLASS="Index">blocks 13</A></P>
+   <P CLASS="Level1IOM">
+   <A HREF="chapters/3-tutor.htm#419258" CLASS="Index">Border.cmm 71</A></P>
+   <P CLASS="Level1IOM">
+   <A HREF="chapters/7-libext.htm#1000504" CLASS="Index">Bound 165</A></P>
+   <P CLASS="Level1IOM">
+   <A HREF="chapters/1-lang.htm#1000839" CLASS="Index">break 27</A></P>
+   <P CLASS="Level1IOM">
+   breakpoints</P>
+   <P CLASS="Level2IOM">
+   <A HREF="chapters/5-debug.htm#997197" CLASS="Index">and variables 94</A></P>
+   <P CLASS="Level1IOM">
+   <A HREF="chapters/5-debug.htm#997196" CLASS="Index">breakpoints, clearing 94</A></P>
+   <P CLASS="Level1IOM">
+   <A HREF="chapters/5-debug.htm#997195" CLASS="Index">breakpoints, setting 94</A></P>
+   <P CLASS="Level1IOM">
+   <A HREF="chapters/b-win3lb.htm#998977" CLASS="Index">BreakWindow 202</A>, <A HREF="chapters/c-nt95lb.htm#997945" CLASS="Index">217</A></P>
+   <P CLASS="Level1IOM">
+   <A HREF="chapters/6-stdlib.htm#1006415" CLASS="Index">bsearch 102</A></P>
+   <P CLASS="Level1IOM">
+   <A HREF="chapters/7-libext.htm#1000505" CLASS="Index">byte 165</A></P>
+   <H3
+    CLASS="GroupTitlesIOM">
+   C<A NAME="c"></A></H3>
+   <P CLASS="Level1IOM">
+   C</P>
+   <P CLASS="Level2IOM">
+   <A HREF="chapters/2-sevsc.htm#997289" CLASS="Index">converting to ScriptEase 49</A></P>
+   <P CLASS="Level1IOM">
+   <A HREF="chapters/1-lang.htm#1000842" CLASS="Index">case 27</A>, <A HREF="chapters/2-sevsc.htm#997283" CLASS="Index">47</A></P>
+   <P CLASS="Level1IOM">
+   <A HREF="chapters/6-stdlib.htm#1006416" CLASS="Index">ceil 103</A></P>
+   <P CLASS="Level1IOM">
+   <A HREF="chapters/6-stdlib.htm#1006417" CLASS="Index">clearerr 103</A></P>
+   <P CLASS="Level1IOM">
+   <A HREF="chapters/6-stdlib.htm#1006418" CLASS="Index">clock 103</A></P>
+   <P CLASS="Level1IOM">
+   <A HREF="chapters/6-stdlib.htm#1006392" CLASS="Index">CLOCKS_PER_SEC 97</A></P>
+   <P CLASS="Level1IOM">
+   <A HREF="chapters/0-intro.htm#997026" CLASS="Index">Cmm 6</A></P>
+   <P CLASS="Level1IOM">
+   <A HREF="chapters/5-debug.htm#997196" CLASS="Index">CMMPATH 81</A></P>
+   <P CLASS="Level1IOM">
+   <A HREF="chapters/3-tutor.htm#419275" CLASS="Index">CmmView.cmm 62</A></P>
+   <P CLASS="Level1IOM">
+   <A HREF="chapters/1-lang.htm#999819" CLASS="Index">comments 10</A></P>
+   <P CLASS="Level1IOM">
+   <A HREF="chapters/1-lang.htm#1000821" CLASS="Index">conditional expressions 22</A></P>
+   <P CLASS="Level1IOM">
+   <A HREF="chapters/1-lang.htm#1000834" CLASS="Index">conditions 24</A></P>
+   <P CLASS="Level1IOM">
+   <A HREF="chapters/1-lang.htm#1000840" CLASS="Index">continue 27</A></P>
+   <P CLASS="Level1IOM">
+   <A HREF="chapters/2-sevsc.htm#997289" CLASS="Index">converting C to ScriptEase 49</A></P>
+   <P CLASS="Level1IOM">
+   <A HREF="chapters/6-stdlib.htm#1006419" CLASS="Index">cos 103</A>
+   </P><P CLASS="Level1IOM">
+   <A HREF="chapters/6-stdlib.htm#1006420" CLASS="Index">cosh 103</A></P>
+   <P CLASS="Level1IOM">
+   <A HREF="chapters/6-stdlib.htm#1006421" CLASS="Index">ctime 104</A></P>
+   <H3
+    CLASS="GroupTitlesIOM">
+   D<A NAME="d"></A></H3>
+   <P CLASS="Level1IOM">
+   <A HREF="chapters/2-sevsc.htm#997282" CLASS="Index">data pointers 47</A></P>
+   <P CLASS="Level1IOM">
+   <A HREF="chapters/1-lang.htm#999820" CLASS="Index">data types 11</A>, <A HREF="chapters/2-sevsc.htm#997271" CLASS="Index">41</A></P>
+   <P CLASS="Level2IOM">
+   <A HREF="chapters/1-lang.htm#1001566" CLASS="Index">byte 11</A></P>
+   <P CLASS="Level2IOM">
+   <A HREF="chapters/1-lang.htm#1001568" CLASS="Index">float 11</A></P>
+   <P CLASS="Level2IOM">
+   <A HREF="chapters/1-lang.htm#1001567" CLASS="Index">integer 11</A></P>
+   <P CLASS="Level1IOM">
+   <A HREF="chapters/7-libext.htm#1000506" CLASS="Index">DataDimension 166</A></P>
+   <P CLASS="Level1IOM">
+   <A HREF="chapters/7-libext.htm#1000507" CLASS="Index">DataType 166</A></P>
+   <P CLASS="Level1IOM">
+   <A HREF="chapters/3-tutor.htm#419259" CLASS="Index">Datediff.cmm 69</A></P>
+   <P CLASS="Level1IOM">
+   <A HREF="chapters/5-debug.htm#997172" CLASS="Index">debugger 89</A></P>
+   <P CLASS="Level2IOM">
+   <A HREF="chapters/5-debug.htm#997197" CLASS="Index">breakpoints, and variables 94</A></P>
+   <P CLASS="Level2IOM">
+   <A HREF="chapters/5-debug.htm#997196" CLASS="Index">breakpoints, clearing 94</A></P>
+   <P CLASS="Level2IOM">
+   <A HREF="chapters/5-debug.htm#997195" CLASS="Index">breakpoints, setting 94</A></P>
+   <P CLASS="Level2IOM">
+   <A HREF="chapters/5-debug.htm#997475" CLASS="Index">changing source mark 91</A></P>
+   <P CLASS="Level2IOM">
+   <A HREF="chapters/5-debug.htm#997198" CLASS="Index">changing variable values while debugging 95</A></P>
+   <P CLASS="Level2IOM">
+   <A HREF="chapters/5-debug.htm#997199" CLASS="Index">correcting errors in 95</A>
+   </P><P CLASS="Level2IOM">
+   <A HREF="chapters/5-debug.htm#997187" CLASS="Index">cursor 90</A></P>
+   <P CLASS="Level2IOM">
+   <A HREF="chapters/5-debug.htm#997191" CLASS="Index">Debug menu 91</A></P>
+   <P CLASS="Level2IOM">
+   <A HREF="chapters/5-debug.htm#997192" CLASS="Index">keyboard shortcuts 92</A></P>
+   <P CLASS="Level2IOM">
+   <A HREF="chapters/5-debug.htm#997192" CLASS="Index">navigational icons 92</A></P>
+   <P CLASS="Level2IOM">
+   <A HREF="chapters/5-debug.htm#997188" CLASS="Index">Options menu 91</A></P>
+   <P CLASS="Level2IOM">
+   <A HREF="chapters/5-debug.htm#997473" CLASS="Index">Run menu 91</A></P>
+   <P CLASS="Level2IOM">
+   <A HREF="chapters/5-debug.htm#997474" CLASS="Index">sending command line parameters 91</A></P>
+   <P CLASS="Level2IOM">
+   <A HREF="chapters/5-debug.htm#997187" CLASS="Index">source mark 90</A></P>
+   <P CLASS="Level2IOM">
+   <A HREF="chapters/5-debug.htm#997186" CLASS="Index">source windows 90</A></P>
+   <P CLASS="Level2IOM">
+   <A HREF="chapters/5-debug.htm#997185" CLASS="Index">status bar 90</A></P>
+   <P CLASS="Level2IOM">
+   <A HREF="chapters/5-debug.htm#997184" CLASS="Index">watch windows 90</A></P>
+   <P CLASS="Level2IOM">
+   <A HREF="chapters/5-debug.htm#997194" CLASS="Index">Window menu 93</A></P>
+   <P CLASS="Level1IOM">
+   <A HREF="chapters/1-lang.htm#1000843" CLASS="Index">default 27</A></P>
+   <P CLASS="Level1IOM">
+   <A HREF="chapters/1-lang.htm#1000858" CLASS="Index">define 35</A></P>
+   <P CLASS="Level1IOM">
+   <A HREF="chapters/7-libext.htm#1000508" CLASS="Index">defined 167</A></P>
+   <P CLASS="Level1IOM">
+   <A HREF="chapters/6-stdlib.htm#1006422" CLASS="Index">difftime 104</A></P>
+   <P CLASS="Level1IOM">
+   <A HREF="chapters/7-libext.htm#1000509" CLASS="Index">Directory 168</A></P>
+   <P CLASS="Level1IOM">
+   <A HREF="chapters/6-stdlib.htm#1006423" CLASS="Index">div 104</A>
+   </P><P CLASS="Level1IOM">
+   <A HREF="chapters/1-lang.htm#1000837" CLASS="Index">do ... while 26</A></P>
+   <P CLASS="Level1IOM">
+   <A HREF="chapters/b-win3lb.htm#999012" CLASS="Index">DoWindows 203</A>, <A HREF="chapters/c-nt95lb.htm#997946" CLASS="Index">218</A></P>
+   <P CLASS="Level1IOM">
+   <A HREF="chapters/a-os2lib.htm#999292" CLASS="Index">DynamicLink 194</A>, <A HREF="chapters/b-win3lb.htm#999063" CLASS="Index">204</A>, <A HREF="chapters/c-nt95lb.htm#997982" CLASS="Index">219</A></P>
+   <H3
+    CLASS="GroupTitlesIOM">
+   E<A NAME="e"></A></H3>
+   <P CLASS="Level1IOM">
+   <A HREF="chapters/1-lang.htm#1000835" CLASS="Index">else 25</A></P>
+   <P CLASS="Level1IOM">
+   <A HREF="chapters/6-stdlib.htm#1006400" CLASS="Index">EOF 97</A></P>
+   <P CLASS="Level1IOM">
+   <A HREF="chapters/1-lang.htm#1000826" CLASS="Index">EQUALITY 23</A></P>
+   <P CLASS="Level1IOM">
+   <A HREF="chapters/6-stdlib.htm#1006391" CLASS="Index">errno 98</A></P>
+   <P CLASS="Level1IOM">
+   <A HREF="chapters/1-lang.htm#999870" CLASS="Index">escape sequences 12</A></P>
+   <P CLASS="Level1IOM">
+   <A HREF="chapters/a-os2lib.htm#999293" CLASS="Index">ESet 196</A></P>
+   <P CLASS="Level1IOM">
+   <A HREF="chapters/c-nt95lb.htm#998051" CLASS="Index">Eset 221</A></P>
+   <P CLASS="Level1IOM">
+   <A HREF="chapters/6-stdlib.htm#1006424" CLASS="Index">exit 105</A></P>
+   <P CLASS="Level1IOM">
+   <A HREF="chapters/6-stdlib.htm#1006396" CLASS="Index">EXIT_FAILURE 97</A></P>
+   <P CLASS="Level1IOM">
+   <A HREF="chapters/6-stdlib.htm#1006397" CLASS="Index">EXIT_SUCCESS 97</A></P>
+   <P CLASS="Level1IOM">
+   <A HREF="chapters/6-stdlib.htm#1006425" CLASS="Index">exp 105</A>
+   </P><P CLASS="Level1IOM">
+   <A HREF="chapters/1-lang.htm#999877" CLASS="Index">expressions 13</A></P>
+   <P CLASS="Level2IOM">
+   <A HREF="chapters/1-lang.htm#1000820" CLASS="Index">conditional 22</A></P>
+   <P CLASS="Level2IOM">
+   <A HREF="chapters/1-lang.htm#999880" CLASS="Index">grouping 13</A></P>
+   <P CLASS="Level2IOM">
+   <A HREF="chapters/1-lang.htm#999881" CLASS="Index">order of precedence 13</A></P>
+   <P CLASS="Level1IOM">
+   <A HREF="chapters/4-exe.htm#997206" CLASS="Index">EXTPROC 86</A></P>
+   <H3
+    CLASS="GroupTitlesIOM">
+   F<A NAME="f"></A></H3>
+   <P CLASS="Level1IOM">
+   <A HREF="chapters/6-stdlib.htm#1006426" CLASS="Index">fabs 105</A></P>
+   <P CLASS="Level1IOM">
+   <A HREF="chapters/6-stdlib.htm#1006393" CLASS="Index">FALSE 97</A></P>
+   <P CLASS="Level1IOM">
+   <A HREF="chapters/6-stdlib.htm#1006427" CLASS="Index">fclose 105</A></P>
+   <P CLASS="Level1IOM">
+   <A HREF="chapters/6-stdlib.htm#1006428" CLASS="Index">feof 106</A></P>
+   <P CLASS="Level1IOM">
+   <A HREF="chapters/6-stdlib.htm#1006429" CLASS="Index">ferror 106</A></P>
+   <P CLASS="Level1IOM">
+   <A HREF="chapters/6-stdlib.htm#1006430" CLASS="Index">fflush 106</A></P>
+   <P CLASS="Level1IOM">
+   <A HREF="chapters/6-stdlib.htm#1006431" CLASS="Index">fgetc 106</A></P>
+   <P CLASS="Level1IOM">
+   <A HREF="chapters/6-stdlib.htm#1006432" CLASS="Index">fgetpos 107</A></P>
+   <P CLASS="Level1IOM">
+   <A HREF="chapters/6-stdlib.htm#1006433" CLASS="Index">fgets 107</A></P>
+   <P CLASS="Level1IOM">
+   <A HREF="chapters/7-libext.htm#1000510" CLASS="Index">float 169</A></P>
+   <P CLASS="Level1IOM">
+   <A HREF="chapters/6-stdlib.htm#1006434" CLASS="Index">floor 107</A></P>
+   <P CLASS="Level1IOM">
+   <A HREF="chapters/1-lang.htm#1000832" CLASS="Index">flow decisions 24</A></P>
+   <P CLASS="Level1IOM">
+   <A HREF="chapters/6-stdlib.htm#1006435" CLASS="Index">fmod 108</A></P>
+   <P CLASS="Level1IOM">
+   <A HREF="chapters/6-stdlib.htm#1006436" CLASS="Index">fopen 108</A></P>
+   <P CLASS="Level1IOM">
+   <A HREF="chapters/1-lang.htm#1000838" CLASS="Index">for 26</A></P>
+   <P CLASS="Level1IOM">
+   <A HREF="chapters/d-unixlb.htm#997476" CLASS="Index">fork 230</A></P>
+   <P CLASS="Level1IOM">
+   <A HREF="chapters/6-stdlib.htm#1006437" CLASS="Index">fprintf 110</A></P>
+   <P CLASS="Level1IOM">
+   <A HREF="chapters/6-stdlib.htm#1006438" CLASS="Index">fputc 110</A></P>
+   <P CLASS="Level1IOM">
+   <A HREF="chapters/6-stdlib.htm#1006439" CLASS="Index">fputs 110</A></P>
+   <P CLASS="Level1IOM">
+   <A HREF="chapters/6-stdlib.htm#1006440" CLASS="Index">fread 111</A></P>
+   <P CLASS="Level1IOM">
+   <A HREF="chapters/6-stdlib.htm#1006441" CLASS="Index">freopen 112</A></P>
+   <P CLASS="Level1IOM">
+   <A HREF="chapters/6-stdlib.htm#1006442" CLASS="Index">frexp 113</A></P>
+   <P CLASS="Level1IOM">
+   <A HREF="chapters/6-stdlib.htm#1006443" CLASS="Index">fscanf 114</A></P>
+   <P CLASS="Level1IOM">
+   <A HREF="chapters/6-stdlib.htm#1006444" CLASS="Index">fseek 115</A></P>
+   <P CLASS="Level1IOM">
+   <A HREF="chapters/6-stdlib.htm#1006445" CLASS="Index">fsetpos 115</A></P>
+   <P CLASS="Level1IOM">
+   <A HREF="chapters/6-stdlib.htm#1006446" CLASS="Index">ftell 115</A></P>
+   <P CLASS="Level1IOM">
+   <A HREF="chapters/7-libext.htm#1000511" CLASS="Index">FullPath 170</A></P>
+   <P CLASS="Level1IOM">
+   <A HREF="chapters/7-libext.htm#1000512" CLASS="Index">function 170</A></P>
+   <P CLASS="Level1IOM">
+   <A HREF="chapters/1-lang.htm#1000850" CLASS="Index">functions 30</A></P>
+   <P CLASS="Level2IOM">
+   <A HREF="chapters/1-lang.htm#1000851" CLASS="Index">definition 31</A></P>
+   <P CLASS="Level2IOM">
+   <A HREF="chapters/1-lang.htm#1000856" CLASS="Index">error checking 34</A></P>
+   <P CLASS="Level2IOM">
+   <A HREF="chapters/1-lang.htm#1000854" CLASS="Index">example 33</A></P>
+   <P CLASS="Level2IOM">
+   <A HREF="chapters/1-lang.htm#1000867" CLASS="Index">main 39</A></P>
+   <P CLASS="Level2IOM">
+   <A HREF="chapters/1-lang.htm#1000855" CLASS="Index">recursion 33</A></P>
+   <P CLASS="Level2IOM">
+   <A HREF="chapters/1-lang.htm#1000852" CLASS="Index">return statement 32</A></P>
+   <P CLASS="Level1IOM">
+   <A HREF="chapters/6-stdlib.htm#1006447" CLASS="Index">fwrite 116</A></P>
+   <H3
+    CLASS="GroupTitlesIOM">
+   G<A NAME="g"></A></H3>
+   <P CLASS="Level1IOM">
+   <A HREF="chapters/7-libext.htm#1000513" CLASS="Index">GetArraySpan 171</A></P>
+   <P CLASS="Level1IOM">
+   <A HREF="chapters/6-stdlib.htm#1006448" CLASS="Index">getc 116</A></P>
+   <P CLASS="Level1IOM">
+   <A HREF="chapters/6-stdlib.htm#1006449" CLASS="Index">getch 117</A></P>
+   <P CLASS="Level1IOM">
+   <A HREF="chapters/6-stdlib.htm#1006450" CLASS="Index">getchar 117</A></P>
+   <P CLASS="Level1IOM">
+   <A HREF="chapters/6-stdlib.htm#1006452" CLASS="Index">getche 117</A></P>
+   <P CLASS="Level1IOM">
+   <A HREF="chapters/d-unixlb.htm#997740" CLASS="Index">getcwd 230</A></P>
+   <P CLASS="Level1IOM">
+   <A HREF="chapters/6-stdlib.htm#1006451" CLASS="Index">getenv 118</A></P>
+   <P CLASS="Level1IOM">
+   <A HREF="chapters/6-stdlib.htm#1006453" CLASS="Index">gets 118</A></P>
+   <P CLASS="Level1IOM">
+   <A HREF="chapters/7-libext.htm#1000514" CLASS="Index">GetStructureMembers 172</A></P>
+   <P CLASS="Level1IOM">
+   <A HREF="chapters/6-stdlib.htm#1006454" CLASS="Index">gmtime 119</A></P>
+   <P CLASS="Level1IOM">
+   <A HREF="chapters/1-lang.htm#1000844" CLASS="Index">goto 28</A></P>
+   <P CLASS="Level1IOM">
+   <A HREF="chapters/1-lang.htm#1000829" CLASS="Index">GREATER THAN 24</A></P>
+   <H3
+    CLASS="GroupTitlesIOM">
+   H<A NAME="h"></A></H3>
+   <P CLASS="Level1IOM">
+   <A HREF="chapters/4-exe.htm#997452" CLASS="Index">history 83</A></P>
+   <H3
+    CLASS="GroupTitlesIOM">
+   I<A NAME="i"></A></H3>
+   <P CLASS="Level1IOM">
+   <A HREF="chapters/5-debug.htm#997183" CLASS="Index">IDE 89</A></P>
+   <P CLASS="Level1IOM">
+   <A HREF="chapters/1-lang.htm#1000831" CLASS="Index">if 25</A>
+   </P><P CLASS="Level1IOM">
+   <A HREF="chapters/1-lang.htm#1000827" CLASS="Index">INEQUALITY 23</A></P>
+   <P CLASS="Level1IOM">
+   <A HREF="chapters/a-os2lib.htm#999296" CLASS="Index">info 196</A></P>
+   <P CLASS="Level1IOM">
+   <A HREF="chapters/1-lang.htm#1000866" CLASS="Index">initialization 39</A></P>
+   <P CLASS="Level2IOM">
+   <A HREF="chapters/2-sevsc.htm#997284" CLASS="Index">code external to functions 47</A></P>
+   <P CLASS="Level1IOM">
+   <A HREF="chapters/9-doswin.htm#997394" CLASS="Index">inport 190</A>, <A HREF="chapters/a-os2lib.htm#999297" CLASS="Index">197</A></P>
+   <P CLASS="Level1IOM">
+   <A HREF="chapters/9-doswin.htm#997395" CLASS="Index">inportw 190</A>, <A HREF="chapters/a-os2lib.htm#999298" CLASS="Index">197</A></P>
+   <P CLASS="Level1IOM">
+   <A HREF="chapters/0-intro.htm#997024" CLASS="Index">installation 6</A></P>
+   <P CLASS="Level1IOM">
+   <A HREF="chapters/b-win3lb.htm#999123" CLASS="Index">Instance 205</A></P>
+   <P CLASS="Level1IOM">
+   <A HREF="chapters/c-nt95lb.htm#998050" CLASS="Index">instance 221</A></P>
+   <P CLASS="Level1IOM">
+   <A HREF="chapters/7-libext.htm#1000515" CLASS="Index">integer 172</A></P>
+   <P CLASS="Level1IOM">
+   <A HREF="chapters/7-libext.htm#1000516" CLASS="Index">Interpret 173</A></P>
+   <P CLASS="Level1IOM">
+   <A HREF="chapters/9-doswin.htm#997396" CLASS="Index">interrupt 191</A></P>
+   <P CLASS="Level1IOM">
+   <A HREF="chapters/6-stdlib.htm#1006455" CLASS="Index">isalnum 119</A></P>
+   <P CLASS="Level1IOM">
+   <A HREF="chapters/6-stdlib.htm#1006456" CLASS="Index">isalpha 119</A></P>
+   <P CLASS="Level1IOM">
+   <A HREF="chapters/6-stdlib.htm#1006457" CLASS="Index">isascii 119</A></P>
+   <P CLASS="Level1IOM">
+   <A HREF="chapters/6-stdlib.htm#1006458" CLASS="Index">iscntrl 119</A></P>
+   <P CLASS="Level1IOM">
+   <A HREF="chapters/3-tutor.htm#419256" CLASS="Index">IsDay_1.bat 72</A></P>
+   <P CLASS="Level1IOM">
+   <A HREF="chapters/6-stdlib.htm#1006459" CLASS="Index">isdigit 120</A></P>
+   <P CLASS="Level1IOM">
+   <A HREF="chapters/6-stdlib.htm#1006460" CLASS="Index">isgraph 120</A></P>
+   <P CLASS="Level1IOM">
+   <A HREF="chapters/6-stdlib.htm#1006461" CLASS="Index">islower 120</A></P>
+   <P CLASS="Level1IOM">
+   <A HREF="chapters/6-stdlib.htm#1006462" CLASS="Index">isprint 120</A></P>
+   <P CLASS="Level1IOM">
+   <A HREF="chapters/6-stdlib.htm#1006463" CLASS="Index">ispunct 120</A></P>
+   <P CLASS="Level1IOM">
+   <A HREF="chapters/6-stdlib.htm#1006464" CLASS="Index">isspace 120</A></P>
+   <P CLASS="Level1IOM">
+   <A HREF="chapters/6-stdlib.htm#1006465" CLASS="Index">isupper 121</A></P>
+   <P CLASS="Level1IOM">
+   <A HREF="chapters/6-stdlib.htm#1006466" CLASS="Index">isxdigit 121</A></P>
+   <H3
+    CLASS="GroupTitlesIOM">
+   K<A NAME="j"></A><A NAME="k"></A></H3>
+   <P CLASS="Level1IOM">
+   <A HREF="chapters/6-stdlib.htm#1006467" CLASS="Index">kbhit 121</A></P>
+   <H3
+    CLASS="GroupTitlesIOM">
+   L<A NAME="l"></A></H3>
+   <P CLASS="Level1IOM">
+   <A HREF="chapters/1-lang.htm#1000847" CLASS="Index">labels 28</A></P>
+   <P CLASS="Level1IOM">
+   <A HREF="chapters/6-stdlib.htm#1006468" CLASS="Index">labs 122</A></P>
+   <P CLASS="Level1IOM">
+   <A HREF="chapters/6-stdlib.htm#1006469" CLASS="Index">ldexp 122</A></P>
+   <P CLASS="Level1IOM">
+   <A HREF="chapters/6-stdlib.htm#1006470" CLASS="Index">ldiv 122</A></P>
+   <P CLASS="Level1IOM">
+   <A HREF="chapters/1-lang.htm#1000828" CLASS="Index">LESS THAN 23</A></P>
+   <P CLASS="Level1IOM">
+   <A HREF="chapters/1-lang.htm#1000830" CLASS="Index">LESS THAN OR EQUAL TO 24</A>
+   </P><P CLASS="Level1IOM">
+   <A HREF="chapters/6-stdlib.htm#1006471" CLASS="Index">localtime 123</A></P>
+   <P CLASS="Level1IOM">
+   <A HREF="chapters/6-stdlib.htm#1006472" CLASS="Index">log 124</A>
+   </P><P CLASS="Level1IOM">
+   <A HREF="chapters/6-stdlib.htm#1006473" CLASS="Index">log10 124</A></P>
+   <P CLASS="Level1IOM">
+   <A HREF="chapters/1-lang.htm#1000822" CLASS="Index">logical operators 22</A></P>
+   <P CLASS="Level1IOM">
+   <A HREF="chapters/1-lang.htm#1000833" CLASS="Index">loops 24</A></P>
+   <H3
+    CLASS="GroupTitlesIOM">
+   M<A NAME="m"></A></H3>
+   <P CLASS="Level1IOM">
+   <A HREF="chapters/2-sevsc.htm#997287" CLASS="Index">macros 48</A></P>
+   <P CLASS="Level1IOM">
+   <A HREF="chapters/1-lang.htm#1000868" CLASS="Index">main 39</A></P>
+   <P CLASS="Level1IOM">
+   <A HREF="chapters/b-win3lb.htm#999141" CLASS="Index">MakeWindow 206</A>, <A HREF="chapters/c-nt95lb.htm#998100" CLASS="Index">222</A></P>
+   <P CLASS="Level1IOM">
+   <A HREF="chapters/1-lang.htm#999882" CLASS="Index">mathematical operators 14</A></P>
+   <P CLASS="Level2IOM">
+   <A HREF="chapters/1-lang.htm#999884" CLASS="Index">assignment arithmetic 15</A></P>
+   <P CLASS="Level2IOM">
+   <A HREF="chapters/1-lang.htm#999888" CLASS="Index">auto-increment andauto-decrement 15</A></P>
+   <P CLASS="Level2IOM">
+   <A HREF="chapters/1-lang.htm#999883" CLASS="Index">basic arithmetic 14</A></P>
+   <P CLASS="Level1IOM">
+   <A HREF="chapters/6-stdlib.htm#1006474" CLASS="Index">max 124</A>
+   </P><P CLASS="Level1IOM">
+   <A HREF="chapters/6-stdlib.htm#1006475" CLASS="Index">memchr 124</A></P>
+   <P CLASS="Level1IOM">
+   <A HREF="chapters/6-stdlib.htm#1006476" CLASS="Index">memcmp 125</A></P>
+   <P CLASS="Level1IOM">
+   <A HREF="chapters/6-stdlib.htm#1006477" CLASS="Index">memcpy 125</A></P>
+   <P CLASS="Level1IOM">
+   <A HREF="chapters/6-stdlib.htm#1006478" CLASS="Index">memicmp 126</A></P>
+   <P CLASS="Level1IOM">
+   <A HREF="chapters/6-stdlib.htm#1006479" CLASS="Index">memmove 126</A></P>
+   <P CLASS="Level1IOM">
+   <A HREF="chapters/6-stdlib.htm#1006480" CLASS="Index">memset 127</A></P>
+   <P CLASS="Level1IOM">
+   <A HREF="chapters/c-nt95lb.htm#998099" CLASS="Index">MessageFilter 224</A></P>
+   <P CLASS="Level1IOM">
+   <A HREF="chapters/6-stdlib.htm#1006481" CLASS="Index">min 127</A>
+   </P><P CLASS="Level1IOM">
+   <A HREF="chapters/6-stdlib.htm#1006482" CLASS="Index">mktime 127</A></P>
+   <P CLASS="Level1IOM">
+   <A HREF="chapters/6-stdlib.htm#1006483" CLASS="Index">modf 128</A></P>
+   <H3
+    CLASS="GroupTitlesIOM">
+   N<A NAME="n"></A></H3>
+   <P CLASS="Level1IOM">
+   <A HREF="chapters/1-lang.htm#1000823" CLASS="Index">NOT 23</A></P>
+   <P CLASS="Level1IOM">
+   <A HREF="chapters/6-stdlib.htm#1006395" CLASS="Index">NULL 97</A></P>
+   <H3
+    CLASS="GroupTitlesIOM">
+   O<A NAME="o"></A></H3>
+   <P CLASS="Level1IOM">
+   <A HREF="chapters/9-doswin.htm#997397" CLASS="Index">offset 191</A>, <A HREF="chapters/9-doswin.htm#997402" CLASS="Index">192</A></P>
+   <P CLASS="Level1IOM">
+   <A HREF="chapters/a-os2lib.htm#999306" CLASS="Index">oke 199</A>
+   </P><P CLASS="Level1IOM">
+   operators</P>
+   <P CLASS="Level2IOM">
+   <A HREF="chapters/1-lang.htm#1000819" CLASS="Index">logical 22</A></P>
+   <P CLASS="Level1IOM">
+   <A HREF="chapters/1-lang.htm#1000825" CLASS="Index">OR 23</A>
+   </P><P CLASS="Level1IOM">
+   <A HREF="chapters/9-doswin.htm#997399" CLASS="Index">outport 191</A>, <A HREF="chapters/a-os2lib.htm#999299" CLASS="Index">197</A></P>
+   <P CLASS="Level1IOM">
+   <A HREF="chapters/9-doswin.htm#997400" CLASS="Index">outportw 192</A>, <A HREF="chapters/a-os2lib.htm#999300" CLASS="Index">197</A></P>
+   <H3
+    CLASS="GroupTitlesIOM">
+   P<A NAME="p"></A></H3>
+   <P CLASS="Level1IOM">
+   <A HREF="chapters/2-sevsc.htm#997281" CLASS="Index">passing variables by reference 46</A></P>
+   <P CLASS="Level1IOM">
+   <A HREF="chapters/8-prolib.htm#997265" CLASS="Index">peek 186</A></P>
+   <P CLASS="Level1IOM">
+   <A HREF="chapters/6-stdlib.htm#1006484" CLASS="Index">perror 128</A></P>
+   <P CLASS="Level1IOM">
+   <A HREF="chapters/a-os2lib.htm#999301" CLASS="Index">PMDynamicLink 198</A></P>
+   <P CLASS="Level1IOM">
+   <A HREF="chapters/a-os2lib.htm#999302" CLASS="Index">PMInfo 198</A></P>
+   <P CLASS="Level1IOM">
+   <A HREF="chapters/a-os2lib.htm#999303" CLASS="Index">PMPeek 198</A></P>
+   <P CLASS="Level1IOM">
+   <A HREF="chapters/8-prolib.htm#997291" CLASS="Index">pointer 187</A></P>
+   <P CLASS="Level1IOM">
+   <A HREF="chapters/2-sevsc.htm#997282" CLASS="Index">pointers 47</A></P>
+   <P CLASS="Level1IOM">
+   <A HREF="chapters/8-prolib.htm#997336" CLASS="Index">poke 188</A></P>
+   <P CLASS="Level1IOM">
+   <A HREF="chapters/6-stdlib.htm#1006485" CLASS="Index">pow 128</A>
+   </P><P CLASS="Level1IOM">
+   <A HREF="chapters/1-lang.htm#1000848" CLASS="Index">printf 29</A>, <A HREF="chapters/6-stdlib.htm#1006486" CLASS="Index">128</A></P>
+   <P CLASS="Level2IOM">
+   <A HREF="chapters/1-lang.htm#1000849" CLASS="Index">syntax 29</A></P>
+   <P CLASS="Level1IOM">
+   <A HREF="chapters/a-os2lib.htm#999307" CLASS="Index">ProcessList 199</A></P>
+   <P CLASS="Level1IOM">
+   <A HREF="chapters/1-lang.htm#999817" CLASS="Index">Program Structure 9</A></P>
+   <P CLASS="Level1IOM">
+   <A HREF="chapters/6-stdlib.htm#1006487" CLASS="Index">putc 130</A></P>
+   <P CLASS="Level1IOM">
+   <A HREF="chapters/6-stdlib.htm#1006488" CLASS="Index">putchar 131</A></P>
+   <P CLASS="Level1IOM">
+   <A HREF="chapters/6-stdlib.htm#1006489" CLASS="Index">putenv 131</A></P>
+   <P CLASS="Level1IOM">
+   <A HREF="chapters/6-stdlib.htm#1006490" CLASS="Index">puts 131</A></P>
+   <H3
+    CLASS="GroupTitlesIOM">
+   Q<A NAME="q"></A></H3>
+   <P CLASS="Level1IOM">
+   <A HREF="chapters/6-stdlib.htm#1006491" CLASS="Index">qsort 132</A></P>
+   <H3
+    CLASS="GroupTitlesIOM">
+   R<A NAME="r"></A></H3>
+   <P CLASS="Level1IOM">
+   <A HREF="chapters/6-stdlib.htm#1006492" CLASS="Index">rand 133</A></P>
+   <P CLASS="Level1IOM">
+   <A HREF="chapters/6-stdlib.htm#1006398" CLASS="Index">RAND_MAX 97</A></P>
+   <P CLASS="Level1IOM">
+   <A HREF="chapters/6-stdlib.htm#1006493" CLASS="Index">remove 133</A></P>
+   <P CLASS="Level1IOM">
+   <A HREF="chapters/6-stdlib.htm#1006494" CLASS="Index">rename 133</A></P>
+   <P CLASS="Level1IOM">
+   <A HREF="chapters/1-lang.htm#1000853" CLASS="Index">return 32</A></P>
+   <P CLASS="Level1IOM">
+   <A HREF="chapters/6-stdlib.htm#1006495" CLASS="Index">rewind 133</A></P>
+   <P CLASS="Level1IOM">
+   <A HREF="chapters/7-libext.htm#1000517" CLASS="Index">rsprintf 174</A></P>
+   <P CLASS="Level1IOM">
+   <A HREF="chapters/7-libext.htm#1000518" CLASS="Index">rvsprintf 175</A></P>
+   <H3
+    CLASS="GroupTitlesIOM">
+   S<A NAME="s"></A></H3>
+   <P CLASS="Level1IOM">
+   <A HREF="chapters/0-intro.htm#997025" CLASS="Index">sample libraries 6</A></P>
+   <P CLASS="Level1IOM">
+   <A HREF="chapters/6-stdlib.htm#1006496" CLASS="Index">scanf 134</A></P>
+   <P CLASS="Level1IOM">
+   <A HREF="chapters/7-libext.htm#1000519" CLASS="Index">ScreenClear 175</A></P>
+   <P CLASS="Level1IOM">
+   <A HREF="chapters/7-libext.htm#1000520" CLASS="Index">ScreenCursor 176</A></P>
+   <P CLASS="Level1IOM">
+   <A HREF="chapters/c-nt95lb.htm#998101" CLASS="Index">ScreenHandle 224</A></P>
+   <P CLASS="Level1IOM">
+   <A HREF="chapters/7-libext.htm#1000521" CLASS="Index">ScreenSize 176</A>, <A HREF="chapters/b-win3lb.htm#999282" CLASS="Index">211</A></P>
+   <P CLASS="Level1IOM">
+   <A HREF="chapters/5-debug.htm#997195" CLASS="Index">ScriptEase processor 81</A></P>
+   <P CLASS="Level1IOM">
+   <A HREF="chapters/5-debug.htm#997198" CLASS="Index">ScriptEase shell 82</A></P>
+   <P CLASS="Level1IOM">
+   scripts</P>
+   <P CLASS="Level2IOM">
+   <A HREF="chapters/4-exe.htm#997201" CLASS="Index">executing 84</A></P>
+   <P CLASS="Level2IOM">
+   <A HREF="chapters/4-exe.htm#997203" CLASS="Index">executing by clicking on its icon 85</A></P>
+   <P CLASS="Level2IOM">
+   <A HREF="chapters/4-exe.htm#997204" CLASS="Index">executing from a batch file 85</A></P>
+   <P CLASS="Level2IOM">
+   <A HREF="chapters/4-exe.htm#997202" CLASS="Index">executing from a command line 84</A></P>
+   <P CLASS="Level2IOM">
+   <A HREF="chapters/4-exe.htm#997207" CLASS="Index">executing from a REXX-file 86</A></P>
+   <P CLASS="Level1IOM">
+   <A HREF="chapters/9-doswin.htm#997398" CLASS="Index">segment 191</A>, <A HREF="chapters/9-doswin.htm#997401" CLASS="Index">192</A></P>
+   <P CLASS="Level1IOM">
+   <A HREF="chapters/7-libext.htm#1000522" CLASS="Index">SetArraySpan 177</A></P>
+   <P CLASS="Level1IOM">
+   <A HREF="chapters/d-unixlb.htm#997531" CLASS="Index">setsid 230</A></P>
+   <P CLASS="Level1IOM">
+   <A HREF="chapters/d-unixlb.htm#997559" CLASS="Index">setuid 230</A></P>
+   <P CLASS="Level1IOM">
+   <A HREF="chapters/5-debug.htm#997199" CLASS="Index">Shell file redirections 82</A></P>
+   <P CLASS="Level1IOM">
+   <A HREF="chapters/6-stdlib.htm#1006497" CLASS="Index">sin 135</A>
+   </P><P CLASS="Level1IOM">
+   <A HREF="chapters/6-stdlib.htm#1006498" CLASS="Index">sinh 136</A></P>
+   <P CLASS="Level1IOM">
+   <A HREF="chapters/6-stdlib.htm#1006499" CLASS="Index">sprintf 136</A></P>
+   <P CLASS="Level1IOM">
+   <A HREF="chapters/6-stdlib.htm#1006500" CLASS="Index">sqrt 136</A></P>
+   <P CLASS="Level1IOM">
+   <A HREF="chapters/6-stdlib.htm#1006501" CLASS="Index">srand 136</A></P>
+   <P CLASS="Level1IOM">
+   <A HREF="chapters/6-stdlib.htm#1006502" CLASS="Index">sscanf 137</A></P>
+   <P CLASS="Level1IOM">
+   <A HREF="chapters/1-lang.htm#999878" CLASS="Index">statements 13</A></P>
+   <P CLASS="Level1IOM">
+   <A HREF="chapters/6-stdlib.htm#1006399" CLASS="Index">stderr 97</A></P>
+   <P CLASS="Level1IOM">
+   <A HREF="chapters/6-stdlib.htm#1006401" CLASS="Index">stdin 97</A></P>
+   <P CLASS="Level1IOM">
+   <A HREF="chapters/3-tutor.htm#419589" CLASS="Index">stdout 57</A>, <A HREF="chapters/6-stdlib.htm#1006402" CLASS="Index">97</A></P>
+   <P CLASS="Level1IOM">
+   <A HREF="chapters/6-stdlib.htm#1006503" CLASS="Index">strcat 137</A></P>
+   <P CLASS="Level1IOM">
+   <A HREF="chapters/6-stdlib.htm#1006504" CLASS="Index">strchr 138</A></P>
+   <P CLASS="Level1IOM">
+   <A HREF="chapters/6-stdlib.htm#1006505" CLASS="Index">strcmp 138</A></P>
+   <P CLASS="Level1IOM">
+   <A HREF="chapters/6-stdlib.htm#1006507" CLASS="Index">strcmpi 138</A></P>
+   <P CLASS="Level1IOM">
+   <A HREF="chapters/6-stdlib.htm#1006506" CLASS="Index">strcpy 139</A></P>
+   <P CLASS="Level1IOM">
+   <A HREF="chapters/6-stdlib.htm#1006508" CLASS="Index">strcspn 139</A></P>
+   <P CLASS="Level1IOM">
+   <A HREF="chapters/6-stdlib.htm#1006509" CLASS="Index">strerror 140</A></P>
+   <P CLASS="Level1IOM">
+   <A HREF="chapters/6-stdlib.htm#1006510" CLASS="Index">strftime 141</A></P>
+   <P CLASS="Level1IOM">
+   <A HREF="chapters/6-stdlib.htm#1006511" CLASS="Index">stricmp 142</A></P>
+   <P CLASS="Level1IOM">
+   <A HREF="chapters/1-lang.htm#1000809" CLASS="Index">strings 16</A>, <A HREF="chapters/1-lang.htm#1000811" CLASS="Index">17</A></P>
+   <P CLASS="Level2IOM">
+   <A HREF="chapters/1-lang.htm#1000813" CLASS="Index">back-quote 18</A>, <A HREF="chapters/2-sevsc.htm#997288" CLASS="Index">48</A></P>
+   <P CLASS="Level2IOM">
+   <A HREF="chapters/1-lang.htm#1000814" CLASS="Index">copying 18</A></P>
+   <P CLASS="Level2IOM">
+   <A HREF="chapters/2-sevsc.htm#997277" CLASS="Index">literal, as function parameters 44</A></P>
+   <P CLASS="Level2IOM">
+   <A HREF="chapters/2-sevsc.htm#997275" CLASS="Index">literal, assignment of 43</A>
+   </P><P CLASS="Level2IOM">
+   <A HREF="chapters/2-sevsc.htm#997276" CLASS="Index">literal, comparisons with 43</A></P>
+   <P CLASS="Level2IOM">
+   <A HREF="chapters/2-sevsc.htm#997278" CLASS="Index">literal, with return statement 44</A></P>
+   <P CLASS="Level2IOM">
+   <A HREF="chapters/2-sevsc.htm#997279" CLASS="Index">literal, with switch/case statements 44</A></P>
+   <P CLASS="Level2IOM">
+   <A HREF="chapters/1-lang.htm#1000812" CLASS="Index">single-quote 18</A></P>
+   <P CLASS="Level1IOM">
+   <A HREF="chapters/6-stdlib.htm#1006512" CLASS="Index">strlen 142</A></P>
+   <P CLASS="Level1IOM">
+   <A HREF="chapters/6-stdlib.htm#1006514" CLASS="Index">strlwr 142</A></P>
+   <P CLASS="Level1IOM">
+   <A HREF="chapters/6-stdlib.htm#1006513" CLASS="Index">strncat 143</A></P>
+   <P CLASS="Level1IOM">
+   <A HREF="chapters/6-stdlib.htm#1006515" CLASS="Index">strncmp 143</A></P>
+   <P CLASS="Level1IOM">
+   <A HREF="chapters/6-stdlib.htm#1006516" CLASS="Index">strncmpi 143</A></P>
+   <P CLASS="Level1IOM">
+   <A HREF="chapters/6-stdlib.htm#1006517" CLASS="Index">strncpy 144</A></P>
+   <P CLASS="Level1IOM">
+   <A HREF="chapters/6-stdlib.htm#1006518" CLASS="Index">strnicmp 144</A></P>
+   <P CLASS="Level1IOM">
+   <A HREF="chapters/6-stdlib.htm#1006519" CLASS="Index">strpbrk 144</A></P>
+   <P CLASS="Level1IOM">
+   <A HREF="chapters/6-stdlib.htm#1006520" CLASS="Index">strrchr 145</A></P>
+   <P CLASS="Level1IOM">
+   <A HREF="chapters/6-stdlib.htm#1006521" CLASS="Index">strspn 145</A></P>
+   <P CLASS="Level1IOM">
+   <A HREF="chapters/6-stdlib.htm#1006522" CLASS="Index">strstr 146</A></P>
+   <P CLASS="Level1IOM">
+   <A HREF="chapters/6-stdlib.htm#1006523" CLASS="Index">strstri 146</A></P>
+   <P CLASS="Level1IOM">
+   <A HREF="chapters/6-stdlib.htm#1006524" CLASS="Index">strtod 147</A></P>
+   <P CLASS="Level1IOM">
+   <A HREF="chapters/6-stdlib.htm#1006525" CLASS="Index">strtok 148</A></P>
+   <P CLASS="Level1IOM">
+   <A HREF="chapters/6-stdlib.htm#1006526" CLASS="Index">strtol 149</A></P>
+   <P CLASS="Level1IOM">
+   <A HREF="chapters/2-sevsc.htm#997280" CLASS="Index">structures 45</A></P>
+   <P CLASS="Level1IOM">
+   <A HREF="chapters/6-stdlib.htm#1006527" CLASS="Index">strupr 150</A></P>
+   <P CLASS="Level1IOM">
+   <A HREF="chapters/c-nt95lb.htm#998102" CLASS="Index">SubClassWindow 225</A></P>
+   <P CLASS="Level1IOM">
+   <A HREF="chapters/0-intro.htm#997027" CLASS="Index">supported platforms 6</A></P>
+   <P CLASS="Level1IOM">
+   <A HREF="chapters/1-lang.htm#1000841" CLASS="Index">switch 27</A></P>
+   <P CLASS="Level1IOM">
+   <A HREF="chapters/6-stdlib.htm#1006528" CLASS="Index">system 150</A></P>
+   <H3
+    CLASS="GroupTitlesIOM">
+   T<A NAME="t"></A></H3>
+   <P CLASS="Level1IOM">
+   <A HREF="chapters/1-lang.htm#1001569" CLASS="Index">tabs 10</A>, <A HREF="chapters/4-exe.htm#997453" CLASS="Index">83</A></P>
+   <P CLASS="Level1IOM">
+   <A HREF="chapters/6-stdlib.htm#1006529" CLASS="Index">tan 150</A>
+   </P><P CLASS="Level1IOM">
+   <A HREF="chapters/6-stdlib.htm#1006530" CLASS="Index">tanh 151</A></P>
+   <P CLASS="Level1IOM">
+   <A HREF="chapters/6-stdlib.htm#1006532" CLASS="Index">time 151</A></P>
+   <P CLASS="Level1IOM">
+   <A HREF="chapters/6-stdlib.htm#1006531" CLASS="Index">tmpfile 151</A></P>
+   <P CLASS="Level1IOM">
+   <A HREF="chapters/6-stdlib.htm#1006533" CLASS="Index">tmpnam 152</A></P>
+   <P CLASS="Level1IOM">
+   <A HREF="chapters/6-stdlib.htm#1006534" CLASS="Index">toascii 152</A></P>
+   <P CLASS="Level1IOM">
+   <A HREF="chapters/6-stdlib.htm#1006535" CLASS="Index">tolower 152</A></P>
+   <P CLASS="Level1IOM">
+   <A HREF="chapters/6-stdlib.htm#1006536" CLASS="Index">toupper 152</A></P>
+   <P CLASS="Level1IOM">
+   <A HREF="chapters/3-tutor.htm#419255" CLASS="Index">TReplace.cmm 75</A></P>
+   <P CLASS="Level1IOM">
+   <A HREF="chapters/6-stdlib.htm#1006394" CLASS="Index">TRUE 97</A></P>
+   <P CLASS="Level1IOM">
+   tutorial</P>
+   <P CLASS="Level2IOM">
+   <A HREF="chapters/3-tutor.htm#419260" CLASS="Index">CmmEditA 51</A></P>
+   <P CLASS="Level2IOM">
+   <A HREF="chapters/3-tutor.htm#419261" CLASS="Index">CmmEditB 52</A></P>
+   <P CLASS="Level2IOM">
+   <A HREF="chapters/3-tutor.htm#419262" CLASS="Index">CmmEditC 53</A></P>
+   <P CLASS="Level2IOM">
+   <A HREF="chapters/3-tutor.htm#419263" CLASS="Index">CmmEditD 54</A></P>
+   <P CLASS="Level2IOM">
+   <A HREF="chapters/3-tutor.htm#419264" CLASS="Index">CmmEditE 54</A></P>
+   <P CLASS="Level2IOM">
+   <A HREF="chapters/3-tutor.htm#419265" CLASS="Index">CmmEditF 55</A></P>
+   <P CLASS="Level2IOM">
+   <A HREF="chapters/3-tutor.htm#419267" CLASS="Index">CmmEditG 56</A></P>
+   <P CLASS="Level2IOM">
+   <A HREF="chapters/3-tutor.htm#419266" CLASS="Index">CmmEditH 57</A></P>
+   <P CLASS="Level2IOM">
+   <A HREF="chapters/3-tutor.htm#419268" CLASS="Index">CmmEditI 57</A></P>
+   <P CLASS="Level2IOM">
+   <A HREF="chapters/3-tutor.htm#419271" CLASS="Index">CmmEditJ 58</A></P>
+   <P CLASS="Level2IOM">
+   <A HREF="chapters/3-tutor.htm#419274" CLASS="Index">CmmEditK.cmm 59</A></P>
+   <P CLASS="Level2IOM">
+   <A HREF="chapters/3-tutor.htm#419276" CLASS="Index">CmmEditM.cmm 62</A></P>
+   <P CLASS="Level2IOM">
+   <A HREF="chapters/3-tutor.htm#419277" CLASS="Index">CmmEditN.cmm 63</A></P>
+   <P CLASS="Level2IOM">
+   <A HREF="chapters/3-tutor.htm#419278" CLASS="Index">CmmEditO.cmm 64</A></P>
+   <P CLASS="Level2IOM">
+   <A HREF="chapters/3-tutor.htm#419279" CLASS="Index">CmmEditP-Q.cmm 65</A></P>
+   <P CLASS="Level2IOM">
+   <A HREF="chapters/3-tutor.htm#419275" CLASS="Index">CmmView.cmm 62</A></P>
+   <P CLASS="Level1IOM">
+   <A HREF="chapters/2-sevsc.htm#997272" CLASS="Index">type declarations 41</A></P>
+   <H3
+    CLASS="GroupTitlesIOM">
+   U<A NAME="u"></A></H3>
+   <P CLASS="Level1IOM">
+   <A HREF="chapters/6-stdlib.htm#1006537" CLASS="Index">ungetc 153</A></P>
+   <P CLASS="Level1IOM">
+   <A HREF="chapters/2-sevsc.htm#997285" CLASS="Index">unnecessary tokens 47</A></P>
+   <H3
+    CLASS="GroupTitlesIOM">
+   V<A NAME="v"></A></H3>
+   <P CLASS="Level1IOM">
+   <A HREF="chapters/6-stdlib.htm#1006538" CLASS="Index">va_arg 154</A></P>
+   <P CLASS="Level1IOM">
+   <A HREF="chapters/6-stdlib.htm#1006539" CLASS="Index">va_end 155</A></P>
+   <P CLASS="Level1IOM">
+   <A HREF="chapters/6-stdlib.htm#1006540" CLASS="Index">va_start 156</A></P>
+   <P CLASS="Level1IOM">
+   <A HREF="chapters/1-lang.htm#999871" CLASS="Index">variables 12</A></P>
+   <P CLASS="Level2IOM">
+   <A HREF="chapters/5-debug.htm#997198" CLASS="Index">changing while debugging 95</A></P>
+   <P CLASS="Level2IOM">
+   <A HREF="chapters/1-lang.htm#999876" CLASS="Index">environment variables 13</A>, <A HREF="chapters/5-debug.htm#997197" CLASS="Index">81</A></P>
+   <P CLASS="Level2IOM">
+   <A HREF="chapters/2-sevsc.htm#997281" CLASS="Index">passing by reference 46</A></P>
+   <P CLASS="Level2IOM">
+   <A HREF="chapters/1-lang.htm#1000857" CLASS="Index">scope 34</A></P>
+   <P CLASS="Level1IOM">
+   <A HREF="chapters/7-libext.htm#1000482" CLASS="Index">VERSION_MAJOR 161</A></P>
+   <P CLASS="Level1IOM">
+   <A HREF="chapters/7-libext.htm#1000483" CLASS="Index">VERSION_MINOR 161</A></P>
+   <P CLASS="Level1IOM">
+   <A HREF="chapters/7-libext.htm#1000484" CLASS="Index">VERSION_STRING 161</A></P>
+   <P CLASS="Level1IOM">
+   <A HREF="chapters/6-stdlib.htm#1006541" CLASS="Index">vfprintf 156</A></P>
+   <P CLASS="Level1IOM">
+   <A HREF="chapters/6-stdlib.htm#1006542" CLASS="Index">vfscanf 157</A></P>
+   <P CLASS="Level1IOM">
+   <A HREF="chapters/6-stdlib.htm#1006543" CLASS="Index">vprintf 157</A></P>
+   <P CLASS="Level1IOM">
+   <A HREF="chapters/6-stdlib.htm#1006544" CLASS="Index">vscanf 158</A></P>
+   <P CLASS="Level1IOM">
+   <A HREF="chapters/6-stdlib.htm#1006545" CLASS="Index">vsprintf 158</A></P>
+   <P CLASS="Level1IOM">
+   <A HREF="chapters/6-stdlib.htm#1006546" CLASS="Index">vsscanf 159</A></P>
+   <H3
+    CLASS="GroupTitlesIOM">
+   W<A NAME="w"></A></H3>
+   <P CLASS="Level1IOM">
+   <A HREF="chapters/d-unixlb.htm#997587" CLASS="Index">waitpid 231</A></P>
+   <P CLASS="Level1IOM">
+   <A HREF="chapters/1-lang.htm#1000836" CLASS="Index">while 25</A></P>
+   <P CLASS="Level1IOM">
+   <A HREF="chapters/1-lang.htm#999818" CLASS="Index">whitespace characters 10</A></P>
+   <P CLASS="Level1IOM">
+   <A HREF="chapters/b-win3lb.htm#999345" CLASS="Index">WindowList 213</A>, <A HREF="chapters/c-nt95lb.htm#998103" CLASS="Index">226</A></BODY>
+</HTML>

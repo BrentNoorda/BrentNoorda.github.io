@@ -1,0 +1,62 @@
+<html>
+<head>
+<title>Object prototypes</title>
+<link rel="stylesheet" href="semanualstyles.css" type="text/css">
+<style type="text/css">
+ p { margin-top: 0; margin-bottom: 0; }
+</style>
+<script language="JavaScript" src="TrueHelp.js"></script>
+</head>
+<body onload="thload()">
+<div id=ienav>
+<ilayer id=nsnav>
+<br>
+<center>
+<p class=normal><a href="seisdkj-toc.htm" target="left">contents</a> &nbsp; <a href="seisdkj-index.htm" target="left">index</a> &nbsp; <a href="TH_379.htm">previous</a> &nbsp; <a href="TH_381.htm">next</a></p>
+</center>
+<br>
+<hr noshade size=1>
+</ilayer>
+</div>
+<p class=heading-3>Object prototypes</p>
+<p class=heading-3-p>&nbsp;</p>
+<p class=senormalpara>An object prototype lets you specify a set of default values for an object. When an object property that has not been assigned a value is accessed, the prototype is consulted. If such a property exists in the prototype, its value is used for the object property.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>Object prototypes are useful for two reasons: they ensure that all instances of an object use the same default values, and they conserve the amount of memory needed to run a script. When the two Rectangles, joe and sally, were created in the previous section, they were each assigned an area method. Memory was allocated for this function twice, even though the method is exactly the same in each instance. This redundant memory waste can be avoided by putting the shared function or property in an object's prototype. Then all instances of the object will use the same function instead of each using its own copy of it.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>The following fragment shows how to create a Rectangle object with an area method in a prototype.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=secodelinesindented>function&nbsp;rectangle_area()</p>
+<p class=secodelinesindented>{</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;return&nbsp;this.width&nbsp;*&nbsp;this.height;</p>
+<p class=secodelinesindented>}</p>
+<p class=secodelinesindented>&nbsp;</p>
+<p class=secodelinesindented>function&nbsp;Rectangle(width,&nbsp;height)</p>
+<p class=secodelinesindented>{</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;this.width&nbsp;=&nbsp;width;</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;this.height&nbsp;=&nbsp;height;</p>
+<p class=secodelinesindented>}</p>
+<p class=secodelinesindented>&nbsp;</p>
+<p class=secodelinesindented>Rectangle.prototype.area&nbsp;=&nbsp;rectangle_area;</p>
+<p class=secodelinesindented>&nbsp;</p>
+<p class=senormalpara>The rectangle_area method can now be accessed as a method of any Rectangle object as shown in the following.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=secodelinesindented>var&nbsp;area1&nbsp;=&nbsp;joe.area();</p>
+<p class=secodelinesindented>var&nbsp;area2&nbsp;=&nbsp;sally.area();</p>
+<p class=secodelinesindented>&nbsp;</p>
+<p class=senormalpara>You can add methods and data to an object prototype at any time. The object class must be defined, but you do not have to create an instance of the object before assigning it prototype values. If you assign a method or data to an object prototype, all instances of that object are updated to include the prototype.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>If you try to write to a property that was assigned through a prototype, a new variable will be created for the newly assigned value. This value will be used for the value of this instance of the object's property. All other instances of the object will still refer to the prototype for their values. If, for the sake of this example, we assume that joe is a special Rectangle, whose area is equal to three times its width plus half its height, we can modify joe as follows.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=secodelinesindented>joe.area&nbsp;=&nbsp;function&nbsp;joe_area()</p>
+<p class=secodelinesindented>{</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;(this.width&nbsp;*&nbsp;3)&nbsp;+&nbsp;(this.height/2);</p>
+<p class=secodelinesindented>}</p>
+<p class=secodelinesindented>&nbsp;</p>
+<p class=senormalpara>This fragment creates a value, which in this case is a function, for joe.area that supercedes the prototype value. The property <span class=secodephrase>sally.area</span> is still the default value defined by the prototype. The instance joe uses the new definition for its area method.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<hr noshade size=1>
+<p class=normal><a href="TH_381.htm"><img src="button.png" border=0></a><a href="TH_381.htm" style="text-decoration:none;">for/in</a></p>
+<p>
+</body>
+</html>

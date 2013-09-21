@@ -1,0 +1,89 @@
+<html>
+<head>
+<title>Socket read()</title>
+<link rel="stylesheet" href="semanualstyles.css" type="text/css">
+<style type="text/css">
+ p { margin-top: 0; margin-bottom: 0; }
+</style>
+<script language="JavaScript" src="TrueHelp.js"></script>
+</head>
+<body onload="thload()">
+<div id=ienav>
+<ilayer id=nsnav>
+<br>
+<center>
+<p class=normal><a href="seisdkc-toc.htm" target="left">contents</a> &nbsp; <a href="seisdkc-index.htm" target="left">index</a> &nbsp; <a href="TH_1147.htm">previous</a> &nbsp; <a href="TH_1149.htm">next</a></p>
+</center>
+<br>
+<hr noshade size=1>
+</ilayer>
+</div>
+<p class=sereffunclevel4>Socket read()</p>
+<table cellpadding=0>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>syntax:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=sesyntax>socket.read(<span class=truehelp-xe></span>destination,&nbsp;description)</p></td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>where:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>destination - A destination variable which will be converted to the appropriate type based on description.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>description - A variable description, either one of the special Blob variables <span class=secodephrase>UWORD8</span>, <span class=secodephrase>SWORD8</span>, <span class=secodephrase>UWORD16</span>, <span class=secodephrase>SWORD16</span>, <span class=secodephrase>UWORD24</span>, <span class=secodephrase>SWORD24</span>, <span class=secodephrase>UWORD32</span>, <span class=secodephrase>SWORD32</span>, <span class=secodephrase>FLOAT32</span>, <span class=secodephrase>FLOAT64</span>, <span class=secodephrase>FLOAT80</span>, a blobDescriptor object describing a structure, or a positive value indicating the length of a buffer to read.</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>return:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>number - elements read.</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>description:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>This method is almost identical to <span class=sepopuptopic><a href="TH_623.htm" onClick="return thwindow('TH_623.htm', 'GenPopup')">Clib.fread()</a></span>, except that it reads from the current socket rather than a supplied file.  The <span class=secodephrase>description</span> variable acts in the same way as <span class=sepopuptopic><a href="TH_623.htm" onClick="return thwindow('TH_623.htm', 'GenPopup')">Clib.fread()</a></span>. If it is a positive value, then <span class=secodephrase>destination</span> is treated as a buffer and filled with raw data.  Otherwise, one of the blob types or blob descriptors can be used to read data values.  For buffers, the length of the buffer read is returned.  For all other values, 1 is returned if the item is read successfully, -1 or 0 otherwise.  Use <span class=sepopuptopic><a href="TH_1154.htm" onClick="return thwindow('TH_1154.htm', 'GenPopup')">Socket error()</a></span> to determine the nature of the error. Typically, -1 means the socket is non-blocking and no data is available to read. 0 usually indicates that the program at the other end of the socket closed it.</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>see:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara><span class=secodephrase>#link &lt;sesock&gt;</span>, <span class=sejumptopic><a href="TH_623.htm">Clib.fread()</a></span>, <span class=sejumptopic><a href="TH_1151.htm">Socket write()</a></span>, <span class=sejumptopic><a href="TH_1154.htm">Socket error()</a></span></p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>example:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=secodelines>function&nbsp;readInfo(&nbsp;socket&nbsp;)</p>
+<p class=secodelines>{</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;var&nbsp;description&nbsp;=&nbsp;new&nbsp;blobDescriptor();</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;description.name&nbsp;=&nbsp;12;</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;description.age&nbsp;=&nbsp;UWORD8;</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;description.extension&nbsp;=&nbsp;UWORD16;</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;var&nbsp;info;</p>
+<p class=secodelines>&nbsp;</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;if(&nbsp;!socket.read(&nbsp;info,&nbsp;description&nbsp;)&nbsp;)</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;null;</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;else</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;info;</p>
+<p class=secodelines>}</p>
+<p class=secodelines>&nbsp;</p>
+<p class=secodelines>/*&nbsp;The&nbsp;above&nbsp;function&nbsp;will&nbsp;read&nbsp;the&nbsp;special</p>
+<p class=secodelines>&nbsp;*&nbsp;info&nbsp;data&nbsp;structure&nbsp;from</p>
+<p class=secodelines>&nbsp;*&nbsp;the&nbsp;socket,&nbsp;returning&nbsp;null</p>
+<p class=secodelines>&nbsp;*&nbsp;if&nbsp;there&nbsp;is&nbsp;some&nbsp;sort&nbsp;of&nbsp;error.</p>
+<p class=secodelines>&nbsp;*/</p></td>
+</tr>
+</table>
+<p class=normal>&nbsp;</p>
+<hr noshade size=1>
+<p class=normal><a href="TH_1149.htm"><img src="button.png" border=0></a><a href="TH_1149.htm" style="text-decoration:none;">Socket ready()</a></p>
+<p>
+</body>
+</html>

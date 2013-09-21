@@ -1,0 +1,37 @@
+<html>
+<head>
+<title>interface: SEContinueFunction</title>
+<link rel="stylesheet" href="semanualstyles.css" type="text/css">
+<style type="text/css">
+ p { margin-top: 0; margin-bottom: 0; }
+</style>
+<script language="JavaScript" src="TrueHelp.js"></script>
+</head>
+<body onload="thload()">
+<div id=ienav>
+<ilayer id=nsnav>
+<br>
+<center>
+<p class=normal><a href="seisdkj-toc.htm" target="left">contents</a> &nbsp; <a href="seisdkj-index.htm" target="left">index</a> &nbsp; <a href="TH_72.htm">previous</a> &nbsp; <a href="TH_74.htm">next</a></p>
+</center>
+<br>
+<hr noshade size=1>
+</ilayer>
+</div>
+<p class=heading-3>interface: SEContinueFunction</p>
+<p class=heading-3-p>&nbsp;</p>
+<p class=secodelinesindented><span class=secodephrase>public&nbsp;void&nbsp;seContinueFunc(SEContext&nbsp;se);</span></p>
+<p class=secodelinesindented>&nbsp;</p>
+<p class=senormalpara>The seContinueFunc method is called by the ScriptEase interpreter after every statement while evaluating scripts. It is useful to perform periodic work, such as checking Windows messages in a Windows ScriptEase application. It is also useful in implementing a debugger to regain control after each statement is executed. </p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>When evaluating scripts using <span class=secodephrase>seEval</span> (described in Chapter VI), you can pass the <span class=secodephrase>SE.INFREQUENT_CONT</span> flag to have the continue function called much less frequently than once per statement. If all you need to do is an occasional Windows Message processing, calling this function after every statement wastes a lot of processing, which is when this flag is most useful.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>You use the standard ScriptEase wrapper return rules to control execution using this method. You can return an error in the normal way, which will abort script execution but can be trapped like any other error. Alternately, you can use set the object/member pair <span class=secodephrase>SE.RETURN,SE.EXIT</span> to <span class=secodephrase>true</span> in order to force the program to abort completely. Returning a non error value does nothing, it is ignored. Either you generate an error in order to abort script execution, or you return nothing and the script continues as normal.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>&nbsp;</p>
+<p class=senormalpara-p>&nbsp;</p>
+<hr noshade size=1>
+<p class=normal><a href="TH_74.htm"><img src="button.png" border=0></a><a href="TH_74.htm" style="text-decoration:none;">interface: SEFileLocation</a></p>
+<p>
+</body>
+</html>

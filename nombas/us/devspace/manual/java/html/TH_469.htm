@@ -1,0 +1,69 @@
+<html>
+<head>
+<title>Clib.getch()</title>
+<link rel="stylesheet" href="semanualstyles.css" type="text/css">
+<style type="text/css">
+ p { margin-top: 0; margin-bottom: 0; }
+</style>
+<script language="JavaScript" src="TrueHelp.js"></script>
+</head>
+<body onload="thload()">
+<div id=ienav>
+<ilayer id=nsnav>
+<br>
+<center>
+<p class=normal><a href="seisdkj-toc.htm" target="left">contents</a> &nbsp; <a href="seisdkj-index.htm" target="left">index</a> &nbsp; <a href="TH_468.htm">previous</a> &nbsp; <a href="TH_470.htm">next</a></p>
+</center>
+<br>
+<hr noshade size=1>
+</ilayer>
+</div>
+<p class=sereffunclevel4>Clib.getch()</p>
+<table cellpadding=0>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>syntax:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=sesyntax>Clib.getch()<span class=truehelp-xe></span></p></td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>return:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>number - character value of the key pressed.</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>description:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>This method works exactly like getche(), but does not echo the returned key to the screen. For example, the following code has you enter a password; each time you enter a letter an asterisk is written to the screen:</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>see:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara><span class=sejumptopic><a href="TH_470.htm">Clib.getchar()</a></span></p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>example:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=secodelines>var&nbsp;password;</p>
+<p class=secodelines>for&nbsp;(var&nbsp;gg&nbsp;=&nbsp;0;&nbsp;;gg++)</p>
+<p class=secodelines>{</p>
+<p class=secodelines>var&nbsp;letter&nbsp;=&nbsp;Clib.getch();</p>
+<p class=secodelines>if&nbsp;(letter&nbsp;==&nbsp;'\n')&nbsp;continue;</p>
+<p class=secodelines>Clib.putc('*').</p>
+<p class=secodelines>password[gg]&nbsp;=&nbsp;letter;</p>
+<p class=secodelines>}</p></td>
+</tr>
+</table>
+<p class=normal>&nbsp;</p>
+<hr noshade size=1>
+<p class=normal><a href="TH_470.htm"><img src="button.png" border=0></a><a href="TH_470.htm" style="text-decoration:none;">Clib.getchar()</a></p>
+<p>
+</body>
+</html>

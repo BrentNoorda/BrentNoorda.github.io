@@ -1,0 +1,2947 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML EXPERIMENTAL 970324//EN">
+<HTML>
+<HEAD>
+<META NAME="GENERATOR" CONTENT="Adobe FrameMaker 5.5/HTML Export Filter">
+<LINK REL="STYLESHEET" HREF="desk3man.css">
+<TITLE>ScriptEase:Desktop v3 Manual: The ScriptEase Language</TITLE>
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-1754630-10']);
+  _gaq.push(['_trackPageview']);
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+</HEAD>
+<BODY BACKGROUND="desk3pat.gif">
+<TABLE WIDTH="225" BORDER="0" CELLSPACING="0" CELLPADDING="0">
+  <TR>
+    <TD WIDTH="71"><a href="0-intro.htm"><IMG SRC="prev.gif" WIDTH="71" height="18" border="0"></a></TD>
+    <TD WIDTH="80"><a href="../index.htm"><IMG SRC="tocidx.gif" WIDTH="80" height="18" border="0"></a></TD>
+    <TD WIDTH="74"><a href="2-sevsc.htm"><IMG SRC="next.gif" WIDTH="74" height="18" border="0"></a></TD>
+  </TR>
+</TABLE>
+
+<H1 CLASS="Title">
+The ScriptEase Language</H1>
+<P CLASS="Abstract">
+This chapter is an introduction to and a description of the ScriptEase programming language for those unfamiliar with C programming. C programmers should proceed to Chapter 4: ScriptEase vs. C. </P>
+<P CLASS="Body">
+This chapter describes the commands and operations of the ScriptEase language. This language is used by all products in Nombas product suite. As you go through this chapter, don't be alarmed by all the different symbols and combinations of characters. As you use them, they become second nature. Don't attempt to memorize everything in this chapter. Think of it more as a reference chapter. Read through it once or twice to familiarize yourself with the terms, then take a look at some of the samples in the next chapter.</P>
+<DIV>
+<H2 CLASS="Topic">
+<A NAME="999817">
+ </A>
+Program Structure</H2>
+<P CLASS="Body">
+Computers, contrary to popular opinion, are not intelligent. They are able to carry out simple calculations (add, subtract, multiply, divide) at a dizzying speed, and make tests to see if <EM CLASS="EquationVariables">
+a</EM>
+ is equal to<EM CLASS="EquationVariables">
+ b</EM>
+, for example, but that's pretty much it. Even though the computer can perform these tasks far more quickly and accurately than humans, it never thinks about what it is doing. A computer cannot make decisions. The closest it can come to thinking is to see if a condition is met and then perform an action based on the results of that condition. If a certain button must be pressed to save the world, the computer won't do it unless it is told to do it, or programmed to do it when a certain number of conditions are met (e.g., if this event happens and that event happens, press the button). It will never realize the world needs saving and press the button on its own. </P>
+<P CLASS="Body">
+A computer language is designed to give instructions to computers in a way they can understand, so that they can carry out their programmed task. This means that before you write a program, you must have a good idea how to go about doing the task yourself. As in real life, this is easier (and less daunting) if you break the given task down into smaller, easier to handle sections. </P>
+<P CLASS="Body">
+For example, let's suppose you have a list of friends whom you wish to call and leave a message about your weekend plans. This can be broken down into four major steps:</P>
+<UL>
+<LI CLASS="Bulleted">
+	Get a name from the list</LI>
+<LI CLASS="Bulleted">
+	Call them</LI>
+<LI CLASS="Bulleted">
+	Leave a message</LI>
+<LI CLASS="Bulleted">
+	Hang up</LI>
+<LI CLASS="Bulleted">
+	Get the next name on the list; repeat the process until everyone's been called.</LI>
+</UL>
+<P CLASS="Body">
+In code, this would look like this:</P>
+<P CLASS="ciBody">
+while( ThereAreUncalledNamesOnTheList() != FALSE){</P>
+<P CLASS="ciBody">
+ name=GetNameFromTheList();</P>
+<P CLASS="ciBody">
+ CallthePerson(name);</P>
+<P CLASS="ciBody">
+ LeaveTheMessage();</P>
+<P CLASS="ciBody">
+}</P>
+<P CLASS="Body">
+Now you have a framework for your program, and a clear idea of the sub-tasks that need to be accomplished to achieve your goal. By breaking the task into smaller pieces, it is easy to translate your thoughts into ScriptEase. (In computer terminology, each of these steps is called a function. A function has a name followed by a pair of parenthesis, which may or may not have anything in them).</P>
+<P CLASS="Body">
+Another advantage to breaking your task up comes when you need to make changes. If you need to make a change in your main task, you don't need to rewrite the entire program, just the part where the change occurs. For example, if you want to leave a different message the next time you run the program, you only need to change the `LeaveTheMessage()' section of the program.</P>
+</DIV>
+<DIV>
+<H2 CLASS="Topic">
+Whitespace Characters</H2>
+<P CLASS="Body">
+Characters that govern the spacing of text are called <A NAME="999818">
+ </A>
+whitespace characters. The white characters are the space, tab, carriage return and newline. Whitespace makes the code more readable for humans, but is ignored by the interpreter, with the following exceptions.</P>
+<P CLASS="Body">
+A line ends with a carriage return, and each line is usually a separate statement (a more detailed explanation of statements and lines comes later in this chapter). The following three lines are interpreted identically:</P>
+<P CLASS="ciBody">
+x=a+b</P>
+<P CLASS="ciBody">
+x = a + b</P>
+<P CLASS="ciBody">
+x =          a              +               b</P>
+<P CLASS="Body">
+as is:</P>
+<P CLASS="ciBody">
+x = a</P>
+<P CLASS="ciBody">
++ b</P>
+<P CLASS="Body">
+Also, a space indicates the end of a variable name. &quot;a b&quot; represents two variables, &quot;a&quot; and &quot;b&quot;; &quot;ab&quot; represents only one.</P>
+<P CLASS="Body">
+<A NAME="1001569">
+ </A>
+Tabs are usually not used in writing code, because tab settings are different for different users and what looks good on one system may look awful on another. Instead of using tabs, use two or three spaces.</P>
+</DIV>
+<DIV>
+<H2 CLASS="Topic">
+<A NAME="999819">
+ </A>
+Comments</H2>
+<P CLASS="Body">
+Although computer languages are easy for computers to understand, they can get pretty obscure for humans. Comments are used by the programmer to explain to himself and to others what the code does. Comments help bridge the gap between computer language and human language. If a section of code is commented, you know exactly what that section of code does, and why it is there, without having to decipher it. If you need to modify a script at some time in the future, you will thank yourself for placing comments in your program. When the program runs, comments are ignored by the ScriptEase interpreter. </P>
+<P CLASS="Body">
+In ScriptEase, two slash characters (//) signal the beginning of the comment; the comment extends to the end of the line. Anything after the two slashes is considered a comment and is ignored by the ScriptEase interpreter. Likewise, anything between a slash-asterisk (/*) and an asterisk-slash (*/) is a comment (this type of comment may extend over many lines). Here are some examples of comments:</P>
+<P CLASS="ciBody">
+// this is a comment line</P>
+<P CLASS="ciBody">
+&nbsp;</P>
+<P CLASS="ciBody">
+/*******************************</P>
+<P CLASS="ciBody">
+ *** This is one big comment ***</P>
+<P CLASS="ciBody">
+ *** block. Isn't it pretty? ***</P>
+<P CLASS="ciBody">
+ *******************************/</P>
+<P CLASS="ciBody">
+&nbsp;</P>
+<P CLASS="ciBody">
+FavoriteAnimal = &quot;dog&quot;; // I really prefer cats, but I'm allergic</P>
+<P CLASS="ciBody">
+&nbsp;</P>
+<P CLASS="ciBody">
+//This line is a comment but</P>
+<P CLASS="ciBody">
+this line is not.</P>
+</DIV>
+<DIV>
+<H2 CLASS="Topic">
+<A NAME="999820">
+ </A>
+Data Types</H2>
+<P CLASS="Body">
+The ScriptEase interpreter uses different methods to store the different types of data in memory. It determines the data type of a number by how it is used and by how it appears in the code. There are three basic data types in ScriptEase, as follows:</P>
+<TABLE>
+<TR>
+<TD>
+<P CLASS="cb">
+<A NAME="1001566">
+ </A>
+Byte</P>
+</TD>
+<TD>
+<P CLASS="cb">
+A character (e.g., `A', `B', `C', `D') or a whole number from 0 to 255</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="cb">
+<A NAME="1001567">
+ </A>
+Integer</P>
+</TD>
+<TD>
+<P CLASS="cb">
+A whole number value; this is the most common numeric data type: examples: 0, -1000, 567, 4335600)</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="cb">
+<A NAME="1001568">
+ </A>
+Float</P>
+</TD>
+<TD>
+<P CLASS="cb">
+floating point numbers; any number containing a decimal point (examples: 0.567, 3.14159, -5.456e-12)</P>
+</TD>
+</TR>
+</TABLE>
+<P CLASS="Body">
+There are times when you will want to explicitly specify the data type of a certain variable. You can do this by declaring the variable equal to zero, and formatting the zero according to how you want your variable cast, e.g.:</P>
+<P CLASS="Flag-Desc-in-Body2">
+<EM CLASS="Code">
+variable = 0</EM>
+		//variable is an integer</P>
+<P CLASS="Flag-Desc-in-Body2">
+<EM CLASS="Code">
+variable = 0.00</EM>
+		//variable is a float</P>
+<P CLASS="Flag-Desc-in-Body2">
+<EM CLASS="Code">
+variable = `\0'</EM>
+		//variable is a byte</P>
+<P CLASS="Body">
+Here is a list of numbers in various formats and their corresponding data types:</P>
+<TABLE>
+<TR>
+<TD>
+<P CLASS="cb">
+1</P>
+</TD>
+<TD>
+<P CLASS="cb">
+// integer</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="cb">
+0</P>
+</TD>
+<TD>
+<P CLASS="cb">
+// integer</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="cb">
+0x3EF2</P>
+</TD>
+<TD>
+<P CLASS="cb">
+// integer in hexadecimal format</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="cb">
+-300</P>
+</TD>
+<TD>
+<P CLASS="cb">
+// integer</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="cb">
+3.141</P>
+</TD>
+<TD>
+<P CLASS="cb">
+// float</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="cb">
+-3.45e-20</P>
+</TD>
+<TD>
+<P CLASS="cb">
+// float</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="cb">
+`A'</P>
+</TD>
+<TD>
+<P CLASS="cb">
+// byte</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="cb">
+`\033'</P>
+</TD>
+<TD>
+<P CLASS="cb">
+// byte in octal format</P>
+</TD>
+</TR>
+</TABLE>
+<P CLASS="Body">
+In addition to byte, float and integer, there are two more data types: arrays and structures. These are described more fully later on in this chapter.</P>
+</DIV>
+<DIV>
+<H2 CLASS="Topic">
+<A NAME="999870">
+ </A>
+Escape Sequences for Characters</H2>
+<P CLASS="Body">
+Certain bytes (characters) are represented with a multi-character sequence beginning with a backslash (\). There is no need to memorize these characters. It is important, however, to remember that they exist. Many of them are used to format output. These special combinations of characters are called escape sequences, and have the following meanings:</P>
+<TABLE>
+<TR>
+<TD>
+<P CLASS="cb">
+\a</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Audible bell</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="cb">
+\b</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Backspace</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="cb">
+\f</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Formfeed</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="cb">
+\n</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Newline</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="cb">
+\r</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Carriage return</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="cb">
+\t</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Tab</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="cb">
+\v</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Vertical tab</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="cb">
+\'</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Single quote</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="cb">
+\&quot;</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Double quote</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="cb">
+\\</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Backslash character</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="cb">
+\###</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Octal number (e.g., `\033' is escape character, `\0' is null character)</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="cb">
+\x##</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Hex number (e.g., `\x1B' is escape)</P>
+</TD>
+</TR>
+</TABLE>
+<P CLASS="Body">
+Note that these escape sequences cannot be used within back-tick strings (see page 23). Also, any integer value starting with 0 is treated specially. 0 alone signifies octal, 0x specifies hexadecimal.</P>
+</DIV>
+<DIV>
+<H2 CLASS="Topic">
+<A NAME="999871">
+ </A>
+Variables</H2>
+<P CLASS="Body">
+A variable is a symbol that may be assigned data. Variables are used as places to store and represent information in the program you are writing. ScriptEase variable names can be any length within reason. The following naming guidelines must be followed:</P>
+<UL>
+<LI CLASS="Bulleted">
+	 variable names cannot start with a number,</LI>
+<LI CLASS="Bulleted">
+	 the following characters cannot be used +-&lt;&gt;&amp;|=!*/%^~?:{};()[].'&quot;`#,</LI>
+<LI CLASS="Bulleted">
+	 embedded spaces or tabs are not allowed.</LI>
+</UL>
+<P CLASS="Body">
+All other characters are legal. The interpreter ignores case, so sid is equivalent to Sid as far as ScriptEase is concerned. The following are valid variable names:</P>
+<P CLASS="ciBody">
+Sid</P>
+<P CLASS="ciBody">
+Nancy7436</P>
+<P CLASS="ciBody">
+annualReport</P>
+<P CLASS="ciBody">
+sid_and_nancy_prepared_the_annualReport</P>
+<P CLASS="ciBody">
+alice</P>
+<P CLASS="Body">
+The following variable names are not valid:</P>
+<P CLASS="ciBody">
+1sid</P>
+<P CLASS="ciBody">
+2nancy</P>
+<P CLASS="ciBody">
+this&amp;that	</P>
+<P CLASS="ciBody">
+Sid and Nancy</P>
+<P CLASS="ciBody">
+ratsAndCats?</P>
+<P CLASS="Body">
+Data is assigned to a variable with an equal sign (=). The first time a variable is used, its type is determined.</P>
+<P CLASS="Flag-Desc-in-Body2">
+<EM CLASS="Code">
+Count = 1</EM>
+;			// Count is an integer</P>
+<P CLASS="Flag-Desc-in-Body2">
+<EM CLASS="Code">
+Character = `A';</EM>
+			// Character is a byte</P>
+<P CLASS="Flag-Desc-in-Body2">
+<EM CLASS="Code">
+interestRate = 7.65;</EM>
+		// interestRate is a float</P>
+<P CLASS="Body">
+After variables have been assigned, they can be treated as their data type. So, after these statements:</P>
+<P CLASS="Flag-Desc-in-Body2">
+<EM CLASS="Code">
+Count = 1;</EM>
+			// assign count as the integer 1</P>
+<P CLASS="Flag-Desc-in-Body2">
+<EM CLASS="Code">
+Count = Count + 2;</EM>
+		// same as: Count = 1 + 2</P>
+<P CLASS="Body">
+Count now has a value of 3.</P>
+<DIV>
+<H3 CLASS="SubTopic">
+<A NAME="999876">
+ </A>
+Environment Variables</H3>
+<P CLASS="Body">
+In previous versions of ScriptEase:Desktop (CEnvi), a variable written entirely in UPPERCASE letters was automatically considered to be an environment variable. This is no longer the case; use the getenv() function to access your operating systems environment variables and the putenv() function to modify them (see the ScriptEase Standard Library chapter for documentation of this function).</P>
+<P CLASS="Body">
+If you have scripts in CEnvi that rely on this feature, contact Nombas for a script that will convert your old scripts over to the new format for handling environment variables.</P>
+</DIV>
+</DIV>
+<DIV>
+<H2 CLASS="Topic">
+<A NAME="999877">
+ </A>
+Expressions, <A NAME="999878">
+ </A>
+Statements, and<A NAME="999879">
+ </A>
+ Blocks</H2>
+<P CLASS="Body">
+A expression or statement is any sequence of code that performs a computation or takes an action (e.g., &quot;Count=1&quot;, &quot;(2+4)*3&quot;). ScriptEase code is executed one statement at a time in the order in which it is read. A semicolon (;) may be put at the end of a statement (this is required in C, and is recommended in ScriptEase to improve readability). Each program statement is usually written on a separate line to make the code easy to read.</P>
+<P CLASS="Body">
+<A NAME="999880">
+ </A>
+<A NAME="999881">
+ </A>
+Expressions may be grouped to affect the sequence of processing: first all multiplications and divisions are calculated for the expression, and then all additions and subtractions. Expressions inside parentheses are processed first. Notice that:</P>
+<P CLASS="ciBody">
+4 * 7 - 5 * 3;												// 28 - 15 = 13</P>
+<P CLASS="Body">
+has the same meaning, due to algebraic operator precedence, as:</P>
+<P CLASS="ciBody">
+(4 * 7) - (5 * 3);												// 28 - 15 = 13</P>
+<P CLASS="Body">
+but has a different meaning than:</P>
+<P CLASS="ciBody">
+4 * (7 - 5) * 3;												// 4 * 2 * 3 = 8 * 3 = 24</P>
+<P CLASS="Body">
+which is still different from:</P>
+<P CLASS="ciBody">
+4 * (7 - (5 * 3));												// 4 * (7 - 15) = 4 * -8 = -32</P>
+<P CLASS="Body">
+Even though parentheses may not be necessary, it's usually a good idea to use them anyway, to avoid any possible confusion for you or the computer.</P>
+<P CLASS="Body">
+A block is a group of statements enclosed in curly braces ({}). The braces indicate that the enclosed statements are a group and are to be treated as one statement, containing multiple sub-statements. A block can be used anywhere a statement can be used.</P>
+<P CLASS="Body">
+The first example of this chapter has a statement block:</P>
+<P CLASS="ciBody">
+while( ThereAreUncalledNamesOnTheList() == TRUE){</P>
+<P CLASS="ciBody">
+	name=GetNameFromTheList();</P>
+<P CLASS="ciBody">
+	CallthePerson(name);</P>
+<P CLASS="ciBody">
+	LeaveTheMessage();</P>
+<P CLASS="ciBody">
+}</P>
+<P CLASS="Body">
+GetNameFromTheList, CallthePerson, and LeaveTheMessage are all grouped together within braces to show that they should be treated as a unit. If the braces were left out, the while statement would only apply to the first line following it. In this case, the program would go through and get every name on the list, and then call only the last one.</P>
+<P CLASS="Body">
+The indentation of statements is not necessary, but is recommended for readability.</P>
+</DIV>
+<DIV>
+<H2 CLASS="Topic">
+<A NAME="999882">
+ </A>
+Mathematical Operators</H2>
+<P CLASS="Body">
+ScriptEase code usually contains some mathematical operations, such as adding numbers together, multiplying, dividing, etc. These are written as you'd expect, i.e., write &quot;2 + 3&quot; when you want to add two and three. The next few subsections define the mathematical operators used in ScriptEase followed by a line of sample code.</P>
+<DIV>
+<H3 CLASS="SubTopic">
+<A NAME="999883">
+ </A>
+Basic Arithmetic</H3>
+<P CLASS="Body">
+The arithmetic operators in ScriptEase are pretty standard</P>
+<TABLE>
+<TR>
+<TD>
+<P CLASS="cb">
+=</P>
+</TD>
+<TD>
+<P CLASS="cb">
+assignment: sets a variable's value</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="cb">
++</P>
+</TD>
+<TD>
+<P CLASS="cb">
+addition: adds two numbers</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="cb">
+-</P>
+</TD>
+<TD>
+<P CLASS="cb">
+subtraction: subtracts a number</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="cb">
+*</P>
+</TD>
+<TD>
+<P CLASS="cb">
+multiplication:</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="cb">
+/</P>
+</TD>
+<TD>
+<P CLASS="cb">
+division</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="cb">
+%</P>
+</TD>
+<TD>
+<P CLASS="cb">
+modulo: remainder after division</P>
+</TD>
+</TR>
+</TABLE>
+<P CLASS="Body">
+Here are some examples using variables and arithmetic operators:</P>
+<TABLE>
+<TR>
+<TD>
+<H6 CLASS="ciDefTable">
+i = 2;</H6>
+</TD>
+<TD>
+<P CLASS="cb">
+// i is 2</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<H6 CLASS="ciDefTable">
+i = i + 3;</H6>
+</TD>
+<TD>
+<P CLASS="cb">
+// i is now (2+3) or 5</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<H6 CLASS="ciDefTable">
+i = i - 3;</H6>
+</TD>
+<TD>
+<P CLASS="cb">
+// i is now (5-3) or 2 again</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<H6 CLASS="ciDefTable">
+i = i * 5;</H6>
+</TD>
+<TD>
+<P CLASS="cb">
+// i is now (2*5) or 10</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<H6 CLASS="ciDefTable">
+i = i / 3;</H6>
+</TD>
+<TD>
+<P CLASS="cb">
+// i is now (10/3) or 3 (the remainder is ignored)</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<H6 CLASS="ciDefTable">
+i = 10;</H6>
+</TD>
+<TD>
+<P CLASS="cb">
+&nbsp;</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<H6 CLASS="ciDefTable">
+i = i % 3;</H6>
+</TD>
+<TD>
+<P CLASS="cb">
+// i is now (10%3) or 1</P>
+</TD>
+</TR>
+</TABLE>
+</DIV>
+<DIV>
+<H3 CLASS="SubTopic">
+<A NAME="999884">
+ </A>
+Assignment Arithmetic</H3>
+<P CLASS="Body">
+<A NAME="999885">
+ </A>
+Each of the above operators can be combined with the assignment operator (=) as a shortcut for performing the operation with the first variable and then assigning the result to the same variable. Using assignment arithmetic operators, the above code could be simplified as follows:</P>
+<TABLE>
+<TR>
+<TD>
+<P CLASS="cb">
+=</P>
+</TD>
+<TD>
+<P CLASS="cb">
+assignment: sets a variable's value</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="cb">
++=</P>
+</TD>
+<TD>
+<P CLASS="cb">
+assign addition: adds number</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="cb">
+-=</P>
+</TD>
+<TD>
+<P CLASS="cb">
+assign subtraction: subtracts a number</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="cb">
+*=</P>
+</TD>
+<TD>
+<P CLASS="cb">
+assign multiplication</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="cb">
+/=</P>
+</TD>
+<TD>
+<P CLASS="cb">
+assign division</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="cb">
+%=</P>
+</TD>
+<TD>
+<P CLASS="cb">
+assign remainder: remainder after division</P>
+</TD>
+</TR>
+</TABLE>
+<P CLASS="Body">
+Here are some examples using assignment arithmetic</P>
+<TABLE>
+<TR>
+<TD>
+<H6 CLASS="ciDefTable">
+i = 2;</H6>
+</TD>
+<TD>
+<P CLASS="cb">
+// i is 2</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<H6 CLASS="ciDefTable">
+i += 3;</H6>
+</TD>
+<TD>
+<P CLASS="cb">
+// i is now (2+3) or 5; same as i = i + 3</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<H6 CLASS="ciDefTable">
+i -= 3;</H6>
+</TD>
+<TD>
+<P CLASS="cb">
+// i is now (5-3) or 2 again; same as i = i - 3</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<H6 CLASS="ciDefTable">
+i *= 5;</H6>
+</TD>
+<TD>
+<P CLASS="cb">
+// i is now (2*5) or 10; same as i = i * 5</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<H6 CLASS="ciDefTable">
+i /= 3;</H6>
+</TD>
+<TD>
+<P CLASS="cb">
+// i is now (10/3) or 3; same as i = i / 3</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<H6 CLASS="ciDefTable">
+i = 10;</H6>
+</TD>
+<TD>
+<P CLASS="cb">
+&nbsp;</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<H6 CLASS="ciDefTable">
+i %= 3;</H6>
+</TD>
+<TD>
+<P CLASS="cb">
+// i is now (10%3) or 1; same as i = i % 3</P>
+</TD>
+</TR>
+</TABLE>
+</DIV>
+<DIV>
+<H3 CLASS="SubTopic">
+<A NAME="999888">
+ </A>
+Auto-Increment (++) and Auto-Decrement (--)</H3>
+<P CLASS="Body">
+Other arithmetic shortcuts are the <A NAME="999886">
+ </A>
+auto-increment (++) and<A NAME="999887">
+ </A>
+ auto-decrement (--) operators. These operators add or subtract 1 (one) from the value to which they are applied. (&quot;i++&quot; is a shortcut for &quot;i += 1&quot;, which is itself shortcut for &quot;i = i + 1&quot;).</P>
+<P CLASS="Body">
+ These operators can be used before (prefix) or after (postfix) their variables. If used before, then the variable is altered before it is used in the statement; if used after, then the variable is altered after it is used in the statement. This is demonstrated by the following code:</P>
+<TABLE>
+<TR>
+<TD>
+<H6 CLASS="ciDefTable">
+i = 4;</H6>
+</TD>
+<TD>
+<P CLASS="cb">
+// i is initialized to 4</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<H6 CLASS="ciDefTable">
+j = ++i; </H6>
+</TD>
+<TD>
+<P CLASS="cb">
+// j is 5, i is 5 (i was incremented before use)</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<H6 CLASS="ciDefTable">
+j = i++; </H6>
+</TD>
+<TD>
+<P CLASS="cb">
+// j is 5, i is 6 (i was incremented after use)</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<H6 CLASS="ciDefTable">
+j = --i;</H6>
+</TD>
+<TD>
+<P CLASS="cb">
+// j is 5, i is 5 (i was decremented before use)</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<H6 CLASS="ciDefTable">
+j = i--;</H6>
+</TD>
+<TD>
+<P CLASS="cb">
+// j is 5, i is 4 (i was decremented after use)</P>
+</TD>
+</TR>
+</TABLE>
+</DIV>
+<DIV>
+<H3 CLASS="SubTopic">
+Bit Operators</H3>
+<P CLASS="Body">
+ScriptEase contains many operators for operating on the binary bits in a byte or an integer. If you're not familiar with binary and hexadecimal numbering, then you may want to skip this section on Bit Operators.</P>
+<TABLE>
+<TR>
+<TD>
+<P CLASS="cb">
+<EM CLASS="Element">
+&lt;&lt;</EM>
+</P>
+</TD>
+<TD>
+<P CLASS="cb">
+shift left: shift all bits left by value</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="cb">
+&lt;&lt;=</P>
+</TD>
+<TD>
+<P CLASS="cb">
+assignment shift left</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="cb">
+&nbsp;</P>
+</TD>
+<TD>
+<P CLASS="ciTable">
+i = 0x146</P>
+<P CLASS="ciTable">
+i &lt;&lt;= 2; 					//	shift i (0x146) left 2, so i = 0x518</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="cb">
+<EM CLASS="Element">
+&gt;&gt;</EM>
+</P>
+</TD>
+<TD>
+<P CLASS="cb">
+shift right: shift all bits right by value</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="cb">
+<EM CLASS="Element">
+&gt;&gt;=</EM>
+</P>
+</TD>
+<TD>
+<P CLASS="cb">
+assignment shift right</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="cb">
+&nbsp;</P>
+</TD>
+<TD>
+<P CLASS="ciTable">
+i &gt;&gt;= 3;	   //					shift i (0x518) right 3, so i = 0xA3</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="cb">
+<EM CLASS="Element">
+&amp;</EM>
+</P>
+</TD>
+<TD>
+<P CLASS="cb">
+bitwise AND</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="cb">
+<EM CLASS="Element">
+&amp;=</EM>
+</P>
+</TD>
+<TD>
+<P CLASS="cb">
+assignment bitwise and</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="cb">
+&nbsp;</P>
+</TD>
+<TD>
+<P CLASS="ciTable">
+i &amp;= 0x35;	 //	 and i (0xA3) with 0x35, so i = 0x21</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="cb">
+<EM CLASS="Element">
+|</EM>
+</P>
+</TD>
+<TD>
+<P CLASS="cb">
+bitwise OR</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="cb">
+<EM CLASS="Element">
+|=</EM>
+</P>
+</TD>
+<TD>
+<P CLASS="cb">
+assignment bitwise OR</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="cb">
+&nbsp;</P>
+</TD>
+<TD>
+<P CLASS="ciTable">
+i |= 0xC5;			//			 OR i (0x21) with 0xC4, so i = 0xE5</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="cb">
+<EM CLASS="Element">
+^</EM>
+</P>
+</TD>
+<TD>
+<P CLASS="cb">
+bitwise XOR: exclusive OR</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="cb">
+<EM CLASS="Element">
+^=</EM>
+</P>
+</TD>
+<TD>
+<P CLASS="cb">
+assignment bitwise XOR</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="cb">
+&nbsp;</P>
+</TD>
+<TD>
+<P CLASS="ciTable">
+i ^= 0xF329 //	 XOR i (0xE5) with 0xF329, so i = 0xF3CC</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="cb">
+<EM CLASS="Element">
+~</EM>
+</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Bitwise complement: (turn 0 bits to 1, and 1 to 0)</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="cb">
+&nbsp;</P>
+</TD>
+<TD>
+<P CLASS="ciTable">
+i = ~i;				 //		complement i (0xF3CC), </P>
+<P CLASS="ciTable">
+						so i = 0xFFFF0C33 </P>
+</TD>
+</TR>
+</TABLE>
+</DIV>
+</DIV>
+<DIV>
+<H2 CLASS="Topic">
+<A NAME="1000808">
+ </A>
+Arrays and <A NAME="1000809">
+ </A>
+Strings</H2>
+<P CLASS="Body">
+An array is a group of individual data elements. Each individual item in the array is called an array element. Elements are distinguished by their offset, an integer in square brackets following the array's name in square brackets. All of the elements of an array must be of the same data type. Arrays are usually associated with a count of something. </P>
+<P CLASS="Body">
+For example, suppose you wanted to keep track of how many jelly beans you ate each day, so you can graph your jelly bean consumption at the end of the month. Arrays are ideal for storing this kind of data:</P>
+<P CLASS="ciBody">
+January[1] = 233;</P>
+<P CLASS="ciBody">
+January[2] = 344;</P>
+<P CLASS="ciBody">
+January[3] = 155;</P>
+<P CLASS="ciBody">
+January[4] = 0;    (...)</P>
+<P CLASS="Body">
+Now you have all your data stored conveniently in one variable. You can find out how many jelly beans you ate on day x by checking the value of January[x].</P>
+<P CLASS="Body">
+In the example where we call all of the people on a certain list, it makes sense to use arrays to keep track of the numbers we have called and whom they pertain to. Then you'd have two arrays that look like this:</P>
+<P CLASS="ciBody">
+name[0] = &quot;Mary&quot;				number[0] = &quot;555-2383&quot;</P>
+<P CLASS="ciBody">
+name[1] = &quot;Eduardo&quot;			number[1] = &quot;555-9331&quot;</P>
+<P CLASS="ciBody">
+name[2] = &quot;Vince&quot;			number[2] = &quot;555-4920&quot;</P>
+<P CLASS="Body">
+An element of an array is itself a variable, much like any other variable. Any particular element of the array is selected by specifying the element's offset in the array. This offset is an integer in square brackets ( [ ] ). It is important to remember that the first element in an array is found at the 0th offset. For example:</P>
+<P CLASS="ciBody">
+prime[0] = 2;</P>
+<P CLASS="ciBody">
+prime[1] = 3;</P>
+<P CLASS="ciBody">
+prime[2] = 5;</P>
+<P CLASS="ciBody">
+month[0] = &quot;January&quot;;</P>
+<P CLASS="ciBody">
+month[1] = &quot;February&quot;;</P>
+<P CLASS="ciBody">
+month[2] = &quot;March&quot;;</P>
+<P CLASS="Body">
+Also, an offset can be a variable (or anything else that evaluates to an integer):</P>
+<P CLASS="ciBody">
+prime[x] = y</P>
+<P CLASS="Body">
+A ScriptEase array does not need to be predefined for size or data type, as it does in other languages. Any array theoretically extends from minus infinity to plus infinity (within reasonable computer memory limits). The data type for the array is the type of the data first assigned to it.</P>
+<P CLASS="Body">
+If ScriptEase code begins with:</P>
+<P CLASS="ciBody">
+foo[5] = 7;</P>
+<P CLASS="ciBody">
+foo[2] = -100;</P>
+<P CLASS="ciBody">
+foo[-5] = 4;</P>
+<P CLASS="Body">
+then foo is an array of integers and the element at index 5 is a 7, at index 2 is -100, and at index -5 is 4. foo[5] can be used in the code anywhere that a variable could be used. Any array elements that are not otherwise defined are equal to zero, so if you asked the computer for the value of foo[3] in the above example, it would return 0.</P>
+<DIV>
+<H3 CLASS="SubTopic">
+<A NAME="1000810">
+ </A>
+Array Initialization</H3>
+<P CLASS="Body">
+Arrays can be initialized by initializing specific elements, as in:</P>
+<P CLASS="ciBody">
+foo[5] = 7;</P>
+<P CLASS="ciBody">
+foo[2] = -100;</P>
+<P CLASS="ciBody">
+foo[-5] = 4;</P>
+<P CLASS="Body">
+or by enclosing all the initial statements in curly braces, which will cause the array to start initializing at element 0, as in:</P>
+<P CLASS="ciBody">
+foo = { 0, 0, -100, 0, 0, 7 };</P>
+</DIV>
+</DIV>
+<DIV>
+<H2 CLASS="Topic">
+<A NAME="1000811">
+ </A>
+Strings</H2>
+<P CLASS="Body">
+One of the most common uses of arrays is to store lines of text; an array used in this way is called a string. Strings usually have a null byte (`\0') at the end to let the computer know where the string ends. In the preceding example, &quot;Mary&quot; and &quot;555-2383&quot; are both strings. Strings are enclosed in quotes to distinguish them from variables. When you assign a string to a variable</P>
+<P CLASS="ciBody">
+string = &quot;Mary&quot;;</P>
+<P CLASS="Body">
+you are creating an array called string with five elements:</P>
+<P CLASS="ciBody">
+string[0] = `M'</P>
+<P CLASS="ciBody">
+strng[1] = `a';</P>
+<P CLASS="ciBody">
+string[2] = `r';</P>
+<P CLASS="ciBody">
+string[3] = `y';</P>
+<P CLASS="ciBody">
+string[4] = `\0'</P>
+<P CLASS="Body">
+Notice that the first element is at offset 0. This is the default starting place for strings; the string continues until a null character (the 0 in string[4]) is reached. When a string is created, a null character is appended to the end to indicate where it ends.</P>
+<P CLASS="Body">
+Escape sequences encountered in strings will be translated into their byte value. So you'll often see strings such as &quot;\aHello world\n&quot; where the `\a' means to beep and the `\n' means to put a newline character at the end of the string. </P>
+<DIV>
+<H3 CLASS="SubTopic">
+<A NAME="1000812">
+ </A>
+Single quote strings</H3>
+<P CLASS="Body">
+You can declare a string with single quotes instead of double quotes. This will create a string without a terminal null character. Single quotes strings are rarely used.</P>
+</DIV>
+<DIV>
+<H3 CLASS="SubTopic">
+<A NAME="1000813">
+ </A>
+Back-quote strings</H3>
+<P CLASS="Body">
+ScriptEase provides the back-quote (`), also known as the back-tick or grave accent, as an alternative quote character to indicate that escape sequences are not to be translated. Any characters represented with a backslash followed by a letter (`\n', e.g.) cannot be used in back-tick strings. </P>
+<P CLASS="Body">
+For example, here are two ways to describe the same file name:</P>
+<P CLASS="ciBody">
+&quot;c:\\autoexec.bat&quot;									// traditional C method</P>
+<P CLASS="ciBody">
+`c:\autoexec.bat`					// alternative ScriptEase method</P>
+</DIV>
+<DIV>
+<H3 CLASS="SubTopic">
+<A NAME="1000814">
+ </A>
+Literal Strings</H3>
+<P CLASS="Body">
+A literal string is a string within double or back-tick quotes. In some cases (during assignment, comparison, passing to function, returning from function, and case statements), ScriptEase treats literal strings slightly different than other arrays. Literal strings can be treated directly as data, avoiding the string handling routines required of C. If you are familiar with C programming, you may want to read the &quot;Literal Strings&quot; section in the &quot;ScriptEase vs. C&quot; chapter for more information on the special treatment of literal strings.</P>
+</DIV>
+<DIV>
+<H3 CLASS="SubTopic">
+Long Strings</H3>
+<P CLASS="Body">
+If you have a lot of text that you want to put into a string, you can do it by putting the strings one after another when you define the string variable. For example: </P>
+<P CLASS="ciBody">
+badJoke = &quot;I was standing in front of an Italian &quot;</P>
+<P CLASS="ciBody">
+&quot;restaurant waiting to get in when this guy came &quot;</P>
+<P CLASS="ciBody">
+&quot;up and asked me, \&quot;Why did the Italians lose the &quot;</P>
+<P CLASS="ciBody">
+&quot;war?\&quot; I told him I had no idea. \&quot;Because they &quot;</P>
+<P CLASS="ciBody">
+&quot;ordered ziti instead of shells,\&quot; he replied.&quot;</P>
+<P CLASS="Body">
+This creates a long string containing the entire bad joke.</P>
+</DIV>
+<DIV>
+<H3 CLASS="SubTopic">
+Copying Strings</H3>
+<P CLASS="Body">
+Because a string is a special compound data form, when you copy string variables you should use the strcpy() function. If you try to use the equality operator, your script will behave erratically.</P>
+<P CLASS="Body">
+For example, let's suppose you have the following string,</P>
+<P CLASS="ciBody">
+string = &quot;earwig&quot; </P>
+<P CLASS="Body">
+and you wanted to copy it to another string called stringdata. You do this with the strcpy() function as follows (more information on functions appears later in this chapter):</P>
+<P CLASS="ciBody">
+strcpy(stringdata, string);</P>
+<P CLASS="Body">
+The statement</P>
+<P CLASS="ciBody">
+stringdata = string</P>
+<P CLASS="Body">
+will also copy the string, but not in the way you want. It will make a copy of the variable itself, instead of copying the contents of the variable into another. In effect, this statement says, &quot;set the variable stringdata to refer to the information stored in the same place as the information stored in the variable string.&quot; The two variables will refer to the same chunk of memory. They are two different names for the same thing (as opposed to two different variables containing the same thing), so when you change one, you change the other.</P>
+</DIV>
+<DIV>
+<H3 CLASS="SubTopic">
+<A NAME="1000815">
+ </A>
+Array Arithmetic</H3>
+<P CLASS="Body">
+When one array is assigned to the other, as in:</P>
+<P CLASS="ciBody">
+foo = &quot;cat&quot;;</P>
+<P CLASS="ciBody">
+goo = foo;</P>
+<P CLASS="Body">
+both variables define the same array, point to the same place in memory, and start at the same offset 0. In this case, if foo[2] is changed then you will find that goo[2] has also been changed. Integer addition and subtraction can also be performed on arrays. Array addition or subtraction sets where the array is based. By altering the previous code segment to:</P>
+<P CLASS="ciBody">
+foo = &quot;cat&quot;;</P>
+<P CLASS="ciBody">
+goo = foo + 1;</P>
+<P CLASS="Body">
+goo and foo would now be arrays containing the same data, except that now goo is based one element further, and foo[2] is now the same data as goo[1]. To demonstrate:</P>
+<TABLE>
+<TR>
+<TD>
+<H6 CLASS="ciDefTable">
+foo = &quot;cat&quot;;</H6>
+</TD>
+<TD>
+<P CLASS="cb">
+// foo[0] is `c', foo[1] = `a'</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<H6 CLASS="ciDefTable">
+goo = foo + 1;</H6>
+</TD>
+<TD>
+<P CLASS="cb">
+// goo[0] is `a', goo[-1] = `c'</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<H6 CLASS="ciDefTable">
+goo[0] = `u';</H6>
+</TD>
+<TD>
+<P CLASS="cb">
+// goo[0] is `u', foo[1] = `u', foo is &quot;cut&quot;</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<H6 CLASS="ciDefTable">
+goo++;</H6>
+</TD>
+<TD>
+<P CLASS="cb">
+// goo[0] is `t', goo[-2] = `c'</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<H6 CLASS="ciDefTable">
+goo[-2] = `b'</H6>
+</TD>
+<TD>
+<P CLASS="cb">
+// goo[0] is `t', foo[0] = `b', foo is &quot;but&quot;</P>
+</TD>
+</TR>
+</TABLE>
+<P CLASS="Body">
+The script TReplace.cmm, analyzed in the next chapter, provides a working example of array arithmetic.</P>
+</DIV>
+<DIV>
+<H3 CLASS="SubTopic">
+<A NAME="1000816">
+ </A>
+Multi-Dimensional Arrays:<A NAME="1000817">
+ </A>
+ Arrays of Arrays</H3>
+<P CLASS="Body">
+Since an array element is a variable, if the type of that element's variable is itself an array, then you have an array of arrays. A statement such as:</P>
+<P CLASS="ciBody">
+goo[4][2] = 5;</P>
+<P CLASS="Body">
+indicates that goo is an array of arrays, and that element 2 of element 4 is the integer 5. The examples in the beginning of the section on strings (e.g., name[0]=&quot;Mary&quot;) are also examples of multi-dimensional arrays.</P>
+<P CLASS="Body">
+Multi-dimensional arrays would come in handy for programming a tic-tac-toe game, for instance. Each row and column of the 3 x 3 board could be represented with a row, column element containing `X', `O', or ` ` (blank) depending on the character at that location. For example, filling the middle row with Xs would be initialized like this:</P>
+<P CLASS="ciBody">
+board[1][0] = `X';</P>
+<P CLASS="ciBody">
+board[1][1] = `X';</P>
+<P CLASS="ciBody">
+board[1][2] = `X';</P>
+<P CLASS="Body">
+ Since a string is an array of characters, anytime you make an array of strings you are defining an array of arrays. For example,</P>
+<P CLASS="ciBody">
+Weekdays = {&quot;Monday&quot;, &quot;Tuesday&quot;, &quot;Wednesday&quot;, &quot;Thursday&quot;, &quot;Friday&quot;};</P>
+<P CLASS="Body">
+creates an array of strings so that</P>
+<P CLASS="ciBody">
+Weekdays[0] is set to &quot;Monday&quot;</P>
+<P CLASS="ciBody">
+Weekdays[0][0] is set to `M'</P>
+<P CLASS="ciBody">
+Weekdays[0][1] is set to `o'</P>
+<P CLASS="ciBody">
+Weekdays[0][2] is set to `n'</P>
+<P CLASS="ciBody">
+Weekdays[1] is set to &quot;Tuesday&quot;</P>
+</DIV>
+<DIV>
+<H3 CLASS="SubTopic">
+<A NAME="1000818">
+ </A>
+Arrays: further discussion and explanations</H3>
+<P CLASS="Body">
+Arrays are perhaps the most confusing parts of ScriptEase. However, they allow you to do a great deal and are well worth the effort it takes to understand them. They allow you to group different variable values together under a common name. It may help to think of a series of numbered boxes, beginning at 0 and continuing on indefinitely. Each box can hold a different value: box[0] can be 5, box[1] can be 23, box[64] can be 88, etc. </P>
+<P CLASS="Body">
+The confusion comes in when you try to use array variables in equations. Generally, if an array name appears with a number in brackets, it is a variable representing whatever is in the array at that point, e.g.</P>
+<P CLASS="ciBody">
+bag = box[64] </P>
+<P CLASS="Body">
+will set the value of the variable bag to 88 (or whatever value is held in the array at that point). </P>
+<P CLASS="Body">
+If, however, the array name appears without the following brackets and number, it stands for the entire array. This situation is most often encountered with strings. When an array holds a string, each box holds a different letter of the string. For example:</P>
+<P CLASS="ciBody">
+string = &quot;duck lips'</P>
+<P CLASS="Body">
+is the same as:</P>
+<P CLASS="ciBody">
+string[0] = `d'</P>
+<P CLASS="ciBody">
+string[1] = `u'</P>
+<P CLASS="ciBody">
+string[2] = `c'</P>
+<P CLASS="ciBody">
+string[3] = `k'</P>
+<P CLASS="ciBody">
+string[4] = ` `</P>
+<P CLASS="ciBody">
+string[5] = `l'</P>
+<P CLASS="ciBody">
+string[6] = `i'</P>
+<P CLASS="ciBody">
+string[7] = `p'</P>
+<P CLASS="ciBody">
+string[8] = `s'</P>
+<P CLASS="ciBody">
+string[9] = `\0'</P>
+<P CLASS="Body">
+The variable string represents the entire array. The null character (`\0') marks the end of the string. When a string value is set equal to something in double quotes (e.g., string = &quot;duck lips&quot;) a null character is automatically appended as the last member of the string. If the null character is moved, the end of the string (but not of the array) moves with it. If you set</P>
+<P CLASS="ciBody">
+string[4] = `\0'</P>
+<P CLASS="Body">
+and then output string to a file using a string function, the file will only receive &quot;duck&quot;.</P>
+<P CLASS="Body">
+Array arithmetic is a way of changing the starting point of that array. In our row of boxes analogy, this is equivalent to renumbering all the boxes (while keeping them in order). So if we set </P>
+<P CLASS="ciBody">
+fling = string + 1 </P>
+<P CLASS="Body">
+we are setting fling to be equal to string, only fling[0] is `u'. The d (of duck) is now at fling[-1]. The array still starts at 0; if you output fling to a file, the file will contain &quot;uck lips&quot;.</P>
+</DIV>
+</DIV>
+<DIV>
+<H2 CLASS="Topic">
+Structures</H2>
+<P CLASS="Body">
+A structure is a collection of named variables that belong together as a whole. Each of the named variables in a structure is called a member of that structure and can be any data type (integer, float, array, another structure, array of structures, etc.). These structure members are associated with the structure by using a period (.) between the structure variable and the member name.</P>
+<P CLASS="Body">
+A simple and useful example of a structure is to specify a point on the screen. A point consists of a row and column. You might specify:</P>
+<P CLASS="Flag-Desc-in-Body2">
+<EM CLASS="Code">
+place.row = 12;</EM>
+		// set to row 12</P>
+<P CLASS="Flag-Desc-in-Body2">
+<EM CLASS="Code">
+place.col = 20;</EM>
+		// set at column 20</P>
+<P CLASS="Flag-Desc-in-Body2">
+<EM CLASS="Code">
+place.row--;</EM>
+		// move up one row to row 11</P>
+<P CLASS="Body">
+Two structures can be compared for equality or inequality (which compares same-named, defined members of the structure), and they may be assigned, but no other arithmetic operations can be performed on a structure. </P>
+<P CLASS="Body">
+Like any other data type, structures can be combined into arrays. The two arrays used for storing phone numbers described at the beginning of the array section could be combined into one using structures:</P>
+<P CLASS="ciBody">
+person[0].name = &quot;Mary&quot;</P>
+<P CLASS="ciBody">
+person[0].number = &quot;555-2383&quot;</P>
+<P CLASS="ciBody">
+person[1].name = &quot;Eduardo&quot;</P>
+<P CLASS="ciBody">
+person[1].number = &quot;555-9331&quot;</P>
+<P CLASS="ciBody">
+person[2].name = &quot;Vince&quot;</P>
+<P CLASS="ciBody">
+person[2].number = &quot;555-4920&quot;</P>
+<DIV>
+<H3 CLASS="SubTopic">
+The -&gt; operator</H3>
+<P CLASS="Body">
+The -&gt; operator is a shortcut for &quot;[0].&quot; Using the structure example above, person-&gt;name is equivalent to &quot;Mary.&quot;</P>
+</DIV>
+</DIV>
+<DIV>
+<H2 CLASS="Topic">
+<A NAME="1000819">
+ </A>
+Logical Operators and<A NAME="1000820">
+ </A>
+ Conditional Expressions</H2>
+<P CLASS="Body">
+<A NAME="1000822">
+ </A>
+A <A NAME="1000821">
+ </A>
+conditional expression is evaluated to be TRUE or FALSE, where FALSE is represented by zero, and TRUE means anything that is not FALSE (i.e., not zero). A variable or any other expression by itself can be TRUE or FALSE (i.e., non-zero or zero). ScriptEase has predefined values for TRUE and FALSE. Think of FALSE as being a variable that contains the value 0, and TRUE as a variable set to non-zero. Note that there can be many values that are evaluated as true; everything, in fact, except 0. Therefore it is safer to compare things to FALSE (with only one possible value) than to TRUE (with many). These expressions can be combined with logic operators to make complex TRUE/FALSE decisions.</P>
+<P CLASS="Body">
+As an example, let's suppose you were designing a simple guessing game. The computer thinks of a number between 1 and 100, and you guess what it is. The computer will tell you if you're right or not, and whether your guess is higher or lower than the target number. The script might have a structure similar to the one below (GetTheGuess() is a function that gets your guess).</P>
+<P CLASS="ciBody">
+guess = GetTheGuess(); 		//get the user input</P>
+<P CLASS="ciBody">
+if (guess &gt; target_number){</P>
+<P CLASS="ciBody">
+  ...guess is too high...</P>
+<P CLASS="ciBody">
+  </P>
+<P CLASS="ciBody">
+if (guess &lt; target_number){</P>
+<P CLASS="ciBody">
+  ...guess is too low...</P>
+<P CLASS="ciBody">
+  </P>
+<P CLASS="ciBody">
+if (guess == target_number){</P>
+<P CLASS="ciBody">
+  ...you guessed the number!...</P>
+<P CLASS="ciBody">
+  }</P>
+<P CLASS="Body">
+This is a very simple example, but it illustrates how logical operators can be used to make decisions in ScriptEase.</P>
+<P CLASS="Body">
+The logical operators are:</P>
+<TABLE>
+<TR>
+<TD>
+<P CLASS="cb">
+!</P>
+</TD>
+<TD>
+<P CLASS="cb">
+<A NAME="1000823">
+ </A>
+NOT: opposite of decision</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="cb">
+&nbsp;</P>
+</TD>
+<TD>
+<P CLASS="True/False-Table-List">
+!TRUE	// FALSE</P>
+<P CLASS="True/False-Table-List">
+!FALSE	// TRUE</P>
+<P CLASS="True/False-Table-List">
+!(`D')	// FALSE</P>
+<P CLASS="True/False-Table-List">
+!(5-5)	// TRUE</P>
+</TD>
+</TR>
+</TABLE>
+<TABLE>
+<TR>
+<TD>
+<P CLASS="cb">
+&amp;&amp;</P>
+</TD>
+<TD>
+<P CLASS="cb">
+<A NAME="1000824">
+ </A>
+AND: TRUE if and only if both expressions are true</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="cb">
+&nbsp;</P>
+</TD>
+<TD>
+<P CLASS="True/False-Table-List">
+TRUE &amp;&amp; FALSE	// FALSE</P>
+<P CLASS="True/False-Table-List">
+TRUE &amp;&amp; TRUE	// TRUE</P>
+<P CLASS="True/False-Table-List">
+!(5-5) &amp;&amp; 4	// TRUE</P>
+<P CLASS="True/False-Table-List">
+0 &amp;&amp; (foo+2)	// FALSE: </P>
+<P CLASS="True/False-Table-List">
+	(foo+2) is not evaluated;</P>
+<P CLASS="True/False-Table-List">
+(since both expressions must be true for the statement as a whole to be true, if the fist expression is FALSE there is no need to evaluate the second expression, since the whole expression is false)</P>
+</TD>
+</TR>
+</TABLE>
+<TABLE>
+<TR>
+<TD>
+<H6 CLASS="ciDefTable">
+<EM CLASS="Element">
+||</EM>
+</H6>
+</TD>
+<TD>
+<P CLASS="cb">
+<A NAME="1000825">
+ </A>
+OR: TRUE if either expression is TRUE</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="cb">
+&nbsp;</P>
+</TD>
+<TD>
+<P CLASS="True/False-Table-List">
+FALSE || FALSE	// FALSE</P>
+<P CLASS="True/False-Table-List">
+0 || 0.345	// TRUE</P>
+<P CLASS="True/False-Table-List">
+!(5-3) || 4	// TRUE</P>
+<P CLASS="True/False-Table-List">
+TRUE || FALSE	// TRUE: doesn't even check FALSE</P>
+<P CLASS="True/False-Table-List">
+TRUE || (4+2)		// TRUE: (4+2) is not evaluated </P>
+<P CLASS="True/False-Table-List">
+FALSE || (4+2)		// TRUE: </P>
+<P CLASS="True/False-Table-List">
+FALSE || (4+2)	// TRUE: (4+2) is evaluated</P>
+<P CLASS="True/False-Table-List">
+(since only one of the expressions in the OR statement needs to be true for the expression to evaluate as true, if the first expression evaluates as true the processor returns TRUE and doesn't bother with evaluating the second)</P>
+</TD>
+</TR>
+</TABLE>
+<TABLE>
+<TR>
+<TD>
+<P CLASS="cb">
+<EM CLASS="Element">
+==</EM>
+</P>
+</TD>
+<TD>
+<P CLASS="True/False-Table-List">
+<A NAME="1000826">
+ </A>
+EQUALITY: TRUE if the values are equal, else FALSE</P>
+<P CLASS="True/False-Table-List">
+* DO NOT CONFUSE this with `=' used for assignment *</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="cb">
+&nbsp;</P>
+</TD>
+<TD>
+<P CLASS="True/False-Table-List">
+5 == 5			// TRUE</P>
+<P CLASS="True/False-Table-List">
+5 == 6			// FALSE</P>
+</TD>
+</TR>
+</TABLE>
+<TABLE>
+<TR>
+<TD>
+<P CLASS="cb">
+<EM CLASS="Element">
+!=</EM>
+</P>
+</TD>
+<TD>
+<P CLASS="True/False-Table-List">
+<A NAME="1000827">
+ </A>
+INEQUALITY: TRUE if the values are not equal, else FALSE</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="cb">
+&nbsp;</P>
+</TD>
+<TD>
+<P CLASS="True/False-Table-List">
+5 != 5	// FALSE</P>
+<P CLASS="True/False-Table-List">
+5 != 6	// TRUE</P>
+</TD>
+</TR>
+</TABLE>
+<TABLE>
+<TR>
+<TD>
+<P CLASS="cb">
+<EM CLASS="Element">
+&lt;</EM>
+</P>
+</TD>
+<TD>
+<P CLASS="cb">
+<A NAME="1000828">
+ </A>
+LESS THAN</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="cb">
+&nbsp;</P>
+</TD>
+<TD>
+<P CLASS="True/False-Table-List">
+5 &lt; 5	// FALSE</P>
+<P CLASS="True/False-Table-List">
+5 &lt; 6	// TRUE</P>
+</TD>
+</TR>
+</TABLE>
+<TABLE>
+<TR>
+<TD>
+<P CLASS="cb">
+<EM CLASS="Element">
+&gt;</EM>
+</P>
+</TD>
+<TD>
+<P CLASS="cb">
+<A NAME="1000829">
+ </A>
+GREATER THAN</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="cb">
+&nbsp;</P>
+</TD>
+<TD>
+<P CLASS="True/False-Table-List">
+5 &gt; 5	// FALSE</P>
+<P CLASS="True/False-Table-List">
+5 &gt; 6	// FALSE</P>
+<P CLASS="True/False-Table-List">
+5 &gt; -1	// TRUE</P>
+</TD>
+</TR>
+</TABLE>
+<TABLE>
+<TR>
+<TD>
+<P CLASS="cb">
+<EM CLASS="Element">
+&lt;=</EM>
+</P>
+</TD>
+<TD>
+<P CLASS="cb">
+<A NAME="1000830">
+ </A>
+LESS THAN OR EQUAL TO</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="cb">
+&nbsp;</P>
+</TD>
+<TD>
+<P CLASS="True/False-Table-List">
+5 &lt;= 5	// TRUE</P>
+<P CLASS="True/False-Table-List">
+5 &lt;= 6	// TRUE</P>
+<P CLASS="True/False-Table-List">
+5 &lt;= -1	// FALSE</P>
+</TD>
+</TR>
+</TABLE>
+<TABLE>
+<TR>
+<TD>
+<P CLASS="cb">
+<EM CLASS="Element">
+&gt;=</EM>
+</P>
+</TD>
+<TD>
+<P CLASS="cb">
+GREATER THAN OR EQUAL TO</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="cb">
+&nbsp;</P>
+</TD>
+<TD>
+<P CLASS="True/False-Table-List">
+5 &gt;= 5	// TRUE</P>
+<P CLASS="True/False-Table-List">
+5 &gt;= 6	// FALSE</P>
+<P CLASS="True/False-Table-List">
+5 &gt;= -1	// TRUE</P>
+</TD>
+</TR>
+</TABLE>
+<P CLASS="Body">
+Notice the difference between one equals sign (=), used to state that a variable has a certain value; and two equals signs (==), used to test for equality. If you use one equals sign when you mean two, your script will not function the way you want it to. This is a common pitfall even among experienced programmers. Unfortunately, the two meanings of equals must be kept separate, since there are times where you have to use them both in the same statement and there is no way the computer can differentiate them by context. </P>
+<P CLASS="Body">
+Normally, if a logical operator is comparing two variables that are arrays, then the comparison tests whether and how they point to the same data. But if either side of a logical operator is a literal string, then that operation compares the contents of the strings (similar to a comparison by the strcmp() function).</P>
+<P CLASS="Body">
+For example:</P>
+<P CLASS="ciBody">
+firstword = &quot;green&quot;</P>
+<P CLASS="ciBody">
+thirdword = &quot;green&quot;;</P>
+<P CLASS="Body">
+If you compare</P>
+<P CLASS="ciBody">
+firstword == &quot;green&quot;					TRUE</P>
+<P CLASS="ciBody">
+thirdword == &quot;green&quot;					TRUE</P>
+<P CLASS="ciBody">
+thirdword == firstword					FALSE</P>
+<P CLASS="Body">
+in the first two examples, you are comparing the contents of the variables, which are equivalent. In the third example, you are comparing the variables themselves. Firstword and thirdword are different variables (although at the moment they both contain the same string), residing in different places in computer memory; so they are not equal to each other.</P>
+</DIV>
+<DIV>
+<H2 CLASS="Topic">
+<A NAME="1000832">
+ </A>
+Flow Decisions: <A NAME="1000833">
+ </A>
+Loops, <A NAME="1000834">
+ </A>
+Conditions, and Switches</H2>
+<P CLASS="Body">
+This section describes the statements that control the flow of your program. You use these statements to tell your program how to make decisions. You'll notice code sections are often indented, when blocks belong together; this makes the code much easier to read.</P>
+<DIV>
+<H3 CLASS="SubTopic">
+<A NAME="1000831">
+ </A>
+if statement</H3>
+<P CLASS="Body">
+The if statement is the most commonly used mechanism for making decisions in a program. It allows you to test a condition and act on it. If an if statement finds the condition you test to be TRUE, the block or statement of code following it will be executed: If you are hungry, then eat something. This is an example of an if statement.</P>
+<P CLASS="ciBody">
+if ( goo &lt; 10 ) {</P>
+<P CLASS="ciBody">
+	printf(&quot;goo is smaller than 10\n&quot;);</P>
+<P CLASS="ciBody">
+}</P>
+</DIV>
+<DIV>
+<H3 CLASS="SubTopic">
+<A NAME="1000835">
+ </A>
+else statement</H3>
+<P CLASS="Body">
+The else statement is an extension of the if statement. It allows you to tell your program to do something else if the condition in the if statement was found to be FALSE. For example: if you are hungry eat something, else go to the gym. In ScriptEase code, it looks like this.</P>
+<P CLASS="ciBody">
+if ( goo &lt; 10 ) {</P>
+<P CLASS="ciBody">
+	sprintf(HTMLstring, &quot;goo is smaller than 10\n&quot;);</P>
+<P CLASS="ciBody">
+} </P>
+<P CLASS="ciBody">
+else {</P>
+<P CLASS="ciBody">
+	sprintf(HTMLstring, &quot;goo is not smaller than 10\n&quot;);</P>
+<P CLASS="ciBody">
+}</P>
+<P CLASS="Body">
+To make more complex decisions, else can be combined with if to match one out of a number of possible conditions. For example: if you are hungry then eat something, else if you like to go to the gym go to the gym, else go for a walk. The following code illustrates this concept.</P>
+<P CLASS="ciBody">
+if ( goo &lt; 10 ) {</P>
+<P CLASS="ciBody">
+	printf(goo is less than 10\n&quot;);</P>
+<P CLASS="ciBody">
+	if ( goo &lt; 0 ) {</P>
+<P CLASS="ciBody">
+		printf(&quot;goo is negative; so it's less than 10\n&quot;);</P>
+<P CLASS="ciBody">
+	}</P>
+<P CLASS="ciBody">
+} </P>
+<P CLASS="ciBody">
+else if ( goo &gt; 10 ) {</P>
+<P CLASS="ciBody">
+	sprintf(&quot;goo is greater than 10\n&quot;);</P>
+<P CLASS="ciBody">
+}</P>
+<P CLASS="ciBody">
+else {</P>
+<P CLASS="ciBody">
+	sprintf(&quot;goo is 10\n&quot;);</P>
+<P CLASS="ciBody">
+}</P>
+</DIV>
+<DIV>
+<H3 CLASS="SubTopic">
+<A NAME="1000836">
+ </A>
+while statement</H3>
+<P CLASS="Body">
+The while is used to execute a particular section of code over and over again until an expression evaluates as FALSE.</P>
+<P CLASS="ciBody">
+while (expression){</P>
+<P CLASS="ciBody">
+	DoSomething()</P>
+<P CLASS="ciBody">
+}</P>
+<P CLASS="Body">
+When the interpreter comes across a while statement it first tests to see whether the expression is true or not. If it is, it will carry out the statement or block following it (in this case the function DoSomething()). Then it will test the expression again. This loop repeats until the test evaluates to FALSE, whereupon the program continues after the block of code associated with the while statement. </P>
+<P CLASS="Body">
+The first example in this chapter uses a while statement:</P>
+<P CLASS="ciBody">
+while( ThereAreUncalledNamesOnTheList() != FALSE){</P>
+<P CLASS="ciBody">
+	name=GetNameFromTheList();</P>
+<P CLASS="ciBody">
+	CallthePerson(name);</P>
+<P CLASS="ciBody">
+	LeaveTheMessage();</P>
+<P CLASS="ciBody">
+}</P>
+</DIV>
+<DIV>
+<H3 CLASS="SubTopic">
+<A NAME="1000837">
+ </A>
+do {...} while </H3>
+<P CLASS="Body">
+This is different from the while statement in that the code block is executed at least once, before the test condition is checked. </P>
+<P CLASS="ciBody">
+do {</P>
+<P CLASS="ciBody">
+	value++;</P>
+<P CLASS="ciBody">
+	ProcessData(value);</P>
+<P CLASS="ciBody">
+} while( value &lt; 100 );</P>
+<P CLASS="Body">
+The code used to demonstrate the while statement could also be written this way:</P>
+<P CLASS="ciBody">
+do {</P>
+<P CLASS="ciBody">
+	name=GetNameFromTheList();</P>
+<P CLASS="ciBody">
+	CallthePerson(name);</P>
+<P CLASS="ciBody">
+	LeaveTheMessage();</P>
+<P CLASS="ciBody">
+} while (name != TheLastNameOnTheList());</P>
+<P CLASS="Body">
+Of course, if there are no names on the list, the script will run into problems!</P>
+</DIV>
+<DIV>
+<H3 CLASS="SubTopic">
+<A NAME="1000838">
+ </A>
+for statement</H3>
+<P CLASS="Body">
+The for statement is a special looping statement. It allows for more precise control of the number of times a section of code is executed. The for statement takes the following form.</P>
+<P CLASS="ciBody">
+for ( initialization; conditional; loop_expression ){</P>
+<P CLASS="ciBody">
+	statement</P>
+<P CLASS="ciBody">
+}</P>
+<P CLASS="Body">
+The initialization is performed first. Then the conditional is tested. If the conditional is TRUE (or if there is no conditional expression) then statement is executed. Then the loop_expression is executed, and so on back to testing the conditional. If the conditional is FALSE then statement is not executed and the program continues beyond statement. The for statement is a shortcut for this form of while:</P>
+<P CLASS="ciBody">
+initialization;</P>
+<P CLASS="ciBody">
+while ( conditional ) {</P>
+<P CLASS="ciBody">
+	statement;</P>
+<P CLASS="ciBody">
+	loop_expression;</P>
+<P CLASS="ciBody">
+}</P>
+<P CLASS="Body">
+None of the statements that appear in the parenthesis following the for statement are mandatory, so the above code demonstrating the while statement would be rewritten this way if you preferred to use a for statement:</P>
+<P CLASS="ciBody">
+for( ; ThereAreUncalledNamesOnTheList() ; ){</P>
+<P CLASS="ciBody">
+	name=GetNameFromTheList();</P>
+<P CLASS="ciBody">
+	CallthePerson(name);</P>
+<P CLASS="ciBody">
+	LeaveTheMessage();</P>
+<P CLASS="ciBody">
+}</P>
+<P CLASS="Body">
+Since we aren't keeping track of the number of iterations in the loop, there is no need to have an initialization or loop_expression statement. You can use an empty for statement to create an endless loop:</P>
+<P CLASS="ciBody">
+for(;;){</P>
+<P CLASS="ciBody">
+	//the code in this statement block will repeat forever, unless the </P>
+<P CLASS="ciBody">
+	//program breaks out of the for loop somehow.</P>
+<P CLASS="ciBody">
+}</P>
+<P CLASS="Body">
+For, do and while statements may be nested inside one another.</P>
+</DIV>
+<DIV>
+<H3 CLASS="SubTopic">
+<A NAME="1000839">
+ </A>
+break and <A NAME="1000840">
+ </A>
+continue</H3>
+<P CLASS="Body">
+break and continue are used to control the behavior of the looping statements for, while, and do.</P>
+<P CLASS="Body">
+break terminates the innermost loop (for, while, or do). The program resumes execution on the next line following the loop. The break statement is also used at the close of a case statement (see below). This bit of code does nothing but illustrate the break statement:</P>
+<P CLASS="ciBody">
+for(;;){</P>
+<P CLASS="ciBody">
+	break;</P>
+<P CLASS="ciBody">
+}</P>
+<P CLASS="Body">
+continue jumps to the test condition in the nearest do or while loop, and jumps to the loop_expression in the nearest for loop (i.e., jumps to the next iteration of the loop).</P>
+</DIV>
+<DIV>
+<H3 CLASS="SubTopic">
+<A NAME="1000841">
+ </A>
+switch, <A NAME="1000842">
+ </A>
+case, and <A NAME="1000843">
+ </A>
+default</H3>
+<P CLASS="Body">
+The switch statement is a fancy way of making a decision based on the value of a variable or statement. The switch statement follows this format:</P>
+<P CLASS="ciBody">
+switch( switch_variable ) {</P>
+<P CLASS="ciBody">
+	case value1:		statement1</P>
+<P CLASS="ciBody">
+	case value2:		statement2</P>
+<P CLASS="ciBody">
+	case value3:		statement3</P>
+<P CLASS="ciBody">
+	case value4:		statement4</P>
+<P CLASS="ciBody">
+	case value5:		statement5</P>
+<P CLASS="ciBody">
+	.</P>
+<P CLASS="ciBody">
+	.</P>
+<P CLASS="ciBody">
+	.</P>
+<P CLASS="ciBody">
+	default: default_statement</P>
+<P CLASS="ciBody">
+}</P>
+<P CLASS="Body">
+switch_variable is evaluated, and then it is compared to all of the values in the case statements (value1, value2, value3, etc...) until a match is found. The statement (or statements) following the matched case are then executed until the end of the switch block is reached or until a break statement exits the switch block. If no match is found, the default: statement is executed if there is one. </P>
+<P CLASS="Body">
+For example, suppose you had a series of account numbers, each beginning with a letter that determines what type of account it is. You can use a switch statement to carry out actions depending on that first letter. The same can be accomplished with a series of nested if statements, but that requires a lot more typing and is harder to read.</P>
+<P CLASS="ciBody">
+switch ( key[0] ) {</P>
+<P CLASS="ciBody">
+	case `A':</P>
+<P CLASS="ciBody">
+ 		printf(&quot;A&quot;);		//handle `A' accounts...</P>
+<P CLASS="ciBody">
+		break;</P>
+<P CLASS="ciBody">
+	case `B':</P>
+<P CLASS="ciBody">
+		printf(&quot;B&quot;);		//handle `B' accounts...</P>
+<P CLASS="ciBody">
+		break;</P>
+<P CLASS="ciBody">
+	case `C':</P>
+<P CLASS="ciBody">
+		printf(&quot;C&quot;);		//handle `C' accounts...</P>
+<P CLASS="ciBody">
+		break;</P>
+<P CLASS="ciBody">
+	default:</P>
+<P CLASS="ciBody">
+		printf(&quot;You have entered an invalid account number.\n&quot;);</P>
+<P CLASS="ciBody">
+		break;</P>
+<P CLASS="ciBody">
+}</P>
+<P CLASS="Body">
+A common mistake is to omit a break statement. In the preceding example, if the break after the printf(&quot;B&quot;) statement were omitted the computer would print both &quot;B&quot; and &quot;C&quot;, because when a match for a case statement is found, the computer will execute commands until a break statement is encountered.</P>
+<P CLASS="Body">
+Normally, if a switch and case statements were referencing array variables, then the comparison would be performed on whether they referenced the same array data. But if either the switch_variable or one of the case values is a literal string, then that comparison of the two strings is made using the contents of the strings (i.e., !strcmp()).</P>
+</DIV>
+<DIV>
+<H3 CLASS="SubTopic">
+<A NAME="1000844">
+ </A>
+goto and <A NAME="1000847">
+ </A>
+labels</H3>
+<P CLASS="Body">
+You may jump to any location within a function block (see functions) by using the goto statement. The syntax is:</P>
+<P CLASS="ciBody">
+goto LABEL;</P>
+<P CLASS="Body">
+where LABEL is an identifier followed by a colon (:).</P>
+<P CLASS="ciBody">
+beginning:</P>
+<P CLASS="ciBody">
+ a = getche();     //get a value for a</P>
+<P CLASS="ciBody">
+&nbsp;</P>
+<P CLASS="ciBody">
+if (a&lt;2)</P>
+<P CLASS="ciBody">
+ goto beginning;</P>
+<P CLASS="ciBody">
+&nbsp;</P>
+<P CLASS="ciBody">
+printf(&quot;%d&quot;, a);</P>
+<P CLASS="Body">
+gotos should be used sparingly, for they make it difficult to track program flow.</P>
+</DIV>
+<DIV>
+<H3 CLASS="SubTopic">
+Conditional Operator ?:</H3>
+<P CLASS="Body">
+The conditional operator is a strange-looking statement that is simply a useful shortcut. It is a limited variation of the IF statement. The syntax is:</P>
+<P CLASS="ciBody">
+test_expression ? expression_if_true : expression_if_false</P>
+<P CLASS="Body">
+The entire statement must be on one line.</P>
+<P CLASS="Body">
+First, test_expression is evaluated. If test_expression is non-zero (TRUE) then expression_if_true is evaluated and the value of the entire expression replaced by the value of expression_if_true. If test_expression is FALSE, then expression_if_false is evaluated and the value of the entire expression is that of expression_if_false.</P>
+<P CLASS="Body">
+For example:</P>
+<P CLASS="ciBody">
+foo = ( 5 &lt; 6 ) ? 100 : 200;			// foo is set to 100</P>
+<P CLASS="ciBody">
+sprintf(message, &quot;User's name is %s\n&quot;,NULL==name ? &quot;unknown&quot; : name);</P>
+<P CLASS="Body">
+To see how the conditional operator is a shortcut, consider that this if/else code to get the maximum of two numbers:</P>
+<P CLASS="ciBody">
+if ( Num1 &lt; Num2 )</P>
+<P CLASS="ciBody">
+	MaxNum = Num2;</P>
+<P CLASS="ciBody">
+else</P>
+<P CLASS="ciBody">
+	MaxNum = Num1</P>
+<P CLASS="Body">
+is equivalent to this conditional operator code:</P>
+<P CLASS="ciBody">
+MaxNum = ( Num1 &lt; Num2 ) ? Num2 : Num1 ;</P>
+</DIV>
+</DIV>
+<DIV>
+<H2 CLASS="Topic">
+<A NAME="1000848">
+ </A>
+printf()</H2>
+<P CLASS="Body">
+printf() is an example of a function: a small, independent unit of code designed to do one task that is a subset of a larger one. In the case of printf, that task is to take data, format it and print it to the screen. Although functions won't be formally defined until the next section, we're going to introduce this one now, so that when we get to the proper definition of functions you will have a better idea of what we're talking about.</P>
+<DIV>
+<H3 CLASS="SubTopic">
+<A NAME="1000849">
+ </A>
+printf() Syntax</H3>
+<P CLASS="Body">
+The printf() function prints a string to the screen (standard output). In its most simple form, it takes the string to be printed as its only parameter.</P>
+<P CLASS="ciBody">
+printf(&quot;Hello, world!&quot;);</P>
+<P CLASS="Body">
+The printf() function returns the number of characters that it printed, so the statement</P>
+<P CLASS="ciBody">
+ value = printf(&quot;Hello, world!&quot;);</P>
+<P CLASS="Body">
+sets value to 13, the number of characters in the string &quot;Hello, world!&quot;.</P>
+<P CLASS="Body">
+printf() takes a template string and one or more variables. It then formats them as text and inserts them into the appropriate places in the string. A printf() statement looks like this:</P>
+<P CLASS="ciBody">
+printf(Template,data1,data2,data3,...);</P>
+<P CLASS="Body">
+Template, data1, data2, data3, etc., are all parameters being passed to the function. They may be variables, literal strings, or numerical values. </P>
+<P CLASS="Body">
+For example, suppose you had a script with the following variables:</P>
+<P CLASS="ciBody">
+first_name = &quot;Helen&quot;</P>
+<P CLASS="ciBody">
+last_name = &quot;Wheels&quot;</P>
+<P CLASS="ciBody">
+state = &quot;Arizona&quot;</P>
+<P CLASS="ciBody">
+age = 26</P>
+<P CLASS="ciBody">
+crime = &quot;frightens young children&quot;</P>
+<P CLASS="Body">
+The following printf() statement</P>
+<P CLASS="ciBody">
+printf(&quot;%s %s lives in %s, where she %s. She is %d years old\n&quot;,   first_name, last_name, state, crime, age)</P>
+<P CLASS="Body">
+Would be interpreted as:</P>
+<P CLASS="ciBody">
+&quot;Helen Wheels lives in Arizona, where she frightens young children. She is 26 years old.&quot;</P>
+<P CLASS="Body">
+&quot;%s %s lives in %s, where she %s. She is %d years old.\n&quot; is the template for the string to be printed. The template is always the first parameter passed to printf(). Whenever a template contains a percent character (%) followed by another character, then instead of putting those characters into the string, sprintf() will substitute the next data item (data1, data2, data3, etc...).</P>
+<P CLASS="Body">
+The characters immediately following the percent sign (%) determine how the data will be presented. This example uses two formats: %s, to indicate a string; and %d, to indicate a decimal number. There are many such data formats (see the complete description in chapter 6), but here are a few of the more common ones to start with:</P>
+<TABLE>
+<TR>
+<TD>
+<P CLASS="cb">
+%%</P>
+</TD>
+<TD>
+<P CLASS="cb">
+print a percentage sign</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="cb">
+%d</P>
+</TD>
+<TD>
+<P CLASS="cb">
+print a decimal integer</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="cb">
+%X</P>
+</TD>
+<TD>
+<P CLASS="cb">
+print a hexadecimal integer</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="cb">
+%c</P>
+</TD>
+<TD>
+<P CLASS="cb">
+print a character</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="cb">
+%f</P>
+</TD>
+<TD>
+<P CLASS="cb">
+print a floating-point value</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="cb">
+%E</P>
+</TD>
+<TD>
+<P CLASS="cb">
+print a floating-point value in scientific format</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="cb">
+%s</P>
+</TD>
+<TD>
+<P CLASS="cb">
+print a string</P>
+</TD>
+</TR>
+</TABLE>
+<P CLASS="Body">
+There are also special characters that cause unique screen behavior when they are printed, some of which are:</P>
+<TABLE>
+<TR>
+<TD>
+<P CLASS="cb">
+\n</P>
+</TD>
+<TD>
+<P CLASS="cb">
+goto beginning of next line</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="cb">
+\&quot;</P>
+</TD>
+<TD>
+<P CLASS="cb">
+print the quote character</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="cb">
+\\</P>
+</TD>
+<TD>
+<P CLASS="cb">
+print a backslash</P>
+</TD>
+</TR>
+</TABLE>
+<P CLASS="Body">
+Here are some example printf() statements:</P>
+<P CLASS="ciBody">
+printf(&quot;Hello world. This is my %dst ScriptEase program.\n&quot;, count);</P>
+<P CLASS="ciBody">
+printf(&quot;%c %d %dlips&quot;,'I', 8, 6-4);</P>
+<P CLASS="ciBody">
+printf(&quot;%d decimal is the same as %X in hexadecimal&quot;,n,n);</P>
+<P CLASS="ciBody">
+printf(&quot;My name is: %s\n&quot;,&quot;Mary&quot;);</P>
+<P CLASS="Body">
+The above statements print out the following strings:</P>
+<P CLASS="ciBody">
+Hello world. This is my 1st ScriptEase program [assuming Count = 1]</P>
+<P CLASS="ciBody">
+I 8 2lips</P>
+<P CLASS="ciBody">
+17 decimal is the same as 11 in hexadecimal [where n=17]</P>
+<P CLASS="ciBody">
+My name is: Mary</P>
+</DIV>
+</DIV>
+<DIV>
+<H2 CLASS="Topic">
+<A NAME="1000850">
+ </A>
+Functions</H2>
+<P CLASS="Body">
+If a program you are writing starts to get large and complex, it can be simplified by breaking it up into functions. A function is an independent section of code that receives information from a program and performs some action on it. It may also send a value back to the program that called it. </P>
+<P CLASS="Body">
+Once a function has been written, you won't have to think again about how to perform that action; you just call the function and let it handle the work for you. You only need to know what information the function needs to receive (parameters) and the type of information it returns. </P>
+<P CLASS="Body">
+printf() is an example of a function, providing an easy way to display formatted text. It receives a template string and variables from the program that called it, prints out the formatted string, and returns the number of characters printed to the program that called it. </P>
+<P CLASS="Body">
+Functions can perform actions of any complexity, but are used in statements just like variables. Almost any place where you can use a variable in a statement you can use a function instead. For example, let's suppose you had a function called DoubleAndDivideByFive(number), which takes the variable <EM CLASS="EquationVariables">
+number</EM>
+, doubles it and divides the result by five (most functions are a little more complex that this). The computer will interpret</P>
+<P CLASS="ciBody">
+a=DoubleNumberAndDivideByFive(number)</P>
+<P CLASS="Body">
+just like</P>
+<P CLASS="ciBody">
+a=(number*2)/5</P>
+<P CLASS="Body">
+This is a simple function, so the value of one method over the other is not clear in this case. But functions can get very complex; instead of &quot;DoubleandDivideByFive()&quot;, think &quot;RecalculateBasedOnCurrentInterestRate().&quot; </P>
+<P CLASS="Body">
+Any valid variable name may also be a function name. Functions are distinguished from variables by the parenthesis that follow them. Like comments, using descriptive function names helps you keep track of what is going on with your script.</P>
+<P CLASS="Body">
+Several sets of built-in functions is included as part of the ScriptEase interpreter. These functions are all described in this manual. They are internal to the interpreter, and may be used at any time. In addition, ScriptEase ships with a number of external libraries or .hmm files. These functions must be explicitly included in your script to use them; see the description of the #include statement on page 40.</P>
+<P CLASS="Body">
+ScriptEase allows you to have two functions with the same name. The interpreter will use the function nearest the end of the script; that is, the last function to load is the one that will be executed. This way you can write functions that supersede the ones in the .hmm files.</P>
+<DIV>
+<H3 CLASS="SubTopic">
+<A NAME="1000851">
+ </A>
+Function definition</H3>
+<P CLASS="Body">
+A function takes the following form:</P>
+<P CLASS="ciBody">
+FunctionName(Parameter1,Parameter2,Parameter3)</P>
+<P CLASS="ciBody">
+{</P>
+<P CLASS="ciBody">
+	statements...</P>
+<P CLASS="ciBody">
+	return result;</P>
+<P CLASS="ciBody">
+}</P>
+<P CLASS="Body">
+where the function name is followed by a list of input parameters in parentheses (there can be any number of input parameters and they can be named with any variable names).</P>
+<P CLASS="Body">
+A call is made to a function in this format:</P>
+<P CLASS="ciBody">
+FunctionName(Value1,Value2,Value3)</P>
+<P CLASS="Body">
+So any call to FunctionName() will result in the execution of FunctionName() with the parameters passed, and then be equivalent in the calling code statement to whatever value FunctionName() returns.</P>
+<P CLASS="Body">
+If you change the value of a variable passed to a function, it will change the value of the variable throughout the program. If you don't want to have a function change the value of the variables passed to it, make a copy of the variable and make your changes on that. If the variable is a string, you should use the strcpy() function to copy the variable.</P>
+</DIV>
+<DIV>
+<H3 CLASS="SubTopic">
+<A NAME="1000852">
+ </A>
+Function RETURN Statement</H3>
+<P CLASS="Body">
+The <A NAME="1000853">
+ </A>
+return statement causes a function to return to the code that initially called the function. The calling code will receive the value that the function returned, and any code in the function following the return statement will be ignored.The value to be returned may be enclosed in parenthesis to increase legibility:</P>
+<P CLASS="ciBody">
+foo1(a,b)		// return a times b</P>
+<P CLASS="ciBody">
+{</P>
+<P CLASS="ciBody">
+	return a * b;</P>
+<P CLASS="ciBody">
+}</P>
+<P CLASS="Body">
+&nbsp;</P>
+<P CLASS="ciBody">
+foo2(a,b)		// return the minimum value of a and b</P>
+<P CLASS="ciBody">
+{</P>
+<P CLASS="ciBody">
+	if ( a &lt; b ){</P>
+<P CLASS="ciBody">
+		result = a;</P>
+<P CLASS="ciBody">
+	}</P>
+<P CLASS="ciBody">
+	else{</P>
+<P CLASS="ciBody">
+		result = b;</P>
+<P CLASS="ciBody">
+	}</P>
+<P CLASS="ciBody">
+	return(result);</P>
+<P CLASS="ciBody">
+}</P>
+<P CLASS="Body">
+Some functions don't return anything, and therefore don't have return statements (or they have return statements but no return value). These functions are called void functions. Void functions return no value to the calling code. These examples demonstrate some void-returning functions:</P>
+<P CLASS="ciBody">
+foo(a,b)						// set a = b squared. No return value.</P>
+<P CLASS="ciBody">
+{</P>
+<P CLASS="ciBody">
+	a = b * b;</P>
+<P CLASS="ciBody">
+	return;</P>
+<P CLASS="ciBody">
+}</P>
+<P CLASS="Body">
+&nbsp;</P>
+<P CLASS="ciBody">
+foo(a,b)						// set a = b squared. No return value.</P>
+<P CLASS="ciBody">
+{</P>
+<P CLASS="ciBody">
+	a = b * b;</P>
+<P CLASS="ciBody">
+}</P>
+<P CLASS="Body">
+In a ScriptEase program, these two functions behave identically.</P>
+</DIV>
+<DIV>
+<H3 CLASS="SubTopic">
+<A NAME="1000854">
+ </A>
+Function Example</H3>
+<P CLASS="Body">
+This code demonstrates a simple function that multiplies two integers by adding them:</P>
+<P CLASS="ciBody">
+num1 = 4;</P>
+<P CLASS="ciBody">
+num2 = 6;</P>
+<P CLASS="ciBody">
+&nbsp;</P>
+<P CLASS="ciBody">
+// use the standard method of multiplying numbers</P>
+<P CLASS="ciBody">
+printf(&quot;%d times %d is %d.\n&quot;,num1,num2,num1*num2);</P>
+<P CLASS="ciBody">
+&nbsp;</P>
+<P CLASS="ciBody">
+// now call our function to do the same thing</P>
+<P CLASS="ciBody">
+printf(&quot;%d times %d is %d.\n&quot;,num1,num2,Multiply(num1,num2));</P>
+<P CLASS="ciBody">
+&nbsp;</P>
+<P CLASS="ciBody">
+// declare a function that multiplies two integers. Notice</P>
+<P CLASS="ciBody">
+// that the integers are defined as i and j, so that's how</P>
+<P CLASS="ciBody">
+// they'll be called in this function, no matter what they</P>
+<P CLASS="ciBody">
+// were named in the calling code. This function will</P>
+<P CLASS="ciBody">
+// return i added to itself j times. (It will fail if j&lt;0).</P>
+<P CLASS="ciBody">
+Multiply(i,j)</P>
+<P CLASS="ciBody">
+{</P>
+<P CLASS="ciBody">
+	total = 0;</P>
+<P CLASS="ciBody">
+	for ( count = 0; count &lt; j; count++ )</P>
+<P CLASS="ciBody">
+	total += i;</P>
+<P CLASS="ciBody">
+	return(total); // caller will receive this value</P>
+<P CLASS="ciBody">
+}</P>
+<P CLASS="Body">
+When executed, the above code will return two identical strings, &quot;4 times 6 is 24.&quot; This example demonstrates several features of functions. Notice that in calling sprintf() the parameter &quot;num1*num2&quot; is not passed to rsprintf(), but the result of &quot;num1*num2&quot; is. Likewise, &quot;Multiply(num1,num2)&quot; is not a parameter to rsprintf(); instead, rsprintf() receives the return value of Multiply() as its parameter.</P>
+</DIV>
+<DIV>
+<H3 CLASS="SubTopic">
+<A NAME="1000855">
+ </A>
+Function recursion</H3>
+<P CLASS="Body">
+A recursive function is a function that calls itself, or calls some other function that then goes back and calls the function that first called it. Recursion is permitted in ScriptEase. Each call into a function is independent of any other call to that function (see section on variable scope). Be aware that recursion has its limits; if a function calls itself too many times the script will run out of memory and abort.</P>
+<P CLASS="Body">
+Don't worry if you find recursion a confusing idea; you rarely have to use it. Just remember that a function can call itself if it needs to. For example, the following function, factor(), factors a number. Factoring is an ideal candidate for recursion because it is a repetitive process where the result of one factor is then itself factored according to the same rules.</P>
+<P CLASS="ciBody">
+factor(i)						// recursive function to print all factors of i,</P>
+<P CLASS="ciBody">
+{			// and return the number of factors in i</P>
+<P CLASS="ciBody">
+	if ( 2 &lt;= i ) {</P>
+<P CLASS="ciBody">
+		for ( test = 2; test &lt;= i; test++ ) {</P>
+<P CLASS="ciBody">
+			if ( 0 == (i % test) ) {</P>
+<P CLASS="ciBody">
+				// found a factor, so print this factor then call</P>
+<P CLASS="ciBody">
+				// factor() recursively to find the next factor</P>
+<P CLASS="ciBody">
+			return( 1 + factor(i/test) );</P>
+<P CLASS="ciBody">
+			}</P>
+<P CLASS="ciBody">
+		}</P>
+<P CLASS="ciBody">
+	}</P>
+<P CLASS="ciBody">
+	// if this point was reached, then factor not found</P>
+<P CLASS="ciBody">
+	return( 0 );</P>
+<P CLASS="ciBody">
+}</P>
+<P CLASS="Body">
+The function strcat(), used in the above example, adds one string on to the end of another. In this example, it adds the contents of text to the end of result string.</P>
+</DIV>
+<DIV>
+<H3 CLASS="SubTopic">
+<A NAME="1000856">
+ </A>
+Error checking for functions</H3>
+<P CLASS="Body">
+Some functions will return a special value if they failed to do what they are supposed to do. For example, the function fopen() opens or creates a file for a script to read or write to. But suppose that the computer was unable to open the file for some reason. In that case, the fopen function returns NULL.</P>
+<P CLASS="Body">
+If you try to read or write from the file you will get all kinds of errors, because the file isn't open. To prevent this from happening, make sure that the fopen didn't return NULL when it opened the file. Instead of just calling fopen like this:</P>
+<P CLASS="ciBody">
+fp = fopen(&quot;myfile.txt&quot;, &quot;r&quot;);</P>
+<P CLASS="Body">
+check to make sure that NULL has not been returned:</P>
+<P CLASS="ciBody">
+if (NULL == (fp = fopen(&quot;myfile.txt&quot;, &quot;r&quot;))){</P>
+<P CLASS="ciBody">
+	ErrorMsg(&quot;fopen returned NULL&quot;);</P>
+<P CLASS="ciBody">
+}</P>
+<P CLASS="Body">
+You will still have to abort the script in this case, but at least you know why. The fopen() function is documented in the ScriptEase Standard Library chapter.</P>
+</DIV>
+</DIV>
+<DIV>
+<H2 CLASS="Topic">
+<A NAME="1000857">
+ </A>
+Variable Scope</H2>
+<P CLASS="Body">
+A ScriptEase variable is either global or local. A global variable is one that is referenced outside of any function, making it visible and accessible to all functions. A local variable is one that is only referenced inside of a function, and so it only has meaning and value within the function where it was created and any function it was explicitly passed to. Note that two identically-named local variables in different functions are not the same variable. Each instance of a recursive function has its own set of local variables. In other words, a variable that is not referenced outside of a function only has meaning (and that meaning is unique) while the code for that function is executing.</P>
+<P CLASS="Body">
+In the following sample code, number is the only global variable, the two result variables in Quadruple() and Double() are completely independent, and the result variable in one call to Double() is unique to each call to Double():</P>
+<P CLASS="ciBody">
+number = Quadruple(3);</P>
+<P CLASS="ciBody">
+&nbsp;</P>
+<P CLASS="ciBody">
+Quadruple(i)</P>
+<P CLASS="ciBody">
+{</P>
+<P CLASS="ciBody">
+	result = Double(Double(i));</P>
+<P CLASS="ciBody">
+	return(result);</P>
+<P CLASS="ciBody">
+}</P>
+<P CLASS="ciBody">
+&nbsp;</P>
+<P CLASS="ciBody">
+Double(j)</P>
+<P CLASS="ciBody">
+{</P>
+<P CLASS="ciBody">
+	result = j + j;</P>
+<P CLASS="ciBody">
+	return(result);</P>
+<P CLASS="ciBody">
+}</P>
+<P CLASS="Body">
+It is important to give global variables names that are unique and unlikely to be declared elsewhere (like current_interest_rate and corinthian_paranoia_index), so that you don't accidentally use the same variable name as a local variable; this will seriously distort your script results. In general, it is better to use local variables than global ones.</P>
+</DIV>
+<DIV>
+<H2 CLASS="Topic">
+Preprocessor directives</H2>
+<P CLASS="Body">
+The following ScriptEase statements are collectively called preprocessor directives, since they are processed before the rest of the script and direct the way the script commands are interpreted.</P>
+<DIV>
+<H3 CLASS="SubTopic">
+#<A NAME="1000858">
+ </A>
+define</H3>
+<P CLASS="Body">
+#define is used to replace a token (a variable or a function name) with other characters. The #define statement is executed while the script is being read into the processor, before the script itself, so you'll have all the substitutions in place before the code is read). A #define statement has the following structure:</P>
+<P CLASS="ciBody">
+#define token replacement</P>
+<P CLASS="Body">
+This results in all subsequent occurrences of token to be replaced with replacement. For example:</P>
+<P CLASS="ciBody">
+#define NumberOfCountriesInSouthAmerica 13</P>
+<P CLASS="Body">
+The define statement increases program legibility and makes it easier to change your code later on. If Bolivia and Peru decide someday to unite, you only have to change the #define statement to bring your program up to speed. Otherwise, you'd have to go through your program looking for 13's, decide which ones refer to the number of countries in South America (as opposed to the 13's representing the Original Colonies of the United States, which stay 13's) and change them all to 12's.</P>
+<P CLASS="Body">
+Likewise, if you write screen routines for a 25-line monitor, and then later decide to make it a 50-line monitor, you're better off altering</P>
+<P CLASS="ciBody">
+#define ROW_COUNT 25</P>
+<P CLASS="Body">
+to</P>
+<P CLASS="ciBody">
+#define ROW_COUNT 50</P>
+<P CLASS="Body">
+and using ROW_COUNT in your code (or ROW_COUNT-1, ROW_COUNT+2, ROW_COUNT/2, etc...) than if you had to search for every instance of the numbers 25, 24, 26, etc...</P>
+<P CLASS="Body">
+The ScriptEase interpreter has a large default list of tokens that have already been #defined, such as TRUE, FALSE, and NULL. </P>
+</DIV>
+<DIV>
+<H3 CLASS="SubTopic">
+<A NAME="1000859">
+ </A>
+#include</H3>
+<P CLASS="Body">
+The #include directive lets you include other scripts, and all of the functions contained therein, as a part of the code you are writing. Usually #include lines are placed at the beginning of the script and consist only of the #include statement and the name of the file to be included, for example:</P>
+<P CLASS="ciBody">
+#include &lt;gdi.hmm&gt;</P>
+<P CLASS="Body">
+This line will make all of the functions in the library file gdi.hmm available to the program.</P>
+<P CLASS="Body">
+The quote characters (` or &quot;) may be used in place of &lt; and &gt;.To include all of C:\CMM\LIB.cmm</P>
+<P CLASS="ciBody">
+#include &lt;c:\CMM\LIB.cmm&gt;</P>
+<P CLASS="Body">
+To include lots of little files into one big one program</P>
+<P CLASS="ciBody">
+#include &lt;screen.cmm&gt;</P>
+<P CLASS="ciBody">
+#include &lt;keyboard.cmm&gt;</P>
+<P CLASS="ciBody">
+#include &lt;init.cmm&gt;</P>
+<P CLASS="ciBody">
+#include &lt;comm.cmm&gt;</P>
+<P CLASS="Body">
+The ScriptEase interpreter will not include a file more than once, so if a file has already been included, a second (or third) #include statement will have no effect. ScriptEase ships with a number of libraries of pre-written functions you can use. Library files are plain text files (as are all ScriptEase code documents) and have the extension .hmm. </P>
+<P CLASS="Body">
+This is all you really need to know about the #include statement. It is almost always used in the form above. In certain circumstances, however, #include may take any of a number of parameters to specify which parts of a file should be included. The #include syntax is:</P>
+<P CLASS="ciBody">
+#include &lt;Name[,Ext[,Label[,BeginCode[,EndCode]]]]&gt;</P>
+<P CLASS="Body">
+where:</P>
+<TABLE>
+<TR>
+<TD>
+<P CLASS="cb">
+Name</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Name of the file to include</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="cb">
+Ext</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Extension name to add to Name if it doesn't have one</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="cb">
+Label</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Only include code from Name on lines that begin with this label</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="cb">
+BeginCode</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Will start including code from Name following the line beginning with this text</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="cb">
+EndCode</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Will stop including code when this line is read</P>
+</TD>
+</TR>
+</TABLE>
+<P CLASS="Body">
+The second parameter is used when you want to add an extension to the name library name. For example:</P>
+<P CLASS="ciBody">
+#include &lt;library, .hmm:&gt;</P>
+<P CLASS="Body">
+is the same as:</P>
+<P CLASS="ciBody">
+#include &lt;library.htm&gt;</P>
+<P CLASS="Body">
+ If a library is extremely large and you only want to use a small part of it, your script will run faster if you only #include the parts you need. (ScriptEase libraries are rarely so big enough to cause a noticeable slowdown, so you won't need to use this feature very often). The remaining parameters handle various ways to address this issue.</P>
+<P CLASS="Body">
+The third parameter lets you designate parts of libraries with labels. For instance, if a library math.hmm contains a function square that is labeled as follows: </P>
+<P CLASS="ciBody">
+:square square(a)</P>
+<P CLASS="ciBody">
+:square {</P>
+<P CLASS="ciBody">
+:square return(a*a)</P>
+<P CLASS="ciBody">
+:square }</P>
+<P CLASS="Body">
+To #include only this script, use the following statement:</P>
+<P CLASS="ciBody">
+#include &lt;math.hmm, NULL, :square&gt;</P>
+<P CLASS="Body">
+The fourth and fifth parameters will include sections from a file beginning at a certain line and ending at another. For instance the above library could be marked:</P>
+<P CLASS="ciBody">
+//BEGIN SQUARE</P>
+<P CLASS="ciBody">
+	square(a)</P>
+<P CLASS="ciBody">
+	{</P>
+<P CLASS="ciBody">
+	return(a*a)</P>
+<P CLASS="ciBody">
+	}</P>
+<P CLASS="ciBody">
+//END SQUARE </P>
+<P CLASS="Body">
+&nbsp;</P>
+<P CLASS="Body">
+and the desired functions included with the following line:</P>
+<P CLASS="ciBody">
+#include &lt;math.hmm, NULL, NULL, //BEGIN SQUARE, //END SQUARE&gt; </P>
+<P CLASS="Body">
+Note that the labels used with the extended form of #include are not enclosed in quotes. </P>
+<P CLASS="Body">
+Since these libraries are external to ScriptEase, they are less static than the standard function libraries, and can be easily expanded or modified as the need arises. The most recent versions of .hmm libraries are listed on the Nombas downloads page at </P>
+<P CLASS="Body">
+http://www.nombas.com/downloads/index.htm.</P>
+</DIV>
+<DIV>
+<H3 CLASS="SubTopic">
+<A NAME="1000860">
+ </A>
+#link</H3>
+<P CLASS="Body">
+#link is a command to incorporate additional functions into the ScriptEase processor. In practice, it works much like the #include statement with no parameters. However, while #include is used to include text files of ScriptEase code, #link is used to include precompiled extensions or .DLL files. For example, the command</P>
+<P CLASS="ciBody">
+#link &quot;oleautoc&quot;</P>
+<P CLASS="Body">
+lets the processor use the functions for OLE automation. </P>
+<P CLASS="Body">
+The files which may be included with #link are discussed in another chapter. #link takes no parameters other than the name of the library being linked to.</P>
+<P CLASS="Body">
+By keeping these functions in external libraries (instead of incorporating them directly into the ScriptEase processor as is the case with functions like sprintf() and strcat()) the processor is kept to a more manageable size, saving disk space and cutting down on the amount of time it takes a script to run.</P>
+<P CLASS="Body">
+Since these libraries are external to ScriptEase, they are less static than the standard function libraries, and can be easily expanded or modified as the need arises. The most recent versions of #link libraries are listed on the Nombas downloads page at</P>
+<P CLASS="Body">
+http://www.nombas.com/downloads/index.htm.</P>
+</DIV>
+<DIV>
+<H3 CLASS="SubTopic">
+<A NAME="1000861">
+ </A>
+#if, <A NAME="1000862">
+ </A>
+#ifdef, <A NAME="1000863">
+ </A>
+#elif, <A NAME="1000864">
+ </A>
+#else, <A NAME="1000865">
+ </A>
+#endif</H3>
+<P CLASS="Body">
+There are times when you want to #define one file if certain conditions are true, and #define a different file if the condition tests false. You can do this with the #if statement. #if differs from the regular if statement in that it executes while the code is being read into the processor (as opposed to executing when the code itself is run). #elif is the corresponds to the else if statement, and #else corresponds to the else statement. A #if statement must be closed with a terminating #endif statement.</P>
+<P CLASS="Body">
+Another way of looking at this is to think of #if as an if statement to use with #include and #define statements, which are also executed while the code is read. This is frequently used to determine which platform the script is running on, so that it will include the proper files and act appropriately to the operating system.</P>
+<P CLASS="Body">
+For example, suppose you had a script that built long path names from directories supplied to it in different variables. If you were working in a DOS-based environment, the backslash character is used to separate directories, so you could indicate the full path of a file as follows:</P>
+<P CLASS="ciBody">
+fullPathOfFile = rsprintf(&quot;%s\\%s\\%s\\%s&quot;, rootdirectory,</P>
+<P CLASS="ciBody">
+                           subdirectory1, subdirectory2, filename);</P>
+<P CLASS="Body">
+If you ported this script to a UNIX machine, however, you'd run into problems, because UNIX uses the forward slash to separate directories.</P>
+<P CLASS="Body">
+You can get around this problem by defining the separator character differently for each operating system:</P>
+<P CLASS="ciBody">
+#if defined(_UNIX_)</P>
+<P CLASS="ciBody">
+   #define PathChar `/'</P>
+<P CLASS="ciBody">
+#elif defined(_MAC_)</P>
+<P CLASS="ciBody">
+   #define PathChar `:'</P>
+<P CLASS="ciBody">
+#else</P>
+<P CLASS="ciBody">
+   #define PathChar `\\'</P>
+<P CLASS="ciBody">
+#endif</P>
+<P CLASS="Body">
+By putting the separator character in a variable, you can make this script work on any operating system:</P>
+<P CLASS="ciBody">
+fullPathOfFile = rsprintf(&quot;%s%c%s%c%s%c%s&quot;, rootdirectory, PathChar,</P>
+<P CLASS="ciBody">
+                          subdirectory1, Pathchar, subdirectory2,</P>
+<P CLASS="ciBody">
+                          PathChar, filename);</P>
+<P CLASS="Body">
+The #ifdef statement is a limited form of the #if statement, equivalent to #if defined(var)... The example above could be rewritten with #ifdef statements like this: </P>
+<P CLASS="ciBody">
+#ifdef (_UNIX_) </P>
+<P CLASS="ciBody">
+   #define PathChar `/'</P>
+<P CLASS="ciBody">
+#ifdef (_MAC_)</P>
+<P CLASS="ciBody">
+   #define PathChar `:'</P>
+<P CLASS="ciBody">
+#else #define PathChar `\\'</P>
+<P CLASS="ciBody">
+#endif</P>
+</DIV>
+</DIV>
+<DIV>
+<H2 CLASS="Topic">
+<A NAME="1000866">
+ </A>
+Initialization</H2>
+<P CLASS="Body">
+All code that is outside of any function is part of the global initialization function. This code is executed first, before calling any function (unless a function is called from this initialization code).</P>
+<P CLASS="Body">
+Any variables referenced in the initialization section are global.</P>
+<P CLASS="Body">
+To execute code when program terminates, see the atexit() function.</P>
+</DIV>
+<DIV>
+<H2 CLASS="Topic">
+<A NAME="1000867">
+ </A>
+main(<A NAME="1000869">
+ </A>
+ArgCount, <A NAME="1000870">
+ </A>
+ArgStrings)</H2>
+<P CLASS="Body">
+After the initialization has been performed, the <A NAME="1000868">
+ </A>
+main() function is called and is given the arguments that the operating system passed to the ScriptEase program.  If there is no function main(), the program will end after running through all of the steps in the initialization.</P>
+<P CLASS="Body">
+ScriptEase is less picky about the main function than C is. While a C program must have a main() function, in ScriptEase this is not the case. The following two programs do exactly the same thing:</P>
+<P CLASS="ciBody">
+b=20</P>
+<P CLASS="ciBody">
+a=b*b</P>
+<P CLASS="Body">
+ and </P>
+<P CLASS="ciBody">
+main()</P>
+<P CLASS="ciBody">
+{</P>
+<P CLASS="ciBody">
+	b=20</P>
+<P CLASS="ciBody">
+	a=b*b</P>
+<P CLASS="ciBody">
+}</P>
+<P CLASS="Body">
+These two programs both set the value of <EM CLASS="EquationVariables">
+a</EM>
+ to 400. There are some differences in the way the variables will be handled, however. In the first example, a and b are global variables, and are available to any function in the program. In the second, a and b are local variables, and are only available to the main function. To make these variables available to any other function, they must be explicitly passed to it.</P>
+<P CLASS="Body">
+One advantage to the main() function is that it receives any parameters included on the command line when the script was first called. For example, let's say you wanted to view a document in CmmView.cmm (the text file viewer created in the tutorial section). You can pass the document name to the script when you invoke it from the command line:</P>
+<P CLASS="cmd">
+SEDOS CmmView document.txt</P>
+<P CLASS="Body">
+The call to the function main() looks like this:</P>
+<P CLASS="ciBody">
+main(argc, argv)</P>
+<P CLASS="Body">
+The variable <A NAME="1000873">
+ </A>
+argc tells you how many variables were passed, while the variable argv is an array of all of the variables passed. The first variable passed (argv[0]) is the name of the script being called, so if argc = 1 then no variables were passed.</P>
+<P CLASS="Body">
+In the example above, argc = 2, argv[0] = &quot;CmmView&quot; and argv[1] is &quot;document.cmm.&quot; These behave as any other local variable. If you don't need to pass parameters to main(), it is recommended that your program have a main() function anyway, with no parameters; in this case the parenthesis following the main() may be left empty.</P>
+<P CLASS="Body">
+Argc, sometimes referred to as ArgCount, is identical to the global <A NAME="1000871">
+ </A>
+_argc variable. Argv, sometimes referred to as argStrings, is identical to the global <A NAME="1000872">
+ </A>
+_argv variable.</P>
+<P CLASS="Body">
+&nbsp;</P>
+</DIV>
+</DIV>
+</DIV>
+</DIV>
+<TABLE WIDTH="225" BORDER="0" CELLSPACING="0" CELLPADDING="0">
+  <TR>
+    <TD WIDTH="71"><a href="0-intro.htm"><IMG SRC="prev.gif" WIDTH="71" height="18" border="0"></a></TD>
+    <TD WIDTH="80"><a href="../index.htm"><IMG SRC="tocidx.gif" WIDTH="80" height="18" border="0"></a></TD>
+    <TD WIDTH="74"><a href="2-sevsc.htm"><IMG SRC="next.gif" WIDTH="74" height="18" border="0"></a></TD>
+  </TR>
+</TABLE>
+
+</BODY>
+</HTML>

@@ -1,0 +1,61 @@
+<HTML>
+ <HEAD>
+	<META NAME="VPSiteProject" CONTENT="file:///c|/visualpage/Nombas.vpp"><TITLE>Oleautoc Documentation</TITLE>
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-1754630-10']);
+  _gaq.push(['_trackPageview']);
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+ </HEAD>
+ 
+<BODY BGCOLOR="WHITE" LINK="RED" VLINK="RED" background="../allback.gif">
+<P>
+   <FONT SIZE="5">This function library contains three routines for 
+   handling OLE automation calls.</FONT><BR>
+   <TABLE CELLPADDING="1" CELLSPACING="2" BORDER="0">
+    <TR>
+     <TD WIDTH="15" VALIGN=CENTER></TD>
+     <TD VALIGN=CENTER>
+       <B><FONT FACE="arial,helvetica,monaco">&nbsp;</FONT></B><p></P>
+        <B><FONT FACE="arial,helvetica,monaco"><A NAME="oleinvoke"></A></FONT><FONT FACE="Arial,Helvetica,Monaco">OLEInvoke(&quot;object&quot;,
+        &quot;method&quot;, flag, params...)</FONT></B><BR>
+       Invoke a method in an OLE object. The object can either be the name 
+       registered by an OLE server or it can be an object returned by a 
+       previous call to this function. Method is the OLE method you want to 
+       call on that object. Flag can be either DISPATCH_METHOD (call a 
+       function), DISPATCH_PROPERTYPUT (set a variable to the first 
+       parameter), or DISPATCH_PROPERTYGET (retrieve the value of a 
+       variable.. For DISPATCH_METHOD, all of the parameters given are 
+       passed to the OLE method. OLEInvoke returns null on failure. Otherwise, 
+       it returns whatever the method invoked returned. This is usually a 
+       Boolean indicating success, but it could also be a string, int, 
+       float, or another OLE object</TD>
+    </TR>
+   </TABLE>
+   <TABLE CELLPADDING="1" CELLSPACING="2" BORDER="0">
+    <TR>
+     <TD WIDTH="15" VALIGN=CENTER></TD>
+     <TD VALIGN=CENTER>
+       <B><FONT FACE="arial,helvetica,monaco">OLEFreeObject(object)</FONT></B><BR>
+       When you are no longer using a variable that represents an OLE 
+       object, you should feer them from memory with this function. Once a 
+       variable has been freed from memory you can no longer access data 
+       from it.</TD>
+    </TR>
+   </TABLE>
+   <TABLE CELLPADDING="1" CELLSPACING="2" BORDER="0">
+    <TR>
+     <TD WIDTH="15" VALIGN=CENTER></TD>
+     <TD VALIGN=CENTER>
+       <B><FONT FACE="Arial,Helvetica,Monaco">OLEIsObject(param)</FONT></B><BR>
+       This function tests whether param is an OLE object or not. If it is 
+       an OLE Object, it will return True; otherwise it will return False.</TD>
+    </TR>
+   </TABLE>
+ </BODY>
+</HTML>

@@ -1,0 +1,132 @@
+<html>
+<head>
+<title>SElib.compileScript()</title>
+<link rel="stylesheet" href="semanualstyles.css" type="text/css">
+<style type="text/css">
+ p { margin-top: 0; margin-bottom: 0; }
+</style>
+<script language="JavaScript" src="TrueHelp.js"></script>
+</head>
+<body onload="thload()">
+<div id=ienav>
+<ilayer id=nsnav>
+<br>
+<center>
+<p class=normal><a href="seisdkc-toc.htm" target="left">contents</a> &nbsp; <a href="seisdkc-index.htm" target="left">index</a> &nbsp; <a href="TH_927.htm">previous</a> &nbsp; <a href="TH_929.htm">next</a></p>
+</center>
+<br>
+<hr noshade size=1>
+</ilayer>
+</div>
+<p class=sereffunclevel4>SElib.compileScript()</p>
+<table cellpadding=0>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>syntax:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=sesyntax>SElib.compileScript(codeToCompile[,&nbsp;isFile])</p></td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>where:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>codeToCompile - a string with ScriptEase statements or a filename of a script file.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>isFile - a boolean telling whether or not codeToCompile is a filename or a string with statements. The default is <span class=secodephrase>false</span> indicating that codeToCompile is a string consisting of ScriptEase statements.</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>return:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>buffer - the compiled code in a ScriptEase buffer. Normally, this buffer of compiled code is saved to a file.</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>description:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>Compiles a ScriptEase script into executable code which is normally written to a file with an extension of ".jsb" and referred to as a ScriptEase binary file. This compiled code is the same code that is created when the /bind option is used with the Pro version of ScriptEase Desktop and the code is bound in an executable ".exe" file.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>Compiled code may be executed in two ways. First, the compiled code may be passed to the <span class=sepopuptopic><a href="TH_935.htm" onClick="return thwindow('TH_935.htm', 'GenPopup')">SElib.interpret()</a></span> method as the Code parameter. The <span class=secodephrase>SElib.interpret()</span> method executes compiled code in the same way that it does text script. Second, a ScriptEase binary file may be executed by a ScriptEase interpreter, such as sewin32.exe. This second way is the most common way to execute compiled code. There are three basic ways that a ScriptEase script file may be run:</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=list-bullet>&#8226;</p><p class=list-bullet-tab1>A text script, as typed by a programmer, may be called using an interpreter program, such as sewin32.exe. The interpreter reads the text and performs all the statements in it. Running a script in this way results in the slowest overall execution speed since the interpreter must preprocess, tokenize, and run the file.</p>
+<p class=list-bullet>&#8226;</p><p class=list-bullet-tab1>A text script may be compiled using the <span class=secodephrase>SElib.compileScript()</span> method and written to a ScriptEase binary file. A ScriptEase binary file may also be called by an interpreter program, such as sewin32.exe. But overall execution time is faster since the first two steps, preprocessing and tokenizing, are already done by <span class=secodephrase>SElib.compileScript()</span>. The compiled code of a script is the same as the compiled code of an executable file produced using the /bind option of the Pro version.</p>
+<p class=list-bullet>&#8226;</p><p class=list-bullet-tab1>A text script can be compiled using the /bind option of the Pro version. The script is compiled, into the same form as when using <span class=secodephrase>SElib.compileScript()</span> but is physically attached to the pertinent executable part of an interpreter, such as sewin32.exe. The compiled file is an executable file with an extension of ".exe" and can be run as a stand-alone program.</p>
+<p class=senormalpara>&nbsp;</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>See the section on running a script in the manual or help file for more information on executing ScriptEase scripts.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>ScriptEase binary files are called in the same way as text scripts, either ".jse" or ".jsh" files. Assume that a file named testobj.jse has been compiled with <span class=secodephrase>SElib.compileScript()</span> to testobj.jsb. The invocations of either file by an interpreter do the same thing. For example, both lines below accomplish the same thing when run as a command line.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=secodelinesindented>sewin32.exe&nbsp;testobj.jse&nbsp;sewin32.exe&nbsp;testobj.jsb</p>
+<p class=secodelinesindented>&nbsp;</p>
+<p class=senormalpara>The second line using ".jsb" executes faster, in overall time, that is, it begins executing more quickly.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>In a like manner, assume that a file named testinc.jsh has been compiled with <span class=secodephrase>SElib.compileScript()</span> to testinc.jsb. Either file may be included in a script using the preprocessor directive <span class=secodephrase>#include</span>. Both lines of script below accomplish the same thing.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=secodelinesindented>#include&nbsp;"testinc.jsh"&nbsp;#include&nbsp;"testinc.jsb"</p>
+<p class=secodelinesindented>&nbsp;</p>
+<p class=senormalpara>The second line executes faster since the code in that file is precompiled. This include example points to another difference between the /bind option and the <span class=secodephrase>SElib.compileScript()</span> method. The /bind option results in a stand-alone executable file. The <span class=secodephrase>SElib.compileScript()</span> method allows the flexibility of precompiling sections of code that may be used in other scripts or of having a complete precompiled program. Complete programs compiled by either method execute at the same speed, at actual run time.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>A compiled ScriptEase binary file may also be run from a script by using the <span class=secodephrase>SElib.interpret()</span> method, using the <span class=secodephrase>INTERP_COMPILED_SCRIPT</span> flag.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>A ScriptEase binary file has 4 bits that identify it as a compiled script and 16 bytes for a checksum to make sure that the file has not been altered. Compiled scripts are implemented at a very low level which allows ScriptEase binary files to be included in a script, as already described. But, there is another benefit. A programmer may use file extensions other than the default ".jsb".</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>ScriptEase comes with a script, compile.jse, which automates the process of compiling a text script to a ScriptEase binary file.</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>see:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara><span class=sejumptopic><a href="TH_935.htm">SElib.interpret()</a></span>, <span class=sejumptopic><a href="TH_936.htm">SElib.interpretInNewThread()</a></span>, <span class=sejumptopic><a href="TH_926.htm">SElib.bound()</a></span>, <i>sebind.jse</i>, <i>compile.jse</i></p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>example:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=secodelines>&nbsp;&nbsp;&nbsp;//&nbsp;Compile&nbsp;the&nbsp;script&nbsp;file,&nbsp;myscript.jse,</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;//&nbsp;to&nbsp;the&nbsp;ScriptEase</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;//&nbsp;binary&nbsp;file,&nbsp;myscript.jsb.</p>
+<p class=secodelines>function&nbsp;main(argc,&nbsp;argv)</p>
+<p class=secodelines>{</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//&nbsp;Filename&nbsp;of&nbsp;the&nbsp;script&nbsp;to&nbsp;compile</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;var&nbsp;infile&nbsp;&nbsp;=&nbsp;"Myscript.jse";</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//&nbsp;Filename&nbsp;for&nbsp;the&nbsp;compiled&nbsp;code</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;var&nbsp;outfile&nbsp;=&nbsp;"Myscript.jsb";</p>
+<p class=secodelines>&nbsp;</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//&nbsp;Compile&nbsp;the&nbsp;script&nbsp;file</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//&nbsp;into&nbsp;compiled&nbsp;code.</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//&nbsp;Argument&nbsp;true&nbsp;indicates&nbsp;that&nbsp;infile&nbsp;is&nbsp;a&nbsp;filename</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;var&nbsp;compiledScript&nbsp;=&nbsp;SElib.compileScript(infile,&nbsp;true);</p>
+<p class=secodelines>&nbsp;</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//&nbsp;If&nbsp;the&nbsp;returned&nbsp;buffer&nbsp;has&nbsp;code&nbsp;in&nbsp;it,</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//&nbsp;save&nbsp;it&nbsp;to&nbsp;a&nbsp;file.</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;if(&nbsp;compiledScript&nbsp;!=&nbsp;null&nbsp;)</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;{</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;var&nbsp;outfp&nbsp;=&nbsp;Clib.fopen(outfile,&nbsp;"w");</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if(&nbsp;outfp&nbsp;==&nbsp;null&nbsp;)</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Clib.fprintf(stderr,&nbsp;</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"Could&nbsp;not&nbsp;open&nbsp;file&nbsp;\"%s\"\n",</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;outfile);</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Clib.fclose(outfp);</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;else</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Clib.fwrite(compiledScript,</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;getArrayLength(compiledScript),&nbsp;outfp);</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Clib.fclose(outfp);</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;}</p>
+<p class=secodelines>}</p></td>
+</tr>
+</table>
+<p class=normal>&nbsp;</p>
+<hr noshade size=1>
+<p class=normal><a href="TH_929.htm"><img src="button.png" border=0></a><a href="TH_929.htm" style="text-decoration:none;">SElib.directory()</a></p>
+<p>
+</body>
+</html>

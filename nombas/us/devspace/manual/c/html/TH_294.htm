@@ -1,0 +1,231 @@
+<html>
+<head>
+<title>Build Libraries Mode</title>
+<link rel="stylesheet" href="semanualstyles.css" type="text/css">
+<style type="text/css">
+ p { margin-top: 0; margin-bottom: 0; }
+</style>
+<script language="JavaScript" src="TrueHelp.js"></script>
+</head>
+<body onload="thload()">
+<div id=ienav>
+<ilayer id=nsnav>
+<br>
+<center>
+<p class=normal><a href="seisdkc-toc.htm" target="left">contents</a> &nbsp; <a href="seisdkc-index.htm" target="left">index</a> &nbsp; <a href="TH_293.htm">previous</a> &nbsp; <a href="TH_295.htm">next</a></p>
+</center>
+<br>
+<hr noshade size=1>
+</ilayer>
+</div>
+<p class=heading-3>Build Libraries Mode  </p>
+<p class=heading-3-p>&nbsp;</p>
+<p class=normal>&nbsp;</p>
+<p class=senormalpara>Build Libraries mode is used to build the ScriptEase libary files (.lib) that your application will then utilize. The ScriptEase engine compiles into two libraries &#8211; one for the core ScriptEase intrepreter and one for the ScriptEase extended libraries. </p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara><b>Specifying A Character Set</b></p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>Each ScriptEase library needs to be associated with a character set. The default is ASCII, but you can select from ASCII, MBCS, or Unicode. The character set is specified in the jseopt.h, which can be modified from the Set Options mode. When you enter Build Libraries mode, Selib Assistant will look for the current character set value in your jseopt.h file and display it in the Character Set radio group. </p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara><b>Building Libraries</b></p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>To build the libraries based on the active jseopt.h file, click the Build Now button. Selib Assistant will compile them using Visual Studio&#8217;s command line utility. Debug and release versions of the core and extended libraries will be built. </p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>The output files will be located in a win32\msvc60\static subdirectory under the location of the jseopt.h file. The results of the compilation process will be output to the Results box in the Build Libraries view. (This information can also be found in the win32\msvc60\static\selib_build.log file.) </p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>The names of the .lib files created depend on the character set and built type:</p>
+<p class=senormalpara-p>&nbsp;</p>
+<table cellpadding=0>
+<tr>
+<td valign=top style="width: 1.125in">
+<p class=senormalpara><b>Filename</p><p class=senormalpara-p>&nbsp;</p>
+</b></td>
+<td valign=top style="width: 1.5in">
+<p class=senormalpara><b>ScriptEase Library</p><p class=senormalpara-p>&nbsp;</p>
+</b></td>
+<td valign=top style="width: 1in">
+<p class=senormalpara><b>Charset</p><p class=senormalpara-p>&nbsp;</p>
+</b></td>
+<td valign=top style="width: 1.25in">
+<p class=senormalpara><b>Build Type</p><p class=senormalpara-p>&nbsp;</p>
+</b></td>
+<td valign=top>
+<p class=normal><b></tr>
+</b><tr>
+<p class=senormalpara>sec501ar.lib</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+<td valign=top style="width: 1.125in">
+<p class=senormalpara>Core</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+<td valign=top style="width: 1.5in">
+<p class=senormalpara>Ascii</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+<td valign=top style="width: 1in">
+<p class=senormalpara>Release</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 1.125in">
+<p class=senormalpara>sec501ad.lib</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+<td valign=top style="width: 1.5in">
+<p class=senormalpara>Core</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+<td valign=top style="width: 1in">
+<p class=senormalpara>Ascii</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+<td valign=top style="width: 1.25in">
+<p class=senormalpara>Debug</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 1.125in">
+<p class=senormalpara>sec501mr.lib</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+<td valign=top style="width: 1.5in">
+<p class=senormalpara>Core</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+<td valign=top style="width: 1in">
+<p class=senormalpara>MBCS</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+<td valign=top style="width: 1.25in">
+<p class=senormalpara>Release</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 1.125in">
+<p class=senormalpara>sec501md.lib</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+<td valign=top style="width: 1.5in">
+<p class=senormalpara>Core</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+<td valign=top style="width: 1in">
+<p class=senormalpara>MBCS</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+<td valign=top style="width: 1.25in">
+<p class=senormalpara>Debug</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 1.125in">
+<p class=senormalpara>sec501ur.lib</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+<td valign=top style="width: 1.5in">
+<p class=senormalpara>Core</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+<td valign=top style="width: 1in">
+<p class=senormalpara>Unicode</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+<td valign=top style="width: 1.25in">
+<p class=senormalpara>Release</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 1.125in">
+<p class=senormalpara>sec501ud.lib</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+<td valign=top style="width: 1.5in">
+<p class=senormalpara>Core</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+<td valign=top style="width: 1in">
+<p class=senormalpara>Unicode</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+<td valign=top style="width: 1.25in">
+<p class=senormalpara>Debug</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 1.125in">
+<p class=senormalpara>sel501ar.lib</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+<td valign=top style="width: 1.5in">
+<p class=senormalpara>Extended</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+<td valign=top style="width: 1in">
+<p class=senormalpara>Ascii</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+<td valign=top style="width: 1.25in">
+<p class=senormalpara>Release</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 1.125in">
+<p class=senormalpara>sel501ad.lib</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+<td valign=top style="width: 1.5in">
+<p class=senormalpara>Extended</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+<td valign=top style="width: 1in">
+<p class=senormalpara>Ascii</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+<td valign=top style="width: 1.25in">
+<p class=senormalpara>Debug</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 1.125in">
+<p class=senormalpara>sel501mr.lib</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+<td valign=top style="width: 1.5in">
+<p class=senormalpara>Extended</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+<td valign=top style="width: 1in">
+<p class=senormalpara>MBCS</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+<td valign=top style="width: 1.25in">
+<p class=senormalpara>Release</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 1.125in">
+<p class=senormalpara>sel501md.lib</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+<td valign=top style="width: 1.5in">
+<p class=senormalpara>Extended</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+<td valign=top style="width: 1in">
+<p class=senormalpara>MBCS</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+<td valign=top style="width: 1.25in">
+<p class=senormalpara>Debug</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 1.125in">
+<p class=senormalpara>sel501ur.lib</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+<td valign=top style="width: 1.5in">
+<p class=senormalpara>Extended</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+<td valign=top style="width: 1in">
+<p class=senormalpara>Unicode</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+<td valign=top style="width: 1.25in">
+<p class=senormalpara>Release</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 1.125in">
+<p class=senormalpara>sel501ud.lib</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+<td valign=top style="width: 1.5in">
+<p class=senormalpara>Extended</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+<td valign=top style="width: 1in">
+<p class=senormalpara>Unicode</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+<td valign=top style="width: 1.25in">
+<p class=senormalpara>Debug</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+</table>
+<p class=normal>&nbsp;</p>
+<p class=senormalpara>In addition to the .lib files created, Selib Assistant will place Visual Studio project files (.dsp) for both libraries. The ScriptEase core library project is sec501.dsp, and the extended library project is sel501.dsp. </p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara><b>Note</b>: The evaluation version of Selib Assisant has a prebuilt version of the core libraries that are copied to the win32\msvc60\static destination. Therefore, no .dsp file is available for the core library for the evaluation version. </p>
+<p class=senormalpara-p>&nbsp;</p>
+<hr noshade size=1>
+<p class=normal><a href="TH_295.htm"><img src="button.png" border=0></a><a href="TH_295.htm" style="text-decoration:none;">Add To Project Mode</a></p>
+<p>
+</body>
+</html>

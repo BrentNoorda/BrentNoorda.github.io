@@ -1,0 +1,74 @@
+<html>
+<head>
+<title>seInternalizeStringHidden</title>
+<link rel="stylesheet" href="semanualstyles.css" type="text/css">
+<style type="text/css">
+ p { margin-top: 0; margin-bottom: 0; }
+</style>
+<script language="JavaScript" src="TrueHelp.js"></script>
+</head>
+<body onload="thload()">
+<div id=ienav>
+<ilayer id=nsnav>
+<br>
+<center>
+<p class=normal><a href="seisdkj-toc.htm" target="left">contents</a> &nbsp; <a href="seisdkj-index.htm" target="left">index</a> &nbsp; <a href="TH_882.htm">previous</a> &nbsp; <a href="TH_17.htm">next</a></p>
+</center>
+<br>
+<hr noshade size=1>
+</ilayer>
+</div>
+<p class=sereffunclevel3>seInternalizeStringHidden</p>
+<p class=sereffunclevel3-p>&nbsp;</p>
+<table cellpadding=0>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>syntax:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=sesyntax>&nbsp;&nbsp;&nbsp;int</p>
+<p class=sesyntax>SEContext.seInternalizeString(String&nbsp;string)</p>
+<p class=sesyntax>&nbsp;</p>
+<p class=sesyntax>&nbsp;&nbsp;&nbsp;Int</p>
+<p class=sesyntax>SEContext.seInternalizeStringHidden(String&nbsp;&nbsp;&nbsp;</p>
+<p class=sesyntax>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;string)</p></td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>where:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara><span class=secodephrase>string</span> the text of the member name to internalize</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>return:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>The internalized string handle</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>description:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>All object member names are internalized by the ScriptEase engine before use. This API call is used to get the internalized version of a particular string. It is useful for commonly-used strings as whenever you use the text of the string, ScriptEase must internalize that string. In addition, ScriptEase internal strings can be directly compared using a single <span class=secodephrase>==</span> comparison rather than the much slower <span class=secodephrase>String.equals</span>.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>The resulting handle can be used as a member name using the <span class=secodephrase>SE.STR()</span> member description specifier. In addition, object callbacks return internal handles for the member name being accessed.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>ScriptEase internal strings are always locked until explicitly freed. Use <span class=secodephrase>seFreeInternalString</span> to indicate you are finished with a particular internal handle. You can also duplicate an string handle using <span class=secodephrase>seCloneInternalString</span>. Refer to the standard ScriptEase lifetime model, as internal strings follow that with the exception that no internal strings are freed automatically when a wrapper function exits.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>The difference between seInternalizeString() and seInternalizeStringHidden() is that seInternalizeStringHidden() will create a property name that is not accesible from scripts (similar to SE.HIDDEN_MEM or SE.HIDDEN_UNIMEM).</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>see:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara><span class=sepopuptopic><a href="TH_17.htm" onClick="return thwindow('TH_17.htm', 'GenPopup')">seCloneInternalString</a></span>, <span class=sepopuptopic><a href="TH_18.htm" onClick="return thwindow('TH_18.htm', 'GenPopup')">seFreeInternalString</a></span>, <span class=sepopuptopic><a href="TH_19.htm" onClick="return thwindow('TH_19.htm', 'GenPopup')">seGetInternalString</a></span></p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+</table>
+<hr noshade size=1>
+<p class=normal><a href="TH_17.htm"><img src="button.png" border=0></a><a href="TH_17.htm" style="text-decoration:none;">seCloneInternalString</a></p>
+<p>
+</body>
+</html>

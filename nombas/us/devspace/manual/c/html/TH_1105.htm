@@ -1,0 +1,85 @@
+<html>
+<head>
+<title>Database storedProc()</title>
+<link rel="stylesheet" href="semanualstyles.css" type="text/css">
+<style type="text/css">
+ p { margin-top: 0; margin-bottom: 0; }
+</style>
+<script language="JavaScript" src="TrueHelp.js"></script>
+</head>
+<body onload="thload()">
+<div id=ienav>
+<ilayer id=nsnav>
+<br>
+<center>
+<p class=normal><a href="seisdkc-toc.htm" target="left">contents</a> &nbsp; <a href="seisdkc-index.htm" target="left">index</a> &nbsp; <a href="TH_1104.htm">previous</a> &nbsp; <a href="TH_1106.htm">next</a></p>
+</center>
+<br>
+<hr noshade size=1>
+</ilayer>
+</div>
+<p class=sereffunclevel4>Database storedProc()</p>
+<table cellpadding=0>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>syntax:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=sesyntax>database.storedProc(<span class=truehelp-xe></span>procName)</p></td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>where:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>procName - String specifying the name of a stored procedure or SQL statements with parameters.</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>return:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>object - new <span class=secodephrase>Stproc</span> object.</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>description:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>This method creates a stored procedure object (<span class=secodephrase>Stproc</span>) from either the named stored procedure contained within the Database object, or from the passed-in SQL statement.</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>see:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara><span class=secodephrase>#link &lt;sedbc&gt;</span>, <span class=sejumptopic><a href="TH_1131.htm">Stproc object</a></span>, <span class=sejumptopic><a href="TH_1103.htm">Database procedures()</a></span>, <span class=sejumptopic><a href="TH_1102.htm">Database procedureName()</a></span></p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>example:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=secodelines>//&nbsp;this&nbsp;example&nbsp;create&nbsp;a&nbsp;new&nbsp;database,</p>
+<p class=secodelines>//and&nbsp;then&nbsp;executes</p>
+<p class=secodelines>//&nbsp;a&nbsp;stored&nbsp;procedure&nbsp;contained&nbsp;within</p>
+<p class=secodelines>var&nbsp;db&nbsp;=&nbsp;new&nbsp;Database;</p>
+<p class=secodelines>db.connect(DBEngine,&nbsp;DataSource,&nbsp;User,&nbsp;Password);</p>
+<p class=secodelines>var&nbsp;sp&nbsp;=&nbsp;db.storedProc("SomeProc");</p>
+<p class=secodelines>sp.ItemID&nbsp;=&nbsp;123;</p>
+<p class=secodelines>sp.execute();</p>
+<p class=secodelines>&nbsp;</p>
+<p class=secodelines>//&nbsp;now,&nbsp;execute&nbsp;an&nbsp;SQL&nbsp;Stproc</p>
+<p class=secodelines>sp&nbsp;=&nbsp;db.storedProc("delete&nbsp;from&nbsp;Items&nbsp;where&nbsp;Weight&nbsp;=&nbsp;?"&nbsp;);</p>
+<p class=secodelines>sp[0]&nbsp;=&nbsp;1000;</p>
+<p class=secodelines>sp.execute();</p>
+<p class=secodelines>&nbsp;</p>
+<p class=secodelines>//&nbsp;clean&nbsp;up</p>
+<p class=secodelines>sp.close();</p>
+<p class=secodelines>db.close();</p></td>
+</tr>
+</table>
+<p class=normal>&nbsp;</p>
+<hr noshade size=1>
+<p class=normal><a href="TH_1106.htm"><img src="button.png" border=0></a><a href="TH_1106.htm" style="text-decoration:none;">Database table()</a></p>
+<p>
+</body>
+</html>

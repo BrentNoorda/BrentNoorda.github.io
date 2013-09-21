@@ -1,0 +1,44 @@
+<html>
+<head>
+<title>Expressions, statements, and blocks</title>
+<link rel="stylesheet" href="semanualstyles.css" type="text/css">
+<style type="text/css">
+ p { margin-top: 0; margin-bottom: 0; }
+</style>
+<script language="JavaScript" src="TrueHelp.js"></script>
+</head>
+<body onload="thload()">
+<div id=ienav>
+<ilayer id=nsnav>
+<br>
+<center>
+<p class=normal><a href="seisdkc-toc.htm" target="left">contents</a> &nbsp; <a href="seisdkc-index.htm" target="left">index</a> &nbsp; <a href="TH_420.htm">previous</a> &nbsp; <a href="TH_422.htm">next</a></p>
+</center>
+<br>
+<hr noshade size=1>
+</ilayer>
+</div>
+<p class=heading-3>Expressions, statements, and blocks</p>
+<p class=heading-3-p>&nbsp;</p>
+<p class=senormalpara>An expression or statement is any sequence of code that performs a computation or an action, such as the code <span class=secodephrase>var TestSum = 4 + 3</span> which computes a sum and assigns it to a variable. ScriptEase code is executed one statement at a time in the order in which it is read. Many programmers put semicolons at the end of statements, although they are not required. Each statement is usually written on a separate line, with or without semicolons, to make scripts easier to read and edit.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>A statement block is a group of statements enclosed in curly braces, "{}", which indicate that the enclosed individual statements are a group and are to be treated as one statement. A block can be used anywhere that a single statement can.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>A while statement causes the statement after it to be executed in a loop. By enclosing multiple statements in curly braces, they are treated as one statement and are executed in the while loop. The following fragment illustrates:</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=secodelinesindented>while(&nbsp;ThereAreUncalledNamesOnTheList()&nbsp;==&nbsp;true)</p>
+<p class=secodelinesindented>{</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;var&nbsp;name&nbsp;=&nbsp;GetNameFromTheList();</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;CallthePerson(name);</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;LeaveTheMessage();</p>
+<p class=secodelinesindented>}</p>
+<p class=secodelinesindented>&nbsp;</p>
+<p class=senormalpara>All three lines after the while statement are treated as a unit. If the braces were omitted, the while loop would only apply to the first line. With the braces, the script goes through all lines until everyone on the list has been called. Without the braces, the script goes through all names on the list, but only the last one is called. Two very different procedures.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>Statements within blocks are often indented for easier reading.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<hr noshade size=1>
+<p class=normal><a href="TH_422.htm"><img src="button.png" border=0></a><a href="TH_422.htm" style="text-decoration:none;">Identifiers</a></p>
+<p>
+</body>
+</html>

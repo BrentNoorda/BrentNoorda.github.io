@@ -1,0 +1,214 @@
+Program Archive Name: CEnviw.zip
+
+Program: CEnvi version 2.11 for Windows
+
+Short description:
+          CEnvi for Windows is is a shareware C interpreter that doubles
+          as a Windows batch language.  CEnvi makes C as easy to use as a
+          batch language, but with much more power.
+
+Long description:
+          Cmm (C minus minus) is 'C' for the rest of us.  CEnvi runs Cmm
+          programs in the DOS, Windows, OS/2, NT, etc... environments.
+          Together, CEnvi and Cmm make the power and flexibility of the C
+          programming language part of every computer user's environment,
+          without the hardware, time, and programmer resources needed for
+          developing full-blown C programs.
+
+          With CEnvi and Cmm, anyone can take control of their computer
+          environment.  C is not just for programming nerds anymore.  CEnvi
+          utilites, macros, batch files, and scripts can quickly be
+          created, shared, and modified among all computer users,
+          professional and amateur alike.
+
+          CEnvi can be incorporated at a pace that is comfortable to you:
+          you may just want to use CEnvi code set up by a more experienced
+          user, you may want to enhance existing batch files with a line or
+          two of CEnvi code, or you may write complete utilities using
+          CEnvi.
+
+          150+ built-in functions, create your own, or call into Windows or
+          other DLLs.  50+ sample files are included to demonstrate
+          Cmm programming, DLL links, reading time, file read/write,
+          controlling other programs, interacting with Windows and DOS,
+          creating graphics and dialog windows, serial communications, menu
+          and dialog creation or automation, and much more. $38. Also
+          available for OS/2 and DOS.
+
+CEnvi source:
+          Nombas                       Internet: nombas@nombas.com
+          64 Salem Street              CompuServe: 72212,1622
+          MEDFORD MA 02155    USA      BBS:   (617)391-3718
+                                       Phone: (617)391-6595
+                                       Fax:   (617)391-3842
+
+************************* CENVIW.ZIP FILE LIST *************************
+
+CENVIW.ZIP, the Unregistered Shareware CEnvi package for Windows, contains
+the following files:
+
+*CENVI.EXE: CEnvi shareware executable for DOS, OS/2, or Windows.
+*CENVI.DOC: CEnvi Shareware Manual, Chapter 1: CEnvi Unregistered Shareware
+*CMMTUTOR.DOC: CEnvi Shareware Manual, Chapter 2: Cmm Language Tutorial
+*CMM_VS_C.DOC: CEnvi Shareware Manual, Chapter 3: Cmm versus C, for C
+  Programmers
+*CENVILIB.DOC: CEnvi Shareware Manual, Chapter 4: Function Library
+*LICENSE.DOC: CEnvi Unregistered Shareware License Agreement
+*README.DOC: Introductory file. Read this first for quick intallation.
+*REGISTER.DOC: CEnvi registration form
+*INSTALL.CMM: Cmm source file for installing this shareware version
+*AddItem.cmm: Add Group and Item to Program Manager
+*AllSave.cmm: Select SAVE option on all windows
+*Ascii.cmm: Display the ascii character table
+*BarClock.cmm: Display current time in title of active window
+*BattMem.cmm: Show values stored in a PC's battery-protected
+  memory
+*BMP.lib: Routines for reading and displaying .BMP files
+*BmpView.cmm: Demonstrate the BMP.LIB routines by reading any
+  number of .BMP files and displaying them
+*BootEd1.cmm: Start NotePad to edit c:\AutoExec.bat and
+  C:\Config.sys using Windows DLL's.
+*BootEd2.cmm: Start NotePad to edit c:\AutoExec.bat and
+  C:\Config.sys using CEnvi's spawn() function.
+*BugHunt.cmm: Example for using the ClipBrd.lib routines.
+  Constantly scan clipboard for "bug" in clipboard text
+*ClipBrd.lib: Library of routines for reading from or writing
+  to the Windows clipboard
+*ClipSort.cmm: Sort text in-place within the clipboard
+*CmmEdit.cmm: VERY simple text editor; developed step-by-step
+  in the tutorial chapter of the CEnvi User Manual.
+*CmmGroup.cmm: Create a CEnvi Programs group in Presentation
+  Manager with all of the .CMM files in it
+*Comm.lib: Simplified function interface into Windows' serial
+  communication routines
+*CommKybd.cmm: Send all data coming into serial port as
+  keystrokes to the active window
+*DDE.lib: Library of common routines and definitions for
+  Dynamic Data Exchange (DDE)
+*DDEcli.cmm: Sample DDE client; works with DDEsrv.cmm
+*DDEcli.lib: Library of routines for a DDE client
+*DDEdir.cmm: Show directory listing of all DDE servers
+*DDEsrv.cmm: Sample DDE server; works with DDEcli.cmm
+*DDEsrv.lib: Library of routines for a DDE server
+*DelOld.cmm: Delete files older than specified age
+*DirDiff.cmm: Compare two directory listings for differences
+*DlgCtrl.lib: Library of routines for interactive with Windows
+  dialog boxes and other windows with sub-window
+*DosTime.cmm: Show time according to computer's internal clock
+*DOS_BOSS.LIB: Functions for sending keystrokes to and reading
+  data from DOS sessions
+*DOS_ECHO.CMM: Demonstrate DOS_BOSS.LIB by echoing text to/from
+  DOS session
+*DOS_LOOK.CMM: Use DOS_BOSS.LIB to look at contents of a DOS
+  window
+*Dropper.cmm: Perform command for all files Drag-&-Dropped to
+  this tool
+*ExamineW.cmd: Display lots of data about any active window and
+  its sub-windows
+*ExitWin.cmm: Exit Windows; options to save files, force
+  applications to quit, restart Windows, and reboot computer
+*Fibonacc.cmm: Two methods for generating the Fibonacci
+  sequence
+*FranTick.cmm: Animated tick who drank too much coffee
+*FullScrn.cmm: Run any command started in maximized window
+*GDI.cmm: Demonstrate some of Windows' graphics functions from
+  GDI.lib
+*GDI.lib: Library of a few of Windows' graphics routines
+*GloblMem.lib: Functions to work with Windows' global memory
+  resources
+*Hello.cmm: My first Cmm program. Used to begin the Cmm
+  tutorial.
+*HexDump.cmm: Display hexadecimal dump of a file
+*Icon.lib: Functions for setting minimized icon
+*IconMany.cmm: Show all of the icons in Program Manager
+*Icons.cmm: Minimize all windows.  Demonstrate PostMessage()
+  from Message.lib.
+*IdleTime.cmm: "ScreenSaver" - Show clock if computer is idle
+*InputBox.cmm: Demonstrate uses of the InputBox() routine in
+  InputBox.lib
+*InputBox.lib: InputBox() function to allow for a dialog-like
+  box for user input
+*Install.cmm: Install this version of CEnvi.
+*KeyCode.cmm: Display keycodes returned by getch().
+*KeyGhost.cmm: Demonstrate how to use KeyPush.lib to control
+  other applications.
+*KeyPush.lib: Library of routines created for passing
+  keystrokes to a window with the current focus.
+*KillDOS.cmm: Force DOS window to close
+*MenuCtrl.lib: Library of routines for interactive with menus
+*MenuNot.cmm: Disable or delete a menu item
+*Message.lib: Wrapper for Windows' PostMessage() and
+  SendMessage() function to send commands to windows.
+*MsgBox.lib: A wrapper library for Windows' MessageBox()
+  function.  This file is #include'd in other CEnvi sample
+  files.
+*MsgBoxes.cmm: Show various message box types using the
+  function in MsgBox.lib.
+*MyCal.cmm: Start/menu/position calendar
+*NumLock.cmm: Set the NUMLOCK key ON
+*OneProg.cmm: Run one and only one program until it exits
+*OnTop.cmm: Float window to top of all other windows
+*OpenCmm.cmm: Use Windows' common dialog (via PickFile.lib) to
+  select a *.cmm file to edit.
+*OptParms.lib: Library of routines for parsing the optional
+  parameters for executing a program. #included in other files
+*OS2Sessn.cmm: Execute sessions from Windows under OS/2
+*PGroups.cmm: list all of the groups and items Program Manager;
+  uses ProgMan.lig
+*PickFile.lib: A simple interface to the GetOpenFileName()
+  function in the Windows Common Dialog DLL.  This library file
+  is #include'd in some of the other CEnvi sample files.
+*PMButt.cmm: Replace Program Manager with a tiny button in
+  upper-left corner for access to all PM items
+*PMCorner.cmm: Minimize Program Manager and then move its icon
+  to the lower-right corner of the screen.
+*PongTime.cmm: Bounce the Windows clock mini-app around
+*Print.cmm: Copy file to printer, treating printer as a file
+*Profile.lib: Function library for accessing Profiles; i.e.
+  .INI files
+*ProgMan.lib: Library of routines using DDE to communication
+  with Program Manager
+*Quote.cmm: Choose a "profound" quote at random
+*RebootNT.cmm: Reboot from Windows NT
+*RndWalls.cmm: Random wallpaper selection at timed intervals
+*RunAgain.cmm: Repeatedly run command at specified interval
+*RunTime.cmm: Schedule a command to execute at a specified hour
+  and minute.
+*SafeFMan.cmm: File Manager with dangerous menu options removed
+*SaveScrn.cmm: Start screen saver now
+*ServeOS2.cmm: Work with CEnvi for OS/2 and WIN_BOSS.LIB to
+  control Windows sessions from OS/2
+*ServeWIN.com: DOS TSR to work with DOS_BOSS.LIB for complete
+  keyboard control of DOS sessions
+*TaskButt: Task Manager replacement; 1-click access to tasks
+*Terminal.cmm: A simple terminal program; demonstrate some of
+  the functions in COMM.lib
+*WhoRYou.cmm: Design and implement a dialog box using CEnvi's
+  MakeWindow() and DoWindows() functions
+*WinBeep.cmm: Call Windows' MessageBeep() function.
+*Window.lib: A few functions and many defined values useful for
+  CEnvi's MakeWindow(), BreakWindow(), and DoWindows()
+  functions
+*WinExec.lib: A wrapper library for Windows' WinExec()
+  function.  This file is #include'd in other CEnvi sample
+  files.
+*WinExecs.cmm: Demonstration of Windows' WinExec() function
+  using the wrapper from WinExec.lib.
+*WinList.cmm: Show a list of all Windows, their handles, and
+  their children.
+*WinMsg.cmm: Demonstrate how to make a window, and show all the
+  messages that go to that window
+*WinRun.bat: Run Windows commands from DOS session; client to
+  work with WinRun.cmm
+*WinRun.cmm: Run Windows commands from DOS session; server for
+  WinRun.bat
+*WinShell.bat: Start windows with a specific shell.  Run
+  Windows for a single program.  This use CENVI.EXE for DOS.
+*WinTools.cmm: Demonstrate many of the capabilities of
+  WinTools.lib
+*WinTools.lib: Library of routines for directly manipulating
+  windows by name or by handle
+*WinUtil.lib: A small selection of utilities that may be
+  #include'd in CEnvi code to get simple access to Windows DLL
+  functions.
+

@@ -1,0 +1,57 @@
+<html>
+<head>
+<title>for</title>
+<link rel="stylesheet" href="semanualstyles.css" type="text/css">
+<style type="text/css">
+ p { margin-top: 0; margin-bottom: 0; }
+</style>
+<script language="JavaScript" src="TrueHelp.js"></script>
+</head>
+<body onload="thload()">
+<div id=ienav>
+<ilayer id=nsnav>
+<br>
+<center>
+<p class=normal><a href="seisdkc-toc.htm" target="left">contents</a> &nbsp; <a href="seisdkc-index.htm" target="left">index</a> &nbsp; <a href="TH_470.htm">previous</a> &nbsp; <a href="TH_472.htm">next</a></p>
+</center>
+<br>
+<hr noshade size=1>
+</ilayer>
+</div>
+<p class=heading-3>for</p>
+<p class=heading-3-p>&nbsp;</p>
+<p class=senormalpara>The <span class=secodephrase>for</span> statement is a special looping statement. It allows for more precise control of the number of times a section of code is executed. The <span class=secodephrase>for</span> statement has the following form.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=secodelinesindented>for&nbsp;(&nbsp;initialization;&nbsp;conditional;&nbsp;loop_expression&nbsp;)</p>
+<p class=secodelinesindented>{</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;statement</p>
+<p class=secodelinesindented>}</p>
+<p class=secodelinesindented>&nbsp;</p>
+<p class=senormalpara>The initialization is performed first, and then the expression is evaluated. If the result is <span class=secodephrase>true</span> or if there is no conditional expression, the statement is executed. Then the loop_expression is executed, and the expression is reevaluated, beginning the loop again. If the expression evaluates as <span class=secodephrase>false</span>, then the statement is not executed, and the program continues with the next line of code after the statement. For example, the following code displays the numbers from 1 to 10.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=secodelinesindented>for(var&nbsp;x=1;&nbsp;x&lt;11;&nbsp;x++)</p>
+<p class=secodelinesindented>{</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;Screen.write(x);</p>
+<p class=secodelinesindented>}</p>
+<p class=secodelinesindented>&nbsp;</p>
+<p class=senormalpara>None of the statements that appear in the parentheses following the for statement are mandatory, so the above code demonstrating the while statement would be rewritten this way if you preferred to use a <span class=secodephrase>for</span> statement:</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=secodelinesindented>for(&nbsp;;&nbsp;ThereAreUncalledNamesOnTheList()&nbsp;;&nbsp;)</p>
+<p class=secodelinesindented>{</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;var&nbsp;name=GetNameFromTheList();</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;SendEmail(name)</p>
+<p class=secodelinesindented>}</p>
+<p class=secodelinesindented>&nbsp;</p>
+<p class=senormalpara>Since we are not keeping track of the number of iterations in the loop, there is no need to have an initialization or loop_expression statement. You can use an empty <span class=secodephrase>for</span> statement to create an endless loop:</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=secodelinesindented>for(;;)</p>
+<p class=secodelinesindented>{</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;//the&nbsp;code&nbsp;in&nbsp;this&nbsp;&nbsp;block&nbsp;will&nbsp;repeat&nbsp;forever,</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;//unless&nbsp;the&nbsp;program&nbsp;breaks&nbsp;out&nbsp;of&nbsp;the&nbsp;for&nbsp;loop&nbsp;somehow.</p>
+<p class=secodelinesindented>}</p>
+<p class=secodelinesindented>&nbsp;</p>
+<hr noshade size=1>
+<p class=normal><a href="TH_472.htm"><img src="button.png" border=0></a><a href="TH_472.htm" style="text-decoration:none;">break</a></p>
+<p>
+</body>
+</html>

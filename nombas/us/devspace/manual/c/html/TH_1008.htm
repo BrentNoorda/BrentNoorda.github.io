@@ -1,0 +1,74 @@
+<html>
+<head>
+<title>DSP dspLoad()</title>
+<link rel="stylesheet" href="semanualstyles.css" type="text/css">
+<style type="text/css">
+ p { margin-top: 0; margin-bottom: 0; }
+</style>
+<script language="JavaScript" src="TrueHelp.js"></script>
+</head>
+<body onload="thload()">
+<div id=ienav>
+<ilayer id=nsnav>
+<br>
+<center>
+<p class=normal><a href="seisdkc-toc.htm" target="left">contents</a> &nbsp; <a href="seisdkc-index.htm" target="left">index</a> &nbsp; <a href="TH_1007.htm">previous</a> &nbsp; <a href="TH_1009.htm">next</a></p>
+</center>
+<br>
+<hr noshade size=1>
+</ilayer>
+</div>
+<p class=sereffunclevel4>DSP dspLoad()</p>
+<table cellpadding=0>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>syntax:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=sesyntax>dsp.dspLoad(<span class=truehelp-xe></span>code)</p></td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>where:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>code - String of code to load on the remote server</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>return:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>void.</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>description:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>This function loads the specified code into the global context on the remote server.  Any code that you execute will remain on the remote server.  This function is designed to load functions on the remote server so that they may be called by the client.  This function does not wait for a return value from the host.  As a consequence, remote errors will not be immediately reported.  They will be reported next time a client routine (calling a function, getting/putting a value) queries the server.  Note that if you wish to execute remote code and get a return value, the global eval() method for the server should be used, although the changes will not be permanent.</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>see:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara><span class=secodephrase>#link &lt;sedsp&gt;</span></p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>example:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=secodelines>function&nbsp;foo()&nbsp;{&nbsp;Screen.writeln("Hello!");&nbsp;}</p>
+<p class=secodelines>//&nbsp;This&nbsp;code&nbsp;will&nbsp;make&nbsp;"foo&nbsp;=&nbsp;new&nbsp;Function(...)"</p>
+<p class=secodelines>//&nbsp;to&nbsp;set&nbsp;up&nbsp;the&nbsp;function&nbsp;on&nbsp;the&nbsp;remote&nbsp;server.</p>
+<p class=secodelines>connection.dspLoad(&nbsp;"foo&nbsp;=&nbsp;"&nbsp;+&nbsp;ToSource(foo)&nbsp;);</p>
+<p class=secodelines>connection.foo();&nbsp;</p>
+<p class=secodelines>//&nbsp;foo&nbsp;is&nbsp;now&nbsp;a&nbsp;global&nbsp;function&nbsp;on&nbsp;the&nbsp;server</p></td>
+</tr>
+</table>
+<p class=normal>&nbsp;</p>
+<hr noshade size=1>
+<p class=normal><a href="TH_1009.htm"><img src="button.png" border=0></a><a href="TH_1009.htm" style="text-decoration:none;">DSP dspService()</a></p>
+<p>
+</body>
+</html>

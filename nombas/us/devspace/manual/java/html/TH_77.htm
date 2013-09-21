@@ -1,0 +1,91 @@
+<html>
+<head>
+<title>interface: SEPrepareContext</title>
+<link rel="stylesheet" href="semanualstyles.css" type="text/css">
+<style type="text/css">
+ p { margin-top: 0; margin-bottom: 0; }
+</style>
+<script language="JavaScript" src="TrueHelp.js"></script>
+</head>
+<body onload="thload()">
+<div id=ienav>
+<ilayer id=nsnav>
+<br>
+<center>
+<p class=normal><a href="seisdkj-toc.htm" target="left">contents</a> &nbsp; <a href="seisdkj-index.htm" target="left">index</a> &nbsp; <a href="TH_76.htm">previous</a> &nbsp; next</p>
+</center>
+<br>
+<hr noshade size=1>
+</ilayer>
+</div>
+<p class=heading-3>interface: SEPrepareContext</p>
+<p class=heading-3-p>&nbsp;</p>
+<p class=secodelinesindented><span class=secodephrase>public&nbsp;void&nbsp;sePrepareContextFunc(SEContext&nbsp;se);</span></p>
+<p class=secodelinesindented>&nbsp;</p>
+<p class=senormalpara>After <span class=secodephrase>seCreateContext</span> has finished preparing a new context, it invokes the <span class=secodephrase>sePrepareContextFunc</span>. You can do any final setup on your context here, such as adding your application specific wrapper tables (see Chapter VII). If you do the final preparation here instead of in your code after calling <span class=secodephrase>seCreateContext</span>, then all calls to <span class=secodephrase>seCreateContext</span> will do that same preparation. This is useful if you are using utility libraries that create new contexts with <span class=secodephrase>seCreateContext</span>.  It ensures those contexts are properly set up for your application. Nombas has no utility routines that use <span class=secodephrase>seCreateContext</span>. However, some may be created in the future.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>Here is an example of using the ScriptEase Context Parameter Interfaces to create a context:</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=secodelinesindented>class&nbsp;MyParams&nbsp;implements&nbsp;SEContextParams,&nbsp;SEErrorHandler</p>
+<p class=secodelinesindented>{</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;private&nbsp;int&nbsp;myOptions;</p>
+<p class=secodelinesindented>&nbsp;</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;MyParams(int&nbsp;options)</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;{</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;this.myOptions&nbsp;=&nbsp;options;</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;}</p>
+<p class=secodelinesindented>&nbsp;</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;public&nbsp;int&nbsp;seGetOptions()</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;{</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;myOptions;</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;}</p>
+<p class=secodelinesindented>&nbsp;</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;public&nbsp;void&nbsp;seSetOptions(int&nbsp;newOptions)</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;{</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;this.myOptions&nbsp;=&nbsp;newOptions;</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;}</p>
+<p class=secodelinesindented>&nbsp;</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;public&nbsp;void&nbsp;sePrintErrorFunc(SEContext&nbsp;se,&nbsp;String&nbsp;text)</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;{</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;System.err.println("Error&nbsp;encountered:&nbsp;"&nbsp;+&nbsp;text);</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;}</p>
+<p class=secodelinesindented>}</p>
+<p class=secodelinesindented>&nbsp;</p>
+<p class=secodelinesindented>public&nbsp;class&nbsp;MyApplication</p>
+<p class=secodelinesindented>{</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;public&nbsp;static&nbsp;final&nbsp;void&nbsp;main(String[]&nbsp;argv)</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;{</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;SEContext&nbsp;se;</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;MyParams&nbsp;params;</p>
+<p class=secodelinesindented>&nbsp;</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;SE.seInitialize();</p>
+<p class=secodelinesindented>&nbsp;</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;params&nbsp;=&nbsp;new&nbsp;MyParams(SE.DEFAULT);</p>
+<p class=secodelinesindented>&nbsp;</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;se&nbsp;=&nbsp;SE.seCreateContext(params,&nbsp;"");</p>
+<p class=secodelinesindented>&nbsp;</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/*&nbsp;your&nbsp;application,&nbsp;including&nbsp;scripting&nbsp;using&nbsp;'se'</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;as&nbsp;the&nbsp;scripting&nbsp;context.</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*/</p>
+<p class=secodelinesindented>&nbsp;</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;se.seDestroyContext();</p>
+<p class=secodelinesindented>&nbsp;</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;SE.seTerminate();</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;}</p>
+<p class=secodelinesindented>}</p>
+<p class=senormalpara>&nbsp;</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>&nbsp;</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>&nbsp;</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>&nbsp;</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara><span class=secodephrase></span></p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>&nbsp;</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=normal><span class=secodephrase></span></p>
+<p>
+</body>
+</html>

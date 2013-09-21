@@ -1,0 +1,87 @@
+<html>
+<head>
+<title>GD arc()</title>
+<link rel="stylesheet" href="semanualstyles.css" type="text/css">
+<style type="text/css">
+ p { margin-top: 0; margin-bottom: 0; }
+</style>
+<script language="JavaScript" src="TrueHelp.js"></script>
+</head>
+<body onload="thload()">
+<div id=ienav>
+<ilayer id=nsnav>
+<br>
+<center>
+<p class=normal><a href="seisdkc-toc.htm" target="left">contents</a> &nbsp; <a href="seisdkc-index.htm" target="left">index</a> &nbsp; <a href="TH_1023.htm">previous</a> &nbsp; <a href="TH_1025.htm">next</a></p>
+</center>
+<br>
+<hr noshade size=1>
+</ilayer>
+</div>
+<p class=sereffunclevel4>GD arc()</p>
+<table cellpadding=0>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>syntax:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=sesyntax>gd.arc(<span class=truehelp-xe></span>centerX,&nbsp;centerY,&nbsp;width,&nbsp;height,</p>
+<p class=sesyntax>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;startDegree,&nbsp;endDegree,&nbsp;color)</p>
+<p class=sesyntax>gd.arc(centerPoint,&nbsp;width,&nbsp;height,&nbsp;startDegree,</p>
+<p class=sesyntax>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;endDegree,&nbsp;color)</p></td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>where:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>centerX - horizontal position of center.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>centerY - vertical position of center.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>centerPoint - center point specification.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>height - height of arc.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>startDegree - degree value of starting position in standard coordinate plane.  Values greater than 360 are interpreted as modulo 360.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>endDegree - degree value of ending position in standard coordinate plane. Values greater than 360 are interpreted as modulo 360.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>color - color index to use for arc, or one of the strings "styled", "brushed", "styledBrushed".</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>return:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>void.</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>description:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>This method draws an arc in the specified format.  The center position is specified, along with the width and the height.  The arc is then draw between the two given degree values.  A full ellipse can be drawn from degree 0 to degree 360, and a circle can be drawn in the same manner while setting <span class=secodephrase>width</span> and <span class=secodephrase>height</span> to be the same. If there is an out-of-bounds error or some other error, then the arc is not drawn at all.</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>see:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara><span class=secodephrase>#link &lt;gd&gt;</span></p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>example:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=secodelines>//&nbsp;Draw&nbsp;a&nbsp;circle&nbsp;with&nbsp;a&nbsp;diameter&nbsp;of&nbsp;16&nbsp;pixels</p>
+<p class=secodelines>//&nbsp;in&nbsp;the&nbsp;middle&nbsp;of&nbsp;the&nbsp;image</p>
+<p class=secodelines>var&nbsp;gd&nbsp;=&nbsp;new&nbsp;GD(65,&nbsp;65);</p>
+<p class=secodelines>gd.arc(&nbsp;[32,32],&nbsp;16,&nbsp;16,&nbsp;0,&nbsp;360,&nbsp;0&nbsp;);</p></td>
+</tr>
+</table>
+<p class=normal>&nbsp;</p>
+<hr noshade size=1>
+<p class=normal><a href="TH_1025.htm"><img src="button.png" border=0></a><a href="TH_1025.htm" style="text-decoration:none;">GD blue()</a></p>
+<p>
+</body>
+</html>

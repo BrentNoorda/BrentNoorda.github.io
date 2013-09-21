@@ -1,0 +1,94 @@
+<html>
+<head>
+<title>GD rectangle()</title>
+<link rel="stylesheet" href="semanualstyles.css" type="text/css">
+<style type="text/css">
+ p { margin-top: 0; margin-bottom: 0; }
+</style>
+<script language="JavaScript" src="TrueHelp.js"></script>
+</head>
+<body onload="thload()">
+<div id=ienav>
+<ilayer id=nsnav>
+<br>
+<center>
+<p class=normal><a href="seisdkc-toc.htm" target="left">contents</a> &nbsp; <a href="seisdkc-index.htm" target="left">index</a> &nbsp; <a href="TH_1050.htm">previous</a> &nbsp; <a href="TH_1052.htm">next</a></p>
+</center>
+<br>
+<hr noshade size=1>
+</ilayer>
+</div>
+<p class=sereffunclevel4>GD rectangle()</p>
+<table cellpadding=0>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>syntax:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=sesyntax>gd.rectangle(<span class=truehelp-xe></span>x1,&nbsp;y1,&nbsp;x2,&nbsp;y2,&nbsp;color)</p>
+<p class=sesyntax>gd.rectangle(point1,&nbsp;point2,&nbsp;color)</p></td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>where:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>x1 - horizontal pixel location of first corner</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>y1 - vertical pixel location of first corner</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>x2 - horizontal pixel location of second corner</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>y2 - horizontal pixel location of second corner</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>point1 - First point specification.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>point2 - Second point specification.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>color - color index or style to use for drawing line</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>return:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>void.</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>description:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>This method draws a rectangle with one corner located at position (<span class=secodephrase>x1</span>,<span class=secodephrase> y1</span>) and the other at position (<span class=secodephrase>x2</span>,<span class=secodephrase> y2</span>).  The color used is specified by the <span class=secodephrase>color</span> parameter.  Alternatively, the coordinates can be specified with the point format.  If either corner is out of bounds, then no drawing is done.  Note that this is a shorthand function, as this can be accomplished in several other ways.</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>see:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara><span class=secodephrase>#link &lt;gd&gt;</span>, <span class=sejumptopic><a href="TH_1041.htm">GD filledRectangle()</a></span>, <span class=sejumptopic><a href="TH_1050.htm">GD polygon()</a></span></p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>example:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=secodelines>var&nbsp;gd&nbsp;=&nbsp;new&nbsp;GD(10,10);</p>
+<p class=secodelines>gd.rectangle(&nbsp;4,&nbsp;5,&nbsp;8,&nbsp;9,&nbsp;0&nbsp;);</p>
+<p class=secodelines>&nbsp;</p>
+<p class=secodelines>//&nbsp;is&nbsp;equivalent&nbsp;to:</p>
+<p class=secodelines>var&nbsp;gd&nbsp;=&nbsp;new&nbsp;GD(10,10);</p>
+<p class=secodelines>gd.line(&nbsp;[4,5],&nbsp;[8,5],&nbsp;&nbsp;0&nbsp;);</p>
+<p class=secodelines>gd.line(&nbsp;[4,9],&nbsp;[8,9],&nbsp;&nbsp;0&nbsp;);</p>
+<p class=secodelines>gd.line(&nbsp;[4,5],&nbsp;[4,9],&nbsp;&nbsp;0&nbsp;);</p>
+<p class=secodelines>gd.line(&nbsp;[8,5],&nbsp;[8,9],&nbsp;&nbsp;0&nbsp;);</p>
+<p class=secodelines>&nbsp;</p>
+<p class=secodelines>//&nbsp;which&nbsp;is&nbsp;also&nbsp;equivalent&nbsp;to:</p>
+<p class=secodelines>var&nbsp;gd&nbsp;=&nbsp;new&nbsp;GD(10,10);</p>
+<p class=secodelines>gd.polygon(&nbsp;[&nbsp;[4,5],&nbsp;[8,5],&nbsp;[4,9],&nbsp;[8,9]&nbsp;],&nbsp;0&nbsp;);</p></td>
+</tr>
+</table>
+<p class=normal>&nbsp;</p>
+<hr noshade size=1>
+<p class=normal><a href="TH_1052.htm"><img src="button.png" border=0></a><a href="TH_1052.htm" style="text-decoration:none;">GD red()</a></p>
+<p>
+</body>
+</html>

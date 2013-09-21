@@ -1,0 +1,96 @@
+<html>
+<head>
+<title>Regular expression anchor characters</title>
+<link rel="stylesheet" href="semanualstyles.css" type="text/css">
+<style type="text/css">
+ p { margin-top: 0; margin-bottom: 0; }
+</style>
+<script language="JavaScript" src="TrueHelp.js"></script>
+</head>
+<body onload="thload()">
+<div id=ienav>
+<ilayer id=nsnav>
+<br>
+<center>
+<p class=normal><a href="seisdkj-toc.htm" target="left">contents</a> &nbsp; <a href="seisdkj-index.htm" target="left">index</a> &nbsp; <a href="TH_785.htm">previous</a> &nbsp; <a href="TH_787.htm">next</a></p>
+</center>
+<br>
+<hr noshade size=1>
+</ilayer>
+</div>
+<p class=heading-4>Regular expression anchor characters</p>
+<p class=senormalpara>Anchor characters<span class=truehelp-xe></span> indicate that the following or preceding characters must be next to a special position in a string. The characters next to anchor characters are included in a match, not the anchor characters themselves. For example, in the string "The big cat and the small cat", the regular expression <span class=secodephrase>/cat$/</span> will match the "cat" at the end of the string, and the match will include only the three characters "cat". The "<span class=secodephrase>$</span>" is an anchor character indicating the end of a string (or line if a multiline search is being done).</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>The following table lists the anchor characters, metacharacters, and their meanings.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<table cellpadding=0>
+<tr>
+<td valign=top style="width: 0.779167in">
+<p class=senormalpara><b>Character</p><p class=senormalpara-p>&nbsp;</p>
+</b></td>
+<td valign=top style="width: 4.29583in">
+<p class=senormalpara><b>Anchor meaning</b><span class=truehelp-xe></span></p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.779167in">
+<p class=senormalpara><span class=secodephrase>^</span><span class=truehelp-xe></span></p><p class=senormalpara-p>&nbsp;</p>
+</td>
+<td valign=top style="width: 4.29583in">
+<p class=senormalpara>The beginning of a string (or line if doing a multiline search). (See <span class=secodephrase>\A</span> below.)</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>Example: <span class=secodephrase>/^The/</span></p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.779167in">
+<p class=senormalpara><span class=secodephrase>$</span><span class=truehelp-xe></span></p><p class=senormalpara-p>&nbsp;</p>
+</td>
+<td valign=top style="width: 4.29583in">
+<p class=senormalpara>The end of a string (or line if doing a multiline search). (See <span class=secodephrase>\Z</span> below.)</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>Example: <span class=secodephrase>/cat$/</span></p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.779167in">
+<p class=senormalpara><span class=secodephrase>\A</span><span class=truehelp-xe></span></p><p class=senormalpara-p>&nbsp;</p>
+</td>
+<td valign=top style="width: 4.29583in">
+<p class=senormalpara>Matches the beginning of a string only. (See <span class=secodephrase>$</span> above.)</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.779167in">
+<p class=senormalpara><span class=secodephrase>\b</span><span class=truehelp-xe></span></p><p class=senormalpara-p>&nbsp;</p>
+</td>
+<td valign=top style="width: 4.29583in">
+<p class=senormalpara>A word boundary<span class=truehelp-xe></span>. Match any character that is not considered to be a valid character for a word in programming. The character class "\W", not a word character, is similar. There are two differences. One, "\b" also matches a backspace. Two, "\W" is included in a match, since it is regular expression character, but "\b" is not included in a match.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>Example: <span class=secodephrase>/\bthe\b/</span></p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.779167in">
+<p class=senormalpara><span class=secodephrase>\B</span><span class=truehelp-xe></span></p><p class=senormalpara-p>&nbsp;</p>
+</td>
+<td valign=top style="width: 4.29583in">
+<p class=senormalpara>Not a word boundary. The character class "\w" is similar. The most notable difference is that "\w" is included in a match, and "\B" is not.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>Example: <span class=secodephrase>/l\B/</span></p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.779167in">
+<p class=senormalpara><span class=secodephrase>\Z</span><span class=truehelp-xe></span></p><p class=senormalpara-p>&nbsp;</p>
+</td>
+<td valign=top style="width: 4.29583in">
+<p class=senormalpara>Matches the end of a string only. (See <span class=secodephrase>^</span> above.)</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+</table>
+<hr noshade size=1>
+<p class=normal><a href="TH_787.htm"><img src="button.png" border=0></a><a href="TH_787.htm" style="text-decoration:none;">Regular expression reference characters</a></p>
+<p>
+</body>
+</html>

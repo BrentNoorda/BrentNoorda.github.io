@@ -1,0 +1,68 @@
+<html>
+<head>
+<title>RegExp multiline</title>
+<link rel="stylesheet" href="semanualstyles.css" type="text/css">
+<style type="text/css">
+ p { margin-top: 0; margin-bottom: 0; }
+</style>
+<script language="JavaScript" src="TrueHelp.js"></script>
+</head>
+<body onload="thload()">
+<div id=ienav>
+<ilayer id=nsnav>
+<br>
+<center>
+<p class=normal><a href="seisdkj-toc.htm" target="left">contents</a> &nbsp; <a href="seisdkj-index.htm" target="left">index</a> &nbsp; <a href="TH_794.htm">previous</a> &nbsp; <a href="TH_796.htm">next</a></p>
+</center>
+<br>
+<hr noshade size=1>
+</ilayer>
+</div>
+<p class=sereffunclevel4>RegExp multiline</p>
+<table cellpadding=0>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>syntax:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=sesyntax>regexp.multiline<span class=truehelp-xe></span></p></td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>description:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>A read-only property of an instance of a <span class=sepopuptopic><a href="TH_777.htm" onClick="return thwindow('TH_777.htm', 'GenPopup')">RegExp object</a></span>. It is <span class=secodephrase>true</span> if "m" is an attribute in the regular expression pattern being used. There is no static (or global) RegExp <span class=secodephrase>multiline</span><span class=truehelp-xe></span> property in ScriptEase JavaScript since the presence of one is based on old technology and is confusing now that an instance property exists.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>This property determines whether a pattern search is done in a multiline mode. When a pattern is defined, the <span class=secodephrase>multiline</span> attribute may be set, for example, <span class=secodephrase>/^t/m</span>. A pattern definition such as this one, sets the instance property <span class=secodephrase>regexp.multiline</span> to <span class=secodephrase>true</span>.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>Read-only property. Use <span class=sepopuptopic><a href="TH_802.htm" onClick="return thwindow('TH_802.htm', 'GenPopup')">RegExp compile()</a></span> to change.</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>see:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara><span class=sejumptopic><a href="TH_781.htm">Regular expression attributes</a></span></p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>example:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=secodelines>//&nbsp;In&nbsp;all&nbsp;these&nbsp;examples,&nbsp;pat.multiline&nbsp;is&nbsp;set</p>
+<p class=secodelines>//&nbsp;to&nbsp;true.&nbsp;If&nbsp;there&nbsp;were&nbsp;no&nbsp;"m"&nbsp;in&nbsp;the&nbsp;attributes,</p>
+<p class=secodelines>//&nbsp;then&nbsp;pat.multiline&nbsp;would&nbsp;be&nbsp;set&nbsp;to&nbsp;false.</p>
+<p class=secodelines>var&nbsp;pat&nbsp;=&nbsp;/^Begin/m;</p>
+<p class=secodelines>//or</p>
+<p class=secodelines>var&nbsp;pat&nbsp;=&nbsp;new&nbsp;RegExp("^Begin",&nbsp;"igm");</p>
+<p class=secodelines>//or</p>
+<p class=secodelines>var&nbsp;pat&nbsp;=&nbsp;/^Begin/m;</p>
+<p class=secodelines>//or</p>
+<p class=secodelines>var&nbsp;pat&nbsp;=&nbsp;new&nbsp;RegExp("^Begin",&nbsp;"igm");</p></td>
+</tr>
+</table>
+<p class=normal>&nbsp;</p>
+<hr noshade size=1>
+<p class=normal><a href="TH_796.htm"><img src="button.png" border=0></a><a href="TH_796.htm" style="text-decoration:none;">RegExp source</a></p>
+<p>
+</body>
+</html>

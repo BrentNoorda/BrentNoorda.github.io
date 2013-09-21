@@ -1,0 +1,68 @@
+<html>
+<head>
+<title>Creating a DSP object</title>
+<link rel="stylesheet" href="semanualstyles.css" type="text/css">
+<style type="text/css">
+ p { margin-top: 0; margin-bottom: 0; }
+</style>
+<script language="JavaScript" src="TrueHelp.js"></script>
+</head>
+<body onload="thload()">
+<div id=ienav>
+<ilayer id=nsnav>
+<br>
+<center>
+<p class=normal><a href="seisdkc-toc.htm" target="left">contents</a> &nbsp; <a href="seisdkc-index.htm" target="left">index</a> &nbsp; <a href="TH_1000.htm">previous</a> &nbsp; <a href="TH_1002.htm">next</a></p>
+</center>
+<br>
+<hr noshade size=1>
+</ilayer>
+</div>
+<p class=heading-3>Creating a DSP object</p>
+<p class=heading-3-p>&nbsp;</p>
+<p class=senormalpara>The Distributed Scripting Protocol provides no internal method for managing a connection or transporting packets.  It is simply a framework, with the physical transport method being supplied by the user.  As such, it is impossible to simply create a DSP object, because it is incapable of doing anything by itself.  The user must supply a set of functions to manage the connection with the server.  To create a DSP object, you call <span class=secodephrase>new DSP(myOpenFunction, myParameters)</span>.  The function that you supply must open the connection and return a reference to it.  It is possible in some instances that you do not need to open anything special, and so you can ignore this parameter.  Here is an example of an open function for a DSP connection, using internet sockets:</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=secodelinesindented>function&nbsp;idspOpen(&nbsp;host,&nbsp;port&nbsp;)</p>
+<p class=secodelinesindented>{</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;return&nbsp;new&nbsp;Socket(&nbsp;host,&nbsp;port&nbsp;);</p>
+<p class=secodelinesindented>}</p>
+<p class=secodelinesindented>&nbsp;</p>
+<p class=senormalpara>We will see this function passed to the DSP constructor in a moment.  First, to accomplish sending/receiving packets, the user needs to define two functions, <span class=secodephrase>dspSend</span> and <span class=secodephrase>dspReceive</span>.  These functions must be inherited through the prototype chain, because otherwise when DSP objects are copied implicitly through reference construction (see below), the functions will not get passed.  Because we want to keep the DSP functions (such as dspService), we need to preserve the original DSP prototype, and a constructor looks like the following:</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=secodelinesindented>function&nbsp;iDSP(&nbsp;host,&nbsp;port&nbsp;)</p>
+<p class=secodelinesindented>{</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;var&nbsp;ret&nbsp;=&nbsp;new&nbsp;DSP(&nbsp;idspOpen,&nbsp;host,&nbsp;port&nbsp;);</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;//&nbsp;Now&nbsp;we&nbsp;override&nbsp;the&nbsp;._prototype&nbsp;to&nbsp;insert&nbsp;our&nbsp;functions</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;if(&nbsp;ret&nbsp;!=&nbsp;null&nbsp;)</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ret._prototype&nbsp;=&nbsp;iDSP.prototype;</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;return&nbsp;ret;</p>
+<p class=secodelinesindented>}</p>
+<p class=secodelinesindented>//&nbsp;Here&nbsp;we&nbsp;set&nbsp;up&nbsp;the&nbsp;iDSP.prototype&nbsp;to&nbsp;keep&nbsp;the&nbsp;DSP&nbsp;functions</p>
+<p class=secodelinesindented>//&nbsp;in&nbsp;the&nbsp;chain</p>
+<p class=secodelinesindented>iDSP.prototype._prototype&nbsp;=&nbsp;DSP.prototype;</p>
+<p class=secodelinesindented>&nbsp;</p>
+<p class=senormalpara>Once this constructor is called, we have a valid DSP object, assuming we add the transport functions.  To do this, we must add <span class=secodephrase>dspSend</span> and <span class=secodephrase>dspReceive</span> to the prototype.  The actual syntax of these functions is similar to <span class=sepopuptopic><a href="TH_623.htm" onClick="return thwindow('TH_623.htm', 'GenPopup')">Clib.fread()</a></span> and <span class=sepopuptopic><a href="TH_629.htm" onClick="return thwindow('TH_629.htm', 'GenPopup')">Clib.fwrite()</a></span>, and a description can be found in the function reference.  For our iDSP example, they would look something like this:</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=secodelinesindented>function&nbsp;iDSP.prototype.dspSend(&nbsp;conn,&nbsp;buffer,&nbsp;timeout&nbsp;)</p>
+<p class=secodelinesindented>{&nbsp;&nbsp;//&nbsp;Ignore&nbsp;timeout</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;return&nbsp;conn.write(buffer);</p>
+<p class=secodelinesindented>}</p>
+<p class=secodelinesindented>function&nbsp;iDSP.prototype.dspReceive(&nbsp;conn,&nbsp;&amp;buffer,&nbsp;length,&nbsp;timeout)</p>
+<p class=secodelinesindented>{</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;return&nbsp;conn.read(&nbsp;buffer,&nbsp;length&nbsp;);</p>
+<p class=secodelinesindented>}</p>
+<p class=secodelinesindented>&nbsp;</p>
+<p class=senormalpara>Note that both these functions ignore the timeout parameter and do not correctly handle errors.  A full-featured version of these functions can be found in the file <i>idsp.jsh</i>.  The final function that we must provide is the <span class=secodephrase>dspCloseConnection</span> function, which is responsible for closing the connection. This function looks like the following:</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=secodelinesindented>function&nbsp;iDSP.prototype.dspCloseConnection(&nbsp;conn&nbsp;)</p>
+<p class=secodelinesindented>{</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;conn.close();</p>
+<p class=secodelinesindented>}</p>
+<p class=secodelinesindented>&nbsp;</p>
+<p class=senormalpara>Once all of these transport functions have been defined, new iDSP objects can be instantiated with a call to <span class=secodephrase>new iDSP</span> and used as any other DSP object. Because the transport level of DSP is separate from the core library, DSP can be adapted to communicate between any servers in any way.  In addition, communication can be done during the call to the open function.  This allows for password authentication or any other information to be shared.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<hr noshade size=1>
+<p class=normal><a href="TH_1002.htm"><img src="button.png" border=0></a><a href="TH_1002.htm" style="text-decoration:none;">Using a DSP object</a></p>
+<p>
+</body>
+</html>

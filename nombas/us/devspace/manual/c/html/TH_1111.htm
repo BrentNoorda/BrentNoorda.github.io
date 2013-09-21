@@ -1,0 +1,80 @@
+<html>
+<head>
+<title>SimpleDataset()</title>
+<link rel="stylesheet" href="semanualstyles.css" type="text/css">
+<style type="text/css">
+ p { margin-top: 0; margin-bottom: 0; }
+</style>
+<script language="JavaScript" src="TrueHelp.js"></script>
+</head>
+<body onload="thload()">
+<div id=ienav>
+<ilayer id=nsnav>
+<br>
+<center>
+<p class=normal><a href="seisdkc-toc.htm" target="left">contents</a> &nbsp; <a href="seisdkc-index.htm" target="left">index</a> &nbsp; <a href="TH_1110.htm">previous</a> &nbsp; <a href="TH_1112.htm">next</a></p>
+</center>
+<br>
+<hr noshade size=1>
+</ilayer>
+</div>
+<p class=sereffunclevel4>SimpleDataset()</p>
+<table cellpadding=0>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>syntax:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=sesyntax>new&nbsp;SimpleDataset(database,&nbsp;table,&nbsp;username,&nbsp;password)</p></td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>where:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>database - The name of the ODBC database to open.  On Windows systems using ODBC, this is specified in the ODBC Administrator Control Panel; on UNIX, in the .odbc.ini file.  See your database or system administrator for more information.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>table - the name of the database table to use.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>username - name of the user to connect to the database.  Some relational database management systems (RDBMS) require that this be the same as your operating system login name; others maintain their own collections of valid user names.  If in doubt, see your system administrator.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>password - user's password.  If the database does not require a password, use an empty string.</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>return:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>object - a new <span class=secodephrase>SimpleDataset</span>, or <span class=secodephrase>null</span> on error.</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>description:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>Constructor for the <span class=secodephrase>SimpleDataset</span> object.  When the <span class=secodephrase>SimpleDataset</span> is created, it contains all of the elements in the table.  The current element is set to the one "before" the first element in the dataset (and thus is "out of range").</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>see:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara><span class=secodephrase>#include &lt;smdtset.jsh&gt;</span></p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>example:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=secodelines>//&nbsp;create&nbsp;a&nbsp;SimpleDataset&nbsp;connected&nbsp;to&nbsp;the&nbsp;database</p>
+<p class=secodelines>//&nbsp;named&nbsp;"corporate",&nbsp;table&nbsp;named&nbsp;"clients"&nbsp;using</p>
+<p class=secodelines>//&nbsp;the&nbsp;username&nbsp;"ADMIN"&nbsp;and&nbsp;the&nbsp;password</p>
+<p class=secodelines>//&nbsp;"admin-password"</p>
+<p class=secodelines>var&nbsp;ds&nbsp;=&nbsp;new&nbsp;SimpleDataset("corporate",&nbsp;"clients",</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"ADMIN",&nbsp;"admin-password");</p></td>
+</tr>
+</table>
+<p class=normal>&nbsp;</p>
+<hr noshade size=1>
+<p class=normal><a href="TH_1112.htm"><img src="button.png" border=0></a><a href="TH_1112.htm" style="text-decoration:none;">SimpleDataset close()</a></p>
+<p>
+</body>
+</html>

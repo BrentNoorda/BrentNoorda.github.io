@@ -1,0 +1,101 @@
+<html>
+<head>
+<title>SElib.interpret()</title>
+<link rel="stylesheet" href="semanualstyles.css" type="text/css">
+<style type="text/css">
+ p { margin-top: 0; margin-bottom: 0; }
+</style>
+<script language="JavaScript" src="TrueHelp.js"></script>
+</head>
+<body onload="thload()">
+<div id=ienav>
+<ilayer id=nsnav>
+<br>
+<center>
+<p class=normal><a href="seisdkc-toc.htm" target="left">contents</a> &nbsp; <a href="seisdkc-index.htm" target="left">index</a> &nbsp; <a href="TH_934.htm">previous</a> &nbsp; <a href="TH_936.htm">next</a></p>
+</center>
+<br>
+<hr noshade size=1>
+</ilayer>
+</div>
+<p class=sereffunclevel4>SElib.interpret()</p>
+<table cellpadding=0>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>syntax:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=sesyntax>SElib.interpret(codeToInterpret[,</p>
+<p class=sesyntax>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;howToInterpret[,&nbsp;security]])</p></td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>where:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>codeToInterpret - a string with ScriptEase code statements to be interpreted as script statements or the file specification, path and file name, of a script file. If the interpreted code receives arguments, they are put at the end of the codeToInterpret string--somewhat like a command line string.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>howToInterpret - tells how to handle the interpreted code. The following flag values may be combined using the bitwise or operator, "<span class=secodephrase>|</span>". The value must be 0 or one of the following choices:</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=list-bullet>&#8226;</p><p class=list-bullet-tab1><span class=secodephrase>INTERP_FILE</span><br>
+CodeToInterpret is the file name of a script, followed by any arguments.</p>
+<p class=list-bullet>&#8226;</p><p class=list-bullet-tab1><span class=secodephrase>INTERP_TEXT</span><br>
+CodeToInterpret is a string of source code with no arguments attached.</p>
+<p class=list-bullet>&#8226;</p><p class=list-bullet-tab1><span class=secodephrase>INTERP_LOAD</span><br>
+Load code into same function and variable space as the script that is calling <span class=secodephrase>SElib.interpret()</span>. All functions, and variables are supplied to the code being called, which can modify and use them. If the code being called has similarly named functions or variables as the calling code, functions in the called code replace those in the calling code.</p>
+<p class=list-bullet>&#8226;</p><p class=list-bullet-tab1><span class=secodephrase>INTERP_NOINHERIT_LOCAL</span><br>
+Local variables are not inherited by the interpreted code.</p>
+<p class=list-bullet>&#8226;</p><p class=list-bullet-tab1><span class=secodephrase>INTERP_NOINHERIT_GLOBAL</span><br>
+Global variables are not inherited by the interpreted code as globals.</p>
+<p class=list-bullet>&#8226;</p><p class=list-bullet-tab1><span class=secodephrase>INTERP_COMPILED_SCRIPT</span><br>
+Run a script compiled with <span class=secodephrase>SElib.compileScript()</span>. This flag only works with the <span class=secodephrase>INTERP_TEXT</span> flag. <span class=secodephrase></span></p>
+<p class=normal><span class=secodephrase></span></p>
+<p class=senormalpara><span class=secodephrase>INTERP_FILE</span> and <span class=secodephrase>INTERP_TEXT</span> are mutually exclusive. If neither is supplied the interpreter decides whether codeToInterpret is a file or string of code.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>These flags tell the computer how to interpret the parameter codeToInterpret. If one is not supplied, the computer parses the string and determines the most appropriate way to interpret it. </p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>security &#8211; the filename of the security script to run this interpreted script using. This is exactly like the security script passed to SEdesk using the "<span class=secodephrase>/secure=</span>"option, except it applies only to the script you are about to interpret. Remember that security is additive; any existing security is still in effect for the interpreted script as well.</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>return:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>value - the return of the interpreted code.</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>description:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>Interprets a string as if it were script. More flexible than the JavaScript <span class=sepopuptopic><a href="TH_818.htm" onClick="return thwindow('TH_818.htm', 'GenPopup')">global.eval()</a></span> function since it interprets a file as well as a string and allows more control over how interpreted code inherits variables from the script that calls <span class=secodephrase>SElib.interpret()</span>. By default, all variables in a script are inherited as global variables.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>There is no specific return for an error. To trap an error use the <span class=secodephrase>try/catch</span> error trapping statements.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>The <span class=secodephrase>SElib.interpret()</span> method may not be used with scripts that have been compiled into executable files using the <span class=secodeterm>/bind</span> option of the Pro version of ScriptEase Desktop.</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>see:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara><span class=sejumptopic><a href="TH_936.htm">SElib.interpretInNewThread()</a></span>, <span class=sejumptopic><a href="TH_945.htm">SElib.spawn()</a></span></p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>example:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=secodelines>&nbsp;&nbsp;&nbsp;//&nbsp;The&nbsp;following&nbsp;interpreted&nbsp;code&nbsp;displays&nbsp;"Hello&nbsp;world"</p>
+<p class=secodelines>SElib.interpret('Screen.writeln("Hello&nbsp;world")',&nbsp;INTERP_TEXT);</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;//&nbsp;The&nbsp;following&nbsp;interprets</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;//&nbsp;the&nbsp;file&nbsp;jseedit.jse&nbsp;with</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;//&nbsp;autoexec.bat&nbsp;as&nbsp;an&nbsp;argument&nbsp;to&nbsp;the&nbsp;script</p>
+<p class=secodelines>SElib.interpret("jseedit.jse&nbsp;c:\\autoexec.bat",</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;INTERP_FILE);</p></td>
+</tr>
+</table>
+<p class=normal>&nbsp;</p>
+<hr noshade size=1>
+<p class=normal><a href="TH_936.htm"><img src="button.png" border=0></a><a href="TH_936.htm" style="text-decoration:none;">SElib.interpretInNewThread()</a></p>
+<p>
+</body>
+</html>

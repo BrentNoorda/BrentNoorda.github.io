@@ -1,0 +1,72 @@
+<html>
+<head>
+<title>Array object</title>
+<link rel="stylesheet" href="semanualstyles.css" type="text/css">
+<style type="text/css">
+ p { margin-top: 0; margin-bottom: 0; }
+</style>
+<script language="JavaScript" src="TrueHelp.js"></script>
+</head>
+<body onload="thload()">
+<div id=ienav>
+<ilayer id=nsnav>
+<br>
+<center>
+<p class=normal><a href="seisdkj-toc.htm" target="left">contents</a> &nbsp; <a href="seisdkj-index.htm" target="left">index</a> &nbsp; previous &nbsp; <a href="TH_417.htm">next</a></p>
+</center>
+<br>
+<hr noshade size=1>
+</ilayer>
+</div>
+<p class=heading-2>Array object</p>
+<p class=heading-2-p>&nbsp;</p>
+<p class=senormalpara>An Array object is an object in JavaScript and is in the underlying ECMAScript standard. Be careful not to confuse an array variable that has been constructed as an instance of the Array object with the automatic or dynamic arrays of ScriptEase. ScriptEase offers automatic arrays in addition to the Array object of ECMAScript. The purpose is to ease the programming task by providing another easy to use tool for scripters. The current section is about Array objects.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>An Array is a special class of object that refers to its properties with numbers rather than with variable names. Properties of an Array object are called elements<span class=truehelp-xe></span> of the array. The number used to identify an element, called an index, is written in brackets following an array name. Array indices must be either numbers or strings.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>Array elements can be of any data type. The elements in an array do not all need to be of the same type, and there is no limit to the number of elements an array may have.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>The following statements demonstrate assigning values to arrays.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=secodelinesindented>var&nbsp;array&nbsp;=&nbsp;new&nbsp;Array();</p>
+<p class=secodelinesindented>array[0]&nbsp;=&nbsp;"fish";</p>
+<p class=secodelinesindented>array[1]&nbsp;=&nbsp;"fowl";</p>
+<p class=secodelinesindented>array["joe"]&nbsp;=&nbsp;new&nbsp;Rectangle(3,4);</p>
+<p class=secodelinesindented>array[foo]&nbsp;=&nbsp;"creeping&nbsp;things"</p>
+<p class=secodelinesindented>array[goo&nbsp;+&nbsp;1]&nbsp;=&nbsp;"etc."</p>
+<p class=secodelinesindented>&nbsp;</p>
+<p class=senormalpara>The variables foo and goo must be either numbers or strings.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>Since arrays use a number to identify the data they contain, they provide an easy way to work with sequential data<span class=truehelp-xe></span>. For example, suppose you wanted to keep track of how many jellybeans you ate each day, so you can graph your jellybean consumption at the end of the month. Arrays provide an ideal solution for storing such data.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=secodelinesindented>var&nbsp;April&nbsp;=&nbsp;new&nbsp;Array();</p>
+<p class=secodelinesindented>April[1]&nbsp;=&nbsp;233;</p>
+<p class=secodelinesindented>April[2]&nbsp;=&nbsp;344;</p>
+<p class=secodelinesindented>April[3]&nbsp;=&nbsp;155;</p>
+<p class=secodelinesindented>April[4]&nbsp;=&nbsp;32;</p>
+<p class=secodelinesindented>&nbsp;</p>
+<p class=senormalpara>Now you have all your data stored conveniently in one variable. You can find out how many jellybeans you ate on day x by checking the value of April[x]:</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=secodelinesindented>for(var&nbsp;x&nbsp;=&nbsp;1;&nbsp;x&nbsp;&lt;&nbsp;32;&nbsp;x++)</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;Screen.write("On&nbsp;April&nbsp;"&nbsp;+&nbsp;x&nbsp;+&nbsp;"&nbsp;I&nbsp;ate&nbsp;"&nbsp;+&nbsp;April[x]&nbsp;+</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"&nbsp;jellybeans.\n");</p>
+<p class=secodelinesindented>&nbsp;</p>
+<p class=senormalpara>Arrays usually start at index [0], not index [1]. Note that arrays do not have to be continuous, that is, you can have an array with elements at indices 0 and 2 but none at 1.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=sereffunc>&nbsp;</p>
+<table cellpadding=0>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>see:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>array.jsh - arrays and objects</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+</table>
+<hr noshade size=1>
+<p class=normal><a href="TH_417.htm"><img src="button.png" border=0></a><a href="TH_417.htm" style="text-decoration:none;">Creating arrays</a></p>
+<p class=normal><a href="TH_419.htm"><img src="button.png" border=0></a><a href="TH_419.htm" style="text-decoration:none;">Array object instance properties</a></p>
+<p class=normal><a href="TH_421.htm"><img src="button.png" border=0></a><a href="TH_421.htm" style="text-decoration:none;">Array object instance methods</a></p>
+<p>
+</body>
+</html>

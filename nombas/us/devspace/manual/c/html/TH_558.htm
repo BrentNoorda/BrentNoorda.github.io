@@ -1,0 +1,70 @@
+<html>
+<head>
+<title>Buffer bigEndian</title>
+<link rel="stylesheet" href="semanualstyles.css" type="text/css">
+<style type="text/css">
+ p { margin-top: 0; margin-bottom: 0; }
+</style>
+<script language="JavaScript" src="TrueHelp.js"></script>
+</head>
+<body onload="thload()">
+<div id=ienav>
+<ilayer id=nsnav>
+<br>
+<center>
+<p class=normal><a href="seisdkc-toc.htm" target="left">contents</a> &nbsp; <a href="seisdkc-index.htm" target="left">index</a> &nbsp; <a href="TH_557.htm">previous</a> &nbsp; <a href="TH_559.htm">next</a></p>
+</center>
+<br>
+<hr noshade size=1>
+</ilayer>
+</div>
+<p class=sereffunclevel4>Buffer bigEndian</p>
+<table cellpadding=0>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>syntax:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=sesyntax>buffer.bigEndian<span class=truehelp-xe></span></p></td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>description:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>This property is a boolean flag specifying whether to use bigEndian byte ordering when calling <span class=sepopuptopic><a href="TH_568.htm" onClick="return thwindow('TH_568.htm', 'GenPopup')">Buffer getValue()</a></span> and <span class=sepopuptopic><a href="TH_570.htm" onClick="return thwindow('TH_570.htm', 'GenPopup')">Buffer putValue()</a></span>. This value is set when a buffer is created, but may be changed at any time. This property defaults to the state of the underlying OS and processor.</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>see:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara><span class=sejumptopic><a href="TH_561.htm">Buffer unicode</a></span>, <span class=sejumptopic><a href="TH_564.htm">Buffer()</a></span></p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>example:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=secodelines>/********************************</p>
+<p class=secodelines>The&nbsp;default&nbsp;behavior&nbsp;for&nbsp;a&nbsp;Windows&nbsp;2000</p>
+<p class=secodelines>using&nbsp;an&nbsp;i386&nbsp;type&nbsp;of&nbsp;processor&nbsp;results</p>
+<p class=secodelines>in&nbsp;the&nbsp;following&nbsp;buffer&nbsp;or&nbsp;6&nbsp;bytes:</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;65&nbsp;00&nbsp;66&nbsp;00&nbsp;67&nbsp;00</p>
+<p class=secodelines>********************************/</p>
+<p class=secodelines>var&nbsp;i;</p>
+<p class=secodelines>var&nbsp;b&nbsp;=&nbsp;new&nbsp;Buffer("ABC",&nbsp;true);</p>
+<p class=secodelines>&nbsp;</p>
+<p class=secodelines>/********************************</p>
+<p class=secodelines>With&nbsp;bigEndian&nbsp;set,&nbsp;as&nbsp;in&nbsp;the&nbsp;following,</p>
+<p class=secodelines>the&nbsp;buffer&nbsp;is:</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;00&nbsp;65&nbsp;00&nbsp;66&nbsp;00&nbsp;67</p>
+<p class=secodelines>********************************/</p>
+<p class=secodelines>var&nbsp;i;</p>
+<p class=secodelines>var&nbsp;b&nbsp;=&nbsp;new&nbsp;Buffer("ABC",&nbsp;true,&nbsp;true);</p></td>
+</tr>
+</table>
+<p class=normal>&nbsp;</p>
+<hr noshade size=1>
+<p class=normal><a href="TH_559.htm"><img src="button.png" border=0></a><a href="TH_559.htm" style="text-decoration:none;">Buffer cursor</a></p>
+<p>
+</body>
+</html>

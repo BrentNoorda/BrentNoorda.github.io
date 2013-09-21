@@ -1,0 +1,27 @@
+<html>
+<head>
+<title>SE_START</title>
+<link rel="stylesheet" href="semanualstyles.css" type="text/css">
+<style type="text/css">
+ p { margin-top: 0; margin-bottom: 0; }
+</style>
+<script language="JavaScript" src="TrueHelp.js"></script>
+</head>
+<body onload="thload()">
+<div id=ienav>
+<ilayer id=nsnav>
+<br>
+<center>
+<p class=normal><a href="seisdkc-toc.htm" target="left">contents</a> &nbsp; <a href="seisdkc-index.htm" target="left">index</a> &nbsp; <a href="TH_237.htm">previous</a> &nbsp; <a href="TH_239.htm">next</a></p>
+</center>
+<br>
+<hr noshade size=1>
+</ilayer>
+</div>
+<p class=heading-4>SE_START</p>
+<p class=normal>The script is initialized but not actually run. You use the <span class=sejumptopic><a href="TH_72.htm">seExec</a></span> API call to execute one block of the script. <span class=secodephrase>seExec</span> executes the script until the next time a <span class=secodephrase>seContinueFunc</span> would be needed, so refer to <span class=secodephrase>SE_INFREQUENT_CONT</span> above. The use of this flag is intented to allow easy cooperative multitasking within your application. You can call <span class=secodephrase>seExec</span> to execute one small script piece at a time with whatever other code you desire between calls. You can run several scripts simultaneously, each in their own <span class=secodephrase>secontext</span>, by calling <span class=secodephrase>seEval</span> on each with this flag set then calling <span class=secodephrase>seExec</span> on each in turn.</p>
+<hr noshade size=1>
+<p class=normal><a href="TH_239.htm"><img src="button.png" border=0></a><a href="TH_239.htm" style="text-decoration:none;">SE_CONSTRUCTOR</a></p>
+<p>
+</body>
+</html>

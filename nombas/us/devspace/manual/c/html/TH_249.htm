@@ -1,0 +1,31 @@
+<html>
+<head>
+<title>CONTINUE FUNCTION</title>
+<link rel="stylesheet" href="semanualstyles.css" type="text/css">
+<style type="text/css">
+ p { margin-top: 0; margin-bottom: 0; }
+</style>
+<script language="JavaScript" src="TrueHelp.js"></script>
+</head>
+<body onload="thload()">
+<div id=ienav>
+<ilayer id=nsnav>
+<br>
+<center>
+<p class=normal><a href="seisdkc-toc.htm" target="left">contents</a> &nbsp; <a href="seisdkc-index.htm" target="left">index</a> &nbsp; <a href="TH_248.htm">previous</a> &nbsp; next</p>
+</center>
+<br>
+<hr noshade size=1>
+</ilayer>
+</div>
+<p class=heading-2>CONTINUE FUNCTION</p>
+<p class=heading-2-p>&nbsp;</p>
+<p class=senormalpara>The continue function is provided to allow an API application to process code while a script is being executed. One use of it is to implement a debugger. A second use is to process Windows messages. This section pulls all the information about the continue function into one place.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>The function is provided by the API user in the <span class=secodephrase>seContextParams</span> structure provided to the <span class=secodephrase>seCreateContext</span> API call. During <span class=secodephrase>seEval</span> script evalation, the function is called after each statement in the script is processed. However, the <span class=secodephrase>seEval</span> call can be provided with the <span class=secodephrase>SE_INFREQUENT_CONT</span> flag to call the function far less often. This flag is useful when code must be processed occassionally but not nearly as frequently as after each statement. Because debuggers must regain control after each statement, the <span class=secodephrase>seContextParams</span> has a flag <span class=secodephrase>SE_OPT_DEBUGGER</span>. This flag overrides the <span class=secodephrase>SE_INFREQUENT_CONT</span> flag. This allows the API user to use the <span class=secodephrase>SE_INFREQUENT_CONT</span> flag whenever it makes sense. A debugger can then optionally be used on the same code correctly, without changing that code.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>Finally, when using the <span class=secodephrase>SE_START</span> flag with <span class=secodephrase>seEval</span> to execute code one piece at a time, control is automatically returned from the <span class=secodephrase>seExec</span> API call after each script chunk. The amount of code executed in each call to <span class=secodephrase>seExec</span> is determined by the presence or absence of the <span class=secodephrase>SE_INFREQUENT_CONT</span> flag and the <span class=secodephrase>SE_OPT_DEBUGGER</span> flag. Since control is returned to the caller after each seExec call, the continue function is not called in this case. However, you may wish to call it yourself, depending on your application.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p>
+</body>
+</html>

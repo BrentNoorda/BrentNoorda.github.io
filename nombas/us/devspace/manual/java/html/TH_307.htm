@@ -1,0 +1,34 @@
+<html>
+<head>
+<title>Case sensitivity</title>
+<link rel="stylesheet" href="semanualstyles.css" type="text/css">
+<style type="text/css">
+ p { margin-top: 0; margin-bottom: 0; }
+</style>
+<script language="JavaScript" src="TrueHelp.js"></script>
+</head>
+<body onload="thload()">
+<div id=ienav>
+<ilayer id=nsnav>
+<br>
+<center>
+<p class=normal><a href="seisdkj-toc.htm" target="left">contents</a> &nbsp; <a href="seisdkj-index.htm" target="left">index</a> &nbsp; <a href="TH_306.htm">previous</a> &nbsp; <a href="TH_308.htm">next</a></p>
+</center>
+<br>
+<hr noshade size=1>
+</ilayer>
+</div>
+<p class=heading-3>Case sensitivity</p>
+<p class=heading-3-p>&nbsp;</p>
+<p class=senormalpara>ScriptEase is case sensitive. A variable named "testvar" is a different variable than one named "TestVar", and both of them can exist in a script at the same time. Thus, the following code fragment defines two separate variables:</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=secodelinesindented>var&nbsp;testvar&nbsp;=&nbsp;5</p>
+<p class=secodelinesindented>var&nbsp;TestVar&nbsp;=&nbsp;"five"</p>
+<p class=secodelinesindented>&nbsp;</p>
+<p class=senormalpara>All identifiers in ScriptEase are case sensitive. For example, to display the word "dog" on the screen, the Screen.write() method could be used: <span class=secodephrase>Screen.write("dog")</span>. But, if the capitalization is changed to something like, <span class=secodephrase>Screen.Write("dog")</span>, then the ScriptEase interpreter generates an error message. Control statements and preprocessor directives are also case sensitive. For example, the statement <span class=secodephrase>while</span> is valid, but the word <span class=secodephrase>While</span> is not. The directive <span class=secodephrase>#if</span> works, but the letters <span class=secodephrase>#IF</span> fail. </p>
+<p class=senormalpara-p>&nbsp;</p>
+<hr noshade size=1>
+<p class=normal><a href="TH_308.htm"><img src="button.png" border=0></a><a href="TH_308.htm" style="text-decoration:none;">White space characters</a></p>
+<p>
+</body>
+</html>

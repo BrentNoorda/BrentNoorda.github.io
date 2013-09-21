@@ -1,0 +1,92 @@
+<html>
+<head>
+<title>Database cursor()</title>
+<link rel="stylesheet" href="semanualstyles.css" type="text/css">
+<style type="text/css">
+ p { margin-top: 0; margin-bottom: 0; }
+</style>
+<script language="JavaScript" src="TrueHelp.js"></script>
+</head>
+<body onload="thload()">
+<div id=ienav>
+<ilayer id=nsnav>
+<br>
+<center>
+<p class=normal><a href="seisdkc-toc.htm" target="left">contents</a> &nbsp; <a href="seisdkc-index.htm" target="left">index</a> &nbsp; <a href="TH_1094.htm">previous</a> &nbsp; <a href="TH_1096.htm">next</a></p>
+</center>
+<br>
+<hr noshade size=1>
+</ilayer>
+</div>
+<p class=sereffunclevel4>Database cursor()</p>
+<table cellpadding=0>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>syntax:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=sesyntax>database.cursor(<span class=truehelp-xe></span>sqlstatement[,mode])</p></td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>where:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>sqlstatement - String containing a SQL SELECT statement supported by the database server. </p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>mode - optional parameter indicating whether the cursor can be modified.</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>return:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>object - a new Cursor object, representing the results of the specified SQL statement.</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>description:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>This method creates a Cursor object that contains the rows returned by the specified SQL SELECT statement in the <span class=secodephrase>sqlstatement</span> parameter.  If the SELECT statement does not return any rows, the resulting Cursor object also has no rows.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>The optional <span class=secodephrase>mode</span> parameter specifies how the Cursor object will access and modify records.  The options for this field are:</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara><span class=secodephrase>Database.snapshot</span> - uses SQLExtendedFetch, static cursor</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara><span class=secodephrase>Database.dynaset</span> - uses SQLExtendedFetch, keyset driven cursor</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara><span class=secodephrase>Database.forwardOnly</span> - uses SQLFetch</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara><span class=secodephrase>Database.dynamic</span> - uses SQLExtendedFetch, dynamic cursor</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>If no value is specified in the <span class=secodephrase>mode</span> parameter, the cursor is created <span class=secodephrase>Database.snapshot</span>.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>If an updateable Cursor object is desired, the virtual table returned by the <span class=secodephrase>sqlstatement</span> parameter must be updateable.  For example, the SELECT statement passed as the <span class=secodephrase>sqlstatement</span> parameter cannot contain a GROUP BY clause.  In addition, the query usually must retrieve key values from a table.  For more information on constructing updateable queries, consult your database vendor's documentation.</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>see:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara><span class=secodephrase>#link &lt;sedbc&gt;</span>, <span class=sejumptopic><a href="TH_1073.htm">Cursor object</a></span></p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>example:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=secodelines>//&nbsp;This&nbsp;example&nbsp;creates&nbsp;the&nbsp;updateable&nbsp;cursor&nbsp;'custs'</p>
+<p class=secodelines>//&nbsp;and</p>
+<p class=secodelines>//&nbsp;returns&nbsp;the&nbsp;columns&nbsp;'ID',&nbsp;'CUST_NAME',</p>
+<p class=secodelines>//&nbsp;and&nbsp;'CITY'&nbsp;from&nbsp;the</p>
+<p class=secodelines>//&nbsp;customer&nbsp;table:</p>
+<p class=secodelines>custs&nbsp;=&nbsp;db.cursor("select&nbsp;id,&nbsp;cust_name,</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;city&nbsp;from&nbsp;customer",</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Database.dynaset);</p></td>
+</tr>
+</table>
+<p class=normal>&nbsp;</p>
+<hr noshade size=1>
+<p class=normal><a href="TH_1096.htm"><img src="button.png" border=0></a><a href="TH_1096.htm" style="text-decoration:none;">Database disconnect()</a></p>
+<p>
+</body>
+</html>

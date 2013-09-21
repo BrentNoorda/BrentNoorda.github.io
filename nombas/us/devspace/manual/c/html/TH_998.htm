@@ -1,0 +1,91 @@
+<html>
+<head>
+<title>COMReleaseObject()</title>
+<link rel="stylesheet" href="semanualstyles.css" type="text/css">
+<style type="text/css">
+ p { margin-top: 0; margin-bottom: 0; }
+</style>
+<script language="JavaScript" src="TrueHelp.js"></script>
+</head>
+<body onload="thload()">
+<div id=ienav>
+<ilayer id=nsnav>
+<br>
+<center>
+<p class=normal><a href="seisdkc-toc.htm" target="left">contents</a> &nbsp; <a href="seisdkc-index.htm" target="left">index</a> &nbsp; <a href="TH_997.htm">previous</a> &nbsp; next</p>
+</center>
+<br>
+<hr noshade size=1>
+</ilayer>
+</div>
+<p class=sereffunclevel4>COMReleaseObject()</p>
+<table cellpadding=0>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>syntax:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=sesyntax>COMReleaseObject(COMObject)</p></td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>where:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>COMObject - An object returned with <span class=sepopuptopic><a href="TH_996.htm" onClick="return thwindow('TH_996.htm', 'GenPopup')">COMCreateObject</a></span>() or <span class=sepopuptopic><a href="TH_997.htm" onClick="return thwindow('TH_997.htm', 'GenPopup')">COMGetObject</a></span>().</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>return:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>none</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>description:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>Release all internal locks on a COM object created with <span class=sepopuptopic><a href="TH_996.htm" onClick="return thwindow('TH_996.htm', 'GenPopup')">COMCreateObject</a></span>() or <span class=sepopuptopic><a href="TH_997.htm" onClick="return thwindow('TH_997.htm', 'GenPopup')">COMGetObject</a></span>().</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>In most cases a lock is held on a COMObject until the script is no longer using the object and the internal script-engine garbage collector has run and freed the object.  Sometimes you will want the COM object to be releases earlier, such as if the COM object can only work with a limited number of clients--in this case calling COMReleaseObject will force all locks on the COM object to be released.  After COMReleaseObject and calls using the COMObject will throw an exception.</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>see:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara><span class=secodephrase>#link &lt;comobj&gt;</span>, <span class=sejumptopic><a href="TH_995.htm">COM object</a></span>, <span class=sejumptopic><a href="TH_996.htm">COMCreateObject</a></span>, <span class=sejumptopic><a href="TH_997.htm">COMGetObject</a></span></p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>example:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=secodelines>&nbsp;&nbsp;&nbsp;/*</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;This&nbsp;is&nbsp;similar&nbsp;to&nbsp;the&nbsp;example&nbsp;shown&nbsp;above</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;for&nbsp;COMCreateObject.&nbsp;&nbsp;In&nbsp;this&nbsp;case&nbsp;the</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;object&nbsp;will&nbsp;be&nbsp;released..</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;*/</p>
+<p class=secodelines>&nbsp;</p>
+<p class=secodelines>#link&nbsp;"comobj"</p>
+<p class=secodelines>&nbsp;</p>
+<p class=secodelines>var&nbsp;wd;</p>
+<p class=secodelines>wd&nbsp;=&nbsp;COMCreateObject("Word.Application");</p>
+<p class=secodelines>wd.visible&nbsp;=&nbsp;true;</p>
+<p class=secodelines>&nbsp;</p>
+<p class=secodelines>COMReleaseObject(wd);</p>
+<p class=secodelines>&nbsp;</p>
+<p class=secodelines>try&nbsp;{</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;wd.visible&nbsp;=&nbsp;false;&nbsp;//&nbsp;this&nbsp;will&nbsp;fail&nbsp;because</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//&nbsp;the&nbsp;object&nbsp;is&nbsp;released</p>
+<p class=secodelines>}</p>
+<p class=secodelines>catch(e)</p>
+<p class=secodelines>{</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;//&nbsp;this&nbsp;will&nbsp;be&nbsp;caught&nbsp;because&nbsp;the&nbsp;wd&nbsp;object</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;//&nbsp;was&nbsp;used&nbsp;after&nbsp;it&nbsp;was&nbsp;released</p>
+<p class=secodelines>}</p></td>
+</tr>
+</table>
+<p class=normal>&nbsp;</p>
+<p>
+</body>
+</html>

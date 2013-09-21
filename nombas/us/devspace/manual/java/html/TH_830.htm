@@ -1,0 +1,88 @@
+<html>
+<head>
+<title>SElib.pointer()</title>
+<link rel="stylesheet" href="semanualstyles.css" type="text/css">
+<style type="text/css">
+ p { margin-top: 0; margin-bottom: 0; }
+</style>
+<script language="JavaScript" src="TrueHelp.js"></script>
+</head>
+<body onload="thload()">
+<div id=ienav>
+<ilayer id=nsnav>
+<br>
+<center>
+<p class=normal><a href="seisdkj-toc.htm" target="left">contents</a> &nbsp; <a href="seisdkj-index.htm" target="left">index</a> &nbsp; <a href="TH_829.htm">previous</a> &nbsp; <a href="TH_831.htm">next</a></p>
+</center>
+<br>
+<hr noshade size=1>
+</ilayer>
+</div>
+<p class=sereffunclevel4>SElib.pointer()</p>
+<table cellpadding=0>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>syntax:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=sesyntax>SElib.pointer(varName)</p></td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>where:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>varName - the name or identifier of a variable</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>return:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>number - the address of, a pointer to, the variable identified by varName.</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>description:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>Gets the address in memory of a variable. The pointer points to the first byte of data in a variable. The variable may be a primitive data type: byte, integer, or float, or it may be a single dimension array of bytes, integers, or floats, which includes a string. If the variable is an array, then the address returned points to the first byte of the first element of the array. The parameter varName may also identify a Blob variable since Blobs are actually byte arrays. Other types of data are not allowed.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>For computer architectures that distinguish between near and far memory addresses, the value returned by <span class=secodephrase>SElib.pointer()</span> is a far address or pointer.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>ScriptEase data is guaranteed to remain fixed at its memory location only as long as that memory is not modified by a script. Thus, a pointer is valid only until a script modifies the variable identified by varName or until the variable goes out of scope in a script. Putting data in the memory occupied by varName after such a change is dangerous. When data is put into the memory occupied by varName, be careful not to put more data than will fit in the memory that the variable actually occupies.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>Caution. Routines that work with memory directly, such as this one, should be used with caution. A programmer should clearly understand memory and the operations of these methods before using them. ScriptEase does not trap errors caused by this routine. </p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>see:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara><span class=sejumptopic><a href="TH_829.htm">SElib.peek()</a></span>, <span class=sejumptopic><a href="TH_831.htm">SElib.poke()</a></span>, <span class=sejumptopic><a href="TH_585.htm">Clib.memchr()</a></span>, <span class=sejumptopic><a href="TH_434.htm">Blob object</a></span></p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>example:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=secodelines>var&nbsp;v&nbsp;=&nbsp;"Now";</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;//&nbsp;Display&nbsp;"Now"</p>
+<p class=secodelines>Screen.writeln(v);</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;//&nbsp;Get&nbsp;the&nbsp;"N"</p>
+<p class=secodelines>var&nbsp;vPtr&nbsp;=&nbsp;SElib.pointer(v);</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;//&nbsp;Get&nbsp;the&nbsp;address&nbsp;of&nbsp;the&nbsp;first&nbsp;byte&nbsp;of&nbsp;v,&nbsp;"N"</p>
+<p class=secodelines>var&nbsp;p&nbsp;=&nbsp;SElib.peek(vPtr);</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;//&nbsp;Convert&nbsp;"N"&nbsp;to&nbsp;"P"</p>
+<p class=secodelines>SElib.poke(vPtr,p+2);</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;//&nbsp;Display&nbsp;"Pow"</p>
+<p class=secodelines>Screen.writeln(v);</p>
+<p class=secodelines>&nbsp;</p>
+<p class=secodelines>//&nbsp;See&nbsp;usage&nbsp;in&nbsp;fileobj.jsh,&nbsp;batch.jsh,</p>
+<p class=secodelines>//&nbsp;memsrch.jsh,&nbsp;touch.jsh,&nbsp;and&nbsp;pickfile.jsh</p></td>
+</tr>
+</table>
+<p class=normal>&nbsp;</p>
+<hr noshade size=1>
+<p class=normal><a href="TH_831.htm"><img src="button.png" border=0></a><a href="TH_831.htm" style="text-decoration:none;">SElib.poke()</a></p>
+<p>
+</body>
+</html>

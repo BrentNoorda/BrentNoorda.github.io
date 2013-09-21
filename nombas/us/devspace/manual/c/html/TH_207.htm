@@ -1,0 +1,40 @@
+<html>
+<head>
+<title>SEND FILE filename</title>
+<link rel="stylesheet" href="semanualstyles.css" type="text/css">
+<style type="text/css">
+ p { margin-top: 0; margin-bottom: 0; }
+</style>
+<script language="JavaScript" src="TrueHelp.js"></script>
+</head>
+<body onload="thload()">
+<div id=ienav>
+<ilayer id=nsnav>
+<br>
+<center>
+<p class=normal><a href="seisdkc-toc.htm" target="left">contents</a> &nbsp; <a href="seisdkc-index.htm" target="left">index</a> &nbsp; <a href="TH_206.htm">previous</a> &nbsp; <a href="TH_208.htm">next</a></p>
+</center>
+<br>
+<hr noshade size=1>
+</ilayer>
+</div>
+<p class=heading-4>SEND FILE filename</p>
+<p class=senormalpara>The debugger uses this when remote debugging and finding a new filename. The application responds by sending the file using this format:</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=secodelinesindented>FILE&nbsp;filename&nbsp;LENGTH&nbsp;length-in-bytes</p>
+<p class=secodelinesindented>file&nbsp;contents</p>
+<p class=secodelinesindented>FILE&nbsp;DONE</p>
+<p class=secodelinesindented>&nbsp;</p>
+<p class=secodelinesindented>UNICODE&nbsp;FILE&nbsp;filename&nbsp;LENGTH&nbsp;length-in-bytes</p>
+<p class=secodelinesindented>file&nbsp;contents</p>
+<p class=secodelinesindented>FILE&nbsp;DONE</p>
+<p class=secodelinesindented>&nbsp;</p>
+<p class=senormalpara>The length field is confirmed by finding <span class=secodephrase>FILE DONE</span> at the right place. For files of unicode characters, the length in bytes will be twice the number of unicode characters. Unicode chars are passed in little endian byte order.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>It is alternately possible to see a <span class=secodephrase>DENIED</span> response from the application. Only filenames sent in a <span class=secodephrase>REPORT</span> are valid. This is a check against someone trying to read arbitrary files. If the <span class=secodephrase>DENIED</span> message text consists of a single <span class=secodephrase>?</span>, the application is indicating it does not have access to the source text. This is possible when the application is executing compiled scripts. In this case, the debugger will have to make a decision as to what it does in this case. One possibility is to expect the user to run the debugger from the machine that originally compiled those scripts. In this case, the filenames will correspond to files on the debugging machine.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<hr noshade size=1>
+<p class=normal><a href="TH_208.htm"><img src="button.png" border=0></a><a href="TH_208.htm" style="text-decoration:none;">CLEAR BREAKPOINTS</a></p>
+<p>
+</body>
+</html>

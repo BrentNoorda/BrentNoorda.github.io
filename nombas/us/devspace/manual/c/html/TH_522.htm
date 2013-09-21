@@ -1,0 +1,49 @@
+<html>
+<head>
+<title>Unnecessary tokens</title>
+<link rel="stylesheet" href="semanualstyles.css" type="text/css">
+<style type="text/css">
+ p { margin-top: 0; margin-bottom: 0; }
+</style>
+<script language="JavaScript" src="TrueHelp.js"></script>
+</head>
+<body onload="thload()">
+<div id=ienav>
+<ilayer id=nsnav>
+<br>
+<center>
+<p class=normal><a href="seisdkc-toc.htm" target="left">contents</a> &nbsp; <a href="seisdkc-index.htm" target="left">index</a> &nbsp; <a href="TH_521.htm">previous</a> &nbsp; <a href="TH_523.htm">next</a></p>
+</center>
+<br>
+<hr noshade size=1>
+</ilayer>
+</div>
+<p class=heading-2>Unnecessary tokens</p>
+<p class=heading-2-p>&nbsp;</p>
+<p class=senormalpara>If symbols are redundant, they are usually unnecessary in ScriptEase which allows more flexibility in writing scripts and is less onerous for users not trained in C. Semicolons that end statements are usually redundant and do not do anything extra when a script is interpreted. C programmers are trained to use semicolons<span class=truehelp-xe></span> to end statements, a practice that can be followed in ScriptEase. Indeed, some programmers think that the use of semicolons in ScriptEase and JavaScript is a good to be pursued. Many people who are not trained in C wonder at the use of redundant semicolons and are sometimes confused by their use. The use of semicolons is personal. If a programmer wants to use them, then he should, but if he does not want to, then he should not.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>In ScriptEase the two statements, "<span class=secodephrase>foo()</span>" and "<span class=secodephrase>foo();</span>" are identical. It does not hurt to use semicolons, especially when used with return statements, such as "<span class=secodephrase>return;</span>". But widespread or regular use of semicolons simply is not necessary. Similarly, parentheses, "(" and ")", are often unnecessary. For example, the following fragment is valid and results in both of the variables, n and x, being equal to 7.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=secodelinesindented>var&nbsp;n&nbsp;=&nbsp;1&nbsp;+&nbsp;2&nbsp;*&nbsp;3&nbsp;&nbsp;var&nbsp;x&nbsp;=&nbsp;2&nbsp;*&nbsp;3&nbsp;+&nbsp;1</p>
+<p class=secodelinesindented>&nbsp;</p>
+<p class=senormalpara>The following fragment is identical and is clearer, but it requires more typing because of the addition of redundant tokens.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=secodelinesindented>var&nbsp;n&nbsp;=&nbsp;1&nbsp;+&nbsp;(2&nbsp;*&nbsp;3);&nbsp;var&nbsp;x&nbsp;=&nbsp;(2&nbsp;*&nbsp;3)&nbsp;+&nbsp;1;</p>
+<p class=secodelinesindented>&nbsp;</p>
+<p class=senormalpara>The fragments could be rewritten to be:</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=secodelinesindented>var&nbsp;n&nbsp;=&nbsp;1&nbsp;+&nbsp;2&nbsp;*&nbsp;3</p>
+<p class=secodelinesindented>var&nbsp;x&nbsp;=&nbsp;2&nbsp;*&nbsp;3&nbsp;+&nbsp;1</p>
+<p class=secodelinesindented>&nbsp;</p>
+<p class=senormalpara>and:</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=secodelinesindented>var&nbsp;n&nbsp;=&nbsp;1&nbsp;+&nbsp;(2&nbsp;*&nbsp;3);</p>
+<p class=secodelinesindented>var&nbsp;x&nbsp;=&nbsp;(2&nbsp;*&nbsp;3)&nbsp;+&nbsp;1;</p>
+<p class=secodelinesindented>&nbsp;</p>
+<p class=senormalpara>Which fragment is better? The answer depends on personal taste. Efforts to standardize programming styles over the last three decades have been abysmal failures, not unlike efforts to control the Internet.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<hr noshade size=1>
+<p class=normal><a href="TH_523.htm"><img src="button.png" border=0></a><a href="TH_523.htm" style="text-decoration:none;">Macros</a></p>
+<p>
+</body>
+</html>

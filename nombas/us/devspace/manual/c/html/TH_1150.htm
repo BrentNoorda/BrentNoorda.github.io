@@ -1,0 +1,78 @@
+<html>
+<head>
+<title>Socket remoteHost()</title>
+<link rel="stylesheet" href="semanualstyles.css" type="text/css">
+<style type="text/css">
+ p { margin-top: 0; margin-bottom: 0; }
+</style>
+<script language="JavaScript" src="TrueHelp.js"></script>
+</head>
+<body onload="thload()">
+<div id=ienav>
+<ilayer id=nsnav>
+<br>
+<center>
+<p class=normal><a href="seisdkc-toc.htm" target="left">contents</a> &nbsp; <a href="seisdkc-index.htm" target="left">index</a> &nbsp; <a href="TH_1149.htm">previous</a> &nbsp; <a href="TH_1151.htm">next</a></p>
+</center>
+<br>
+<hr noshade size=1>
+</ilayer>
+</div>
+<p class=sereffunclevel4>Socket remoteHost()</p>
+<table cellpadding=0>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>syntax:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=sesyntax>socket.remoteHost()<span class=truehelp-xe></span></p></td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>return:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>string - The host this socket is connected to, or <span class=secodephrase>null</span> if it is not connected.</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>description:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>For listening sockets that are only connected to a port, then this method returns <span class=secodephrase>null</span>.  Otherwise, it returns the name of the remote host, either the server that the socket connected to, or the client from an incoming request.  This method can be used to tell whether or not a socket is listening or is connected.</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>see:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara><span class=secodephrase>#link &lt;sesock&gt;</span><span class=sejumptopic></span></p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>example:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=secodelines>var&nbsp;listenSocket&nbsp;=&nbsp;Socket(&nbsp;1000&nbsp;);</p>
+<p class=secodelines>&nbsp;</p>
+<p class=secodelines>if(&nbsp;listenSocket&nbsp;!=&nbsp;null&nbsp;)</p>
+<p class=secodelines>{</p>
+<p class=secodelines>&nbsp;&nbsp;if(&nbsp;listenSocket.ready()&nbsp;)</p>
+<p class=secodelines>&nbsp;&nbsp;{</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;var&nbsp;connection&nbsp;=&nbsp;listenSocket.accept();</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if(&nbsp;connection&nbsp;!=&nbsp;null&nbsp;)</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//&nbsp;Print&nbsp;out&nbsp;name&nbsp;of&nbsp;incoming&nbsp;request</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Screen.writeln(&nbsp;connection.remoteHost()&nbsp;);</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//&nbsp;..&nbsp;do&nbsp;other&nbsp;stuff&nbsp;...</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;connection.close();</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}</p>
+<p class=secodelines>&nbsp;&nbsp;}</p>
+<p class=secodelines>&nbsp;&nbsp;listenSocket.close();</p>
+<p class=secodelines>}</p></td>
+</tr>
+</table>
+<p class=normal>&nbsp;</p>
+<hr noshade size=1>
+<p class=normal><a href="TH_1151.htm"><img src="button.png" border=0></a><a href="TH_1151.htm" style="text-decoration:none;">Socket write()</a></p>
+<p>
+</body>
+</html>

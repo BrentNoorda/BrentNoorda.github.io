@@ -1,0 +1,95 @@
+<html>
+<head>
+<title>Socket() with port</title>
+<link rel="stylesheet" href="semanualstyles.css" type="text/css">
+<style type="text/css">
+ p { margin-top: 0; margin-bottom: 0; }
+</style>
+<script language="JavaScript" src="TrueHelp.js"></script>
+</head>
+<body onload="thload()">
+<div id=ienav>
+<ilayer id=nsnav>
+<br>
+<center>
+<p class=normal><a href="seisdkc-toc.htm" target="left">contents</a> &nbsp; <a href="seisdkc-index.htm" target="left">index</a> &nbsp; <a href="TH_1142.htm">previous</a> &nbsp; <a href="TH_1144.htm">next</a></p>
+</center>
+<br>
+<hr noshade size=1>
+</ilayer>
+</div>
+<p class=sereffunclevel4>Socket() with port</p>
+<table cellpadding=0>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>syntax:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=sesyntax>Socket(port)</p></td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>where:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>port - Port to listen on</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>return:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>object - A Socket object, or <span class=secodephrase>null</span> on error.</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>description:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>There are two types of sockets, in general.  One type is a socket which is an established connection between a client and a server.  This socket can be read to and written from just like a file.  The other type of socket is a listening socket, which is a server-side socket which is not connected to a specific client, but rather to a certain port.  It is listening for any new requests on that port.  Requests can be checked for using the <span class=sepopuptopic><a href="TH_1157.htm" onClick="return thwindow('TH_1157.htm', 'GenPopup')">Socket.select()</a></span> method.  Once it is established that there is a request waiting, the peer-to-peer connection can be established using the accept() method.  This creates a new connection socket on another port, leaving the original socket still listening for incoming connections.</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>see:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara><span class=secodephrase>#link &lt;sesock&gt;</span>, <span class=sejumptopic><a href="TH_1157.htm">Socket select()</a></span>, <span class=sejumptopic><a href="TH_1144.htm">Socket accept()</a></span></p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>example:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=secodelines>var&nbsp;listenSocket&nbsp;=&nbsp;Socket(&nbsp;1000&nbsp;);</p>
+<p class=secodelines>&nbsp;</p>
+<p class=secodelines>if(&nbsp;listenSocket&nbsp;!=&nbsp;null&nbsp;)</p>
+<p class=secodelines>{</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;if(&nbsp;listenSocket.ready()&nbsp;)</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;{</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;var&nbsp;connectSocket&nbsp;=&nbsp;listenSocket.accept();</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if(&nbsp;connectSocket&nbsp;!=&nbsp;null&nbsp;)</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//&nbsp;Finally!&nbsp;we&nbsp;have&nbsp;the&nbsp;socket</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//&nbsp;...&nbsp;do&nbsp;stuff&nbsp;with&nbsp;socket&nbsp;...</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;connectSocket.close();</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;}</p>
+<p class=secodelines>}</p>
+<p class=secodelines>&nbsp;</p>
+<p class=secodelines>/*&nbsp;Creates&nbsp;a&nbsp;socket&nbsp;to&nbsp;listen&nbsp;on&nbsp;port&nbsp;1000</p>
+<p class=secodelines>&nbsp;*&nbsp;and&nbsp;wait&nbsp;for&nbsp;any&nbsp;incoming</p>
+<p class=secodelines>&nbsp;*&nbsp;connections.&nbsp;&nbsp;The&nbsp;no-parameter&nbsp;form</p>
+<p class=secodelines>&nbsp;*&nbsp;of&nbsp;ready()&nbsp;uses&nbsp;an&nbsp;infinite</p>
+<p class=secodelines>&nbsp;*&nbsp;timeout,&nbsp;so&nbsp;the&nbsp;program&nbsp;waits&nbsp;indefinitely</p>
+<p class=secodelines>&nbsp;*&nbsp;for&nbsp;a&nbsp;connection.&nbsp;&nbsp;This&nbsp;is</p>
+<p class=secodelines>&nbsp;*&nbsp;also&nbsp;equiavalent&nbsp;to</p>
+<p class=secodelines>&nbsp;*&nbsp;"Socket.select(-1,listenSocket)",&nbsp;which&nbsp;is&nbsp;a</p>
+<p class=secodelines>&nbsp;*&nbsp;generic&nbsp;form&nbsp;which&nbsp;allows&nbsp;for</p>
+<p class=secodelines>&nbsp;*&nbsp;listening&nbsp;on&nbsp;multiple&nbsp;sockets.</p>
+<p class=secodelines>&nbsp;*/</p></td>
+</tr>
+</table>
+<p class=normal>&nbsp;</p>
+<hr noshade size=1>
+<p class=normal><a href="TH_1144.htm"><img src="button.png" border=0></a><a href="TH_1144.htm" style="text-decoration:none;">Socket accept()</a></p>
+<p>
+</body>
+</html>

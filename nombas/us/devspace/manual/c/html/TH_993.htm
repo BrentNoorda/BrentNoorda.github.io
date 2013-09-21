@@ -1,0 +1,52 @@
+<html>
+<head>
+<title>Link Libraries</title>
+<link rel="stylesheet" href="semanualstyles.css" type="text/css">
+<style type="text/css">
+ p { margin-top: 0; margin-bottom: 0; }
+</style>
+<script language="JavaScript" src="TrueHelp.js"></script>
+</head>
+<body onload="thload()">
+<div id=ienav>
+<ilayer id=nsnav>
+<br>
+<center>
+<p class=normal><a href="seisdkc-toc.htm" target="left">contents</a> &nbsp; <a href="seisdkc-index.htm" target="left">index</a> &nbsp; previous &nbsp; next</p>
+</center>
+<br>
+<hr noshade size=1>
+</ilayer>
+</div>
+<p class=heading-1>Link Libraries</p>
+<p class=heading-1-p>&nbsp;</p>
+<p class=senormalpara>Link libraries<span class=truehelp-xe></span> are dynamic link library files (.dll files) developed specifically to work with ScriptEase. ScriptEase can use any DLL, but the calling conventions needed to call routines in a DLL are necessarily more cumbersome than calling internal routines. ScriptEase extends the power and ease of using its link libraries by tying them to the internal data structures of ScriptEase. In this way, the data and routines in a link library are available with the same calling conventions of internal routines. Consider the two following code fragment:</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;//&nbsp;Using&nbsp;dynamicLink</p>
+<p class=secodelinesindented>var&nbsp;v1&nbsp;=&nbsp;SElib.dynamicLink("YourDll.dll",&nbsp;"FunctionOne",&nbsp;STDCALL,&nbsp;args&nbsp;...);</p>
+<p class=secodelinesindented>var&nbsp;v2&nbsp;=&nbsp;SElib.dynamicLink("YourDll.dll",&nbsp;"FunctionTwo",&nbsp;STDCALL,&nbsp;args&nbsp;...);</p>
+<p class=secodelinesindented>&nbsp;</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;//&nbsp;Using&nbsp;a&nbsp;link&nbsp;library</p>
+<p class=secodelinesindented>#link&nbsp;&lt;SElink.dll&gt;</p>
+<p class=secodelinesindented>var&nbsp;v1&nbsp;=&nbsp;FunctionOne(args&nbsp;...);</p>
+<p class=secodelinesindented>var&nbsp;v2&nbsp;=&nbsp;FunctionTwo(args&nbsp;...);</p>
+<p class=secodelinesindented>&nbsp;</p>
+<p class=senormalpara>As you can see in the first three lines, every time you want to call a routine from a general DLL, you must use the more cumbersome <span class=secodephrase>SElib.dynamicLink()</span> method and its cumbersome calling conventions. Cumbersome calling conventions exist in any language that allows general DLL files to be called. But, notice the difference after a ScriptEase link DLL is linked into a script, as illustrated by the line, <span class=secodephrase>#link &lt;SElink.dll&gt;</span>. The routines and data in the DLL are accessible in the same way as internal routines such as <span class=secodephrase>Screen.writeln()</span>.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>Script libraries, scripts that end with <span class=secodephrase>jsh</span>, can be used to define objects, methods, properties, functions, and data. The advantage of script libraries is that you may develop them quickly and alter them at any time. An advantage of link libraries is that they execute faster since they compiled executables.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>The following sections explain various link libraries. To use these link libraries, they must be included in a script with the <span class=secodephrase>#link &lt;&gt;</span> preprocessor directive. Most link libraries have a corresponding script library, <span class=secodephrase>jsh</span> file, that simplifies their use even more.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara><b>See</b>:</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=list-bullet>&#8226;</p><p class=list-bullet-tab1><span class=sejumptopic><a href="TH_994.htm">Com Object Link Library</a></span></p>
+<p class=list-bullet>&#8226;</p><p class=list-bullet-tab1><span class=sejumptopic><a href="TH_999.htm">DSP Link Library</a></span></p>
+<p class=list-bullet>&#8226;</p><p class=list-bullet-tab1><span class=sejumptopic><a href="TH_1017.htm">GD Link Library</a></span></p>
+<p class=list-bullet>&#8226;</p><p class=list-bullet-tab1><span class=sejumptopic><a href="TH_1066.htm">MD5 Checksum Link Library</a></span></p>
+<p class=list-bullet>&#8226;</p><p class=list-bullet-tab1><span class=sejumptopic><a href="TH_1072.htm">SEDBC Link Library</a></span></p>
+<p class=list-bullet>&#8226;</p><p class=list-bullet-tab1><span class=sejumptopic><a href="TH_1139.htm">Socket Link Library</a></span></p>
+<p class=list-bullet>&#8226;</p><p class=list-bullet-tab1><span class=sejumptopic><a href="TH_1158.htm">UUCode Link Library</a></span></p>
+<p class=normal>&nbsp;</p>
+<p>
+</body>
+</html>

@@ -1,0 +1,55 @@
+<html>
+<head>
+<title>Literal strings</title>
+<link rel="stylesheet" href="semanualstyles.css" type="text/css">
+<style type="text/css">
+ p { margin-top: 0; margin-bottom: 0; }
+</style>
+<script language="JavaScript" src="TrueHelp.js"></script>
+</head>
+<body onload="thload()">
+<div id=ienav>
+<ilayer id=nsnav>
+<br>
+<center>
+<p class=normal><a href="seisdkc-toc.htm" target="left">contents</a> &nbsp; <a href="seisdkc-index.htm" target="left">index</a> &nbsp; <a href="TH_510.htm">previous</a> &nbsp; <a href="TH_512.htm">next</a></p>
+</center>
+<br>
+<hr noshade size=1>
+</ilayer>
+</div>
+<p class=heading-2>Literal strings</p>
+<p class=heading-2-p>&nbsp;</p>
+<p class=senormalpara>A literal string in ScriptEase is any array of characters, that is, a string, appearing in source code within double, single, or back quotes. Back quotes are sometimes referred to as back-ticks. The following lines show examples of literal strings in ScriptEase:</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=secodelinesindented>"dog"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//&nbsp;literal&nbsp;string&nbsp;(double&nbsp;quote)</p>
+<p class=secodelinesindented>'dog'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//&nbsp;literal&nbsp;string&nbsp;(single&nbsp;quotes)</p>
+<p class=secodelinesindented>`dog`&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//&nbsp;literal&nbsp;string&nbsp;(backticks)</p>
+<p class=secodelinesindented>{'d','o','g','\0'}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//&nbsp;not&nbsp;a&nbsp;literal&nbsp;string,&nbsp;rather</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//&nbsp;an&nbsp;array&nbsp;initialization</p>
+<p class=secodelinesindented>&nbsp;</p>
+<p class=senormalpara>Literal strings have special treatment for certain ScriptEase operations for the following reasons.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=list-bullet>&#8226;</p><p class=list-bullet-tab1>To protect literal string data from being overwritten accidentally</p>
+<p class=list-bullet>&#8226;</p><p class=list-bullet-tab1>To reduce confusion for novice programmers who do not think of strings as arrays of bytes</p>
+<p class=list-bullet>&#8226;</p><p class=list-bullet-tab1>To simplify writing code for common operations, for example, the statement:</p>
+<p class=normal>&nbsp;</p>
+<p class=secodelinesindented>TestStr&nbsp;==&nbsp;"MYLONGPASSWORD"</p>
+<p class=secodelinesindented>&nbsp;</p>
+<p class=senormalpara>is simpler than :</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=secodelinesindented>Clib.strcmp(TestStr,&nbsp;"MYLONGPASSWORD").</p>
+<p class=secodelinesindented>&nbsp;</p>
+<p class=senormalpara>In general, literal strings adhere to the two following rules.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=list-bullet>&#8226;</p><p class=list-bullet-tab1>Comparisons are intrinsically handled by <span class=sepopuptopic><a href="TH_670.htm" onClick="return thwindow('TH_670.htm', 'GenPopup')">Clib.strcmp()</a></span></p>
+<p class=list-bullet>&#8226;</p><p class=list-bullet-tab1>Assignment and passing of literal strings is done by making copies of the literal string</p>
+<hr noshade size=1>
+<p class=normal><a href="TH_512.htm"><img src="button.png" border=0></a><a href="TH_512.htm" style="text-decoration:none;">Literal strings and assignments</a></p>
+<p class=normal><a href="TH_513.htm"><img src="button.png" border=0></a><a href="TH_513.htm" style="text-decoration:none;">Literal strings and comparisons</a></p>
+<p class=normal><a href="TH_514.htm"><img src="button.png" border=0></a><a href="TH_514.htm" style="text-decoration:none;">Literal strings and parameters</a></p>
+<p class=normal><a href="TH_515.htm"><img src="button.png" border=0></a><a href="TH_515.htm" style="text-decoration:none;">Literal strings and returns</a></p>
+<p class=normal><a href="TH_516.htm"><img src="button.png" border=0></a><a href="TH_516.htm" style="text-decoration:none;">Literal Strings and switch statements</a></p>
+<p>
+</body>
+</html>

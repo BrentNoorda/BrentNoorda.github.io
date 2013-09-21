@@ -1,0 +1,31 @@
+<html>
+<head>
+<title>FLOATING POINT CUSTOMIZATION</title>
+<link rel="stylesheet" href="semanualstyles.css" type="text/css">
+<style type="text/css">
+ p { margin-top: 0; margin-bottom: 0; }
+</style>
+<script language="JavaScript" src="TrueHelp.js"></script>
+</head>
+<body onload="thload()">
+<div id=ienav>
+<ilayer id=nsnav>
+<br>
+<center>
+<p class=normal><a href="seisdkc-toc.htm" target="left">contents</a> &nbsp; <a href="seisdkc-index.htm" target="left">index</a> &nbsp; <a href="TH_185.htm">previous</a> &nbsp; <a href="TH_187.htm">next</a></p>
+</center>
+<br>
+<hr noshade size=1>
+</ilayer>
+</div>
+<p class=heading-2>FLOATING POINT CUSTOMIZATION</p>
+<p class=heading-2-p>&nbsp;</p>
+<p class=senormalpara>The ECMAScript standard specifies that an ECMAScript number match the double-precision 64-bit format IEEE 754 values.  In most compilers this is represented as <span class=secodephrase>double</span>, and this is the default for the ScriptEase engine.  However, there may be situations where a different meaning for &#147;number&#148; may be more appropriate, such as when a <span class=secodephrase>double</span> is too large or requires too much processing time (e.g., small systems without floating-point coprocessors), or when floating-point numbers are not needed at all.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=normal>Within the ScriptEase:ISDK/C the exact type for an ECMAScript number is never hard coded, but is instead defined by the <span class=sepopuptopic><a href="TH_300.htm" onClick="return thwindow('TH_300.htm', 'GenPopup')">senumber</a></span> type.  By default <span class=secodephrase>senumber</span> is defined the same as the C <span class=secodephrase>double</span> type, but that may be changed to any definition that is better suited to your system.  The file <span class=semonospaced>src/include/sefp.h</span> defines defaults for this value for floating-point and integer-only builds.  You may choose to modify the type of <span class=secodephrase>senumber</span> to be anything else, such as a <span class=secodephrase>float</span>, an <span class=secodephrase>integer</span>, a packed value, a string, or even a structure (as is found in the <span class=secodephrase>fpemul</span> sample).</p>
+<hr noshade size=1>
+<p class=normal><a href="TH_187.htm"><img src="button.png" border=0></a><a href="TH_187.htm" style="text-decoration:none;">JSE_FLOATING_POINT (on)</a></p>
+<p class=normal><a href="TH_188.htm"><img src="button.png" border=0></a><a href="TH_188.htm" style="text-decoration:none;">JSE_FP_EMULATOR (off)</a></p>
+<p>
+</body>
+</html>

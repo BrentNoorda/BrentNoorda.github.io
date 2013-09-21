@@ -1,0 +1,34 @@
+<html>
+<head>
+<title>SE.AT_EXIT</title>
+<link rel="stylesheet" href="semanualstyles.css" type="text/css">
+<style type="text/css">
+ p { margin-top: 0; margin-bottom: 0; }
+</style>
+<script language="JavaScript" src="TrueHelp.js"></script>
+</head>
+<body onload="thload()">
+<div id=ienav>
+<ilayer id=nsnav>
+<br>
+<center>
+<p class=normal><a href="seisdkj-toc.htm" target="left">contents</a> &nbsp; <a href="seisdkj-index.htm" target="left">index</a> &nbsp; <a href="TH_236.htm">previous</a> &nbsp; <a href="TH_238.htm">next</a></p>
+</center>
+<br>
+<hr noshade size=1>
+</ilayer>
+</div>
+<p class=heading-4>SE.AT_EXIT</p>
+<p class=senormalpara>The <span class=secodephrase>SE.AT_EXIT</span> object contains a number of members who are themselves functions, wrapper or script. These functions should take no parameters. All of the function members are invoked when the current <span class=sejumptopic><a href="TH_62.htm">seEval</a></span> with the flag <span class=secodephrase>SE.EXIT_LEVEL</span> completes. The <span class=secodephrase>this</span> object for these functions will be the <span class=secodephrase>SE.AT_EXIT</span> object they are a part of.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>Members of the <span class=secodephrase>SE.AT_EXIT</span> object that are not functions are ignored. However, they can be used to store information retrieved by an at-exit function through its <span class=secodephrase>SE.THIS</span> object.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>The <span class=secodephrase>sePutWrapper</span> API function is useful for creating functions as members of the <span class=secodephrase>SE.AT_EXIT</span> object to then be called.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>You should choose member names for your at-exit functions that are unique and unlikely to be duplicated. Using short, common member names runs the risk of overwriting another at-exit function or its associated data members.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<hr noshade size=1>
+<p class=normal><a href="TH_238.htm"><img src="button.png" border=0></a><a href="TH_238.htm" style="text-decoration:none;">SE.FILENAMES</a></p>
+<p>
+</body>
+</html>

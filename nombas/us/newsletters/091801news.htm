@@ -1,0 +1,306 @@
+<html>
+<head>
+<title>ScriptEase ISDK Newsletter September 18, 2001</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-1754630-10']);
+  _gaq.push(['_trackPageview']);
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+</head>
+
+<body bgcolor="#FFFFFF" TOPMARGIN=0 LEFTMARGIN=0 MARGINWIDTH=0 MARGINHEIGHT=0>
+<table width="640" border="0" cellspacing="0" cellpadding="0">
+  <tr> 
+    <td> 
+      <p><img src="images/newsbanner.jpg" width="640" height="70" border="0"></p>
+      <table width="630" border="0" cellspacing="0" cellpadding="0" align="center">
+        <tr> 
+          <td width="150" valign="top" align="left"> 
+            <p><font face="Arial, Helvetica, sans-serif" color="#0E2595" size="4"><b>Sept. 
+              18, 2001</b></font></p>
+            <p><b><font color="#990000" size="-2" face="Verdana,Tahoma,Arial,Helvetica">In 
+              This Issue</font></b></p>
+            <table width="150" border="0" cellspacing="0" cellpadding="0">
+              <tr> 
+                <td width="15" valign="top" align="center"> 
+                  <p><a href="#article1"></a><img src="images/bullet.gif" width="10" height="10" vspace="2"></p>
+                </td>
+                <td width="135" align="left" valign="top"> 
+                  <p><a href="#article1"><font size="-2" face="Verdana,Tahoma,Arial,Helvetica">SEObjectWrapper 
+                    - Integrating C++ Objects With ScriptEase</font></a><br>
+                    &nbsp; </p>
+                </td>
+              </tr>
+              <tr> 
+                <td width="15" align="center" valign="top"><img src="images/bullet.gif" width="10" height="10" vspace="2"></td>
+                <td width="135" align="left" valign="top"><a href="#c430derrata"><font size="-2" face="Verdana,Tahoma,Arial,Helvetica">ISDK/C 
+                  4.30d Errata</font></a><br>
+                  &nbsp; </td>
+              </tr>
+              <tr> 
+                <td width="15" align="center" valign="top"><img src="images/bullet.gif" width="10" height="10" vspace="2"></td>
+                <td width="135" align="left" valign="top"><a href="#c440cerrata"><font size="-2" face="Verdana,Tahoma,Arial,Helvetica">ISDK/C 
+                  4.40c Errata</font></a><br>
+                  &nbsp; </td>
+              </tr>
+              <tr> 
+                <td width="15" align="center" valign="top"><img src="images/bullet.gif" width="10" height="10" vspace="2"></td>
+                <td width="135" align="left" valign="top"><a href="#errataj430d"><font size="-2" face="Verdana,Tahoma,Arial,Helvetica">ISDK/Java 
+                  4.30b Errata</font></a></td>
+              </tr>
+            </table>
+            <p><a
+                             href="../devspace/newsletters/index.htm"><font size="-2" face="Verdana,Tahoma,Arial,Helvetica">Other 
+              Newsletters</font></a></p>
+            <p><b><font color="#990000" size="-2" face="Verdana,Tahoma,Arial,Helvetica">DevSpace 
+              Developer Support<br>
+              <br>
+              </font></b><font size="-2" face="Verdana,Tahoma,Arial,Helvetica">For 
+              more information and resources, </font><a
+                             href="../devspace/index.htm"><font size="-2" face="Verdana,Tahoma,Arial,Helvetica">visit 
+              ScriptEase: ISDK DevSpace online.</font></a> </p>
+            <p align=LEFT><b><font color="#990000" size="-2"
+                             face="Verdana,Tahoma,Arial,Helvetica">Download Center<br>
+              <br>
+              </font></b><font size="-2" face="Verdana,Tahoma,Arial,Helvetica">For 
+              latest updates and extensions, </font><a href="http://www.nombasxxx.com/us/toolkit/isdkdownload.htm"><font size="-2" face="Verdana,Tahoma,Arial,Helvetica">visit 
+              the ISDK Download Center</font></a><font size="-2"
+                             face="Verdana,Tahoma,Arial,Helvetica">.</font> 
+          </td>
+          <td width="10">&nbsp;</td>
+          <td width="470" valign="top" align="left"> 
+            <div align="left"> 
+              <p><font face="Arial, Helvetica, sans-serif" color="#0E2595" size="4"><b><a name="article1"></a><img src="images/drscripter.jpg" width="100" height="100" align="right" border="0" vspace="2" hspace="4">Introducing 
+                SEObjectWrapper - Integrating C++ Objects with ScriptEase</b></font><br>
+                <font size="2" color="#6699FF" face="Arial, Helvetica, sans-serif"><i>Using 
+                the SEObjectWrapper class (JseObject.h and JseObject.cpp) to simplify 
+                the integration of C++ objects with javascript objects</i></font></p>
+              <p align=LEFT><font color="#000000">One of the most useful and important 
+                features of the ScriptEase ISDK has long been the ability to wrap 
+                C/C++ objects automatically within JavaScript objects through 
+                the use of wrappers, dynamic callbacks, and various flags. In 
+                this way a C/C++ object can be represented transparently as a 
+                JavaScript object, and vice versa.</font></p>
+              <p align=LEFT>C++ developers often ask for help with wrapping C++ 
+                objects as JavaScript objects. Now that help is available in the 
+                form of a C++ class: SEObjectWrapper.</p>
+              <p align=LEFT><b><font color="#0E2595"> SEObjectWrapper Goals </font></b> 
+              </p>
+              <p align=LEFT>From the <a href="../devspace/manual/cppobjects.htm">SEObjectWrapper 
+                Addendum</a>:</p>
+            </div>
+            <blockquote> 
+              <div align="left"> 
+                <div align="left">The SEObjectWrapper class is designed with the 
+                  following goals in mind:</div>
+              </div>
+            </blockquote>
+            <ul>
+              <li>
+                <div align="left">Letting the user create new objects from within 
+                  the ScriptEase engine</div>
+              </li>
+              <li>
+                <div align="left">Automatic management of object lifetime and 
+                  deletion</div>
+              </li>
+              <li>
+                <div align="left">Simple method of exporting existing methods 
+                  to the ScriptEase engine</div>
+              </li>
+              <li>
+                <div align="left">Simple method of exporting dynamic properties 
+                  to the ScriptEase engine</div>
+              </li>
+              <li>
+                <div align="left">Ability to create fully dynamic ScriptEase objects 
+                  easily</div>
+              </li>
+              <li>
+                <div align="left">Allowing for any C++ object hierarchy to be 
+                  represented in ScriptEase</div>
+              </li>
+            </ul>
+            <blockquote>
+              <div align="left">The SEObjectWrapper class is designed to be simple 
+                to use, yet powerful enough to handle all of your needs.  With 
+                just a few extra lines of code and some wrapper functions, any 
+                class can be converted into a ScriptEase object with minimal effort.</div>
+            </blockquote>
+            <div align="left"> 
+              <p align=LEFT><b><font color="#0E2595">SEObjectWrapper Manual </font></b> 
+              </p>
+              <p align=LEFT><img src="../devspace/pix/manual.gif" width="32" height="32" align="left">Complete 
+                documentation for SEObjectWrapper is available as an addendum 
+                to the ISDK User Manuals, as the document: <a href="../devspace/manual/cppobjects.htm">Integrating 
+                C++ Objects with ScriptEase and SEObjectWrapper</a>.</p>
+              <p align=LEFT>SEObjectWrapper is not the only way to integrate C++ 
+                classes with ISDK/C, and many of you will continue with your own 
+                methods that may best suit your applications. Whether you use 
+                SEObjectWrapper directly or only for ideas, I hope SEObjectWrapper 
+                proves useful in your ScriptEase development efforts.</p>
+              <p align=LEFT><i><font
+                             size="-1" face="Verdana,Tahoma,Arial,Helvetica">Have 
+                a question about how to use ScriptEase:ISDK? Let Dr. Scripter 
+                know at </font></i><a href="http://support.nombasxxx.com/"><i><font size="-1"
+                             face="Verdana,Tahoma,Arial,Helvetica">http://support.nombasxxx.com/</font></i></a></p>
+              </div>
+          </td>
+        </tr>
+      </table>
+      <hr>
+      <font face="Arial, Helvetica, sans-serif" color="#0E2595" size="4"><b><font size="5">&nbsp;Errata</font></b></font> 
+      <font face="Arial, Helvetica, sans-serif" color="#0E2595" size="4"><b><font size="5"><a name="c430derrata"></a></font></b></font> 
+      <p><b><font color="#0E2595" size="-1" face="Verdana,Tahoma,Arial,Helvetica">&nbsp;&nbsp;ISDK/C 
+        4.30d</font></b> </p>
+      <ul>
+        <li><font color="#000000"><a href="../devspace/errata/isdk/index430.htm#drgcdyn"><b>get 
+          callback may crash during seobjHasProperty()</b></a>: dynamic get callback 
+          crash when called during seobjHasProperty() to determine if the propery 
+          exists. <font size="-1">[<a href="../devspace/errata/isdk/index430.htm#dgetinhas">details</a>]</font></font></li>
+      </ul>
+      <ul>
+        <li><b><a href="../devspace/errata/isdk/index430.htm#drgcdyn">rare 
+          GC problem on dynamic objects</a></b>: <font color="#000000">In very 
+          rare circumstances, a garbage-collection may occur during manipulation 
+          of a dynamic object callback that could invalidate an internal stack 
+          variable. This has never been found to happen in the field, but new internal 
+          debugging code has detected the possibility. <font size="-1">[<a href="../devspace/errata/isdk/index430.htm#drgcdyn">details</a>]</font></font></li>
+      </ul>
+      <ul>
+        <li><b><a href="../devspace/errata/isdk/index430.htm#dfncstrcat">toString 
+          on functions concatenates some identifiers</a></b>: When a function 
+          is being converted to a string, a required space may not be displayed 
+          after some variables. For example, &quot;for(var&nbsp;foo&nbsp;in&nbsp;goo)&quot; 
+          may become &quot;for(var&nbsp;fooin&nbsp;goo)&quot;.<font color="#000000"> 
+          <font size="-1">[<a href="../devspace/errata/isdk/index430.htm#dfncstrcat">details</a>]</font></font></li>
+      </ul>
+      <ul>
+        <li><b><a href="../devspace/errata/objfunc/index.htm#430dbufgetstr">buffer.getString 
+          not stopping at the null character</a></b>: Buffer.prototype.getString() 
+          is not terminating strings at the first null character, as specified 
+          in the documentation.<font color="#000000"> <font size="-1">[<a href="../devspace/errata/objfunc/index.htm#430dbufgetstr">details</a>]</font></font></li>
+      </ul>
+      <ul>
+        <li><b><a href="../devspace/errata/link/index.htm#invkclr">COMOBJ 
+          error on put: "object no longer connected"</a></b>: Under certain circumstances 
+          a call to comobj to put a value into a COM variable would either fail 
+          with an error saying that the object was no longer connected to the 
+          server or would crash ScriptEase outright.<font color="#000000"> <font size="-1">[<a href="../devspace/errata/link/index.htm#invkclr">details</a>]</font></font></li>
+      </ul>
+      <ul>
+        <li><b><a href="../devspace/errata/link/index.htm#comarr43">VT_ARRAY 
+          has been added to COMOBJ</a></b>: Update: VT_ARRAY has been added to 
+          COMOBJ for getters (although not yet for putters). This allows scripts 
+          interacting with COM objects to retrieve array data.<font color="#000000"> 
+          <font size="-1">[<a href="../devspace/errata/link/index.htm#comarr43">details</a>]</font></font></li>
+      </ul>
+      <p><font face="Arial, Helvetica, sans-serif" color="#0E2595" size="4"><b><font size="5">&nbsp;Errata</font></b></font> 
+        <a name="c440cerrata"></a> </p>
+      <p><b><font color="#0E2595" size="-1" face="Verdana,Tahoma,Arial,Helvetica">&nbsp;&nbsp;ISDK/C 
+        4.40c </font></b> </p>
+      <ul>
+        <li><font color="#000000"><b><a href="../devspace/errata/isdk/index440.htm#cgetinhas">get 
+          callback may crash during seobjHasProperty()</a></b>: dynamic get callback 
+          crash when called during seobjHasProperty() to determine if the propery 
+          exists. <font size="-1">[<a href="../devspace/errata/isdk/index440.htm#cgetinhas">details</a>]</font></font></li>
+      </ul>
+      <ul>
+        <li><b><a href="../devspace/errata/isdk/index440.htm#cstkxhst">"internal 
+          stack exhausted" error with multiple calls to jseCallFunction()</a></b>: 
+          <font color="#000000">jseCallFunction() leaks ScriptEase stack space, 
+          leading to an overflow and the 'internal stack exhausted' error. <font size="-1">[<a href="../devspace/errata/isdk/index440.htm#cstkxhst">details</a>]</font></font></li>
+      </ul>
+      <ul>
+        <li><b><a href="../devspace/errata/isdk/index440.htm#cnamparmgc">named-parameter 
+          object for wrapper functions trashed by GC</a></b>: If garbage collection 
+          occurs while a named-parameter object is available to a wrapper function, 
+          that named-parameter object will be freed and its use may crash the 
+          system.<font color="#000000"> <font size="-1">[<a href="../devspace/errata/isdk/index440.htm#cnamparmgc">details</a>]</font></font></li>
+      </ul>
+      <ul>
+        <li><b><a href="../devspace/errata/isdk/index440.htm#cfncstrcat">toString 
+          on functions concatenates some identifiers</a></b>: When a function 
+          is being converted to a string, a required space may not be displayed 
+          after some variables. For example, &quot;for(var&nbsp;foo&nbsp;in&nbsp;goo)&quot; 
+          may become &quot;for(var&nbsp;fooin&nbsp;goo)&quot;.<font color="#000000"> 
+          <font size="-1">[<a href="../devspace/errata/isdk/index440.htm#cfncstrcat">details</a>]</font></font></li>
+      </ul>
+      <ul>
+        <li><b><a href="../devspace/errata/objfunc/index.htm#arrcat">array.concat 
+          adds extra null item on initial element</a></b>: If Array.prototype.concat 
+          is used on an initialy empty array, and extra element is added at the 
+          beginning.<font color="#000000"> <font size="-1">[<a href="../devspace/errata/objfunc/index.htm#arrcat">details</a>]</font></font></li>
+      </ul>
+      <ul>
+        <li><b><a href="../devspace/errata/isdk/index440.htm#cmmbxprot">jseMemberEx 
+          and jseIndexMemberEx do not search prototypes</a></b>: Warning: In moving 
+          from version 4.30 to 4.40, and if you were using the jseMemberEx() or 
+          jseIndexMemberEx() functions without the jseDontSearchPrototype flag, 
+          then you will find that with version 4.40 members will not be located 
+          in the _prototype chain.<font color="#000000"> <font size="-1">[<a href="../devspace/errata/isdk/index440.htm#cmmbxprot">details</a>]</font></font></li>
+      </ul>
+      <ul>
+        <li><b><a href="../devspace/errata/objfunc/index.htm#440cbufgetstr">buffer.getString 
+          not stopping at the null character</a></b>: Buffer.prototype.getString() 
+          is not terminating strings at the first null character, as specified 
+          in the documentation.<font color="#000000"> <font size="-1">[<a href="../devspace/errata/objfunc/index.htm#440cbufgetstr">details</a>]</font></font></li>
+      </ul>
+      <ul>
+        <li><b><a href="../devspace/errata/isdk/index440.htm#rtvrcrsh">jseReturnVar 
+          may crash with strings, buffers, and objects</a></b>: It is possible, 
+          although very unlikely, that variables of type jseTypeString, jseTypeBuffer, 
+          or jseTypeObject may be freed by the garbage collector before they are 
+          assigned to a script variable.<font color="#000000"> <font size="-1">[<a href="../devspace/errata/isdk/index440.htm#rtvrcrsh">details</a>]</font></font></li>
+      </ul>
+      <ul>
+        <li><b><a href="../devspace/errata/link/index.htm#comarr44">VT_ARRAY 
+          has been added to COMOBJ</a></b>: Update: VT_ARRAY has been added to 
+          COMOBJ for getters (although not yet for putters). This allows scripts 
+          interacting with COM objects to retrieve array data.<font color="#000000"> 
+          <font size="-1">[<a href="../devspace/errata/link/index.htm#comarr44">details</a>]</font></font></li>
+      </ul>
+      <p><font face="Arial, Helvetica, sans-serif" color="#0E2595" size="4"><b><font size="5">&nbsp;Errata</font></b></font> 
+        <font face="Arial, Helvetica, sans-serif" color="#0E2595" size="4"><b><font size="5"><a name="errataj430d"></a></font></b></font> 
+      </p>
+      <p><b><font color="#0E2595" size="-1" face="Verdana,Tahoma,Arial,Helvetica">&nbsp;&nbsp;ISDK/Java 
+        4.30d </font></b> </p>
+      <ul>
+        <li><font color="#000000"><b><a href="../devspace/errata/jisdk/index.htm#430dcharread">Some 
+          characters not read correctly when interpreting from a token buffer</a></b>: 
+          When interpreting from a token buffer, some characters may be read back 
+          incorrectly. <font size="-1">[<a href="../devspace/errata/jisdk/index.htm#430dcharread">details</a>]</font></font></li>
+      </ul>
+      <ul>
+        <li><b><a href="../devspace/errata/jisdk/index.htm#430derratic">Scripts 
+          interpreted from a token buffer may display erratic behavior</a></b>: 
+          <font color="#000000">When interpreting from a token buffer, goto labels 
+          may become all messed up. <font size="-1">[<a href="../devspace/errata/jisdk/index.htm#430derratic">details</a>]</font></font></li>
+      </ul>
+      <ul>
+        <li><b><a href="../devspace/errata/jisdk/index.htm#430dfloatread">Floating 
+          point numbers not read correctly when interpreting from token buffer</a></b>: 
+          When interpreting from a precompiled token buffer, floating point numbers 
+          will not be read correctly.<font color="#000000"> <font size="-1">[<a href="../devspace/errata/jisdk/index.htm#430dfloatread">details</a>]</font></font></li>
+      </ul>
+      <ul>
+        <li><b><a href="../devspace/errata/jisdk/index.htm#430dfloatwrite">Floating 
+          point numbers not written correctly in jseCreateCodeTokenBuffer</a></b>: 
+          When creating tokens with jseCreateCodeTokenBuffer, floating point numbers 
+          are written incorrectly.<font color="#000000"> <font size="-1">[<a href="../devspace/errata/jisdk/index.htm#430dfloatwrite">details</a>]</font></font></li>
+      </ul>
+      <p></p>
+      <p></p>
+      <p></p>
+      <p><a href="../index.htm"><img src="images/footer.jpg" width="640" height="30" border="0" alt="ScriptEase: ISDK is a product of Nombas, Inc. Visit us at ../index.htm"></a></p>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

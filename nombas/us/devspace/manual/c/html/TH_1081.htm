@@ -1,0 +1,72 @@
+<html>
+<head>
+<title>Cursor deleteRow()</title>
+<link rel="stylesheet" href="semanualstyles.css" type="text/css">
+<style type="text/css">
+ p { margin-top: 0; margin-bottom: 0; }
+</style>
+<script language="JavaScript" src="TrueHelp.js"></script>
+</head>
+<body onload="thload()">
+<div id=ienav>
+<ilayer id=nsnav>
+<br>
+<center>
+<p class=normal><a href="seisdkc-toc.htm" target="left">contents</a> &nbsp; <a href="seisdkc-index.htm" target="left">index</a> &nbsp; <a href="TH_1080.htm">previous</a> &nbsp; <a href="TH_1082.htm">next</a></p>
+</center>
+<br>
+<hr noshade size=1>
+</ilayer>
+</div>
+<p class=sereffunclevel4>Cursor deleteRow()</p>
+<table cellpadding=0>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>syntax:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=sesyntax>cursor.deleteRow()<span class=truehelp-xe></span></p></td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>return:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>number - 0 if the call was successful; otherwise, a nonzero status code based on the error message produced by the database.  If the method returns a nonzero status code, use the associated Database's <span class=secodephrase>majorErrorCode</span> and <span class=secodephrase>majorErrorMessage</span> methods to interpret the meaning of the error.</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>description:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>This function, only available on up datable cursors, deletes the current row from the Database object.</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>see:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara><span class=secodephrase>#link &lt;sedbc&gt;</span>, <span class=sejumptopic><a href="TH_1092.htm">Database commitTransaction()</a></span>, <span class=sejumptopic><a href="TH_1104.htm">Database rollbackTransaction()</a></span></p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>example:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=secodelines>//&nbsp;assume&nbsp;'database'&nbsp;is&nbsp;a&nbsp;valid&nbsp;Database&nbsp;object</p>
+<p class=secodelines>var&nbsp;curs&nbsp;=&nbsp;database.table("customer");</p>
+<p class=secodelines>&nbsp;</p>
+<p class=secodelines>//&nbsp;delete&nbsp;all&nbsp;rows&nbsp;from&nbsp;the&nbsp;Database</p>
+<p class=secodelines>//&nbsp;where&nbsp;City&nbsp;is&nbsp;"Malden"</p>
+<p class=secodelines>while&nbsp;(curs.next())</p>
+<p class=secodelines>{</p>
+<p class=secodelines>&nbsp;&nbsp;if(curs.City&nbsp;==&nbsp;"Malden")</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;&nbsp;err&nbsp;=&nbsp;curs.deleteRow();</p>
+<p class=secodelines>}</p>
+<p class=secodelines>database.commitTransaction();</p></td>
+</tr>
+</table>
+<p class=normal>&nbsp;</p>
+<hr noshade size=1>
+<p class=normal><a href="TH_1082.htm"><img src="button.png" border=0></a><a href="TH_1082.htm" style="text-decoration:none;">Cursor first()</a></p>
+<p>
+</body>
+</html>

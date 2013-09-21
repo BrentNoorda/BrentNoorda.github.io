@@ -1,0 +1,127 @@
+<html>
+<head>
+<title>Buffer putValue()</title>
+<link rel="stylesheet" href="semanualstyles.css" type="text/css">
+<style type="text/css">
+ p { margin-top: 0; margin-bottom: 0; }
+</style>
+<script language="JavaScript" src="TrueHelp.js"></script>
+</head>
+<body onload="thload()">
+<div id=ienav>
+<ilayer id=nsnav>
+<br>
+<center>
+<p class=normal><a href="seisdkj-toc.htm" target="left">contents</a> &nbsp; <a href="seisdkj-index.htm" target="left">index</a> &nbsp; <a href="TH_458.htm">previous</a> &nbsp; <a href="TH_460.htm">next</a></p>
+</center>
+<br>
+<hr noshade size=1>
+</ilayer>
+</div>
+<p class=sereffunclevel4>Buffer putValue()</p>
+<table cellpadding=0>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>syntax:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=sesyntax>buffer.putValue<span class=truehelp-xe></span>(value[,&nbsp;valueSize[,&nbsp;valueType]])</p></td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>where:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>value - the value, a number, to be put into the buffer at the position indicated by the <span class=secodephrase>cursor</span> property.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>valueSize - a positive number describing the number of bytes to be used and defaults to 1. The following are acceptable values: 1,2,3,4,8, and 10 </p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>valueType - One of the following types: "<span class=secodephrase>signed</span>", "<span class=secodephrase>unsigned</span>", or "<span class=secodephrase>float</span>". The default type is: "<span class=secodephrase>signed</span>."</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>return:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>void</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>The <span class=secodephrase>value</span> is put into buffer at the current <span class=secodephrase>cursor</span> position, and the cursor value is automatically incremented by the size of the value to reflect this addition. </p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>description:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>This method puts the specified <span class=secodephrase>value</span> into a buffer. The value must be a number. The parameter <span class=secodephrase>valueSize</span> or both <span class=secodephrase>valueSize</span> and <span class=secodephrase>valueType</span> may be passed as additional parameters. The parameter <span class=secodephrase>valueSize</span> is a positive number describing the number of bytes to be used and defaults to 1. Acceptable values for <span class=secodephrase>valueSize</span> are 1, 2, 3, 4, 8, and 10, providing that it does not conflict with the optional <span class=secodephrase>valueType</span> flag. (See listing below.)</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>The parameter <span class=secodephrase>valueType</span> must be one of the following: "<span class=secodephrase>signed</span>", "<span class=secodephrase>unsigned</span>", or "<span class=secodephrase>float</span>". It defaults to "<span class=secodephrase>signed</span>." The <span class=secodephrase>valueType</span> parameter describes the type of data to be read. Combined with <span class=secodephrase>valueSize</span>, any type of data can be put. The following list describes the acceptable combinations of <span class=secodephrase>valueSize</span> and <span class=secodephrase>valueType</span>:</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=secodelinesindented>valueSize&nbsp;&nbsp;valueType</p>
+<p class=secodelinesindented>1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;signed,&nbsp;unsigned</p>
+<p class=secodelinesindented>2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;signed,&nbsp;unsigned</p>
+<p class=secodelinesindented>3&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;signed,&nbsp;unsigned</p>
+<p class=secodelinesindented>4&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;signed,&nbsp;unsigned,&nbsp;float</p>
+<p class=secodelinesindented>8&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;float</p>
+<p class=secodelinesindented>10&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;float&nbsp;&nbsp;(Not&nbsp;supported&nbsp;on&nbsp;every&nbsp;system)</p>
+<p class=secodelinesindented>&nbsp;</p>
+<p class=senormalpara>Any other combination will cause an error. The value is put into buffer at the current cursor position, and the cursor value is automatically incremented by the size of the value to reflect this addition. </p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>see:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara><span class=sejumptopic><a href="TH_457.htm">Buffer getValue()</a></span>, <span class=sejumptopic><a href="TH_451.htm">Buffer[] Array</a></span></p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>example:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=secodelines>/*</p>
+<p class=secodelines>To&nbsp;explicitly&nbsp;put&nbsp;a&nbsp;value&nbsp;at&nbsp;a&nbsp;specific&nbsp;location</p>
+<p class=secodelines>while&nbsp;preserving&nbsp;the&nbsp;cursor&nbsp;location,</p>
+<p class=secodelines>do&nbsp;something&nbsp;similar&nbsp;to&nbsp;the&nbsp;following.</p>
+<p class=secodelines>*/</p>
+<p class=secodelines>&nbsp;</p>
+<p class=secodelines>var&nbsp;oldCursor&nbsp;=&nbsp;foo.cursor;</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;//&nbsp;Save&nbsp;the&nbsp;old&nbsp;cursor&nbsp;location</p>
+<p class=secodelines>foo.cursor&nbsp;=&nbsp;20;</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;//&nbsp;Set&nbsp;to&nbsp;new&nbsp;location</p>
+<p class=secodelines>foo.putValue(goo);</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;//&nbsp;Put&nbsp;goo&nbsp;at&nbsp;offset&nbsp;20</p>
+<p class=secodelines>foo.cursor&nbsp;=&nbsp;oldCursor</p>
+<p class=secodelines>//&nbsp;Restore&nbsp;cursor&nbsp;location</p>
+<p class=secodelines>&nbsp;</p>
+<p class=secodelines>/*.</p>
+<p class=secodelines>The&nbsp;value&nbsp;is&nbsp;put&nbsp;into&nbsp;the&nbsp;buffer&nbsp;with&nbsp;byte-ordering</p>
+<p class=secodelines>according&nbsp;to&nbsp;the&nbsp;current&nbsp;setting&nbsp;of&nbsp;the&nbsp;.bigEndian</p>
+<p class=secodelines>flag.&nbsp;Note&nbsp;that&nbsp;when&nbsp;putting&nbsp;float&nbsp;values&nbsp;as&nbsp;a</p>
+<p class=secodelines>smaller&nbsp;size,&nbsp;such&nbsp;as&nbsp;4,&nbsp;some&nbsp;significant&nbsp;figures</p>
+<p class=secodelines>are&nbsp;lost.&nbsp;A&nbsp;value&nbsp;such&nbsp;as&nbsp;"1.4"&nbsp;will&nbsp;actually&nbsp;be</p>
+<p class=secodelines>converted&nbsp;to&nbsp;something&nbsp;to&nbsp;the&nbsp;effect</p>
+<p class=secodelines>of&nbsp;"1.39999974".&nbsp;This&nbsp;is&nbsp;sufficiently</p>
+<p class=secodelines>insignificant&nbsp;to&nbsp;ignore,&nbsp;but&nbsp;note</p>
+<p class=secodelines>that&nbsp;the&nbsp;following&nbsp;does&nbsp;not&nbsp;hold&nbsp;true.</p>
+<p class=secodelines>.*/</p>
+<p class=secodelines>&nbsp;</p>
+<p class=secodelines>foo.putValue(1.4,4,"float");</p>
+<p class=secodelines>foo.cursor&nbsp;-=&nbsp;4;</p>
+<p class=secodelines>if(&nbsp;foo.getValue(4,"float")&nbsp;!=&nbsp;1.4&nbsp;)</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;//&nbsp;This&nbsp;is&nbsp;not&nbsp;necessarily&nbsp;true&nbsp;due</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;//&nbsp;to&nbsp;significant&nbsp;figure&nbsp;loss.</p>
+<p class=secodelines>&nbsp;</p>
+<p class=secodelines>/*.</p>
+<p class=secodelines>This&nbsp;situation&nbsp;can&nbsp;be&nbsp;prevented&nbsp;by&nbsp;using&nbsp;8&nbsp;or&nbsp;10</p>
+<p class=secodelines>as&nbsp;a&nbsp;valueSize&nbsp;instead&nbsp;of&nbsp;4.&nbsp;A&nbsp;valueSize&nbsp;of&nbsp;4</p>
+<p class=secodelines>may&nbsp;still&nbsp;be&nbsp;used&nbsp;for&nbsp;floating&nbsp;point&nbsp;values,</p>
+<p class=secodelines>but&nbsp;be&nbsp;aware&nbsp;that&nbsp;some&nbsp;loss&nbsp;of&nbsp;significant&nbsp;figures</p>
+<p class=secodelines>may&nbsp;occur&nbsp;(though&nbsp;it&nbsp;may&nbsp;not&nbsp;be&nbsp;enough</p>
+<p class=secodelines>to&nbsp;affect&nbsp;most&nbsp;calculations).</p>
+<p class=secodelines>.*/</p></td>
+</tr>
+</table>
+<p class=normal>&nbsp;</p>
+<hr noshade size=1>
+<p class=normal><a href="TH_460.htm"><img src="button.png" border=0></a><a href="TH_460.htm" style="text-decoration:none;">Buffer subBuffer()</a></p>
+<p>
+</body>
+</html>

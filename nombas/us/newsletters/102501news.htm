@@ -1,0 +1,434 @@
+<html>
+<head>
+<title>ScriptEase ISDK Newsletter October 24, 2001</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-1754630-10']);
+  _gaq.push(['_trackPageview']);
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+</head>
+
+<body bgcolor="#FFFFFF" TOPMARGIN=0 LEFTMARGIN=0 MARGINWIDTH=0 MARGINHEIGHT=0>
+<table width="640" border="0" cellspacing="0" cellpadding="0">
+  <tr> 
+    <td> 
+      <p><img src="images/newsbanner.jpg" width="640" height="70" border="0"></p>
+      <table width="630" border="0" cellspacing="0" cellpadding="0" align="center">
+        <tr> 
+          <td width="150" valign="top" align="left"> 
+            <p><font color="#0E2595" face="Verdana, Arial, Helvetica, sans-serif"><b>Oct. 
+              25, 2001</b></font></p>
+            <p><b><font color="#990000" size="-2" face="Verdana,Tahoma,Arial,Helvetica">In 
+              This Issue</font></b></p>
+            <table width="150" border="0" cellspacing="0" cellpadding="0">
+              <tr> 
+                <td width="15" valign="top" align="center"> 
+                  <p><img src="images/bullet.gif" width="10" height="10" vspace="2"></p>
+                </td>
+                <td width="135" align="left" valign="top"> 
+                  <p><a href="#article1"><font size="-2" face="Verdana, Arial, Helvetica, sans-serif">Extending 
+                    SE:ISDK/C with compiled libraries</font></a><br>
+                    &nbsp; </p>
+                </td>
+              </tr>
+              <tr> 
+                <td width="15" align="center" valign="top"><img src="images/bullet.gif" width="10" height="10" vspace="2"></td>
+                <td width="135" align="left" valign="top"> 
+                  <p><a href="#c430eerrata"><font size="-2" face="Verdana, Arial, Helvetica, sans-serif">ISDK/C 
+                    4.30e Errata</font></a><br>
+                    &nbsp; </p>
+                </td>
+              </tr>
+              <tr> 
+                <td width="15" align="center" valign="top"><img src="images/bullet.gif" width="10" height="10" vspace="2"></td>
+                <td width="135" align="left" valign="top"> 
+                  <p><a href="#c440derrata"><font size="-2" face="Verdana, Arial, Helvetica, sans-serif">ISDK/C 
+                    4.40d Errata</font></a><br>
+                    &nbsp; </p>
+                </td>
+              </tr>
+              <tr> 
+                <td width="15" align="center" valign="top"><img src="images/bullet.gif" width="10" height="10" vspace="2"></td>
+                <td width="135" align="left" valign="top"> 
+                  <p><a href="#errataj430e"><font size="-2" face="Verdana, Arial, Helvetica, sans-serif">ISDK/Java 
+                    4.30e Errata</font></a></p>
+                </td>
+              </tr>
+            </table>
+            <p><font size="-2" face="Verdana, Arial, Helvetica, sans-serif"><a href="../devspace/newsletters/index.htm">Other 
+              Newsletters</a></font></p>
+            <p><font size="-2" color="#990000" face="Verdana, Arial, Helvetica, sans-serif"><b>DevSpace 
+              Developer Support</b></font></p>
+            <p><font size="-2" face="Verdana, Arial, Helvetica, sans-serif">For 
+              more information and resources, <a
+                             href="../devspace/index.htm">visit ScriptEase: 
+              ISDK DevSpace online</a>.</font></p>
+            <p><font size="-2" color="#990000" face="Verdana, Arial, Helvetica, sans-serif"><b>Download 
+              Center</b></font></p>
+            <p></p>
+            <p align=LEFT><font face="Verdana, Arial, Helvetica, sans-serif" size="-2">For 
+              latest updates and extensions, <a href="http://www.nombasxxx.com/us/toolkit/isdkdownload.htm">visit 
+              the ISDK Download Center</a>. </font></p>
+          </td>
+          <td width="4"></td>
+          <td width="1" bgcolor="#CCCCFF"><img src="../devspace/pix/pixel.gif" width="1" height="1" border="0"></td>
+          <td width="5"></td>
+          <td width="470" valign="top" align="left"> 
+            <div align="left"> 
+              <h3><b><a name="article1"></a><img src="images/drscripter102501.jpg" width="150" height="150" align="right" border="0" vspace="2" hspace="4"></b><font color="#0E2595">Extending 
+                your SE:ISDK/C application with compiled libraries</font></h3>
+              <h4><font color="#6699FF">Methods for adding compiled C/C++ object 
+                libraries to your application, and how to permit your customers 
+                to add additional extensions with SE:RTEx.</font></h4>
+              <p align=LEFT>The ScriptEase language environment is extended by 
+                adding compiled objects and libraries. The primary reason you 
+                are using the SE:ISDK/C is to allow the javascript language to 
+                interact with your compiled application, and so the most important 
+                compiled objects and libraries are those wrapper functions you 
+                provide around your own application. But there are additional 
+                extension modules, beyond those directly related to your particular 
+                application, which can increase the utility and power of any script 
+                and can, therefore, increase the utility and power of your application. 
+                In this newsletter I will describe the various ways to add those 
+                extensions libraries to your application.</p>
+              <h4 align=LEFT><font color="#0E2595">The &quot;Standard&quot; Native 
+                ECMAScript Objects</font></h4>
+              <p align=LEFT>The ECMAScript-262 standard defines a set of native 
+                objects that are assumed to be part of any conforming ECMAScript 
+                implementation; these objects are: Global, Object, Function, Array, 
+                String, Boolean, Number, Math, Date, RegExp, and Error. In the 
+                SE:ISDK most of these objects are written in the same way as any 
+                other extension library discussed here. Because they are part 
+                of the standard they are enabled by default with the ISDK/C, but 
+                you can compile with them in, or out, just like any of the other 
+                extension libraries discussed here. For example, you may be working 
+                in a small footprint environment where you think Date and RegExp 
+                use more resources than they're worth, so you may choose to disable 
+                them (e.g. #define&nbsp;JSE_ECMA_DATE&nbsp;0, #define&nbsp;JSE_ECMA_REGEXP&nbsp;0); 
+                or you may decide to turn these objects into link libraries, available 
+                only to the occasional script that may need to #link to them as 
+                needed.</p>
+              <p align=LEFT></p>
+              <h4 align=LEFT><font color="#0E2595">Internal Objects vs Link Libraries 
+                </font></h4>
+              <p align=LEFT></p>
+              <p align=LEFT></p>
+              <p align=LEFT></p>
+              <p align=LEFT></p>
+              <p align=LEFT>By definition, an &quot;Internal Object&quot; is one 
+                that is always available to scripts because it is compiled into 
+                your application, and a &quot;Link Library&quot; is one that is 
+                not compiled into your application and is only available to scripts 
+                via the &quot;#link&quot; syntax.</p>
+              <p align=LEFT>Although we often talk about Internal Objects and 
+                Link Libraries, and the SE manuals divide these two types of libraries 
+                into separate chapters, the only real difference between them 
+                is whether you choose to compile them into your application or 
+                make them only available through the #link syntax. The SE:ISDK/C 
+                manual chapter &quot;Integrating Language Objects &amp; Libraries&quot; 
+                explains in detail how to enable any particular library, or even 
+                subsets of any library. Briefly, you alter jseopt.h to define 
+                the libraries to add, define whether the library is internal or 
+                link, add the source files to your project, and compile.</p>
+              <h4 align=LEFT><font color="#0E2595"> How to allow 3rd parties to 
+                extend your application with<br>
+                SE:RTEx: ScriptEase RunTime Extension</font></h4>
+              <p align=LEFT></p>
+              <p align=LEFT>SE:RTEx is a subset of the SE:ISDK/C that contains 
+                the tools to create a #link library. These #link libraries rely 
+                on the existence of a running SE engine, such as the one built 
+                into your application. A version of SE:RTEx is freely available 
+                to any developer via the <a href="http://www.nombasxxx.com/us/toolkit/sertex.htm">SE:RTEx 
+                web-page</a>.</p>
+              <p align=LEFT>There are many scenarios in which you may find SE:RTEx 
+                useful:</p>
+            </div>
+            <ul>
+              <li> 
+                <div align="left"> 
+                  <div align="left">You can move capabilities that are not always 
+                    used into their own #link libraries to be loaded only when 
+                    necessary.</div>
+                </div>
+              </li>
+              <li>The #link library extensions may become additional add-ons available 
+                to your customers, for free or for a fee </li>
+              <li>Outside developers may create extensions that add power to the 
+                scripts used by your application. This creates opportunities for 
+                3rd party development around your core products.</li>
+              <li>You can add incremental capabilities after release of the initial 
+                product via release of new #link libraries</li>
+              <li>You may make workarounds and bug-fixes available more quickly 
+                by releasing just updated #link libraries.</li>
+            </ul>
+            <div align="left"> 
+              <p align=LEFT>If you decide to enable #link libraries in your application, 
+                simply compile with &quot;#define&nbsp;JSE_LINK&nbsp;1&quot; in 
+                your jseopt.h file. If don't want just any #link file to be available 
+                to your application, but only those that you have developed or 
+                that have been developed with your own proprietary changes to 
+                SE:RTEx, then you can use the jseFileFindFunc() callback function 
+                (defined in the jseExternalLinkParameters structure) to examine 
+                the link library before it is loaded.</p>
+              <p align=LEFT><font color="#0E2595"><b>Example1: Adding Socket library 
+                internal to simple1 sample</b> </font></p>
+              <p align=LEFT></p>
+              <p align=LEFT>In this example, the SIMPLE1 sample, which shipped 
+                with SE:ISDK/C in the seisdk/samples/simple1 directory, will use 
+                the &quot;#link&nbsp;&lt;sesock&gt;&quot; command to make a socket 
+                library available to the script, and will use that library to 
+                retrieve a web page.</p>
+              <p align=LEFT>The jseopt.h file for simple1 does not explicitly 
+                set the JSE_LINK value, and so by default #link is enabled. If 
+                you have built the SESOCK link library (see makefiles in extlib/sesock) 
+                then the simple1 sample is ready to use it. In other words, simple1 
+                is already set up to use #link libraries. Here's a simple script 
+                you could supply to the simple1 executable to retrieve and print 
+                the HTML for Nombas' home page:</p>
+              <pre align=LEFT>   #link &lt;sesock&gt;
+   var sock = new Socket(&quot;www.nombasxxx.com&quot;,80);
+   if ( sock == null )
+      Clib.puts(&quot;socket open failed\n&quot;);
+   else
+   {
+      var getstr = &quot;GET / HTTP:/1.0\r\n&quot;
+                 + &quot;Accept: */*\r\n\r\n&quot;;
+      sock.write(getstr,getstr.length);
+      var value = &quot;&quot;;
+      while( 1 )
+      {
+         var buf = &quot;&quot;;
+         var amount = sock.read(buf,256);
+         if( amount &lt; 1 )
+            break;
+         value += buf;
+      }
+      sock.close();
+      Clib.puts(value);
+   }</pre>
+              <p>As seen here, the simple &quot;#link&nbsp;&lt;sesock&gt;&quot; 
+                statement has added a powerful new capability to the simple1 sample. 
+              </p>
+              <h4 align=LEFT><font color="#0E2595">Example2: Adding Socket library 
+                internal to simple1 sample </font></h4>
+              <p align=LEFT></p>
+              <p align=LEFT>As in example1, the simple1 sample will make the socket 
+                library available to scripts, but in this case the socket library 
+                will be built in.</p>
+              <p align=LEFT>Although it's not necessary, you could disable the 
+                #link command for this example by adding &quot;#define&nbsp;JSE_LINK&nbsp;0&quot; 
+                to your jseopt.h file or makefiles. Next add this statement to 
+                your jseopt.h file to tell it that we want all of the socket functions 
+                available: &quot;#define&nbsp;JSE_SOCKET_ALL&quot;. Finally, add 
+                the C files in the srclib/socket directory and srcmisc/inet.c 
+                to your make project, along with any compiler libraries needed 
+                to enable sockets (for windows that is wsock32.lib), and compile.</p>
+              <p align=LEFT>The same script uses in example1 above, but without 
+                the #link statement, will now execute with simple1.</p>
+              <p align=LEFT><b><font color="#0E2595">Other ways to extend script 
+                capabilities</font></b></p>
+              <p align=LEFT>This newsletter has covered only script extensions 
+                using C libraries compiled for SE:ISDK/C applications. There are 
+                many other related ways to extend your scripts, which I may cover 
+                in a future letter. These are</p>
+            </div>
+            <ul>
+              <li> 
+                <div align="left"> #include - allows libraries of scripts to be 
+                  included, much as in C's use of #include or linking to libraries.</div>
+              </li>
+              <li>SElib.dynamicLink() - this function will let scripts call directly 
+                into DLLs, code fragments, or shared objects</li>
+              <li>COMOBJ - lets scripts use objects that correspond to Microsoft's 
+                COM specification as if they were native script objects</li>
+              <li>JavaObject - for ISDK/Java, will let scripts access external 
+                Java objects as if they were native script objects</li>
+            </ul>
+            <div align="left"> 
+              <h4 align=LEFT><font color="#0E2595">Related information</font></h4>
+            </div>
+            <ul>
+              <li> 
+                <div align="left">SE:RTEx - See <a href="http://www.nombasxxx.com/us/toolkit/sertex.htm">ScriptEase 
+                  Integrated SDK Runtime Extensions</a> </div>
+              </li>
+              <li>For explicit steps to add libraries, internally or externally, 
+                see the &quot;Integrating Language Objects &amp; Libraries&quot; 
+                chapter of the <a href="../devspace/manual/index.htm">ScriptEase 
+                ISDK Manuals</a>.</li>
+              <li>For description of all of the default libraries, internal and 
+                external, see the &quot;Internal Objects&quot; and &quot;Link 
+                Libraries&quot; chapters of the <a href="../devspace/manual/index.htm">ScriptEase 
+                ISDK Manuals</a>.</li>
+            </ul>
+            <div align="left">
+              <p align=LEFT><i>Have a question about how to use ScriptEase:ISDK? 
+                Let Dr. Scripter know at </i><a href="http://support.nombasxxx.com/"><i>http://support.nombasxxx.com/</i></a></p>
+              </div>
+            <div align="left"></div>
+          </td>
+        </tr>
+      </table>
+      <hr>
+      <h3>&nbsp;Errata <a name="c430eerrata"></a> </h3>
+      <h4>&nbsp;&nbsp;&nbsp;ISDK/C 4.30e </h4>
+      <ul>
+        <li><b><a href="../devspace/errata/isdk/index430.htm#linkleak">memory 
+          leak, and possible crash, using the #link statement</a></b>: Memory 
+          leaks and possible crashes using the #link statement. The memory leak 
+          fix is for Unix only, but the possible crash in running out of memory 
+          applies to all systems. [<a href="../devspace/errata/isdk/index430.htm#linkleak">details</a>]</li>
+      </ul>
+      <ul>
+        <li><b><a href="../devspace/errata/link/index.htm#3cmmlti">Problems 
+          passing multiple same-type parameters a COMOBJ method</a></b>: When 
+          two or more parameters of the same type are passed to a COM component 
+          method, all of those parameters get assigned the value of the first 
+          parameter. [<a href="../devspace/errata/link/index.htm#3cmmlti">Details</a>]</li>
+      </ul>
+      <ul>
+        <li><b><a href="../devspace/errata/isdk/index430.htm#stkcntno">stack 
+          variable overwrite when jseMayIContinueFunc returns False</a></b>: When 
+          your jseMayIContinueFunc() callback returns False, a variable within 
+          the virtual-machine stack may be wrongly assigned as undefined. This 
+          could lead to a variable being freed prematurely. [<a href="../devspace/errata/isdk/index430.htm#stkcntno">Details</a>]</li>
+      </ul>
+      <ul>
+        <li><b><a href="../devspace/errata/objfunc/index.htm#3ptclw">RegExp.prototype._class 
+          wrong</a></b>: RegExp.prototype._Class should be defined as "RegExp" 
+          but is instead defined as the number NaN. [<a href="../devspace/errata/objfunc/index.htm#3ptclw">Details</a>]</li>
+      </ul>
+      <ul>
+        <li><b><a href="../devspace/errata/isdk/index430.htm#infnan">"+Infinity 
+          and "-Infinity" converted to NaN if JSE_FLOATING_POINT==0</a></b>: If 
+          building in integer-only mode (i.e. #define JSE_FLOATING_POINT 0), "+Infinity" 
+          and "-Infinity" will be read incorrectly and converted to NaN. [<a href="../devspace/errata/isdk/index430.htm#infnan">Details</a>]</li>
+      </ul>
+      <ul>
+        <li><a href="../devspace/errata/isdk/index430.htm#nthsfpo"><b>seObjHasProperty 
+          causing floating-point overflow if not handled by callback</b></a>: 
+          On some systems, if an object has a hasProp callback that returns -1, 
+          or if the dynamic object does not have a hasProp, then a floating-point 
+          overflow exception can occur. [<a href="../devspace/errata/isdk/index430.htm#nthsfpo">Details</a>]</li>
+      </ul>
+      <ul>
+        <li><a href="../devspace/errata/isdk/index430.htm#abtry"><b>terminating 
+          execution from within a "try" block will cause memory leaks</b></a>: 
+          If execution is terminated while a script is within a try block, such 
+          as if the jseMayIContinue callback function returns False or by calling 
+          jseLibSetExitFlag(), then some allocated memory will not be freed and 
+          the system may crash. [<a href="../devspace/errata/isdk/index430.htm#abtry">Details</a>]</li>
+      </ul>
+      <ul>
+        <li><a href="../devspace/errata/link/index.htm#3com102501"><b>Multiple 
+          COMOBJ bugs</b></a>: Bugs have been found with the way COMOBJ passes 
+          multiple parameters and defaultValue. [<a href="../devspace/errata/link/index.htm#3com102501">Details</a>]</li>
+        </ul>
+      <ul>
+        <li><a href="../devspace/errata/link/index.htm#3dbcuni"><b>SEDBC 
+          Unicode errors</b></a>: SEDBC library was failing many tests when running 
+          a unicode build. [<a href="../devspace/errata/link/index.htm#3dbcuni">Details</a>]</li>
+        </ul>
+      <ul>
+        <li><a href="../devspace/errata/isdk/index430.htm#boutopt"><b>aboutopt.jse 
+          doesn't work</b></a>: tools/aboutopt.jse isn't working with any of the 
+          samples. [<a href="../devspace/errata/isdk/index430.htm#boutopt">Details</a>]</li>
+      </ul>
+      <hr>
+      <h3>&nbsp;Errata <a name="c440derrata"></a> </h3>
+      <h4>&nbsp;&nbsp;&nbsp;ISDK/C 4.40d </h4>
+      <ul>
+        <li><b><a href="../devspace/errata/isdk/index440.htm#linkleak">memory 
+          leak, and possible crash, using the #link statement</a></b>: Memory 
+          leaks and possible crashes using the #link statement. The memory leak 
+          fix is for UNIX only, but the possible crash in running out of memory 
+          applies to all systems. [<a href="../devspace/errata/isdk/index440.htm#linkleak">Details</a>]</li>
+      </ul>
+      <ul>
+        <li><b><a href="../devspace/errata/link/index.htm#4cmmlti">Problems 
+          passing multiple same-type parameters a COMOBJ method</a></b>: When 
+          two or more parameters of the same type are passed to a COM component 
+          method, all of those parameters get assigned the value of the first 
+          parameter. [<a href="../devspace/errata/link/index.htm#4cmmlti">Details</a>]</li>
+      </ul>
+      <ul>
+        <li><b><a href="../devspace/errata/objfunc/index.htm#4ptclw">RegExp.prototype._Class 
+          wrong</a></b>: RegExp.prototype._Class, and so (new RegExp)._class, 
+          should be defined as "RegExp" but is instead defined as the number NaN. 
+          [<a href="../devspace/errata/objfunc/index.htm#4ptclw">Details</a>]</li>
+      </ul>
+      <ul>
+        <li><b><a href="../devspace/errata/isdk/index440.htm#infnan">"+Infinity 
+          and "-Infinity" converted to NaN if JSE_FLOATING_POINT==0</a></b>: If 
+          building in integer-only mode (i.e. #define JSE_FLOATING_POINT 0), "+Infinity" 
+          and "-Infinity" will be read incorrectly and converted to NaN. [<a href="../devspace/errata/isdk/index440.htm#infnan">Details</a>]</li>
+      </ul>
+      <ul>
+        <li><b><a href="../devspace/errata/isdk/index440.htm#nthsfpo">seObjHasProperty 
+          causing floating-point overflow if not handled by callback</a></b>: 
+          On some systems, if an object has a hasProp callback that does not return 
+          HP_HAS or HP_HASNOT, or if the dynamic object does not have a hasProp, 
+          then a floating-point overflow exception can occur. [<a href="../devspace/errata/isdk/index440.htm#nthsfpo">Details</a>]</li>
+      </ul>
+      <ul>
+        <li><b><a href="../devspace/errata/isdk/index440.htm#abtry">terminating 
+          execution from within a "try" block will cause memory leaks</a></b>: 
+          If execution is terminated while a script is within a try block, such 
+          as if the jseMayIContinue callback function returns False, then some 
+          allocated memory will not be freed. [<a href="../devspace/errata/isdk/index440.htm#abtry">Details</a>]</li>
+      </ul>
+      <ul>
+        <li><a href="../devspace/errata/link/index.htm#4com102501"><b>Multiple 
+          COMOBJ bugs</b></a>: Bugs have been found with the way COMOBJ passes 
+          multiple parameters and defaultValue. [<a href="../devspace/errata/link/index.htm#4com102501">Details</a>]</li>
+      </ul>
+      <ul>
+        <li><a href="../devspace/errata/link/index.htm#4dbcuni"><b>SEDBC 
+          Unicode errors</b></a>: SEDBC library was failing many tests when running 
+          a unicode build. [<a href="../devspace/errata/link/index.htm#4dbcuni">Details</a>]</li>
+      </ul>
+      <ul>
+        <li><a href="../devspace/errata/isdk/index440.htm#boutopt"><b>aboutopt.jse 
+          doesn't work</b></a>: tools/aboutopt.jse isn't working with any of the 
+          samples. [<a href="../devspace/errata/isdk/index440.htm#boutopt">Details</a>]</li>
+      </ul>
+      <hr>
+      <h3>&nbsp;Errata <a name="errataj430e"></a> </h3>
+      <h4>&nbsp;&nbsp;&nbsp;ISDK/Java 4.30e </h4>
+      <ul>
+        <li> 
+          <p><b><a href="../devspace/errata/jisdk/index.htm#430estackoverwrite">RegExp.prototype._Class 
+            wrong</a></b>: RegExp.prototype._Class should be defined as "RegExp" 
+            but is instead defined as the number NaN. [<a href="../devspace/errata/jisdk/index.htm#430estackoverwrite">Details</a>]</p>
+        </li>
+      </ul>
+      <ul>
+        <li><b><a href="../devspace/errata/jisdk/index.htm#430etryterm">terminating 
+          execution from within a "try" block can cause memory leaks</a></b>: 
+          If execution is terminated while a script is within a try block, such 
+          as if the mayIContinue() callback function returns False or by calling 
+          jseLibSetExitFlag(), then some allocated memory will not be released. 
+          [<a href="../devspace/errata/jisdk/index.htm#430etryterm">Details</a>]</li>
+      </ul>
+      <ul>
+        <li><b><a href="../devspace/errata/jisdk/index.htm#430estackoverwrite">stack 
+          variable overwrite when mayIContinue() method returns false</a></b>: 
+          When you mayIContinue() callback return false, a variable within the 
+          virtual machine stack may be wrongly assigned as undefined. This could 
+          lead to a variable being freed prematurely. [<a href="../devspace/errata/jisdk/index.htm#430estackoverwrite">Details</a>]</li>
+      </ul>
+      <p></p>
+      <p></p>
+      <p></p>
+      <p><a href="../index.htm"><img src="images/footer.jpg" width="640" height="30" border="0" alt="ScriptEase: ISDK is a product of Nombas, Inc. Visit us at ../index.htm"></a></p>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

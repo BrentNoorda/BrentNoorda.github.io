@@ -1,0 +1,82 @@
+<html>
+<head>
+<title>RegExp compile()</title>
+<link rel="stylesheet" href="semanualstyles.css" type="text/css">
+<style type="text/css">
+ p { margin-top: 0; margin-bottom: 0; }
+</style>
+<script language="JavaScript" src="TrueHelp.js"></script>
+</head>
+<body onload="thload()">
+<div id=ienav>
+<ilayer id=nsnav>
+<br>
+<center>
+<p class=normal><a href="seisdkc-toc.htm" target="left">contents</a> &nbsp; <a href="seisdkc-index.htm" target="left">index</a> &nbsp; <a href="TH_912.htm">previous</a> &nbsp; <a href="TH_914.htm">next</a></p>
+</center>
+<br>
+<hr noshade size=1>
+</ilayer>
+</div>
+<p class=sereffunclevel4>RegExp compile()</p>
+<table cellpadding=0>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>syntax:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=sesyntax>regexp.compile(<span class=truehelp-xe></span>pattern[,&nbsp;attributes])</p></td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>where:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>pattern -  a string with a new regular expression pattern to use with this RegExp object.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>attributes - a string with the new attributes for this RegExp object.</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>return:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>void.</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>description:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>This method changes the pattern and attributes to use with the current instance of a <span class=sepopuptopic><a href="TH_888.htm" onClick="return thwindow('TH_888.htm', 'GenPopup')">RegExp object</a></span>. An instance of a RegExp object may be used repeatedly by changing it with this method.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>If the attributes string is supplied, it must contain one or more of the following characters or be an empty string <span class=secodephrase>""</span>: </p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=normal><span class=secodephrase>i</span> - sets the ignoreCase property to <span class=secodephrase>true</span></p>
+<p class=normal><span class=secodephrase>g</span> - sets the global property to <span class=secodephrase>true</span></p>
+<p class=senormalpara><span class=secodephrase>m</span> - set the multiline property to <span class=secodephrase>true</span></p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>see:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara><span class=sejumptopic><a href="TH_912.htm">RegExp()</a></span>, <span class=sejumptopic><a href="TH_889.htm">Regular expression syntax</a></span></p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>example:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=secodelines>var&nbsp;regobj&nbsp;=&nbsp;new&nbsp;RegExp("now");</p>
+<p class=secodelines>//&nbsp;use&nbsp;this&nbsp;RegExp&nbsp;object</p>
+<p class=secodelines>regobj.compile("r*t");</p>
+<p class=secodelines>//&nbsp;use&nbsp;it&nbsp;some&nbsp;more</p>
+<p class=secodelines>regobj.compile("t.+o",&nbsp;"ig");</p>
+<p class=secodelines>//&nbsp;use&nbsp;it&nbsp;some&nbsp;more</p></td>
+</tr>
+</table>
+<p class=normal>&nbsp;</p>
+<hr noshade size=1>
+<p class=normal><a href="TH_914.htm"><img src="button.png" border=0></a><a href="TH_914.htm" style="text-decoration:none;">RegExp exec()</a></p>
+<p>
+</body>
+</html>

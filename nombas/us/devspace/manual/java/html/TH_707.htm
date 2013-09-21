@@ -1,0 +1,77 @@
+<html>
+<head>
+<title>global.eval()</title>
+<link rel="stylesheet" href="semanualstyles.css" type="text/css">
+<style type="text/css">
+ p { margin-top: 0; margin-bottom: 0; }
+</style>
+<script language="JavaScript" src="TrueHelp.js"></script>
+</head>
+<body onload="thload()">
+<div id=ienav>
+<ilayer id=nsnav>
+<br>
+<center>
+<p class=normal><a href="seisdkj-toc.htm" target="left">contents</a> &nbsp; <a href="seisdkj-index.htm" target="left">index</a> &nbsp; <a href="TH_706.htm">previous</a> &nbsp; <a href="TH_708.htm">next</a></p>
+</center>
+<br>
+<hr noshade size=1>
+</ilayer>
+</div>
+<p class=sereffunclevel4>global.eval()</p>
+<table cellpadding=0>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>syntax:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=sesyntax>eval(<span class=truehelp-xe></span>expression)</p></td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>where:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>expression - a valid expression to be parsed and treated as if it were code or script.</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>return:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>value - the result of the evaluation of expression as code.</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>description:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>Evaluates whatever is represented by the parameter expression. If expression is not a string, it will be returned. For example, calling eval(5) returns the value 5.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>If expression is a string, the interpreter tries to interpret the string as if it were JavaScript code. If successful, the method returns the last variable with which was working, for example, the return variable. If the method is not successful, it returns the special value, <span class=secodephrase>undefined</span>.</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>see:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara><span class=sejumptopic><a href="TH_824.htm">SElib.interpret()</a></span></p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>example:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=secodelines>var&nbsp;a&nbsp;=&nbsp;"who";</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;//&nbsp;Displays&nbsp;the&nbsp;string&nbsp;as&nbsp;is</p>
+<p class=secodelines>Screen.writeln('a&nbsp;==&nbsp;"who"');</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;//&nbsp;Evaluates&nbsp;the&nbsp;contents&nbsp;of&nbsp;the&nbsp;string&nbsp;as&nbsp;code,</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;//&nbsp;and&nbsp;displays&nbsp;"true",</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;//&nbsp;the&nbsp;result&nbsp;of&nbsp;the&nbsp;evaluation</p>
+<p class=secodelines>Screen.writeln(eval('a&nbsp;==&nbsp;"who"'));</p></td>
+</tr>
+</table>
+<p class=normal>&nbsp;</p>
+<hr noshade size=1>
+<p class=normal><a href="TH_708.htm"><img src="button.png" border=0></a><a href="TH_708.htm" style="text-decoration:none;">global.isFinite()</a></p>
+<p>
+</body>
+</html>

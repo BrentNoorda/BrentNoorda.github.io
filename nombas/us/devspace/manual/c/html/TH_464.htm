@@ -1,0 +1,75 @@
+<html>
+<head>
+<title>instanceof operator</title>
+<link rel="stylesheet" href="semanualstyles.css" type="text/css">
+<style type="text/css">
+ p { margin-top: 0; margin-bottom: 0; }
+</style>
+<script language="JavaScript" src="TrueHelp.js"></script>
+</head>
+<body onload="thload()">
+<div id=ienav>
+<ilayer id=nsnav>
+<br>
+<center>
+<p class=normal><a href="seisdkc-toc.htm" target="left">contents</a> &nbsp; <a href="seisdkc-index.htm" target="left">index</a> &nbsp; <a href="TH_463.htm">previous</a> &nbsp; <a href="TH_465.htm">next</a></p>
+</center>
+<br>
+<hr noshade size=1>
+</ilayer>
+</div>
+<p class=heading-3>instanceof operator</p>
+<p class=heading-3-p>&nbsp;</p>
+<p class=senormalpara>The <span class=secodephrase>instanceof</span> operator, which also may used as <span class=secodephrase>instanceof()</span>, determines if a variable is an instance of a particular object. Since the variable <span class=secodephrase>s</span> is created as an instance of the String object in the following code fragment, the second line displays <span class=secodephrase>true</span>.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=secodelinesindented>var&nbsp;s&nbsp;=&nbsp;new&nbsp;String("abcde");</p>
+<p class=secodelinesindented>Screen.writeln(s&nbsp;instanceof&nbsp;String);</p>
+<p class=secodelines>&nbsp;</p>
+<p class=senormalpara>The display is:</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=secodelinesindented><span class=secodephrase>true</span></p>
+<p class=secodelines><span class=secodephrase></span></p>
+<p class=senormalpara>The second line could also be written as:</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=secodelinesindented>Screen.writeln(s&nbsp;instanceof(String));</p>
+<p class=secodelinesindented>&nbsp;</p>
+<p class=senormalpara>The <span class=secodephrase>instanceof</span> operator does not work with the class of an object, rather it determines if a variable was constructed from an object. In the example above, the variable <span class=secodephrase>s</span> was defined as an instance of <span class=secodephrase>String</span> so it is an instance of the String object and is in the class of String. That is, both of the following lines display true:</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=secodelinesindented>Screen.writeln(s&nbsp;instanceof(String));</p>
+<p class=secodelinesindented>Screen.writeln(s._class&nbsp;==&nbsp;"String");</p>
+<p class=secodelines>&nbsp;</p>
+<p class=senormalpara>The display is:</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=secodelinesindented>true</p>
+<p class=secodelinesindented>true</p>
+<p class=secodelines>&nbsp;</p>
+<p class=senormalpara>The following code defines a new object and defines the variable <span class=secodephrase>ms</span> as an instance of <span class=secodephrase>MyString</span>, a user defined object. In this case, the variable <span class=secodephrase>ms</span> is an instance of <span class=secodephrase>MyString</span> but is in the class of <span class=secodephrase>Object</span>.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=secodelinesindented>var&nbsp;ms&nbsp;=&nbsp;new&nbsp;MyString("abcde");</p>
+<p class=secodelinesindented>Screen.writeln(ms&nbsp;instanceof(MyString));</p>
+<p class=secodelinesindented>Screen.writeln(ms._class&nbsp;==&nbsp;"Object");</p>
+<p class=secodelinesindented>ms.show();</p>
+<p class=secodelinesindented>&nbsp;</p>
+<p class=secodelinesindented>function&nbsp;MyString(string)</p>
+<p class=secodelinesindented>{</p>
+<p class=secodelinesindented>&nbsp;</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;this.data&nbsp;=&nbsp;string;</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;return&nbsp;this;</p>
+<p class=secodelinesindented>}&nbsp;//&nbsp;MyString</p>
+<p class=secodelinesindented>&nbsp;</p>
+<p class=secodelinesindented>function&nbsp;MyString.prototype.show()</p>
+<p class=secodelinesindented>{</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;Screen.writeln(this.data);</p>
+<p class=secodelinesindented>}&nbsp;//&nbsp;MyString.prototype.show</p>
+<p class=secodelines>&nbsp;</p>
+<p class=senormalpara>The display is:</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=secodelinesindented>true</p>
+<p class=secodelinesindented>true</p>
+<p class=secodelinesindented>abcde</p>
+<p class=secodelines>&nbsp;</p>
+<hr noshade size=1>
+<p class=normal><a href="TH_465.htm"><img src="button.png" border=0></a><a href="TH_465.htm" style="text-decoration:none;">typeof operator</a></p>
+<p>
+</body>
+</html>

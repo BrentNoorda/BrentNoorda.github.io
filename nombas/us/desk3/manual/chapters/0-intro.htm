@@ -1,0 +1,121 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML EXPERIMENTAL 970324//EN">
+<HTML>
+<HEAD>
+<META NAME="GENERATOR" CONTENT="Adobe FrameMaker 5.5/HTML Export Filter">
+<LINK REL="STYLESHEET" HREF="desk3man.css">
+<TITLE>ScriptEase:Desktop v3 Manual: Introduction</TITLE>
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-1754630-10']);
+  _gaq.push(['_trackPageview']);
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+</HEAD>
+<BODY BACKGROUND="desk3pat.gif">
+<TABLE WIDTH="225" BORDER="0" CELLSPACING="0" CELLPADDING="0">
+  <TR>
+    <TD WIDTH="71"><a href="../index.htm"><IMG SRC="prev.gif" border=0 WIDTH="71" HEIGHT="18"></a></TD>
+    <TD WIDTH="80"><a href="../index.htm"><IMG SRC="tocidx.gif" border=0 WIDTH="80" HEIGHT="18"></a></TD>
+    <TD WIDTH="74"><a href="1-lang.htm"><IMG SRC="next.gif" border=0 WIDTH="74" HEIGHT="18"></a></TD>
+  </TR>
+</TABLE>
+
+<H1 CLASS="Title">
+Introduction</H1>
+<P CLASS="Abstract">
+This chapter is a brief introduction to the ScriptEase scripting language and processor, including installation instructions.</P>
+<P CLASS="Body">
+Thank you for purchasing ScriptEase! You are now the owner of the most powerful scripting language available today. You have joined the growing number of computer users who are taking control of their applications with the power of ScriptEase.</P>
+<DIV>
+<H2 CLASS="Topic">
+The ScriptEase System</H2>
+<P CLASS="Body">
+ScriptEase:Desktop has three main components: the ScriptEase language; the ScriptEase processor, the engine that interprets and runs a ScriptEase script; and the IDE debugger, to help you catch and correct errors in your scripts.</P>
+<P CLASS="Body">
+The ScriptEase language was designed to meet the need for a fast, portable and powerful language that is easy to learn and use. ScriptEase is fast because the most meticulous aspects of programming (memory management, declarations and garbage collection) are handled automatically, so you don't need to worry about them. It is less picky about syntax than other programming languages. Also, ScriptEase is interpreted as it runs, so you don't have to compile, debug and recompile your code before seeing the results of your work.</P>
+<P CLASS="Body">
+Since it is the interpreter that does the work of running the script, ScriptEase scripts themselves are independent of any operating system and are fully portable from one platform to another. A script written for OS/2 can run on a UNIX machine, for example. The exceptions to this rule involve functions that interact and define behavior specific to a particular system. A script that uses the Windows routines to create and move windows about the screen obviously will not work on DOS or UNIX, because these systems don't use windows.</P>
+<P CLASS="Body">
+The ScriptEase language is as powerful as the C language on which it is based. It uses the same commands, operators, and syntax, so if you know the basics of programming, you'll be able to learn ScriptEase in minutes. If you know nothing about programming at all, ScriptEase is the perfect place to start. The next two chapters describe the ScriptEase language in detail and give a brief tutorial.</P>
+<P CLASS="Body">
+The ScriptEase processor includes a command shell, with a prompt from which you can navigate through your file directories and directly launch scripts and commands. The processor can also be invoked from a batch or REXX file, or by double-clicking on a script's icon, depending on which operating system you're using.</P>
+<P CLASS="Body">
+The IDE debugger lets you watch the script move through the processor line by line, as it is being interpreted. you can keep track of the values of the script's variables in the watch window, and set breakpoints to suspend operation of the debugger if a certain line is reached or condition is met. If there is an error in your script, the debugger helps you quickly track, find, and correct it.</P>
+</DIV>
+<DIV>
+<H2 CLASS="Topic">
+<A NAME="997027">
+ </A>
+Supported Platforms</H2>
+<P CLASS="Body">
+ScriptEase is available for the following operating systems: Windows 95 and NT, Windows 3.x, OS/2, DOS, UNIX, Linux, Aix, FreeBSD, Sun OS, and Solaris.</P>
+</DIV>
+<DIV>
+<H2 CLASS="Topic">
+Installing ScriptEase</H2>
+<P CLASS="Body">
+Installing ScriptEase is an easy two-step process. First, regardless of which operating system you use, run the program INSTALL.BAT on the ScriptEase <A NAME="997024">
+ </A>
+installation disk. This program will prompt you for which versions of ScriptEase you wish to install, and then copy the appropriate files to your disk. </P>
+<P CLASS="Body">
+To run INSTALL.BAT, put the installation disk in drive A: and type the following from the command line (press ENTER after each line):</P>
+<P CLASS="cmd">
+A:</P>
+<P CLASS="cmd">
+CD \</P>
+<P CLASS="cmd">
+INSTALL</P>
+<P CLASS="Body">
+ To complete the installation, run the version of ScriptEase that you installed in step one. The first time any version of ScriptEase is run, it will run its installation script and modify itself for the appropriate operating system.</P>
+</DIV>
+<DIV>
+<H2 CLASS="Topic">
+The ScriptEase <A NAME="997025">
+ </A>
+Sample Libraries</H2>
+<P CLASS="Body">
+Included on the ScriptEase installation disk is a large collection of sample scripts and utilities written in ScriptEase. When you install ScriptEase, these libraries will be copied to the same directory as the ScriptEase processor. These utilities may be used as is, or modified to suit your own needs. You can take them apart and study them as examples of how to use the commands and functions of the ScriptEase languages. Additional scripts may be found on the Nombas website,</P>
+<P CLASS="Body">
+ http://www.nombas.com/download/index.htm.</P>
+<P CLASS="Body">
+If you have written any scripts or utilities you feel may be useful to other people, please email them to us and we will make them available to all on our website. The &quot;mail us&quot; button on the web pages will take you to a page where you can copy and paste your script and then email it back to us. Select &quot;Upload ScriptEase Script&quot; as the recipient of the message. </P>
+<P CLASS="Body">
+At the top of the scripts in the sample libraries is a peculiar form of comment consisting of three tildes and a number after the comment indicator (//~~~2 or ::~~~1, e.g.), followed by a brief description of the script. This comment is used internally by Nombas and has no bearing on the functioning of the script</P>
+</DIV>
+<DIV>
+<H2 CLASS="Topic">
+<A NAME="997026">
+ </A>
+Cmm</H2>
+<P CLASS="Body">
+The extension for a ScriptEase script is .cmm. The processor recognizes all files ending in .cmm as scripts and will try to interpret them if asked to do so. When a script is run from the ScriptEase environment (either from the ScriptEase shell's command line or by explicitly calling the ScriptEase processor from the OS command line), the .cmm extension is implicitly understood and does not need to be written out.</P>
+<P CLASS="Body">
+Cmm stands for C minus minus. It is the original name for the ScriptEase language, which is based on the C language, minus the time consuming and meticulous aspects that make C difficult to learn and use.</P>
+</DIV>
+<DIV>
+<H2 CLASS="Topic">
+Other members of the ScriptEase product suite</H2>
+<P CLASS="Body">
+All of Nombas' products are based upon the ScriptEase language. In addition to ScriptEase:Desktop, Nombas produces ScriptEase:WebServer Edition, which lets you use ScriptEase as a CGI scripting language; and ScriptEase:Integration SDK, which allows developers to include ScriptEase as a macro language in their own applications.</P>
+<P CLASS="Body">
+For more information on these and other offerings from Nombas, visit our website at www.nombas.com.</P>
+<P CLASS="Body">
+&nbsp;</P>
+</DIV>
+</P>
+</DIV>
+</DIV>
+<TABLE WIDTH="225" BORDER="0" CELLSPACING="0" CELLPADDING="0">
+  <TR>
+    <TD WIDTH="71"><a href="../index.htm"><IMG SRC="prev.gif" WIDTH="71" HEIGHT="18"></a></TD>
+    <TD WIDTH="80"><a href="../index.htm"><IMG SRC="tocidx.gif" WIDTH="80" HEIGHT="18"></a></TD>
+    <TD WIDTH="74"><a href="1-lang.htm"><IMG SRC="next.gif" WIDTH="74" HEIGHT="18"></a></TD>
+  </TR>
+</TABLE>
+
+</BODY>
+</HTML>

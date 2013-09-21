@@ -1,0 +1,87 @@
+<html>
+<head>
+<title>String indexOf()</title>
+<link rel="stylesheet" href="semanualstyles.css" type="text/css">
+<style type="text/css">
+ p { margin-top: 0; margin-bottom: 0; }
+</style>
+<script language="JavaScript" src="TrueHelp.js"></script>
+</head>
+<body onload="thload()">
+<div id=ienav>
+<ilayer id=nsnav>
+<br>
+<center>
+<p class=normal><a href="seisdkj-toc.htm" target="left">contents</a> &nbsp; <a href="seisdkj-index.htm" target="left">index</a> &nbsp; <a href="TH_856.htm">previous</a> &nbsp; <a href="TH_858.htm">next</a></p>
+</center>
+<br>
+<hr noshade size=1>
+</ilayer>
+</div>
+<p class=sereffunclevel4>String indexOf()</p>
+<table cellpadding=0>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>syntax:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=sesyntax>string.indexOf(<span class=truehelp-xe></span>substring[,&nbsp;offset])</p></td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>where:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>substring - substring to search for within string.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>offset - optional integer argument which specifies the position within string at which the search is to start. Default is 0.</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>return:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>number - index of the first appearance of a substring in a string, else -1, if <span class=secodephrase>substring</span> not found.</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>description:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>String <span class=secodephrase>indexOf()</span> searches the string for the string specified in <span class=secodephrase>substring</span>. The search begins at <span class=secodephrase>offset</span> if <span class=secodephrase>offset</span> is specified; otherwise the search begins at the beginning of the string. If <span class=secodephrase>substring</span> is found, String <span class=secodephrase>indexOf()</span> returns the position of its first occurrence. Character positions within the string are numbered in increments of one beginning with zero.</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>see:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara><span class=sejumptopic><a href="TH_854.htm">String charAt()</a></span>, <span class=sejumptopic><a href="TH_858.htm">String lastIndexOf()</a></span>, <span class=sejumptopic><a href="TH_866.htm">String substring()</a></span></p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>example:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=secodelines>var&nbsp;string&nbsp;=&nbsp;"what&nbsp;a&nbsp;string";</p>
+<p class=secodelines>string.indexOf("a")</p>
+<p class=secodelines>&nbsp;</p>
+<p class=secodelines>//&nbsp;returns&nbsp;the&nbsp;position,&nbsp;which&nbsp;is&nbsp;2&nbsp;in&nbsp;this&nbsp;example,</p>
+<p class=secodelines>//&nbsp;of&nbsp;the&nbsp;first&nbsp;"a"&nbsp;appearing&nbsp;in&nbsp;the&nbsp;string.</p>
+<p class=secodelines>//&nbsp;The&nbsp;method&nbsp;indexOf()may&nbsp;take&nbsp;an&nbsp;optional&nbsp;second</p>
+<p class=secodelines>//&nbsp;parameter&nbsp;which&nbsp;is&nbsp;an&nbsp;integer&nbsp;indicating&nbsp;the&nbsp;index</p>
+<p class=secodelines>//&nbsp;into&nbsp;a&nbsp;string&nbsp;where&nbsp;the&nbsp;method&nbsp;starts&nbsp;searching</p>
+<p class=secodelines>//&nbsp;the&nbsp;string.&nbsp;For&nbsp;example:</p>
+<p class=secodelines>&nbsp;</p>
+<p class=secodelines>var&nbsp;magicWord&nbsp;=&nbsp;"abracadabra";</p>
+<p class=secodelines>var&nbsp;secondA&nbsp;=&nbsp;magicWord.indexOf("a",&nbsp;1);</p>
+<p class=secodelines>&nbsp;</p>
+<p class=secodelines>//&nbsp;returns&nbsp;3,&nbsp;index&nbsp;of&nbsp;the&nbsp;first&nbsp;"a"&nbsp;to&nbsp;be&nbsp;found&nbsp;in</p>
+<p class=secodelines>//&nbsp;the&nbsp;string&nbsp;when&nbsp;starting&nbsp;from&nbsp;the&nbsp;second&nbsp;letter&nbsp;of&nbsp;//&nbsp;the&nbsp;string.</p>
+<p class=secodelines>//&nbsp;Since&nbsp;the&nbsp;index&nbsp;of&nbsp;the&nbsp;first&nbsp;character&nbsp;is&nbsp;0,&nbsp;the</p>
+<p class=secodelines>//&nbsp;index&nbsp;of&nbsp;second&nbsp;character&nbsp;is&nbsp;1.</p></td>
+</tr>
+</table>
+<p class=normal>&nbsp;</p>
+<hr noshade size=1>
+<p class=normal><a href="TH_858.htm"><img src="button.png" border=0></a><a href="TH_858.htm" style="text-decoration:none;">String lastIndexOf()</a></p>
+<p>
+</body>
+</html>

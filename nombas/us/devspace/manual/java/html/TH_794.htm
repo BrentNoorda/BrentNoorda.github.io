@@ -1,0 +1,60 @@
+<html>
+<head>
+<title>RegExp lastIndex</title>
+<link rel="stylesheet" href="semanualstyles.css" type="text/css">
+<style type="text/css">
+ p { margin-top: 0; margin-bottom: 0; }
+</style>
+<script language="JavaScript" src="TrueHelp.js"></script>
+</head>
+<body onload="thload()">
+<div id=ienav>
+<ilayer id=nsnav>
+<br>
+<center>
+<p class=normal><a href="seisdkj-toc.htm" target="left">contents</a> &nbsp; <a href="seisdkj-index.htm" target="left">index</a> &nbsp; <a href="TH_793.htm">previous</a> &nbsp; <a href="TH_795.htm">next</a></p>
+</center>
+<br>
+<hr noshade size=1>
+</ilayer>
+</div>
+<p class=sereffunclevel4>RegExp lastIndex</p>
+<table cellpadding=0>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>syntax:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=sesyntax>regexp.lastIndex<span class=truehelp-xe></span></p></td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>description:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>The character position after the last pattern match  and which is the basis for subsequent matches when finding multiple matches in a string. That is, in the next search, <span class=secodephrase>lastIndex</span> is the starting position. This property is used only in global mode after being set by using the "g" attribute when defining or compiling a search pattern. <span class=sepopuptopic><a href="TH_803.htm" onClick="return thwindow('TH_803.htm', 'GenPopup')">RegExp exec()</a></span> and <span class=sepopuptopic><a href="TH_804.htm" onClick="return thwindow('TH_804.htm', 'GenPopup')">RegExp test()</a></span> use and set the <span class=secodephrase>lastIndex</span> property. If a match is not found by one of them, then <span class=secodephrase>lastIndex</span> is set to 0. Since the property is read/write, you may set the property at any time to any position.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>Read/write property.</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>see:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara><span class=sejumptopic><a href="TH_803.htm">RegExp exec()</a></span>, <span class=sejumptopic><a href="TH_860.htm">String match()</a></span></p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>example:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=secodelines>var&nbsp;str&nbsp;=&nbsp;"one&nbsp;tao&nbsp;three&nbsp;tio&nbsp;one";</p>
+<p class=secodelines>var&nbsp;pat&nbsp;=&nbsp;/t.o/g;</p>
+<p class=secodelines>pat.exec(str);</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;//&nbsp;pat.lastIndex&nbsp;==&nbsp;7&nbsp;</p></td>
+</tr>
+</table>
+<p class=normal>&nbsp;</p>
+<hr noshade size=1>
+<p class=normal><a href="TH_795.htm"><img src="button.png" border=0></a><a href="TH_795.htm" style="text-decoration:none;">RegExp multiline</a></p>
+<p>
+</body>
+</html>

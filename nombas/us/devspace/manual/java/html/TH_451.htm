@@ -1,0 +1,69 @@
+<html>
+<head>
+<title>Buffer[] Array</title>
+<link rel="stylesheet" href="semanualstyles.css" type="text/css">
+<style type="text/css">
+ p { margin-top: 0; margin-bottom: 0; }
+</style>
+<script language="JavaScript" src="TrueHelp.js"></script>
+</head>
+<body onload="thload()">
+<div id=ienav>
+<ilayer id=nsnav>
+<br>
+<center>
+<p class=normal><a href="seisdkj-toc.htm" target="left">contents</a> &nbsp; <a href="seisdkj-index.htm" target="left">index</a> &nbsp; <a href="TH_450.htm">previous</a> &nbsp; <a href="TH_452.htm">next</a></p>
+</center>
+<br>
+<hr noshade size=1>
+</ilayer>
+</div>
+<p class=sereffunclevel4>Buffer[] Array</p>
+<table cellpadding=0>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>syntax:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=sesyntax>buffer[offset]</p></td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>return:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>number - the value in a buffer at the index or <span class=secodephrase>offset</span> specified. If a value is being assigned to this position, the value assigned is returned.</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>description:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>This is an arraylike version of the <span class=sepopuptopic><a href="TH_457.htm" onClick="return thwindow('TH_457.htm', 'GenPopup')">Buffer getValue()</a></span> and <span class=sepopuptopic><a href="TH_459.htm" onClick="return thwindow('TH_459.htm', 'GenPopup')">Buffer putValue()</a></span> methods, which works only with bytes. A user may either get or set these values, such as <span class=secodephrase>goo = foo[5]</span> or <span class=secodephrase>foo[5] = goo</span>. Every get/put operation uses byte types, that is, <span class=secodephrase>SWORD8</span>. If offset is less than 0, then 0 is used. If offset is beyond the end of a buffer, the size of the buffer is extended with <span class=secodephrase>NULL</span> bytes to accommodate it.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>Every time an index value is used, the <span class=sepopuptopic><a href="TH_448.htm" onClick="return thwindow('TH_448.htm', 'GenPopup')">Buffer cursor</a></span> property for an object is set to the next index, as with <span class=sepopuptopic><a href="TH_459.htm" onClick="return thwindow('TH_459.htm', 'GenPopup')">Buffer putValue()</a></span> and <span class=sepopuptopic><a href="TH_457.htm" onClick="return thwindow('TH_457.htm', 'GenPopup')">Buffer getValue()</a></span>.</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>see:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara><span class=sejumptopic><a href="TH_457.htm">Buffer getValue()</a></span>, <span class=sejumptopic><a href="TH_459.htm">Buffer putValue()</a></span></p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>example:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=secodelines>var&nbsp;b&nbsp;=&nbsp;new&nbsp;Buffer("ABC");</p>
+<p class=secodelines>//&nbsp;b.cursor&nbsp;==&nbsp;0</p>
+<p class=secodelines>Screen.writeln(b[1]);&nbsp;//&nbsp;66&nbsp;-&nbsp;ASCII&nbsp;code&nbsp;for&nbsp;"B"</p>
+<p class=secodelines>//&nbsp;now&nbsp;b.cursor&nbsp;==&nbsp;2</p>
+<p class=secodelines>b[0]&nbsp;=&nbsp;68;&nbsp;//&nbsp;"DBC"</p>
+<p class=secodelines>//&nbsp;now&nbsp;b.cursor&nbsp;==&nbsp;1</p></td>
+</tr>
+</table>
+<p class=normal>&nbsp;</p>
+<hr noshade size=1>
+<p class=normal><a href="TH_452.htm"><img src="button.png" border=0></a><a href="TH_452.htm" style="text-decoration:none;">Buffer object instance methods</a></p>
+<p>
+</body>
+</html>

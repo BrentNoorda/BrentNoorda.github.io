@@ -1,0 +1,86 @@
+<html>
+<head>
+<title>Regular expression replacement characters</title>
+<link rel="stylesheet" href="semanualstyles.css" type="text/css">
+<style type="text/css">
+ p { margin-top: 0; margin-bottom: 0; }
+</style>
+<script language="JavaScript" src="TrueHelp.js"></script>
+</head>
+<body onload="thload()">
+<div id=ienav>
+<ilayer id=nsnav>
+<br>
+<center>
+<p class=normal><a href="seisdkj-toc.htm" target="left">contents</a> &nbsp; <a href="seisdkj-index.htm" target="left">index</a> &nbsp; <a href="TH_788.htm">previous</a> &nbsp; <a href="TH_790.htm">next</a></p>
+</center>
+<br>
+<hr noshade size=1>
+</ilayer>
+</div>
+<p class=heading-4>Regular expression replacement characters</p>
+<p class=senormalpara>All of the special characters that have been discussed so far pertain to regular expression patterns, that is, to finding and matching strings and patterns in a target string. If all you want to do is find text, then you do not need to know about regular expression replacement characters<span class=truehelp-xe></span>. However, most people not only want to do powerful searches, but they also want to make powerful replacements of found text. This section describes special characters that are used in replacement strings and that are related to special characters used in search patterns.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<table cellpadding=0>
+<tr>
+<td valign=top style="width: 1.16875in">
+<p class=senormalpara><b>Expression</p><p class=senormalpara-p>&nbsp;</p>
+</b></td>
+<td valign=top style="width: 3.90625in">
+<p class=senormalpara><b>Meaning</p><p class=senormalpara-p>&nbsp;</p>
+</b></td>
+</tr>
+<tr>
+<td valign=top style="width: 1.16875in">
+<p class=senormalpara><span class=secodephrase>$1, $2 ... $9</span><span class=truehelp-xe></span></p><p class=senormalpara-p>&nbsp;</p>
+</td>
+<td valign=top style="width: 3.90625in">
+<p class=senormalpara>The text that is matched by sub patterns inside of parentheses. For example, <span class=secodephrase>$1</span> substitutes the text matched in the first parenthesized group in a regular expression pattern. See the groups, <span class=secodephrase>(...)</span>, <span class=secodephrase>(?:...)</span>, <span class=secodephrase>(?=...)</span>, and <span class=secodephrase>(?!...)</span>, under <span class=sepopuptopic><a href="TH_787.htm" onClick="return thwindow('TH_787.htm', 'GenPopup')">regular expression reference characters</a></span>.</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 1.16875in">
+<p class=senormalpara><span class=secodephrase>$+</span><span class=truehelp-xe></span></p><p class=senormalpara-p>&nbsp;</p>
+</td>
+<td valign=top style="width: 3.90625in">
+<p class=senormalpara>The text matched by the last group, that is, parenthesized sub pattern.</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 1.16875in">
+<p class=senormalpara><span class=secodephrase>$`</span><span class=truehelp-xe></span></p><p class=senormalpara-p>&nbsp;</p>
+</td>
+<td valign=top style="width: 3.90625in">
+<p class=senormalpara>The text before, to the left of, the text matched by a pattern.</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 1.16875in">
+<p class=senormalpara><span class=secodephrase>$'</span><span class=truehelp-xe></span></p><p class=senormalpara-p>&nbsp;</p>
+</td>
+<td valign=top style="width: 3.90625in">
+<p class=senormalpara>The text after, to the right of, the text matched by a pattern</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 1.16875in">
+<p class=senormalpara><span class=secodephrase>$&amp;</span><span class=truehelp-xe></span></p><p class=senormalpara-p>&nbsp;</p>
+</td>
+<td valign=top style="width: 3.90625in">
+<p class=senormalpara>The text matched by a pattern</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 1.16875in">
+<p class=senormalpara><span class=secodephrase>\$</span><span class=truehelp-xe></span></p><p class=senormalpara-p>&nbsp;</p>
+</td>
+<td valign=top style="width: 3.90625in">
+<p class=senormalpara>A literal dollar sign, <span class=secodephrase>$</span>.</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+</table>
+<hr noshade size=1>
+<p class=normal><a href="TH_790.htm"><img src="button.png" border=0></a><a href="TH_790.htm" style="text-decoration:none;">Regular expression precedence</a></p>
+<p>
+</body>
+</html>

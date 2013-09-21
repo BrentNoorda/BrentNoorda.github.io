@@ -1,0 +1,71 @@
+<html>
+<head>
+<title>SElib.ShellFilterCommand()</title>
+<link rel="stylesheet" href="semanualstyles.css" type="text/css">
+<style type="text/css">
+ p { margin-top: 0; margin-bottom: 0; }
+</style>
+<script language="JavaScript" src="TrueHelp.js"></script>
+</head>
+<body onload="thload()">
+<div id=ienav>
+<ilayer id=nsnav>
+<br>
+<center>
+<p class=normal><a href="seisdkj-toc.htm" target="left">contents</a> &nbsp; <a href="seisdkj-index.htm" target="left">index</a> &nbsp; <a href="TH_832.htm">previous</a> &nbsp; <a href="TH_834.htm">next</a></p>
+</center>
+<br>
+<hr noshade size=1>
+</ilayer>
+</div>
+<p class=sereffunclevel4>SElib.ShellFilterCommand()</p>
+<table cellpadding=0>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>syntax:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=sesyntax>SElib.ShellFilterCommand(functionFilterCommand)</p></td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>where:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>functionFilterCommand - identifier, the name of a function to use to filter commands to a ScriptEase shell.</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>return:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>void.</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>description:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>Adds a command filter function to a ScriptEase shell. When ScriptEase is running as a command shell, that is, when a ScriptEase interpreter is executed with no arguments, this method allows a function to be installed which is called when commands are entered in a shell. For example, the autoload.jse script that ships with ScriptEase uses this method to implement commands, such as CD and TYPE.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>The function, functionFilterCommand, must conform to the following: </p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=secodelinesindented>function&nbsp;functionFilterCommand(command)</p>
+<p class=secodelinesindented>&nbsp;</p>
+<p class=senormalpara>command - a string, the current string on a shell command line. This string is read/write and may be changed by the function. A ScriptEase shell executes the command after returning from this function. To prevent ScriptEase from executing any command set command to a zero-length string, for example, <span class=secodephrase>command[0]='\0'</span>, but not <span class=secodephrase>command=""</span>.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>Before passing a command line to a filter function, ScriptEase strips leading white space from the beginning and end of the command string. Also, any redirection on a command line is not seen by this function, since redirection is handled internally by ScriptEase. For example, if a command line string is "dir&gt;dir.txt", then this function only sees the string "dir".</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>see:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara><span class=sejumptopic><a href="TH_833.htm">SElib.ShellFilterCommand()</a></span>, <i>autoload.jse</i></p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+</table>
+<p class=normal>&nbsp;</p>
+<hr noshade size=1>
+<p class=normal><a href="TH_834.htm"><img src="button.png" border=0></a><a href="TH_834.htm" style="text-decoration:none;">SElib.spawn()</a></p>
+<p>
+</body>
+</html>

@@ -1,0 +1,425 @@
+<html>
+<head>
+<title>ScriptEase ISDK Newsletter November 27, 2001</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-1754630-10']);
+  _gaq.push(['_trackPageview']);
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+</head>
+
+<body bgcolor="#FFFFFF" TOPMARGIN=0 LEFTMARGIN=0 MARGINWIDTH=0 MARGINHEIGHT=0>
+<table width="640" border="0" cellspacing="0" cellpadding="0">
+  <tr> 
+    <td> 
+      <p><img src="images/newsbanner.jpg" width="640" height="70" border="0"></p>
+      <table width="630" border="0" cellspacing="0" cellpadding="0" align="center">
+        <tr> 
+          <td width="150" valign="top" align="left"> 
+            <p><font color="#0E2595" face="Verdana, Arial, Helvetica, sans-serif"><b>Nov. 
+              27, 2001</b></font></p>
+            <p><b><font color="#990000" size="-2" face="Verdana,Tahoma,Arial,Helvetica">In 
+              This Issue</font></b></p>
+            <table width="150" border="0" cellspacing="0" cellpadding="0">
+              <tr> 
+                <td width="15" valign="top" align="center"> 
+                  <p><img src="images/bullet.gif" width="10" height="10" vspace="2"></p>
+                </td>
+                <td width="135" align="left" valign="top"> 
+                  <p><a href="#article1"><font size="-2" face="Verdana, Arial, Helvetica, sans-serif">comparison 
+                    of _prototype and __parent__ chains</font></a><br>
+                    &nbsp; </p>
+                </td>
+              </tr>
+              <tr> 
+                <td width="15" align="center" valign="top"><img src="images/bullet.gif" width="10" height="10" vspace="2"></td>
+                <td width="135" align="left" valign="top"> 
+                  <p><a href="#c430eerrata"><font size="-2" face="Verdana, Arial, Helvetica, sans-serif">ISDK/C 
+                    4.30e Errata</font></a><br>
+                    &nbsp; </p>
+                </td>
+              </tr>
+              <tr> 
+                <td width="15" align="center" valign="top"><img src="images/bullet.gif" width="10" height="10" vspace="2"></td>
+                <td width="135" align="left" valign="top"> 
+                  <p><a href="#c440derrata"><font size="-2" face="Verdana, Arial, Helvetica, sans-serif">ISDK/C 
+                    4.40d Errata</font></a><br>
+                    &nbsp; </p>
+                </td>
+              </tr>
+              <tr> 
+                <td width="15" align="center" valign="top"><img src="images/bullet.gif" width="10" height="10" vspace="2"></td>
+                <td width="135" align="left" valign="top"> 
+                  <p><a href="#errataj430e"><font size="-2" face="Verdana, Arial, Helvetica, sans-serif">ISDK/Java 
+                    4.30e Errata</font></a></p>
+                </td>
+              </tr>
+            </table>
+            <p><font size="-2" face="Verdana, Arial, Helvetica, sans-serif"><a href="../devspace/newsletters/index.htm">Other 
+              Newsletters</a></font></p>
+            <p><font size="-2" color="#990000" face="Verdana, Arial, Helvetica, sans-serif"><b>DevSpace 
+              Developer Support</b></font></p>
+            <p><font size="-2" face="Verdana, Arial, Helvetica, sans-serif">For 
+              more information and resources, <a
+                             href="../devspace/index.htm">visit ScriptEase: 
+              ISDK DevSpace online</a>.</font></p>
+            <p><font size="-2" color="#990000" face="Verdana, Arial, Helvetica, sans-serif"><b>Download 
+              Center</b></font></p>
+            <p></p>
+            <p align=LEFT><font face="Verdana, Arial, Helvetica, sans-serif" size="-2">For 
+              latest updates and extensions, <a href="http://www.nombasxxx.com/us/toolkit/isdkdownload.htm">visit 
+              the ISDK Download Center</a>. </font></p>
+          </td>
+          <td width="4"></td>
+          <td width="1" bgcolor="#CCCCFF"><img src="../devspace/pix/pixel.gif" width="1" height="1" border="0"></td>
+          <td width="5"></td>
+          <td width="470" valign="top" align="left"> 
+            <div align="left"> 
+              <h3><b><a name="article1"></a><img src="images/turkeyscripter2.jpg" width="150" height="150" align="right" border="0" vspace="2" hspace="4"></b><font color="#0E2595">_prototype 
+                and __parent__, inheritance and scoping in ECMAScript</font></h3>
+              <h4><font color="#6699FF">A brief description of inheritance and 
+                scoping through the _prototype and __parent__ chains.</font></h4>
+              <p align=LEFT>Our recent Thanksgiving Holiday led me to think about 
+                family. When I think about family I think about parents, property, 
+                and inheritance. More specifically, I think about ECMAScript inheritance 
+                of properties through the __parent__ and _prototype chains. These 
+                two types of property chains are often confused, sometimes misused, 
+                and too often neglected (like family).</p>
+              <h4 align=LEFT><font color="#0E2595">_prototype</font></h4>
+              <p align=LEFT></p>
+              <p align=LEFT>The _prototype chain gives ECMAScript class-like behavior, 
+                similar to other object-oriented languages. Multiple objects can 
+                inherit the same property from a base class object, so that any 
+                instance of that class object will inherit the property from the 
+                base class. If any instance changes the value of an inherited 
+                property the property changes only for that instance, not for 
+                the base class or for other objects that inherit from that base 
+                class. This is similar to the way basic inheritance acts in any 
+                OO language.</p>
+              <h4 align=LEFT><font color="#0E2595">__parent__</font></h4>
+              <p align=LEFT></p>
+              <p align=LEFT>The __parent__ chains gives an ECMAScript object a 
+                way to resolve the location of variable, letting a variable filter 
+                down through a hierarchy of sub-objects. Multiple objects can 
+                scope to the same property from a base parent object; when any 
+                of these objects changes the value of this scoped variable it 
+                is changed in the base parent object. This __parent__ chain is 
+                unlike inheritance found in most OO languages.</p>
+              <h4 align=LEFT><font color="#0E2595">_prototype vs __parent__</font></h4>
+              <p align=LEFT></p>
+              <p align=LEFT>These two chains, which are independent of each other, 
+                provide a combination that is very useful. Many object in your 
+                application may have both types of chains. Because both methods 
+                allow an object to reflect data in a base object, implementors 
+                sometimes choose one over the other with insufficient thought.</p>
+              <h5 align=LEFT><font color="#0E2595">_prototype</font></h5>
+              <h5 align=LEFT></h5>
+              <p align=LEFT>The _prototype chain should be selected when you want 
+                OO inheritance. That is, when you want to have multiple instances 
+                of a base class object inherit the behavior and default values 
+                of that base object, and for each instance of that base class 
+                object to maintain its own overrides of those inherited defaults. 
+                You would use the _prototype chain whenever you define an object 
+                that you want other objects to &quot;act like&quot;. Additionally, 
+                by using the _prototype chain you can have many instance objects 
+                inherit lots of properties and methods without using extra memory 
+                to duplicate those properties and methods in every instance (important 
+                in small-memory situations).</p>
+              <p align=LEFT>Although a _protoype chain may be created explicitly, 
+                it is usually automatically created when the &quot;new&quot; operator 
+                is used. With &quot;new&quot;, an object's ._prototype is initialized 
+                to the .prototype object of the base class.</p>
+              <h5 align=LEFT><font color="#0E2595">__parent__</font></h5>
+              <h5 align=LEFT></h5>
+              <p align=LEFT>The __parent__ chain should instead be used when you 
+                want to represent a hierarchy of objects, where the script in 
+                any one object automatically recognizes a variable in an enclosing 
+                object. In browsers, for example, the __parent__ chain is how 
+                script in a button event may automatically reference a variable 
+                in the enclosing form object, or the enclosing frame or document 
+                object.</p>
+              <p align=LEFT>A __parent__ chain is usually created explicitly when 
+                designing the hierarchy of your objects. The __parent__ chain 
+                is usually ignored unless a function is being called where that 
+                function's object has the jseImplicitParents attribute. But you 
+                can also tell the interpreter to use the __parent__ chain in a 
+                jseInterpret call with the JSE_INTERPRET_IMPLICIT_PARENTS flag, 
+                or for all functions by compiling with JSE_ALWAYS_IMPLICIT_PARENTS&nbsp;1.</p>
+              <div align="left"> 
+                <h4 align=LEFT><font color="#0E2595">Example</font></h4>
+              </div>
+              <p>The following example demonstrates the order and effect of the 
+                different scope chains on objects. For this demo a <font face="Courier New, Courier, mono" size="2">println()</font> 
+                function is assumed, along with the <font face="Courier New, Courier, mono" size="2">setAttributes()</font> 
+                function from the lang library (usually these attributes would 
+                be set from your compiled code).</p>
+              <font face="Courier New, Courier, mono" size="2"> 
+              <pre>   function demo_func()
+   {
+      println(&quot;init demo_func x = &quot; + x);
+      println(&quot;init demo_func y = &quot; + y);
+      println(&quot;init demo_func z = &quot; + z);
+   
+      x = &quot;demo_func_x&quot;;
+      y = &quot;demo_func_y&quot;;
+      z = &quot;demo_func_z&quot;;
+   &nbsp;
+      println(&quot;term demo_func x = &quot; + x);
+      println(&quot;term demo_func y = &quot; + y);
+      println(&quot;term demo_func z = &quot; + z);
+   }
+&nbsp;
+   setAttributes(demo_func,IMPLICIT_PARENTS|IMPLICIT_THIS);
+&nbsp;
+   var prototype_obj, parent_obj, instance_obj;
+&nbsp;
+   prototype_obj = new Object();
+   prototype_obj.x = &quot;prototype_x&quot;;
+   prototype_obj.z = &quot;prototype_z&quot;;
+   parent_obj = new Object();
+   parent_obj.x = &quot;parent_x&quot;;
+   parent_obj.y = &quot;parent_y&quot;;
+   parent_obj.z = &quot;parent_z&quot;;
+&nbsp;
+   instance_obj = new Object();
+   instance_obj.z = &quot;instance_z&quot;;
+   instance_obj._prototype = prototype_obj;
+   instance_obj.__parent__ = parent_obj;
+   instance_obj.demo_func = demo_func;
+&nbsp;
+   println(&quot;instance_obj.x = &quot; + instance_obj.x);
+   println(&quot;instance_obj.y = &quot; + instance_obj.y);
+   println(&quot;instance_obj.z = &quot; + instance_obj.z);
+   println(&quot;parent_obj.x = &quot; + parent_obj.x);
+   println(&quot;parent_obj.y = &quot; + parent_obj.y);
+   println(&quot;parent_obj.z = &quot; + parent_obj.z);
+   println(&quot;prototype_obj.x = &quot; + prototype_obj.x);
+   println(&quot;prototype_obj.y = &quot; + prototype_obj.y);
+   println(&quot;prototype_obj.z = &quot; + prototype_obj.z);
+   println(&quot;&quot;);
+&nbsp;
+   instance_obj.demo_func();
+&nbsp;
+   println(&quot;&quot;);
+   println(&quot;instance_obj.x = &quot; + instance_obj.x);
+   println(&quot;instance_obj.y = &quot; + instance_obj.y);
+   println(&quot;instance_obj.z = &quot; + instance_obj.z);
+   println(&quot;parent_obj.x = &quot; + parent_obj.x);
+   println(&quot;parent_obj.y = &quot; + parent_obj.y);
+   println(&quot;parent_obj.z = &quot; + parent_obj.z);
+   println(&quot;prototype_obj.x = &quot; + prototype_obj.x);
+   println(&quot;prototype_obj.y = &quot; + prototype_obj.y);
+   println(&quot;prototype_obj.z = &quot; + prototype_obj.z);
+</pre>
+              </font> 
+              <p>Executing the above code produces this output:</p>
+              <pre><font face="Courier New, Courier, mono" size="2">   instance_obj.x = prototype_x
+   instance_obj.y = undefined
+   instance_obj.z = instance_z
+   parent_obj.x = parent_x
+   parent_obj.y = parent_y
+   parent_obj.z = parent_z
+   prototype_obj.x = prototype_x
+   prototype_obj.y = undefined
+   prototype_obj.z = prototype_z
+   
+   init demo_func x = prototype_x
+   init demo_func y = parent_y
+   init demo_func z = instance_z
+   term demo_func x = demo_func_x
+   term demo_func y = demo_func_y
+   term demo_func z = demo_func_z
+   
+   instance_obj.x = demo_func_x
+   instance_obj.y = undefined
+   instance_obj.z = demo_func_z
+   parent_obj.x = parent_x
+   parent_obj.y = demo_func_y
+   parent_obj.z = parent_z
+   prototype_obj.x = prototype_x
+   prototype_obj.y = undefined
+   prototype_obj.z = prototype_z</font></pre>
+              <p>This code has demonstrated these facts about scoping variables 
+                in this implicit-parents / implicit-this function.</p>
+            </div>
+            <ol>
+              <li> 
+                <div align="left">When locating a variable <font face="Courier New, Courier, mono" size="2">V</font>, 
+                  we first search for <font face="Courier New, Courier, mono" size="2">this.V</font>, 
+                  then <font face="Courier New, Courier, mono" size="2">this._prorotype...V</font>, 
+                  then <font face="Courier New, Courier, mono" size="2">this.__parent__...V</font></div>
+              </li>
+              <li>When writing to the variable <font face="Courier New, Courier, mono" size="2">V</font>, 
+                if <font face="Courier New, Courier, mono" size="2">V</font> was 
+                located via the _prototype chain then the this object gets a new 
+                variable <font face="Courier New, Courier, mono" size="2">this.V</font>, 
+                otherwise the variable <font face="Courier New, Courier, mono" size="2">V</font> 
+                is overwritten that was found in step 1</li>
+              <li>Inheritance through the __parent__ chain only applies in a function 
+                with the jseImplicitParents attribute set.</li>
+            </ol>
+            <div align="left"> 
+              <h4 align=LEFT><font color="#0E2595">Related information</font></h4>
+            </div>
+            <ul>
+              <li> 
+                <div align="left">For a deeper discussion of _prototype and __parent__ 
+                  see &quot;Appendix&nbsp;D: Advanced Topics / Topic&nbsp;3&quot; 
+                  in the <a href="../devspace/manual/index.htm">ISDK 
+                  Manuals</a></div>
+              </li>
+              <li> 
+                <div align="left">For a description scoping issues in VoiceXML, 
+                  see <a href="../devspace/tips/vxml.htm">Implementing 
+                  VoiceXML (VXML)</a>.</div>
+              </li>
+              <li>For an example of how _prototype and __parent__ are used in 
+                browsers, see the brwsrlib application framework in each ISDK 
+                release. </li>
+            </ul>
+            <div align="left"> 
+              <p align=LEFT><i>Have a question about how to use ScriptEase:ISDK? 
+                Let Dr. Scripter know at </i><a href="http://support.nombasxxx.com/"><i>http://support.nombasxxx.com/</i></a></p>
+            </div>
+            <div align="left"></div>
+          </td>
+        </tr>
+      </table>
+      <hr>
+      <h3>&nbsp;Errata <a name="c430eerrata"></a> </h3>
+      <h4>&nbsp;&nbsp;&nbsp;ISDK/C 4.30e </h4>
+      <ul>
+        <li><b><a href="../devspace/errata/isdk/index430.htm#msvc6bg">MSVC6 
+          memory allocation bugs</a></b>: Problems with Microsoft's C++ in Microsoft 
+          Visual C++ 6.0, can cause heap allocation errors and memory overwrites 
+          that can cause crashes that are extremely erratic and hard to reproduce. 
+          [<a href="../devspace/errata/isdk/index430.htm#msvc6bg">details</a>]</li>
+      </ul>
+      <ul>
+        <li><a href="../devspace/errata/isdk/index430.htm#wthprm"><b>invalid 
+          name accessing local parameters in a with() block</b></a>: When accessing 
+          a variable in a with block, the wrong variable name is used when testing 
+          a variable against the with object if the variables is an argument to 
+          the function (and not the first argument). [<a href="../devspace/errata/isdk/index430.htm#wthprm">Details</a>]</li>
+      </ul>
+      <ul>
+        <li><b><a href="../devspace/errata/isdk/index430.htm#cmpnwth">compound 
+          assignment (/=, *=, %=, +=, -=, <<=, &=, ^=, |=) ignoring with() blocks</a></b>: 
+          The object for a with(object) block is ignored when evaluating the initial 
+          variable while evaluating a compound assignment. [<a href="../devspace/errata/isdk/index430.htm#cmpnwth">Details</a>]</li>
+      </ul>
+      <ul>
+        <li><a href="../devspace/errata/isdk/index430.htm#bddt"><b>insufficient 
+          checks on bad dates</b></a>: Some of the functions in the Date object 
+          are not testing against invalid dates. [<a href="../devspace/errata/isdk/index430.htm#bddt">Details</a>]</li>
+      </ul>
+      <ul>
+        <li><a href="../devspace/errata/isdk/index430.htm#cfrtnl"><b>jseCallFunction 
+          return variable may be NULL with JSE_FUNC_TRAP_ERRORS</b></a>: In jseCallFunction() 
+          and jseCallFunctionEx(), if the JSE_FUNC_TRAP_ERROS flag is then *returnVar 
+          may incorrectly be assigned to NULL. [<a href="../devspace/errata/isdk/index430.htm#cfrtnl">Details</a>]</li>
+      </ul>
+      <ul>
+        <li><b><a href="../devspace/errata/isdk/index430.htm#ooia">invalid 
+          assert for operator overloading on unary operators</a></b>:If overloading 
+          unary operators with jseSetObjectCallbacks, and NDEBUG is not defined, 
+          and invalid assert will be triggered. [<a href="../devspace/errata/isdk/index430.htm#ooia">Details</a>]</li>
+      </ul>
+      <hr>
+      <h3>&nbsp;Errata <a name="c440derrata"></a> </h3>
+      <h4>&nbsp;&nbsp;&nbsp;ISDK/C 4.40d </h4>
+      <ul>
+        <li><b><a href="../devspace/errata/isdk/index440.htm#frinh">for...in 
+          fails to iterate through inherited properties</a></b>: In some cases, 
+          such as when an object inherits from a script object via "new Foo()", 
+          for...in may not iterate through all inherited properties. [<a href="../devspace/errata/isdk/index440.htm#frinh">Details</a>]</li>
+      </ul>
+      <ul>
+        <li><b><a href="../devspace/errata/isdk/index440.htm#msvc6bg">MSVC6 
+          memory allocation bugs</a></b>: Problems with Microsoft's C++ in Microsoft 
+          Visual C++ 6.0, can cause heap allocation errors and memory overwrites 
+          that can cause crashes that are extremely erratic and hard to reproduce. 
+          [<a href="../devspace/errata/isdk/index440.htm#msvc6bg">Details</a>]</li>
+      </ul>
+      <ul>
+        <li><a href="../devspace/errata/isdk/index440.htm#wthprm"><b>invalid 
+          name accessing local parameters in a with() block</b></a>: When accessing 
+          a variable in a with block, the wrong variable name is used when testing 
+          a variable against the with object if the variables is an argument to 
+          the function (and not the first argument). [<a href="../devspace/errata/isdk/index440.htm#wthprm">Details</a>]</li>
+      </ul>
+      <ul>
+        <li><b><a href="../devspace/errata/isdk/index440.htm#cstrcat">error 
+          concatenating C-style string constants</a></b>: When concatenating source 
+          strings without the '+' operator, as in C-styles compilers, it is possible 
+          for other string constants to get overwritten. [<a href="../devspace/errata/isdk/index440.htm#cstrcat">Details</a>]</li>
+      </ul>
+      <ul>
+        <li><b><a href="../devspace/errata/isdk/index440.htm#cmpnwth">compound 
+          assignment (/=, *=, %=, +=, -=, <<=, &=, ^=, |=) ignoring with() blocks</a></b>: 
+          The object for a with(object) block is ignored when evaluating the initial 
+          variable while evaluating a compound assignment. [<a href="../devspace/errata/isdk/index440.htm#cmpnwth">Details</a>]</li>
+      </ul>
+      <ul>
+        <li><a href="../devspace/errata/isdk/index440.htm#bddt"><b>insufficient 
+          checks on bad dates</b></a>: Some of the functions in the Date object 
+          are not testing against invalid dates. [<a href="../devspace/errata/isdk/index440.htm#bddt">Details</a>]</li>
+      </ul>
+      <ul>
+        <li><a href="../devspace/errata/isdk/index440.htm#crshnc"><b>crash 
+          when reporting invalid #include syntax</b></a>: If JSE_INCLUDE option 
+          is enabled, and there is a parsing error in an "#include" source line, 
+          an invalid pointer during error reporting will lead to a crash . [<a href="../devspace/errata/isdk/index440.htm#crshnc">Details</a>]</li>
+      </ul>
+      <ul>
+        <li><a href="../devspace/errata/isdk/index440.htm#cfrtnl"><b>jseCallFunction 
+          return variable may be NULL with JSE_FUNC_TRAP_ERRORS</b></a>: In jseCallFunction() 
+          and jseCallFunctionEx(), if the JSE_FUNC_TRAP_ERROS flag is then *returnVar 
+          may incorrectly be assigned to NULL. [<a href="../devspace/errata/isdk/index440.htm#cfrtnl">Details</a>]</li>
+      </ul>
+      <ul>
+        <li><a href="../devspace/errata/isdk/index440.htm#pvc"><b>operator 
+          overloading crashes with some operators</b></a>: se440 operator overloading 
+          crashes when using some of the operators. [<a href="../devspace/errata/isdk/index440.htm#pvc">Details</a>]</li>
+      </ul>
+      <ul>
+        <li><a href="../devspace/errata/isdk/index440.htm#nwno"><b>'new' 
+          operator accepting non-Object return values</b></a>: If a constructor 
+          returns a variable that is not an object then that return value is not 
+          being ignored, although it should be. [<a href="../devspace/errata/isdk/index440.htm#nwno">Details</a>]</li>
+      </ul>
+      <ul>
+        <li><a href="../devspace/errata/isdk/index440.htm#ooia"><b>invalid 
+          assert for operator overloading on unary operators</b></a>: If overloading 
+          unary operators with jseSetObjectCallbacks, and NDEBUG is not defined, 
+          and invalid assert will be triggered. [<a href="../devspace/errata/isdk/index440.htm#ooia">Details</a>]</li>
+      </ul>
+      <hr>
+      <h3>&nbsp;Errata <a name="errataj430e"></a> </h3>
+      <h4>&nbsp;&nbsp;&nbsp;ISDK/Java 4.30e </h4>
+      <ul>
+        <li> <b><a href="../devspace/errata/jisdk/index.htm#430ememory">Excessive 
+          memory usage while interpreting a script</a></b>: While interpreting 
+          some scripts, the engine may unnecessarily use a large amount of memory. 
+          [<a href="../devspace/errata/jisdk/index.htm#430ememory">Details</a>]</li>
+      </ul>
+      <ul>
+        <li><b><a href="../devspace/errata/jisdk/index.htm#430ecompileslow">Compiling 
+          large scripts slow</a></b>: Compiling large scripts takes an extremely 
+          long time. [<a href="../devspace/errata/jisdk/index.htm#430ecompileslow">Details</a>]</li>
+      </ul>
+      <p></p>
+      <p></p>
+      <p></p>
+      <p><a href="../index.htm"><img src="images/footer.jpg" width="640" height="30" border="0" alt="ScriptEase: ISDK is a product of Nombas, Inc. Visit us at ../index.htm"></a></p>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

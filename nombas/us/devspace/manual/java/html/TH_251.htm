@@ -1,0 +1,28 @@
+<html>
+<head>
+<title>SE.SI_DEPTH</title>
+<link rel="stylesheet" href="semanualstyles.css" type="text/css">
+<style type="text/css">
+ p { margin-top: 0; margin-bottom: 0; }
+</style>
+<script language="JavaScript" src="TrueHelp.js"></script>
+</head>
+<body onload="thload()">
+<div id=ienav>
+<ilayer id=nsnav>
+<br>
+<center>
+<p class=normal><a href="seisdkj-toc.htm" target="left">contents</a> &nbsp; <a href="seisdkj-index.htm" target="left">index</a> &nbsp; <a href="TH_250.htm">previous</a> &nbsp; <a href="TH_252.htm">next</a></p>
+</center>
+<br>
+<hr noshade size=1>
+</ilayer>
+</div>
+<p class=heading-5>SE.SI_DEPTH</p>
+<p class=senormalpara>The depth of the function. As you go deeper into the stack, the depth gets smaller. The depth from any particular stack info object is the number of stack objects in total. For instance, if a script is in a wrapper function called from the main body of the stack, then the call stack comprises two levels, <span class=secodephrase>SE.STACK_INFO(0)</span> and <span class=secodephrase>SE.STACK_INFO(1)</span>. The <span class=secodephrase>SE.SI_DEPTH</span> is indication of how many function calls are nested beneath this level, including the level itself. In this case, the <span class=secodephrase>SE.SI_DEPTH</span> of <span class=secodephrase>SE.STACK_INFO(0)</span> will be 2, indicating 2 items nested. The <span class=secodephrase>SE.SI_DEPTH</span> of <span class=secodephrase>SE.STACK_INFO(1)</span> will be 1, as this function has only itself and nothing nested beneath it. The depth can be 0 if <span class=secodephrase>SE.STACK_INFO(0)</span> is used while no code is executing and thus no function calls are nested at all.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<hr noshade size=1>
+<p class=normal><a href="TH_252.htm"><img src="button.png" border=0></a><a href="TH_252.htm" style="text-decoration:none;">SE.SERVICES</a></p>
+<p>
+</body>
+</html>

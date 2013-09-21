@@ -1,0 +1,65 @@
+<html>
+<head>
+<title>Clib.abort()</title>
+<link rel="stylesheet" href="semanualstyles.css" type="text/css">
+<style type="text/css">
+ p { margin-top: 0; margin-bottom: 0; }
+</style>
+<script language="JavaScript" src="TrueHelp.js"></script>
+</head>
+<body onload="thload()">
+<div id=ienav>
+<ilayer id=nsnav>
+<br>
+<center>
+<p class=normal><a href="seisdkc-toc.htm" target="left">contents</a> &nbsp; <a href="seisdkc-index.htm" target="left">index</a> &nbsp; <a href="TH_600.htm">previous</a> &nbsp; <a href="TH_602.htm">next</a></p>
+</center>
+<br>
+<hr noshade size=1>
+</ilayer>
+</div>
+<p class=sereffunclevel4>Clib.abort()</p>
+<table cellpadding=0>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>syntax:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=sesyntax>Clib.abort(<span class=truehelp-xe></span>[AbortAll])</p></td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>where:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>AbortAll - boolean flag as to whether to abort all levels of ScriptEase execution.</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>return:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>number - <span class=secodephrase>EXIT_FAILURE</span> to the operating system.</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>description:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>This method terminates a program, usually when a specified error occurs. This method causes abnormal program termination and should only be called on a fatal error. This method exits, without returning to the caller, and returns <span class=secodephrase>EXIT_FAILURE</span> to the operating system.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>If the boolean AbortAll is <span class=secodephrase>true</span>, this method aborts through all levels of ScriptEase interpretation. If you are in multiple levels of <span class=sepopuptopic><a href="TH_935.htm" onClick="return thwindow('TH_935.htm', 'GenPopup')">SElib.interpret()</a></span>, .abort() aborts through all <span class=secodephrase>SElib.interpret()</span> levels.</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>see:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara><span class=sejumptopic><a href="TH_602.htm">Clib.assert()</a></span></p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+</table>
+<p class=normal>&nbsp;</p>
+<hr noshade size=1>
+<p class=normal><a href="TH_602.htm"><img src="button.png" border=0></a><a href="TH_602.htm" style="text-decoration:none;">Clib.assert()</a></p>
+<p>
+</body>
+</html>

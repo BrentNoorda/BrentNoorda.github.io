@@ -1,0 +1,41 @@
+<html>
+<head>
+<title>READ-ONLY SHARED OBJECTS</title>
+<link rel="stylesheet" href="semanualstyles.css" type="text/css">
+<style type="text/css">
+ p { margin-top: 0; margin-bottom: 0; }
+</style>
+<script language="JavaScript" src="TrueHelp.js"></script>
+</head>
+<body onload="thload()">
+<div id=ienav>
+<ilayer id=nsnav>
+<br>
+<center>
+<p class=normal><a href="seisdkc-toc.htm" target="left">contents</a> &nbsp; <a href="seisdkc-index.htm" target="left">index</a> &nbsp; <a href="TH_256.htm">previous</a> &nbsp; <a href="TH_258.htm">next</a></p>
+</center>
+<br>
+<hr noshade size=1>
+</ilayer>
+</div>
+<p class=heading-3>READ-ONLY SHARED OBJECTS</p>
+<p class=heading-3-p>&nbsp;</p>
+<p class=senormalpara>ScriptEase supports one other sharing mechanism via the API call <span class=secodephrase>seShareReadObject</span>. This call allows sharing ScriptEase objects across threads albeit with several limitations.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>Object handles, i.e. <span class=secodephrase>seobject</span>s, can be made sharable by passing them to the <span class=secodephrase>seShareReadObject</span> api call. Once this is done, the handle can be used in any context and thus the object it refers to can be used in any context as well. Such handles no longer follow the usual ScriptEase lifetime rules. Such handles can only be created in the first ScriptEase context before any other contexts are created. These handles are valid until that context is destroyed.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>A typical use for read-shared objects is to initialize a context using <span class=secodephrase>seCreateContext</span> as normal. Whatever standard libraries are defined in your <span class=secodephrase>jseopt.h</span> file are added to the context as normal. Any program-specific libraries are added in the context&#8217;s <span class=secodephrase>sePrepareContextFunc</span> callback. The result is that all of the wrapper functions normally available to a script are initialized in that context&#8217;s global object. That global object is made read-shared so that many new contexts can be created and share the same set of wrapper functions without having to reinitialize them in each context. This saves considerable startup time and memory for each new context created.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>With this method, new contexts are created passing the <span class=secodephrase>SE_OPT_NO_LIBRARIES</span> option to <span class=secodephrase>seCreateContext</span>. This is because the new contexts will be sharing the old libraries and do not need their own copy of the libraries created. Likewise, these new contexts do not add program-specific libraries during their <span class=secodephrase>sePrepareContextFunc</span> callback, instead using the copies created by the first context. The <span class=secodephrase>_prototype</span> member of the global object of each new context is assigned with the shared global object thus allowing all new contexts to see and share the original libraries.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>The ScriptEase sample <span class=secodephrase>objshare</span> does exactly what is described above.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>Read-shared objects are completely read-only as are their children. No changes at all can be made to them; they cannot get new members, have members deleted, alter member values, or be modified in any way. This applies in all contexts including the first context that originally created the object.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>The shared objects are cleaned up when the context creating them, the first context, is destroyed. This means object destructors will be called and library termination routines invoked. The first context can only be destroyed if there are no other contexts sharing its objects. If you have shared any objects then a call to <span class=secodephrase>seDestroyContext</span> on the first context will fail with an appropriate api error if there are any other contexts still undestroyed.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<hr noshade size=1>
+<p class=normal><a href="TH_258.htm"><img src="button.png" border=0></a><a href="TH_258.htm" style="text-decoration:none;">SHARED SERVICES</a></p>
+<p>
+</body>
+</html>

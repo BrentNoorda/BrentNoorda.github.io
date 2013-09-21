@@ -1,0 +1,82 @@
+<html>
+<head>
+<title>GD colorClosest()</title>
+<link rel="stylesheet" href="semanualstyles.css" type="text/css">
+<style type="text/css">
+ p { margin-top: 0; margin-bottom: 0; }
+</style>
+<script language="JavaScript" src="TrueHelp.js"></script>
+</head>
+<body onload="thload()">
+<div id=ienav>
+<ilayer id=nsnav>
+<br>
+<center>
+<p class=normal><a href="seisdkc-toc.htm" target="left">contents</a> &nbsp; <a href="seisdkc-index.htm" target="left">index</a> &nbsp; <a href="TH_1029.htm">previous</a> &nbsp; <a href="TH_1031.htm">next</a></p>
+</center>
+<br>
+<hr noshade size=1>
+</ilayer>
+</div>
+<p class=sereffunclevel4>GD colorClosest()</p>
+<table cellpadding=0>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>syntax:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=sesyntax>gd.colorClosest(<span class=truehelp-xe></span>red,&nbsp;green,&nbsp;blue)</p></td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>where:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>red - Red value, from 0 to 255</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>green - Green value, from 0 to 255</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>blue - Blue value, from 0 to 255</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>return:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>number - index of the closest color to the one supplied.</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>description:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>This method searches through the color table and finds the closest color to the one supplied.  The algorithm uses Euclidian distance to calculate closeness.  This function is most useful when unable to allocate a new color, and the closest must be used instead.</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>see:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara><span class=secodephrase>#link &lt;gd&gt;</span>, <span class=sejumptopic><a href="TH_1029.htm">GD colorAllocate()</a></span></p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>example:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=secodelines>/*&nbsp;Attempt&nbsp;to&nbsp;allocate&nbsp;a&nbsp;specific&nbsp;color,</p>
+<p class=secodelines>&nbsp;*&nbsp;but&nbsp;if&nbsp;unable&nbsp;to&nbsp;(the&nbsp;image</p>
+<p class=secodelines>&nbsp;*&nbsp;has&nbsp;the&nbsp;maximum&nbsp;number&nbsp;of&nbsp;colors),</p>
+<p class=secodelines>&nbsp;*&nbsp;then&nbsp;attempt&nbsp;to&nbsp;find&nbsp;the&nbsp;closest</p>
+<p class=secodelines>&nbsp;*&nbsp;color&nbsp;as&nbsp;a&nbsp;suitable&nbsp;replacement</p>
+<p class=secodelines>&nbsp;*/</p>
+<p class=secodelines>var&nbsp;gd&nbsp;=&nbsp;GD.fromGif("test.gif");</p>
+<p class=secodelines>var&nbsp;index;</p>
+<p class=secodelines>if(&nbsp;-1&nbsp;==&nbsp;(index&nbsp;=&nbsp;gd.colorAllocate(234,12,107))&nbsp;)</p>
+<p class=secodelines>&nbsp;&nbsp;index&nbsp;=&nbsp;gd.colorClosest(234,12,107);</p></td>
+</tr>
+</table>
+<p class=normal>&nbsp;</p>
+<hr noshade size=1>
+<p class=normal><a href="TH_1031.htm"><img src="button.png" border=0></a><a href="TH_1031.htm" style="text-decoration:none;">GD colorDeallocate()</a></p>
+<p>
+</body>
+</html>

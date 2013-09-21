@@ -1,0 +1,65 @@
+<html>
+<head>
+<title>Clib.fgetpos()</title>
+<link rel="stylesheet" href="semanualstyles.css" type="text/css">
+<style type="text/css">
+ p { margin-top: 0; margin-bottom: 0; }
+</style>
+<script language="JavaScript" src="TrueHelp.js"></script>
+</head>
+<body onload="thload()">
+<div id=ienav>
+<ilayer id=nsnav>
+<br>
+<center>
+<p class=normal><a href="seisdkc-toc.htm" target="left">contents</a> &nbsp; <a href="seisdkc-index.htm" target="left">index</a> &nbsp; <a href="TH_617.htm">previous</a> &nbsp; <a href="TH_619.htm">next</a></p>
+</center>
+<br>
+<hr noshade size=1>
+</ilayer>
+</div>
+<p class=sereffunclevel4>Clib.fgetpos()</p>
+<table cellpadding=0>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>syntax:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=sesyntax>Clib.fgetpos(<span class=truehelp-xe></span>filePointer,&nbsp;pos)</p></td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>where:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>filePointer - pointer to file to use.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>pos - variable to hold the current file position.</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>return:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>number - 0 on success, else non-zero and stores an error value in <span class=sepopuptopic><a href="TH_607.htm" onClick="return thwindow('TH_607.htm', 'GenPopup')">Clib.errno</a></span>.</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>description:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>This method stores the current position of the file stream filePointer for future restoration using <span class=sepopuptopic><a href="TH_627.htm" onClick="return thwindow('TH_627.htm', 'GenPopup')">Clib.fsetpos()</a></span>. The file position will be stored in the variable pos; use it with <span class=secodephrase>Clib.fsetpos()</span> to restore the cursor to its position.</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>see:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara><span class=sejumptopic><a href="TH_627.htm">Clib.fsetpos()</a></span></p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+</table>
+<p class=normal>&nbsp;</p>
+<hr noshade size=1>
+<p class=normal><a href="TH_619.htm"><img src="button.png" border=0></a><a href="TH_619.htm" style="text-decoration:none;">Clib.fgets()</a></p>
+<p>
+</body>
+</html>

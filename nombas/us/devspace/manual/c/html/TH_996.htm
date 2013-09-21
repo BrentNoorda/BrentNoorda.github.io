@@ -1,0 +1,126 @@
+<html>
+<head>
+<title>COMCreateObject()</title>
+<link rel="stylesheet" href="semanualstyles.css" type="text/css">
+<style type="text/css">
+ p { margin-top: 0; margin-bottom: 0; }
+</style>
+<script language="JavaScript" src="TrueHelp.js"></script>
+</head>
+<body onload="thload()">
+<div id=ienav>
+<ilayer id=nsnav>
+<br>
+<center>
+<p class=normal><a href="seisdkc-toc.htm" target="left">contents</a> &nbsp; <a href="seisdkc-index.htm" target="left">index</a> &nbsp; <a href="TH_995.htm">previous</a> &nbsp; <a href="TH_997.htm">next</a></p>
+</center>
+<br>
+<hr noshade size=1>
+</ilayer>
+</div>
+<p class=sereffunclevel4>COMCreateObject()</p>
+<table cellpadding=0>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>syntax:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=sesyntax>COMCreateObject(COMObject)</p></td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>where:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>COMObject - the name of a COM object. Refer to the documentation for particular applications to get the names that may be used.</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>return:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>object - an instance of the specified COM object.</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>description:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>Create an instance of a COM object to be used in a script. When this function is used, an Automation server is started, and an instance of a COM object is established. COMCreateObject() does not get or connect to an existing instance of a COM object in another application. Rather, it starts a new instance of an object in another application.</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>see:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara><span class=secodephrase>#link &lt;comobj&gt;</span>, <span class=sejumptopic><a href="TH_995.htm">COM object</a></span>, <span class=sejumptopic><a href="TH_997.htm">COMGetObject</a></span>, <span class=sejumptopic><a href="TH_998.htm">COMReleaseObject</a></span></p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>example:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=secodelines>&nbsp;&nbsp;&nbsp;/*</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;This&nbsp;example&nbsp;script&nbsp;was&nbsp;tested&nbsp;with&nbsp;Word&nbsp;2000</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;but&nbsp;should&nbsp;work&nbsp;with&nbsp;Word&nbsp;97.&nbsp;Word&nbsp;does&nbsp;not</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;need&nbsp;to&nbsp;be&nbsp;running,&nbsp;just&nbsp;installed.</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;*/</p>
+<p class=secodelines>&nbsp;</p>
+<p class=secodelines>#link&nbsp;"comobj"</p>
+<p class=secodelines>&nbsp;</p>
+<p class=secodelines>var&nbsp;text&nbsp;=</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;"Nombas,&nbsp;Inc.\n"</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;"\n"</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;"To&nbsp;All&nbsp;ScriptEase&nbsp;users:\n"</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;"\n"</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;"The&nbsp;Component&nbsp;Object&nbsp;Model&nbsp;is&nbsp;very&nbsp;powerful&nbsp;"</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;"and&nbsp;might&nbsp;be&nbsp;worth&nbsp;the&nbsp;time&nbsp;to&nbsp;learn&nbsp;how&nbsp;"</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;"to&nbsp;use.&nbsp;By&nbsp;using&nbsp;Automation,&nbsp;"</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;"you&nbsp;may&nbsp;automate&nbsp;and&nbsp;control&nbsp;many&nbsp;applications&nbsp;"</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;"from&nbsp;ScriptEase&nbsp;scripts,&nbsp;as&nbsp;is&nbsp;being&nbsp;"</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;"illustrated&nbsp;by&nbsp;this&nbsp;simple&nbsp;example&nbsp;"</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;"of&nbsp;automating&nbsp;Word.\n";</p>
+<p class=secodelines>&nbsp;</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;/*</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;These&nbsp;next&nbsp;few&nbsp;lines&nbsp;connect&nbsp;to&nbsp;a&nbsp;new</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;instance&nbsp;of&nbsp;a&nbsp;COM&nbsp;object&nbsp;in&nbsp;Word.&nbsp;Both&nbsp;of&nbsp;the</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;succeeding&nbsp;illustrations&nbsp;rely&nbsp;on&nbsp;these</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;initial&nbsp;lines&nbsp;but&nbsp;show&nbsp;how&nbsp;to&nbsp;do&nbsp;the&nbsp;same</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;thing&nbsp;using&nbsp;different&nbsp;approaches.&nbsp;Either</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;approach&nbsp;is&nbsp;acceptable.</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;*/</p>
+<p class=secodelines>var&nbsp;wd;</p>
+<p class=secodelines>wd&nbsp;=&nbsp;COMCreateObject("Word.Application");</p>
+<p class=secodelines>wd.visible&nbsp;=&nbsp;true;</p>
+<p class=secodelines>&nbsp;</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;/*</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;This&nbsp;first&nbsp;illustration&nbsp;of&nbsp;putting&nbsp;text&nbsp;into</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;a&nbsp;Word&nbsp;document&nbsp;uses&nbsp;the&nbsp;properties&nbsp;of</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;the&nbsp;Word.Application&nbsp;object&nbsp;and&nbsp;does&nbsp;not</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;define&nbsp;any&nbsp;new&nbsp;ScriptEase&nbsp;variables.</p>
+<p class=secodelines>&nbsp;</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Since&nbsp;we&nbsp;start&nbsp;a&nbsp;new&nbsp;instance&nbsp;of&nbsp;word,&nbsp;when</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;we&nbsp;add&nbsp;a&nbsp;document,&nbsp;it&nbsp;is&nbsp;document&nbsp;1.</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;*/</p>
+<p class=secodelines>wd.documents.add;</p>
+<p class=secodelines>wd.documents(1).content&nbsp;=&nbsp;text;</p>
+<p class=secodelines>&nbsp;</p>
+<p class=secodelines>&nbsp;</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;/*</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;This&nbsp;second&nbsp;illustration&nbsp;defines&nbsp;a&nbsp;new</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;variable&nbsp;to&nbsp;point&nbsp;to&nbsp;a&nbsp;property&nbsp;of&nbsp;the</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Word.Application&nbsp;object&nbsp;and&nbsp;uses&nbsp;that</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;variable.</p>
+<p class=secodelines>&nbsp;</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;When&nbsp;we&nbsp;add&nbsp;another&nbsp;document,&nbsp;we&nbsp;define&nbsp;the</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;variable&nbsp;doc&nbsp;to&nbsp;point&nbsp;to&nbsp;it.&nbsp;Thus,&nbsp;we&nbsp;do&nbsp;not</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;have&nbsp;to&nbsp;worry&nbsp;about&nbsp;the&nbsp;document&nbsp;number.</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;*/</p>
+<p class=secodelines>var&nbsp;doc;</p>
+<p class=secodelines>doc&nbsp;=&nbsp;wd.documents.add;</p>
+<p class=secodelines>doc.content&nbsp;=&nbsp;text;</p></td>
+</tr>
+</table>
+<hr noshade size=1>
+<p class=normal><a href="TH_997.htm"><img src="button.png" border=0></a><a href="TH_997.htm" style="text-decoration:none;">COMGetObject()</a></p>
+<p>
+</body>
+</html>

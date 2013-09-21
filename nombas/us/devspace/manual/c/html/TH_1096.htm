@@ -1,0 +1,67 @@
+<html>
+<head>
+<title>Database disconnect()</title>
+<link rel="stylesheet" href="semanualstyles.css" type="text/css">
+<style type="text/css">
+ p { margin-top: 0; margin-bottom: 0; }
+</style>
+<script language="JavaScript" src="TrueHelp.js"></script>
+</head>
+<body onload="thload()">
+<div id=ienav>
+<ilayer id=nsnav>
+<br>
+<center>
+<p class=normal><a href="seisdkc-toc.htm" target="left">contents</a> &nbsp; <a href="seisdkc-index.htm" target="left">index</a> &nbsp; <a href="TH_1095.htm">previous</a> &nbsp; <a href="TH_1097.htm">next</a></p>
+</center>
+<br>
+<hr noshade size=1>
+</ilayer>
+</div>
+<p class=sereffunclevel4>Database disconnect()</p>
+<table cellpadding=0>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>syntax:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=sesyntax>database.disconnect()<span class=truehelp-xe></span></p></td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>return:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>number - 0 if the call was successful; otherwise, a nonzero status code based on the error message produced by the database.  If the method returns a nonzero status code, use the <span class=secodephrase>majorErrorCode</span> and <span class=secodephrase>majorErrorMessage</span> methods to interpret the meaning of the error.</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>description:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>Disconnects Database object from its data source.</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>see:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara><span class=secodephrase>#link &lt;sedbc&gt;</span>, <span class=sejumptopic><a href="TH_1093.htm">Database connect()</a></span>, <span class=sejumptopic><a href="TH_1094.htm">Database connected()</a></span></p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>example:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=secodelines>//&nbsp;The&nbsp;example&nbsp;checks&nbsp;to&nbsp;see&nbsp;if</p>
+<p class=secodelines>//&nbsp;the&nbsp;Database&nbsp;object&nbsp;is</p>
+<p class=secodelines>//&nbsp;connected&nbsp;to&nbsp;a&nbsp;data&nbsp;source,&nbsp;and,</p>
+<p class=secodelines>//&nbsp;if&nbsp;so,&nbsp;disconnects&nbsp;it.</p>
+<p class=secodelines>if&nbsp;(db.connected())</p>
+<p class=secodelines>&nbsp;&nbsp;err&nbsp;=&nbsp;db.disconnect();</p></td>
+</tr>
+</table>
+<p class=normal>&nbsp;</p>
+<hr noshade size=1>
+<p class=normal><a href="TH_1097.htm"><img src="button.png" border=0></a><a href="TH_1097.htm" style="text-decoration:none;">Database execute()</a></p>
+<p>
+</body>
+</html>

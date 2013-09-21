@@ -1,0 +1,40 @@
+<html>
+<head>
+<title>IDENTIFYING A VARIABLE</title>
+<link rel="stylesheet" href="semanualstyles.css" type="text/css">
+<style type="text/css">
+ p { margin-top: 0; margin-bottom: 0; }
+</style>
+<script language="JavaScript" src="TrueHelp.js"></script>
+</head>
+<body onload="thload()">
+<div id=ienav>
+<ilayer id=nsnav>
+<br>
+<center>
+<p class=normal><a href="seisdkj-toc.htm" target="left">contents</a> &nbsp; <a href="seisdkj-index.htm" target="left">index</a> &nbsp; <a href="TH_207.htm">previous</a> &nbsp; <a href="TH_209.htm">next</a></p>
+</center>
+<br>
+<hr noshade size=1>
+</ilayer>
+</div>
+<p class=heading-2>IDENTIFYING A VARIABLE</p>
+<p class=heading-2-p>&nbsp;</p>
+<p class=senormalpara>The majority of ScriptEase API functions work with variables, retrieving or modifying their values. All the functions share a common way to identify which variable you want to work with. You specify the object and member that the variable resides at as parameters to each function. ScriptEase provides a number of predefined objects that you can use which cover all of the places variables are stored internally. The most common is <span class=secodephrase>SE.GLOBAL</span>, the global object. Each such object is fully explained below.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>Note that <span class=secodephrase>SE.GLOBAL</span>, <span class=secodephrase>SE.THIS</span>, and so forth are the names of the object. You pass that exact text to the function to identify that as the object you want to work with.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>Later, when we discuss the API functions for examining variables, we will see it is possible for a variable itself to be an object. In that case, <span class=secodephrase>seGetObject</span> will return an object handle for the object the variable contains. This handle, since it is an object, can be used instead of <span class=secodephrase>SE.GLOBAL</span> or the other stock objects in further variable identifications. In this way, starting from the top-level objects, you can access any variable on the system.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>While it is possible to access any variable in this way, it is not always convenient. For instance, let's say you want to get at the variable <span class=secodephrase>foo[5].goo</span>. You could do this in steps. You would get <span class=secodephrase>foo</span> as a member of the global object. After seeing that it is itself an object, you could get the numeric member <span class=secodephrase>5</span> from it. That gives yet another object from which you could extract the final member <span class=secodephrase>goo</span>. Not only is that ugly and difficult to understand, but there could be other caveats. A script, when it refers to <span class=secodephrase>foo</span>, might not be getting a global variable. <span class=secodephrase>foo</span> could be a local variable, or it could be found because the code is inside a <span class=secodephrase>with</span> statement. Trying to program all the possibilities would be tedious, lengthy, and error prone.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>Fortunately, ScriptEase provides an API call to do this for you. <span class=secodephrase>seVarParse</span> will take an arbitrary variable name, such as <span class=secodephrase>a</span> or <span class=secodephrase>foo[5].goo</span> and tell you what object and member name it is referring to. Once you have the object and member name, you are ready to call any of the variable access functions we will describe below to examine or modify that variable.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>&nbsp;</p>
+<p class=senormalpara-p>&nbsp;</p>
+<hr noshade size=1>
+<p class=normal><a href="TH_209.htm"><img src="button.png" border=0></a><a href="TH_209.htm" style="text-decoration:none;">LIST OF MEMBER SPECIFIERS</a></p>
+<p class=normal><a href="TH_222.htm"><img src="button.png" border=0></a><a href="TH_222.htm" style="text-decoration:none;">LIST OF STOCK OBJECTS</a></p>
+<p>
+</body>
+</html>

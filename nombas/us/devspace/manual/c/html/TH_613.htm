@@ -1,0 +1,103 @@
+<html>
+<head>
+<title>Clib.fopen()</title>
+<link rel="stylesheet" href="semanualstyles.css" type="text/css">
+<style type="text/css">
+ p { margin-top: 0; margin-bottom: 0; }
+</style>
+<script language="JavaScript" src="TrueHelp.js"></script>
+</head>
+<body onload="thload()">
+<div id=ienav>
+<ilayer id=nsnav>
+<br>
+<center>
+<p class=normal><a href="seisdkc-toc.htm" target="left">contents</a> &nbsp; <a href="seisdkc-index.htm" target="left">index</a> &nbsp; <a href="TH_612.htm">previous</a> &nbsp; <a href="TH_614.htm">next</a></p>
+</center>
+<br>
+<hr noshade size=1>
+</ilayer>
+</div>
+<p class=sereffunclevel4>Clib.fopen()</p>
+<table cellpadding=0>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>syntax:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=sesyntax>Clib.fopen(<span class=truehelp-xe></span>filename,&nbsp;mode)</p></td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>where:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>filename - a string with a filename to open.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>mode<span class=truehelp-xe></span> - how or for what operations the file will be opened.</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>return:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>number - a file pointer to the file opened, <span class=secodephrase>null</span> in case of failure.</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>description:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>This method opens the file specified by filename for file operations specified by mode, returning a file pointer to the file opened. <span class=secodephrase>null</span> is returned in case of failure.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>The parameter filename is a string. It may be any valid file name, excluding wildcard characters.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>The parameter mode is a string composed of  one or more of the following characters. For example, "<span class=secodephrase>r</span>" or "<span class=secodephrase>rt</span>"</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=list-bullet>&#8226;</p><p class=list-bullet-tab1><span class=secodephrase>r</span><br>
+open file for reading; file must already exist</p>
+<p class=list-bullet>&#8226;</p><p class=list-bullet-tab1><span class=secodephrase>w</span><br>
+open file for writing; create if doesn't exist; if file exists then truncate to zero length</p>
+<p class=list-bullet>&#8226;</p><p class=list-bullet-tab1><span class=secodephrase>a</span><br>
+open file for append; create if doesn't exist; set for writing at endoffile</p>
+<p class=list-bullet>&#8226;</p><p class=list-bullet-tab1><span class=secodephrase>b</span><br>
+binary mode; if b is not specified then open file in text mode (endofline translation)</p>
+<p class=list-bullet>&#8226;</p><p class=list-bullet-tab1><span class=secodephrase>t</span><br>
+text mode</p>
+<p class=list-bullet>&#8226;</p><p class=list-bullet-tab1><span class=secodephrase>+</span><br>
+open for update (reading and writing)</p>
+<p class=secodelines>&nbsp;</p>
+<p class=senormalpara>When a file is successfully opened, its error status is cleared and a buffer is initialized for automatic buffering of reads and writes to the file.</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>see:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara><span class=sejumptopic><a href="TH_614.htm">Clib.fclose()</a></span>, <span class=sejumptopic><a href="TH_641.htm">Clib.flock()</a></span></p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>example:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=secodelines>//&nbsp;Open&nbsp;the&nbsp;text&nbsp;file&nbsp;"ReadMe"</p>
+<p class=secodelines>//&nbsp;for&nbsp;text&nbsp;mode&nbsp;reading,&nbsp;and</p>
+<p class=secodelines>//&nbsp;display&nbsp;each&nbsp;line&nbsp;in&nbsp;the&nbsp;file.</p>
+<p class=secodelines>&nbsp;</p>
+<p class=secodelines>var&nbsp;fp&nbsp;=&nbsp;Clib.fopen("ReadMe",&nbsp;"r");</p>
+<p class=secodelines>if&nbsp;(&nbsp;fp&nbsp;==&nbsp;null&nbsp;)&nbsp;</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;Clib.printf(</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"\aError&nbsp;opening&nbsp;file&nbsp;for&nbsp;reading.\n")&nbsp;</p>
+<p class=secodelines>else&nbsp;</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;while&nbsp;(&nbsp;null&nbsp;!=&nbsp;(line=Clib.fgets(fp))&nbsp;)</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;{&nbsp;</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Clib.fputs(line,&nbsp;stdout)</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;}&nbsp;</p>
+<p class=secodelines>Clib.fclose(fp);</p></td>
+</tr>
+</table>
+<p class=normal>&nbsp;</p>
+<hr noshade size=1>
+<p class=normal><a href="TH_614.htm"><img src="button.png" border=0></a><a href="TH_614.htm" style="text-decoration:none;">Clib.fclose()</a></p>
+<p>
+</body>
+</html>

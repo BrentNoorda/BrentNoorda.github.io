@@ -1,0 +1,102 @@
+<html>
+<head>
+<title>Clib.strtok()</title>
+<link rel="stylesheet" href="semanualstyles.css" type="text/css">
+<style type="text/css">
+ p { margin-top: 0; margin-bottom: 0; }
+</style>
+<script language="JavaScript" src="TrueHelp.js"></script>
+</head>
+<body onload="thload()">
+<div id=ienav>
+<ilayer id=nsnav>
+<br>
+<center>
+<p class=normal><a href="seisdkc-toc.htm" target="left">contents</a> &nbsp; <a href="seisdkc-index.htm" target="left">index</a> &nbsp; <a href="TH_687.htm">previous</a> &nbsp; <a href="TH_689.htm">next</a></p>
+</center>
+<br>
+<hr noshade size=1>
+</ilayer>
+</div>
+<p class=sereffunclevel4>Clib.strtok()</p>
+<table cellpadding=0>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>syntax:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=sesyntax>Clib.strtok(<span class=truehelp-xe></span>srcStr,&nbsp;delimiterStr)</p></td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>where:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>srcStr - source string consisting of delimited tokens.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>delimiterStr - string of delimiter characters that separate tokens.</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>return:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>string - a token, a substring, in srcStr, else <span class=secodephrase>null</span> if there is not a token or if there are no more tokens.</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>description:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>This method is unusual. The parameter srcStr is a string that consists of text tokens, substrings, separated by delimiter characters found in delimiterStr. The parameter srcStr may be altered during the first and subsequent calls to <span class=secodephrase>Clib.strtok()</span>.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>On the first call to <span class=secodephrase>Clib.strtok()</span>, srcStr points to the string to tokenize and delimiterStr is a set of characters which are used to separate tokens in the source string. The first call, such as:</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=secodelinesindented>token&nbsp;=&nbsp;Clib.strtok(srcStr,&nbsp;delimiterStr)</p>
+<p class=secodelines>&nbsp;</p>
+<p class=senormalpara>returns a variable pointing to the srcStr array and based at the first character of the first token in srcStr. On subsequent calls, such as</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=secodelinesindented>token&nbsp;=&nbsp;Clib.strtok(null,&nbsp;delimiterStr)</p>
+<p class=secodelines>&nbsp;</p>
+<p class=senormalpara>the first argument is <span class=secodephrase>null</span> and <span class=secodephrase>Clib.strtok()</span> will continue through srcStr returning subsequent tokens.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>The initial variable receiving tokens must remain valid throughout following calls that use <span class=secodephrase>null</span>. If the variable is changed in any way, a subsequent use of  <span class=secodephrase>Clib.strtok()</span> must first use the syntax form in which the new string, not <span class=secodephrase>null</span>, is passed as a first parameter.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>This method returns <span class=secodephrase>null</span> if there are no more tokens; otherwise returns srcStr array variable based at the next token in srcStr.</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>see:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara><span class=sejumptopic><a href="TH_685.htm">Clib.strstr()</a></span></p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>example:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=secodelines>//&nbsp;The&nbsp;following&nbsp;code:</p>
+<p class=secodelines>&nbsp;</p>
+<p class=secodelines>var&nbsp;source&nbsp;=&nbsp;</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;"&nbsp;Little&nbsp;&nbsp;&nbsp;John,,,Eats&nbsp;??&nbsp;crackers;;;!&nbsp;";</p>
+<p class=secodelines>var&nbsp;token&nbsp;=&nbsp;Clib.strtok(source,",&nbsp;");</p>
+<p class=secodelines>while(null&nbsp;!=&nbsp;token)</p>
+<p class=secodelines>{</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;Clib.puts(token);</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;token&nbsp;=&nbsp;Clib.strtok(null,";?,&nbsp;");</p>
+<p class=secodelines>}</p>
+<p class=secodelines>&nbsp;</p>
+<p class=secodelines>//&nbsp;produces&nbsp;the&nbsp;following&nbsp;list&nbsp;of&nbsp;tokens.</p>
+<p class=secodelines>//&nbsp;&nbsp;Little&nbsp;</p>
+<p class=secodelines>//&nbsp;&nbsp;John&nbsp;</p>
+<p class=secodelines>//&nbsp;&nbsp;Eats&nbsp;</p>
+<p class=secodelines>//&nbsp;&nbsp;crackers&nbsp;</p>
+<p class=secodelines>//&nbsp;&nbsp;!</p>
+</td>
+</tr>
+</table>
+<p class=normal>&nbsp;</p>
+<hr noshade size=1>
+<p class=normal><a href="TH_689.htm"><img src="button.png" border=0></a><a href="TH_689.htm" style="text-decoration:none;">Clib.strtol()</a></p>
+<p>
+</body>
+</html>

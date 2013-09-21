@@ -1,0 +1,96 @@
+<html>
+<head>
+<title>SElib.dynamicLink() - for OS/2</title>
+<link rel="stylesheet" href="semanualstyles.css" type="text/css">
+<style type="text/css">
+ p { margin-top: 0; margin-bottom: 0; }
+</style>
+<script language="JavaScript" src="TrueHelp.js"></script>
+</head>
+<body onload="thload()">
+<div id=ienav>
+<ilayer id=nsnav>
+<br>
+<center>
+<p class=normal><a href="seisdkc-toc.htm" target="left">contents</a> &nbsp; <a href="seisdkc-index.htm" target="left">index</a> &nbsp; <a href="TH_953.htm">previous</a> &nbsp; next</p>
+</center>
+<br>
+<hr noshade size=1>
+</ilayer>
+</div>
+<p class=sereffunclevel5>SElib.dynamicLink() - for OS/2</p>
+<table cellpadding=0>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>syntax:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=sesyntax>SElib.dynamicLink(library,&nbsp;procedure,&nbsp;bitSize,</p>
+<p class=sesyntax>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;convention[,&nbsp;[desc,]&nbsp;param&nbsp;&#133;])</p></td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>where:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>library - a string, the name of the dynamic link library, DLL, being used, the one having the procedure being called.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>procedure - a string or number, the name or ordinal number of a routine in a dynamic link library to be used.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>bitSize - indicates whether this call is 16-bit or 32-bit and may be either of two defined values: BIT16 or BIT32.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>convention - the calling convention to use when invoking or using the procedure being called.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=secodelinesindented>CDECL&nbsp;&nbsp;&nbsp;&nbsp;Push&nbsp;right&nbsp;parameter&nbsp;first.</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Caller&nbsp;pops&nbsp;parameters.</p>
+<p class=secodelinesindented>STDCALL&nbsp;&nbsp;Push&nbsp;right&nbsp;parameter&nbsp;first.</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Caller&nbsp;pops&nbsp;parameters.</p>
+<p class=secodelinesindented>PASCAL&nbsp;&nbsp;&nbsp;Push&nbsp;left&nbsp;parameter&nbsp;first.</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Callee&nbsp;pops&nbsp;parameters.</p>
+<p class=secodelines>&nbsp;</p>
+<p class=senormalpara>desc - a blobDescriptor that describes the following param if param is a structure. (See <span class=sepopuptopic><a href="TH_551.htm" onClick="return thwindow('TH_551.htm', 'GenPopup')">blobDescriptor example</a></span>.) A blobDescriptor is only used in front of params that are structures and is required for such params. A Blob (Binary Large Object) and a Buffer are very similar in ScriptEase. The Blob is the type that was used, in the early days of ScriptEase, to work with data in sections of memory. The Buffer is the newer type. Structure types may be created in Blobs or Buffers and blobDescriptors may be used to describe the data in either type. So, in ScriptEase, you will sometimes see blobDescriptor before a param of type Blob or a param of type buffer. In either case, the blobDescriptor is describing how data is stored in the param, even if the data is a string.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>param - a variable for a section of memory that holds data in the form of a structure of elements or a buffer a string.</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>return:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>value - the value returned by the procedure being called, else void if the procedure does not return a value.</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>description:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>For OS/2</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>Calls a routine in a dynamic link library, DLL.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>Any parameters required by a dynamically linked function should be passed at the end of the parameters listed above, as indicated by the ellipsis at the end of the parameter list. These variables are interpreted as follows, depending on the operating system.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>For 32-bit functions, all values are passed as 32-bit values. For 16-bit functions, if the parameter is a Blob, a byte-array, or an <span class=secodephrase>undefined</span> value, then it is passed as a 16:16 segment:offset pointer, otherwise all numeric values are passed as 16-bit values, so if 32-bits are needed they must be passed in parts, with the low word first and the high word second.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>If a parameter is <span class=secodephrase>undefined</span> when <span class=secodephrase>SElib.dynamicLink()</span> is called, then it is assumed that parameter is a 32-bit value to be filled in, that is, that the address of a 32-bit data element is passed to the function and that function will set the value. If any parameter is a structure then it must be a structure that defines the binary data types in memory to represent the following variable. Before calling the DLL function, the structure is copied to a binary buffer as described in <span class=sepopuptopic><a href="TH_548.htm" onClick="return thwindow('TH_548.htm', 'GenPopup')">Blob.put()</a></span> and <span class=sepopuptopic><a href="TH_629.htm" onClick="return thwindow('TH_629.htm', 'GenPopup')">Clib.fwrite()</a></span>. After calling the DLL function, the binary data is converted back into the data structure according to the rules defined in <span class=sepopuptopic><a href="TH_547.htm" onClick="return thwindow('TH_547.htm', 'GenPopup')">Blob.get()</a></span> and <span class=sepopuptopic><a href="TH_623.htm" onClick="return thwindow('TH_623.htm', 'GenPopup')">Clib.fread()</a></span>. Data conversion is performed according to the current _BigEndianMode setting.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>An alternative syntax:</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>The OS/2 processor also allows you to call a function via a call gate with the following syntax:</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=secodelinesindented>SElib.dynamicLink(callGate,&nbsp;bitSize,&nbsp;convention,</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;...)</p>
+<p class=secodelinesindented>&nbsp;</p>
+<p class=senormalpara>Where callGate is the gate selector for a routine referenced through a call gate.</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>see:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara><span class=sejumptopic><a href="TH_545.htm">Blob object</a></span>, <span class=sejumptopic><a href="TH_551.htm">blobDescriptor example</a></span>, <span class=sejumptopic><a href="TH_623.htm">Clib.fread()</a></span></p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+</table>
+<p class=normal>&nbsp;</p>
+<p>
+</body>
+</html>

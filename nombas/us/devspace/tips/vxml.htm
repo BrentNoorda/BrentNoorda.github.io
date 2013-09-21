@@ -1,0 +1,533 @@
+ 
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 FINAL//EN">
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=ISO-8859-1">
+<TITLE>ScriptEase Tips - Implementing VoiceXML (VXML)</TITLE>
+<!-- begin metaTags --> 
+<META NAME="keywords" CONTENT="javascript,ecmascript,ecma,scriptease,jscript,scripting,nombas,isdk,sedesk,web application development,embedded devices,distributed computing,peer-to-peer,p2p,peer,data mining,javascript.com,cycletraders,integrated sdk,script ease,java,c++,c,simplicity,power,palm,windows ce,integration: sdk,integration:sdk,scriptease:desktop,scriptease: desktop,se:desktop,se:desk,se:isdk, se: isdk,development tools,devtools">
+<META HTTP-EQUIV="DESCRIPTION" CONTENT="Nombas delivers simplicity and power through scripting by providing market-leading development tools and software for JavaScript and ECMAScript.">
+<!-- end metaTags --> <!-- begin navbar includes --> 
+<SCRIPT language=JavaScript1.2>
+  navbarPath = '../../'; 
+</SCRIPT>
+<SCRIPT language=JavaScript1.2 SRC="../../navbarData.js"></SCRIPT>
+<SCRIPT language=JavaScript1.2 SRC="../../navbarMenu.js"></SCRIPT>
+<SCRIPT language=JavaScript SRC="../../imgRollover.js"></SCRIPT>
+<!-- end navbar includes --> <!-- begin style and icon definition --> 
+<LINK REL="SHORTCUT ICON" HREF="../../nombas.ico">
+<STYLE type=text/css>
+pre.example { BORDER-RIGHT: medium none; PADDING-RIGHT: 0.5em; BORDER-TOP: medium none; PADDING-LEFT: 0.5em; FONT-SIZE: 75%; PADDING-BOTTOM: 0.5em; MARGIN-LEFT: 0px; BORDER-LEFT: medium none; WIDTH: 100%; PADDING-TOP: 0.5em; BORDER-BOTTOM: medium none; FONT-FAMILY: "Courier New", Courier, mono; WHITE-SPACE: pre; BACKGROUND-COLOR: #CCCCFF}
+.unnamed1 {  font-family: Verdana, Arial, Helvetica, sans-serif}
+</STYLE>
+<!-- end style and icon definition --> 
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-1754630-10']);
+  _gaq.push(['_trackPageview']);
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+</HEAD>
+<BODY BGCOLOR="#06086F" LINK="#0000FF" VLINK="#800080" TEXT="#000000" TOPMARGIN=0 LEFTMARGIN=0 MARGINWIDTH=0 MARGINHEIGHT=0>
+<TABLE BORDER=0 CELLSPACING=0 CELLPADDING=0 WIDTH=213>
+  <TR VALIGN=TOP ALIGN=LEFT> 
+    <TD WIDTH=28 HEIGHT=4><IMG SRC="../../clearpixel.gif" WIDTH=28 HEIGHT=1 BORDER=0></TD>
+    <TD></TD>
+  </TR>
+  <TR VALIGN=TOP ALIGN=LEFT> 
+    <TD HEIGHT=60></TD>
+    <TD WIDTH=185 ALIGN=LEFT VALIGN=TOP><A HREF="../../index.htm"><IMG ID="Picture1" HEIGHT=60 WIDTH=185 SRC="../../logo.gif" BORDER=0></A></TD>
+  </TR>
+</TABLE>
+    <div id="nombas-legacy"></div>
+<TABLE BORDER=0 CELLSPACING=0 CELLPADDING=0>
+  <TR VALIGN=TOP ALIGN=LEFT> 
+    <TD WIDTH=30 HEIGHT=10><IMG SRC="../../clearpixel.gif" WIDTH=30 HEIGHT=1 BORDER=0></TD>
+    <TD></TD>
+  </TR>
+  <TR VALIGN=TOP ALIGN=LEFT> 
+    <TD></TD>
+    <TD WIDTH=582> 
+      <TABLE ID="Table1" BORDER=0 CELLSPACING=0 CELLPADDING=0 WIDTH=582>
+        <TR> 
+          <TD WIDTH=97> 
+            <P><A HREF="../../scripting/scripting.htm" 
+                            onmouseover="changeImages('scripting', '../../htab_scripting.gif'); popUp('elMenu1',event); return true;" 
+onmouseout="changeImages('scripting', '../../tab_scripting.gif'); popDown('elMenu1'); return true;"
+><IMG
+                             ID="scripting" HEIGHT=21 WIDTH=97 SRC="../../tab_scripting.gif" VSPACE=0 HSPACE=0 ALIGN="TOP" BORDER=0 name="scripting"></A> 
+          </TD>
+          <TD WIDTH=97> 
+            <P><A HREF="../../products/products.htm" 
+                            onmouseover="changeImages('products', '../../htab_products.gif'); popUp('elMenu2',event); return true;" 
+onmouseout="changeImages('products', '../../tab_products.gif'); popDown('elMenu2'); return true;"><IMG ID="products"
+                             HEIGHT=21 WIDTH=97 SRC="../../tab_products.gif" VSPACE=0 HSPACE=0 ALIGN="TOP" BORDER=0 name=products></A> 
+          </TD>
+          <TD WIDTH=97> 
+            <P><A HREF="../../purchase/purchase.htm" onmouseover="changeImages('purchase', '../../htab_purchase.gif');return true;" 
+onmouseout="changeImages('purchase', '../../tab_purchase.gif');return true;"><IMG ID="purchase"
+                             HEIGHT=21 WIDTH=97 SRC="../../tab_purchase.gif" VSPACE=0 HSPACE=0 ALIGN="TOP" BORDER=0 name=purchase></A> 
+          </TD>
+          <TD WIDTH=97> 
+            <P><A HREF="../../download/ndownload.htm" onmouseover="changeImages('download', '../../htab_download.gif');return true;" 
+onmouseout="changeImages('download', '../../tab_download.gif');return true;"><IMG ID="download"
+                             HEIGHT=21 WIDTH=97 SRC="../../tab_download.gif" VSPACE=0 HSPACE=0 ALIGN="TOP" BORDER=0 name=download></A> 
+          </TD>
+          <TD WIDTH=97> 
+            <P><a target="support" href="http://support.nombas.com/" onmouseover="changeImages('support', '../../htab_support.gif'); return true;" 
+onmouseout="changeImages('support', '../../tab_support.gif'); return true;"><IMG ID="support"
+                             HEIGHT=21 WIDTH=97 SRC="../../tab_support.gif" VSPACE=0 HSPACE=0 ALIGN="TOP" BORDER=0 name=support></A> 
+          </TD>
+          <TD WIDTH=97> 
+            <P><A HREF="../../company/company.htm" 
+                            onmouseover="changeImages('company', '../../htab_company.gif'); popUp('elMenu6',event); return true;" 
+onmouseout="changeImages('company', '../../tab_company.gif'); popDown('elMenu6'); return true;"><IMG ID="company"
+                             HEIGHT=21 WIDTH=97 SRC="../../tab_company.gif" VSPACE=0 HSPACE=0 ALIGN="TOP" BORDER=0 name=company></A> 
+          </TD>
+        </TR>
+      </TABLE>
+    </TD>
+  </TR>
+</TABLE>
+<TABLE BORDER=0 CELLSPACING=0 CELLPADDING=0 WIDTH=637>
+  <TR VALIGN=TOP ALIGN=LEFT> 
+    <TD WIDTH=5 HEIGHT=20><IMG SRC="../../clearpixel.gif" WIDTH=5 HEIGHT=1 BORDER=0></TD>
+    <TD WIDTH=632> 
+      <TABLE BORDER=0 CELLSPACING=0 CELLPADDING=0 WIDTH=632 HEIGHT=20 bgcolor="#FFFFFF">
+        <TR ALIGN=LEFT VALIGN=TOP> 
+          <TD> 
+            <TABLE BORDER=0 CELLSPACING=0 CELLPADDING=0 WIDTH=632>
+              <TR VALIGN=TOP ALIGN=LEFT> 
+                <TD WIDTH=20 HEIGHT=20 ALIGN=LEFT VALIGN=TOP><IMG ID="Picture12" HEIGHT=20 WIDTH=20 SRC="../../curve_topleft.gif" BORDER=0></TD>
+                <TD WIDTH=592><IMG SRC="../../clearpixel.gif" WIDTH=592 HEIGHT=1 BORDER=0></TD>
+                <TD WIDTH=20 ALIGN=LEFT VALIGN=TOP><IMG ID="Picture10" HEIGHT=20 WIDTH=20 SRC="../../curve_top.gif" BORDER=0></TD>
+              </TR>
+            </TABLE>
+          </TD>
+        </TR>
+      </TABLE>
+    </TD>
+  </TR>
+</TABLE>
+<TABLE BORDER=0 CELLSPACING=0 CELLPADDING=0 WIDTH=637>
+  <TR VALIGN=TOP ALIGN=LEFT> 
+    <TD HEIGHT=245></TD>
+    <TD WIDTH=632 COLSPAN=2 height="245"> 
+      <TABLE BORDER=0 CELLSPACING=0 CELLPADDING=0 WIDTH=632 HEIGHT=200 bgcolor="#FFFFFF">
+        <TR ALIGN=LEFT VALIGN=TOP> 
+          <TD height="236"> 
+            <TABLE BORDER=0 CELLSPACING=0 CELLPADDING=0 WIDTH=600>
+              <TR VALIGN=TOP ALIGN=LEFT> 
+                <TD WIDTH=14 HEIGHT=1><IMG SRC="../../clearpixel.gif" WIDTH=13 HEIGHT=1 BORDER=0></TD>
+                <TD WIDTH=586><IMG SRC="../../clearpixel.gif" WIDTH=316 HEIGHT=1 BORDER=0></TD>
+              </TR>
+              <TR VALIGN=TOP ALIGN=LEFT> 
+                <TD width="14"></TD>
+                <TD WIDTH=586> 
+                  <P ALIGN=LEFT><A HREF="../../index.htm"><FONT SIZE="-2" FACE="Verdana,Tahoma,Arial,Helvetica">Nombas</FONT></A><FONT SIZE="-2" FACE="Verdana,Tahoma,Arial,Helvetica"> 
+                    &gt; <a href="../index.htm">SE:ISDK DevSpace</a> &gt; <a href="../tips/index.htm">Tips</a> 
+                    &gt; Implementing VoiceXML (VXML)</FONT> 
+                </TD>
+              </TR>
+            </TABLE>
+            <TABLE BORDER=0 CELLSPACING=0 CELLPADDING=0 WIDTH=615>
+              <TR VALIGN=TOP ALIGN=LEFT> 
+                <TD WIDTH=15 HEIGHT=5><IMG SRC="../../clearpixel.gif" WIDTH=15 HEIGHT=1 BORDER=0></TD>
+                <TD></TD>
+              </TR>
+              <TR VALIGN=TOP ALIGN=LEFT> 
+                <TD HEIGHT=80></TD>
+                <TD WIDTH=600 ALIGN=LEFT VALIGN=TOP><IMG ID="Picture14" HEIGHT=80 WIDTH=600 SRC="../../devspace/bnr_devspace.gif" BORDER=0></TD>
+              </TR>
+              <TR VALIGN=TOP ALIGN=LEFT> 
+                <TD HEIGHT=135></TD>
+                <TD WIDTH=600 ALIGN=LEFT VALIGN=TOP height="135"> 
+                  <table width="100%" border="0">
+                    <tr> 
+                      <td colspan="1" height="9"><img SRC="../../clearpixel.gif" width="1" height="1"></td>
+                    </tr>
+                    <tr> 
+                      <td width="1" height="100%">&nbsp;</td>
+                      <td valign="top" width="100%"> 
+                        <h1><font face="Verdana, Arial, Helvetica, sans-serif" size="4">Implementing 
+                          VoiceXML (VXML)<br>
+                          </font><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><i><font size="3">How 
+                          to implement VoiceXML (VXML) with the ScriptEase ISDK 
+                          5.0 </font></i></font></h1>
+                        <p>This document provides a guide to implementing the 
+                          rules of ECMAScript (JavaScript) as applied to the VXML 
+                          specification using the ScriptEase ISDK.</p>
+                        <p>ECMAScript (aka JavaScript) is the the required scripting 
+                          language for VoiceXML, as defined by the W3C standards 
+                          body (see <a href="http://www.voicexml.org/">VoiceXML 
+                          Forum</a> and <a href="http://www.w3.org/TR/2001/WD-voicexml20-20011023/">VoiceXML 
+                          Version 2.0</a>). The recommendations in this document 
+                          are based primarily on implementing <a href="http://www.w3.org/TR/2001/WD-voicexml20-20011023/#dml5">VoiceXML 
+                          Version 2.0 section 5</a>, which is the section about 
+                          &quot;Control flow and scripting&quot;. This document 
+                          is correct insofar as that document is correct. If that 
+                          document changes then please <a href="http://support.nombas.com/">inform 
+                          Nombas</a>.</p>
+                        <p> This document is based on helping many ISDK users 
+                          implement VXML solutions. This is not a complete document, 
+                          but only covers those special issues pertaining to VXML 
+                          that would not be contained in the standard <a href="http://www.nombas.com/us/devspace/manual/index.htm">ScriptEase 
+                          ISDK User Manuals</a>. This document refers to ScriptEase:ISDK/C 
+                          version 5.00 API, for VXML with the 4.40 API see <a href="vxml_v4.htm">here</a>.</p>
+                        <pre>   ---------- Revision History for this document ----------
+   Nov 16 2001 - Initial document
+   Feb 06 2003 - Fix demo typos for scoping
+   Apr 08 2003 - Update to version 5 API
+
+   --------------------------------------------------------</pre>
+                        <h2>Variable Scoping</h2>
+                        <h3>Initialization</h3>
+                        <p>This is the VoiceXML Scope hierarchy, as defined in 
+                          <a href="http://www.w3.org/TR/2001/WD-voicexml20-20011023/#dml5">VoiceXML 
+                          Version 2.0 section 5</a>.</p>
+                        <pre class=example>session.application.document.dialog.(anonymous).(anonymous)....
+                   .document.dialog.(anonymous).(anonymous)....
+                   .document.dialog.(anonymous).(anonymous)....
+                   .document.dialog.(anonymous).(anonymous)....</pre>
+                        <ul>
+                          <li> <b>session</b> is the global value setup up by 
+                            your application</li>
+                          <li><b>application</b> (also referred to as the <b>root&nbsp;document</b>) 
+                            is initialized with the session, or loaded by any 
+                            <b>document</b> with the <i>application</i> attribute 
+                            of the <i>vxml</i> tag.</li>
+                          <li><b>document</b> is the scope associated with each 
+                            &lt;vxml&gt; tag</li>
+                          <li><b>dialog</b> is the scope associated within each 
+                            <i>&lt;form&gt;</i> or <i>&lt;menu&gt;</i> tag.</li>
+                          <li><b>(anonymous)</b> refers to the unnammed scope 
+                            that applies to each <i>&lt;block&gt;</i>, <i>&lt;filled&gt;</i>, 
+                            or <i>&lt;blah&gt;</i> tag. There may be any level 
+                            of <b>(anonymous)</b> scopes.</li>
+                        </ul>
+                        <p>There are multiple trees starting at the <b>document</b> 
+                          scope because a VoiceXML application typically consists 
+                          of multiple documents that are switched. (A typical 
+                          VoiceXML server may consist of many connections running 
+                          simultaneously, which may be a separate issue from multiple 
+                          <b>document</b> scopes within one <b>application</b> 
+                          scope. More about such multitasking will be mention 
+                          later in this document.)</p>
+                        <p>For the purposes of this document, we will assume that 
+                          the implementation is in the C language, and that there 
+                          are global variables in the C code representing each 
+                          of these scopes (although we don't necessarily recommend 
+                          the use of global variables), with just two chains of 
+                          <b>document</b> scope and only one <b>(anonymous</b>) 
+                          object in each chain, although their may be just 1 or 
+                          <i>n</i>. These C variables may look like this:</p>
+                        <p> 
+                        <pre class="example">/* C code showing C representation of the scope variables */
+seobject sessObj;
+seobject appObj;
+seobject docObj[2];
+seobject dlgObj[2];
+seobject anonObj[2];
+</pre>
+                        <p>Each of these objects will be represented, to both 
+                          the C code and the ECMAScript (JavaScript) code, as 
+                          an object with the names you'd expect (&quot;session&quot;, 
+                          &quot;application&quot;, &quot;document&quot;, and &quot;dialog&quot;).</p>
+                        <p>A number of rules withing the VoiceXML specification 
+                          refer to the relationship and naming of these scopes. 
+                          In summary, the pertinent rules are these:</p>
+                        <ul>
+                          <li>All variables belong to the scope in which they 
+                            are declared, whether by a <i>&lt;var </i>tag or with 
+                            the <i>var</i> keyword in a <i>&lt;script</i> tag.</li>
+                          <li>Each named scope has a pre-defined property object 
+                            whose name is the same as the scope itself, and that 
+                            refers to the scope variable. So, for example, if 
+                            there is a variable <i>foo</i> in the <b>dialog</b> 
+                            scope, and <b>dialog</b> is the current scope, then 
+                            that variable can be referred to as either <i>foo</i> 
+                            or <i>dialog.foo</i>.</li>
+                          <li>Each scope inherits from its parent scope. So, for 
+                            example, if there is a variable <i>goo</i> in the 
+                            <b>document</b> scope, and <b>dialog </b>is the current 
+                            scope, then that variable can be referred to simply 
+                            as <i>goo</i>. Or it may specifically be referred 
+                            to as <i>document.goo</i> (or <i>application.document.goo</i>, 
+                            etc...) </li>
+                          <li>Within the <b>application</b>, which is also referred 
+                            to as the <b>root&nbsp;document</b>, there is a pre-defined 
+                            variable <i>document</i> which refers to the <b>application</b> 
+                            scope. I.E., if the <b>application</b> scope has a 
+                            variable <i>zoo</i>, and <b>application </b>is the 
+                            current scope, then that variable may be referred 
+                            to as either <i>zoo</i>, <i>application.zoo</i>, or 
+                            <i>document.zoo</i>.</li>
+                          <li>From within any scope, access is available to a 
+                            default set of standard functions and object known 
+                            as the ECMAScript internal objects (e.g. the Date 
+                            object). </li>
+                        </ul>
+                        <p>The inheritance within each scope from its parent scope 
+                          will be handled with the <i>__parent__</i> property 
+                          at each scope level. <i>__parent__ </i>is a special 
+                          property of objects which is used to scope variables 
+                          whenere the <i>ImplicitParents</i> flag is in effect 
+                          (more on how to enable <i>ImplicitParents</i> later).</p>
+                        <blockquote> 
+                          <p>Note regarding <i>__parent__</i> vs <i>_prototype</i>: 
+                            There has been much discussion about whether it is 
+                            more appropriate to manage inheritence through the 
+                            <i>__parent__</i> property or through the <i>_prototype</i> 
+                            property. <i>_prototype</i> and <i>__parent__ </i>are 
+                            two different approaches which seem at first similar, 
+                            but really are not. <i>__prototoype</i>__ is most 
+                            like object inheritance in object-oriented languages, 
+                            and is used for inheriting properties which can be 
+                            altered in the descendant without changing the value 
+                            inherited from the ancestor (i.e. the value is read-only 
+                            from the ancestor). <i>__parent__</i> is used purely 
+                            for defining a search chain when scoping variable 
+                            references<i>.</i> Because the scoping in VoiceXML 
+                            changes the &quot;inherited&quot; values directly, 
+                            without making a new value in the local scoped object 
+                            (as demonstrated in the time-telling example in <a href="http://www.w3.org/TR/2001/WD-voicexml20-20011023/#dml5">&quot;VoiceXML 
+                            Version 2.0 section 5&quot;</a>), <i>__parent__</i> 
+                            is the proper technique for VoiceXML.</p>
+                        </blockquote>
+                        <p>The final rule, that the standard ECMAScript libraries 
+                          are inherited, could be accomplished in many ways. After 
+                          you've initialized the ScriptEase engine with <i>seCreateContext()</i> 
+                          there is already a default global that has the standard 
+                          ECMAScript objects scoped to it. The libraries need 
+                          to be added directly to every scope level. Because the 
+                          standard libraries are inherited but are not overwritten, 
+                          they should be inherited via the _prototype chain, with 
+                          something like &quot;myObj._prototype=global&quot;. 
+                          This can be applied to every scope level, but because 
+                          they all inherit from <b>sesssion</b> we will apply 
+                          it only to session.</p>
+                        <p>These rules could be represented in ECMAScript code 
+                          by something like this:</p>
+                        <pre class="example"><span class="example (unavailable)">// make the variables all exist
+var session, application, document, dialog;
+
+session = new Object();
+session.application = application = new Object();
+application.document = document = new Object();
+document.dialog = dialog = new Object()
+   
+// make each scope object refer to itself with scope name
+session.session = session;
+application.application = application;
+document.document = document;
+dialog.dialog = dialog;
+   
+// make each object inherit scope from parent
+application.__parent__ = session;
+document.__parent__ = application;
+dialog.__parent__ = document;
+   
+// make application also refer to itself as document
+application.document = application;
+   
+// make session inherit standard library from the global object
+session._prototype = global;</span></pre>
+                        <p>In your application, these scopes and relationships 
+                          will most likely not be set up in script code, but will 
+                          instead be setup up within your program. Building on 
+                          the C code listed earlier, these scopes and relationships 
+                          could be initialized with the following C code:</p>
+                        <pre class="example">/* C code initializing scope object and two dialog levels */
+void initScopes(secontext se)
+{
+   int i;
+   
+   /* set up each scope variable and relationship uses */
+   sessObj = makeScopeObj(se,NULL/*no parent*/,UNISTR(&quot;session&quot;));
+   appObj = makeScopeObj(se,sessObj,UNISTR(&quot;application&quot;));
+   for ( i = 0; i &lt; 2; i++ )
+   {
+      docObj[i] = makeScopeObj(se,appObj,UNISTR(&quot;document&quot;));
+      dlgObj[i] = makeScopeObj(se,docObj[i],UNISTR(&quot;dialog&quot;));
+      anonObj[i] = makeScopeObj(se,dlgVar[i],NULL);
+   }
+   
+   /* set up appObj to refer to itself also as document */
+   sePutObject(se,appObj,SE_MEM(&quot;document&quot;),appObj);
+   
+   /* make session variable inherit R/O from global via _prototype */
+   sePutObject(se,sessObj,SE_STOCK(_prototype),SE_GLOBAL);
+}
+   
+/* helper function to do standard VXML object create and scope */
+seobject makeScopeObj(secontext se,seobject parentObj,seconstcharptr name)
+{
+   /* v = new Object(); v.__parent__ = parentObj; v.name = v; return v; */
+   seobject selfObj = seMakeObject(se);
+   if ( name != NULL )
+      /* equivalent to selfObj.name = selfObj */
+      sePutObject(se,selfObj,SE_UNIMEM(name),selfObj);
+   if ( parentObj != NULL )
+      /* equivalent to selfObj.__parent__ = parentObj; */
+      sePutObject(se,selfObj,SE_STOCK(__parent__),parentObj);
+   return selfObj;
+}
+</pre>
+                        <h3>Executing Scripts</h3>
+                        <p>When it is time to execute scripts, you will pass the 
+                          script code into the seEval() function. (BTW, It's also 
+                          possible to precompile scripts into a function, and 
+                          call the function directly with seEval(...SE_FUNC...)).</p>
+                        <p>When it is time to execute script code, the seExec() 
+                          function will manage all of the rules of ECMAScript, 
+                          variable creating, standard objects, error trapping, 
+                          and so on, under the scope you provide. This scope is 
+                          determined by the value of ImplicitThis and ImplicitParents. 
+                          <i>ImplicitThis</i> means that &quot;this.property&quot; 
+                          is not necessary to scope the &quot;property&quot; element 
+                          of the &quot;this&quot; variable, but instead &quot;this&quot; 
+                          is implied. <i>ImplicitParents</i> means that the <i>__parent__</i> 
+                          chain of the <i>this</i> variable will be searched, 
+                          as described earlier. Normally, these <i>Implicit</i> 
+                          attributes apply only to functions, but ScriptEase allows 
+                          seEval() to apply these flags to any code being interpreted.</p>
+                        <blockquote>
+                          <p>NoteYou may want to be sure to set these attributes 
+                            on every every function loaded, but since VoiceXML 
+                            uses <i>ImplicitThis</i> and <i>ImplicitParents</i> 
+                            throughout, it is much easier to add compile-time 
+                            options to your <i>jseopt.h</i> file so they are on 
+                            for all function by default.</p>
+                          <pre class="example">/* sample lines for jseopt.h for default ImplicitThis and ImplicitParents */
+#define JSE_ALWAYS_IMPLICIT_THIS
+#define JSE_ALWAYS_IMPLICIT_PARENTS</pre>
+                        </blockquote>
+                        <p>Now that the relationships between scopes are all set 
+                          up, you just need to set the appropriate scope as the 
+                          current <i>this</i> and the current <i>global</i> variable 
+                          when the interpret is executed. Setting the <i>this</i> 
+                          variable to the appropriate scope variable ensures that 
+                          the scoping rules are followed. Setting the <i>global</i> 
+                          variable ensures that any new variables are created 
+                          in that scope object (because the <i>var</i> ECMAScript 
+                          keyword, when not used within a <i>function</i> block, 
+                          will create a variable in the <i>global</i> object). 
+                          The <i>this</i>and the <i>global</i> variables may each 
+                          be set in the seEvalParams structure passed to seEval 
+                          (you can also explicit manage scopes with this seEvalParams 
+                          structure) but unless your needs are very unique it 
+                          is easiest just to set the current <i>global</i> variable 
+                          before calling seEval(); this leads to default behavior 
+                          with <i>this</i>being the same as your new global.</p>
+                        <p>In this short VXML sample, assume a script to set the 
+                          current day of the week (e.g. Monday, Tuesday, etc...) 
+                          is to be put into the variable <i>Weekday</i>, at the 
+                          <b>dialog</b> scope level. The script being executed 
+                          may be within VXML code such as this:</p>
+                        <pre class="example">
+&lt;?xml version=&quot;1.0&quot;?&gt;
+&lt;vxml version=&quot;2.0&quot;&gt; 
+  &lt;form&gt;
+    &lt;script&gt;
+      var d = new Date();
+      var days = [ &quot;Sunday&quot;, &quot;Monday&quot;, &quot;Tuesday&quot;, &quot;Wednesday&quot;,
+                   &quot;Thursday&quot;, &quot;Friday&quot;, &quot;Saturday&quot; ];
+      var Weekday = days[ d.getDay() ];
+    &lt;block&gt;
+      &lt;prompt&gt;
+        The day is &lt;value expr=&quot;Weekday&quot;/&gt;.
+      &lt;/prompt&gt;
+    &lt;/block&gt;
+  &lt;/form&gt;
+&lt;/vxml&gt;</pre>
+                        <p>The four-line script could be executed by the following 
+                          code.</p>
+                        <pre class="example">/* C code to execute script in the dialog[1] scope */
+char * script = &quot;var d = new Date();\r\n&quot;
+                &quot;var days = [ \&quot;Sunday\&quot;, \&quot;Monday\&quot;, \&quot;Tuesday\&quot;, \&quot;Wednesday\&quot;,
+                              \&quot;Thursday\&quot;, \&quot;Friday&quot;, \&quot;Saturday\&quot; ];\r\n
+                &quot;var Weekday = days[ d.getDay() ];&quot;;        
+   
+/* set the global variable to be the dialog[1] scope */
+sePutObject(se,SE_GLOBAL,SE_VALUE,dlgObj[1]);
+   
+/* call seEval() */
+seEval(se,script,SE_TEXT,NULL,NULL,
+       SE_INIT_IMPLICIT_THIS|SE_INIT_IMPLICIT_PARENTS|\
+       SE_REPORT_ERRORS|SE_INFREQUENT_CONT,
+       NULL); /* ignore return parameters for this example */
+</pre>
+                        <h2>More?</h2>
+                        <p>This document has covered some of the most common questions 
+                          about how should one use ECMAScript with VoiceXML. There 
+                          are surely many topics missing and I'll cover such topics 
+                          as implementors request.</p>
+                        <p>If you have suggestions about what should be added 
+                          to this document, more question about VoiceXML scripting 
+                          , or ciritiques of this document, visit our <a target="support" href="http://support.nombas.com/">Online 
+                          Support Site</a>.</p>
+                        
+                    </table></td>
+                    </tr>
+                  </table>
+                </TD>
+              </TR>
+            </TABLE>
+          </TD>
+        </TR>
+      </TABLE>
+    
+  
+  <TR VALIGN=TOP ALIGN=LEFT> 
+    <TD HEIGHT=2></TD>
+    <TD WIDTH=632 COLSPAN=2 height="2"> 
+      <TABLE BORDER=0 CELLSPACING=0 CELLPADDING=0 WIDTH=632 HEIGHT=20 bgcolor="#FFFFFF">
+        <TR ALIGN=LEFT VALIGN=TOP> 
+          <TD> 
+            <TABLE BORDER=0 CELLSPACING=0 CELLPADDING=0 WIDTH=632>
+              <TR VALIGN=TOP ALIGN=LEFT> 
+                <TD WIDTH=20 HEIGHT=2 ALIGN=LEFT VALIGN=TOP><IMG ID="Picture13" HEIGHT=20 WIDTH=20 SRC="../../curve_botleft.gif" BORDER=0></TD>
+                <TD WIDTH=592 height="2"><IMG SRC="../../clearpixel.gif" WIDTH=592 HEIGHT=1 BORDER=0></TD>
+                <TD WIDTH=20 ALIGN=LEFT VALIGN=TOP height="2"><IMG ID="Picture11" HEIGHT=20 WIDTH=20 SRC="../../curve_bot.gif" BORDER=0></TD>
+              </TR>
+            </TABLE>
+          </TD>
+        </TR>
+      </TABLE>
+    </TD>
+  </TR>
+  <TR VALIGN=TOP ALIGN=LEFT> 
+    <TD WIDTH=5 HEIGHT=6><IMG SRC="../../clearpixel.gif" WIDTH=5 HEIGHT=1 BORDER=0></TD>
+    <TD WIDTH=613><IMG SRC="../../clearpixel.gif" WIDTH=613 HEIGHT=1 BORDER=0></TD>
+    <TD WIDTH=19><IMG SRC="../../clearpixel.gif" WIDTH=19 HEIGHT=1 BORDER=0></TD>
+  </TR>
+  <TR VALIGN=TOP ALIGN=LEFT> 
+    <TD WIDTH=618 COLSPAN=2> 
+      <P ALIGN=RIGHT><A HREF="../../index.htm"><FONT COLOR="#FFFFFF" SIZE="-2" FACE="Verdana,Tahoma,Arial,Helvetica">Home</FONT></A><FONT COLOR="#FFFFFF" SIZE="-2" FACE="Verdana,Tahoma,Arial,Helvetica"> 
+        | </FONT><A
+                 HREF="../../scripting/scripting.htm"><FONT COLOR="#FFFFFF" SIZE="-2" FACE="Verdana,Tahoma,Arial,Helvetica">Scripting</FONT></A><FONT COLOR="#FFFFFF" SIZE="-2" FACE="Verdana,Tahoma,Arial,Helvetica"> 
+        | </FONT><A
+                 HREF="../../products/products.htm"><FONT COLOR="#FFFFFF" SIZE="-2" FACE="Verdana,Tahoma,Arial,Helvetica">Products</FONT></A><FONT COLOR="#FFFFFF" SIZE="-2" FACE="Verdana,Tahoma,Arial,Helvetica"> 
+        | </FONT><A
+                 HREF="../../purchase/purchase.htm"><FONT COLOR="#FFFFFF" SIZE="-2" FACE="Verdana,Tahoma,Arial,Helvetica">Purchase</FONT></A><FONT COLOR="#FFFFFF" SIZE="-2" FACE="Verdana,Tahoma,Arial,Helvetica"> 
+        | </FONT><A
+                 HREF="../../download/ndownload.htm"><FONT COLOR="#FFFFFF" SIZE="-2" FACE="Verdana,Tahoma,Arial,Helvetica">Download</FONT></A><FONT COLOR="#FFFFFF" SIZE="-2" FACE="Verdana,Tahoma,Arial,Helvetica"> 
+        | </FONT><A
+                 HREF="http://support.nombas.com/"><FONT COLOR="#FFFFFF" SIZE="-2" FACE="Verdana,Tahoma,Arial,Helvetica">Support</FONT></A><FONT COLOR="#FFFFFF" SIZE="-2" FACE="Verdana,Tahoma,Arial,Helvetica"> 
+        | </FONT><A HREF="../../company/company.htm"> <FONT COLOR="#FFFFFF" SIZE="-2" FACE="Verdana,Tahoma,Arial,Helvetica">Company</FONT></A><FONT COLOR="#FFFFFF" SIZE="-2" FACE="Verdana,Tahoma,Arial,Helvetica"><BR>
+        <BR>
+        Copyright &#169;2001, Nombas, Inc. All Rights Reserved.<BR>
+        Questions? Visit </FONT><A HREF="http://support.nombas.com/"><FONT COLOR="#FFFFFF" SIZE="-2" FACE="Verdana,Tahoma,Arial,Helvetica">http://support.nombas.com/</FONT></A> 
+    </TD>
+    <TD></TD>
+  </TR>
+<SCRIPT language=JavaScript1.2>
+  display_nombas_legacy_message();
+</SCRIPT>
+
+</BODY>
+</HTML>

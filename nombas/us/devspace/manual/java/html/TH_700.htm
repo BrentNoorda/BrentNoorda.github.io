@@ -1,0 +1,45 @@
+<html>
+<head>
+<title>Global object</title>
+<link rel="stylesheet" href="semanualstyles.css" type="text/css">
+<style type="text/css">
+ p { margin-top: 0; margin-bottom: 0; }
+</style>
+<script language="JavaScript" src="TrueHelp.js"></script>
+</head>
+<body onload="thload()">
+<div id=ienav>
+<ilayer id=nsnav>
+<br>
+<center>
+<p class=normal><a href="seisdkj-toc.htm" target="left">contents</a> &nbsp; <a href="seisdkj-index.htm" target="left">index</a> &nbsp; previous &nbsp; <a href="TH_701.htm">next</a></p>
+</center>
+<br>
+<hr noshade size=1>
+</ilayer>
+</div>
+<p class=heading-2>Global object</p>
+<p class=heading-2-p>&nbsp;</p>
+<p class=senormalpara>The properties and methods of the <span class=secodephrase>global</span> object may be thought of as global variables and functions. The object identifier <span class=secodephrase>global</span> is not required when invoking a <span class=secodephrase>global</span> method or function. Indeed, the object name generally is not used. For example, the following two <span class=secodephrase>if</span> statements are identical, but the first one illustrates how <span class=secodephrase>global</span> functions are usually invoked.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=secodelinesindented>if&nbsp;(defined(name))</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;Screen.writeln("name&nbsp;is&nbsp;defined");</p>
+<p class=secodelinesindented>&nbsp;</p>
+<p class=secodelinesindented>if&nbsp;(global.defined(name))</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;Screen.writeln("name&nbsp;is&nbsp;defined");</p>
+<p class=secodelinesindented>&nbsp;</p>
+<p class=senormalpara>The following two lines of code are also equivalent.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=secodelinesindented>var&nbsp;aString&nbsp;=&nbsp;ToString(123)</p>
+<p class=secodelinesindented>var&nbsp;aString&nbsp;=&nbsp;global.ToString(123)</p>
+<p class=secodelinesindented>&nbsp;</p>
+<p class=senormalpara>Remember, global variables are members of the global object. To access global properties, you do not need to use an object name. The exception to this rule occurs when you are in a function that has a local variable with the same name as a global variable. In such a case, you must use the global keyword to reference the global variable.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>Most of the <span class=secodephrase>global</span> methods, functions, described in this section are defined in the ECMAScript standards. A few are unique additions to ScriptEase. In other words, they are not part of the ECMAScript standard, but they are useful. Avoid using the unique functions in a script if it will be used with a JavaScript interpreter that does not support these few unique functions.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<hr noshade size=1>
+<p class=normal><a href="TH_701.htm"><img src="button.png" border=0></a><a href="TH_701.htm" style="text-decoration:none;">Conversion or casting</a></p>
+<p class=normal><a href="TH_704.htm"><img src="button.png" border=0></a><a href="TH_704.htm" style="text-decoration:none;">global object methods/functions</a></p>
+<p>
+</body>
+</html>

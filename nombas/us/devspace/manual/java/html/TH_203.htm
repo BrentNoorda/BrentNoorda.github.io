@@ -1,0 +1,31 @@
+<html>
+<head>
+<title>interface: SEGetNameByIndexCallback</title>
+<link rel="stylesheet" href="semanualstyles.css" type="text/css">
+<style type="text/css">
+ p { margin-top: 0; margin-bottom: 0; }
+</style>
+<script language="JavaScript" src="TrueHelp.js"></script>
+</head>
+<body onload="thload()">
+<div id=ienav>
+<ilayer id=nsnav>
+<br>
+<center>
+<p class=normal><a href="seisdkj-toc.htm" target="left">contents</a> &nbsp; <a href="seisdkj-index.htm" target="left">index</a> &nbsp; <a href="TH_202.htm">previous</a> &nbsp; <a href="TH_204.htm">next</a></p>
+</center>
+<br>
+<hr noshade size=1>
+</ilayer>
+</div>
+<p class=heading-3>interface: SEGetNameByIndexCallback</p>
+<p class=heading-3-p>&nbsp;</p>
+<p class=secodelinesindented>public&nbsp;int&nbsp;getNameByIndex(SEContext&nbsp;se,&nbsp;int&nbsp;index);</p>
+<p class=secodelinesindented>&nbsp;</p>
+<p class=senormalpara>A companion routine to <span class=secodephrase>getByIndex</span>, this is used when a script wants to iterate through your object using the <span class=secodephrase>for..in</span> statement. You must return the names of your object's members according to their index. Like <span class=secodephrase>getByIndex</span> above, it is only permissible to reorder your object if a member is added or removed. Return <span class=secodephrase>-1</span> to indicate an index beyond the number of members in your object. Otherwise return the internalized version of your member's name (see <span class=secodephrase>seInternalizeString</span>). The internalized string will be freed when you return it just as if you called <span class=secodephrase>seFreeInternalString</span>. This is useful in the majority of cases in which you create the name to return and no longer need it locked. If you do need to retain a lock on the returned string, use <span class=secodephrase>seCloneInternalString</span> to make a duplicate to return.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<hr noshade size=1>
+<p class=normal><a href="TH_204.htm"><img src="button.png" border=0></a><a href="TH_204.htm" style="text-decoration:none;">interface: SEMaxIndexCallback</a></p>
+<p>
+</body>
+</html>

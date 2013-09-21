@@ -1,0 +1,47 @@
+<html>
+<head>
+<title>Array representation</title>
+<link rel="stylesheet" href="semanualstyles.css" type="text/css">
+<style type="text/css">
+ p { margin-top: 0; margin-bottom: 0; }
+</style>
+<script language="JavaScript" src="TrueHelp.js"></script>
+</head>
+<body onload="thload()">
+<div id=ienav>
+<ilayer id=nsnav>
+<br>
+<center>
+<p class=normal><a href="seisdkc-toc.htm" target="left">contents</a> &nbsp; <a href="seisdkc-index.htm" target="left">index</a> &nbsp; <a href="TH_507.htm">previous</a> &nbsp; <a href="TH_509.htm">next</a></p>
+</center>
+<br>
+<hr noshade size=1>
+</ilayer>
+</div>
+<p class=heading-2>Array representation</p>
+<p class=heading-2-p>&nbsp;</p>
+<p class=senormalpara>This section on the representation of arrays<span class=truehelp-xe></span> in memory only deals with automatic arrays<span class=truehelp-xe></span> which are part of the C portion of ScriptEase. JavaScript uses constructor functions that create instances of JavaScript arrays which are actually objects more than arrays. Everything said in this section is about automatic arrays compared to C arrays. The methods and functions used to work with JavaScript constructed arrays and ScriptEase automatic arrays are different. The following fragment creates a JavaScript array.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=secodelinesindented>var&nbsp;aj&nbsp;=&nbsp;new&nbsp;Array();</p>
+<p class=secodelinesindented>&nbsp;</p>
+<p class=senormalpara>The following line creates an automatic array in ScriptEase.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=secodelinesindented>var&nbsp;ac[3][3];</p>
+<p class=secodelinesindented>&nbsp;</p>
+<p class=senormalpara>The two arrays are different entities that require different methods and functions. For example, the property <span class=secodephrase>aj.length</span> provides the length of the aj array, but the function <span class=secodephrase>getArrayLength(ac)</span>provides the length of the ac automatic array. When the term array is used in the rest of this section, the reference is to an automatic array. JavaScript arrays are covered in the section on ScriptEase JavaScript.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>Arrays are used in ScriptEase much like they are in C, except that they are stored differently. A single dimension array, for example, an array of numbers, is stored in consecutive bytes in memory, just as in C, but arrays of arrays are not in consecutive memory locations. The following C declaration: </p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=secodelinesindented>char&nbsp;c[3][3];&nbsp;&nbsp;//&nbsp;this&nbsp;is&nbsp;the&nbsp;C&nbsp;version</p>
+<p class=secodelinesindented>&nbsp;</p>
+<p class=senormalpara>indicates that there are nine consecutive bytes in memory. In ScriptEase a similar statement such as the following:</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=secodelinesindented>var&nbsp;c[2][2]&nbsp;=&nbsp;'a';&nbsp;&nbsp;//&nbsp;this&nbsp;is&nbsp;the&nbsp;ScriptEase&nbsp;version</p>
+<p class=secodelinesindented>&nbsp;</p>
+<p class=senormalpara>indicates that there are at least three arrays of characters, and the third array of arrays has at least three characters in it. Though the characters in c[0] and the characters in c[1] are in consecutive bytes, the two arrays c[0] and c[1] are not necessarily adjacent in memory.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<hr noshade size=1>
+<p class=normal><a href="TH_509.htm"><img src="button.png" border=0></a><a href="TH_509.htm" style="text-decoration:none;">Automatic array allocation</a></p>
+<p>
+</body>
+</html>

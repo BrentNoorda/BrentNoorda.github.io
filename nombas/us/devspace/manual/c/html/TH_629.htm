@@ -1,0 +1,86 @@
+<html>
+<head>
+<title>Clib.fwrite()</title>
+<link rel="stylesheet" href="semanualstyles.css" type="text/css">
+<style type="text/css">
+ p { margin-top: 0; margin-bottom: 0; }
+</style>
+<script language="JavaScript" src="TrueHelp.js"></script>
+</head>
+<body onload="thload()">
+<div id=ienav>
+<ilayer id=nsnav>
+<br>
+<center>
+<p class=normal><a href="seisdkc-toc.htm" target="left">contents</a> &nbsp; <a href="seisdkc-index.htm" target="left">index</a> &nbsp; <a href="TH_628.htm">previous</a> &nbsp; <a href="TH_630.htm">next</a></p>
+</center>
+<br>
+<hr noshade size=1>
+</ilayer>
+</div>
+<p class=sereffunclevel4>Clib.fwrite()</p>
+<table cellpadding=0>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>syntax:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=sesyntax>Clib.fwrite(<span class=truehelp-xe></span>srcVar,&nbsp;varDescription,&nbsp;filePointer)</p></td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>where:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>srcVar - variable to hold data to write to file.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>varDescription - description of the data to write, that is, how and how much.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>filePointer - pointer to file to use.</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>return:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>number - elements written on success, else 0 if a write error occurs.</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>description:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>This method writes the data in srcVar to the file indicated by filePointer and returns the number of elements written. 0 will be returned if a write error occurs. Use <span class=sepopuptopic><a href="TH_609.htm" onClick="return thwindow('TH_609.htm', 'GenPopup')">Clib.ferror()</a></span> to get more information about the error. varDescription is a variable that describes the how and how much data is to be read. If srcVar is a buffer, it will be the length of the buffer. If srcVar is an object, varDescription must be an object descriptor. If srcVar is to hold a single datum then varDescription must be one of the values listed in the description for <span class=sepopuptopic><a href="TH_623.htm" onClick="return thwindow('TH_623.htm', 'GenPopup')">Clib.fread()</a></span>.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>The ScriptEase version of <span class=secodephrase>Clib.fwrite()</span> differs from the standard C version in that the standard C library is set up for writing arrays of numeric values or structures from consecutive bytes in memory. This is not necessarily the case in JavaScript.</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>see:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara><span class=sejumptopic><a href="TH_623.htm">Clib.fread()</a></span></p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>example:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=secodelines>//&nbsp;To&nbsp;write&nbsp;the&nbsp;16_bit&nbsp;integer&nbsp;"i",</p>
+<p class=secodelines>//&nbsp;the&nbsp;32_bit&nbsp;float&nbsp;"f",&nbsp;and</p>
+<p class=secodelines>//&nbsp;then&nbsp;10_byte&nbsp;buffer&nbsp;"buf"&nbsp;into&nbsp;open&nbsp;file&nbsp;"fp",</p>
+<p class=secodelines>//&nbsp;use&nbsp;the&nbsp;following&nbsp;code.</p>
+<p class=secodelines>&nbsp;</p>
+<p class=secodelines>if&nbsp;(!Clib.fwrite(i,&nbsp;SWORD16,&nbsp;fp)&nbsp;||</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;&nbsp;!Clib.fwrite(f,&nbsp;FLOAT32,&nbsp;fp)&nbsp;||</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;&nbsp;(10&nbsp;!=&nbsp;&nbsp;fwrite(buf,&nbsp;10,&nbsp;fp)))&nbsp;</p>
+<p class=secodelines>{</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;Clib.printf("Error&nbsp;writing&nbsp;to&nbsp;file.\n");&nbsp;</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;Clib.abort();&nbsp;</p>
+<p class=secodelines>}</p></td>
+</tr>
+</table>
+<p class=normal>&nbsp;</p>
+<hr noshade size=1>
+<p class=normal><a href="TH_630.htm"><img src="button.png" border=0></a><a href="TH_630.htm" style="text-decoration:none;">Clib.getc()</a></p>
+<p>
+</body>
+</html>

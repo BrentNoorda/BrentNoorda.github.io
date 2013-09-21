@@ -1,0 +1,67 @@
+<html>
+<head>
+<title>Cursor sort</title>
+<link rel="stylesheet" href="semanualstyles.css" type="text/css">
+<style type="text/css">
+ p { margin-top: 0; margin-bottom: 0; }
+</style>
+<script language="JavaScript" src="TrueHelp.js"></script>
+</head>
+<body onload="thload()">
+<div id=ienav>
+<ilayer id=nsnav>
+<br>
+<center>
+<p class=normal><a href="seisdkc-toc.htm" target="left">contents</a> &nbsp; <a href="seisdkc-index.htm" target="left">index</a> &nbsp; <a href="TH_1075.htm">previous</a> &nbsp; <a href="TH_1077.htm">next</a></p>
+</center>
+<br>
+<hr noshade size=1>
+</ilayer>
+</div>
+<p class=sereffunclevel4>Cursor sort</p>
+<table cellpadding=0>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>syntax:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=sesyntax>cursor.sort<span class=truehelp-xe></span></p></td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>description:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>A property containing the sort order of a cursor.  The Cursor sort order will determine the order that the rows are returned in when iterating the Cursor.  The sort property is a string that contains the ORDER BY clause of an SQL statement.  It does not include the reserved word ORDER BY, however. Initially, the sort property is set to the empty string, and, therefore, no item sort order is guaranteed.  Call <span class=secodephrase>reload</span> after changing the sort order to update the contents of the Cursor.</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>see:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara><span class=secodephrase>#link &lt;sedbc&gt;</span>, <span class=sejumptopic><a href="TH_1087.htm">Cursor reload()</a></span></p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>example:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=secodelines>//&nbsp;assume&nbsp;'database'&nbsp;is&nbsp;a&nbsp;valid&nbsp;Database&nbsp;object</p>
+<p class=secodelines>var&nbsp;curs&nbsp;=&nbsp;database.table("customer")</p>
+<p class=secodelines>&nbsp;</p>
+<p class=secodelines>//&nbsp;Set&nbsp;sort&nbsp;order&nbsp;so&nbsp;that&nbsp;the&nbsp;Cursor&nbsp;is&nbsp;sorted</p>
+<p class=secodelines>//&nbsp;first&nbsp;by&nbsp;the</p>
+<p class=secodelines>//&nbsp;'city'&nbsp;field,&nbsp;and,&nbsp;for&nbsp;records</p>
+<p class=secodelines>//&nbsp;with&nbsp;the&nbsp;same&nbsp;'city'&nbsp;value,</p>
+<p class=secodelines>//&nbsp;descending&nbsp;by&nbsp;the&nbsp;field&nbsp;'name'.</p>
+<p class=secodelines>curs.sort&nbsp;=&nbsp;"city,&nbsp;name&nbsp;DESC";</p>
+<p class=secodelines>&nbsp;</p>
+<p class=secodelines>//&nbsp;Reload&nbsp;the&nbsp;cursor</p>
+<p class=secodelines>err&nbsp;=&nbsp;curs.reload();</p></td>
+</tr>
+</table>
+<p class=senormalpara>&nbsp;</p>
+<p class=senormalpara-p>&nbsp;</p>
+<hr noshade size=1>
+<p class=normal><a href="TH_1077.htm"><img src="button.png" border=0></a><a href="TH_1077.htm" style="text-decoration:none;">Cursor Instance Methods</a></p>
+<p>
+</body>
+</html>

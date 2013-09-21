@@ -1,0 +1,53 @@
+<html>
+<head>
+<title>Database transactions</title>
+<link rel="stylesheet" href="semanualstyles.css" type="text/css">
+<style type="text/css">
+ p { margin-top: 0; margin-bottom: 0; }
+</style>
+<script language="JavaScript" src="TrueHelp.js"></script>
+</head>
+<body onload="thload()">
+<div id=ienav>
+<ilayer id=nsnav>
+<br>
+<center>
+<p class=normal><a href="seisdkc-toc.htm" target="left">contents</a> &nbsp; <a href="seisdkc-index.htm" target="left">index</a> &nbsp; <a href="TH_1089.htm">previous</a> &nbsp; <a href="TH_1091.htm">next</a></p>
+</center>
+<br>
+<hr noshade size=1>
+</ilayer>
+</div>
+<p class=heading-3>Database transactions</p>
+<p class=heading-3-p>&nbsp;</p>
+<p class=senormalpara>A transaction is a group of database actions that are performed together.  Either all the actions succeed together or they all fail together.  When a group of database actions is made permanent, it is called committing a transaction. Rolling back a transaction cancels all of the actions of a non-committed transaction.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>Explicit transaction control is available for any set of actions using the <span class=secodephrase>beginTransaction</span>, <span class=secodephrase>commitTransaction</span>, and <span class=secodephrase>rollbackTransaction</span> methods.  If transactions are not controlled explicitly, the runtime engine uses the underlying database's autocommit feature to treat each database modification as a separate transaction. Each statement is either committed or rolled back immediately, based on the success or failure of the individual statement.  Explicitly managing transactions overrides this default behavior.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>NOTE: When making changes to a database, it is recommended that explicit transaction control be used.  If not, the database may report errors.  However, even if errors are not specifically reported, data integrity cannot be guaranteed unless explicit transactions are used.  In addition, any time a Cursors object is used to update a database, it is also recommended that explicit transactions be used to ensure the consistency of the data.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>For the database object, the scope of a transaction is limited to lifetime of the connection.  If the database object is disconnected before calling <span class=secodephrase>commitTransaction</span> or <span class=secodephrase>rollbackTransaction</span> method, then the transaction is automatically rolled back.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=normal>&nbsp;</p>
+<hr noshade size=1>
+<p class=normal><a href="TH_1091.htm"><img src="button.png" border=0></a><a href="TH_1091.htm" style="text-decoration:none;">Database beginTransaction()</a></p>
+<p class=normal><a href="TH_1092.htm"><img src="button.png" border=0></a><a href="TH_1092.htm" style="text-decoration:none;">Database commitTransaction()</a></p>
+<p class=normal><a href="TH_1093.htm"><img src="button.png" border=0></a><a href="TH_1093.htm" style="text-decoration:none;">Database connect()</a></p>
+<p class=normal><a href="TH_1094.htm"><img src="button.png" border=0></a><a href="TH_1094.htm" style="text-decoration:none;">Database connected()</a></p>
+<p class=normal><a href="TH_1095.htm"><img src="button.png" border=0></a><a href="TH_1095.htm" style="text-decoration:none;">Database cursor()</a></p>
+<p class=normal><a href="TH_1096.htm"><img src="button.png" border=0></a><a href="TH_1096.htm" style="text-decoration:none;">Database disconnect()</a></p>
+<p class=normal><a href="TH_1097.htm"><img src="button.png" border=0></a><a href="TH_1097.htm" style="text-decoration:none;">Database execute()</a></p>
+<p class=normal><a href="TH_1098.htm"><img src="button.png" border=0></a><a href="TH_1098.htm" style="text-decoration:none;">Database majorErrorCode()</a></p>
+<p class=normal><a href="TH_1099.htm"><img src="button.png" border=0></a><a href="TH_1099.htm" style="text-decoration:none;">Database majorErrorMessage()</a></p>
+<p class=normal><a href="TH_1100.htm"><img src="button.png" border=0></a><a href="TH_1100.htm" style="text-decoration:none;">Database minorErrorCode()</a></p>
+<p class=normal><a href="TH_1101.htm"><img src="button.png" border=0></a><a href="TH_1101.htm" style="text-decoration:none;">Database minorErrorMessage()</a></p>
+<p class=normal><a href="TH_1102.htm"><img src="button.png" border=0></a><a href="TH_1102.htm" style="text-decoration:none;">Database procedureName()</a></p>
+<p class=normal><a href="TH_1103.htm"><img src="button.png" border=0></a><a href="TH_1103.htm" style="text-decoration:none;">Database procedures()</a></p>
+<p class=normal><a href="TH_1104.htm"><img src="button.png" border=0></a><a href="TH_1104.htm" style="text-decoration:none;">Database rollbackTransaction()</a></p>
+<p class=normal><a href="TH_1105.htm"><img src="button.png" border=0></a><a href="TH_1105.htm" style="text-decoration:none;">Database storedProc()</a></p>
+<p class=normal><a href="TH_1106.htm"><img src="button.png" border=0></a><a href="TH_1106.htm" style="text-decoration:none;">Database table()</a></p>
+<p class=normal><a href="TH_1107.htm"><img src="button.png" border=0></a><a href="TH_1107.htm" style="text-decoration:none;">Database tableName()</a></p>
+<p class=normal><a href="TH_1108.htm"><img src="button.png" border=0></a><a href="TH_1108.htm" style="text-decoration:none;">Database tables()</a></p>
+<p>
+</body>
+</html>

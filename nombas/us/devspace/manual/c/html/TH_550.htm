@@ -1,0 +1,121 @@
+<html>
+<head>
+<title>blobDescriptor object</title>
+<link rel="stylesheet" href="semanualstyles.css" type="text/css">
+<style type="text/css">
+ p { margin-top: 0; margin-bottom: 0; }
+</style>
+<script language="JavaScript" src="TrueHelp.js"></script>
+</head>
+<body onload="thload()">
+<div id=ienav>
+<ilayer id=nsnav>
+<br>
+<center>
+<p class=normal><a href="seisdkc-toc.htm" target="left">contents</a> &nbsp; <a href="seisdkc-index.htm" target="left">index</a> &nbsp; <a href="TH_549.htm">previous</a> &nbsp; <a href="TH_551.htm">next</a></p>
+</center>
+<br>
+<hr noshade size=1>
+</ilayer>
+</div>
+<p class=heading-3>blobDescriptor object</p>
+<p class=heading-3-p>&nbsp;</p>
+<p class=senormalpara>When an object (structure) needs to be sent to a process other than the ScriptEase interpreter, such as to a Windows API function, a <span class=secodephrase>blobDescriptor</span> object must be created that describes the order and type of data in the object to be sent. This description tells how the properties of the object are stored in memory and used with functions such as <span class=sepopuptopic><a href="TH_623.htm" onClick="return thwindow('TH_623.htm', 'GenPopup')">Clib.fread()</a></span> and <span class=sepopuptopic><a href="TH_951.htm" onClick="return thwindow('TH_951.htm', 'GenPopup')">SElib.dynamicLink()</a></span>. </p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>A <span class=secodephrase>blobDescriptor</span> has the same data properties as the object it describes. Each property must be assigned a value that specifies how much memory is required for the data held by that property. Consider the following object.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=secodelinesindented>Rectangle(width,&nbsp;height)</p>
+<p class=secodelinesindented>{</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;this.width&nbsp;=&nbsp;width;</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;this.height&nbsp;=&nbsp;height;</p>
+<p class=secodelinesindented>}</p>
+<p class=secodelines>&nbsp;</p>
+<p class=senormalpara>The following code creates a <span class=secodephrase>blobDescriptor</span> object that describes the Rectangle object defined above:</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=secodelinesindented>var&nbsp;bd&nbsp;=&nbsp;new&nbsp;blobDescriptor()<span class=truehelp-xe>blobDescriptor()</span><span class=truehelp-xe>&#160;</span>;</p>
+<p class=secodelinesindented>&nbsp;</p>
+<p class=secodelinesindented>bd.width&nbsp;&nbsp;=&nbsp;UWORD32;</p>
+<p class=secodelinesindented>bd.height&nbsp;=&nbsp;UWORD32;</p>
+<p class=secodelinesindented>&nbsp;</p>
+<p class=senormalpara>You can now pass bd as a <span class=secodephrase>blobDescriptor</span> parameter to functions, (such as <span class=sepopuptopic><a href="TH_951.htm" onClick="return thwindow('TH_951.htm', 'GenPopup')">SElib.dynamicLink()</a></span><span class=truehelp-xe></span>, <span class=sepopuptopic><a href="TH_623.htm" onClick="return thwindow('TH_623.htm', 'GenPopup')">Clib.fread()</a></span><span class=truehelp-xe></span>, and <span class=sepopuptopic><a href="TH_629.htm" onClick="return thwindow('TH_629.htm', 'GenPopup')">Clib.fwrite()</a></span><span class=truehelp-xe></span>, which might require one. The values assigned to the properties depend on what the receiving function expects. In the example above, the function that is called expects to receive an object that contains two 32-bit words or data values. If you write a <span class=secodephrase>blobDescriptor</span> for a function that expects to receive an object containing two 16-bit words, assign the two properties a value of <span class=secodephrase>UWORD16</span>.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>The following values may be used for blobDescriptors.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<table cellpadding=0>
+<tr>
+<td valign=top style="width: 1.55833in">
+<p class=normal><span class=secodephrase>UWORD8</span><span class=truehelp-xe></span></p></td>
+<td valign=top style="width: 3.72153in">
+<p class=normal>Stored as a byte</p></td>
+</tr>
+<tr>
+<td valign=top style="width: 1.55833in">
+<p class=normal><span class=secodephrase>SWORD8</span><span class=truehelp-xe></span></p></td>
+<td valign=top style="width: 3.72153in">
+<p class=normal>Stored as an integer</p></td>
+</tr>
+<tr>
+<td valign=top style="width: 1.55833in">
+<p class=normal><span class=secodephrase>UWORD16</span><span class=truehelp-xe></span></p></td>
+<td valign=top style="width: 3.72153in">
+<p class=normal>Stored as an integer</p></td>
+</tr>
+<tr>
+<td valign=top style="width: 1.55833in">
+<p class=normal><span class=secodephrase>SWORD16</span><span class=truehelp-xe></span></p></td>
+<td valign=top style="width: 3.72153in">
+<p class=normal>Stored as an integer</p></td>
+</tr>
+<tr>
+<td valign=top style="width: 1.55833in">
+<p class=normal><span class=secodephrase>UWORD24</span><span class=truehelp-xe></span></p></td>
+<td valign=top style="width: 3.72153in">
+<p class=normal>Stored as an integer</p></td>
+</tr>
+<tr>
+<td valign=top style="width: 1.55833in">
+<p class=normal><span class=secodephrase>SWORD24</span><span class=truehelp-xe></span></p></td>
+<td valign=top style="width: 3.72153in">
+<p class=normal>Stored as an integer</p></td>
+</tr>
+<tr>
+<td valign=top style="width: 1.55833in">
+<p class=normal><span class=secodephrase>UWORD32</span><span class=truehelp-xe></span></p></td>
+<td valign=top style="width: 3.72153in">
+<p class=normal>Stored as an integer</p></td>
+</tr>
+<tr>
+<td valign=top style="width: 1.55833in">
+<p class=normal><span class=secodephrase>SWORD32</span><span class=truehelp-xe></span></p></td>
+<td valign=top style="width: 3.72153in">
+<p class=normal>Stored as an integer </p></td>
+</tr>
+<tr>
+<td valign=top style="width: 1.55833in">
+<p class=normal><span class=secodephrase>FLOAT32</span><span class=truehelp-xe></span></p></td>
+<td valign=top style="width: 3.72153in">
+<p class=normal>Stored as a float </p></td>
+</tr>
+<tr>
+<td valign=top style="width: 1.55833in">
+<p class=normal><span class=secodephrase>FLOAT64</span><span class=truehelp-xe></span></p></td>
+<td valign=top style="width: 3.72153in">
+<p class=normal>Stored as a float </p></td>
+</tr>
+<tr>
+<td valign=top style="width: 1.55833in">
+<p class=normal><span class=secodephrase>FLOAT80</span><span class=truehelp-xe></span></p></td>
+<td valign=top style="width: 3.72153in">
+<p class=normal>Stored as a float (not available in Win32)</p></td>
+</tr>
+</table>
+<p class=normal>&nbsp;</p>
+<p class=senormalpara>If a <span class=secodephrase>blobDescriptor</span> describes an object property that is a string, the corresponding property should be assigned a numeric value that is larger than the length of the longest string the property may hold. Object methods usually may be omitted from a <span class=secodephrase>blobDescriptor</span>.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>See Win32 structure definitions.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<hr noshade size=1>
+<p class=normal><a href="TH_551.htm"><img src="button.png" border=0></a><a href="TH_551.htm" style="text-decoration:none;">blobDescriptor example</a></p>
+<p>
+</body>
+</html>

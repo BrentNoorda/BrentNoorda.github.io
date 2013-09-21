@@ -1,0 +1,65 @@
+<html>
+<head>
+<title>term()</title>
+<link rel="stylesheet" href="semanualstyles.css" type="text/css">
+<style type="text/css">
+ p { margin-top: 0; margin-bottom: 0; }
+</style>
+<script language="JavaScript" src="TrueHelp.js"></script>
+</head>
+<body onload="thload()">
+<div id=ienav>
+<ilayer id=nsnav>
+<br>
+<center>
+<p class=normal><a href="seisdkc-toc.htm" target="left">contents</a> &nbsp; <a href="seisdkc-index.htm" target="left">index</a> &nbsp; <a href="TH_1069.htm">previous</a> &nbsp; <a href="TH_1071.htm">next</a></p>
+</center>
+<br>
+<hr noshade size=1>
+</ilayer>
+</div>
+<p class=sereffunclevel4>term()</p>
+<table cellpadding=0>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>syntax:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=sesyntax>md5.term()<span class=truehelp-xe></span></p></td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>return:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>buffer -  The computed checksum for this md5 object</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>description:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>This method MUST be called in order to correctly dispose of the md5 object.  It returns a buffer, 16 bytes long, representing the md5 checksum for this object.  It also frees up any memory being used by the object.</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>see:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara><span class=secodephrase>#link &lt;md5&gt;</span></p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>example:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=secodelines>var&nbsp;md5sum&nbsp;=&nbsp;new&nbsp;md5();</p>
+<p class=secodelines>md5.update("hi");</p>
+<p class=secodelines>var&nbsp;digest&nbsp;=&nbsp;md5.term();</p>
+<p class=secodelines>//&nbsp;digest&nbsp;is&nbsp;now&nbsp;equal&nbsp;to&nbsp;the&nbsp;checksum&nbsp;of&nbsp;"hi"</p></td>
+</tr>
+</table>
+<p class=normal>&nbsp;</p>
+<hr noshade size=1>
+<p class=normal><a href="TH_1071.htm"><img src="button.png" border=0></a><a href="TH_1071.htm" style="text-decoration:none;">update()</a></p>
+<p>
+</body>
+</html>

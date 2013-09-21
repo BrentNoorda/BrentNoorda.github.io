@@ -1,0 +1,49 @@
+<html>
+<head>
+<title>Function recursion</title>
+<link rel="stylesheet" href="semanualstyles.css" type="text/css">
+<style type="text/css">
+ p { margin-top: 0; margin-bottom: 0; }
+</style>
+<script language="JavaScript" src="TrueHelp.js"></script>
+</head>
+<body onload="thload()">
+<div id=ienav>
+<ilayer id=nsnav>
+<br>
+<center>
+<p class=normal><a href="seisdkj-toc.htm" target="left">contents</a> &nbsp; <a href="seisdkj-index.htm" target="left">index</a> &nbsp; <a href="TH_371.htm">previous</a> &nbsp; <a href="TH_373.htm">next</a></p>
+</center>
+<br>
+<hr noshade size=1>
+</ilayer>
+</div>
+<p class=heading-3>Function recursion</p>
+<p class=heading-3-p>&nbsp;</p>
+<p class=senormalpara>A recursive function is a function that calls itself or that calls another function that calls the first function. Recursion is permitted in ScriptEase. Each call to a function is independent of any other call to that function. (See the section on <span class=sepopuptopic><a href="TH_315.htm" onClick="return thwindow('TH_315.htm', 'GenPopup')">variable scope</a></span>.) Be aware that recursion has limits. If a function calls itself too many times, a script will run out of memory and abort.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>Do not worry if recursion is confusing, since you rarely have to use it. Just remember that a function can call itself if it needs to. For example, the following function, factor(), factors a number. Factoring is an ideal candidate for recursion because it is a repetitive process where the result of one factor is then itself factored according to the same rules.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=secodelinesindented>function&nbsp;factor(i)&nbsp;//&nbsp;recursive&nbsp;function&nbsp;to&nbsp;print&nbsp;all&nbsp;factors&nbsp;of&nbsp;i,</p>
+<p class=secodelinesindented>{//&nbsp;and&nbsp;return&nbsp;the&nbsp;number&nbsp;of&nbsp;factors&nbsp;in&nbsp;i</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;if&nbsp;(&nbsp;2&nbsp;&lt;=&nbsp;i&nbsp;)&nbsp;</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;{</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;for&nbsp;(&nbsp;var&nbsp;test&nbsp;=&nbsp;2;&nbsp;test&nbsp;&lt;=&nbsp;i;&nbsp;test++&nbsp;)&nbsp;</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;(&nbsp;0&nbsp;==&nbsp;(i&nbsp;%&nbsp;test)&nbsp;)&nbsp;</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//&nbsp;found&nbsp;a&nbsp;factor,&nbsp;so&nbsp;print&nbsp;this&nbsp;factor&nbsp;then&nbsp;call</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//&nbsp;factor()&nbsp;recursively&nbsp;to&nbsp;find&nbsp;the&nbsp;next&nbsp;factor</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return(&nbsp;1&nbsp;+&nbsp;factor(i/test)&nbsp;);</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;}</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;//&nbsp;if&nbsp;this&nbsp;point&nbsp;was&nbsp;reached,&nbsp;then&nbsp;factor&nbsp;not&nbsp;found</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;return(&nbsp;0&nbsp;);</p>
+<p class=secodelinesindented>}</p>
+<p class=secodelinesindented>&nbsp;</p>
+<hr noshade size=1>
+<p class=normal><a href="TH_373.htm"><img src="button.png" border=0></a><a href="TH_373.htm" style="text-decoration:none;">Error checking for functions</a></p>
+<p>
+</body>
+</html>

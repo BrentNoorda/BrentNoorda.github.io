@@ -1,0 +1,47 @@
+<html>
+<head>
+<title>interface: SEGetCallback</title>
+<link rel="stylesheet" href="semanualstyles.css" type="text/css">
+<style type="text/css">
+ p { margin-top: 0; margin-bottom: 0; }
+</style>
+<script language="JavaScript" src="TrueHelp.js"></script>
+</head>
+<body onload="thload()">
+<div id=ienav>
+<ilayer id=nsnav>
+<br>
+<center>
+<p class=normal><a href="seisdkj-toc.htm" target="left">contents</a> &nbsp; <a href="seisdkj-index.htm" target="left">index</a> &nbsp; <a href="TH_194.htm">previous</a> &nbsp; <a href="TH_196.htm">next</a></p>
+</center>
+<br>
+<hr noshade size=1>
+</ilayer>
+</div>
+<p class=heading-3>interface: SEGetCallback</p>
+<p class=heading-3-p>&nbsp;</p>
+<p class=secodelinesindented>public&nbsp;boolean&nbsp;get(SEContext&nbsp;se,&nbsp;int&nbsp;prop,&nbsp;boolean&nbsp;call_hint);</p>
+<p class=secodelines>&nbsp;</p>
+<p class=senormalpara>The <span class=secodephrase>get</span> callback is used when a member of the object's value is being accessed. It is also used when trying to determine if an object has a property if you have not implemented <span class=secodephrase>SEHasPropCallback</span> (see below). Implementing <span class=secodephrase>SEHasPropCallback</span> is the preferred method.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>The <span class=secodephrase>prop</span> parameter, a parameter to most of these dynamic callback functions, indicates which member of the <span class=secodephrase>SE.THIS</span> object is to be accessed. Normally, you use <span class=secodephrase>seInternalizeString</span> at the beginning of your program to internalize your special properties, then you can compare them with the property being accessed  using a single integer comparison. The alternative is to turn <span class=secodephrase>prop</span> into a String using <span class=secodephrase>seGetInternalString</span> then compare with a <span class=secodephrase>String.equals</span>, but this is a lot of work and must be done on each get operation.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara><span class=secodephrase>call_hint</span> is a boolean indicating if ScriptEase believes the returned value is going to be used as a function to call. This would be the difference between:</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=secodelinesindented>a&nbsp;=&nbsp;yourobj.foo;&nbsp;/*&nbsp;call_hint==<span class=secodephrase>false&nbsp;*/</span></p>
+<p class=secodelinesindented>&nbsp;</p>
+<p class=senormalpara>and</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=secodelinesindented>a&nbsp;=&nbsp;yourobj.foo();&nbsp;/*&nbsp;call_hint==<span class=secodephrase>true&nbsp;*/</span></p>
+<p class=secodelinesindented>&nbsp;</p>
+<p class=senormalpara>Knowing this information is useful in certain dynamic objects in which a property and a method require different setup routines, such as COM.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>Once you've decided what value the dynamic property should have, you return it using the usual <span class=secodephrase>SE.RETURN</span> object and return <span class=secodephrase>true</span> from the function. If you've decided the property is not one you are interested in, return <span class=secodephrase>false</span>. ScriptEase will act just as if the dynamic callback did not exist in this case, looking up the property in its internal storage for the object.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>Note that you can access the internal storage of the object within your dynamic callback implementation. You should use the <span class=secodephrase>Direct</span> versions of the <span class=secodephrase>seGetXXX</span> and <span class=secodephrase>sePutXXX</span> API calls in order to bypass your dynamic properties. If you use the non-<span class=secodephrase>Direct</span> versions, the internal storage will be used for your object, but only for gets. This is because a particular callback for an object is shut off inside that callback, to prevent infinite recursion. However, only that one callback is shut off. If you use the object in a way that uses another callback, ScriptEase will use that callback. On rare occasions, you want that behavior. Most of the time, however, the implementation of a dynamic callback will want to directly access the members of its object. It is usually much clearer and quicker to just use the <span class=secodephrase>Direct</span> versions of all ScriptEase API calls while implementing a dynamic callback.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<hr noshade size=1>
+<p class=normal><a href="TH_196.htm"><img src="button.png" border=0></a><a href="TH_196.htm" style="text-decoration:none;">interface: SEPutCallback</a></p>
+<p>
+</body>
+</html>

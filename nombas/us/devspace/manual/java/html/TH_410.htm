@@ -1,0 +1,42 @@
+<html>
+<head>
+<title>Initialization code which is external to functions</title>
+<link rel="stylesheet" href="semanualstyles.css" type="text/css">
+<style type="text/css">
+ p { margin-top: 0; margin-bottom: 0; }
+</style>
+<script language="JavaScript" src="TrueHelp.js"></script>
+</head>
+<body onload="thload()">
+<div id=ienav>
+<ilayer id=nsnav>
+<br>
+<center>
+<p class=normal><a href="seisdkj-toc.htm" target="left">contents</a> &nbsp; <a href="seisdkj-index.htm" target="left">index</a> &nbsp; <a href="TH_409.htm">previous</a> &nbsp; <a href="TH_411.htm">next</a></p>
+</center>
+<br>
+<hr noshade size=1>
+</ilayer>
+</div>
+<p class=heading-2>Initialization code which is external to functions</p>
+<p class=heading-2-p>&nbsp;</p>
+<p class=senormalpara>All code not inside a function block is interpreted before <span class=secodephrase>main()</span> is called and can be thought of as initialization code. When a script has initialization code outside of functions<span class=truehelp-xe></span> and code inside of functions<span class=truehelp-xe></span>, it shares characteristics of both batch and program scripts. Thus, the following ScriptEase code:</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=secodelinesindented>Clib.printf("first&nbsp;");</p>
+<p class=secodelinesindented>&nbsp;</p>
+<p class=secodelinesindented>function&nbsp;main()</p>
+<p class=secodelinesindented>{</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;Clib.printf("third.");</p>
+<p class=secodelinesindented>}</p>
+<p class=secodelinesindented>&nbsp;</p>
+<p class=secodelinesindented>Clib.printf("second&nbsp;");</p>
+<p class=secodelinesindented>&nbsp;</p>
+<p class=senormalpara>results in the following output:</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=secodelinesindented>first&nbsp;second&nbsp;third.</p>
+<p class=secodelinesindented>&nbsp;</p>
+<hr noshade size=1>
+<p class=normal><a href="TH_411.htm"><img src="button.png" border=0></a><a href="TH_411.htm" style="text-decoration:none;">Unnecessary tokens</a></p>
+<p>
+</body>
+</html>

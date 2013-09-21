@@ -1,0 +1,122 @@
+<html>
+<head>
+<title>Clib.fread()</title>
+<link rel="stylesheet" href="semanualstyles.css" type="text/css">
+<style type="text/css">
+ p { margin-top: 0; margin-bottom: 0; }
+</style>
+<script language="JavaScript" src="TrueHelp.js"></script>
+</head>
+<body onload="thload()">
+<div id=ienav>
+<ilayer id=nsnav>
+<br>
+<center>
+<p class=normal><a href="seisdkj-toc.htm" target="left">contents</a> &nbsp; <a href="seisdkj-index.htm" target="left">index</a> &nbsp; <a href="TH_511.htm">previous</a> &nbsp; <a href="TH_513.htm">next</a></p>
+</center>
+<br>
+<hr noshade size=1>
+</ilayer>
+</div>
+<p class=sereffunclevel4>Clib.fread()</p>
+<table cellpadding=0>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>syntax:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=sesyntax>Clib.fread(<span class=truehelp-xe></span>dstVar,&nbsp;varDescription,&nbsp;filePointer)</p></td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>where:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>dstVar - variable to hold data read from file.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>varDescription - description of the data to read, that is, how and how much.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>filePointer - pointer to file to use.</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>return:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>number - elements read on success, 0 on failure.</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>description:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>This method reads data from an open file and stores it in dstVar. If it does not yet exist, dstVar will be created. varDescription is a variable that describes the how and how much data is to be read: if dstVar is a buffer, it will be the length of the buffer; if dstVar is an object, varDescription must be an object descriptor; and if dstVar is to hold a single datum then varDescription must be one of the following.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=list-bullet>&#8226;</p><p class=list-bullet-tab1><span class=secodephrase>UWORD8</span><br>
+Stored as a byte in dstVar</p>
+<p class=list-bullet>&#8226;</p><p class=list-bullet-tab1><span class=secodephrase>SWORD8</span><br>
+Stored as an integer in dstVar</p>
+<p class=list-bullet>&#8226;</p><p class=list-bullet-tab1><span class=secodephrase>UWORD16</span><br>
+Stored as an integer in dstVar</p>
+<p class=list-bullet>&#8226;</p><p class=list-bullet-tab1><span class=secodephrase>SWORD16</span><br>
+Stored as an integer in dstVar</p>
+<p class=list-bullet>&#8226;</p><p class=list-bullet-tab1><span class=secodephrase>UWORD24</span><br>
+Stored as an integer in dstVar</p>
+<p class=list-bullet>&#8226;</p><p class=list-bullet-tab1><span class=secodephrase>SWORD24</span><br>
+Stored as an integer in dstVar</p>
+<p class=list-bullet>&#8226;</p><p class=list-bullet-tab1><span class=secodephrase>UWORD32</span><br>
+Stored as an integer in dstVar</p>
+<p class=list-bullet>&#8226;</p><p class=list-bullet-tab1><span class=secodephrase>SWORD32</span><br>
+Stored as an integer in dstVar</p>
+<p class=list-bullet>&#8226;</p><p class=list-bullet-tab1><span class=secodephrase>FLOAT32</span><br>
+Stored as a float in dstVar</p>
+<p class=list-bullet>&#8226;</p><p class=list-bullet-tab1><span class=secodephrase>FLOAT64</span><br>
+Stored as a float in dstVar</p>
+<p class=list-bullet>&#8226;</p><p class=list-bullet-tab1><span class=secodephrase>FLOAT80</span><br>
+Stored as a float in dstVar (not available in Win32)</p>
+<p class=secodelines>&nbsp;</p>
+<p class=senormalpara>In all cases, this function returns the number of elements read. For dstVar being a buffer, this would be the number of bytes read, up to length specified in varDescription. For dstVar being an object, this method returns 1 if the data is read or 0 if read error or endoffile is encountered.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>For example, the definition of an object might be:</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=secodelinesindented>ClientDef.Sex&nbsp;=&nbsp;UWORD8;&nbsp;</p>
+<p class=secodelinesindented>ClientDef.MaritalStatus&nbsp;=&nbsp;UWORD8;&nbsp;</p>
+<p class=secodelinesindented>ClientDef._Unused1&nbsp;=&nbsp;UWORD16;&nbsp;</p>
+<p class=secodelinesindented>ClientDef.FirstName&nbsp;=&nbsp;30;&nbsp;ClientDef.LastName&nbsp;=&nbsp;40;&nbsp;</p>
+<p class=secodelinesindented>ClientDef.Initial&nbsp;=&nbsp;UWORD8;</p>
+<p class=secodelinesindented>&nbsp;</p>
+<p class=senormalpara>The ScriptEase version of <span class=secodephrase>Clib.fread()</span> differs from the standard C version in that the standard C library is set up for reading arrays of numeric values or structures into consecutive bytes in memory. In JavaScript, this is not necessarily the case.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>Data types will be read from the file in a byteorder described by the current value of the _BigEndianMode global variable.</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>see:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara><span class=sejumptopic><a href="TH_502.htm">Clib.fopen()</a></span>, <span class=sejumptopic><a href="TH_518.htm">Clib.fwrite()</a></span></p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>example:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=secodelines>//&nbsp;To&nbsp;read&nbsp;the&nbsp;16&#63;bit&nbsp;integer&nbsp;"i",</p>
+<p class=secodelines>//&nbsp;the&nbsp;32&#63;bit&nbsp;float&nbsp;"f",&nbsp;and</p>
+<p class=secodelines>//&nbsp;then&nbsp;10&nbsp;byte&nbsp;buffer&nbsp;"buf"</p>
+<p class=secodelines>//&nbsp;from&nbsp;the&nbsp;open&nbsp;file&nbsp;"fp"</p>
+<p class=secodelines>//&nbsp;use&nbsp;code&nbsp;like&nbsp;the&nbsp;following.</p>
+<p class=secodelines>&nbsp;</p>
+<p class=secodelines>if&nbsp;(&nbsp;!Clib.fread(i,SWORD16,fp)&nbsp;||</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;!Clib.fread(f,FLOAT32,fp)&nbsp;||</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(10&nbsp;!=&nbsp;Clib.fread(buf,10,fp))&nbsp;)</p>
+<p class=secodelines>{</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;Clib.printf("Error&nbsp;reading&nbsp;from&nbsp;file.\n");&nbsp;</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;Clib.abort();&nbsp;</p>
+<p class=secodelines>}</p></td>
+</tr>
+</table>
+<p class=normal>&nbsp;</p>
+<hr noshade size=1>
+<p class=normal><a href="TH_513.htm"><img src="button.png" border=0></a><a href="TH_513.htm" style="text-decoration:none;">Clib.freopen()</a></p>
+<p>
+</body>
+</html>

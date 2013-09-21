@@ -1,0 +1,84 @@
+<html>
+<head>
+<title>RegExp()</title>
+<link rel="stylesheet" href="semanualstyles.css" type="text/css">
+<style type="text/css">
+ p { margin-top: 0; margin-bottom: 0; }
+</style>
+<script language="JavaScript" src="TrueHelp.js"></script>
+</head>
+<body onload="thload()">
+<div id=ienav>
+<ilayer id=nsnav>
+<br>
+<center>
+<p class=normal><a href="seisdkj-toc.htm" target="left">contents</a> &nbsp; <a href="seisdkj-index.htm" target="left">index</a> &nbsp; <a href="TH_800.htm">previous</a> &nbsp; <a href="TH_802.htm">next</a></p>
+</center>
+<br>
+<hr noshade size=1>
+</ilayer>
+</div>
+<p class=sereffunclevel4>RegExp()</p>
+<table cellpadding=0>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>syntax:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=sesyntax>new&nbsp;RegExp([pattern[,&nbsp;attributes]])</p></td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>where:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>pattern - a string containing a regular expression pattern to use with this <span class=sepopuptopic><a href="TH_777.htm" onClick="return thwindow('TH_777.htm', 'GenPopup')">RegExp object</a></span>.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>attributes - a string with the attributes for this RegExp object.</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>return:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>object - a new regular expression object, or <span class=secodephrase>null</span> on error.</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>description:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>Creates a new regular expression object using the search pattern and options if they are specified.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>If the attributes string is passed, it must contain one or more of the following characters or be an empty string <span class=secodephrase>""</span>:</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=normal><span class=secodephrase>i</span> - sets the ignoreCase property to <span class=secodephrase>true</span></p>
+<p class=normal><span class=secodephrase>g</span> - sets the global property to <span class=secodephrase>true</span></p>
+<p class=senormalpara><span class=secodephrase>m</span> - set the multiline property to <span class=secodephrase>true</span></p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>see:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara><span class=sejumptopic><a href="TH_778.htm">Regular expression syntax</a></span>, <span class=sejumptopic><a href="TH_860.htm">String match()</a></span>, <span class=sejumptopic><a href="TH_861.htm">String replace()</a></span>, <span class=sejumptopic><a href="TH_862.htm">String search()</a></span></p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>example:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=secodelines>//&nbsp;no&nbsp;options</p>
+<p class=secodelines>var&nbsp;regobj&nbsp;=&nbsp;new&nbsp;RegExp(&nbsp;"r*t",&nbsp;""&nbsp;);</p>
+<p class=secodelines>//&nbsp;ignore&nbsp;case</p>
+<p class=secodelines>var&nbsp;regobj&nbsp;=&nbsp;new&nbsp;RegExp(&nbsp;"r*t",&nbsp;"i"&nbsp;);</p>
+<p class=secodelines>//&nbsp;global&nbsp;search</p>
+<p class=secodelines>var&nbsp;regobj&nbsp;=&nbsp;new&nbsp;RegExp(&nbsp;"r*t",&nbsp;"g"&nbsp;);</p>
+<p class=secodelines>//&nbsp;set&nbsp;both&nbsp;to&nbsp;be&nbsp;true</p>
+<p class=secodelines>var&nbsp;regobj&nbsp;=&nbsp;new&nbsp;RegExp(&nbsp;"r*t",&nbsp;"ig"&nbsp;);</p></td>
+</tr>
+</table>
+<p class=normal>&nbsp;</p>
+<hr noshade size=1>
+<p class=normal><a href="TH_802.htm"><img src="button.png" border=0></a><a href="TH_802.htm" style="text-decoration:none;">RegExp compile()</a></p>
+<p>
+</body>
+</html>

@@ -1,0 +1,107 @@
+<html>
+<head>
+<title>String replace()</title>
+<link rel="stylesheet" href="semanualstyles.css" type="text/css">
+<style type="text/css">
+ p { margin-top: 0; margin-bottom: 0; }
+</style>
+<script language="JavaScript" src="TrueHelp.js"></script>
+</head>
+<body onload="thload()">
+<div id=ienav>
+<ilayer id=nsnav>
+<br>
+<center>
+<p class=normal><a href="seisdkj-toc.htm" target="left">contents</a> &nbsp; <a href="seisdkj-index.htm" target="left">index</a> &nbsp; <a href="TH_860.htm">previous</a> &nbsp; <a href="TH_862.htm">next</a></p>
+</center>
+<br>
+<hr noshade size=1>
+</ilayer>
+</div>
+<p class=sereffunclevel4>String replace()</p>
+<table cellpadding=0>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>syntax:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=sesyntax>string.replace(<span class=truehelp-xe></span>pattern,&nbsp;replexp)</p></td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>where:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>pattern - a regular expression pattern to find or match in string.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>replexp - a replacement expression which may be a string, a string with regular expression elements, or a function.</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>return:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>string - the original string with replacements in it made according to pattern and replexp.</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>description:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>This string is searched using the regular expression pattern defined by pattern. If a match is found, it is replaced by the substring defined by replexp. The parameter replexp may be a:</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=normal>&#8226;	a simple string</p>
+<p class=normal>&#8226;	a string with special regular expression replacement elements in it</p>
+<p class=senormalpara>&#8226;	a function that returns a value that may be converted into a string</p>
+<p class=senormalpara>If any replacements are done, appropriate RegExp object static properties, such as RegExp.leftContext, RegExp.rightContext, RegExp.$n, and so forth are set, providing more information about the replacements.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>The special characters that may be in a replacement expression are (see regular expression replacement characters):</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=normal>&#8226;	<span class=secodephrase>$1, $2 ... $9</span><br>
+The text that is matched by regular expression patterns inside of parentheses. For example, $1 will put the text matched in the first parenthesized group in a regular expression pattern. See (...) under regular expression reference characters.</p>
+<p class=normal>&#8226;	<span class=secodephrase>$+</span><br>
+The text that is matched by the last regular expression pattern inside of the last parentheses, that is, the last group.</p>
+<p class=normal>&#8226;	<span class=secodephrase>$&amp;</span><br>
+The text that is matched by a regular expression pattern.</p>
+<p class=normal>&#8226;	<span class=secodephrase>$`</span><br>
+The text to the left of the text matched by a regular expression pattern.</p>
+<p class=normal>&#8226;	<span class=secodephrase>$'</span><br>
+The text to the right of the text matched by a regular expression pattern.</p>
+<p class=normal>&#8226;	<span class=secodephrase>\$</span><br>
+The dollar sign character.</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=normal>see:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara><span class=sejumptopic><a href="TH_860.htm">String match()</a></span>, <span class=sejumptopic><a href="TH_862.htm">String search()</a></span>, Regular expression replacement characters, RegExp object static properties</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>example:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=secodelines>var&nbsp;rtn;</p>
+<p class=secodelines>var&nbsp;str&nbsp;=&nbsp;"one&nbsp;two&nbsp;three&nbsp;two&nbsp;one";</p>
+<p class=secodelines>var&nbsp;pat&nbsp;=&nbsp;/(two)/g;</p>
+<p class=secodelines>&nbsp;</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;//&nbsp;rtn&nbsp;==&nbsp;"one&nbsp;zzz&nbsp;three&nbsp;zzz&nbsp;one"</p>
+<p class=secodelines>rtn&nbsp;=&nbsp;str.replace(pat,&nbsp;"zzz");</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;//&nbsp;rtn&nbsp;==&nbsp;"one&nbsp;twozzz&nbsp;three&nbsp;twozzz&nbsp;one";</p>
+<p class=secodelines>rtn&nbsp;=&nbsp;str.replace(pat,&nbsp;"$1zzz");</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;//&nbsp;rtn&nbsp;==&nbsp;"one&nbsp;5&nbsp;three&nbsp;5&nbsp;one"</p>
+<p class=secodelines>rtn&nbsp;=&nbsp;str.replace(pat,&nbsp;five());</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;//&nbsp;rtn&nbsp;==&nbsp;"one&nbsp;twotwo&nbsp;three&nbsp;twotwo&nbsp;one";</p>
+<p class=secodelines>rtn&nbsp;=&nbsp;str.replace(pat,&nbsp;"$&amp;$&amp;);</p>
+<p class=secodelines>&nbsp;</p>
+<p class=secodelines>function&nbsp;five()</p>
+<p class=secodelines>{</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;return&nbsp;5;</p>
+<p class=secodelines>}</p></td>
+</tr>
+</table>
+<p class=normal>&nbsp;</p>
+<hr noshade size=1>
+<p class=normal><a href="TH_862.htm"><img src="button.png" border=0></a><a href="TH_862.htm" style="text-decoration:none;">String search()</a></p>
+<p>
+</body>
+</html>

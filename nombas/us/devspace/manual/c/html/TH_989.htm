@@ -1,0 +1,73 @@
+<html>
+<head>
+<title>Unix.setsid()</title>
+<link rel="stylesheet" href="semanualstyles.css" type="text/css">
+<style type="text/css">
+ p { margin-top: 0; margin-bottom: 0; }
+</style>
+<script language="JavaScript" src="TrueHelp.js"></script>
+</head>
+<body onload="thload()">
+<div id=ienav>
+<ilayer id=nsnav>
+<br>
+<center>
+<p class=normal><a href="seisdkc-toc.htm" target="left">contents</a> &nbsp; <a href="seisdkc-index.htm" target="left">index</a> &nbsp; <a href="TH_988.htm">previous</a> &nbsp; <a href="TH_990.htm">next</a></p>
+</center>
+<br>
+<hr noshade size=1>
+</ilayer>
+</div>
+<p class=sereffunclevel4>Unix.setsid()</p>
+<table cellpadding=0>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>syntax:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=sesyntax>Unix.setsid()<span class=truehelp-xe></span></p></td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>return:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>number - 0 for success, -1 for error.</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>description:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>Creates a new session with no terminal, most useful for having commands that, when run, immediately have the terminal prompt reappear, but continue to run in the background.</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>see:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara><span class=sejumptopic><a href="TH_986.htm">Unix.fork()</a></span></p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>example:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=secodelines>//&nbsp;A&nbsp;typical&nbsp;daemon&nbsp;program&nbsp;has&nbsp;a&nbsp;line&nbsp;like&nbsp;this:</p>
+<p class=secodelines>&nbsp;</p>
+<p class=secodelines>#if&nbsp;defined(_UNIX_)</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;Unix.setsid();&nbsp;if(&nbsp;Unix.fork()&nbsp;)&nbsp;Clib.exit(0);</p>
+<p class=secodelines>#endif</p>
+<p class=secodelines>&nbsp;</p>
+<p class=secodelines>//&nbsp;which&nbsp;detaches&nbsp;the&nbsp;program&nbsp;from&nbsp;the&nbsp;terminal&nbsp;and</p>
+<p class=secodelines>//&nbsp;continues.&nbsp;Notice,&nbsp;this&nbsp;for&nbsp;line&nbsp;means&nbsp;that</p>
+<p class=secodelines>//&nbsp;only&nbsp;the&nbsp;child&nbsp;is&nbsp;running.&nbsp;Because&nbsp;the&nbsp;parent</p>
+<p class=secodelines>//&nbsp;has&nbsp;exited&nbsp;and&nbsp;the&nbsp;child&nbsp;does&nbsp;not&nbsp;have&nbsp;the</p>
+<p class=secodelines>//&nbsp;original&nbsp;file&nbsp;handles,&nbsp;the&nbsp;shell&nbsp;thinks</p>
+<p class=secodelines>//&nbsp;the&nbsp;program&nbsp;is&nbsp;done&nbsp;and&nbsp;goes&nbsp;back&nbsp;to&nbsp;the&nbsp;prompt.</p></td>
+</tr>
+</table>
+<p class=normal>&nbsp;</p>
+<hr noshade size=1>
+<p class=normal><a href="TH_990.htm"><img src="button.png" border=0></a><a href="TH_990.htm" style="text-decoration:none;">Unix.setuid()</a></p>
+<p>
+</body>
+</html>

@@ -1,0 +1,67 @@
+<html>
+<head>
+<title>Buffer unicode</title>
+<link rel="stylesheet" href="semanualstyles.css" type="text/css">
+<style type="text/css">
+ p { margin-top: 0; margin-bottom: 0; }
+</style>
+<script language="JavaScript" src="TrueHelp.js"></script>
+</head>
+<body onload="thload()">
+<div id=ienav>
+<ilayer id=nsnav>
+<br>
+<center>
+<p class=normal><a href="seisdkj-toc.htm" target="left">contents</a> &nbsp; <a href="seisdkj-index.htm" target="left">index</a> &nbsp; <a href="TH_449.htm">previous</a> &nbsp; <a href="TH_451.htm">next</a></p>
+</center>
+<br>
+<hr noshade size=1>
+</ilayer>
+</div>
+<p class=sereffunclevel4>Buffer unicode</p>
+<table cellpadding=0>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>syntax:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=sesyntax>buffer.unicode<span class=truehelp-xe></span></p></td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>description:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>This property is a boolean flag specifying whether to use unicode strings when calling <span class=sepopuptopic><a href="TH_454.htm" onClick="return thwindow('TH_454.htm', 'GenPopup')">Buffer getString()</a></span> and <span class=sepopuptopic><a href="TH_458.htm" onClick="return thwindow('TH_458.htm', 'GenPopup')">Buffer putString()</a></span>. This value is set when the buffer is created, but may be changed at any time. This property defaults to the unicode status of the underlying ScriptEase engine.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>When the Buffer toString() method is used with a Unicode buffer, an ASCII based string, of type string, is returned.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>The size of an Unicode buffer is usually twice the size of an ASCII based, or byte based, buffer. For example,</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=secodelinesindented>var&nbsp;b1&nbsp;=&nbsp;new&nbsp;Buffer("abc");</p>
+<p class=secodelinesindented>var&nbsp;b2&nbsp;=&nbsp;new&nbsp;Buffer("abc",&nbsp;true);</p>
+<p class=senormalpara>Result in the following:</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=secodelinesindented>b1.size&nbsp;==&nbsp;3</p>
+<p class=secodelinesindented>b2.size&nbsp;==&nbsp;6;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>see:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara><span class=sejumptopic><a href="TH_447.htm">Buffer bigEndian</a></span>, <span class=sejumptopic><a href="TH_453.htm">Buffer()</a></span></p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>example:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=secodelines>var&nbsp;b1&nbsp;=&nbsp;new&nbsp;Buffer("abc",&nbsp;true);</p>
+<p class=secodelines>//&nbsp;b1.unicode&nbsp;==&nbsp;true;</p></td>
+</tr>
+</table>
+<p class=normal>&nbsp;</p>
+<hr noshade size=1>
+<p class=normal><a href="TH_451.htm"><img src="button.png" border=0></a><a href="TH_451.htm" style="text-decoration:none;">Buffer[] Array</a></p>
+<p>
+</body>
+</html>

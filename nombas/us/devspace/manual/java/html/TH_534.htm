@@ -1,0 +1,115 @@
+<html>
+<head>
+<title>Clib.bsearch()</title>
+<link rel="stylesheet" href="semanualstyles.css" type="text/css">
+<style type="text/css">
+ p { margin-top: 0; margin-bottom: 0; }
+</style>
+<script language="JavaScript" src="TrueHelp.js"></script>
+</head>
+<body onload="thload()">
+<div id=ienav>
+<ilayer id=nsnav>
+<br>
+<center>
+<p class=normal><a href="seisdkj-toc.htm" target="left">contents</a> &nbsp; <a href="seisdkj-index.htm" target="left">index</a> &nbsp; <a href="TH_533.htm">previous</a> &nbsp; <a href="TH_535.htm">next</a></p>
+</center>
+<br>
+<hr noshade size=1>
+</ilayer>
+</div>
+<p class=sereffunclevel4>Clib.bsearch()</p>
+<table cellpadding=0>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>syntax:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=sesyntax>Clib.bsearch(<span class=truehelp-xe></span>key,&nbsp;array[,&nbsp;elementCount],</p>
+<p class=sesyntax>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;compareFunction)</p></td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>where:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>key - value for which to search.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>array - beginning of array to search.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>elementCount - number of elements to search. Default is the entire array.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>compareFunction - function used to compare key with each element searched in the array.</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>return:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>value - the element in an array if found, else <span class=secodephrase>null</span> if not found.</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>description:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>This method looks for an array variable that matches the key, returning it if found and <span class=secodephrase>null</span> if not. It will only search through positive array members (array members with negative indices will be ignored). The compareFunction must receive the key variable as its first argument and a variable from the array as its second argument. If elementCount is not supplied then it will search the entire array. The elementCount is limited to 64K for 16-bit version of ScriptEase.</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>see:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara><span class=sejumptopic><a href="TH_535.htm">Clib.qsort()</a></span></p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>example:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=secodelines>//&nbsp;This&nbsp;example&nbsp;creates&nbsp;a&nbsp;two&nbsp;dimensional&nbsp;array</p>
+<p class=secodelines>//&nbsp;that&nbsp;pairs&nbsp;a&nbsp;name&nbsp;with&nbsp;a&nbsp;favorite&nbsp;food.</p>
+<p class=secodelines>//&nbsp;A&nbsp;name&nbsp;is&nbsp;searched&nbsp;for.&nbsp;The&nbsp;name&nbsp;and&nbsp;paired</p>
+<p class=secodelines>//&nbsp;food&nbsp;is&nbsp;displayed.</p>
+<p class=secodelines>&nbsp;</p>
+<p class=secodelines>var&nbsp;Found;</p>
+<p class=secodelines>var&nbsp;Key;</p>
+<p class=secodelines>var&nbsp;list;</p>
+<p class=secodelines>&nbsp;</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;//&nbsp;create&nbsp;array&nbsp;of&nbsp;names&nbsp;and&nbsp;favorite&nbsp;food</p>
+<p class=secodelines>var&nbsp;list&nbsp;=</p>
+<p class=secodelines>{</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;{"Marge",&nbsp;&nbsp;&nbsp;&nbsp;"salad"},</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;{"Lisa",&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"tofu"},</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;{"Homer",&nbsp;&nbsp;&nbsp;&nbsp;"sugar"},</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;{"Bart",&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"anything"},</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;{"Itchy",&nbsp;&nbsp;&nbsp;&nbsp;"cats"},</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;{"Scratchy",&nbsp;"anything&nbsp;from&nbsp;the&nbsp;garbage"}</p>
+<p class=secodelines>};</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;//&nbsp;sort&nbsp;the&nbsp;list</p>
+<p class=secodelines>Clib.qsort(list,&nbsp;ListCompareFunction);</p>
+<p class=secodelines>&nbsp;</p>
+<p class=secodelines>Key[0]&nbsp;=&nbsp;"marge";</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;//&nbsp;search&nbsp;for&nbsp;the&nbsp;name&nbsp;Marge&nbsp;in&nbsp;the&nbsp;list</p>
+<p class=secodelines>Found&nbsp;=&nbsp;Clib.bsearch(Key,&nbsp;list,&nbsp;ListCompareFunction);</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;//&nbsp;display&nbsp;name,&nbsp;or&nbsp;not&nbsp;found</p>
+<p class=secodelines>&nbsp;</p>
+<p class=secodelines>if&nbsp;(Found&nbsp;!=&nbsp;null)</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;Clib.printf("%s's&nbsp;favorite&nbsp;food&nbsp;is&nbsp;%s\n",</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Found[0],&nbsp;Found[1])</p>
+<p class=secodelines>else</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;Clib.puts("Could&nbsp;not&nbsp;find&nbsp;name&nbsp;in&nbsp;list.");</p>
+<p class=secodelines>&nbsp;</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;//&nbsp;This&nbsp;compare&nbsp;function&nbsp;is&nbsp;used&nbsp;to&nbsp;sort</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;//&nbsp;the&nbsp;array&nbsp;and&nbsp;to&nbsp;find&nbsp;a&nbsp;name.</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;//&nbsp;The&nbsp;sort&nbsp;and&nbsp;search&nbsp;are&nbsp;case&nbsp;insensitive.</p>
+<p class=secodelines>function&nbsp;ListCompareFunction(Item1,&nbsp;Item2)</p>
+<p class=secodelines>{</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;return&nbsp;Clib.strcmpi(Item1[0],&nbsp;Item2[0]);</p>
+<p class=secodelines>}</p></td>
+</tr>
+</table>
+<p class=normal>&nbsp;</p>
+<hr noshade size=1>
+<p class=normal><a href="TH_535.htm"><img src="button.png" border=0></a><a href="TH_535.htm" style="text-decoration:none;">Clib.qsort()</a></p>
+<p>
+</body>
+</html>

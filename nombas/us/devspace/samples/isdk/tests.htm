@@ -1,0 +1,102 @@
+<HTML>
+ <HEAD>
+  <TITLE>Porting the Test Suite to Your System</TITLE>
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-1754630-10']);
+  _gaq.push(['_trackPageview']);
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+ </HEAD>
+ <BODY BACKGROUND="/us/devspace/pix/halfred.gif" BGCOLOR=#FFFFFF TEXT=#000000 LINK=#990000 VLINK=#990000 ALINK=#990000 TOPMARGIN="4"><link rel="STYLESHEET" type="text/css" href="/us/home.css">
+ <P>
+  <TABLE WIDTH=590 CELLPADDING=0 CELLSPACING=0 BORDER=0 HEIGHT="100%">
+   <TR>
+    <TD WIDTH=45 VALIGN=TOP><P ALIGN=CENTER>
+    <CENTER><IMG SRC="../../pix/banner.gif" ALIGN=BOTTOM WIDTH=40 HEIGHT=223 BORDER=0 VSPACE=4 HSPACE=0 LOOP="0"><BR>
+    <IMG SRC="../../pix/pixel.gif" ALIGN=BOTTOM WIDTH=45 HEIGHT=1 BORDER=0 VSPACE=4 HSPACE=0><BR>
+    <A HREF="/us/cgi-bin/sewse.exe/us/search/search.jse"><IMG SRC="../../pix/search.gif" ALT="Site Search" ALIGN=BOTTOM WIDTH=40 HEIGHT=29 BORDER=0 VSPACE=3 HSPACE=0 LOOP="0"></A><BR>
+    <A HREF="http://support.nombas.com/"><IMG SRC="../../pix/feedback.gif" ALT="Send Mail Feedback" ALIGN=BOTTOM WIDTH=40 HEIGHT=23 BORDER=0 VSPACE=3 HSPACE=0 LOOP="0"></A><BR>
+    <A HREF="/us/cgi-bin/sewse.exe/us/outline/outline.jse"><IMG SRC="../../pix/outline.gif" ALT="Site Outline" ALIGN=BOTTOM WIDTH=40 HEIGHT=40 BORDER=0 VSPACE=3 HSPACE=0 LOOP="0"></A><br>
+    <a target="support" href="http://support.nombas.com/"><IMG SRC="../../pix/support.gif" ALT="Site Support" ALIGN=BOTTOM WIDTH=32 HEIGHT=32 BORDER=0 VSPACE=3 HSPACE=0 LOOP="0"></A>
+</CENTER></P></TD>
+    <TD WIDTH=21 VALIGN=TOP><P>
+    <A NAME="topofpage"></A><IMG SRC="../../pix/pixel.gif" ALIGN=BOTTOM WIDTH=21 HEIGHT=1 BORDER=0 VSPACE=0 HSPACE=0></TD>
+    <TD ROWSPAN=2 WIDTH=524 VALIGN=TOP><P>
+     <TABLE WIDTH=524 CELLPADDING=0 CELLSPACING=0 BORDER=0>
+      <TR>
+       <TD WIDTH=394 BGCOLOR=#CCCCCC VALIGN=CENTER><P>
+       <FONT FACE="Arial,Helvetica,Monaco"><FONT SIZE=2>&nbsp;<A HREF="/us/devspace/index.htm">ISDK&nbsp;Support</A>
+ &#151; <A HREF="/us/devspace/samples/index.htm">Samples</A>
+ &#151; <A HREF="/us/devspace/samples/isdk/index.htm">Isdk</A></FONT></FONT></A></TD><TD
+        WIDTH=130 VALIGN=CENTER><P>
+       <A HREF="/us/index.htm"><FONT SIZE=1><IMG SRC="../../pix/tinylogo.gif" ALIGN=RIGHT WIDTH=90 HEIGHT=15 BORDER=0 VSPACE=0 HSPACE=0></FONT></A><HR ALIGN=LEFT WIDTH=36 SIZE=2></TD></TR>
+     </TABLE>
+    </P><P><!--END_HEADER-->
+      <H2>
+       Porting the Test Suite to your system</H2>
+      <P>
+       <U>&nbsp;</U><BR>
+       In order to compile any of the tests, you must first link them with a 
+       ScriptEase Interpreter Engine library file. The exact steps will vary 
+       with the compiler you are using. Your compiler choice and whether or 
+       not your target operating system supports DLLs will probably dictate 
+       your library file choice. For instance use the library file, 
+       sew32l.lib (located in the LIBS\WIN32\LIB\MSVC40 directory) if you 
+       are using Visual C++ on the Windows '95 platform and want to use a 
+       static library. There are also two directories of headers you need to 
+       make available to the compiler: \seisdk\incjse and \seisdk\srcmisc.<BR>
+       <BR>
+       The second step is to edit the jseopt.h file, which is included in 
+       all of the tests. The jseopt.h file is designed to allow you to 
+       configure the SE:ISDK to fit the particulars of your platform and 
+       specify the options you choose to use. There are two #defines you 
+       will need to configure in order to successfuly run the tests. The 
+       first is your target operating system, which takes the form <CODE>__JSE_XXXXX__</CODE> 
+       where <CODE>XXXXX</CODE> is the platform you are targeting. Refer to 
+       chapter 1 of the manual for a list of these #defines. The second 
+       #define will be one of the following: <CODE>__JSE_LIB__ </CODE>if you 
+       choose to use the static library version of the interpreter engine,<CODE> 
+       __JSE_DLLLOAD__ </CODE>if you choose the load-time DLL version, or <CODE>__JSE_DLLRUN__</CODE> 
+       if you choose the run-time DLL version.<BR>
+       <BR>
+       The third step is to edit the jsetest.c file, which is also included 
+       in all of the tests. The jsetest.c file holds all of the common code 
+       for the tests, which allows you to change the behavior of all the 
+       tests in one place. There are two specific functions which you may 
+       need to configure in order to suit your system:</P>
+      <UL>
+       <LI>
+       <P>
+        <b>Output</b> is handled in the <CODE>jseTestPrintf()</CODE> 
+        function. The default behavior of this function is print to standard 
+        output using printf(). If you wish to change the method for output, 
+        alter the body of this function in a way that suits your needs. If 
+        you do not want output, then take out the body of this function and 
+        leave it blank.<BR>
+        &nbsp;<BR>
+        <LI><b>Test failure</b> is handled in the <CODE>jseTestAssert()</CODE> 
+        function. The default behavior of a failed assert is print out an 
+        error message using <CODE>jseTestPrintf()</CODE> and then terminate 
+        the program with a call to <CODE>exit( EXIT_FAILURE );</CODE>. You 
+        should change the method of termination to work with your system.</P>
+       </UL>
+      <P>
+       Once you have configured the jseopt.h and jsetest.c files, you are 
+       all ready to run the tests. Just chose the test you wish to run and 
+       then compile and link it. The test will report success or failure 
+       depending on how you configured the jsetest.c file.</P>
+      <P>
+       &nbsp;<!--BEGIN_FOOTER--></TD>
+   </TR>
+   <TR>
+    <TD WIDTH=45 VALIGN=BOTTOM><P>
+    <A HREF="#topofpage"><IMG SRC="../../pix/top.gif" ALIGN=BOTTOM WIDTH=40 HEIGHT=27 BORDER=0 VSPACE=0 HSPACE=0></A></TD>
+    <TD WIDTH=21 VALIGN=CENTER>
+    </TD>
+   </TR>
+  </TABLE></BODY></HTML>

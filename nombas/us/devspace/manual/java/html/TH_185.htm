@@ -1,0 +1,39 @@
+<html>
+<head>
+<title>#if <constant expression>#elif <constant expression>#ifdef <name>#ifndef <name>#else#endif</title>
+<link rel="stylesheet" href="semanualstyles.css" type="text/css">
+<style type="text/css">
+ p { margin-top: 0; margin-bottom: 0; }
+</style>
+<script language="JavaScript" src="TrueHelp.js"></script>
+</head>
+<body onload="thload()">
+<div id=ienav>
+<ilayer id=nsnav>
+<br>
+<center>
+<p class=normal><a href="seisdkj-toc.htm" target="left">contents</a> &nbsp; <a href="seisdkj-index.htm" target="left">index</a> &nbsp; <a href="TH_184.htm">previous</a> &nbsp; <a href="TH_186.htm">next</a></p>
+</center>
+<br>
+<hr noshade size=1>
+</ilayer>
+</div>
+<p class=heading-4>#if &lt;constant expression&gt;<br>
+#elif &lt;constant expression&gt;<br>
+#ifdef &lt;name&gt;<br>
+#ifndef &lt;name&gt;<br>
+#else<br>
+#endif</p>
+<p class=senormalpara>These conditional compilation preprocessor commands are used to include/exclude text from the resulting .java file.  The if command includes or excludes text based on a constant expression, which is subject to macro expansion.  If the constant expression is true, then the all of the text following the <span class=secodephrase>#if</span> up to the next <span class=secodephrase>#endif</span> is included in the output file.   If the expression is false, the text following the #if is ignored.  The <span class=secodephrase>#else</span> and <span class=secodephrase>#elif</span> commands must follow an #if command and are only evaluated if the corresponding #if expression is false.  The <span class=secodephrase>#if</span> , <span class=secodephrase>#else</span>, and <span class=secodephrase>#elif</span> commands work together like the Java <span class=secodephrase>if</span>, <span class=secodephrase>else</span>, and <span class=secodephrase>else if</span> statements.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>The <span class=secodephrase>defined</span> operator is available for use in <span class=secodephrase>#if</span> and <span class=secodephrase>#elif </span>statements.  This operator results in 1 if the specified name is defined as a preprocessor macro, 0 otherwise.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>The <span class=secodephrase>#ifdef</span> command includes text if the specified macro has been defined and excludes text if the macro has not been defined.  The <span class=secodephrase>#ifndef </span>command is the inverse of the <span class=secodephrase>#ifdef</span> command.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>The <span class=secodephrase>#endif</span> command is used by all of the other conditional compilation commands to determine where to stop including/excluding text.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<hr noshade size=1>
+<p class=normal><a href="TH_186.htm"><img src="button.png" border=0></a><a href="TH_186.htm" style="text-decoration:none;">#error <message></a></p>
+<p>
+</body>
+</html>

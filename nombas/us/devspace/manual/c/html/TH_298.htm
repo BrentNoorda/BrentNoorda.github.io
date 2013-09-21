@@ -1,0 +1,50 @@
+<html>
+<head>
+<title>sedatatype</title>
+<link rel="stylesheet" href="semanualstyles.css" type="text/css">
+<style type="text/css">
+ p { margin-top: 0; margin-bottom: 0; }
+</style>
+<script language="JavaScript" src="TrueHelp.js"></script>
+</head>
+<body onload="thload()">
+<div id=ienav>
+<ilayer id=nsnav>
+<br>
+<center>
+<p class=normal><a href="seisdkc-toc.htm" target="left">contents</a> &nbsp; <a href="seisdkc-index.htm" target="left">index</a> &nbsp; <a href="TH_297.htm">previous</a> &nbsp; <a href="TH_299.htm">next</a></p>
+</center>
+<br>
+<hr noshade size=1>
+</ilayer>
+</div>
+<p class=heading-2>sedatatype</p>
+<p class=heading-2-p>&nbsp;</p>
+<p class=senormalpara>Represents the possible datatypes a ScriptEase variable can have. The following are the possible values for a variable of type <span class=secodephrase>sedatatype</span>:</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=list-bullet>&#8226;</p><p class=list-bullet-tab1><span class=secodephrase>SE_UNDEFINED</span></p>
+<p class=senormalpara>The value is the undefined value which is a particular value in JavaScript. The JavaScript expression <span class=secodephrase>void 0</span> generates an undefined value. Variables created with the <span class=secodephrase>var</span> statement but not yet assigned any value likewise are of the undefined value.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=list-bullet>&#8226;</p><p class=list-bullet-tab1><span class=secodephrase>SE_NULL</span></p>
+<p class=senormalpara>The value is the JavaScript <span class=secodephrase>null</span> value.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=list-bullet>&#8226;</p><p class=list-bullet-tab1><span class=secodephrase>SE_BOOL</span></p>
+<p class=senormalpara>The value is a boolean, either <span class=secodephrase>true</span> or <span class=secodephrase>false,</span> and maps to the ScriptEase C <span class=secodephrase>sebool</span> typedef described below.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=list-bullet>&#8226;</p><p class=list-bullet-tab1><span class=secodephrase>SE_NUMBER</span></p>
+<p class=senormalpara>ScriptEase can be built with floating point enabled or disabled. If it is disabled, ScriptEase numbers are integers only, otherwise they are floating point number. The ScriptEase typedef <span class=secodephrase>senumber</span> is used to hold the value as described below.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=list-bullet>&#8226;</p><p class=list-bullet-tab1><span class=secodephrase>SE_STRING</span></p>
+<p class=senormalpara>The value is a string and maps to the <span class=secodephrase>secharptr</span> typedef described below.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=list-bullet>&#8226;</p><p class=list-bullet-tab1><span class=secodephrase>SE_BUFFER</span></p>
+<p class=senormalpara>The value is a buffer, a special ScriptEase array of bytes. It maps to <span class=secodephrase>ubyte *</span>.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=list-bullet>&#8226;</p><p class=list-bullet-tab1><span class=secodephrase>SE_OBJECT</span></p>
+<p class=senormalpara>The value is an object. ScriptEase objects are identified by the <span class=secodephrase>seobject</span> typedef handle.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<hr noshade size=1>
+<p class=normal><a href="TH_299.htm"><img src="button.png" border=0></a><a href="TH_299.htm" style="text-decoration:none;">sebool</a></p>
+<p>
+</body>
+</html>

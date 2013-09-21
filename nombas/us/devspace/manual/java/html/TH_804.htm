@@ -1,0 +1,78 @@
+<html>
+<head>
+<title>RegExp test()</title>
+<link rel="stylesheet" href="semanualstyles.css" type="text/css">
+<style type="text/css">
+ p { margin-top: 0; margin-bottom: 0; }
+</style>
+<script language="JavaScript" src="TrueHelp.js"></script>
+</head>
+<body onload="thload()">
+<div id=ienav>
+<ilayer id=nsnav>
+<br>
+<center>
+<p class=normal><a href="seisdkj-toc.htm" target="left">contents</a> &nbsp; <a href="seisdkj-index.htm" target="left">index</a> &nbsp; <a href="TH_803.htm">previous</a> &nbsp; <a href="TH_805.htm">next</a></p>
+</center>
+<br>
+<hr noshade size=1>
+</ilayer>
+</div>
+<p class=sereffunclevel4>RegExp test()</p>
+<table cellpadding=0>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>syntax:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=sesyntax>regexp.test([<span class=truehelp-xe></span>str])</p></td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>where:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>str - a string on which to perform a regular expression match. Default is <span class=secodephrase>RegExp.input</span>.</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>return:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>boolean - <span class=secodephrase>true</span> if there is a match, else <span class=secodephrase>false</span>.</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>description:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>Tests a string to see if there is a match for a regular expression pattern.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>This method is equivalent to <span class=secodephrase>regexp.exec(string)!=null</span>.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>If there is a match, appropriate <span class=sepopuptopic><a href="TH_805.htm" onClick="return thwindow('TH_805.htm', 'GenPopup')">RegExp object static properties</a></span>, such as <span class=sepopuptopic><a href="TH_810.htm" onClick="return thwindow('TH_810.htm', 'GenPopup')">RegExp.leftContext</a></span>, <span class=sepopuptopic><a href="TH_811.htm" onClick="return thwindow('TH_811.htm', 'GenPopup')">RegExp.rightContext</a></span>, <span class=sepopuptopic><a href="TH_806.htm" onClick="return thwindow('TH_806.htm', 'GenPopup')">RegExp.$n</a></span>, and so forth, are set, providing more information about the matches.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>Though it is unusual, <span class=secodephrase>test()</span> may be used in a special way when the global attribute, "g", is set for a regular expression pattern. Like with <span class=sepopuptopic><a href="TH_803.htm" onClick="return thwindow('TH_803.htm', 'GenPopup')">RegExp exec()</a></span>, when a match is found, the <span class=secodephrase>lastIndex</span> property is set to the character position after the text match. Thus, <span class=secodephrase>test()</span> may be used repeatedly on a string, though there are few reasons to do so. One reason would be if you only wanted to know if a string had more than one match.</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>see:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara><span class=sejumptopic><a href="TH_803.htm">RegExp exec()</a></span>, <span class=sejumptopic><a href="TH_860.htm">String match()</a></span>, <span class=sejumptopic><a href="TH_862.htm">String search()</a></span></p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>example:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=secodelines>var&nbsp;rtn;</p>
+<p class=secodelines>var&nbsp;str&nbsp;=&nbsp;"one&nbsp;two&nbsp;three&nbsp;tio&nbsp;one";</p>
+<p class=secodelines>var&nbsp;pat&nbsp;=&nbsp;/t.o/;</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;//&nbsp;rtn&nbsp;==&nbsp;true</p>
+<p class=secodelines>rtn&nbsp;=&nbsp;pat.test(str);</p></td>
+</tr>
+</table>
+<hr noshade size=1>
+<p class=normal><a href="TH_805.htm"><img src="button.png" border=0></a><a href="TH_805.htm" style="text-decoration:none;">RegExp object static properties</a></p>
+<p>
+</body>
+</html>

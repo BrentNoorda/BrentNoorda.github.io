@@ -1,0 +1,84 @@
+<html>
+<head>
+<title>global.getArrayLength()</title>
+<link rel="stylesheet" href="semanualstyles.css" type="text/css">
+<style type="text/css">
+ p { margin-top: 0; margin-bottom: 0; }
+</style>
+<script language="JavaScript" src="TrueHelp.js"></script>
+</head>
+<body onload="thload()">
+<div id=ienav>
+<ilayer id=nsnav>
+<br>
+<center>
+<p class=normal><a href="seisdkc-toc.htm" target="left">contents</a> &nbsp; <a href="seisdkc-index.htm" target="left">index</a> &nbsp; <a href="TH_820.htm">previous</a> &nbsp; <a href="TH_822.htm">next</a></p>
+</center>
+<br>
+<hr noshade size=1>
+</ilayer>
+</div>
+<p class=sereffunclevel4>global.getArrayLength()</p>
+<table cellpadding=0>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>syntax:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=sesyntax>getArrayLength(<span class=truehelp-xe></span>array[,&nbsp;minIndex])</p></td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>where:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>array - an automatic array.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>minIndex - the minimum index to use.</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>return:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>number - the length of an array.</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>description:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>This function should be used with dynamically created arrays, that is, with arrays that were <b>not</b> created using the <span class=secodephrase>new </span><span class=sepopuptopic><a href="TH_533.htm" onClick="return thwindow('TH_533.htm', 'GenPopup')">Array()</a></span> operator and constructor. When working with arrays created using the <span class=secodephrase>new Array()</span> operator and constructor, use the <span class=secodephrase>length</span> property of the Array object. The <span class=secodephrase>length</span> property is not available for dynamically created arrays which must use the functions, <span class=secodephrase>global.getArrayLength()</span> and <span class=sepopuptopic><a href="TH_825.htm" onClick="return thwindow('TH_825.htm', 'GenPopup')">global.setArrayLength()</a></span>, when working with array lengths.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>The <span class=secodephrase>getArrayLength()</span> function returns the length of a dynamic array, which is one more than the highest index of an array, if the first element of the array is at index 0, which is most common. If the parameter minIndex is passed, then it is used to set to the minimum index, which will be zero or less. You can use this function to get the length of an array that was not created with the <span class=secodephrase>Array()</span> constructor function.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>This function and its counterpart, <span class=secodephrase>setArrayLength()</span>, are intended for use with dynamically created arrays, that is, arrays not created with the <span class=secodephrase>Array()</span> constructor function. Use the <span class=sepopuptopic><a href="TH_531.htm" onClick="return thwindow('TH_531.htm', 'GenPopup')">Array length</a></span> property to get the length of arrays created with the constructor function and not <span class=secodephrase>getArrayLength()</span>.</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>see:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara><span class=sejumptopic><a href="TH_825.htm">global.setArrayLength()</a></span>, <span class=sejumptopic><a href="TH_531.htm">Array length</a></span></p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>example:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=secodelines>&nbsp;&nbsp;&nbsp;//&nbsp;automatic&nbsp;object&nbsp;array</p>
+<p class=secodelines>var&nbsp;arr;</p>
+<p class=secodelines>arr[0]&nbsp;=&nbsp;"zero";</p>
+<p class=secodelines>arr[1]&nbsp;=&nbsp;1;</p>
+<p class=secodelines>arr[2]&nbsp;=&nbsp;2;</p>
+<p class=secodelines>Screen.writeln(getArrayLength(arr));&nbsp;&nbsp;&nbsp;//&nbsp;3</p>
+<p class=secodelines>&nbsp;</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;//&nbsp;JavaScript&nbsp;Array&nbsp;object</p>
+<p class=secodelines>var&nbsp;arr&nbsp;=&nbsp;["zero",&nbsp;1,&nbsp;2]</p>
+<p class=secodelines>Screen.writeln(arr.length);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//&nbsp;3</p></td>
+</tr>
+</table>
+<p class=normal>&nbsp;</p>
+<hr noshade size=1>
+<p class=normal><a href="TH_822.htm"><img src="button.png" border=0></a><a href="TH_822.htm" style="text-decoration:none;">global.getAttributes()</a></p>
+<p>
+</body>
+</html>

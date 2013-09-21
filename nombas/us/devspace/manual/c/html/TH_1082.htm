@@ -1,0 +1,66 @@
+<html>
+<head>
+<title>Cursor first()</title>
+<link rel="stylesheet" href="semanualstyles.css" type="text/css">
+<style type="text/css">
+ p { margin-top: 0; margin-bottom: 0; }
+</style>
+<script language="JavaScript" src="TrueHelp.js"></script>
+</head>
+<body onload="thload()">
+<div id=ienav>
+<ilayer id=nsnav>
+<br>
+<center>
+<p class=normal><a href="seisdkc-toc.htm" target="left">contents</a> &nbsp; <a href="seisdkc-index.htm" target="left">index</a> &nbsp; <a href="TH_1081.htm">previous</a> &nbsp; <a href="TH_1083.htm">next</a></p>
+</center>
+<br>
+<hr noshade size=1>
+</ilayer>
+</div>
+<p class=sereffunclevel4>Cursor first()</p>
+<table cellpadding=0>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>syntax:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=sesyntax>cursor.first()<span class=truehelp-xe></span></p></td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>return:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>boolean - <span class=secodephrase>false</span> if the cursor is empty or if cursor is forward-only cursor and the current row is not the first row, otherwise <span class=secodephrase>true</span>.</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>description:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>This method moves the current row to the first row in the Cursor and returns <span class=secodephrase>true</span> so long as there is a first row.  Note that if the cursor is empty, this method always returns <span class=secodephrase>false</span>. Also note that, if the cursor does not allow backwards movement of the current row, <span class=secodephrase>false</span> will be returned.</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>see:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara><span class=secodephrase>#link &lt;sedbc&gt;</span>, <span class=sejumptopic><a href="TH_1085.htm">Cursor next()</a></span>, <span class=sejumptopic><a href="TH_1086.htm">Cursor previous()</a></span>, <span class=sejumptopic><a href="TH_1084.htm">Cursor last()</a></span></p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>example:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=secodelines>//&nbsp;assume&nbsp;'database'&nbsp;is&nbsp;a&nbsp;valid&nbsp;Database&nbsp;object</p>
+<p class=secodelines>var&nbsp;curs&nbsp;=&nbsp;database.table("customer");</p>
+<p class=secodelines>&nbsp;</p>
+<p class=secodelines>//&nbsp;set&nbsp;the&nbsp;current&nbsp;row&nbsp;to&nbsp;the&nbsp;first&nbsp;row&nbsp;in&nbsp;the&nbsp;Cursor</p>
+<p class=secodelines>curs.first();</p></td>
+</tr>
+</table>
+<p class=normal>&nbsp;</p>
+<hr noshade size=1>
+<p class=normal><a href="TH_1083.htm"><img src="button.png" border=0></a><a href="TH_1083.htm" style="text-decoration:none;">Cursor insertRow()</a></p>
+<p>
+</body>
+</html>

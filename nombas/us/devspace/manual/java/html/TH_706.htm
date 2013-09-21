@@ -1,0 +1,70 @@
+<html>
+<head>
+<title>global.escape()</title>
+<link rel="stylesheet" href="semanualstyles.css" type="text/css">
+<style type="text/css">
+ p { margin-top: 0; margin-bottom: 0; }
+</style>
+<script language="JavaScript" src="TrueHelp.js"></script>
+</head>
+<body onload="thload()">
+<div id=ienav>
+<ilayer id=nsnav>
+<br>
+<center>
+<p class=normal><a href="seisdkj-toc.htm" target="left">contents</a> &nbsp; <a href="seisdkj-index.htm" target="left">index</a> &nbsp; <a href="TH_705.htm">previous</a> &nbsp; <a href="TH_707.htm">next</a></p>
+</center>
+<br>
+<hr noshade size=1>
+</ilayer>
+</div>
+<p class=sereffunclevel4>global.escape()</p>
+<table cellpadding=0>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>syntax:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=sesyntax>escape(<span class=truehelp-xe></span>str)</p></td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>where:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>str - with special characters that need to be handled specially, that is, escaped.</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>return:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>string - with special characters escaped or fixed so that the string may be used in special ways, such as being a URL.</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>description:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>The <span class=secodephrase>escape()</span> method receives a string and escapes the special characters so that the string may be used with a URL. This escaping conversion may be called encoding. All uppercase and lowercase letters, numbers, and the special symbols, @ * +  . /, remain in the string. All other characters are replaced by their respective unicode sequence, a hexadecimal escape sequence. This method is the reverse of <span class=sepopuptopic><a href="TH_728.htm" onClick="return thwindow('TH_728.htm', 'GenPopup')">global.unescape()</a></span>.</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>see:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara><span class=sejumptopic><a href="TH_728.htm">global.unescape()</a></span>, String escape()</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>example:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=secodelines>escape("Hello&nbsp;there!");</p>
+<p class=secodelines>//&nbsp;Returns&nbsp;"Hello%20there%21"</p></td>
+</tr>
+</table>
+<p class=normal>&nbsp;</p>
+<hr noshade size=1>
+<p class=normal><a href="TH_707.htm"><img src="button.png" border=0></a><a href="TH_707.htm" style="text-decoration:none;">global.eval()</a></p>
+<p>
+</body>
+</html>

@@ -1,0 +1,163 @@
+Program Archive Name: CEnvid.zip
+
+Program: CEnvi version 2.11 for DOS
+
+Short description:
+          CEnvi for DOS is a shareware C interpreter that doubles as a
+          batch enhancer or replacement.  CEnvi makes C as easy to use as
+          a batch language, but with much more power.
+
+Long description:
+          Cmm (C minus minus) is 'C' for the rest of us.  CEnvi runs Cmm
+          programs in the DOS, Windows, OS/2, NT, etc... environments.
+          Together, CEnvi and Cmm make the power and flexibility of the C
+          programming language part of every computer user's environment,
+          without the hardware, time, and programmer resources needed for
+          developing full-blown C programs.
+
+          With CEnvi and Cmm, anyone can take control of their computer
+          environment.  C is not just for programming nerds anymore.  CEnvi
+          utilites, macros, batch files, and scripts can quickly be
+          created, shared, and modified among all computer users,
+          professional and amateur alike.
+
+          CEnvi can be incorporated at a pace that is comfortable to you:
+          you may just want to use CEnvi code set up by a more experienced
+          user, you may want to enhance existing batch files with a line or
+          two of CEnvi code, or you may write complete utilities using
+          CEnvi.
+
+          150+ built-in functions or create your own. Interact with DOS
+          commands, interrupts, and environment variables. 50 sample
+          utilities are included to demonstrate Cmm programming, looping in
+          batch files, altering environment variables, user input, reading
+          time, sounds, setting ERRORLEVEL, file read/write, program
+          run-time scheduling, and much more.
+
+CEnvi source:
+          Nombas                       Internet: nombas@nombas.com
+          64 Salem Street              CompuServe: 72212,1622
+          MEDFORD MA 02155    USA      BBS:   (617)391-3718
+                                       Phone: (617)391-6595
+                                       Fax:   (617)391-3842
+
+************************* CENVID.ZIP FILE LIST *************************
+
+CENVID.ZIP, the Unregistered Shareware CEnvi package for DOS, contains the
+following files:
+
+*CENVI.EXE: CEnvi shareware executable for DOS, OS/2, or Windows.
+*CENVI.DOC: CEnvi Shareware Manual, Chapter 1: CEnvi Unregistered Shareware
+*CMMTUTOR.DOC: CEnvi Shareware Manual, Chapter 2: Cmm Language Tutorial
+*CMM_VS_C.DOC: CEnvi Shareware Manual, Chapter 3: Cmm versus C, for C
+  Programmers
+*CENVILIB.DOC: CEnvi Shareware Manual, Chapter 4: Function Library
+*LICENSE.DOC: CEnvi Unregistered Shareware License Agreement
+*README.DOC: Introductory file. Read this first for quick intallation.
+*REGISTER.DOC: CEnvi registration form
+*INSTALL.CMM: Cmm source file for installing this shareware version
+*AllDirs.bat: Perform a command in this directory and all
+  sub-directories
+*AllFiles.bat: Perform a command on all files matching a given
+  file specification
+*Ascii.bat: Display the ascii character table
+*BatLoops.bat: Examples of various methods CEnvi can use to
+  allow looping within batch files
+*BattMem.cmm: Show values stored in a PC's battery-protected
+  memory
+*CDfind.bat: Change to directory based on name search
+*CmdCount.bat: Repeat DOS command Count times
+*CmmEdit.cmm: VERY simple text editor; developed step-by-step
+  in the tutorial chapter of the CEnvi User Manual.
+*DelOld.bat: Delete files older than specified age
+*DelTree.bat: Delete a directory tree
+*DirDiff.cmm: Compare two directory listings for differences
+*DirStat.bat: Extract specific fields from a DOS "DIR" listing
+*DiskFree.bat: Display free space on a disk drive
+*DoList.cmm: Perform action on every element of a list
+*DosTime.bat: Show time according to computer's internal clock
+*EnviAsk.bat: Prompt and receive user input with many options
+*EnviAsks.bat: Many examples of user input using EnviAsk.bat
+  and GetUKey.cmm
+*EnvSort.bat: Sort environment variables alphabetically
+*ErrLev.bat: Execute a command and set the ERRLEV value as the
+  return code, which makes ERRORLEVEL a variable
+*Fibonacc.cmm: Two methods for generating the Fibonacci
+  sequence
+*FileFind.bat: Wildcard search for files on current drive or on
+  all drives
+*Find#.cmm: Extract a number from wordy output; used by
+  DirStat.bat
+*FloppyIn.bat: Check if a floppy is in drive A: or B:
+*FranTick.cmm: Animated tick who drank too much coffee
+*GetUKey.cmm: Display a choice prompt and then set an
+  environment variable based on user's selection
+*Hello.cmm: My first Cmm program. Used to begin the Cmm
+  tutorial.
+*HexDump.bat: Display hexadecimal dump of a file
+*Install.cmm: Install this version of CEnvi.
+*Int16.bat: Display key code from keyboard interrupt 16 hex
+*IsDay_1.bat: One method to check if it is a specific day of
+  the week
+*IsDay_2.bat: Another method to check if it's a specific day of
+  the week
+*IsItFri.bat: Is it Friday?
+*KbdBuf.bat: Alter the size of the keyboard buffer
+*KbdRate.bat: Alter the typematic rate of the keyboard
+*KeyCode.bat: Display keycode of any key pressed
+*KeyState.bat: Get or set the state of the NumLock, CapsLock,
+  or Insert keys
+*KeyStuff.bat: Stuff characters into the keyboard buffer
+*MemBlock.bat: Trace through DOS's allocated memory blocks
+*Message.bat: Display very important message in box on screen
+*Mouse.bat: Demonstrate reading a mouse's position and state
+*MultiDir.bat: DOS's "DIR" command allowing multiple file
+  specifications
+*NumLock.bat: Set the NumLock key on
+*OneADay.bat: Perform any command(s) no more than once per day
+*OptParms.lib: Library of routines for parsing the optional
+  parameters for executing a program. #included in other files
+*OS2Sessn.cmm: Execute sessions from DOS under OS/2
+*PathAdd.bat: Add a directory to your PATH environment
+  variable.
+*PathDel.bat: Remove a directory from your PATH environment
+  variable
+*PathStak.bat: Multi-level save or restore of current drive and
+  directory so that you can change drives and directories and
+  still return to this one
+*PathSubs.bat: Use DOS's SUBST command to shorten your PATH
+  environment variable so that more paths can be fit with DOS'
+  127-byte limit
+*Primes.bat: Demonstrate automatic array allocation for
+  calculating prime numbers
+*Print.cmm: Copy file to printer, treating printer as a file
+*PrmptDay.bat: Change command-line-prompt to display today's
+  date
+*Quote.bat: Choose a "profound" quote at random
+*REBOOT_1.BAT: One method to reboot your computer
+*REBOOT_2.BAT: Another method to reboot your computer
+*Redirect.bat: Demonstrate how to redirect standard output,
+  input, and errors while running any command
+*Restrict.cmm: Allow a limited subset of DOS commands
+*RunTime.bat: Rudimentary scheme for executing a command at a
+  certain time of day.
+*Scrandom.bat: Use Screen.lib to draw randomly colored squares
+  around the screen
+*Screen.lib: Library, #included in other files, for screen
+  output: colors, boxes, lines, etc...
+*ScrnSave.bat: Use Screen.lib to save screen to a file
+*SortLen.bat: Sort any file based on line length
+*Sound.bat: Play a frequency for a given time period
+*Tee.cmm: Save screen output to a file while it is being
+  displayed on the screen
+*ValidDir.bat: Verify if a directory is valid
+*VLabel.bat: Read or set disk volume label
+*Wait.bat: Pause and do not return for specified number of
+  seconds
+*Which.bat: Find in PATH which command is executed
+*WinClip.cmm: Utility to access Windows clipboard from DOS
+*WinClib.lib: Function to access Windows clipboard from DOS
+*WinIni.lib: Modify Windows INI files from plain DOS
+*WinShell.bat: Start windows with a specific shell.  Run
+  Windows for a single program.
+

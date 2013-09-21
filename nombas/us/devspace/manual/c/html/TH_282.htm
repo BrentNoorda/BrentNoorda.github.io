@@ -1,0 +1,415 @@
+<html>
+<head>
+<title>DYNAMIC OBJECTS</title>
+<link rel="stylesheet" href="semanualstyles.css" type="text/css">
+<style type="text/css">
+ p { margin-top: 0; margin-bottom: 0; }
+</style>
+<script language="JavaScript" src="TrueHelp.js"></script>
+</head>
+<body onload="thload()">
+<div id=ienav>
+<ilayer id=nsnav>
+<br>
+<center>
+<p class=normal><a href="seisdkc-toc.htm" target="left">contents</a> &nbsp; <a href="seisdkc-index.htm" target="left">index</a> &nbsp; <a href="TH_281.htm">previous</a> &nbsp; <a href="TH_283.htm">next</a></p>
+</center>
+<br>
+<hr noshade size=1>
+</ilayer>
+</div>
+<p class=heading-2>DYNAMIC OBJECTS</p>
+<p class=heading-2-p>&nbsp;</p>
+<p class=senormalpara>We've seen how to make class objects constructors and prototype functions. However, it is often desirable to produce objects that are more flexible than a standard object. You may want to map an object to a real entity in your application and have changes to it immediately reflected. For instance, you might want to map an object to your display screen such that when a user writes:</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=secodelinesindented>displayObj.background&nbsp;=&nbsp;BLUE;</p>
+<p class=secodelinesindented>&nbsp;</p>
+<p class=senormalpara>Your screen changes to the color blue. You do this using dynamic objects. While dynamic objects are most often used to make flexible class members, any object can be dynamic not just members of a class.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>Very often you will want to associate one or more C or C++ pointer directly with your object, so that when your wrapper function retrieve that object that can also retrieve the C/C++ pointer.  Using seGetPointer() and sePutPointer() along with SE_HIDDEN_MEM or SE_HIDDEN_UNIMEM or with an <span class=sepopuptopic><a href="TH_17.htm" onClick="return thwindow('TH_17.htm', 'GenPopup')">seInternalizeStringHidden</a></span> property, is an excellent way to keep the data on your C/C++ side safe from the script code and always associated with the proper objects.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>ScriptEase allows you to implement a table of callback functions that you associate with your object using the <span class=sepopuptopic><a href="TH_64.htm" onClick="return thwindow('TH_64.htm', 'GenPopup')">seSetCallbacks</a></span> API function. Normally you do this in your constructor when initializing an object of your class. This table has callbacks for all the object manipulation tasks such as getting a member, putting a value to a member, deleting a member, etc.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>Your callbacks will override the normal behavior for the object. To implement the above example, you would override the <span class=secodephrase>put</span> behavior of the <span class=secodephrase>displayObj</span> object. Your code would check for your special property <span class=secodephrase>background</span> and changing the screen color to match the color being put to that member. You can override only some of the behaviors by leaving the others you are not interested in as <span class=secodephrase>NULL</span> in the table.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>Here is a list of the functions in the table. The function prototypes are given for the various functions, when they are called, and what their parameters and return mean. When implementing any of these functions for your own object, remember that <span class=secodephrase>SE_THIS</span> refers to the object being manipulated.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>&nbsp;</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>&nbsp;</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;SE_CALLBACK(&nbsp;sebool&nbsp;)</p>
+<p class=secodelines>get(secontext&nbsp;se,sestring&nbsp;prop,sebool&nbsp;call_hint);</p>
+<p class=secodelines>&nbsp;</p>
+<p class=senormalpara>The <span class=secodephrase>get</span> callback is used when a member's value is being accessed. It is also used when trying to determine if an object has a property if you have not declared <span class=secodephrase>hasProp</span> (see below). Declaring <span class=secodephrase>hasProp</span> is the preferred method.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>The <span class=secodephrase>prop</span> parameter, a parameter to most of these dynamic callback functions, indicates which member of the <span class=secodephrase>SE_THIS</span> object is to be accessed. Normally, you use <span class=sepopuptopic><a href="TH_16.htm" onClick="return thwindow('TH_16.htm', 'GenPopup')">seInternalizeString</a></span> at the beginning of your program to internalize your special properties, then you can compare them with the property being accessed  using a single pointer comparison. The alternative is to turn <span class=secodephrase>prop</span> into a string using <span class=sepopuptopic><a href="TH_20.htm" onClick="return thwindow('TH_20.htm', 'GenPopup')">seGetInternalString</a></span> then compare with a <span class=secodephrase>strcmp_sechar</span>, but this is a lot of work and must be done on each get operation.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara><span class=secodephrase>call_hint</span> is a boolean indicating if ScriptEase believes the returned value is going to be used as a function to call. This would be the difference between:</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=secodelinesindented>a&nbsp;=&nbsp;yourobj.foo;&nbsp;/*&nbsp;call_hint==<span class=secodephrase>FALSE&nbsp;*/</span></p>
+<p class=secodelinesindented>&nbsp;</p>
+<p class=senormalpara>and</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=secodelinesindented>a&nbsp;=&nbsp;yourobj.foo();&nbsp;/*&nbsp;call_hint==<span class=secodephrase>TRUE&nbsp;*/</span></p>
+<p class=secodelinesindented>&nbsp;</p>
+<p class=senormalpara>Knowing this information is useful in certain dynamic objects in which a property and a method require different setup routines, such as COM.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>Once you've decided what value the dynamic property should have, you return it using the usual <span class=secodephrase>SE_RETURN</span> object and return <span class=secodephrase>TRUE</span> from the function. If you've decided the property is not one you are interested in, return <span class=secodephrase>FALSE</span>. ScriptEase will act just as if the dynamic callback did not exist in this case, looking up the property in its internal storage for the object.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>Note that you can access the internal storage of the object within your dynamic callback implementation. You should use the <span class=secodephrase>Direct</span> versions of the <span class=secodephrase>seGetXXX</span> and <span class=secodephrase>sePutXXX</span> API calls in order to bypass your dynamic properties. If you use the non-<span class=secodephrase>Direct</span> versions, the internal storage will be used for your object but only for gets. This is because a particular callback for an object is shut off inside that callback, to prevent infinite recursion. However, only that one callback is shut off. If you use the object in a way that uses another callback, ScriptEase will use that callback. On rare occasions, you want that behavior. Most of the time, however, the implementation of a dynamic callback will want to directly access the members of its object. It is usually much clearer and quicker to just use the <span class=secodephrase>Direct</span> versions of all ScriptEase API calls while implementing a dynamic callback.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>&nbsp;</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>&nbsp;</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;SE_CALLBACK(&nbsp;sebool&nbsp;)</p>
+<p class=secodelines>put(secontext&nbsp;se,sestring&nbsp;prop);</p>
+<p class=secodelines>&nbsp;</p>
+<p class=senormalpara>This callback is used whenever any of the object&#8217;s members is being put to. Like the <span class=secodephrase>get</span> callback, the parameter <span class=secodephrase>prop</span> indicates the property being updated. The value being put to that property is the first (and only) parameter to the callback, <span class=secodephrase>SE_ARGS,SE_NUM(0)</span>. Also like <span class=secodephrase>get</span>, you return <span class=secodephrase>TRUE</span> if you've handled the put operation and <span class=secodephrase>FALSE </span>if you still want ScriptEase to update its internal storage for the object in the regular way.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>Like the other dynamic callbacks, the <span class=secodephrase>put</span> callback for your object is turned off while inside of it. However, it is usually better to make this behavior irrelevent by always using the <span class=secodephrase>Direct</span> versions of the ScriptEase API calls inside a dynamic callback.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>&nbsp;</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>&nbsp;</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;SE_CALLBACK(&nbsp;int&nbsp;)</p>
+<p class=secodelines>hasProp(secontext&nbsp;se,sestring&nbsp;prop);</p>
+<p class=secodelines>&nbsp;</p>
+<p class=senormalpara>This callback is used when searching for a variable. ScriptEase maintains an internal list of objects to search when resolving a variable reference. This list is called the scope chain and is described fully in the Execution chapter. This list usually consists of the Activation Object, where local variables are stored, followed by the Global Object. It is easy to add objects to the list by using the <span class=secodephrase>with</span> statement. If your object is on this list, this callback will be used to determine if your object contains any property being searched for.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>The return value can one of the following:</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=secodelinesindented>HP_HAS</p>
+<p class=secodelinesindented>&nbsp;</p>
+<p class=senormalpara>The object has the property.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=secodelinesindented>HP_HASNOT</p>
+<p class=secodelinesindented>&nbsp;</p>
+<p class=senormalpara>The object does not have the property.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=secodelinesindented>HP_CHECK</p>
+<p class=secodelinesindented>&nbsp;</p>
+<p class=senormalpara>Disregard this callback and check in the normal way. The normal way involves calling your dynamic <span class=secodephrase>get</span> callback if you have one.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=secodelinesindented>HP_DIRECTCHECK</p>
+<p class=secodelinesindented>&nbsp;</p>
+<p class=senormalpara>Disregard this callback and check for the property in the object's internal storage only, do not call the <span class=secodephrase>get</span> callback.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>&nbsp;</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>&nbsp;</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;SE_CALLBACK(&nbsp;sebool&nbsp;)</p>
+<p class=secodelines>canPut(secontext&nbsp;se,sestring&nbsp;prop);</p>
+<p class=secodelines>&nbsp;</p>
+<p class=senormalpara>Before trying to put a value, <span class=secodephrase>canPut</span> will be called to determine if it is to be allowed. You determine whether or not an property can be updated with this callback. Return <span class=secodephrase>TRUE</span> to allow the put. Implementing this callback is most useful if you are not implementing a <span class=secodephrase>put</span> callback, because if you are then you can merge the functionality of this callback into the <span class=secodephrase>put</span> callback by simply not doing any updating.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>&nbsp;</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>&nbsp;</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;SE_CALLBACK(&nbsp;sebool&nbsp;)</p>
+<p class=secodelines>deleteProp(secontext&nbsp;se,sestring&nbsp;prop);</p>
+<p class=secodelines>&nbsp;</p>
+<p class=senormalpara>When a property of an object is to be deleted, this callback will be invoked. As usual, return <span class=secodephrase>FALSE</span> if you want ScriptEase to delete the property from its internal storage. This routine will also be called when the object itself is to be deleted, a destructor. In this case, the <span class=secodephrase>prop</span> parameter will be <span class=secodephrase>SE_NO_VARNAME</span>.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>&nbsp;</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>&nbsp;</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;SE_CALLBACK(&nbsp;void&nbsp;)</p>
+<p class=secodelines>defaultValue(secontext&nbsp;se,seDataType&nbsp;hint);</p>
+<p class=secodelines>&nbsp;</p>
+<p class=senormalpara>When an object is used in a situation when it has to be converted to a primitive value (i.e. a string or number), this callback is used to do so. The only parameter is <span class=secodephrase>hint</span>, the type that the system needs the value as. It is permissible to always convert to a single primitive type, which will then itself be converted to the correct value, if you don't want to take the hint into account. Return the value in the SE_RETURN object.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>&nbsp;</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>&nbsp;</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;SE_CALLBACK(&nbsp;sebool&nbsp;)</p>
+<p class=secodelines>operatorOverload(secontext&nbsp;se,sword16&nbsp;op);</p>
+<p class=secodelines>&nbsp;</p>
+<p class=senormalpara>ScriptEase implements operator overloading. Whenever an object is used as the left-hand operand, this callback is invoked. The <span class=secodephrase>op</span> parameter will be the operator being overloaded, according to this table:</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>&nbsp;</p>
+<p class=senormalpara-p>&nbsp;</p>
+<table cellpadding=0>
+<tr>
+<td valign=top style="width: 2.5in">
+<p class=senormalpara>SE_OP_PREINC</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+<td valign=top style="width: 2.575in">
+<p class=senormalpara>++expr</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 2.5in">
+<p class=senormalpara>SE_OP_POSTING</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+<td valign=top style="width: 2.575in">
+<p class=senormalpara>expr++</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 2.5in">
+<p class=senormalpara>SE_OP_PREDEC</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+<td valign=top style="width: 2.575in">
+<p class=senormalpara>--expr</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 2.5in">
+<p class=senormalpara>SE_OP_POSTDEC</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+<td valign=top style="width: 2.575in">
+<p class=senormalpara>expr--</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 2.5in">
+<p class=senormalpara>SE_OP_ASSIGN</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+<td valign=top style="width: 2.575in">
+<p class=senormalpara>lhs = expr</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 2.5in">
+<p class=senormalpara>SE_OP_NOT</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+<td valign=top style="width: 2.575in">
+<p class=senormalpara>!expr</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 2.5in">
+<p class=senormalpara>SE_OP_UNARY_PLUS</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+<td valign=top style="width: 2.575in">
+<p class=senormalpara>+expr</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 2.5in">
+<p class=senormalpara>SE_OP_UNARY_MINUS</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+<td valign=top style="width: 2.575in">
+<p class=senormalpara>-expr</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 2.5in">
+<p class=senormalpara>SE_OP_BITNOT</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+<td valign=top style="width: 2.575in">
+<p class=senormalpara>~expr</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 2.5in">
+<p class=senormalpara>SE_OP_EQUAL</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+<td valign=top style="width: 2.575in">
+<p class=senormalpara>expr==expr</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 2.5in">
+<p class=senormalpara>SE_OP_NOTEQUAL</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+<td valign=top style="width: 2.575in">
+<p class=senormalpara>expr!=expr</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 2.5in">
+<p class=senormalpara>SE_OP_STRICT_EQUAL</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+<td valign=top style="width: 2.575in">
+<p class=senormalpara>expr===expr</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 2.5in">
+<p class=senormalpara>SE_OP_STRING_NOTEQUAL</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+<td valign=top style="width: 2.575in">
+<p class=senormalpara>expr!==expr</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 2.5in">
+<p class=senormalpara>SE_OP_LESS</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+<td valign=top style="width: 2.575in">
+<p class=senormalpara>expr&lt;expr</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 2.5in">
+<p class=senormalpara>SE_OP_LESS_EQUAL</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+<td valign=top style="width: 2.575in">
+<p class=senormalpara>expr&lt;=expr</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 2.5in">
+<p class=senormalpara>SE_OP_GREATER</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+<td valign=top style="width: 2.575in">
+<p class=senormalpara>expr&gt;expr</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 2.5in">
+<p class=senormalpara>SE_OP_GREATER_EQUAL</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+<td valign=top style="width: 2.575in">
+<p class=senormalpara>expr&gt;=expr</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 2.5in">
+<p class=senormalpara>SE_OP_SUBTRACT</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+<td valign=top style="width: 2.575in">
+<p class=senormalpara>expr-expr</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 2.5in">
+<p class=senormalpara>SE_OP_ADD</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+<td valign=top style="width: 2.575in">
+<p class=senormalpara>expr+expr</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 2.5in">
+<p class=senormalpara>SE_OP_MULTIPLY</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+<td valign=top style="width: 2.575in">
+<p class=senormalpara>expr*expr</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 2.5in">
+<p class=senormalpara>SE_OP_DIVIDE</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+<td valign=top style="width: 2.575in">
+<p class=senormalpara>expr/expr</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 2.5in">
+<p class=senormalpara>SE_OP_MOD</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+<td valign=top style="width: 2.575in">
+<p class=senormalpara>expr%expr</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 2.5in">
+<p class=senormalpara>SE_OP_SHIFTLEFT</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+<td valign=top style="width: 2.575in">
+<p class=senormalpara>expr&lt;&lt;expr</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 2.5in">
+<p class=senormalpara>SE_OP_SHIFTRIGHT</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+<td valign=top style="width: 2.575in">
+<p class=senormalpara>expr&gt;&gt;expr</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 2.5in">
+<p class=senormalpara>SE_OP_USHIFTRIGHT</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+<td valign=top style="width: 2.575in">
+<p class=senormalpara>expr&gt;&gt;&gt;expr</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 2.5in">
+<p class=senormalpara>SE_OP_OR</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+<td valign=top style="width: 2.575in">
+<p class=senormalpara>expr|expr</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 2.5in">
+<p class=senormalpara>SE_OP_XOR</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+<td valign=top style="width: 2.575in">
+<p class=senormalpara>expr^expr</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 2.5in">
+<p class=senormalpara>SE_OP_AND</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+<td valign=top style="width: 2.575in">
+<p class=senormalpara>expr&amp;expr</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+</table>
+<p class=senormalpara>&nbsp;</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>The assign operators, such as <span class=secodephrase>*=</span>, are performed as two separate operations, as if written <span class=secodephrase>expr = expr * expr</span> instead of <span class=secodephrase>expr *= expr</span>.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>The right-hand side of the operator is to be found in <span class=secodephrase>SE_ARGS,SE_NUM(0)</span>. The result of the operation should be returned in the <span class=secodephrase>SE_RETURN</span> object with a return from the function of <span class=secodephrase>TRUE</span>. A return of <span class=secodephrase>FALSE</span> will do the normal operation which will involve converting the object to a primitive type compatible with the other operand and doing the JavaScript operation.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>Note that the operator overload will be called with the op <span class=secodephrase>SE_OP_ASSIGN</span> if the object is assigned to. Normally, this operation is ignored since you cannot assign to an object directly. In a script, you can write:</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=secodelinesindented>some_obj&nbsp;=&nbsp;10;</p>
+<p class=secodelines>&nbsp;</p>
+<p class=senormalpara>but this just discards the object in the given variable and replaces it with 10. If the object has operator overloading, this will call the overload callback instead. If you return <span class=secodephrase>FALSE</span>, the normal changing of <span class=secodephrase>some_obj</span>'s value takes place. If you return <span class=secodephrase>TRUE</span>, it does not. Be careful, you can make a variable whose value the user can never change in this way.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>&nbsp;</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>&nbsp;</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;SE_CALLBACK(&nbsp;sebool&nbsp;)</p>
+<p class=secodelines>getByIndex(secontext&nbsp;se,int&nbsp;index);</p>
+<p class=secodelines>&nbsp;</p>
+<p class=senormalpara>This callback is used to get an object member's value by index. This will be used solely by the ScriptEase API when a programmer is trying to iterate the members of your dynamic object. There is no hint as there is no way to know how the programmer intends to use the retrieved value. Return <span class=secodephrase>FALSE</span> if you have no such indexed member. </p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>In order to implement this routine correctly, you need to internally order the members of your dynamic object in a consistent way. A person will be using this routine to iterate all of your members, from <span class=secodephrase>0</span> on up. You must return each member once only and always in the same index. It is only permissible to reorganize the members if a member is added or removed. Return the member in the <span class=secodephrase>SE_RETURN</span> object.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>&nbsp;</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>&nbsp;</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;SE_CALLBACK(&nbsp;sestring&nbsp;)</p>
+<p class=secodelines>getNameByIndex(secontext&nbsp;se,int&nbsp;index);</p>
+<p class=secodelines>&nbsp;</p>
+<p class=senormalpara>A companion routine to <span class=secodephrase>getByIndex</span>, this is used when a script wants to iterate through your object using the <span class=secodephrase>for..in</span> statement. You must return the names of your object's members according to their index. Like <span class=secodephrase>getByIndex</span> above, it is only permissible to reorder your object if a member is added or removed. Return <span class=secodephrase>SE_NO_VARNAME</span> to indicate an index beyond the number of members in your object. Otherwise return the internalized version of your member's name (see <span class=sepopuptopic><a href="TH_16.htm" onClick="return thwindow('TH_16.htm', 'GenPopup')">seInternalizeString</a></span>). The internalized string will be freed when you return it just as if you called <span class=secodephrase>seFreeInternalString</span>. This is useful in the majority of cases in which you create the name to return and no longer need it locked. If you do need to retain a lock on the returned string, use <span class=secodephrase>seCloneInternalString</span> to make a duplicate to return.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>&nbsp;</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>&nbsp;</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;SE_CALLBACK(&nbsp;sememcount&nbsp;)</p>
+<p class=secodelines>getMaxIndex(secontext&nbsp;se);</p>
+<p class=secodelines>&nbsp;</p>
+<p class=senormalpara>Return the maximum index of the members of your objects which is equal to the number of members minus one.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>&nbsp;</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>For all of the above callbacks, the <span class=secodephrase>SE_DYNA_UNDEF</span> flag will cause your dynamic property to be called only if the object does not contain the property in its internal storage. This is useful for speed. When your dynamic <span class=secodephrase>put</span> callback is invoked on a property, if that property is not special, you can return <span class=secodephrase>FALSE</span> to put it into the object's internal storage. From then on, that property will be treated normally. The properties you are interested in you do not store in the object, you handle them in your callback. They will continue to be routed through your callbacks each time they are accessed.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>&nbsp;</p>
+<p class=senormalpara-p>&nbsp;</p>
+<hr noshade size=1>
+<p class=normal><a href="TH_283.htm"><img src="button.png" border=0></a><a href="TH_283.htm" style="text-decoration:none;">FUNCTION REDIRECTION</a></p>
+<p>
+</body>
+</html>

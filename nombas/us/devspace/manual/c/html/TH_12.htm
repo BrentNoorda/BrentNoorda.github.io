@@ -1,0 +1,80 @@
+<html>
+<head>
+<title>seGarbageCollect</title>
+<link rel="stylesheet" href="semanualstyles.css" type="text/css">
+<style type="text/css">
+ p { margin-top: 0; margin-bottom: 0; }
+</style>
+<script language="JavaScript" src="TrueHelp.js"></script>
+</head>
+<body onload="thload()">
+<div id=ienav>
+<ilayer id=nsnav>
+<br>
+<center>
+<p class=normal><a href="seisdkc-toc.htm" target="left">contents</a> &nbsp; <a href="seisdkc-index.htm" target="left">index</a> &nbsp; <a href="TH_11.htm">previous</a> &nbsp; <a href="TH_13.htm">next</a></p>
+</center>
+<br>
+<hr noshade size=1>
+</ilayer>
+</div>
+<p class=sereffunclevel3>seGarbageCollect</p>
+<p class=sereffunclevel3-p>&nbsp;</p>
+<table cellpadding=0>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>syntax:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=sesyntax>&nbsp;&nbsp;&nbsp;void</p>
+<p class=sesyntax>seGarbageCollect(secontext&nbsp;se,int&nbsp;action);</p></td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>where:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara><span class=secodephrase>se</span> the context to collect</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara><span class=secodephrase>action </span>the garbage collection action to perform</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>return:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>None</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>description:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>This routine allows you to manipulate and invoke garbage collection on a given context. <span class=secodephrase>action</span> can be one of the following:</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara><span class=secodephrase>SE_GARBAGE_COLLECT</span></p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>Perform a garbage collection immediately, even if it has been disabled.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara><span class=secodephrase>SE_GARBAGE_OFF</span></p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>Disable garbage collection. Instead of collecting to free up unused memory, more memory is always allocated from the system whenever existing storage is exhausted.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara><span class=secodephrase>SE_GARBAGE_ON</span></p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>Re-enable garbage collection.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>Note that each <span class=secodephrase>SE_GARBAGE_OFF</span> must be paired with one <span class=secodephrase>SE_GARBAGE_ON</span>. If <span class=secodephrase>SE_GARBAGE_OFF</span> has been invoked several times, garbage collection will not be restarted until <span class=secodephrase>SE_GARBAGE_ON</span> has been invoked the same number of times. However, a garbage collection can always be forced using the <span class=secodephrase>SE_GARBAGE_COLLECT</span> action.</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>see:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>None</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+</table>
+<hr noshade size=1>
+<p class=normal><a href="TH_13.htm"><img src="button.png" border=0></a><a href="TH_13.htm" style="text-decoration:none;">VARIABLE LOCATING</a></p>
+<p>
+</body>
+</html>

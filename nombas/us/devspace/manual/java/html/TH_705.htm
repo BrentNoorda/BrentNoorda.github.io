@@ -1,0 +1,82 @@
+<html>
+<head>
+<title>global.defined()</title>
+<link rel="stylesheet" href="semanualstyles.css" type="text/css">
+<style type="text/css">
+ p { margin-top: 0; margin-bottom: 0; }
+</style>
+<script language="JavaScript" src="TrueHelp.js"></script>
+</head>
+<body onload="thload()">
+<div id=ienav>
+<ilayer id=nsnav>
+<br>
+<center>
+<p class=normal><a href="seisdkj-toc.htm" target="left">contents</a> &nbsp; <a href="seisdkj-index.htm" target="left">index</a> &nbsp; <a href="TH_704.htm">previous</a> &nbsp; <a href="TH_706.htm">next</a></p>
+</center>
+<br>
+<hr noshade size=1>
+</ilayer>
+</div>
+<p class=sereffunclevel4>global.defined()</p>
+<table cellpadding=0>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>syntax:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=sesyntax>defined(<span class=truehelp-xe></span>value)</p></td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>where:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>value - a value or variable to check to see if it is defined.</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>return:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>boolean - <span class=secodephrase>true</span> if the value has been defined, else <span class=secodephrase>false</span></p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>description:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>This function tests whether a variable, object property, or value has been defined. The function returns <span class=secodephrase>true</span> if a value has been defined, or else returns <span class=secodephrase>false</span>. The function <span class=secodephrase>defined()</span> may be used during script execution and during preprocessing. When used in preprocessing with the directive <span class=secodephrase>#if</span>, the function <span class=secodephrase>defined()</span> is similar to the directive <span class=secodephrase>#ifdef</span>, but is more powerful. The following fragment illustrates three uses of <span class=secodephrase>defined()</span>.</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>see:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara><span class=sejumptopic><a href="TH_729.htm">global.undefine()</a></span>, <span class=sejumptopic><a href="TH_352.htm">in operator</a></span>, <span class=sejumptopic><a href="TH_334.htm">undefined</a></span></p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>example:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=secodelines>var&nbsp;t&nbsp;=&nbsp;1;</p>
+<p class=secodelines>#if&nbsp;defined(_WIN32_)</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;Screen.writeln("in&nbsp;Win32");</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;if&nbsp;(defined(t))</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Screen.writeln("t&nbsp;is&nbsp;defined");</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;if&nbsp;(!defined(t.t))</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Screen.writeln("t.t&nbsp;is&nbsp;not&nbsp;defined");</p>
+<p class=secodelines>#endif</p>
+<p class=secodelines>&nbsp;</p>
+<p class=secodelines>//&nbsp;The&nbsp;first&nbsp;use&nbsp;of&nbsp;defined()&nbsp;checks&nbsp;whether&nbsp;a&nbsp;value</p>
+<p class=secodelines>//&nbsp;is&nbsp;available&nbsp;to&nbsp;the&nbsp;preprocessor</p>
+<p class=secodelines>//&nbsp;to&nbsp;determine&nbsp;which&nbsp;platform&nbsp;is&nbsp;running&nbsp;the&nbsp;script.</p>
+<p class=secodelines>//&nbsp;The&nbsp;second&nbsp;use&nbsp;checks&nbsp;a&nbsp;variable&nbsp;"t".</p>
+<p class=secodelines>//&nbsp;The&nbsp;third&nbsp;use&nbsp;checks&nbsp;an&nbsp;object&nbsp;"t.t"</p></td>
+</tr>
+</table>
+<p class=normal>&nbsp;</p>
+<hr noshade size=1>
+<p class=normal><a href="TH_706.htm"><img src="button.png" border=0></a><a href="TH_706.htm" style="text-decoration:none;">global.escape()</a></p>
+<p>
+</body>
+</html>

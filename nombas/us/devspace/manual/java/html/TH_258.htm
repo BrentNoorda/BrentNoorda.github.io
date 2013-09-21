@@ -1,0 +1,67 @@
+<html>
+<head>
+<title>Wrapper functions</title>
+<link rel="stylesheet" href="semanualstyles.css" type="text/css">
+<style type="text/css">
+ p { margin-top: 0; margin-bottom: 0; }
+</style>
+<script language="JavaScript" src="TrueHelp.js"></script>
+</head>
+<body onload="thload()">
+<div id=ienav>
+<ilayer id=nsnav>
+<br>
+<center>
+<p class=normal><a href="seisdkj-toc.htm" target="left">contents</a> &nbsp; <a href="seisdkj-index.htm" target="left">index</a> &nbsp; previous &nbsp; <a href="TH_259.htm">next</a></p>
+</center>
+<br>
+<hr noshade size=1>
+</ilayer>
+</div>
+<p class=heading-1>Wrapper functions </p>
+<p class=heading-1-p>&nbsp;</p>
+<p class=senormalpara>Wrapper functions are functions that are written in Java using the ScriptEase API instead of being written in JavaScript. From the script's point of view, they appear just like any other function and can be called identically. Most wrapper functions are initialized by the application before running scripts so as to be available to the script user right from the start. This is done by writing a wrapper function table and adding it to an <span class=secodephrase>SEContext</span> using the <span class=secodephrase>seAddLibTable</span> ScriptEase API call. The table is added before the application makes any calls to the <span class=secodephrase>seEval</span> ScriptEase API call. All of the standard ECMAScript objects, such as <span class=secodephrase>String</span>, <span class=secodephrase>Math</span>, or <span class=secodephrase>Number</span>, are written using wrapper functions and wrapper function tables, so you have a large body of example wrapper functions included with ScriptEase to look at. </p>
+<p class=senormalpara>Here is a sample wrapper function, to get an idea of how one looks. The rest of this chapter is devoted to demystifying it:</p>
+<p class=secodelinesindented>public&nbsp;void&nbsp;print()</p>
+<p class=secodelinesindented>{</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;return&nbsp;new&nbsp;SEWrapper()</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;{</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;public&nbsp;void&nbsp;wrapperFunction(SEContext&nbsp;se,&nbsp;int&nbsp;argc)</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;switch(&nbsp;se.seGetType(SE.ARGS,SE_.NDEX(0))&nbsp;)</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;case&nbsp;SE_TYPE_NUMBER:</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/*&nbsp;for&nbsp;whatever&nbsp;reason,&nbsp;need&nbsp;a&nbsp;specific&nbsp;number</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;format</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*/</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;System.out.printlm(se.seGetNumber(SE.ARGS,</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;SE.INDEX(0)));</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;break;</p>
+<p class=secodelinesindented>&nbsp;</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;default:</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/*&nbsp;Oh&nbsp;what&nbsp;the&nbsp;heck,&nbsp;just&nbsp;let&nbsp;ScriptEase&nbsp;convert</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;whatever&nbsp;it&nbsp;is&nbsp;to&nbsp;a&nbsp;String.</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*/</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;System.out.println(se.seGetString(SE.ARGS,</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;SE.INDEX(0)));</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;break;</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/*&nbsp;let's&nbsp;return&nbsp;something&nbsp;because&nbsp;we&nbsp;can&nbsp;*/</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;se.sePutString(SE.RETURN,SE.VALUE,</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"Go&nbsp;away,&nbsp;you&nbsp;bother&nbsp;me&nbsp;kid.");</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;};</p>
+<p class=secodelinesindented>}</p>
+<p class=secodelinesindented>&nbsp;</p>
+<p class=senormalpara>Before looking into the wrapper function tables, a basic overview of a wrapper function is necessary. The example above is simple but it demonstrates all that a wrapper function does. It gets its arguments, uses them to perform the body of the wrapper function, and returns a result.</p>
+<hr noshade size=1>
+<p class=normal><a href="TH_259.htm"><img src="button.png" border=0></a><a href="TH_259.htm" style="text-decoration:none;">THE FUNCTION HEADER</a></p>
+<p class=normal><a href="TH_260.htm"><img src="button.png" border=0></a><a href="TH_260.htm" style="text-decoration:none;">THE ARGUMENTS</a></p>
+<p class=normal><a href="TH_261.htm"><img src="button.png" border=0></a><a href="TH_261.htm" style="text-decoration:none;">THE RETURN</a></p>
+<p class=normal><a href="TH_262.htm"><img src="button.png" border=0></a><a href="TH_262.htm" style="text-decoration:none;">WRAPPER TABLES</a></p>
+<p class=normal><a href="TH_263.htm"><img src="button.png" border=0></a><a href="TH_263.htm" style="text-decoration:none;">WRAPPER TABLE METHODS AND OBJECT</a></p>
+<p class=normal><a href="TH_264.htm"><img src="button.png" border=0></a><a href="TH_264.htm" style="text-decoration:none;">SELIBRARY INTERFACE</a></p>
+<p class=normal><a href="TH_265.htm"><img src="button.png" border=0></a><a href="TH_265.htm" style="text-decoration:none;">THE SELIBRARYMANAGER CLASS</a></p>
+<p>
+</body>
+</html>

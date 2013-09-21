@@ -1,0 +1,37 @@
+<html>
+<head>
+<title>Fibers and Threads</title>
+<link rel="stylesheet" href="semanualstyles.css" type="text/css">
+<style type="text/css">
+ p { margin-top: 0; margin-bottom: 0; }
+</style>
+<script language="JavaScript" src="TrueHelp.js"></script>
+</head>
+<body onload="thload()">
+<div id=ienav>
+<ilayer id=nsnav>
+<br>
+<center>
+<p class=normal><a href="seisdkj-toc.htm" target="left">contents</a> &nbsp; <a href="seisdkj-index.htm" target="left">index</a> &nbsp; previous &nbsp; <a href="TH_169.htm">next</a></p>
+</center>
+<br>
+<hr noshade size=1>
+</ilayer>
+</div>
+<p class=heading-1>Fibers and Threads</p>
+<p class=heading-1-p>&nbsp;</p>
+<p class=senormalpara>Each <span class=secodephrase>SEContext</span> can be used by only a single thread at one time. If you want to run multiple scripts simultaneously in a multithreaded application, you need to create one <span class=secodephrase>SEContext</span> using <span class=secodephrase>seCreateContext</span> per thread. You can in fact create more than one <span class=secodephrase>SEContext</span> per thread if you like.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>Each context contains a copy of much of the same data. Namely, each context will initialize the standard function libraries into its global object in order to allow its scripts to see them. In addition, each context keeps a pool of various kinds of memory available in order to increase performance. As a result, each context has significant overhead of memory. Fibers exist to help alleviate this problem.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>Fibers are like sibling contexts. Each fiber in the same group has access to the same variables, uses the same pools of memory, and so forth. Therefore the overhead described exists only once even when a large number of fibers exist in the same group. However, fibers are not a replacement for separate contexts in multiple threads. All fibers in the same group are considered one context, so they can only be used by a single thread and only one fiber can be active at once. You can use fibers to cooperatively multitask scripts but since only one fiber can be run at once, fibers do not take advantage of multiple processors. If your machine has multiple processors, and you would like to run multiple scripts taking advantage of all the processors, you must use full contexts not fibers.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>Fibers are created using the ScriptEase <span class=secodephrase>seCreateFiber</span> API call. You pass as a parameter an existing context. The new fiber is created as part of the same fiber group the existing context is part of. You create the first context using <span class=secodephrase>seCreateContext</span> then create any number of fiber siblings using <span class=secodephrase>seCreateFiber</span>. When you are done, you have a number of related contexts, each which can run its own script. However, all of the contexts share a single global object. You can change the global object in any of the fibers, but the intent of the fibers is to conserve memory so sharing the global object is the norm.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<hr noshade size=1>
+<p class=normal><a href="TH_169.htm"><img src="button.png" border=0></a><a href="TH_169.htm" style="text-decoration:none;">USING SE.START</a></p>
+<p class=normal><a href="TH_171.htm"><img src="button.png" border=0></a><a href="TH_171.htm" style="text-decoration:none;">YIELDING AND SUSPENDING</a></p>
+<p class=normal><a href="TH_172.htm"><img src="button.png" border=0></a><a href="TH_172.htm" style="text-decoration:none;">OTHER CONSIDERATIONS</a></p>
+<p>
+</body>
+</html>

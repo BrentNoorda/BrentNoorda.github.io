@@ -1,0 +1,51 @@
+<html>
+<head>
+<title>Pointer operator * and address operator &</title>
+<link rel="stylesheet" href="semanualstyles.css" type="text/css">
+<style type="text/css">
+ p { margin-top: 0; margin-bottom: 0; }
+</style>
+<script language="JavaScript" src="TrueHelp.js"></script>
+</head>
+<body onload="thload()">
+<div id=ienav>
+<ilayer id=nsnav>
+<br>
+<center>
+<p class=normal><a href="seisdkc-toc.htm" target="left">contents</a> &nbsp; <a href="seisdkc-index.htm" target="left">index</a> &nbsp; <a href="TH_518.htm">previous</a> &nbsp; <a href="TH_520.htm">next</a></p>
+</center>
+<br>
+<hr noshade size=1>
+</ilayer>
+</div>
+<p class=heading-2>Pointer operator <span class=semonospaced>*</span> and address operator <span class=semonospaced>&amp;</span></p>
+<p class=heading-2-p>&nbsp;</p>
+<p class=senormalpara>No pointers. None. The <span class=secodephrase>*</span><span class=truehelp-xe></span> symbol never means pointer<span class=truehelp-xe></span> in ScriptEase, which might cause seasoned C programmers to gasp in disbelief. But the situation turns out not to be such a big deal. The pointer operator is easily replaced. For example, <span class=secodephrase>*var</span> can be replaced by <span class=secodephrase>var[0]</span>.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>Because it is common in C to use address arithmetic on string, ScriptEase providces the CString object, which provides most of the array and address functionaliity of a C string pointer. The following function displays the string in the variable s. In the first display line shows:</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=secodelinesindented>abcde</p>
+<p class=secodelines>&nbsp;</p>
+<p class=senormalpara>The second display line, which uses address arithmetic "s+2" shows:</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=secodelinesindented>cde</p>
+<p class=secodelines>&nbsp;</p>
+<p class=secodelinesindented>function&nbsp;main(argc,&nbsp;argv)</p>
+<p class=secodelinesindented>{</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;var&nbsp;s&nbsp;=&nbsp;new&nbsp;CString("abcde");</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;Screen.writeln(s);</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;Screen.writeln(s+2);</p>
+<p class=secodelinesindented>}</p>
+<p class=secodelines>&nbsp;</p>
+<p class=senormalpara>Remember that in functions, all variables, except primitive data types, are passed by reference. ScriptEase adds the address operator<span class=truehelp-xe></span> <span class=secodephrase>&amp;</span><span class=truehelp-xe></span> for primitive data types<span class=truehelp-xe></span>. If you want to pass a primitive data type by reference in a JavaScript function, use the address operator in the parameter list. For example,</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=secodelinesindented>function&nbsp;SetNumbers(&amp;n1,&nbsp;n2,&nbsp;&amp;n3,&nbsp;&amp;n4)</p>
+<p class=secodelinesindented>{</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;n1&nbsp;=&nbsp;n2&nbsp;=&nbsp;n3&nbsp;=&nbsp;n4&nbsp;=&nbsp;5;</p>
+<p class=secodelinesindented>}</p>
+<p class=secodelinesindented>&nbsp;</p>
+<hr noshade size=1>
+<p class=normal><a href="TH_520.htm"><img src="button.png" border=0></a><a href="TH_520.htm" style="text-decoration:none;">Case statements</a></p>
+<p>
+</body>
+</html>

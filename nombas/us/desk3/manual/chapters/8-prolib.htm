@@ -1,0 +1,357 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML EXPERIMENTAL 970324//EN">
+<HTML>
+<HEAD>
+<META NAME="GENERATOR" CONTENT="Adobe FrameMaker 5.5/HTML Export Filter">
+<LINK REL="STYLESHEET" HREF="desk3man.css">
+<TITLE>ScriptEase:Desktop v3 Manual: ScriptEase Professional Library</TITLE>
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-1754630-10']);
+  _gaq.push(['_trackPageview']);
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+</HEAD>
+<BODY BACKGROUND="desk3pat.gif">
+<TABLE WIDTH="225" BORDER="0" CELLSPACING="0" CELLPADDING="0">
+  <TR>
+    <TD WIDTH="71"><a href="7-libext.htm"><IMG SRC="prev.gif" WIDTH="71" height="18" border="0"></a></TD>
+    <TD WIDTH="80"><a href="../index.htm"><IMG SRC="tocidx.gif" WIDTH="80" height="18" border="0"></a></TD>
+    <TD WIDTH="74"><a href="9-doswin.htm"><IMG SRC="next.gif" WIDTH="74" height="18" border="0"></a></TD>
+  </TR>
+</TABLE>
+
+<H1 CLASS="Title">
+ScriptEase Professional Library</H1>
+<P CLASS="Abstract">
+The routines in this section are not for the timid.  They are included internally to the ScriptEase program, and are available to any ScriptEase program under any operating system.</P>
+<P CLASS="Body">
+Most of these routines allow the programmer to have more power than is generally acknowledged as safe under ScriptEase' guidelines.  Be cautious when you use these commands, they provide plenty of rope with which to hang yours</P>
+<HR><TABLE>
+<TR>
+<TH COLSPAN="2">
+<H6 CLASS="fnam">
+InterpretInNewThread</H6>
+</TH>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+DESCRIPTION</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Interpret a script in a new thread of current ScriptEase process.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+SYNTAX</P>
+</TD>
+<TD>
+<P CLASS="cb">
+int InterpretInNewThread(string filename, string textToInterpret)</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+COMMENTS</P>
+</TD>
+<TD>
+<P CLASS="cb">
+This function creates a new thread within the current ScriptEase</P>
+<P CLASS="cb">
+process and interprets a script within that new thread.  The new script will run independently of the currently executing thread. This differs from interpret() in that the calling thread will not wait for the interpretation to finish, and it differs from spawn() in that the new thread will run in the same memory and process space as the currently running thread.  </P>
+<P CLASS="cb">
+It is up to the script writer to ensure any synchronization between threads; ScriptEase data and globals will be per-thread only.</P>
+<P CLASS="cb">
+If filename is not NULL then it is the name of a file to interpret and</P>
+<P CLASS="cb">
+textToInterpret will be parsed as if they are command-line parameters to the main() function.  If filename is NULL then textToInterpret will be treated as pure ScriptEase code and interpreted directly.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+RETURN</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Returns the ID number of the thread containing the new instance of ScriptEase. If there is an error, 0 or -1 will be returned, depending on the operating system.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+NOTE</P>
+</TD>
+<TD>
+<P CLASS="cb">
+This function is not supported on operating systems that do not support multithreading, such as DOS and 16-bit Windows.</P>
+</TD>
+</TR>
+</TABLE>
+<HR><TABLE>
+<TR>
+<TH>
+<H6 CLASS="fnam">
+<A NAME="997265">
+ </A>
+peek</H6>
+</TH>
+<TH>
+<H6 CLASS="cHead">
+&nbsp;</H6>
+</TH>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+DESCRIPTION</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Read data from memory location.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+SYNTAX </P>
+</TD>
+<TD>
+<P CLASS="cb">
+byte peek(int address) byte peek(int address,int DataType=UWORD8) int peek(int address,int DataType) float peek(int address,int DataType) byte[] peek(int address,int bufferLen) struct BLObGet(int address,struct DataStructureDefinition)</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+COMMENTS</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Reads data from the specified address in memory, where address is a memory pointer.  This function is similar to the BLObGet function, with &quot;address&quot; replacing the &quot;blob BLObVar,int offset&quot; parameter pair.  If DataType is not specified then UWORD8 is assumed. Valid data types are: UWORD8, SWORD8, UWORD16, SWORD16, UWORD24, SWORD24, UWORD32, SWORD32, FLOAT32, FLOAT64, FLOAT80 See fread() in the Standard Library (Chapter 5) for more information on these DataType values.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+RETURN</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Returns the byte, int, float, or byte[] that was read from the specified memory location.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+SEE ALSO</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Address(), _BigEndianMode, fread(), poke()</P>
+</TD>
+</TR>
+</TABLE>
+<HR><TABLE>
+<TR>
+<TH>
+<H6 CLASS="fnam">
+<A NAME="997291">
+ </A>
+pointer</H6>
+</TH>
+<TH>
+<H6 CLASS="cHead">
+&nbsp;</H6>
+</TH>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+DESCRIPTION</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Get address of variable array or variable datum.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+SYNTAX</P>
+</TD>
+<TD>
+<P CLASS="cb">
+int pointer(var)</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+COMMENTS</P>
+</TD>
+<TD>
+<P CLASS="cb">
+This function returns the actual address in memory where the var data is stored.  If var is a byte, int, or float, then this will return the address in memory of that byte, int, or float datum.  If var is an single-dimensional array of bytes, ints, or floats, then this will return the address of the first element of that array (BLObs are okay because a blob is really a byte array).  No other types, undefined, structures, or multidimensional arrays, are allowed for var.  In other words, var must be a numeric data type, or a pointer to an array of numeric data.</P>
+<P CLASS="cb">
+For architectures that distinguish between near and far memory addresses, the value returned by pointer() is a far address. : </P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+WARNING</P>
+</TD>
+<TD>
+<P CLASS="cb">
+ScriptEase data is only guaranteed to remain fixed at its memory location if that memory is not modified by your ScriptEase code.  So, the pointer is valid only until ScriptEase code modifies var or until it goes out of scope. <EM CLASS="Element">
+Writing to the data at this pointer is not recommended, and if you do write to the memory then be sure to not write more data than already fits in var.</EM>
+</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+RETURN</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Returns pointer to the datum or data in var.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+SEE ALSO</P>
+</TD>
+<TD>
+<P CLASS="cb">
+offset(), segment()</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+EXAMPLE</P>
+</TD>
+<TD>
+<P CLASS="cb">
+This function prepares a BLOb that may be passed to a call into the operating system: </P>
+<P CLASS="ciTable">
+// Assume there is an OS call that will perform a command</P>
+<P CLASS="ciTable">
+// on a number of files. This call expects to receive a</P>
+<P CLASS="ciTable">
+// C-defined packed structure like this: </P>
+<P CLASS="ciTable">
+// struct { </P>
+<P CLASS="ciTable">
+//    unsigned charFileCount; </P>
+<P CLASS="ciTable">
+//    char *Command;      // Command to perform on files </P>
+<P CLASS="ciTable">
+//    char *FileName[1];  // array of pointers to file</P>
+<P CLASS="ciTable">
+                           // names </P>
+<P CLASS="ciTable">
+    }; </P>
+<P CLASS="ciTable">
+&nbsp;</P>
+<P CLASS="ciTable">
+// Now prepare such a structure BLObPut(Data,2,UWORD);</P>
+<P CLASS="ciTable">
+// how many names follow BLObPut(Data,pointer(&quot;DEL&quot;),UWORD32);</P>
+<P CLASS="ciTable">
+// set command </P>
+<P CLASS="ciTable">
+BLObPut(Data,pointer(&quot;C:\\UTL\DOG&quot;),UWORD32);</P>
+<P CLASS="ciTable">
+BLObPut(Data,pointer(&quot;C:\\UTL\\CAT&quot;),UWORD32);</P>
+</TD>
+</TR>
+</TABLE>
+<HR><TABLE>
+<TR>
+<TH>
+<H6 CLASS="fnam">
+<A NAME="997336">
+ </A>
+poke</H6>
+</TH>
+<TH>
+<H6 CLASS="cHead">
+&nbsp;</H6>
+</TH>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+DESCRIPTION</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Write data to memory location.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+SYNTAX</P>
+</TD>
+<TD>
+<P CLASS="cb">
+int poke(int address,byte b) int poke(int address,Var v,int DataType) int poke(int address,byte[] buffer,int bufferLen) int poke(int address,struct SrcStruct,struct DataStructureDefinition)</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+COMMENTS</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Write value at the specified location in memory, where address is a memory pointer.  This function is similar to the BLObPut function, with &quot;address&quot; replacing the &quot;blob BLObVar,int offset&quot; parameter pair.  If DataType is not specified then UWORD8 is assumed. Valid data types are: UWORD8, SWORD8, UWORD16, SWORD16, UWORD24, SWORD24, UWORD32, SWORD32, FLOAT32, FLOAT64, FLOAT80 See fread() in the Standard Library (Chapter 5) for more information on these DataType values.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+RETURN</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Address of byte following the data just poked.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+SEE ALSO</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Address(), _BigEndianMode, fread(), peek()</P>
+</TD>
+</TR>
+</TABLE>
+<P CLASS="Body">
+&nbsp;</P>
+</DIV>
+<TABLE WIDTH="225" BORDER="0" CELLSPACING="0" CELLPADDING="0">
+  <TR>
+    <TD WIDTH="71"><a href="7-libext.htm"><IMG SRC="prev.gif" WIDTH="71" height="18" border="0"></a></TD>
+    <TD WIDTH="80"><a href="../index.htm"><IMG SRC="tocidx.gif" WIDTH="80" height="18" border="0"></a></TD>
+    <TD WIDTH="74"><a href="9-doswin.htm"><IMG SRC="next.gif" WIDTH="74" height="18" border="0"></a></TD>
+  </TR>
+</TABLE>
+
+</BODY>
+</HTML>

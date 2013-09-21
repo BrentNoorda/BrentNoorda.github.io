@@ -1,0 +1,188 @@
+<HTML>
+<HEAD>
+
+	<META NAME="VPSiteProject" CONTENT="file:///c|/visualpage/Nombas.vpp"><TITLE>JavaScript Tip of the Week for December 30, 1996: Netscape 4.0 Preview: Layers</TITLE>
+<!--SEARCH_OFF-->
+<SCRIPT LANGUAGE = "JavaScript">
+<!-- 
+
+function showJavaScript() {
+jsmove.offset(-25, 0);
+    if (jsmove.left > 13) setTimeout('showJavaScript()', 100); 
+    else {
+    jsmove.visibility = 'HIDE';
+    js.visibility = 'SHOW';
+    weekm.top = height;
+    weekm.visibility = 'SHOW';
+    showWeek();
+    }
+}
+
+function showWeek() {
+weekm.offset(0, -25);
+    if (weekm.top > 171) setTimeout('showWeek()', 100); 
+    else {
+    week_move.visibility = 'HIDE';
+    week.visibility = 'SHOW';
+    cup.visibility = 'SHOW';
+    showCup();
+    }
+}
+
+function showCup() {
+currentFrame--;
+    if (currentFrame > 0) {
+  //document.images["img1"].src = "cup1.gif"
+  //eval('document.img1.src = "cup' + currentFrame + '.gif"');
+    eval('cup.src = "cup' + currentFrame + '.gif"');
+   //document.images["img1"].src = "cup2.gif";
+  //cup.src = "cup2.gif";
+  //cup.src = "cup" + currentFrame + ".gif";
+    setTimeout('showCup()', 100);
+    }
+}
+
+function checkLoad() {
+var doneLoading = true;
+    for (var i = 1; i < 7; i++) if (document.images['img' + i].src == null) doneLoading = false;
+    if (doneLoading) showJavaScript();
+    else setTimeout('checkLoad()', 100);
+}
+
+for (var i = 0; i < 6; i ++) {
+eval('cup' + i + ' = new Image()');
+eval('cup' + i + '.src = "cup' + i + '.gif"');
+}
+
+var currentFrame = 6;
+var totalLoaded = 0;
+
+// -->
+</SCRIPT>
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-1754630-10']);
+  _gaq.push(['_trackPageview']);
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+</HEAD>
+<BODY onLoad = "showJavaScript();return;" TEXT="#000000" BGCOLOR="#FFFFFF" LINK="#B8860B" VLINK="#B8860B" ALINK="#8B0000">
+
+<!-- START AD -->
+<P ALIGN=CENTER> <A HREF="../index.htm"><IMG SRC="../scriptaz.gif" BORDER=0 ALT="" width=468 height=60></A> 
+</P>
+<!-- END AD -->
+
+
+<BASE TARGET = "_parent">
+<CENTER>
+<!--<A HREF="../../art/index.map"><IMG ISMAP SRC="../scriptaz.gif" BORDER=0 HEIGHT=18 WIDTH=468></A>-->
+</CENTER>
+
+<IMG ALIGN = LEFT NAME = "width_img" HEIGHT = 1 WIDTH = "100%" SRC = "pixel.gif">
+<IMG ALIGN = RIGHT NAME = "height_img" HEIGHT = "100%" WIDTH = 1 SRC = "pixel.gif">
+
+    <LAYER NAME = "cup" HEIGHT = 91 WIDTH = 67 LEFT = 10 TOP = 134 VISIBILITY = HIDE">
+    <!--<IMG NAME = "img1" NAME = "cup_image" HEIGHT = 91 WIDTH = 67 SRC = "cup1.gif">-->
+    <IMG NAME = "img1" HEIGHT = 91 WIDTH = 67 SRC = "cup2.gif">
+    </LAYER>  
+
+    <LAYER NAME = "js" HEIGHT = 62 WIDTH = 171 LEFT = 11 TOP = 93 VISIBILITY = HIDE>
+    <IMG NAME = "img2" HEIGHT = 62 WIDTH = 171 SRC = "js.gif">
+    </LAYER>  
+
+    <LAYER NAME = "js_move" HEIGHT = 62 WIDTH = 180 LEFT = 11 TOP = 93 VISIBILITY = HIDE>
+    <IMG NAME = "img3" HEIGHT = 62 WIDTH = 180 SRC = "jsmove.gif">
+    </LAYER>  
+
+    <LAYER NAME = "tot" HEIGHT = 26 WIDTH = 92 LEFT = 86 TOP = 148 VISIBILITY = HIDE>
+    <IMG NAME = "img4" HEIGHT = 26 WIDTH = 92 SRC = "tipo.gif">
+    </LAYER>  
+
+    <LAYER NAME = "week" HEIGHT = 50 WIDTH = 89 LEFT = 93 TOP = 171 VISIBILITY = HIDE>
+    <IMG NAME = "img5" HEIGHT = 50 WIDTH = 89 SRC = "week.gif">
+    </LAYER>   
+
+    <LAYER NAME = "week_move" HEIGHT = 60 WIDTH = 89 LEFT = 93 TOP = 171 VISIBILITY = HIDE>
+    <IMG NAME = "img6" HEIGHT = 60 WIDTH = 89 SRC = "weekm.gif">
+    </LAYER>   
+
+<SCRIPT LANGUAGE = "JavaScript">
+<!--
+
+var cup = document.layers['cup'];
+var js = document.layers['js'];
+var js_move = document.layers['js_move'];
+var tot = document.layers['tot'];
+var week = document.layers['week'];
+var week_move = document.layers['week_move'];
+
+var width = document.width_img.width;
+var height = document.height_img.height;
+
+cup.visibility = 'HIDE';
+js.visibility = 'HIDE';
+js_move.visibility = 'SHOW';
+js_move.left = width + 15;
+tot.visibility = 'SHOW';
+week.visibility = 'HIDE';
+
+//checkLoad();
+
+//-->
+</SCRIPT>
+
+<IMG HEIGHT = 130 WIDTH = 1 SRC = "pixel.gif">
+<BLOCKQUOTE>
+<FONT SIZE=4>for December 30, 1996: Netscape 4.0 Preview: Layers</FONT>
+<P>
+<TABLE BGCOLOR = "#EDEDED" BORDER = 0 CELLPADDING = 2 CELLSPACING = 0><TR><TD>
+<STRONG>Note About The Demo:</STRONG> Please wait a moment for the page finish loading if you would like to see the demo. Due to the frailty of the beta, you may have to reload.</TD></TR></TABLE>
+<P>
+Did that remind you of Pointcast or what? That little intro just begins to show off the capabilities of a new Netscape technology: Layers. Not only can you specify exactly where you want your images (or text) to be placed, you can also move your images anywhere on the page. Just specify the offset or the absolute coordinates and the rest will be done for you. After experimenting with layers for a small amount of time, I found that they are very much like the layers you deal with in Photoshop. A layer of a higher z-order is always displayed on top of a layer that has a lower z-order. You can specify that a layer be "transparent" or have a solid background image or color. There are many other options that you can control, but first let's get to the fundamentals: how to create a layer. Very simple:
+<FONT COLOR = "#0000DF">
+<PRE>
+    &lt;LAYER NAME = "myLayer" HEIGHT = 50 WIDTH = 89 LEFT = 93 <BR>
+	                           TOP = 91 VISIBILITY = HIDE&gt;
+    <FONT COLOR = "#009000">the content</FONT>
+    &lt;/LAYER&gt;
+</PRE> 
+</FONT>
+Everything inside the LAYER tags is part of that layer. The LEFT and TOP parameters determine how far (in pixels) over from the left and from the top the layer will be placed on the page. The HEIGHT and WIDTH parameters are optional, and can be in percent or in pixels. The VISIBILITY tag allows a layer to be visible or invisible on the page. To make a layer visible, set it's VISIBILITY parameter to "SHOW". To hide a layer, simply tell it to "HIDE". To control a layer through JavaScript start by defining it. For example, to define "myLayer":
+<FONT COLOR = "#0000DF">
+<PRE>
+    var myLayer = document.layers["<FONT COLOR = "#009000">myLayer</FONT>"];
+</PRE> 
+</FONT>
+As you can see, this is done so that you don't have to refer to <I>document.layers["myLayer"]</I> every time you want to access the layer named "myLayer". Now that you have control of the layer in JavaScript, try moving it with the <I>offset()</I> Method:
+<FONT COLOR = "#0000DF">
+<PRE>
+    myLayer.offset(<FONT COLOR = "#009000">10</FONT>, <FONT COLOR = "#009000">5</FONT>);
+</PRE> 
+</FONT>
+The <I>offset()</I> method uses x,y coordinates to control the placement of a layer. The above line will move the layer (and all of its contents) to the right 10 pixels and down 5 pixels. Making those numbers negative will move the layer to the left 10 and up 5. Keep in mind, the <I>offset()</I> method doesn't say exactly where the layer is on the page, just how much it should be moved relative to where it currently resides. To control its absolute placement on the page, us the layer's <I>left</I> and <I>top</I> properties.
+<FONT COLOR = "#0000DF">
+<PRE>
+    myLayer.left = <FONT COLOR = "#009000">100</FONT>;
+    myLayer.top = <FONT COLOR = "#009000">100</FONT>;
+</PRE> 
+</FONT>
+This will place "myLayer" exactly 100 pixels <EM>from</EM> the left side of the page and 100 pixels <EM>from</EM> the top of the page. Think of it this way: everything is in relation to the top left corner of the page. Note that most of the properties in the Layer tag itself can be accessed through JavaScript. In fact, when I was fooling around with layers for the first time, I didn't even use the documentation. I just took the parameters in the tags and guessed that they would work the same way in JavaScript... and they did. For instance, to make the layer invisible (or hide it), simple set the <I>visibility</I> property of the layer to "HIDE":
+<FONT COLOR = "#0000DF">
+<PRE>
+    myLayer.visibility = <FONT COLOR = "#009000">"HIDE"</FONT>;
+</PRE> 
+</FONT>
+The layer will then disappear. To make it reappear set <I>visibility</I> back to "SHOW". Using this property, you can create something similar to dynamic image menus, but with text and other media. The possibilities are endless.
+<P> 
+Now you may ask, "How did you did you slide those graphics across the page?" Well, I combined the <I>offset()</I> method with <I>setTimeout()</I>. Each time <I>setTimeout()</I> was run, it moved the layers a given distance across the page. Repeat this process a given number of times and the layers will end up in the correct places and eventually form a JTotW title image. I'm not going to go in detail on how it was done this week: just poke around in the source and you'll figure it out. After all, you now know how to control layers, the rest is just creativity.
+<P>
+For those of you who want to learn more about Layers: Netscape has already released some <A HREF = "http://home.netscape.com/comprod/products/communicator/layers/layers_glossary.html"><STRONG>docs</STRONG></A> on it. I assume they will eventually become part of the upcoming Navigator 4.0 JavaScript Authoring Guide.
+<P>
+</BLOCKQUOTE>
+</BODY>
+</HTML>

@@ -1,0 +1,80 @@
+<html>
+<head>
+<title>SElib.multiTask()</title>
+<link rel="stylesheet" href="semanualstyles.css" type="text/css">
+<style type="text/css">
+ p { margin-top: 0; margin-bottom: 0; }
+</style>
+<script language="JavaScript" src="TrueHelp.js"></script>
+</head>
+<body onload="thload()">
+<div id=ienav>
+<ilayer id=nsnav>
+<br>
+<center>
+<p class=normal><a href="seisdkc-toc.htm" target="left">contents</a> &nbsp; <a href="seisdkc-index.htm" target="left">index</a> &nbsp; <a href="TH_938.htm">previous</a> &nbsp; <a href="TH_940.htm">next</a></p>
+</center>
+<br>
+<hr noshade size=1>
+</ilayer>
+</div>
+<p class=sereffunclevel4>SElib.multiTask()</p>
+<table cellpadding=0>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>syntax:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=sesyntax>SElib.multiTask(on)</p></td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>where:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>on - a boolean determining whether multitasking is on or off. Default is <span class=secodephrase>true</span>.</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>return:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>void.</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>description:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>For Win16</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>Turns multitasking of programs on or off. Normally, multitasking is enabled and should be turned off only for very brief and critical sections of code. No messages are received by the current program or any other program while multitasking is off.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara><span class=secodephrase>SElib.multiTask()</span> is additive, meaning that if you call <span class=secodephrase>SElib.multiTask(false)</span> twice, then you must call <span class=secodephrase>SElib.multiTask(true)</span> twice before multitasking is resumed.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>The example below empties the clipboard. Multitasking is turned off during this brief interval to ensure that no other program tries to open the clipboard while this program is accessing it.</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>see:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara><span class=sejumptopic><a href="TH_948.htm">SElib.suspend()</a></span></p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>example:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=secodelines>SElib.multiTask(false);</p>
+<p class=secodelines>SElib.dynamicLink("USER",&nbsp;"OPENCLIPBOARD",&nbsp;SWORD16,</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;PASCAL,&nbsp;Screen.handle());</p>
+<p class=secodelines>SElib.dynamicLink("USER",&nbsp;"EMPTYCLIPBOARD",&nbsp;SWORD16,&nbsp;PASCAL);</p>
+<p class=secodelines>SElib.dynamicLink("USER",&nbsp;"CLOSECLIPBOARD",&nbsp;SWORD16,&nbsp;PASCAL);</p>
+<p class=secodelines>SElib.multiTask(true);</p></td>
+</tr>
+</table>
+<p class=normal>&nbsp;</p>
+<hr noshade size=1>
+<p class=normal><a href="TH_940.htm"><img src="button.png" border=0></a><a href="TH_940.htm" style="text-decoration:none;">SElib.peek()</a></p>
+<p>
+</body>
+</html>

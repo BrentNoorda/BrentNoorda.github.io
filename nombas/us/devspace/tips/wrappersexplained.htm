@@ -1,0 +1,691 @@
+ 
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 FINAL//EN">
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=ISO-8859-1">
+<TITLE>ScriptEase ISDK DevSpace Tips</TITLE>
+<!-- begin metaTags --> 
+<META NAME="keywords" CONTENT="javascript,ecmascript,ecma,scriptease,jscript,scripting,nombas,isdk,sedesk,web application development,embedded devices,distributed computing,peer-to-peer,p2p,peer,data mining,javascript.com,cycletraders,integrated sdk,script ease,java,c++,c,simplicity,power,palm,windows ce,integration: sdk,integration:sdk,scriptease:desktop,scriptease: desktop,se:desktop,se:desk,se:isdk, se: isdk,development tools,devtools">
+<META HTTP-EQUIV="DESCRIPTION" CONTENT="Nombas delivers simplicity and power through scripting by providing market-leading development tools and software for JavaScript and ECMAScript.">
+<!-- end metaTags --> <!-- begin navbar includes --> 
+<SCRIPT language=JavaScript1.2>
+  navbarPath = '../../'; 
+</SCRIPT>
+<SCRIPT language=JavaScript1.2 SRC="../../navbarData.js"></SCRIPT>
+<SCRIPT language=JavaScript1.2 SRC="../../navbarMenu.js"></SCRIPT>
+<SCRIPT language=JavaScript SRC="../../imgRollover.js"></SCRIPT>
+<!-- end navbar includes --> <!-- begin style and icon definition --> 
+<LINK REL="SHORTCUT ICON" HREF="../../nombas.ico">
+<STYLE> 
+A:hover { color:#941810;} 
+</STYLE>
+<!-- end style and icon definition --> 
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-1754630-10']);
+  _gaq.push(['_trackPageview']);
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+</HEAD>
+<BODY BGCOLOR="#06086F" LINK="#0000FF" VLINK="#800080" TEXT="#000000" TOPMARGIN=0 LEFTMARGIN=0 MARGINWIDTH=0 MARGINHEIGHT=0>
+<TABLE BORDER=0 CELLSPACING=0 CELLPADDING=0 WIDTH=213>
+  <TR VALIGN=TOP ALIGN=LEFT> 
+    <TD WIDTH=28 HEIGHT=4><IMG SRC="../../clearpixel.gif" WIDTH=28 HEIGHT=1 BORDER=0></TD>
+    <TD></TD>
+  </TR>
+  <TR VALIGN=TOP ALIGN=LEFT> 
+    <TD HEIGHT=60></TD>
+    <TD WIDTH=185 ALIGN=LEFT VALIGN=TOP><A HREF="../../index.htm"><IMG ID="Picture1" HEIGHT=60 WIDTH=185 SRC="../../logo.gif" BORDER=0></A></TD>
+  </TR>
+</TABLE>
+    <div id="nombas-legacy"></div>
+<TABLE BORDER=0 CELLSPACING=0 CELLPADDING=0>
+  <TR VALIGN=TOP ALIGN=LEFT> 
+    <TD WIDTH=30 HEIGHT=10><IMG SRC="../../clearpixel.gif" WIDTH=30 HEIGHT=1 BORDER=0></TD>
+    <TD></TD>
+  </TR>
+  <TR VALIGN=TOP ALIGN=LEFT> 
+    <TD></TD>
+    <TD WIDTH=582> 
+      <TABLE ID="Table1" BORDER=0 CELLSPACING=0 CELLPADDING=0 WIDTH=582>
+        <TR> 
+          <TD WIDTH=97> 
+            <P><A HREF="../../scripting/scripting.htm" 
+                            onmouseover="changeImages('scripting', '../../htab_scripting.gif'); popUp('elMenu1',event); return true;" 
+onmouseout="changeImages('scripting', '../../tab_scripting.gif'); popDown('elMenu1'); return true;"
+><IMG
+                             ID="scripting" HEIGHT=21 WIDTH=97 SRC="../../tab_scripting.gif" VSPACE=0 HSPACE=0 ALIGN="TOP" BORDER=0 name="scripting"></A> 
+          </TD>
+          <TD WIDTH=97> 
+            <P><A HREF="../../products/products.htm" 
+                            onmouseover="changeImages('products', '../../htab_products.gif'); popUp('elMenu2',event); return true;" 
+onmouseout="changeImages('products', '../../tab_products.gif'); popDown('elMenu2'); return true;"><IMG ID="products"
+                             HEIGHT=21 WIDTH=97 SRC="../../tab_products.gif" VSPACE=0 HSPACE=0 ALIGN="TOP" BORDER=0 name=products></A> 
+          </TD>
+          <TD WIDTH=97> 
+            <P><A HREF="../../purchase/purchase.htm" onmouseover="changeImages('purchase', '../../htab_purchase.gif');return true;" 
+onmouseout="changeImages('purchase', '../../tab_purchase.gif');return true;"><IMG ID="purchase"
+                             HEIGHT=21 WIDTH=97 SRC="../../tab_purchase.gif" VSPACE=0 HSPACE=0 ALIGN="TOP" BORDER=0 name=purchase></A> 
+          </TD>
+          <TD WIDTH=97> 
+            <P><A HREF="../../download/ndownload.htm" onmouseover="changeImages('download', '../../htab_download.gif');return true;" 
+onmouseout="changeImages('download', '../../tab_download.gif');return true;"><IMG ID="download"
+                             HEIGHT=21 WIDTH=97 SRC="../../tab_download.gif" VSPACE=0 HSPACE=0 ALIGN="TOP" BORDER=0 name=download></A> 
+          </TD>
+          <TD WIDTH=97> 
+            <P><a target="support" href="http://support.nombas.com/" onmouseover="changeImages('support', '../../htab_support.gif'); return true;" 
+onmouseout="changeImages('support', '../../tab_support.gif'); return true;"><IMG ID="support"
+                             HEIGHT=21 WIDTH=97 SRC="../../tab_support.gif" VSPACE=0 HSPACE=0 ALIGN="TOP" BORDER=0 name=support></A> 
+          </TD>
+          <TD WIDTH=97> 
+            <P><A HREF="../../company/company.htm" 
+                            onmouseover="changeImages('company', '../../htab_company.gif'); popUp('elMenu6',event); return true;" 
+onmouseout="changeImages('company', '../../tab_company.gif'); popDown('elMenu6'); return true;"><IMG ID="company"
+                             HEIGHT=21 WIDTH=97 SRC="../../tab_company.gif" VSPACE=0 HSPACE=0 ALIGN="TOP" BORDER=0 name=company></A> 
+          </TD>
+        </TR>
+      </TABLE>
+    </TD>
+  </TR>
+</TABLE>
+<TABLE BORDER=0 CELLSPACING=0 CELLPADDING=0 WIDTH=637>
+  <TR VALIGN=TOP ALIGN=LEFT> 
+    <TD WIDTH=5 HEIGHT=20><IMG SRC="../../clearpixel.gif" WIDTH=5 HEIGHT=1 BORDER=0></TD>
+    <TD WIDTH=632> 
+      <TABLE BORDER=0 CELLSPACING=0 CELLPADDING=0 WIDTH=632 HEIGHT=20 bgcolor="#FFFFFF">
+        <TR ALIGN=LEFT VALIGN=TOP> 
+          <TD> 
+            <TABLE BORDER=0 CELLSPACING=0 CELLPADDING=0 WIDTH=632>
+              <TR VALIGN=TOP ALIGN=LEFT> 
+                <TD WIDTH=20 HEIGHT=20 ALIGN=LEFT VALIGN=TOP><IMG ID="Picture12" HEIGHT=20 WIDTH=20 SRC="../../curve_topleft.gif" BORDER=0></TD>
+                <TD WIDTH=592><IMG SRC="../../clearpixel.gif" WIDTH=592 HEIGHT=1 BORDER=0></TD>
+                <TD WIDTH=20 ALIGN=LEFT VALIGN=TOP><IMG ID="Picture10" HEIGHT=20 WIDTH=20 SRC="../../curve_top.gif" BORDER=0></TD>
+              </TR>
+            </TABLE>
+          </TD>
+        </TR>
+      </TABLE>
+    </TD>
+  </TR>
+</TABLE>
+<TABLE BORDER=0 CELLSPACING=0 CELLPADDING=0 WIDTH=637>
+  <TR VALIGN=TOP ALIGN=LEFT> 
+    <TD HEIGHT=245></TD>
+    <TD WIDTH=632 COLSPAN=2 height="245"> 
+      <TABLE BORDER=0 CELLSPACING=0 CELLPADDING=0 WIDTH=632 HEIGHT=200 bgcolor="#FFFFFF">
+        <TR ALIGN=LEFT VALIGN=TOP> 
+          <TD height="236"> 
+            <TABLE BORDER=0 CELLSPACING=0 CELLPADDING=0 WIDTH=600>
+              <TR VALIGN=TOP ALIGN=LEFT> 
+                <TD WIDTH=14 HEIGHT=1><IMG SRC="../../clearpixel.gif" WIDTH=13 HEIGHT=1 BORDER=0></TD>
+                <TD WIDTH=586><IMG SRC="../../clearpixel.gif" WIDTH=316 HEIGHT=1 BORDER=0></TD>
+              </TR>
+              <TR VALIGN=TOP ALIGN=LEFT> 
+                <TD width="14"></TD>
+                <TD WIDTH=586> 
+                  <P ALIGN=LEFT><A HREF="../../index.htm"><FONT SIZE="-2" FACE="Verdana,Tahoma,Arial,Helvetica">Nombas</FONT></A><FONT SIZE="-2" FACE="Verdana,Tahoma,Arial,Helvetica"> 
+                    &gt; <a href="../index.htm">SE:ISDK DevSpace</a> &gt; <a href="../tips/index.htm">Tips</a> 
+                    &gt; Wrapper Functions </FONT> 
+                </TD>
+              </TR>
+            </TABLE>
+            <TABLE BORDER=0 CELLSPACING=0 CELLPADDING=0 WIDTH=615>
+              <TR VALIGN=TOP ALIGN=LEFT> 
+                <TD WIDTH=15 HEIGHT=5><IMG SRC="../../clearpixel.gif" WIDTH=15 HEIGHT=1 BORDER=0></TD>
+                <TD></TD>
+              </TR>
+              <TR VALIGN=TOP ALIGN=LEFT> 
+                <TD HEIGHT=80></TD>
+                <TD WIDTH=600 ALIGN=LEFT VALIGN=TOP><IMG ID="Picture14" HEIGHT=80 WIDTH=600 SRC="../../devspace/bnr_devspace.gif" BORDER=0></TD>
+              </TR>
+              <TR VALIGN=TOP ALIGN=LEFT> 
+                <TD HEIGHT=135></TD>
+                <TD WIDTH=600 ALIGN=LEFT VALIGN=TOP height="135"> 
+                  <table width="100%" border="0">
+                    <tr> 
+                      <td colspan="1" height="9"><img SRC="../../clearpixel.gif" width="1" height="1"></td>
+                    </tr>
+                    <tr> 
+                      <td width="1" height="100%">&nbsp;</td>
+                      <td valign="top" width="100%"> 
+                        <p><font face="Verdana, Arial, Helvetica, sans-serif" size="4"><b>Wrapper 
+                          Functions </b></font><br>
+                          <font size="2"><i><font face="Verdana, Arial, Helvetica, sans-serif">By 
+                          Rich Robinson, Nombas, Inc.</font></i></font></p>
+                        <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2">Once 
+                          you begin to understand what is going on, ScriptEase 
+                          is pretty easy to work with. However, before everything 
+                          'clicks', it can seem confusing and daunting. One of 
+                          the most basic concepts of ScriptEase is the wrapper 
+                          function. This document will explain this concept, and 
+                          move you closer to that 'click.'</font></p>
+                        <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2">The 
+                          first step is to understand integrating the ISDK with 
+                          your application. This is fully described in the manual. 
+                          Once you have done so, you can run scripts. The API 
+                          function 'jseInterpret()' is most often used to do so. 
+                          This part is easy to understand. </font></p>
+                        <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2">However, 
+                          at that point, those scripts are generic JavaScript 
+                          and they cannot communicate with your application. You 
+                          can compute, for instance, the value of '10+3', but 
+                          you can't do anything with it.</font></p>
+                        <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2">You 
+                          need to write wrapper functions to do this communication. 
+                          What are wrapper functions and why are they needed? 
+                          Wrapper functions are the pieces of code where JavaScript 
+                          and your application communicate. Let's start with a 
+                          blank-slate application and add some wrapper functions 
+                          to make it do something. Work through this example, 
+                          and hopefully by the end everything will 'click' for 
+                          you. This example is for the ScriptEase:ISDK for C version.</font></p>
+                        <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2">First, 
+                          here is a sample application. Its only purpose is to 
+                          interpret a single script and exit. Of course, your 
+                          application will be much more complex. It will call 
+                          scripts as one of the many actions it needs to do and 
+                          will do it probably more than once. That is fine.</font></p>
+                        <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2">To 
+                          compile this, you will need to make a project for your 
+                          compiler that includes the file 'samp.c' (found below). 
+                          In addition, add the files 'srcmisc/globldat.c', 'srcmisc/utilstr.c', 
+                          'srcmisc/dirparts.c', and 'srcmisc/jsemem.c'. These 
+                          last files are part of the ScriptEase distribution. 
+                          Also found below is the file 'jseopt.h'. Put that in 
+                          the same directory as the 'samp.c' file.</font></p>
+                        <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2">You 
+                          will need to add the following ScriptEase directories 
+                          (as well as the directory containing your source files) 
+                          to the include path for this application:</font></p>
+                        <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><code>incjse 
+                          srclib srcmisc srcapp</code></font></p>
+                        <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2">You 
+                          will need to link with static library version of the 
+                          ScriptEase runtime engine (named serte40.lib). There 
+                          are other options available, including the ability to 
+                          link with a .dll version, but for this simple example 
+                          we will use the static version. Below is the text of 
+                          the two basic files, 'jseopt.h' and 'samp.c'. Comments 
+                          and extraneous text are not included - the file you 
+                          are reading is the explanation you need!</font></p>
+                        <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2">Note 
+                          that in jseopt.h, we have defined '__JSE_CON32__'. That 
+                          is because I am building Windows console apps to test 
+                          my examples. However, ScriptEase is portable. Chapter 
+                          2 of the manual in the section on JSEOPT.H has a table 
+                          listing the different defines necessary for different 
+                          systems. Replace this define if necessary with the one 
+                          in the table for your system.</font></p>
+                        <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2">The 
+                          only other caveat is that for simplicity, we are using 
+                          printf. This is not available on all systems. You will 
+                          need to modify it for your system if you cannot printf.</font></p>
+                        <pre><code>
+/* file: jseopt.h */
+#ifndef _JSEOPT_H
+#define _JSEOPT_H
+
+#define JSETOOLKIT_APP
+#define __JSE_LIB__
+#define __JSE_CON32__    // see comments above
+#define NDEBUG
+
+#include "seall.h"
+
+#endif
+----------------------------------------------------------------------
+/* file: samp.c */
+#include "jseopt.h"
+
+void JSE_CFUNC FAR_CALL myerrfunc(jseContext jsecontext, 
+                          const jsechar _FAR_ *ErrorString)
+{
+   UNUSED_PARAMETER(jsecontext);
+
+   printf("ScriptEase error: %s\n", ErrorString);
+}
+
+#define text UNISTR("var a = 10 * 5;\n")
+
+int main(int argc,char *argv[])
+{
+   jseContext jsecontext;
+   struct jseExternalLinkParameters LinkParms;
+   long ver;
+
+   printf("samp.c version 1.\n");
+
+#if defined(JSE_MEM_DEBUG) && (0!=JSE_MEM_DEBUG)
+   jseInitializeMallocDebugging();
+#endif
+
+   ver = jseInitializeEngine();
+   if( JSE_ENGINE_VERSION_ID != ver )
+   {
+      printf("Failed to initialize interpreter engine.\n");
+      exit(0);
+   }
+
+   memset(&LinkParms,0,sizeof(struct jseExternalLinkParameters));
+   LinkParms.PrintErrorFunc = myerrfunc;
+
+   /* Insert here the key your received by email */
+   jsecontext = jseInitializeExternalLink(NULL,&LinkParms,"",<br>       MY_JSE_USER_KEY);
+   if( jsecontext==NULL )
+   {
+      printf("Error initializing context.\n");
+      exit(0);
+   }
+
+   jseInterpret(jsecontext,NULL,text,NULL,jseNewNone,0,NULL,NULL);
+
+   jseTerminateExternalLink(jsecontext);
+   jseTerminateEngine();
+
+#if defined(JSE_MEM_DEBUG) && (0!=JSE_MEM_DEBUG)
+   jseTerminateMallocDebugging();
+#endif
+
+   return 0;
+}
+----------------------------------------------------------------------
+
+Compile and link this sample. You will have to replace 'MY_JSE_USER_KEY' with
+your actual key, in quotes. You can now interpret a script using the
+ScriptEase engine. If you run this, it will interpret the simple script 'var a
+= 10 * 5;'. Unfortunately, that script has no way to communicate with your
+application. It cannot access your application's data, tell your application
+to perform tasks, or do any other real work. This is why you need wrapper
+functions. Let's add a single wrapper function. This wrapper function will
+simply print out whatever parameter is passed to it as a string. Now we can at
+least see that the script is working.
+
+Replace the text in 'samp.c' above, by changing the line:
+
+#define text UNISTR("var a = 10 * 5;\n")
+
+to
+
+#define text UNISTR("var a = 10 * 5; foo(a);\n")
+
+Recompile and run it. You'll get an error! That's because the interpreter does
+not know about the function "foo". We need to associate "foo" with a wrapper
+function and write that function. Wrapper functions always have the same
+format. The only difference is their names and the body of their
+function. Obviously, the name is up to you. The body of the wrapper function
+can be conceptually broken into three parts, some or all of which can be
+ignored if your function doesn't have a need to do that.
+
+1. A wrapper function examines the arguments passed to it. These arguments are
+   JavaScript arguments of the type 'jseVariable'. The ScriptEase API provides
+   many functions to work with these arguments. You can find out how many your
+   function received, what type they are, translate their values to the
+   equivelent 'C' value so your program can work with them, and so forth.
+2. The wrapper function does some work with your application. For instance, a
+   wrapper function designed to make an audible beep will call whatever
+   application function you have that will make a beep.
+3. The wrapper function returns some value. Of course, whatever value you have
+   to return will be a C value. You will use the ScriptEase API to translate
+   that into a JavaScript value which can then be used by the ScriptEase
+   engine and return that value.
+
+For our example, "foo" needs to examine its single argument and print it out
+as a string. Let's write a wrapper function to do this.
+
+
+static jseLibFunc(FooWrapperFunction)
+{
+   /* get first argument, remember it is numbered from 0 up */
+   jseVariable arg1 = jseFuncVar(jsecontext,0);
+   const jsechar *string_val;
+
+
+   /* We want to see the variable as a string, so make a 'string' version of
+    * it.
+    */
+   jseVariable arg_as_string =
+      jseCreateConvertedVariable(jsecontext,arg1,jseToString);
+
+   /* Get that string value. */
+   string_val = jseGetString(jsecontext,arg_as_string,NULL);
+
+   /* print it to the screen */
+   printf("Value passed to foo wrapper function: %s\n",string_val);
+
+   /* ScriptEase API rule: if a function has the text 'Create' in it, the
+    * variable returned must later be destroyed!
+    */
+   jseDestroyVariable(jsecontext,arg_as_string);
+}
+
+
+That's the wrapper function. Notice that this function does not use the
+ScriptEase API function 'jseReturnVar' to return a value. This is analogous to
+a JavaScript function that doesn't have a 'return' statement. Also, there are
+different ways to accomplish the same task. I choose the above way to clearly
+indicate the steps we are doing. A number of common tasks are simplified in
+the ScriptEase API by functions designed to do those tasks.
+
+Now that we've created the wrapper function, we have one final step. We must
+tell the ScriptEase interpreter about it. First thing we do is create a table
+describing the functions we wish to add. In this case, there is just one
+function in the table:
+
+
+static CONST_DATA(struct jseFunctionDescription) MyFunctionList[] =
+{
+   JSE_LIBMETHOD( "foo",  FooWrapperFunction,  1, 1, 0, 0 ),
+   JSE_FUNC_END
+};
+
+
+The first parameter gives the name that the JavaScript can refer to our
+function as, the second is the function that will do the work. The third and
+fourth parameters are the minimum and maximum arguments the function can
+take. For our example, we say it must always have 1 argument. The last two are
+flags about the function, which we can set to 0 since we have no special
+requirements.
+
+Finally, we need to register this table with the interpreter. We do this after
+we create the context using jseInitializeExternalLink() and before we try to
+interpret any scripts. This call does the trick:
+
+
+jseAddLibrary( jsecontext, NULL, MyFunctionList, NULL, NULL, NULL );
+
+
+Again there is added behavior this function can do for us, but we don't need
+it so many of the parameters are NULL. Refer to the ScriptEase API reference
+as well as Chapter 2 of the manual for more information.
+
+We add all of this into our samp.c file, here is the complete new version:
+
+----------------------------------------------------------------------
+/* samp.c with a wrapper function */
+#include "jseopt.h"
+
+void JSE_CFUNC FAR_CALL myerrfunc(jseContext jsecontext, 
+                          const jsechar _FAR_ *ErrorString)
+{
+   UNUSED_PARAMETER(jsecontext);
+
+   printf("ScriptEase error: %s\n", ErrorString);
+}
+
+static jseLibFunc(FooWrapperFunction)
+{
+   /* get first argument, remember it is numbered from 0 up */
+   jseVariable arg1 = jseFuncVar(jsecontext,0);
+   const jsechar *string_val;
+
+
+   /* We want to see the variable as a string, 
+    * so make a 'string' version of it.
+    */
+   jseVariable arg_as_string =
+      jseCreateConvertedVariable(jsecontext,arg1,jseToString);
+
+   /* Get that string value. */
+   string_val = jseGetString(jsecontext,arg_as_string,NULL);
+
+   /* print it to the screen */
+   printf("Value passed to foo wrapper function: %s\n",string_val);
+
+   /* ScriptEase API rule: if a function has the text 'Create' in it,
+    * the variable returned must later be destroyed!
+    */
+   jseDestroyVariable(jsecontext,arg_as_string);
+}
+
+static CONST_DATA(struct jseFunctionDescription) MyFunctionList[] =
+{
+   JSE_LIBMETHOD( "foo",  FooWrapperFunction,  1, 1, 0, 0 ),
+   JSE_FUNC_END
+};
+
+#define text UNISTR("var a = 10 * 5; foo(a);\n")
+
+int main(int argc,char *argv[])
+{
+   jseContext jsecontext;
+   struct jseExternalLinkParameters LinkParms;
+   long ver;
+
+   printf("samp.c version 2.\n");
+
+#if defined(JSE_MEM_DEBUG) && (0!=JSE_MEM_DEBUG)
+   jseInitializeMallocDebugging();
+#endif
+
+   ver = jseInitializeEngine();
+   if( JSE_ENGINE_VERSION_ID != ver )
+   {
+      printf("Failed to initialize interpreter engine.\n");
+      exit(0);
+   }
+
+   memset(&LinkParms,0,sizeof(struct jseExternalLinkParameters));
+   LinkParms.PrintErrorFunc = myerrfunc;
+
+   /* Insert here the key your received by email */
+   jsecontext = jseInitializeExternalLink(NULL,&LinkParms,"",<br>        MY_JSE_USER_KEY);
+   if( jsecontext==NULL )
+   {
+      printf("Error initializing context.\n");
+      exit(0);
+   }
+
+   jseAddLibrary( jsecontext, NULL, MyFunctionList, NULL, NULL, NULL );
+
+   jseInterpret(jsecontext,NULL,text,NULL,jseNewNone,0,NULL,NULL);
+
+   jseTerminateExternalLink(jsecontext);
+   jseTerminateEngine();
+
+#if defined(JSE_MEM_DEBUG) && (0!=JSE_MEM_DEBUG)
+   jseTerminateMallocDebugging();
+#endif
+
+   return 0;
+}
+----------------------------------------------------------------------
+
+
+Recompile, link, and run it. Now, you can see that your wrapper function is
+called. The script is communicating with your application, albeit in a very
+simply way.
+
+Wrapper functions can be used to do much more complex things. The example
+above shows a clearly procedural approach. You can also use the ScriptEase API
+to build classes of objects with member functions that are handled by wrapper
+functions as well. Chapter 5 of the manual, under the section on Objects,
+describes how you go about building object classes. Just remember that you can
+use a wrapper function wherever you might have a JavaScript function. So the
+object methods described in that section written in JavaScript can be just as
+easily written in C as wrapper functions. You will use the ScriptEase API
+function 'jseGetCurrentThisVariable()' to know which object this method should
+be acting upon for this call to it.
+
+
+SOME HELPFUL HINTS
+
+
+Hopefully now you have a good idea of the basics of wrapper functions: why
+they are needed and what they do. What follows are some helpful pointers on
+common techniques for using wrapper functions.
+
+
+LOOK AT THE SAMPLES
+
+
+The Samples directory of the ScriptEase: ISDK has a number of simple samples
+that you should look at. The directory 'srclib/ecma' contains the source code
+for the ScriptEase implementation of the standard ECMAScript objects (Number,
+String, Math, etc.) You can see that they are implemented using the ScriptEase
+API and wrapper functions. Although more complex than the simple samples, you
+can learn a lot from them.
+
+
+RETURNING C POINTERS
+
+
+In many instances you will want to return a value from a wrapper function
+simply so you'll have it available to be passed as a parameter to a different
+function. For instance, suppose you want to have a function
+'lookupMyThingByName' which takes an ASCII string and uses it to find some
+pointer. You then want to take that as a parameter to functions that act on
+that object. You don't need the JavaScript variable itself to be
+understandable by the script; the only valid thing the script can do with it
+is pass it as a parameter to one of these other functions that can understand
+it. Your task is simply to pass the value along.
+
+One easy way to do this is to create a JavaScript string to return the value,
+as in:
+
+
+----------------------------------------------------------------------
+jseVariable retvar = jseCreateVariable(jsecontext,jseTypeString);
+char buffer[100];
+
+sprintf(buffer,"MyThingee%x",<pointer_value>);
+jsePutString(jsecontext,retvar,buffer);
+jseReturnVar(jsecontext,retvar,jseRetTempVar);
+/* NOTE: jseReturnVar() with the jseRetTempVar will implicitly destroy
+ *       the variable. Otherwise we would have to explicitly destroy it
+ *       ourself since it was returned via an API call with the text
+ *       'Create' as part of it.
+ */
+----------------------------------------------------------------------
+
+
+Wrapping it up into a string is slower than casting it to a double and
+returning it via jseReturnNumber(), true, but it allows you to ensure that the
+value is correct in functions that later try to use it. It's easy to pass the
+wrong number, but someone would have to purposely try to trick you using this
+method. Such a function could extract the value using this snippet:
+
+
+----------------------------------------------------------------------
+/* assume the 1st parameter is the object to be acted upon */
+jseVariable object = jseFuncVar(jsecontext,0);
+MyPointerType *pointer;
+
+if( jseGetType(jsecontext,object)!=jseTypeString ||
+    sscanf(jseGetString(jsecontext,object,NULL),"MyThingee%x",&pointer)!=1 )
+{
+  jseLibErrorPrintf(jsecontext,"That is not a valid thingee!\n");
+}
+else
+{
+   /* pointer is now valid, we can use it to do some real work */
+}
+----------------------------------------------------------------------
+
+
+You can do the same kind of thing in an object-oriented way. Instead of
+returning a string, we can make the function act like a constructor. You
+create an object, and put the string as one of its members. The object has a
+number of member functions. Each function will get its 'this' variable using
+'jseGetCurrentThisVariable'. Each function will ensure the storage member
+exists, and extract the pointer from that string similarly to above. The two
+code snippets above are modified to use this method below. First, the
+constructor would look something like this:
+
+----------------------------------------------------------------------
+jseVariable retvar = jseCreateVariable(jsecontext,jseTypeObject);
+jseVariable storevar = jseMember(jsecontext,retvar,"my_storage_member",
+                                 jseTypeString);
+char buffer[100];
+
+sprintf(buffer,"MyThingee%x",<pointer_value>);
+jsePutString(jsecontext,storevar,buffer);
+
+jseAssign(jsecontext,jseMember(jsecontext,retvar,"_prototype"),
+          <my classs prototype object>);
+
+jseReturnVar(jsecontext,retvar,jseRetTempVar);
+----------------------------------------------------------------------
+
+and each member function would start off with:
+
+----------------------------------------------------------------------
+jseVariable wrapper_object = jseGetCurrentThisVariable(jsecontext);
+jseVariable object = jseGetMember(jsecontext,wrapper_object,<br>       "my_storage_member");
+MyPointerType *pointer;
+
+if( object==NULL ||
+    jseGetType(jsecontext,object)!=jseTypeString ||
+    sscanf(jseGetString(jsecontext,object,NULL),"MyThingee%x",<br>       &pointer)!=1 )
+{
+  jseLibErrorPrintf(jsecontext,"'this' is not really my type!\n");
+}
+else
+{
+   /* pointer is now valid, we can use it to do some real work */
+}</code></pre>
+                        <p>&nbsp; </p>
+                        <p>&nbsp; </p>
+                        </td>
+                    </tr>
+                  </table>
+                </TD>
+              </TR>
+            </TABLE>
+          </TD>
+        </TR>
+      </TABLE>
+    </TD>
+  </TR>
+  <TR VALIGN=TOP ALIGN=LEFT> 
+    <TD HEIGHT=2></TD>
+    <TD WIDTH=632 COLSPAN=2 height="2"> 
+      <TABLE BORDER=0 CELLSPACING=0 CELLPADDING=0 WIDTH=632 HEIGHT=20 bgcolor="#FFFFFF">
+        <TR ALIGN=LEFT VALIGN=TOP> 
+          <TD> 
+            <TABLE BORDER=0 CELLSPACING=0 CELLPADDING=0 WIDTH=632>
+              <TR VALIGN=TOP ALIGN=LEFT> 
+                <TD WIDTH=20 HEIGHT=2 ALIGN=LEFT VALIGN=TOP><IMG ID="Picture13" HEIGHT=20 WIDTH=20 SRC="../../curve_botleft.gif" BORDER=0></TD>
+                <TD WIDTH=592 height="2"><IMG SRC="../../clearpixel.gif" WIDTH=592 HEIGHT=1 BORDER=0></TD>
+                <TD WIDTH=20 ALIGN=LEFT VALIGN=TOP height="2"><IMG ID="Picture11" HEIGHT=20 WIDTH=20 SRC="../../curve_bot.gif" BORDER=0></TD>
+              </TR>
+            </TABLE>
+          </TD>
+        </TR>
+      </TABLE>
+    </TD>
+  </TR>
+  <TR VALIGN=TOP ALIGN=LEFT> 
+    <TD WIDTH=5 HEIGHT=6><IMG SRC="../../clearpixel.gif" WIDTH=5 HEIGHT=1 BORDER=0></TD>
+    <TD WIDTH=613><IMG SRC="../../clearpixel.gif" WIDTH=613 HEIGHT=1 BORDER=0></TD>
+    <TD WIDTH=19><IMG SRC="../../clearpixel.gif" WIDTH=19 HEIGHT=1 BORDER=0></TD>
+  </TR>
+  <TR VALIGN=TOP ALIGN=LEFT> 
+    <TD WIDTH=618 COLSPAN=2> 
+      <P ALIGN=RIGHT><A HREF="../../index.htm"><FONT COLOR="#FFFFFF" SIZE="-2" FACE="Verdana,Tahoma,Arial,Helvetica">Home</FONT></A><FONT COLOR="#FFFFFF" SIZE="-2" FACE="Verdana,Tahoma,Arial,Helvetica"> 
+        | </FONT><A
+                 HREF="../../scripting/scripting.htm"><FONT COLOR="#FFFFFF" SIZE="-2" FACE="Verdana,Tahoma,Arial,Helvetica">Scripting</FONT></A><FONT COLOR="#FFFFFF" SIZE="-2" FACE="Verdana,Tahoma,Arial,Helvetica"> 
+        | </FONT><A
+                 HREF="../../products/products.htm"><FONT COLOR="#FFFFFF" SIZE="-2" FACE="Verdana,Tahoma,Arial,Helvetica">Products</FONT></A><FONT COLOR="#FFFFFF" SIZE="-2" FACE="Verdana,Tahoma,Arial,Helvetica"> 
+        | </FONT><A
+                 HREF="../../purchase/purchase.htm"><FONT COLOR="#FFFFFF" SIZE="-2" FACE="Verdana,Tahoma,Arial,Helvetica">Purchase</FONT></A><FONT COLOR="#FFFFFF" SIZE="-2" FACE="Verdana,Tahoma,Arial,Helvetica"> 
+        | </FONT><A
+                 HREF="../../download/ndownload.htm"><FONT COLOR="#FFFFFF" SIZE="-2" FACE="Verdana,Tahoma,Arial,Helvetica">Download</FONT></A><FONT COLOR="#FFFFFF" SIZE="-2" FACE="Verdana,Tahoma,Arial,Helvetica"> 
+        | </FONT><A
+                 HREF="http://support.nombas.com/"><FONT COLOR="#FFFFFF" SIZE="-2" FACE="Verdana,Tahoma,Arial,Helvetica">Support</FONT></A><FONT COLOR="#FFFFFF" SIZE="-2" FACE="Verdana,Tahoma,Arial,Helvetica"> 
+        | </FONT><A HREF="../../company/company.htm"> <FONT COLOR="#FFFFFF" SIZE="-2" FACE="Verdana,Tahoma,Arial,Helvetica">Company</FONT></A><FONT COLOR="#FFFFFF" SIZE="-2" FACE="Verdana,Tahoma,Arial,Helvetica"><BR>
+        <BR>
+        Copyright &#169;2001, Nombas, Inc. All Rights Reserved.<BR>
+        Questions? Visit </FONT><A HREF="http://support.nombas.com/"><FONT COLOR="#FFFFFF" SIZE="-2" FACE="Verdana,Tahoma,Arial,Helvetica">http://support.nombas.com/</FONT></A> 
+    </TD>
+    <TD></TD>
+  </TR>
+</TABLE>
+<SCRIPT language=JavaScript1.2>
+  display_nombas_legacy_message();
+</SCRIPT>
+</BODY>
+</HTML>

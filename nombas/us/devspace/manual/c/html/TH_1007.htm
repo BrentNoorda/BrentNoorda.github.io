@@ -1,0 +1,67 @@
+<html>
+<head>
+<title>DSP dspSend()</title>
+<link rel="stylesheet" href="semanualstyles.css" type="text/css">
+<style type="text/css">
+ p { margin-top: 0; margin-bottom: 0; }
+</style>
+<script language="JavaScript" src="TrueHelp.js"></script>
+</head>
+<body onload="thload()">
+<div id=ienav>
+<ilayer id=nsnav>
+<br>
+<center>
+<p class=normal><a href="seisdkc-toc.htm" target="left">contents</a> &nbsp; <a href="seisdkc-index.htm" target="left">index</a> &nbsp; <a href="TH_1006.htm">previous</a> &nbsp; <a href="TH_1008.htm">next</a></p>
+</center>
+<br>
+<hr noshade size=1>
+</ilayer>
+</div>
+<p class=sereffunclevel4>DSP dspSend()</p>
+<table cellpadding=0>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>syntax:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=sesyntax>dsp.dspSend(<span class=truehelp-xe></span>connection,&nbsp;buffer,&nbsp;timeout)</p></td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>where:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>connection - The original connection that was returned from the openFunction passed to <span class=secodephrase>new </span><span class=sepopuptopic><a href="TH_1004.htm" onClick="return thwindow('TH_1004.htm', 'GenPopup')">DSP()</a></span></p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>buffer - The buffer to send</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>timeout - The maximum amount of time to wait (in milliseconds) for data to be ready for writing on the connection</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>return:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>number - The number of bytes written, or -1 on error</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>description:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>This function is responsible for sending data across the connection (the one returned by the openFunction passed to the DSP constructor).  Its behavior is similar to that of dspReceive().  It should wait up until <span class=secodephrase>timeout</span> for data to be ready, and then send as much as possible along the connection (up to the length of <span class=secodephrase>buffer</span>).  If the timeout expires, the function should return 0.  If there was some sort of error, then an error should be thrown, or -1 returned.  Otherwise, the number of bytes written should be returned.  Throwing an error is often more descriptive than the generic failure message.  See introduction, under <span class=sepopuptopic><a href="TH_1001.htm" onClick="return thwindow('TH_1001.htm', 'GenPopup')">creating a DSP object</a></span>, for an example of how to implement this function.</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>see:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara><span class=secodephrase>#link &lt;sedsp&gt;</span>, <span class=sejumptopic><a href="TH_1006.htm">DSP dspReceive()</a></span></p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+</table>
+<p class=normal>&nbsp;</p>
+<hr noshade size=1>
+<p class=normal><a href="TH_1008.htm"><img src="button.png" border=0></a><a href="TH_1008.htm" style="text-decoration:none;">DSP dspLoad()</a></p>
+<p>
+</body>
+</html>

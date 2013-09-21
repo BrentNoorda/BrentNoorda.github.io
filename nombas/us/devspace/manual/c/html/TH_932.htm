@@ -1,0 +1,95 @@
+<html>
+<head>
+<title>SElib.getObjectProperties()</title>
+<link rel="stylesheet" href="semanualstyles.css" type="text/css">
+<style type="text/css">
+ p { margin-top: 0; margin-bottom: 0; }
+</style>
+<script language="JavaScript" src="TrueHelp.js"></script>
+</head>
+<body onload="thload()">
+<div id=ienav>
+<ilayer id=nsnav>
+<br>
+<center>
+<p class=normal><a href="seisdkc-toc.htm" target="left">contents</a> &nbsp; <a href="seisdkc-index.htm" target="left">index</a> &nbsp; <a href="TH_931.htm">previous</a> &nbsp; <a href="TH_933.htm">next</a></p>
+</center>
+<br>
+<hr noshade size=1>
+</ilayer>
+</div>
+<p class=sereffunclevel4>SElib.getObjectProperties()</p>
+<table cellpadding=0>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>syntax:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=sesyntax>SElib.getObjectProperties(object[,</p>
+<p class=sesyntax>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;includeUndefined])</p></td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>where:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>object - an object from which to get its properties.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>includeUndefined - a boolean, determines whether or not to include properties with <span class=secodephrase>undefined</span> values. The default is <span class=secodephrase>false</span>, that is, do not include properties with <span class=secodephrase>undefined</span> values. </p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>return:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>object - an array of strings which are the names of the properties of the object. The array is terminated with a <span class=secodephrase>null</span>, that is, the last element is always <span class=secodephrase>null</span>.</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>description:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>Get the names of the properties of an object in an array of strings in which each element is a property name and the last element is <span class=secodephrase>null</span>.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>The parameter includeUndefined must be <span class=secodephrase>true</span> to return properties that are not defined. If includeUndefined is <span class=secodephrase>false</span>, then only properties that have defined data are included. The default for includeUndefined is <span class=secodephrase>false</span>.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>The final member of the returned array returned is always <span class=secodephrase>null</span>. If the parameter object is not defined or contains no properties, then the return is an array with a single element set to <span class=secodephrase>null</span>.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara><span class=secodephrase>SElib.getObjectProperties()</span> is similar to the ECMAScript <span class=sepopuptopic><a href="TH_492.htm" onClick="return thwindow('TH_492.htm', 'GenPopup')">for/in</a></span> loop. The important difference is that a for/in loop does not enumerate properties that have <span class=secodephrase>DONT_ENUM</span> as part of their attributes (<span class=sepopuptopic><a href="TH_826.htm" onClick="return thwindow('TH_826.htm', 'GenPopup')">global.setAttributes()</a></span>), whereas <span class=secodephrase>SElib.getObjectProperties()</span> includes them in the array that it returns.</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>see:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara><span class=sejumptopic><a href="TH_492.htm">for/in</a></span>, <span class=sejumptopic><a href="TH_883.htm">Object propertyIsEnumerable()</a></span></p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>example:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=secodelines>var&nbsp;Point;</p>
+<p class=secodelines>Point.row&nbsp;=&nbsp;5;</p>
+<p class=secodelines>Point.col&nbsp;=&nbsp;8;</p>
+<p class=secodelines>Point.height;</p>
+<p class=secodelines>DisplayAllStructureMembers(Point);</p>
+<p class=secodelines>&nbsp;</p>
+<p class=secodelines>function&nbsp;DisplayAllStructureMembers(ObjectVar)</p>
+<p class=secodelines>{</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;Screen.writeln("Object&nbsp;Properties:");</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;var&nbsp;MemberList&nbsp;=&nbsp;SElib.getObjectProperties(ObjectVar);</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;for&nbsp;(var&nbsp;i&nbsp;=&nbsp;0;&nbsp;MemberList[i];&nbsp;i++)</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;Clib.printf("&nbsp;&nbsp;%s\n",&nbsp;MemberList[i]);</p>
+<p class=secodelines>}</p>
+<p class=secodelines>&nbsp;</p>
+<p class=secodelines>//&nbsp;This&nbsp;fragment&nbsp;produces&nbsp;the&nbsp;following&nbsp;output.</p>
+<p class=secodelines>//&nbsp;Object&nbsp;Properties:</p>
+<p class=secodelines>//&nbsp;&nbsp;&nbsp;row</p>
+<p class=secodelines>//&nbsp;&nbsp;&nbsp;col</p></td>
+</tr>
+</table>
+<p class=normal>&nbsp;</p>
+<hr noshade size=1>
+<p class=normal><a href="TH_933.htm"><img src="button.png" border=0></a><a href="TH_933.htm" style="text-decoration:none;">SElib.inSecurity()</a></p>
+<p>
+</body>
+</html>

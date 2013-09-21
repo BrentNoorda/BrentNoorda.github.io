@@ -1,0 +1,632 @@
+ 
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 FINAL//EN">
+<HTML><!-- #BeginTemplate "/us/Templates/erratapage.dwt" -->
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=ISO-8859-1">
+<!-- #BeginEditable "doctitle" --> 
+<TITLE>ScriptEase ISDK DevSpace</TITLE>
+<!-- #EndEditable --> <!-- begin metaTags --> 
+<META NAME="keywords" CONTENT="javascript,ecmascript,ecma,scriptease,jscript,scripting,nombas,isdk,sedesk,web application development,embedded devices,distributed computing,peer-to-peer,p2p,peer,data mining,javascript.com,cycletraders,integrated sdk,script ease,java,c++,c,simplicity,power,palm,windows ce,integration: sdk,integration:sdk,scriptease:desktop,scriptease: desktop,se:desktop,se:desk,se:isdk, se: isdk,development tools,devtools">
+<META HTTP-EQUIV="DESCRIPTION" CONTENT="Nombas delivers simplicity and power through scripting by providing market-leading development tools and software for JavaScript and ECMAScript.">
+<!-- end metaTags -->
+<!-- begin navbar includes -->
+<SCRIPT language=JavaScript1.2>
+  navbarPath = '../../../'; 
+</SCRIPT>
+<SCRIPT language=JavaScript1.2 SRC="../../../navbarData.js"></SCRIPT>
+<SCRIPT language=JavaScript1.2 SRC="../../../navbarMenu.js"></SCRIPT>
+<SCRIPT language=JavaScript SRC="../../../imgRollover.js"></SCRIPT>
+<!-- end navbar includes -->
+<!-- begin style and icon definition -->
+<LINK REL="SHORTCUT ICON" HREF="../../../nombas.ico">
+<STYLE> 
+A:hover { color:#941810;} 
+</STYLE>
+<!-- end style and icon definition -->
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-1754630-10']);
+  _gaq.push(['_trackPageview']);
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+</HEAD>
+<BODY BGCOLOR="#06086F" LINK="#0000FF" VLINK="#800080" TEXT="#000000" TOPMARGIN=0 LEFTMARGIN=0 MARGINWIDTH=0 MARGINHEIGHT=0>
+<table width="632" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td>
+<TABLE BORDER=0 CELLSPACING=0 CELLPADDING=0 WIDTH=213>
+  <TR VALIGN=TOP ALIGN=LEFT> 
+    <TD WIDTH=28 HEIGHT=4><IMG SRC="../../../clearpixel.gif" WIDTH=28 HEIGHT=1 BORDER=0></TD>
+    <TD></TD>
+  </TR>
+  <TR VALIGN=TOP ALIGN=LEFT> 
+    <TD HEIGHT=60></TD>
+          <TD WIDTH=185 ALIGN=LEFT VALIGN=TOP><A HREF="../../../index.htm"><IMG ID="Picture1" HEIGHT=60 WIDTH=185 SRC="../../../logo.gif" BORDER=0 alt="Nombas Homepage"></A></TD>
+  </TR>
+</TABLE>
+    <div id="nombas-legacy"></div>
+<TABLE BORDER=0 CELLSPACING=0 CELLPADDING=0>
+  <TR VALIGN=TOP ALIGN=LEFT> 
+    <TD WIDTH=30 HEIGHT=10><IMG SRC="../../../clearpixel.gif" WIDTH=30 HEIGHT=1 BORDER=0></TD>
+    <TD></TD>
+  </TR>
+  <TR VALIGN=TOP ALIGN=LEFT> 
+    <TD></TD>
+    <TD WIDTH=582> 
+      <TABLE ID="Table1" BORDER=0 CELLSPACING=0 CELLPADDING=0 WIDTH=582>
+        <TR> 
+          <TD WIDTH=97> 
+                  <P><A HREF="../../../scripting/scripting.htm" 
+                            onmouseover="changeImages('scripting', '../../../htab_scripting.gif'); popUp('elMenu1',event); return true;" 
+onmouseout="changeImages('scripting', '../../../tab_scripting.gif'); popDown('elMenu1'); return true;"
+><IMG
+                             ID="scripting" HEIGHT=21 WIDTH=97 SRC="../../../tab_scripting.gif" VSPACE=0 HSPACE=0 ALIGN="TOP" BORDER=0 name="scripting" alt="Scripting"></A> 
+                </TD>
+          <TD WIDTH=97> 
+                  <P><A HREF="../../../products/products.htm" 
+                            onmouseover="changeImages('products', '../../../htab_products.gif'); popUp('elMenu2',event); return true;" 
+onmouseout="changeImages('products', '../../../tab_products.gif'); popDown('elMenu2'); return true;"><IMG ID="products"
+                             HEIGHT=21 WIDTH=97 SRC="../../../tab_products.gif" VSPACE=0 HSPACE=0 ALIGN="TOP" BORDER=0 name=products alt="Products"></A> 
+                </TD>
+          <TD WIDTH=97> 
+                  <P><A HREF="../../../purchase/purchase.htm" onmouseover="changeImages('purchase', '../../../htab_purchase.gif');return true;" 
+onmouseout="changeImages('purchase', '../../../tab_purchase.gif');return true;"><IMG ID="purchase"
+                             HEIGHT=21 WIDTH=97 SRC="../../../tab_purchase.gif" VSPACE=0 HSPACE=0 ALIGN="TOP" BORDER=0 name=purchase alt="Purchase"></A> 
+                </TD>
+          <TD WIDTH=97> 
+                  <P><A HREF="../../../download/ndownload.htm" onmouseover="changeImages('download', '../../../htab_download.gif');return true;" 
+onmouseout="changeImages('download', '../../../tab_download.gif');return true;"><IMG ID="download"
+                             HEIGHT=21 WIDTH=97 SRC="../../../tab_download.gif" VSPACE=0 HSPACE=0 ALIGN="TOP" BORDER=0 name=download alt="Download"></A> 
+                </TD>
+          <TD WIDTH=97> 
+                  <P><A target="support" HREF="http://support.nombas.com/" onmouseover="changeImages('support', '../../../htab_support.gif'); return true;" 
+onmouseout="changeImages('support', '../../../tab_support.gif'); return true;"><IMG ID="support"
+                             HEIGHT=21 WIDTH=97 SRC="../../../tab_support.gif" VSPACE=0 HSPACE=0 ALIGN="TOP" BORDER=0 name=support alt="Support"></A> 
+                </TD>
+          <TD WIDTH=97> 
+                  <P><A HREF="../../../company/company.htm" 
+                            onmouseover="changeImages('company', '../../../htab_company.gif'); popUp('elMenu6',event); return true;" 
+onmouseout="changeImages('company', '../../../tab_company.gif'); popDown('elMenu6'); return true;"><IMG ID="company"
+                             HEIGHT=21 WIDTH=97 SRC="../../../tab_company.gif" VSPACE=0 HSPACE=0 ALIGN="TOP" BORDER=0 name=company alt="Company"></A> 
+                </TD>
+        </TR>
+      </TABLE>
+    </TD>
+  </TR>
+</TABLE>
+      <TABLE BORDER=0 CELLSPACING=0 CELLPADDING=0 WIDTH=100%>
+        <TR VALIGN=TOP ALIGN=LEFT> 
+    <TD WIDTH=5 HEIGHT=20><IMG SRC="../../../clearpixel.gif" WIDTH=5 HEIGHT=1 BORDER=0></TD>
+          <TD> 
+            <TABLE BORDER=0 CELLSPACING=0 CELLPADDING=0 WIDTH=100% HEIGHT=20 bgcolor="#FFFFFF">
+              <TR ALIGN=LEFT VALIGN=TOP> 
+          <TD> 
+                  <TABLE BORDER=0 CELLSPACING=0 CELLPADDING=0 WIDTH=100%>
+                    <TR VALIGN=TOP ALIGN=LEFT> 
+                <TD WIDTH=20 HEIGHT=20 ALIGN=LEFT VALIGN=TOP><IMG ID="Picture12" HEIGHT=20 WIDTH=20 SRC="../../../curve_topleft.gif" BORDER=0></TD>
+                      <TD><IMG SRC="../../../clearpixel.gif" WIDTH=592 HEIGHT=1 BORDER=0></TD>
+                <TD WIDTH=20 ALIGN=LEFT VALIGN=TOP><IMG ID="Picture10" HEIGHT=20 WIDTH=20 SRC="../../../curve_top.gif" BORDER=0></TD>
+              </TR>
+            </TABLE>
+          </TD>
+        </TR>
+      </TABLE>
+    </TD>
+  </TR>
+</TABLE>
+<TABLE BORDER=0 CELLSPACING=0 CELLPADDING=0 WIDTH=637>
+  <TR VALIGN=TOP ALIGN=LEFT> 
+    <TD HEIGHT=471 width="5"></TD>
+    <TD COLSPAN=2 height="471"> 
+      <TABLE BORDER=0 CELLSPACING=0 CELLPADDING=0 WIDTH=632 HEIGHT=200 bgcolor="#FFFFFF">
+        <TR ALIGN=LEFT VALIGN=TOP> 
+          <TD height="471"> 
+            <TABLE BORDER=0 CELLSPACING=0 CELLPADDING=0 WIDTH=516>
+              <TR VALIGN=TOP ALIGN=LEFT> 
+                <TD WIDTH=14 HEIGHT=1><IMG SRC="../../../clearpixel.gif" WIDTH=13 HEIGHT=1 BORDER=0></TD>
+                <TD WIDTH=502><IMG SRC="../../../clearpixel.gif" WIDTH=316 HEIGHT=1 BORDER=0></TD>
+              </TR>
+              <TR VALIGN=TOP ALIGN=LEFT> 
+                <TD width="14"></TD>
+                <TD WIDTH=502><!-- #BeginEditable "hier" --> 
+                        <P ALIGN=LEFT><A HREF="../../../index.htm"><FONT SIZE="-2" FACE="Verdana,Tahoma,Arial,Helvetica">Nombas</FONT></A><FONT SIZE="-2" FACE="Verdana,Tahoma,Arial,Helvetica"> 
+                          &gt; <a HREF="../../index.htm">SE:ISDK DevSpace</a> 
+                          &gt; <a href="../index.htm">Errata</a> &gt; Core Interpreter 
+                          Errata</FONT> 
+                        <!-- #EndEditable --></TD>
+              </TR>
+            </TABLE>
+            <TABLE BORDER=0 CELLSPACING=0 CELLPADDING=0 WIDTH=300>
+              <TR VALIGN=TOP ALIGN=LEFT> 
+                <TD WIDTH=15 HEIGHT=5><IMG SRC="../../../clearpixel.gif" WIDTH=15 HEIGHT=1 BORDER=0></TD>
+                <TD></TD>
+              </TR>
+              <TR VALIGN=TOP ALIGN=LEFT> 
+                <TD HEIGHT=80></TD>
+                <TD WIDTH=600 ALIGN=LEFT VALIGN=TOP><IMG ID="Picture14" HEIGHT=80 WIDTH=600 SRC="../../bnr_devspace.gif" BORDER=0></TD>
+              </TR>
+              <TR VALIGN=TOP ALIGN=LEFT> 
+                <TD HEIGHT=368></TD>
+                <TD WIDTH=600 ALIGN=LEFT VALIGN=TOP height="368"> 
+                  <table width="100%" border="0">
+                    <tr> 
+                      <td colspan="4" height="9"><img SRC="../../../clearpixel.gif" width="1" height="1"></td>
+                    </tr>
+                    <tr> 
+                      <td width="1" height="326">&nbsp;</td>
+                      <td valign="top" height="326"><!-- #BeginEditable "main" -->
+                        <p><font size="4" face="Verdana, Arial, Helvetica, sans-serif"><b>Core 
+                          Interpreter Errata</b></font><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><br>
+                          <i><b>Errors in the Core Interpreter will affect all 
+                          products</b></i></font></p>
+                        <p> 
+                        <ul>
+                          <li><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><a href="#v410b">4.10b</a></font> 
+                          <li> <font face="Verdana, Arial, Helvetica, sans-serif" size="2"><a href="#v410a">4.10a</a></font> 
+                          <li> <font face="Verdana, Arial, Helvetica, sans-serif" size="2"><a href="#v403c">4.03c</a></font> 
+                          <li> <font face="Verdana, Arial, Helvetica, sans-serif" size="2"><a href="#v403b">4.03b</a></font> 
+                          <li> <font face="Verdana, Arial, Helvetica, sans-serif" size="2"><a href="#v403a">4.03a</a></font> 
+                          <li> <font face="Verdana, Arial, Helvetica, sans-serif" size="2"><a href="#v402">4.02</a></font> 
+                          <li> <font face="Verdana, Arial, Helvetica, sans-serif" size="2"><a href="#v401">4.01</a></font> 
+                        </ul>
+                        <p> <font face="Verdana, Arial, Helvetica, sans-serif" size="2"><a name="v410b"></a>&nbsp;&nbsp;<b>Version 
+                          4.10B errata (may apply to earlier versions)</b></font></p>
+                        <p> 
+                        <ul>
+                          <li><font face="Verdana, Arial, Helvetica, sans-serif" size="2">Line 
+                            numbering information is lost for error reports and 
+                            for debugging when literal strings are concatenated 
+                            between lines, as in this example:<br>
+                            <tt>&nbsp;&nbsp;&nbsp;print(&quot;I &quot;</tt><br>
+                            <tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot; 
+                            like &quot;); print(&quot;Ike&quot;);</tt><br>
+                            The script workaround is to use the plus operator 
+                            (<tt>+</tt>) to concatenate multi-line string literals. 
+                            The fix in the source code is at about line 387 of 
+                            CODE.C after the call to <i>CompleStringToken()</i> 
+                            to replace this line:<br>
+                            <tt>&nbsp;&nbsp;Type&nbsp;=&nbsp;pushValue;</tt><br>
+                            with this code:<br>
+                            <tt>&nbsp;&nbsp;codeSetType(code,pushValue);</tt><br>
+                            <tt>&nbsp;&nbsp;while&nbsp;(&nbsp;code-&gt;NextCodeCard&nbsp;!=&nbsp;codeNext(code)&nbsp;)</tt><br>
+                            <tt>&nbsp;&nbsp;&nbsp;&nbsp;code&nbsp;=&nbsp;code-&gt;NextCodeCard;</tt><br>
+                            <tt>&nbsp;&nbsp;Type&nbsp;=&nbsp;codeGetType(code);</tt></font> 
+                          <li><font face="Verdana, Arial, Helvetica, sans-serif" size="2">A 
+                            line containing an assignment, not terminated with 
+                            a semi-colon, and followed by a blank line leads to 
+                            no assignment being made. Fixed in 4.10C. The workaround 
+                            is to terminate lines with semi-colons, or for ISDK 
+                            users to put this line at the top of SECODE.C:<br>
+                            <tt>&nbsp;&nbsp;#define&nbsp;JSE_PEEPHOLE_OPTIMIZER&nbsp;0</tt></font> 
+                          <li><font face="Verdana, Arial, Helvetica, sans-serif" size="2">Addition 
+                            and subtraction is incorrect on individual elements 
+                            of C-like strings and buffers. For example, if <i>foo</i> 
+                            is a string in a <i>cfunction</i> or is a buffer then 
+                            <tt>0+foo[0]</tt> will not produce the correct results. 
+                            This is fixed in 4.10C. The fix, which is only needed 
+                            if buffers or C-behavior are enabled, is in <i>do_add_or_subtract()</i>&nbsp;in 
+                            OPERATOR.C to remove the <i>if</i> block following 
+                            this comment: <tt>/*&nbsp;This&nbsp;is&nbsp;the&nbsp;most&nbsp;common...</tt></font> 
+                          <li><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><i>ToString()</i> 
+                            and <i>ToBuffer()</i> may crash on systems unable 
+                            to allocate zero bytes. This may also affect other 
+                            calls that perform conversions to string or buffer 
+                            types. This is fixed in 4.10c. The simplest workaround 
+                            is to add <tt>1</tt> to the size of temporary <i>xxxMalloc()</i> 
+                            calls in <i>convert_var_ToBuffer()</i> and <i>convert_var_ToString()</i> 
+                            in VARUTIL.C</font> 
+                        </ul>
+                        <p> <font face="Verdana, Arial, Helvetica, sans-serif" size="2"><b><a name="v410a"></a>&nbsp;&nbsp;Version 
+                          4.10A errata (may apply to earlier versions)</b></font></p>
+                        <p> 
+                        <ul>
+                          <li><font face="Verdana, Arial, Helvetica, sans-serif" size="2">Array 
+                            Sort may sort incorrectly if the script-supplied sort 
+                            comparison function returns floating-point non-integer 
+                            values. The problems arises from the cast to an integer 
+                            after the <i>jseCallFunction</i>() is made in <i>array_sort_func</i>(). 
+                            This is fixed in 4.10b. The workaround is to call 
+                            <i>jseGetNumber</i>() on the script function result, 
+                            and return -1, 0, or 1, depending whether the result 
+                            is less-than, equal-to, or greater-than 0.0. </font> 
+                            <p></p>
+                        </ul>
+                        <p> <font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                          <b><a name="v403c"></a>&nbsp;&nbsp;Version 4.03C errata 
+                          (may apply to earlier versions)</b></font></p>
+                        <p> 
+                        <ul>
+                          <li><font face="Verdana, Arial, Helvetica, sans-serif" size="2">Invalid 
+                            boolean value determined for <i>NaN</i> and <i>Undefined</i> 
+                            variables; i.e., the result is <i>true</i> when it 
+                            should be <i>false</i>, and vice versa. This is fixed 
+                            in 4.10. The interpreter engine source code fix in 
+                            SECODE.C, function <i>secodeInterpret()</i>, for the 
+                            <i>case gotoFalse: case goto True:</i> is to change 
+                            similar code to the following:<br>
+                            </font> 
+                            <ul>
+                              <font face="Verdana, Arial, Helvetica, sans-serif" size="2"><tt>if(&nbsp;(t==gotoFalse&nbsp;&amp;&amp;&nbsp;(cond==0&nbsp;||&nbsp;jseIsNaN(cond)))&nbsp;||</tt><br>
+                              <tt>&nbsp;&nbsp;&nbsp;&nbsp;(t==gotoTrue&nbsp;&amp;&amp;&nbsp;!(cond==0&nbsp;||&nbsp;jseIsNaN(cond)))&nbsp;)</tt><br>
+                              </font> 
+                            </ul>
+                          <li><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><a name="argfree"></a>The 
+                            arguments object is incorrectly freed after a function 
+                            executes. It is only free if the function uses its 
+                            own name, such as &quot;foo.a&quot; within the function. 
+                            This problem only manifests itself if a function uses 
+                            the arguments object but does not use its own name. 
+                            This will cause a memory leak in most functions, though 
+                            it will crash when within a dynamic function such 
+                            as &quot;_put&quot;.<br>
+                            <br>
+                            <b>Script fix</b>: To get around this, simply reference 
+                            the function's name within any function that uses 
+                            the arguments object. For example:<br>
+                            </font> 
+                            <ul>
+                              <font face="Verdana, Arial, Helvetica, sans-serif" size="2"><tt>function&nbsp;foo()</tt><br>
+                              <tt>{</tt><br>
+                              <tt>&nbsp;&nbsp;foo;&nbsp;&nbsp;//&nbsp;It&nbsp;is&nbsp;now&nbsp;ok&nbsp;to&nbsp;use&nbsp;the&nbsp;arguments&nbsp;object</tt><br>
+                              <tt>&nbsp;&nbsp;Clib.puts(arguments.length);</tt><br>
+                              <tt>}</tt><br>
+                              </font> 
+                            </ul>
+                            <font face="Verdana, Arial, Helvetica, sans-serif" size="2"><b>Source 
+                            code fix</b>: In <i>functiondoCall</i> (FUNCTION.C 
+                            line 338), make the cleanup that used to only happen 
+                            if <i>Func_UsesItsName</i> was set apply to both that 
+                            and the <i>FuncUsesArguments</i> flag:<br>
+                            </font> 
+                            <ul>
+                              <font face="Verdana, Arial, Helvetica, sans-serif" size="2"><a href="argobjfx.htm"><tt>View 
+                              Source Code Fix</tt></a><br>
+                              </font> 
+                            </ul>
+                          <li><font face="Verdana, Arial, Helvetica, sans-serif" size="2">Strings 
+                            may not be treated as a number in subtraction. For 
+                            example <i>(&quot;6&quot; - 3)</i> will not result 
+                            in <i>3</i>. This will be fixed with release 4.10. 
+                            The script fix is to convert strings to numbers before 
+                            subtracting. The source code fix is in OPERATOR.C 
+                            near line 235 is:<br>
+                            </font> 
+                            <ul>
+                              <font face="Verdana, Arial, Helvetica, sans-serif" size="2"><tt>/*&nbsp;subtraction&nbsp;will&nbsp;treat&nbsp;both&nbsp;sides&nbsp;as&nbsp;numbers&nbsp;*/</tt><br>
+                              <tt>newVar&nbsp;=&nbsp;constructVarRead(call,VNumber);</tt><br>
+                              <tt>varPutNumber(newVar,call,GetNumberForOperator(call,rlvar)&nbsp;-</tt><br>
+                              <tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;GetNumberForOperator(call,rrvar)&nbsp;);</tt><br>
+                              </font> 
+                            </ul>
+                          <li><font face="Verdana, Arial, Helvetica, sans-serif" size="2">Some 
+                            instances of the <i>_prototype</i> property do not 
+                            have their <i>DontEnum</i> property set, and so will 
+                            show up where not expected in <i>for(...in...)</i> 
+                            statements. This is fixed in 4.10. The fix is to set 
+                            the <i>jseDontEnum</i> property wherever a member 
+                            of name <i>prototype_entry</i> is created with <i>varCreateMember()</i>. 
+                            For example, in SECODE.C the varSetAttributes() line 
+                            was added at line 825:<br>
+                            </font> 
+                            <ul>
+                              <font face="Verdana, Arial, Helvetica, sans-serif" size="2"><tt>varSetAttributes(ourprop,jseDontEnum);</tt><br>
+                              </font> 
+                            </ul>
+                            <font face="Verdana, Arial, Helvetica, sans-serif" size="2">This 
+                            fix must be applied twice in SECODE.C &amp; SECODE.JAVA 
+                            (lines 825 &amp; 840), once in FUNCTION.C &amp; FUNCTION.JAVA 
+                            (line 297), and once in VARREAD.C &amp; VARREAD.JAVA 
+                            (line 561).</font> 
+                          <li><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                            If an object has both a <i>valueOf()</i> and a <i>toString()</i> 
+                            property, then <i>toString()</i> is always called 
+                            by default. This is fixed in 4.10. To fix in 4.03 
+                            file VARUTIL.C implement the following differences:<br>
+                            <tt>&nbsp;&nbsp;177c177</tt><br>
+                            <tt>&nbsp;&nbsp;&lt;&nbsp;convert_var_ToPrimitive(struct&nbsp;Call&nbsp;*call,VarRead&nbsp;*SourceVar)</tt><br>
+                            <tt>&nbsp;&nbsp;&gt;&nbsp;convert_var_ToPrimitive(struct&nbsp;Call&nbsp;*call,VarRead&nbsp;*SourceVar,</tt><br>
+                            <tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;jsebool&nbsp;hintstring)</tt><br>
+                            <tt>&nbsp;&nbsp;184c184</tt><br>
+                            <tt>&nbsp;&nbsp;&lt;&nbsp;new_var&nbsp;=&nbsp;varDefaultValue(SourceVar,call,True);</tt><br>
+                            <tt>&nbsp;&nbsp;&gt;&nbsp;new_var&nbsp;=&nbsp;varDefaultValue(SourceVar,call,hintstring);</tt><br>
+                            <tt>&nbsp;&nbsp;375c375</tt><br>
+                            <tt>&nbsp;&nbsp;&lt;&nbsp;VarRead&nbsp;*vartemp&nbsp;=&nbsp;convert_var(call,SourceVar,jseToPrimitive);</tt><br>
+                            <tt>&nbsp;&nbsp;&gt;&nbsp;VarRead&nbsp;*vartemp&nbsp;=&nbsp;convert_var_ToPrimitive(call,SourceVar,</tt><br>
+                            <tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;True);</tt><br>
+                            <tt>&nbsp;&nbsp;616c616</tt><br>
+                            <tt>&nbsp;&nbsp;&lt;&nbsp;new_var&nbsp;=&nbsp;convert_var_ToPrimitive(call,SourceVar);</tt><br>
+                            <tt>&nbsp;&nbsp;&gt;&nbsp;new_var&nbsp;=&nbsp;convert_var_ToPrimitive(call,SourceVar,False);</tt><br>
+                            <tt>&nbsp;&nbsp;1642c1642</tt><br>
+                            <tt>&nbsp;&nbsp;&lt;&nbsp;vy&nbsp;=&nbsp;convert_var_ToPrimitive(call,vy);</tt><br>
+                            <tt>&nbsp;&nbsp;&gt;&nbsp;vy&nbsp;=&nbsp;convert_var_ToPrimitive(call,vy,tx!=VNumber);</tt><br>
+                            <tt>&nbsp;&nbsp;1650c1650</tt><br>
+                            <tt>&nbsp;&nbsp;&lt;&nbsp;vx&nbsp;=&nbsp;convert_var_ToPrimitive(call,vx);</tt><br>
+                            <tt>&nbsp;&nbsp;&gt;&nbsp;vx&nbsp;=&nbsp;convert_var_ToPrimitive(call,vx,ty!=VNumber);</tt></font> 
+                          <li><font face="Verdana, Arial, Helvetica, sans-serif" size="2">Increment 
+                            and Decrement operators do not work properly on strings. 
+                            For example, this script:<br>
+                            </font> 
+                            <ul>
+                              <font face="Verdana, Arial, Helvetica, sans-serif" size="2"><tt>var 
+                              foo = &quot;40&quot;;</tt><br>
+                              <tt>++foo;</tt><br>
+                              </font> 
+                            </ul>
+                            <font face="Verdana, Arial, Helvetica, sans-serif" size="2">will 
+                            make <i>foo</i> be the string &quot;<tt>401</tt>&quot; 
+                            instead of the number <tt>41</tt>. This is correct 
+                            in release 4.10. The fix is to move function <i>do_op_crement()</i> 
+                            from CREMENT.C to OPERATOR.C, and to use this code 
+                            for all except a <i>jseTypeBuffer</i>:<br>
+                            </font> 
+                            <ul>
+                              <font face="Verdana, Arial, Helvetica, sans-serif" size="2"><tt>newVar&nbsp;=&nbsp;constructVarRead(call,VNumber);</tt><br>
+                              <tt>varPutNumber(newVar,call,</tt><br>
+                              <tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;GetNumberForOperator(call,lrvar)+Delta);</tt><br>
+                              </font> 
+                            </ul>
+                          <li><font face="Verdana, Arial, Helvetica, sans-serif" size="2">! 
+                            (NOT) operator gives wrong results on objects and 
+                            strings. Will evaluate object as a number and peform 
+                            operation on object, but instead should always return 
+                            false for all objects. Fixed in 4.10. A fix to 4.03C 
+                            is to change <i>do_op_boolNot()</i> in OPERATOR.C 
+                            to this code:<br>
+                            </font> 
+                            <ul>
+                              <font face="Verdana, Arial, Helvetica, sans-serif" size="2"><tt>VarRead&nbsp;*&nbsp;newVar&nbsp;=&nbsp;convert_var(call,lrvar,jseToBoolean);</tt><br>
+                              <tt>varPutNumber(newVar,call,</tt><br>
+                              <tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(0&nbsp;==&nbsp;jseGetNumber(call,newVar))&nbsp;?&nbsp;1&nbsp;:&nbsp;0&nbsp;);</tt><br>
+                              <tt>return&nbsp;newVar;</tt> </font> 
+                            </ul>
+                        </ul>
+                        <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><b><a name="v403b"></a>&nbsp;&nbsp;Version 
+                          4.03B errata (may apply to earlier versions)</b></font></p>
+                        <p> 
+                        <ul>
+                          <li><font face="Verdana, Arial, Helvetica, sans-serif" size="2">There 
+                            is an error in tokenizing source code if JSE_TYPE_BUFFER 
+                            is not defined as 1. This can be correct in the VARUTIL.C 
+                            source code by adjusting the <i>#ifdefs</i> in the 
+                            <i>TokenWriteVar()</i> function, and will be so corrected 
+                            in 4.03C.</font> 
+                          <li><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                            If security is enabled, and you initialize a security 
+                            script, the global code (i.e. those lines of script 
+                            which are not within any function) is ovewritten. 
+                            This will be fixed in 4.03C. Contact us if you need 
+                            the fix integrated before that release.</font> 
+                          <li><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                            This problem is relevant to CreateConvertedVariable, 
+                            ConvertVariable, and any other routine which calls 
+                            convert_var(). If these routines are called with a 
+                            Number, and are supposed to convert it to a string, 
+                            then some problems can occur because the string conversion 
+                            only preserves six decimal places of accuracy. This 
+                            presents problems with big integers and accurate floating 
+                            point values. This will be fixed in 4.03C to preserve 
+                            many more decimal places and to lop off the trailing 
+                            zeros in floating point numbers as it should. With 
+                            4.03C the function will behave in the same manner 
+                            as <i>Number.toString()</i>.</font> 
+                          <li> <font face="Verdana, Arial, Helvetica, sans-serif" size="2"><i>&quot;11&quot; 
+                            == 11</i> compares correctly, but <i>11==&quot;11&quot;</i> 
+                            does not. This will be corrected with 4.03C. Those 
+                            with source code can correct this problem by editing 
+                            VARUTIL.C and changing line 803 from<br>
+                            <tt>&nbsp; if( yType==VNumber || yType==VString || 
+                            yType==VBoolean )</tt><br>
+                            to<br>
+                            <tt>&nbsp; if( yType==VNumber || (yType==VString &amp;&amp; 
+                            xType==VObject) || yType==VBoolean )</tt></font> 
+                          <li><font face="Verdana, Arial, Helvetica, sans-serif" size="2">Converting 
+                            a function to text does not work correctly if there 
+                            is a left bracket ([) operator in the function. This 
+                            can be fixed (and will be fixed in 4.03C) by adding 
+                            the following case to the switch() statement at line 
+                            517 in the file FUNCTION.C:<br>
+                            </font> 
+                            <ul>
+                              <font face="Verdana, Arial, Helvetica, sans-serif" size="2"><tt>case 
+                              structureMember:</tt><br>
+                              <tt>growingAddTo(&amp;buff,&quot;[&quot;);</tt><br>
+                              <tt>break;</tt><br>
+                              </font> 
+                            </ul>
+                          <li><font face="Verdana, Arial, Helvetica, sans-serif" size="2">A 
+                            negative sign (-) is misinterpreted if it is the first 
+                            parameters to an object's method. This will be fixed 
+                            with 4.03C. An example of this error would be the 
+                            following statement:<br>
+                            </font> 
+                            <ul>
+                              <font face="Verdana, Arial, Helvetica, sans-serif" size="2"><tt>Math.max(-1,-2);</tt><br>
+                              </font> 
+                            </ul>
+                          <li><font face="Verdana, Arial, Helvetica, sans-serif" size="2">When 
+                            using the <i>jseOptReqVarKeyword</i> flag, conditional 
+                            compilation flags such as #ifdef can report that the 
+                            variable is undefined. This options is fixed for 4.03C, 
+                            where <i>jseOptReqVarKeyword</i> is temporarily suspended 
+                            during execution of the conditional compilation.</font> 
+                          <li><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                            Strings can convert to numbers incorrectly in instances 
+                            such as <tt>if&nbsp;&quot;123abc&quot;==123</tt>. 
+                            This is corrected in 4.03C.</font> 
+                          <li><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                            -Infinity != &quot;-Infinity&quot;. This is corrected 
+                            in 4.03C.</font> 
+                          <li><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                            Logical OR (<i>||</i>)always returns true or false--this 
+                            is incorrect behavior. Logical OR should return the 
+                            value that was last evaluated. This is corrected in 
+                            4.03C.</font> 
+                        </ul>
+                        <p> <font face="Verdana, Arial, Helvetica, sans-serif" size="2"><b><a name="v403a"></a>&nbsp;&nbsp;Version 
+                          4.03A errata (may apply to earlier versions)</b></font></p>
+                        <p> 
+                        <ul>
+                          <li><font face="Verdana, Arial, Helvetica, sans-serif" size="2">All 
+                            4.02 bugs described below have been fixed.</font> 
+                          <li><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                            Using the <i>jseOptDefaultLocalVars</i> flag will 
+                            disable the feature that automatically converts undefined 
+                            variables to object when they are first used as object. 
+                            For example, with <i>jseOptDefaultLocalVars</i>. In 
+                            those cases use the <i>var</i> keyword or <i>new Object()</i> 
+                            before using the variable as an object.</font> 
+                          <li><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                            The <i>jseCopyBuffer</i> and <i>jseCopyString</i> 
+                            functions will always convert <i>start</i> to <i>start+length</i>, 
+                            and so the results will be invalid</font> 
+                          <li><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                            The <i>jseGetArrayLength</i> and <i>jseSetArrayLength</i> 
+                            do not validate data type that the variable is an 
+                            object, string, or buffer type.</font> 
+                          <li><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                            Some 16-bit compilers lose low-byte information when 
+                            performing bitwise operations with 0x80000000L (highest-bit 
+                            set). For example, the following comparison will fail 
+                            on these systems: <tt>0x80000000 | 0x1 == 0x80000001</tt>. 
+                            This but will be fixed with release 4.03B.</font> 
+                        </ul>
+                        <p> <font face="Verdana, Arial, Helvetica, sans-serif" size="2"><b><a name="v402"></a>&nbsp;&nbsp;Version 
+                          4.02 errata (may apply to earlier versions)</b></font></p>
+                        <p> 
+                        <ul>
+                          <li><font face="Verdana, Arial, Helvetica, sans-serif" size="2">All 
+                            4.01 bugs described below have been fixed.</font> 
+                          <li><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                            All objects now have the _defaultValue internal method.</font> 
+                          <li><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                            Dynamic property names in now have an '_' as their 
+                            first character; e.g. what was 'get' is now '_get' 
+                            and so forth. This was done because the simpler names 
+                            could be mistakenly used as variable names causing 
+                            difficult to track bugs.</font> 
+                          <li><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                            #define does not replace text strings that are part 
+                            of a full dot-delimited function name. For example, 
+                            the following function will not call me.goo()<br>
+                            </font> 
+                            <ul>
+                              <font face="Verdana, Arial, Helvetica, sans-serif" size="2"><tt>#define 
+                              BLAH me</tt><br>
+                              <tt>function BLAH.goo() { }</tt><br>
+                              <tt>me.goo();</tt><br>
+                              </font> 
+                            </ul>
+                            <font face="Verdana, Arial, Helvetica, sans-serif" size="2">Technically 
+                            this is illegal ECMAscript/JavaScript. According to 
+                            that standard this would have to be accomplished with 
+                            something like this:<br>
+                            </font> 
+                            <ul>
+                              <font face="Verdana, Arial, Helvetica, sans-serif" size="2"><tt>function 
+                              foo_goo() { };</tt><br>
+                              <tt>var foo = new Object();</tt><br>
+                              <tt>foo.goo = foo_goo;</tt><br>
+                              </font> 
+                            </ul>
+                            <font face="Verdana, Arial, Helvetica, sans-serif" size="2">We 
+                            &quot;Extended&quot; the rules by allowing the &quot;function 
+                            foo.goo() { }&quot; statement because it is so useful. 
+                            But our #define preprocessor (which itself is an extension 
+                            of ecmascript) does not make this replacement. The 
+                            workaround is to follow standard ECMAScript if object.functions 
+                            are to be defined in-line.</font> 
+                          <li><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                            With MSVC using 16-bit integers and 32-bit pointer, 
+                            conversion from a primitive type to an object can 
+                            fail (report invalid number of parameter to _constructor, 
+                            construct incorrectly, or crash). This is fixed in 
+                            version 4.02C and later.</font> 
+                        </ul>
+                        <p> <font face="Verdana, Arial, Helvetica, sans-serif" size="2"><b><a name="v401"></a>&nbsp;&nbsp;Version 
+                          &nbsp;4.01 errata (may apply to earlier versions)</b></font></p>
+                        <p> 
+                        <ul>
+                          <li><font face="Verdana, Arial, Helvetica, sans-serif" size="2">Variables 
+                            that are read from without being defined are not flagged 
+                            as an error</font> 
+                          <li><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                            Variables that are assigned to without being declared 
+                            in a function are created as local variables. ECMAScript 
+                            says to create them as global variables. To ensure 
+                            variables are globals, simply declare them outside 
+                            of any function using the <i>var</i> keyword.</font> 
+                          <li><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                            Only ECMA objects had the _defaultValue internal method<!--BEGIN_FOOTER--></font> 
+                        </ul>
+                        <p>&nbsp; </p>
+                        <!-- #EndEditable --></td>
+                    </tr>
+                    <tr> 
+                      <td width="1">&nbsp;</td>
+                      <td width="460">&nbsp;</td>
+                    </tr>
+                  </table>
+                  </TD>
+              </TR>
+            </TABLE>
+          </TD>
+        </TR>
+      </TABLE>
+    </TD>
+  </TR>
+  <TR VALIGN=TOP ALIGN=LEFT> 
+    <TD HEIGHT=2 width="5"></TD>
+    <TD COLSPAN=2 height="2"> 
+            <TABLE BORDER=0 CELLSPACING=0 CELLPADDING=0 WIDTH=100% HEIGHT=20 bgcolor="#FFFFFF">
+              <TR ALIGN=LEFT VALIGN=TOP> 
+          <TD> 
+                  <TABLE BORDER=0 CELLSPACING=0 CELLPADDING=0 WIDTH=100%>
+                    <TR VALIGN=TOP ALIGN=LEFT> 
+                <TD WIDTH=20 HEIGHT=2 ALIGN=LEFT VALIGN=TOP><IMG ID="Picture13" HEIGHT=20 WIDTH=20 SRC="../../../curve_botleft.gif" BORDER=0></TD>
+                      <TD height="2"><IMG SRC="../../../clearpixel.gif" WIDTH=592 HEIGHT=1 BORDER=0></TD>
+                <TD WIDTH=20 ALIGN=LEFT VALIGN=TOP height="2"><IMG ID="Picture11" HEIGHT=20 WIDTH=20 SRC="../../../curve_bot.gif" BORDER=0></TD>
+              </TR>
+            </TABLE>
+          </TD>
+        </TR>
+      </TABLE>
+    </TD>
+  </TR>
+  <TR VALIGN=TOP ALIGN=LEFT> 
+    <TD WIDTH=5 HEIGHT=6><IMG SRC="../../../clearpixel.gif" WIDTH=5 HEIGHT=1 BORDER=0></TD>
+    <TD WIDTH=613><IMG SRC="../../../clearpixel.gif" WIDTH=613 HEIGHT=1 BORDER=0></TD>
+    <TD WIDTH=22><IMG SRC="../../../clearpixel.gif" WIDTH=19 HEIGHT=1 BORDER=0></TD>
+  </TR>
+  <TR VALIGN=TOP ALIGN=LEFT> 
+    <TD COLSPAN=2> 
+            <P ALIGN=RIGHT><A HREF="../../../index.htm"><FONT COLOR="#FFFFFF" SIZE="-2" FACE="Verdana,Tahoma,Arial,Helvetica">Home</FONT></A><FONT COLOR="#FFFFFF" SIZE="-2" FACE="Verdana,Tahoma,Arial,Helvetica"> 
+              | </FONT><A
+                 HREF="../../../scripting/scripting.htm"><FONT COLOR="#FFFFFF" SIZE="-2" FACE="Verdana,Tahoma,Arial,Helvetica">Scripting</FONT></A><FONT COLOR="#FFFFFF" SIZE="-2" FACE="Verdana,Tahoma,Arial,Helvetica"> 
+              | </FONT><A
+                 HREF="../../../products/products.htm"><FONT COLOR="#FFFFFF" SIZE="-2" FACE="Verdana,Tahoma,Arial,Helvetica">Products</FONT></A><FONT COLOR="#FFFFFF" SIZE="-2" FACE="Verdana,Tahoma,Arial,Helvetica"> 
+              | </FONT><A
+                 HREF="../../../purchase/purchase.htm"><FONT COLOR="#FFFFFF" SIZE="-2" FACE="Verdana,Tahoma,Arial,Helvetica">Purchase</FONT></A><FONT COLOR="#FFFFFF" SIZE="-2" FACE="Verdana,Tahoma,Arial,Helvetica"> 
+              | </FONT><A
+                 HREF="../../../download/ndownload.htm"><FONT COLOR="#FFFFFF" SIZE="-2" FACE="Verdana,Tahoma,Arial,Helvetica">Download</FONT></A><FONT COLOR="#FFFFFF" SIZE="-2" FACE="Verdana,Tahoma,Arial,Helvetica"> 
+              | </FONT><A
+                 target="support" HREF="http://support.nombas.com/"><FONT COLOR="#FFFFFF" SIZE="-2" FACE="Verdana,Tahoma,Arial,Helvetica">Support</FONT></A><FONT COLOR="#FFFFFF" SIZE="-2" FACE="Verdana,Tahoma,Arial,Helvetica"> 
+              | </FONT><A HREF="../../../company/company.htm"> <FONT COLOR="#FFFFFF" SIZE="-2" FACE="Verdana,Tahoma,Arial,Helvetica">Company</FONT></A><FONT COLOR="#FFFFFF" SIZE="-2" FACE="Verdana,Tahoma,Arial,Helvetica"><BR>
+        <BR>
+        Copyright &#169;2001, Nombas, Inc. All Rights Reserved.<BR>
+        Questions? Visit </FONT><A HREF="http://support.nombas.com/"><FONT COLOR="#FFFFFF" SIZE="-2" FACE="Verdana,Tahoma,Arial,Helvetica">http://support.nombas.com/</FONT></A> 
+    </TD>
+    <TD width="22"></TD>
+  </TR>
+</TABLE>
+</td>
+  </tr>
+</table>
+<SCRIPT language=JavaScript1.2>
+  display_nombas_legacy_message();
+</SCRIPT>
+</BODY>
+<!-- #EndTemplate --></HTML>

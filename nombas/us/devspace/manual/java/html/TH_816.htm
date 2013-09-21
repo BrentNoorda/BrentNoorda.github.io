@@ -1,0 +1,71 @@
+<html>
+<head>
+<title>SElib.breakWindow()</title>
+<link rel="stylesheet" href="semanualstyles.css" type="text/css">
+<style type="text/css">
+ p { margin-top: 0; margin-bottom: 0; }
+</style>
+<script language="JavaScript" src="TrueHelp.js"></script>
+</head>
+<body onload="thload()">
+<div id=ienav>
+<ilayer id=nsnav>
+<br>
+<center>
+<p class=normal><a href="seisdkj-toc.htm" target="left">contents</a> &nbsp; <a href="seisdkj-index.htm" target="left">index</a> &nbsp; <a href="TH_815.htm">previous</a> &nbsp; <a href="TH_817.htm">next</a></p>
+</center>
+<br>
+<hr noshade size=1>
+</ilayer>
+</div>
+<p class=sereffunclevel4>SElib.breakWindow()</p>
+<table cellpadding=0>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>syntax:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=sesyntax>SElib.breakWindow(hWnd)</p></td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>where:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>hWnd - a number, the handle of the window being released or destroyed.</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>return:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>boolean - <span class=secodephrase>true</span> on success and the window is successfully destroyed, released, or subclassed, else <span class=secodephrase>false</span> on failure. </p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>description:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>For Win32 and Win16</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>Releases control of a window controlled by <span class=sepopuptopic><a href="TH_836.htm" onClick="return thwindow('TH_836.htm', 'GenPopup')">SElib.subclassWindow()</a></span> or destroys a window previously created with <span class=sepopuptopic><a href="TH_826.htm" onClick="return thwindow('TH_826.htm', 'GenPopup')">SElib.makeWindow()</a></span>. No other windows are affected. If hWnd is not a valid window handle, no action is taken and <span class=secodephrase>true</span> is returned.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>When a window is destroyed all appropriate <span class=secodeterm>DestroyWindow()</span> functions, internal to the Windows API, are called. Any child windows of a main window are destroyed before the main window.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>If hWnd is a window controlled by <span class=sepopuptopic><a href="TH_836.htm" onClick="return thwindow('TH_836.htm', 'GenPopup')">SElib.subclassWindow()</a></span>, then this method removes the WindowFunction for a window from the message function loop.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>If hWnd is not supplied, then all windows created with <span class=secodephrase>SElib.makeWindow()</span> are destroyed and all subclassing ends. </p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>see:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara><span class=sejumptopic><a href="TH_826.htm">SElib.makeWindow()</a></span></p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+</table>
+<p class=normal>&nbsp;</p>
+<hr noshade size=1>
+<p class=normal><a href="TH_817.htm"><img src="button.png" border=0></a><a href="TH_817.htm" style="text-decoration:none;">SElib.compileScript()</a></p>
+<p>
+</body>
+</html>

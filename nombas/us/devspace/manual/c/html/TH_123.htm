@@ -1,0 +1,33 @@
+<html>
+<head>
+<title>JSE_GC (on)</title>
+<link rel="stylesheet" href="semanualstyles.css" type="text/css">
+<style type="text/css">
+ p { margin-top: 0; margin-bottom: 0; }
+</style>
+<script language="JavaScript" src="TrueHelp.js"></script>
+</head>
+<body onload="thload()">
+<div id=ienav>
+<ilayer id=nsnav>
+<br>
+<center>
+<p class=normal><a href="seisdkc-toc.htm" target="left">contents</a> &nbsp; <a href="seisdkc-index.htm" target="left">index</a> &nbsp; <a href="TH_122.htm">previous</a> &nbsp; <a href="TH_124.htm">next</a></p>
+</center>
+<br>
+<hr noshade size=1>
+</ilayer>
+</div>
+<p class=heading-3>JSE_GC (on)</p>
+<p class=heading-3-p>&nbsp;</p>
+<p class=senormalpara>Normally, <span class=secodephrase>JSE_GC</span> is on meaning ScriptEase reclaims memory by garbage collecting. If <span class=secodephrase>JSE_GC</span> is off and <span class=secodephrase>JSE_REFCOUNT</span> is on, ScriptEase uses a reference counting scheme. This takes more memory and is slower, but it frees objects as soon as they become unused. It cannot detect cyclic loops. If both are on, reference counting is supplemented via garbage collection to find cyclic loops.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara><span class=secodephrase>JSE_GC</span> is noticeably quicker and less memory-hungry than is <span class=secodephrase>JSE_REFCOUNT</span>. Garbage collection passes are quick as well, on the order of tenths of a milliseconds on a typical machine. Therefore, the main benefit of <span class=secodephrase>JSE_REFCOUNT</span> is to find objects that have become freed as soon as they have done so. However, in most applications, you are better off leaving <span class=secodephrase>JSE_GC</span> on and forcing a garbage collection (by calling <span class=secodephrase>seGarbageCollect</span>) at any critical point that you need to ensure unused objects are freed.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>By default, <span class=secodephrase>JSE_GC</span> is on and <span class=secodephrase>JSE_REFCOUNT</span> is off. Note that either one or both of them may be defined. However, at least one of the two must be defined. If both are turned off, <span class=secodephrase>JSE_GC</span> will be selected automatically.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<hr noshade size=1>
+<p class=normal><a href="TH_124.htm"><img src="button.png" border=0></a><a href="TH_124.htm" style="text-decoration:none;">SE_OBJ_POOL_SIZE (1024, 128 if JSE_MIN_MEMORY is on)</a></p>
+<p>
+</body>
+</html>

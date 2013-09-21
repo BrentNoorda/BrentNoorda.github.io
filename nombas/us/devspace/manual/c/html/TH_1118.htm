@@ -1,0 +1,101 @@
+<html>
+<head>
+<title>SimpleDataset find() with template</title>
+<link rel="stylesheet" href="semanualstyles.css" type="text/css">
+<style type="text/css">
+ p { margin-top: 0; margin-bottom: 0; }
+</style>
+<script language="JavaScript" src="TrueHelp.js"></script>
+</head>
+<body onload="thload()">
+<div id=ienav>
+<ilayer id=nsnav>
+<br>
+<center>
+<p class=normal><a href="seisdkc-toc.htm" target="left">contents</a> &nbsp; <a href="seisdkc-index.htm" target="left">index</a> &nbsp; <a href="TH_1117.htm">previous</a> &nbsp; <a href="TH_1119.htm">next</a></p>
+</center>
+<br>
+<hr noshade size=1>
+</ilayer>
+</div>
+<p class=sereffunclevel4>SimpleDataset find() with template</p>
+<table cellpadding=0>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>syntax:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=sesyntax>simpledataset.find(<span class=truehelp-xe></span>template1[,&nbsp;template2[,&nbsp;...])</p></td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>where:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>templateN - Item template to search for.  When more than one template is present, the templates are OR'd together.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>Templates contain properties to match. Only those records which have properties that match those values will be included in the result set.</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>return:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>boolean - value indicating success.  In the case that the operation failed, use the <span class=secodephrase>getLastErrorCode()</span> and <span class=secodephrase>getLastError()</span> methods to determine the reason for the failure.</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>description:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>This method searches the database table of a SimpleDataset for all items that match the given templates.  The contents of the <span class=secodephrase>SimpleDataset</span> are changed to reflect the results of the search.  The previous contents of the <span class=secodephrase>SimpleDataset</span> are cleared and the complete database table is searched to create the new contents.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>After the <span class=secodephrase>find</span> has completed, the current record is set to the record "before" the first record. Fill out the properties in the template to indicate which items to find.  For instance, to find all records whose 'city' field equals "Metropolis", set the value of the 'city' property to "Metropolis".  If a template has more than one property, the properties will be combined with an AND to form the search term.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>More than one template can be used.  If multiple templates are used, the template values will be combined using an OR to form the search term.</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>see:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara><span class=secodephrase>#include &lt;smdtset.jsh&gt;</span>, <span class=sejumptopic><a href="TH_1120.htm">SimpleDataset findAll()</a></span>, <span class=sejumptopic><a href="TH_1121.htm">SimpleDataset findDistinct()</a></span>, <span class=sejumptopic><a href="TH_1130.htm">SimpleDataset caseSensitive</a></span></p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>example:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=secodelines>//&nbsp;the&nbsp;following&nbsp;function&nbsp;will&nbsp;print&nbsp;out&nbsp;the&nbsp;fields</p>
+<p class=secodelines>//&nbsp;of&nbsp;each&nbsp;of&nbsp;the&nbsp;records&nbsp;that&nbsp;have&nbsp;either&nbsp;Boston,</p>
+<p class=secodelines>//&nbsp;USA&nbsp;or&nbsp;Paris,&nbsp;France&nbsp;as</p>
+<p class=secodelines>//&nbsp;their&nbsp;city,&nbsp;country&nbsp;values</p>
+<p class=secodelines>function&nbsp;print_BostonParis(db,&nbsp;table,&nbsp;user,&nbsp;passwd)</p>
+<p class=secodelines>{</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;//&nbsp;create&nbsp;the&nbsp;SimpleDataset</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;var&nbsp;ds&nbsp;=&nbsp;new&nbsp;SimpleDataset(db,&nbsp;table,&nbsp;&nbsp;user,&nbsp;</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;passwd);</p>
+<p class=secodelines>&nbsp;</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;var&nbsp;template1,&nbsp;template2;</p>
+<p class=secodelines>&nbsp;</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;template1.city&nbsp;=&nbsp;"Boston";</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;template1.country&nbsp;=&nbsp;"USA";</p>
+<p class=secodelines>&nbsp;</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;template2.city&nbsp;=&nbsp;"Paris";</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;template2.country&nbsp;=&nbsp;"France";</p>
+<p class=secodelines>&nbsp;</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;ds.find(&nbsp;template1,&nbsp;template2&nbsp;);</p>
+<p class=secodelines>&nbsp;</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;while(&nbsp;var&nbsp;rec&nbsp;=&nbsp;ds.nextRecord()&nbsp;)</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;for(&nbsp;var&nbsp;prop&nbsp;in&nbsp;rec&nbsp;)</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Clib.printf(prop&nbsp;+&nbsp;"&nbsp;=&nbsp;"&nbsp;+&nbsp;rec[prop]&nbsp;+</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"\n");</p>
+<p class=secodelines>&nbsp;</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;ds.close();</p>
+<p class=secodelines>}</p></td>
+</tr>
+</table>
+<p class=normal>&nbsp;</p>
+<hr noshade size=1>
+<p class=normal><a href="TH_1119.htm"><img src="button.png" border=0></a><a href="TH_1119.htm" style="text-decoration:none;">SimpleDataset find() with clause</a></p>
+<p>
+</body>
+</html>

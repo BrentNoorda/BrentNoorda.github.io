@@ -1,0 +1,80 @@
+<html>
+<head>
+<title>SElib.interpretInNewThread()</title>
+<link rel="stylesheet" href="semanualstyles.css" type="text/css">
+<style type="text/css">
+ p { margin-top: 0; margin-bottom: 0; }
+</style>
+<script language="JavaScript" src="TrueHelp.js"></script>
+</head>
+<body onload="thload()">
+<div id=ienav>
+<ilayer id=nsnav>
+<br>
+<center>
+<p class=normal><a href="seisdkc-toc.htm" target="left">contents</a> &nbsp; <a href="seisdkc-index.htm" target="left">index</a> &nbsp; <a href="TH_935.htm">previous</a> &nbsp; <a href="TH_937.htm">next</a></p>
+</center>
+<br>
+<hr noshade size=1>
+</ilayer>
+</div>
+<p class=sereffunclevel4>SElib.interpretInNewThread()</p>
+<table cellpadding=0>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>syntax:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=sesyntax>SElib.interpretInNewThread(filename,</p>
+<p class=sesyntax>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;codeToInterpret)</p></td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>where:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>filename - the name of a script file with ScriptEase code. Use <span class=secodephrase>null</span> if not interpreting a file.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>codeToInterpret - a string variable with one or more ScriptEase statements to interpret, if not using a file. If a file is being interpreted, the string is used as command line arguments for the script file being interpreted.</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>return:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>number - the ID of the thread containing the new instance of ScriptEase. Depending on the operating system, returns 0 or -1 on an error.</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>description:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>For Win32 and OS/2, that is, for operating systems that support multithreading. Not supported for operating systems that do not support multithreading, such as DOS and 16-bit Windows.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>This method creates a new thread within the current ScriptEase process and interprets a script within that new thread. The new script runs independently of the currently executing thread. This method differs from <span class=sepopuptopic><a href="TH_935.htm" onClick="return thwindow('TH_935.htm', 'GenPopup')">SElib.interpret()</a></span> in that the calling thread does not wait for the interpretation to finish and differs from <span class=sepopuptopic><a href="TH_945.htm" onClick="return thwindow('TH_945.htm', 'GenPopup')">SElib.spawn()</a></span> in that the new thread runs in the same memory and process space as the currently running thread.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>A script writer must ensure any synchronization among threads. ScriptEase data and globals are on a per-thread basis.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>If the parameter filename is not <span class=secodephrase>null</span>, then it is the name of a file to interpret, and the parameters, filename and codeToInterpret are parsed as if being command line parameters to a main() function.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>If the parameter filename is <span class=secodephrase>null</span>, then codeToInterpret is treated as JavaScript code, a string with ScriptEase statements, and is interpreted directly.</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>see:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara><span class=sejumptopic><a href="TH_935.htm">SElib.interpret()</a></span>, <span class=sejumptopic><a href="TH_945.htm">SElib.spawn()</a></span></p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>example:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=secodelines>//&nbsp;See&nbsp;usage&nbsp;in&nbsp;threads.jse&nbsp;and&nbsp;httpd.jse</p></td>
+</tr>
+</table>
+<p class=normal>&nbsp;</p>
+<hr noshade size=1>
+<p class=normal><a href="TH_937.htm"><img src="button.png" border=0></a><a href="TH_937.htm" style="text-decoration:none;">SElib.makeWindow()</a></p>
+<p>
+</body>
+</html>

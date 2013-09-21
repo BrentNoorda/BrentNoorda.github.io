@@ -1,0 +1,45 @@
+<html>
+<head>
+<title>Function scope</title>
+<link rel="stylesheet" href="semanualstyles.css" type="text/css">
+<style type="text/css">
+ p { margin-top: 0; margin-bottom: 0; }
+</style>
+<script language="JavaScript" src="TrueHelp.js"></script>
+</head>
+<body onload="thload()">
+<div id=ienav>
+<ilayer id=nsnav>
+<br>
+<center>
+<p class=normal><a href="seisdkc-toc.htm" target="left">contents</a> &nbsp; <a href="seisdkc-index.htm" target="left">index</a> &nbsp; <a href="TH_427.htm">previous</a> &nbsp; <a href="TH_429.htm">next</a></p>
+</center>
+<br>
+<hr noshade size=1>
+</ilayer>
+</div>
+<p class=heading-3>Function scope</p>
+<p class=heading-3-p>&nbsp;</p>
+<p class=senormalpara>Functions are all global in scope, much like global variables. A function may not be declared within another function so that its scope is merely within a certain function or section of a script. All functions may be called from anywhere in a script. If it is helpful, think of functions as methods of the global object. The following two code fragments do exactly the same thing. The first calls a function, SumTwo(), as a function, and the second calls SumTwo() as a method of the global object.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=secodelinesindented>//&nbsp;fragment&nbsp;one</p>
+<p class=secodelinesindented>function&nbsp;SumTwo(a,&nbsp;b)</p>
+<p class=secodelinesindented>{</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;return&nbsp;a&nbsp;+&nbsp;b</p>
+<p class=secodelinesindented>}</p>
+<p class=secodelinesindented>&nbsp;</p>
+<p class=secodelinesindented>Screen.writeln(SumTwo(3,&nbsp;4))</p>
+<p class=secodelinesindented>&nbsp;</p>
+<p class=secodelinesindented>//&nbsp;fragment&nbsp;two</p>
+<p class=secodelinesindented>function&nbsp;SumTwo(a,&nbsp;b)</p>
+<p class=secodelinesindented>{</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;return&nbsp;a&nbsp;+&nbsp;b</p>
+<p class=secodelinesindented>}</p>
+<p class=secodelinesindented>&nbsp;</p>
+<p class=secodelinesindented>Screen.writeln(global.SumTwo(3,&nbsp;4))</p>
+<p class=secodelinesindented>&nbsp;</p>
+<hr noshade size=1>
+<p class=normal><a href="TH_429.htm"><img src="button.png" border=0></a><a href="TH_429.htm" style="text-decoration:none;">Data types</a></p>
+<p>
+</body>
+</html>

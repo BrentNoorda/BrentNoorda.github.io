@@ -1,0 +1,36 @@
+<html>
+<head>
+<title>Cursor Instance Properties</title>
+<link rel="stylesheet" href="semanualstyles.css" type="text/css">
+<style type="text/css">
+ p { margin-top: 0; margin-bottom: 0; }
+</style>
+<script language="JavaScript" src="TrueHelp.js"></script>
+</head>
+<body onload="thload()">
+<div id=ienav>
+<ilayer id=nsnav>
+<br>
+<center>
+<p class=normal><a href="seisdkc-toc.htm" target="left">contents</a> &nbsp; <a href="seisdkc-index.htm" target="left">index</a> &nbsp; <a href="TH_1073.htm">previous</a> &nbsp; <a href="TH_1075.htm">next</a></p>
+</center>
+<br>
+<hr noshade size=1>
+</ilayer>
+</div>
+<p class=heading-3>Cursor Instance Properties</p>
+<p class=heading-3-p>&nbsp;</p>
+<p class=senormalpara>The properties of Cursor objects vary from instance to instance. Each Cursor object has a property for each named column in the Cursor.  Thus, when a Cursor is created, it acquires a property for each column in the virtual table, as determined by the SELECT statement.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara><b>Note</b> - Unlike other properties in JavaScript, cursor properties corresponding to column names are not case sensitive, because SQL is not case sensitive and some databases are not case sensitive.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>Properties of a Cursor object can be referred to as elements of an array.  The 0-index array element corresponds to the first column, the 1-index array element corresponds to the second column, and so on.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>SELECT statements can retrieve values that are not columns in the database, such as aggregate values and SQL expressions. Display these values by using the Cursor's property array index for the value.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<hr noshade size=1>
+<p class=normal><a href="TH_1075.htm"><img src="button.png" border=0></a><a href="TH_1075.htm" style="text-decoration:none;">Cursor filter</a></p>
+<p class=normal><a href="TH_1076.htm"><img src="button.png" border=0></a><a href="TH_1076.htm" style="text-decoration:none;">Cursor sort</a></p>
+<p>
+</body>
+</html>

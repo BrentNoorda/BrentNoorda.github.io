@@ -1,0 +1,68 @@
+<html>
+<head>
+<title>Buffer putString()</title>
+<link rel="stylesheet" href="semanualstyles.css" type="text/css">
+<style type="text/css">
+ p { margin-top: 0; margin-bottom: 0; }
+</style>
+<script language="JavaScript" src="TrueHelp.js"></script>
+</head>
+<body onload="thload()">
+<div id=ienav>
+<ilayer id=nsnav>
+<br>
+<center>
+<p class=normal><a href="seisdkc-toc.htm" target="left">contents</a> &nbsp; <a href="seisdkc-index.htm" target="left">index</a> &nbsp; <a href="TH_568.htm">previous</a> &nbsp; <a href="TH_570.htm">next</a></p>
+</center>
+<br>
+<hr noshade size=1>
+</ilayer>
+</div>
+<p class=sereffunclevel4>Buffer putString()</p>
+<table cellpadding=0>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>syntax:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=sesyntax>buffer.putString<span class=truehelp-xe></span>(string)</p></td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>where:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>string - Any string.</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>return:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>void.</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>description:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>This method puts a string into the <span class=sepopuptopic><a href="TH_556.htm" onClick="return thwindow('TH_556.htm', 'GenPopup')">Buffer object</a></span> at the current cursor position. If the .unicode flag is set within the Buffer object, then the string is put as a unicode string, otherwise it is put as an ASCII string. The cursor is incremented by the length of the string (or twice the length if it is put as a unicode string). Note that terminating <span class=secodephrase>null</span> byte is not added at end of the string.</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>example:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=secodelines>//&nbsp;To&nbsp;put&nbsp;a&nbsp;null&nbsp;terminated&nbsp;string,</p>
+<p class=secodelines>//&nbsp;the&nbsp;following&nbsp;can&nbsp;be&nbsp;done.</p>
+<p class=secodelines>&nbsp;</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;//&nbsp;Put&nbsp;the&nbsp;string&nbsp;into&nbsp;the&nbsp;buffer</p>
+<p class=secodelines>foo.putString(&nbsp;"Hello"&nbsp;);</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;//&nbsp;Add&nbsp;terminating&nbsp;null&nbsp;byte</p>
+<p class=secodelines>foo.putValue(&nbsp;0&nbsp;);</p></td>
+</tr>
+</table>
+<p class=normal>&nbsp;</p>
+<hr noshade size=1>
+<p class=normal><a href="TH_570.htm"><img src="button.png" border=0></a><a href="TH_570.htm" style="text-decoration:none;">Buffer putValue()</a></p>
+<p>
+</body>
+</html>

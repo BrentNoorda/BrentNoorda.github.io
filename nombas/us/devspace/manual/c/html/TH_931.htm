@@ -1,0 +1,90 @@
+<html>
+<head>
+<title>SElib.fullpath()</title>
+<link rel="stylesheet" href="semanualstyles.css" type="text/css">
+<style type="text/css">
+ p { margin-top: 0; margin-bottom: 0; }
+</style>
+<script language="JavaScript" src="TrueHelp.js"></script>
+</head>
+<body onload="thload()">
+<div id=ienav>
+<ilayer id=nsnav>
+<br>
+<center>
+<p class=normal><a href="seisdkc-toc.htm" target="left">contents</a> &nbsp; <a href="seisdkc-index.htm" target="left">index</a> &nbsp; <a href="TH_930.htm">previous</a> &nbsp; <a href="TH_932.htm">next</a></p>
+</center>
+<br>
+<hr noshade size=1>
+</ilayer>
+</div>
+<p class=sereffunclevel4>SElib.fullpath()</p>
+<table cellpadding=0>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>syntax:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=sesyntax>SElib.fullpath(pathspec)</p></td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>where:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>pathspec - a partial path specification.</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>return:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>string - the pathspec filled out to its full path specification or <span class=secodephrase>null</span> if the path specification is invalid. </p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>description:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>Converts pathspec to a full and absolute path specification. The file name part of the path specification is not affected and may have wildcards. The drive and directory part of the path specification is converted or fleshed out to a full and absolute path.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>The exact behavior of <span class=secodephrase>SElib.fullpath()</span> depends on the underlying operating system. Some results can vary when using system specific path specifications. </p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>see:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara><span class=sejumptopic><a href="TH_929.htm">SElib.directory()</a></span>, <span class=sejumptopic><a href="TH_946.htm">SElib.splitFilename()</a></span>, File object in <i>fileobj.jsh</i></p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>example:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=secodelines>&nbsp;&nbsp;&nbsp;//&nbsp;The&nbsp;following&nbsp;returns&nbsp;the&nbsp;full&nbsp;spec</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;//&nbsp;of&nbsp;current&nbsp;dir</p>
+<p class=secodelines>function&nbsp;CurDir()</p>
+<p class=secodelines>{</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;return&nbsp;SElib.fullpath(".")</p>
+<p class=secodelines>}</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;//&nbsp;The&nbsp;following&nbsp;returns&nbsp;the&nbsp;full&nbsp;spec</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;//&nbsp;of&nbsp;a&nbsp;parent&nbsp;dir</p>
+<p class=secodelines>function&nbsp;CurDir()</p>
+<p class=secodelines>{</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;return&nbsp;SElib.fullpath("..\")</p>
+<p class=secodelines>}</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;//&nbsp;The&nbsp;following&nbsp;works&nbsp;in&nbsp;DOS&nbsp;or&nbsp;OS/2</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;//&nbsp;to&nbsp;test&nbsp;whether&nbsp;a&nbsp;drive</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;//&nbsp;letter&nbsp;is&nbsp;valid</p>
+<p class=secodelines>function&nbsp;ValidDrive(DriveLetter)</p>
+<p class=secodelines>{</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;Clib.sprintf(CurdirSpec,&nbsp;"%c:.",&nbsp;DriveLetter)</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;return&nbsp;(null&nbsp;!=&nbsp;SElib.fullpath(CurdirSpec)&nbsp;)</p>
+<p class=secodelines>}</p></td>
+</tr>
+</table>
+<p class=normal>&nbsp;</p>
+<hr noshade size=1>
+<p class=normal><a href="TH_932.htm"><img src="button.png" border=0></a><a href="TH_932.htm" style="text-decoration:none;">SElib.getObjectProperties()</a></p>
+<p>
+</body>
+</html>

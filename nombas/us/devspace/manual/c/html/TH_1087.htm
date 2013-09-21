@@ -1,0 +1,67 @@
+<html>
+<head>
+<title>Cursor reload()</title>
+<link rel="stylesheet" href="semanualstyles.css" type="text/css">
+<style type="text/css">
+ p { margin-top: 0; margin-bottom: 0; }
+</style>
+<script language="JavaScript" src="TrueHelp.js"></script>
+</head>
+<body onload="thload()">
+<div id=ienav>
+<ilayer id=nsnav>
+<br>
+<center>
+<p class=normal><a href="seisdkc-toc.htm" target="left">contents</a> &nbsp; <a href="seisdkc-index.htm" target="left">index</a> &nbsp; <a href="TH_1086.htm">previous</a> &nbsp; <a href="TH_1088.htm">next</a></p>
+</center>
+<br>
+<hr noshade size=1>
+</ilayer>
+</div>
+<p class=sereffunclevel4>Cursor reload()</p>
+<table cellpadding=0>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>syntax:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=sesyntax>cursor.reload()<span class=truehelp-xe></span></p></td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>return:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>number - 0 if the call was successful; otherwise, a nonzero status code based on the error message produced by the database.  If the method returns a nonzero status code, use the associated Database's <span class=secodephrase>majorErrorCode</span> and <span class=secodephrase>majorErrorMessage</span> methods to interpret the meaning of the error.</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>description:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>Requeries the database and recreates the rows of the cursor, taking into account the filter and sort properties of the Cursor.</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>see:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara><span class=secodephrase>#link &lt;sedbc&gt;</span>, <span class=sejumptopic><a href="TH_1098.htm">Database majorErrorCode()</a></span>, <span class=sejumptopic><a href="TH_1100.htm">Database minorErrorCode()</a></span>, <span class=sejumptopic><a href="TH_1076.htm">Cursor sort</a></span>, <span class=sejumptopic><a href="TH_1075.htm">Cursor filter</a></span></p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>example:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=secodelines>//&nbsp;assume&nbsp;'curs'&nbsp;is&nbsp;a&nbsp;valid&nbsp;Cursor&nbsp;object</p>
+<p class=secodelines>//&nbsp;Change&nbsp;sort&nbsp;order&nbsp;of&nbsp;the&nbsp;cursor&nbsp;rows</p>
+<p class=secodelines>curs.sort&nbsp;=&nbsp;"Year";</p>
+<p class=secodelines>&nbsp;</p>
+<p class=secodelines>//&nbsp;reload&nbsp;the&nbsp;cursor's&nbsp;contents</p>
+<p class=secodelines>err&nbsp;=&nbsp;cursor.reload();</p></td>
+</tr>
+</table>
+<p class=normal>&nbsp;</p>
+<hr noshade size=1>
+<p class=normal><a href="TH_1088.htm"><img src="button.png" border=0></a><a href="TH_1088.htm" style="text-decoration:none;">Cursor updateRow()</a></p>
+<p>
+</body>
+</html>

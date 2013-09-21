@@ -1,0 +1,86 @@
+<html>
+<head>
+<title>RegExp exec()</title>
+<link rel="stylesheet" href="semanualstyles.css" type="text/css">
+<style type="text/css">
+ p { margin-top: 0; margin-bottom: 0; }
+</style>
+<script language="JavaScript" src="TrueHelp.js"></script>
+</head>
+<body onload="thload()">
+<div id=ienav>
+<ilayer id=nsnav>
+<br>
+<center>
+<p class=normal><a href="seisdkc-toc.htm" target="left">contents</a> &nbsp; <a href="seisdkc-index.htm" target="left">index</a> &nbsp; <a href="TH_913.htm">previous</a> &nbsp; <a href="TH_915.htm">next</a></p>
+</center>
+<br>
+<hr noshade size=1>
+</ilayer>
+</div>
+<p class=sereffunclevel4>RegExp exec()</p>
+<table cellpadding=0>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>syntax:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=sesyntax>regexp.exec([<span class=truehelp-xe></span>str])</p></td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>where:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>str - a string on which to perform a regular expression match. Default is <span class=secodephrase>RegExp.input</span>.</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>return:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>array - an array with various elements and properties set depending on the attributes of a regular expression. Returns <span class=secodephrase>null</span> if no match is found.</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>description:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>This method, of all the RegExp and String methods, is both the most powerful and most complex. For many, probably most, searches, other methods are quicker and easier to use. A string, the target, to be searched is passed to <span class=secodephrase>exec()</span> as a parameter. If no string is passed, then <span class=sepopuptopic><a href="TH_918.htm" onClick="return thwindow('TH_918.htm', 'GenPopup')">RegExp.input</a></span>, which is a read/write property, is used as the target string.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>When executed without the global attribute, "g", being set, if a match is found, element 0 of the returned array is the text matched, element 1 is the text matched by the first sub pattern in parentheses, element 2 the text matched by the second sub pattern in parentheses, and so forth. These elements and their numbers correspond to groups in regular expression patterns and replacement expressions. The <span class=secodephrase>length</span> property indicates how many text matches are in the returned array. In addition, the returned array has the <span class=secodephrase>index</span> and <span class=secodephrase>input</span> properties. The <span class=secodephrase>index</span> property has the start position of the first text matched, and the <span class=secodephrase>input</span> property has the target string that was searched. These two properties are the same as those that are part of the returned array from <span class=sepopuptopic><a href="TH_971.htm" onClick="return thwindow('TH_971.htm', 'GenPopup')">String match()</a></span> when used without its global attribute being set.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>When executed with the global attribute being set, the same results as above are returned, but the behavior is more complex which allows further operations. This method <span class=secodephrase>exec()</span> begins searching at the position, in the target string, specified by <span class=secodephrase>this.lastIndex</span>. After a match, <span class=secodephrase>this.lastIndex</span> is set to the position after the last character in the text matched. Thus, you can easily loop through a string and find all matches of a pattern in it. The property <span class=secodephrase>this.lastIndex</span> is read/write and may be set at anytime. When no more matches are found, <span class=secodephrase>this.lastIndex</span> is reset to 0. </p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>Since <span class=sepopuptopic><a href="TH_914.htm" onClick="return thwindow('TH_914.htm', 'GenPopup')">RegExp exec()</a></span> always includes all information about a match in its returned array, it is the best, perhaps only, way to get all information about all matches in a string.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>As with <span class=sepopuptopic><a href="TH_971.htm" onClick="return thwindow('TH_971.htm', 'GenPopup')">String match()</a></span>, if any matches are made, appropriate <span class=sepopuptopic><a href="TH_916.htm" onClick="return thwindow('TH_916.htm', 'GenPopup')">RegExp object static properties</a></span>, such as <span class=sepopuptopic><a href="TH_921.htm" onClick="return thwindow('TH_921.htm', 'GenPopup')">RegExp.leftContext</a></span>, <span class=sepopuptopic><a href="TH_922.htm" onClick="return thwindow('TH_922.htm', 'GenPopup')">RegExp.rightContext</a></span>, <span class=sepopuptopic><a href="TH_917.htm" onClick="return thwindow('TH_917.htm', 'GenPopup')">RegExp.$n</a></span>, and so forth are set, providing more information about the matches.</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>see:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara><span class=sejumptopic><a href="TH_971.htm">String match()</a></span>, <span class=sejumptopic><a href="TH_916.htm">RegExp object static properties</a></span></p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>example:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=secodelines>var&nbsp;str&nbsp;=&nbsp;"one&nbsp;two&nbsp;three&nbsp;tio&nbsp;one";</p>
+<p class=secodelines>var&nbsp;pat&nbsp;=&nbsp;new&nbsp;RegExp("t.o",&nbsp;"g");</p>
+<p class=secodelines>&nbsp;</p>
+<p class=secodelines>while&nbsp;((rtn&nbsp;=&nbsp;pat.exec(str))&nbsp;!=&nbsp;null)</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;Screen.writeln("Text&nbsp;=&nbsp;"&nbsp;+&nbsp;rtn[0]&nbsp;+&nbsp;</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"&nbsp;Pos&nbsp;=&nbsp;"&nbsp;+&nbsp;rtn.index&nbsp;+</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"&nbsp;End&nbsp;=&nbsp;"&nbsp;+&nbsp;pat.lastIndex);</p>
+<p class=secodelines>//&nbsp;Display&nbsp;is:</p>
+<p class=secodelines>//&nbsp;&nbsp;Text&nbsp;=&nbsp;two&nbsp;Pos&nbsp;=&nbsp;4&nbsp;End&nbsp;=&nbsp;7</p>
+<p class=secodelines>//&nbsp;&nbsp;Text&nbsp;=&nbsp;tio&nbsp;Pos&nbsp;=&nbsp;14&nbsp;End&nbsp;=&nbsp;17</p></td>
+</tr>
+</table>
+<p class=normal>&nbsp;</p>
+<hr noshade size=1>
+<p class=normal><a href="TH_915.htm"><img src="button.png" border=0></a><a href="TH_915.htm" style="text-decoration:none;">RegExp test()</a></p>
+<p>
+</body>
+</html>

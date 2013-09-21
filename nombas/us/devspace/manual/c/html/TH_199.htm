@@ -1,0 +1,53 @@
+<html>
+<head>
+<title>THE CONTINUE FUNCTION</title>
+<link rel="stylesheet" href="semanualstyles.css" type="text/css">
+<style type="text/css">
+ p { margin-top: 0; margin-bottom: 0; }
+</style>
+<script language="JavaScript" src="TrueHelp.js"></script>
+</head>
+<body onload="thload()">
+<div id=ienav>
+<ilayer id=nsnav>
+<br>
+<center>
+<p class=normal><a href="seisdkc-toc.htm" target="left">contents</a> &nbsp; <a href="seisdkc-index.htm" target="left">index</a> &nbsp; <a href="TH_198.htm">previous</a> &nbsp; <a href="TH_200.htm">next</a></p>
+</center>
+<br>
+<hr noshade size=1>
+</ilayer>
+</div>
+<p class=heading-3>THE CONTINUE FUNCTION</p>
+<p class=heading-3-p>&nbsp;</p>
+<p class=senormalpara>The first step in integrating debugging support into your application is modifying the continue functions. Your application may or may not have such a function currently. If it does not, you will need to add one in order to integrate with the debugger. The continue function is specified by one of the context parameters passed when creating a new context. At the end of your continue function, you need to invoke this ScriptEase debugger API call:</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;void</p>
+<p class=secodelinesindented>seDbgContinue(secontext&nbsp;se);</p>
+<p class=secodelinesindented>&nbsp;</p>
+<p class=senormalpara>This call communicates with debugger. This is a blocking call so it will not return until the debugger gives the application more work to perform. A second, non-blocking version of this API is available:</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;sebool</p>
+<p class=secodelinesindented>seDbgNBContinue(secontext&nbsp;se,sememcount&nbsp;timeout);</p>
+<p class=secodelinesindented>&nbsp;</p>
+<p class=senormalpara>This version will return to you after the given number of milliseconds as specified by the timeout. If the function returns <span class=secodephrase>FALSE</span>, you may exit from the continue function. However, if it returns <span class=secodephrase>TRUE</span> you must call the routine again before exiting from the continue function. The continue function itself consists of any code that must be executed periodically. You would use this call as in this example:</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;SE_CALLBACK(&nbsp;void&nbsp;)</p>
+<p class=secodelinesindented>myContinueFunc(secontext&nbsp;se)</p>
+<p class=secodelinesindented>{</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;do</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;{</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/*&nbsp;your&nbsp;existing&nbsp;continue&nbsp;code&nbsp;here&nbsp;*/</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;}</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;while(&nbsp;seDbgNBContinue(se,TIMEOUT)&nbsp;);</p>
+<p class=secodelinesindented>}</p>
+<p class=secodelinesindented>&nbsp;</p>
+<p class=senormalpara>The timeout you specify depends on the needs of your code. For an application that handles GUI interface interaction in its continue function, responsiveness is important. A timeout of 100 milliseconds would be a reasonable choice in this case.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>Once you have modified or created your continue function, it must be called after each statement in the script is executed. This may not be the case depending on the parameters passed to your <span class=secodephrase>seEval</span> calls or to such calls in libraries you are using. To ensure this is always the case, set the <span class=secodephrase>SE_OPT_DEBUGGER</span> flag in the context parameter's options. There is no need to alter any of your <span class=secodephrase>seEval</span> calls.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<hr noshade size=1>
+<p class=normal><a href="TH_200.htm"><img src="button.png" border=0></a><a href="TH_200.htm" style="text-decoration:none;">THE AT ERROR FUNCTION</a></p>
+<p>
+</body>
+</html>

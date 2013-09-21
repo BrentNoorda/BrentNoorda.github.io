@@ -1,0 +1,38 @@
+<html>
+<head>
+<title>SElib.dynamicLink()</title>
+<link rel="stylesheet" href="semanualstyles.css" type="text/css">
+<style type="text/css">
+ p { margin-top: 0; margin-bottom: 0; }
+</style>
+<script language="JavaScript" src="TrueHelp.js"></script>
+</head>
+<body onload="thload()">
+<div id=ienav>
+<ilayer id=nsnav>
+<br>
+<center>
+<p class=normal><a href="seisdkc-toc.htm" target="left">contents</a> &nbsp; <a href="seisdkc-index.htm" target="left">index</a> &nbsp; <a href="TH_950.htm">previous</a> &nbsp; <a href="TH_952.htm">next</a></p>
+</center>
+<br>
+<hr noshade size=1>
+</ilayer>
+</div>
+<p class=heading-4>SElib.dynamicLink()</p>
+<p class=senormalpara><b>Dynamic links</b> for Win32, Win16, and OS/2</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>The dynamic link method, which varies in usage among the three platforms that support it, allows flexibility when making calls to dynamic link libraries, DLLs, and allows access to operating-system functions, API calls, not explicitly provided by ScriptEase. If you know the proper conventions for a call, then you can make an <span class=secodephrase>SElib.dynamicLink()</span> call in a ScriptEase function to be used for making a system call. Such a function is referred to as a wrapper, a function in which a system call becomes available as a function call.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>There are three versions of <span class=secodephrase>SElib.dynamicLink()</span>: Win32, Win16, and OS/2. These three versions differ slightly in the way they are called. So, if you wish to use one function in a script that will be run on different platforms, you must create an operating system filter using preprocessor directives: <span class=secodephrase>#if</span>, <span class=secodephrase>#ifdef</span>, <span class=secodephrase>#elif</span>, <span class=secodephrase>#else</span>, and <span class=secodephrase>#endif</span>.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>Since these versions are different in the way that they call <span class=secodephrase>SElib.dynamicLink()</span>, they will be treated separately. </p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>See Win32 structure definitions.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<hr noshade size=1>
+<p class=normal><a href="TH_952.htm"><img src="button.png" border=0></a><a href="TH_952.htm" style="text-decoration:none;">SElib.dynamicLink() - for Win32</a></p>
+<p class=normal><a href="TH_953.htm"><img src="button.png" border=0></a><a href="TH_953.htm" style="text-decoration:none;">SElib.dynamicLink() - for Win16</a></p>
+<p class=normal><a href="TH_954.htm"><img src="button.png" border=0></a><a href="TH_954.htm" style="text-decoration:none;">SElib.dynamicLink() - for OS/2</a></p>
+<p>
+</body>
+</html>

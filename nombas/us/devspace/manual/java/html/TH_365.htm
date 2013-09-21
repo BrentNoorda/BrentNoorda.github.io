@@ -1,0 +1,39 @@
+<html>
+<head>
+<title>Conditional operator</title>
+<link rel="stylesheet" href="semanualstyles.css" type="text/css">
+<style type="text/css">
+ p { margin-top: 0; margin-bottom: 0; }
+</style>
+<script language="JavaScript" src="TrueHelp.js"></script>
+</head>
+<body onload="thload()">
+<div id=ienav>
+<ilayer id=nsnav>
+<br>
+<center>
+<p class=normal><a href="seisdkj-toc.htm" target="left">contents</a> &nbsp; <a href="seisdkj-index.htm" target="left">index</a> &nbsp; <a href="TH_364.htm">previous</a> &nbsp; <a href="TH_366.htm">next</a></p>
+</center>
+<br>
+<hr noshade size=1>
+</ilayer>
+</div>
+<p class=heading-3>Conditional operator</p>
+<p class=heading-3-p>&nbsp;</p>
+<p class=senormalpara>The conditional operator, "<span class=secodephrase>? :</span>", provides a shorthand method for writing if statements. It is harder to read than conventional if statements, and so is generally used when the expressions in the if statements are brief. The syntax is:</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=secodelinesindented>test_expression&nbsp;?&nbsp;expression_if_true&nbsp;:&nbsp;expression_if_false</p>
+<p class=secodelinesindented>&nbsp;</p>
+<p class=senormalpara>First, test_expression is evaluated. If test_expression is nonzero, <span class=secodephrase>true</span>, then expression_if_true is evaluated, and the value of the entire expression replaced by the value of expression_if_true. If test_expression is <span class=secodephrase>false</span>, then expression_if_false is evaluated, and the value of the entire expression is that of expression_if_false.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>The following fragment illustrates the use of the conditional operator.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=secodelinesindented>foo&nbsp;=&nbsp;(&nbsp;5&nbsp;&lt;&nbsp;6&nbsp;)&nbsp;?&nbsp;100&nbsp;:&nbsp;200;&nbsp;//&nbsp;foo&nbsp;is&nbsp;set&nbsp;to&nbsp;100</p>
+<p class=secodelinesindented>Screen.write("Name&nbsp;is&nbsp;"&nbsp;+&nbsp;((null==name)&nbsp;?&nbsp;"unknown"&nbsp;:&nbsp;name));</p>
+<p class=secodelines>&nbsp;</p>
+<p class=normal>&nbsp;</p>
+<hr noshade size=1>
+<p class=normal><a href="TH_366.htm"><img src="button.png" border=0></a><a href="TH_366.htm" style="text-decoration:none;">Exception handling</a></p>
+<p>
+</body>
+</html>

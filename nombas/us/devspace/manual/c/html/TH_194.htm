@@ -1,0 +1,35 @@
+<html>
+<head>
+<title>JSE_MEMEXT_READONLY (off)</title>
+<link rel="stylesheet" href="semanualstyles.css" type="text/css">
+<style type="text/css">
+ p { margin-top: 0; margin-bottom: 0; }
+</style>
+<script language="JavaScript" src="TrueHelp.js"></script>
+</head>
+<body onload="thload()">
+<div id=ienav>
+<ilayer id=nsnav>
+<br>
+<center>
+<p class=normal><a href="seisdkc-toc.htm" target="left">contents</a> &nbsp; <a href="seisdkc-index.htm" target="left">index</a> &nbsp; <a href="TH_193.htm">previous</a> &nbsp; next</p>
+</center>
+<br>
+<hr noshade size=1>
+</ilayer>
+</div>
+<p class=heading-3>JSE_MEMEXT_READONLY (off)</p>
+<p class=heading-3-p>&nbsp;</p>
+<p class=senormalpara>These flags define whether the memory extensions will be used. There are four types of data for which the memory extensions are used: objects, members of objects, strings, and secodes (which are the virtual-machine bytecodes associated with each script function). Usually you would define all or none of these, but you may want to turn some on or some off depending on the type of scripts you&#8217;ll be running and the balance needed between memory use and performance (for example, for the function overlay technique described below you may choose to only implement <span class=secodeterm>JSE_MEMEXT_SECODES</span>).</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>JSE_MEMEXT_READONLY is defined for systems that distinguish between memory that is read-only and memory that is read-write.  If it is just as fast to use writeable memory as it is to use read-only memory, then leave this flag off.  If this flag is defined then the engine will access memory in read-only mode as much as possible, and so improve overall performance.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>The memory-extension routines in the ScriptEase engine use a caching algorithm to balance memory use versus performance, so that memory handles that are more likely to be used soon are maintained in a cache.  These cache sizes can be adjusted by overwriting the compile-time parameters in the <span class=secodephrase>src/include/sememext.h</span> file.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>The PalmOS version of SE:ISDK/C makes extensive use of memory extensions because the PalmOS has relatively little heap space, but much more long-term storage.  Another interesting example of the use of memory extensions is to implement a function-overlaying system.  As one example, a systems may have a small amount of RAM and much more disk space.  As the scripting functionality expands on the system (because it is much easier to implement new functionality via scripts) memory may run short.  One solution is to enable <span class=semonospaced>JSE_MEMEXT_SECODES</span> and <span class=semonospaced>JSE_MEMEXT_READONLY</span> so that the virtual-machine bytecodes for functions are cached to the hard disk, with seldom-used functions taking up no memory unless they are needed.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>There are many more situations and sample implementations for which memory extensions are needed.  For more information see the comments in the <span class=secodephrase>src/include/sememext.h</span> file about typedefs and macros that you must define to use memory extensions.  Also see two sample implementations included with the SDK in the <span class=semonospaced>tests/testers</span> subdirectory: mmemext.h and mmemext.c demonstrate handles to externally allocated memory, and fmemext.h and fmemext.c demonstrate using file handles as memory extensions. These two samples are both more useful for education and testing than they are useful for real world situations.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p>
+</body>
+</html>

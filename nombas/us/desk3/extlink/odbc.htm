@@ -1,0 +1,567 @@
+<HTML>
+ <HEAD>
+ <TITLE>ODBC.DLL Documentation</TITLE>
+ <META NAME="VPSiteProject" CONTENT="file:///c|/visualpage/Nombas.vpp">
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-1754630-10']);
+  _gaq.push(['_trackPageview']);
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+ </HEAD>
+ 
+<BODY BGCOLOR=#FFFFFF LINK=#FF0000 background="../allback.gif">
+<P>
+ The ODBC library allows you to access and modify data in remote databases. Although you may use this library directly, it is easier to use the functions in odbc.jsh and odbcease.jsh, which provide simple wrappers for these functions and make it easier to use ODBC databases.<BR>
+ <BR>
+ The following functions are included in ODBC.DLL:<TABLE
+   CELLPADDING=1 CELLSPACING=2 BORDER=0>
+   <TR>
+    <TD COLSPAN=2 VALIGN=TOP><P>
+    <A HREF="#sqlallocconnect">SQLAllocConnect</A></TD>
+    <TD VALIGN=TOP><P>
+    <A HREF="#sqlerror">SQLError</A></TD>
+    <TD VALIGN=TOP><P>
+    <A HREF="#sqlgetcursorname">SQLGetCursorName</A></TD>
+   </TR>
+   <TR>
+    <TD COLSPAN=2 VALIGN=TOP><P>
+    <A HREF="#sqlallocenv">SQLAllocEnv</A></TD>
+    <TD VALIGN=TOP><P>
+    <A HREF="#sqlexecdirect">SQLExecDirect</A></TD>
+    <TD VALIGN=TOP><P>
+    <A HREF="#sqlnumresultcols">SQLNumResultCols</A></TD>
+   </TR>
+   <TR>
+    <TD COLSPAN=2 VALIGN=TOP><P>
+    <A HREF="#sqlallocstmt">SQLAllocStmt</A></TD>
+    <TD VALIGN=TOP><P>
+    <A HREF="#sqlexecute">SQLExecute</A></TD>
+    <TD VALIGN=TOP><P>
+    <A HREF="#sqlprepare">SQLPrepare</A></TD>
+   </TR>
+   <TR>
+    <TD COLSPAN=2 VALIGN=TOP><P>
+    <A HREF="#sqlcancel">SQLCancel</A></TD>
+    <TD VALIGN=TOP><P>
+    <A HREF="#sqlfetch">SQLFetch</A></TD>
+    <TD VALIGN=TOP><P>
+    <A HREF="#sqlrowcount">SQLRowCount</A></TD>
+   </TR>
+   <TR>
+    <TD COLSPAN=2 VALIGN=TOP><P>
+    <A HREF="#sqlconnect">SQLConnect</A></TD>
+    <TD VALIGN=TOP><P>
+    <A HREF="#sqlfreeconnect">SQLFreeConnect</A></TD>
+    <TD VALIGN=TOP><P>
+    <A HREF="#sqlsetcursorname">SQLSetCursorName</A></TD>
+   </TR>
+   <TR>
+    <TD COLSPAN=2 VALIGN=TOP><P>
+    <A HREF="#sqldescribecol">SQLDescribeCol</A></TD>
+    <TD VALIGN=TOP><P>
+    <A HREF="#sqlfreeenv">SQLFreeEnv</A></TD>
+    <TD VALIGN=TOP><P>
+    <A HREF="#sqltransact">SQLTransact</A></TD>
+   </TR>
+   <TR>
+    <TD COLSPAN=2 VALIGN=TOP><P>
+    <A HREF="#sqldisconnect">SQLDisconnect</A></TD>
+    <TD VALIGN=TOP><P>
+    <A HREF="#sqlfreestmt">SQLFreeStmt</A></TD>
+    <TD VALIGN=TOP><P>
+    <A HREF="#sqlgetdata">SQLGetData</A></TD>
+   </TR>
+  </TABLE>
+ <!--
+        All functions in this library return an integer code corresponding to one of the
+        following predefined values:
+        <TABLE BORDER=0>
+          <TR><TD>SQL_SPEC_MAJOR</TD><TD>Major version of specification</TD></TR>
+          <TR><TD>SQL_SPEC_MINOR</TD><TD>Minor version of specification</TD></TR>
+          <TR><TD>SQL_SPEC_STRING</TD><TD>String constant for version</TD></TR>
+          <TR><TD>SQL_SQLSTATE_SIZE</TD><TD>Size of SQLSTATE</TD></TR>
+          <TR><TD>SQL_MAX_MESSAGE_LENGTH</TD><TD>Message buffer size</TD></TR>
+          <TR><TD>SQL_MAX_DSN_LENGTH</TD><TD>Maximum data source name size</TD></TR>
+        </TABLE><BR>
+-->
+  <TABLE CELLPADDING=1 CELLSPACING=2 BORDER=0>
+   <TR>
+    <TD COLSPAN=2 VALIGN=TOP><P>
+    <A NAME="sqlallocconnect"></A><FONT FACE="arial,helvetica,monaco"><B>SQLAllocConnect(henv, phdbc)</B></FONT></TD>
+   </TR>
+   <TR>
+    <TD WIDTH=15 VALIGN=CENTER>
+    </TD>
+    <TD VALIGN=CENTER><P>
+    This function allocates memory for a connection handle within the environment identified by <B>henv</B> and stores it in the variable <B>phdbc</B>.</TD>
+   </TR>
+  </TABLE>
+ <BR>
+  <TABLE CELLPADDING=1 CELLSPACING=2 BORDER=0>
+   <TR>
+    <TD COLSPAN=2 VALIGN=TOP><P>
+    <A NAME="sqlallocenv"></A><FONT FACE="arial,helvetica,monaco"><B>SQLAllocEnv(phenv)</B></FONT></TD>
+    <TD VALIGN=TOP>
+    </TD>
+   </TR>
+   <TR>
+    <TD WIDTH=15 VALIGN=CENTER>
+    </TD>
+    <TD VALIGN=CENTER><P>
+    SQLAllocEnv() allocates memory for an environment handle and initializes the ODBC call-level interface for use by an application. The environment handle will be stored in the variable <B>phenv</B>.</TD>
+    <TD VALIGN=TOP>
+    </TD>
+   </TR>
+  </TABLE>
+ <BR>
+  <TABLE CELLPADDING=1 CELLSPACING=2 BORDER=0>
+   <TR>
+    <TD COLSPAN=2 VALIGN=CENTER><P>
+    <A NAME="sqlallocstmt"></A><FONT FACE="arial,helvetica,monaco"><B>SQLAllocStmt(hdbc, phstmt)</B></FONT></TD>
+   </TR>
+   <TR>
+    <TD WIDTH=15 VALIGN=CENTER>
+    </TD>
+    <TD VALIGN=CENTER><P>
+    You must call SQLAllocStmt prior to submitting SQL statements to allocate memory for a statement handle and associate it handle with the connection specified by <B>hdbc</B>. The statement handle will be stored in the variable <B>phstmt</B>. One of the following values will be returned: SQL_SUCCESS, SQL_SUCCESS_WITH_INFO, SQL_INVALID_HANDLE, or SQL_ERROR.</P>
+    <P>
+    When SQLAllocStmt returns SQL_ERROR, an associated SQLSTATE value may be obtained by calling SQLError. The following table lists each typical SQLSTATE value and explains each one in the context of SQLAllocStmt.</TD>
+   </TR>
+  </TABLE>
+ <BR>
+  <TABLE CELLPADDING=1 CELLSPACING=2 BORDER=0>
+   <TR>
+    <TD COLSPAN=2 VALIGN=TOP><P>
+    <A NAME="sqlcancel"></A><FONT FACE="arial,helvetica,monaco"><B>SQLCancel(hstmt)</B></FONT></TD>
+   </TR>
+   <TR>
+    <TD WIDTH=15 VALIGN=CENTER>
+    </TD>
+    <TD VALIGN=TOP><P>
+    SQLCancel cancels the processing of the SQL statement indicated by <B>hstmt</B> and returns control to the application. If an application submits statements asynchronously, it can call SQLCancel. Otherwise, the application cannot accesss SQLCancel until any request in process is completed. If an application calls SQLCancel for a function called synchronously, SQLCancel has the same effect as SQLFreeStmt with the SQL_CLOSE option. It will return one of the following values: SQL_SUCCESS, SQL_SUCCESS_WITH_INFO, SQL_INVALID_HANDLE, or SQL_ERROR</TD>
+   </TR>
+  </TABLE>
+ <BR>
+  <TABLE CELLPADDING=1 CELLSPACING=2 BORDER=0>
+   <TR>
+    <TD COLSPAN=2 VALIGN=TOP><P>
+    <A NAME="sqlconnect"></A><FONT FACE="arial,helvetica,monaco"><B>SQLConnect(hdbc, szDSN[, cbDSN], szUID[, cbUID], szAuthStr[, cbAuthStr])</B></FONT>
+    </TD>
+   </TR>
+   <TR>
+    <TD WIDTH=15 VALIGN=CENTER>
+    </TD>
+    <TD VALIGN=TOP><P>
+    SQLConnect loads a driver and establishes a connection to a data source. The connection handle references storage of all information about the connection, inlcuding status, transaction state, and error information. This routine varies significantly from the normal SQLConnect call in the fact that the length parameters for the SQL query, the user name, and the password are optional. If they are not provided SQL_NTS will be used. This function returns one of the following values: SQL_SUCCESS, SQL_SUCCESS_WITH_INFO, SQL_ERROR, or SQL_INVALID_HANDLE.</P>
+    <P>
+    <B>hdbc</B> (Input) Connection handle.<BR>
+    <B>szDSN</B> (Input) Data source name.<BR>
+    <B>cbDSN</B> (Input) Length of szDSN.<BR>
+    <B>szUID</B> (Input) User identifier.<BR>
+    <B>cbUID</B> (Input) Length of szUID.<BR>
+    <B>szAuthStr</B> (Input) Authentication string (typically the password).<BR>
+    <B>cbAuthStr</B> (Input) Length of szAuthStr.<BR>
+    </TD>
+   </TR>
+  </TABLE>
+ <BR>
+  <TABLE CELLPADDING=1 CELLSPACING=2 BORDER=0>
+   <TR>
+    <TD COLSPAN=2 VALIGN=TOP><P>
+    <A NAME="sqldescribecol"></A><FONT FACE="arial,helvetica,monaco"><B>SQLDescribeCol(hstmt, icol, szColName, cbColNameMax, pcbColName, pfSqlType, pcbColDef, pibScale, pfNullable)</B></FONT>
+    </TD>
+   </TR>
+   <TR>
+    <TD WIDTH=15 VALIGN=CENTER>
+    </TD>
+    <TD VALIGN=TOP><P>
+    SQLDescribeCol returns the result descriptor - column name, type, and length - for one column in the result set. It returns one of the following values: SQL_SUCCESS, SQL_SUCCESS_WITH_INFO, SQL_STILL_EXECUTING, SQL_ERROR, or SQL_INVALID_HANDLE.</P>
+    <P>
+    <B>hstmt</B> (Input) Statement handle.<BR>
+    <B>icol</B> (Input) Column number of result data, ordered sequentially left to right, starting at 1.<BR>
+    <B>szColName</B> (Output) Pointer to storage for the column name.<BR>
+    <B>cbColNameMax</B> (Input) Maximum length of the szColName buffer.<BR>
+    <B>pcbColName</B> (Output) Total number of bytes (excluding the null termination byte) available to return in szColName. If the number of bytes available to return is greater than or equal to cbColNameMax, the column name in szColName is truncated to cbColNameMax - 1 bytes.<BR>
+    <B>pfSqlType</B> (Output) The ODBC SQL data type of the column. This must be one of the following values, depending on the type of data it contains: SQL_BIGINT, SQL_BINARY, SQL_BIT, SQL_CHAR, SQL_DATE, SQL_DECIMAL, SQL_DOUBLE, SQL_FLOAT, SQL_INTEGER, SQL_LONGVARBINARY, SQL_LONGVARCHAR, SQL_NUMERIC, SQL_REAL, SQL_SMALLINT, SQL_TIME, SQL_TIMESTAMP, SQL_TINYINT, SQL_VARBINARY,SQL_VARCHAR<BR>
+    <B>pcbColDef</B> (Output) The precision of the column on the data source. For more information on precision, see &quot;Precision, Scale, Length, and Display Size&quot; in Appendix D.<BR>
+    <B>pibScale</B> (Output) The scale of the column on the data source. 0 is returned for data types where scale is not applicable.<BR>
+    <B>pfNullable</B> (Output) Indicates whether the column allows NULL values. One of the following values: SQL_NO_NULLS: the column does not allow NULL values. SQL_NULLABLE: the column allows NULL values. SQL_NULLABLE_UNKNOWN: the driver cannot determine if the column allows NULL values.</TD>
+   </TR>
+  </TABLE>
+ <BR>
+  <TABLE CELLPADDING=1 CELLSPACING=2 BORDER=0>
+   <TR>
+    <TD COLSPAN=2 VALIGN=TOP><P>
+    <A NAME="sqldisconnect"></A><FONT FACE="arial,helvetica,monaco"><B>SQLDisconnect(hdbc)</B></FONT></TD>
+   </TR>
+   <TR>
+    <TD WIDTH=15 VALIGN=CENTER>
+    </TD>
+    <TD VALIGN=TOP><P>
+    SQLDisconnect closes the connection associated with <B>hdbc</B> and returns one of the following: SQL_SUCCESS, SQL_SUCCESS_WITH_INFO, SQL_ERROR, or SQL_INVALID_HANDLE.</TD>
+   </TR>
+  </TABLE>
+ <BR>
+  <TABLE CELLPADDING=1 CELLSPACING=2 BORDER=0>
+   <TR>
+    <TD COLSPAN=2 VALIGN=TOP><P>
+    <A NAME="sqlexecdirect"></A><FONT FACE="arial,helvetica,monaco"><B>SQLExecDirect(hstmt, szSqlStr[, cbSqlStr])</B></FONT>
+    </TD>
+   </TR>
+   <TR>
+    <TD WIDTH=15 VALIGN=CENTER>
+    </TD>
+    <TD VALIGN=TOP><P>
+    SQLExecDirect executes a preparable statement, using the current values of the parameter marker variables if any parameters exist in the statement. SQLExecDirect is the fastest way to submit an SQL string for one-time execution. It returns one of the following values: SQL_SUCCESS, SQL_SUCCESS_WITH_INFO, SQL_NEED_DATA, SQL_STILL_EXECUTING, SQL_ERROR, or SQL_INVALID_HANDLE.</P>
+    <P>
+    <B>hstmt</B> (Input) Statement handle.<BR>
+    <B>szSqlStr</B> (Input) SQL statement to be executed.<BR>
+    <B>cbSqlStr</B> (Input) Length of szSqlStr.<P>
+    The third argument, cbSqlStr is optional. If it is not supplied, it defaults to SQL_NTS.</P>
+    <P>
+    The application calls SQLExecDirect to send an SQL string to the driver. The driver then submits the SQL string to the data source. For a description of SQL statement grammar, see Appendix C, &quot;SQL Grammar,&quot; in the ODBC Programmer's Reference.</P>
+    <P>
+    The application can include one or more parameter markers in the SQL statement. To include a parameter marker, the application embeds a question mark (?) into the SQL string at the appropriate position.</P>
+    <P>
+    If the SQL statement is a SELECT statement, and if the application called SQLSetCursorName to associate a cursor with an hstmt, then the driver uses the specified cursor. Otherwise, the driver generates a cursor name.</P>
+    <P>
+    If the data source is in manual-commit mode (requiring explicit transaction initiation), and a transaction has not already been initiated, the driver initiates a transaction before it sends the SQL string.</P>
+    <P>
+    If an application uses SQLExecDirect to submit a COMMIT or ROLLBACK statement, it will not be interoperable between DBMS products. To commit or roll back a transaction, call SQLTransact.</P>
+    <P>
+    If SQLExecDirect encounters an SQL_DATA_AT_EXEC parameter, it returns SQL_NEED_DATA. The application sends the data using SQLParamData and SQLPutData.</TD>
+   </TR>
+  </TABLE>
+ <BR>
+  <TABLE CELLPADDING=1 CELLSPACING=2 BORDER=0>
+   <TR>
+    <TD COLSPAN=2 VALIGN=TOP><P>
+    <A NAME="sqlerror"></A><FONT FACE="arial,helvetica,monaco"><B>SQLError(henv, hdbc, hstmt, szSqlState, pfNativeError, szErrorMsg, cbErrorMsgMax, pcbErrorMsg)</B></FONT></TD>
+   </TR>
+   <TR>
+    <TD WIDTH=15 VALIGN=CENTER>
+    </TD>
+    <TD VALIGN=TOP><P>
+    SQLError returns error or status information. <A HREF="odbcerr.htm">This link leads to a list of Error Codes and what they signify.</A></P>
+    <P>
+    <B>henv</B> (Input) Environment handle or SQL_NULL_HENV.<BR>
+    <B>hdbc</B> (Input) Connection handle or SQL_NULL_HDBC.<BR>
+    <B>hstmt</B> (Input) Statement handle or SQL_NULL_HSTMT.<BR>
+    <B>szSqlState</B> (Output) SQLSTATE as null terminated string.<BR>
+    <B>pfNativeError</B> (Output) Native error code (specific to the data source).<BR>
+    <B>szErrorMsg</B> (Output) Pointer to storage for the error message text.<BR>
+    <B>cbErrorMsgMax</B> (Input) Maximum length of the szErrorMsg buffer. This must be less than or equal to SQL_MAX_MESSAGE_LENGTH - 1.<BR>
+    <B>pcbErrorMsg</B> (Output) Pointer to the total number of bytes (excluding the null termination byte) available to return in szErrorMsg. If the number of bytes available to return is greater than or equal to cbErrorMsgMax, the error message text in szErrorMsg is truncated to cbErrorMsgMax - 1 bytes.<P>
+    The driver stores error information in the henv, hdbc, and hstmt structures and returns this information to the application when the application calls SQLError. Each ODBC function can post zero or more errors.</P>
+    <P>
+    An application typically calls SQLError when a previous call to an ODBC function returns SQL_ERROR or SQL_SUCCESS_WITH_INFO. The application can, however, call SQLError after any ODBC function call.</P>
+    <P>
+    Errors stored for a given handle are cleared only when the handle is used in a subsequent function call. For example, errors on an hstmt for a given function call are cleared when another function call is made using the hstmt. The errors stored on a given handle are never cleared as the result of a call on a function using a different type, but related handle. For example, errors on an hdbc are not cleared when a call is made to a related hstmt.</P>
+    <P>
+    SQLError retrieves an error from the data structure associated with the rightmost non-null handle argument. An application requests error information as follows:</P>
+    <P>
+     <UL>
+      <LI>To retrieve errors associated with an environment, the application passes the corresponding henv and includes SQL_NULL_HDBC and SQL_NULL_HSTMT in hdbc and hstmt, respectively. The driver returns the error status of the ODBC function most recently called with the same henv.<LI>
+      To retrieve errors associated with a connection, the application passes the corresponding hdbc plus an hstmt equal to SQL_NULL_HSTMT. In such a case, the driver ignores the henv argument. The driver returns the error status of the ODBC function most recently called with the hdbc.<LI>
+      To retrieve errors associated with a statement, an application passes the corresponding hstmt. If the call to SQLError contains a valid hstmt, the driver ignores the hdbc and henv arguments. The driver returns the error status of the ODBC function most recently called with the hstmt.<LI>
+      To retrieve multiple errors for a function call, an application calls SQLError multiple times. For each error, the driver returns SQL_SUCCESS and removes that error from the list of available errors.<LI>
+      When there is no additional information for the rightmost non-null handle, SQLError returns SQL_NO_DATA_FOUND. In this case, szSqlState equals 00000 (Success), pfNativeError is undefined, pcbErrorMsg equals 0, and szErrorMsg contains a single null termination byte (unless cbErrorMsgMax equals 0).</ul></TD>
+   </TR>
+  </TABLE>
+ <BR>
+  <TABLE CELLPADDING=1 CELLSPACING=2 BORDER=0>
+   <TR>
+    <TD COLSPAN=2 VALIGN=TOP><P>
+    <A NAME="sqlexecute"></A><FONT FACE="arial,helvetica,monaco"><B>SQLExecute(hstmt)</B></FONT></TD>
+   </TR>
+   <TR>
+    <TD WIDTH=15 VALIGN=CENTER>
+    </TD>
+    <TD VALIGN=TOP><P>
+    SQLExecute executes the statement <B>hstmt</B>, which must have been formatted by SQLPrepare. Once the application processes or discards the results from a call to SQLExecute, the application can call SQLExecute again with new parameter values. It returns one of the following values: SQL_SUCCESS, SQL_SUCCESS_WITH_INFO, SQL_NEED_DATA, SQL_STILL_EXECUTING, SQL_ERROR, or SQL_INVALID_HANDLE.</P>
+    <P>
+    To execute a SELECT statement more than once, the application must call SQLFreeStmt with the SQL_CLOSE parameter before reissuing the SELECT statement.</P>
+    <P>
+    If the data source is in manual-commit mode (requiring explicit transaction initiation), and a transaction has not already been initiated, the driver initiates a transaction before it sends the SQL string.</P>
+    <P>
+    If an application uses SQLPrepare to prepare and SQLExecute to submit a COMMIT or ROLLBACK statement, it will not be interoperable between DBMS products. To commit or roll back a transaction, call SQLTransact.</P>
+    <P>
+    If SQLExecute encounters an SQL_DATA_AT_EXEC parameter, it returns SQL_NEED_DATA. The application sends the data using SQLParamData and SQLPutData.</TD>
+   </TR>
+  </TABLE>
+ <BR>
+  <TABLE CELLPADDING=1 CELLSPACING=2 BORDER=0>
+   <TR>
+    <TD COLSPAN=2 VALIGN=TOP><P>
+    <A NAME="sqlfetch"></A><FONT FACE="arial,helvetica,monaco"><B>SQLFetch(hstmt)</B></FONT></TD>
+   </TR>
+   <TR>
+    <TD WIDTH=15 VALIGN=CENTER>
+    </TD>
+    <TD VALIGN=TOP><P>
+    SQLFetch fetches a row of data from a result set. This function is used in tandem with SQLBindCol(). First, you must bind columns to variables with SQLBindCol(). Subsequent calls to SQLFetch() will retrieve the data for all bound columns and stores them in the corresponding variables. One of the following will be returned to indicate the success or failure of the command: SQL_SUCCESS, SQL_SUCCESS_WITH_INFO, SQL_NO_DATA_FOUND, SQL_STILL_EXECUTING, SQL_ERROR, or SQL_INVALID_HANDLE.</P>
+    <P>
+    <B>hstmt</B> (Input) Statement handle.</P>
+    <P>
+    SQLFetch advances the cursor to the next row. If the application called SQLBindCol to bind columns, SQLFetch stores data into the locations specified by the calls to SQLBindCol.</P>
+    <P>
+    An application can call SQLGetData to retrieve data that is not bound to a storage location. If the application does not call SQLBindCol to bind any columns, SQLFetch doesn't return any data, it just moves the cursor to the next row.</P>
+    <P>
+    The driver manages cursors during the fetch operation and places each value of a bound column into the associated storage. The driver follows these guidelines when performing a fetch operation:</P>
+    <P>
+    SQLFetch accesses column data in left-to-right order.</P>
+    <P>
+    After each fetch, pcbValue (specified in SQLBindCol) contains the actual number of bytes in the result column. (If SQL_MAX_LENGTH has been specified with SQLSetStmtOption and the actual number of bytes in the result column is greater than SQL_MAX_LENGTH, pcbValue contains SQL_MAX_LENGTH.)</P>
+    <P>
+    If rgbValue is not large enough to hold the entire result, the driver stores part of the value and returns SQL_SUCCESS_WITH_INFO. A subsequent call to SQLError indicates that a truncation occurred. The application can compare pcbValue to cbValueMax (specified in SQLBindCol) to determine which column or columns were truncated. If pcbValue is greater than or equal to cbValueMax, then truncation occurred.</P>
+    <P>
+    If the data value for the column is NULL, the driver stores SQL_NULL_DATA in pcbValue .</P>
+    <P>
+    SQLFetch is valid only after a call that returns a result set. When finished with the result set, the driver returns SQL_NO_DATA_FOUND.</TD>
+   </TR>
+  </TABLE>
+ <BR>
+  <TABLE CELLPADDING=1 CELLSPACING=2 BORDER=0>
+   <TR>
+    <TD COLSPAN=2 VALIGN=TOP><P>
+    <A NAME=""></A><A NAME="sqlfreeconnect"></A><FONT FACE="arial,helvetica,monaco"><B>SQLFreeConnect(hdbc)</B></FONT></TD>
+   </TR>
+   <TR>
+    <TD WIDTH=15 VALIGN=CENTER>
+    </TD>
+    <TD VALIGN=TOP><P>
+    SQLFreeConnect frees the environment handle <B>hdbc</B> and releases all memory associated with the environment handle.</P>
+    <P>
+    Prior to calling SQLFreeConnect, an application must call SQLDisconnect for the hdbc. Otherwise, SQLFreeConnect returns SQL_ERROR and the hdbc remains valid. Note that SQLDisconnect automatically drops any hstmts open on the hdbc.</TD>
+   </TR>
+   <TR>
+    <TD COLSPAN=2 VALIGN=TOP><P>
+    SQL_SUCCESS, SQL_SUCCESS_WITH_INFO, SQL_ERROR, or SQL_INVALID_HANDLE.</TD>
+   </TR>
+  </TABLE>
+ <BR>
+  <TABLE CELLPADDING=1 CELLSPACING=2 BORDER=0>
+   <TR>
+    <TD COLSPAN=2 VALIGN=TOP><P>
+    <A NAME="sqlfreeenv"></A><FONT FACE="arial,helvetica,monaco"><B>SQLFreeEnv(henv)</B></FONT></TD>
+   </TR>
+   <TR>
+    <TD WIDTH=15 VALIGN=CENTER>
+    </TD>
+    <TD VALIGN=TOP><P>
+    SQLFreeEnv frees the environment handle <B>henv</B> and releases all memory associated with the environment handle and returns one of the following values: SQL_SUCCESS, SQL_SUCCESS_WITH_INFO, SQL_ERROR, or SQL_INVALID_HANDLE.</P>
+    <P>
+    Prior to calling SQLFreeEnv, an application must call SQLFreeConnect for any hdbc allocated under the henv. Otherwise, SQLFreeEnv returns SQL_ERROR and the henv and any active hdbc remains valid.</TD>
+   </TR>
+  </TABLE>
+ <BR>
+  <TABLE CELLPADDING=1 CELLSPACING=2 BORDER=0>
+   <TR>
+    <TD COLSPAN=2 VALIGN=TOP><P>
+    <A NAME="sqlfreestmt"></A><FONT FACE="arial,helvetica,monaco"><B>SQLFreeStmt(hstmt, fOption)</B></FONT></TD>
+   </TR>
+   <TR>
+    <TD WIDTH=15 VALIGN=CENTER>
+    </TD>
+    <TD VALIGN=TOP><P>
+    SQLFreeStmt stops processing associated <B>hstmt</B>, closes any open cursors associated with the hstmt, discards pending results, and, optionally, frees all resources associated with the statement handle. One of the following values will be returned: SQL_SUCCESS, SQL_SUCCESS_WITH_INFO, SQL_ERROR, or SQL_INVALID_HANDLE.<BR>
+    <P>
+    <B>fOption</B> (Input) One of the following options:<TABLE
+      CELLPADDING=1 CELLSPACING=2 BORDER=0>
+      <TR>
+       <TD WIDTH=20 VALIGN=TOP>
+       </TD>
+       <TD VALIGN=TOP><P>
+       <B>SQL_ CLOSE</B>: Close the cursor associated with hstmt (if one was defined) and discard all pending results. The application can reopen this cursor later by executing a SELECT statement again with the same or different parameter values. If no cursor is open, this option has no effect for the application.<BR>
+       <B>SQL_DROP</B>: Release the hstmt, free all resources associated with it, close the cursor (if one is open), and discard all pending rows. This option terminates all access to the hstmt. The hstmt must be reallocated to be reused.<BR>
+       <B>SQL_UNBIND</B>: Release all column buffers bound by SQLBindCol for the given hstmt.<BR>
+       <B>SQL_RESET_PARAMS</B>: Release all parameter buffers set by SQLSetParam for the given hstmt.</TD>
+      </TR>
+     </TABLE>
+    An application can call SQLFreeStmt to terminate processing of a SELECT statement with or without canceling the statement handle.<P>
+    The SQL_DROP option frees all resources that were allocated by the SQLAllocStmt function.</TD>
+   </TR>
+  </TABLE>
+ <BR>
+  <TABLE CELLPADDING=1 CELLSPACING=2 BORDER=0>
+   <TR>
+    <TD COLSPAN=2 VALIGN=TOP><P>
+    <A NAME="sqlgetcursorname"></A><FONT FACE="arial,helvetica,monaco"><B>SQLGetCursorName(hstmt, szCursor, cbCursorMax, pcbCursor)</B></FONT></TD>
+   </TR>
+   <TR>
+    <TD WIDTH=15 VALIGN=CENTER>
+    </TD>
+    <TD VALIGN=TOP><P>
+    SQLGetCursorName returns the name of a cursor, regardless of whether the name was created explicitly or implicitly. It returns one of the following values: SQL_SUCCESS, SQL_SUCCESS_WITH_INFO, SQL_ERROR, or SQL_INVALID_HANDLE.</P>
+    <P>
+    <B>hstmt</B> (Input) Statement handle.<BR>
+    <B>szCursor</B> (Output) Pointer to storage for the cursor name.<BR>
+    <B>cbCursorMax</B> (Input) Length of szCursor.<BR>
+    <B>pcbCursor</B> (Output) Total number of bytes (excluding the null termination byte) available to return in szCursor. If the number of bytes available to return is greater than or equal to cbCursorMax, the cursor name in szCursor is truncated to cbCursorMax - 1 bytes.<P>
+    The only ODBC SQL statements that use a cursor name are positioned update and delete (for example, UPDATE table-name ...WHERE CURRENT OF cursor-name). If the application does not call SQLSetCursorName to define a cursor name, on execution of a SELECT statement the driver generates a name that begins with the letters SQL_CUR and will not exceed 18 characters in length.</P>
+    <P>
+    A cursor name that is set either explicitly or implicitly remains set until the hstmt with which it is associated is dropped, using SQLFreeStmt with the SQL_DROP option.</TD>
+   </TR>
+  </TABLE>
+ <BR>
+  <TABLE CELLPADDING=1 CELLSPACING=2 BORDER=0>
+   <TR>
+    <TD COLSPAN=2 VALIGN=TOP><P>
+    <A NAME="sqlnumresultcols"></A><FONT FACE="arial,helvetica,monaco"><B>SQLNumResultCols(hstmt, pccol)</B></FONT></TD>
+   </TR>
+   <TR>
+    <TD WIDTH=15 VALIGN=CENTER>
+    </TD>
+    <TD VALIGN=TOP><P>
+    SQLNumResultCols gets the number of columns in a result set. The value of the parameter <B>pccol</B> will be set to this value. One of the follwoing will be returned: SQL_SUCCESS, SQL_SUCCESS_WITH_INFO, SQL_STILL_EXECUTING, SQL_ERROR, or SQL_INVALID_HANDLE.</P>
+    <P>
+    <B>hstmt</B> (Input) Statement handle.<BR>
+    <B>pccol</B> (Output) Number of columns in the result set.<P>
+    SQLNumResultCols can return any SQLSTATE that can be returned by SQLPrepare or SQLExecute when called after SQLPrepare and before SQLExecute depending on when the data source evaluates the SQL statement associated with the hstmt.</P>
+    <P>
+    SQLNumResultCols can be called successfully only when the hstmt is in the prepared, executed, or positioned state.</P>
+    <P>
+    If the statement associated with hstmt does not return columns, SQLNumResultCols sets pccol to 0.</TD>
+   </TR>
+  </TABLE>
+ <BR>
+  <TABLE CELLPADDING=1 CELLSPACING=2 BORDER=0>
+   <TR>
+    <TD WIDTH=18 VALIGN=CENTER>
+    </TD>
+    <TD VALIGN=TOP><P>
+    <A NAME="sqlprepare"></A><FONT FACE="arial,helvetica,monaco"><B>SQLPrepare(hstmt, szSqlStr, cbSqlStr)</B></FONT>
+    </TD>
+   </TR>
+   <TR>
+    <TD WIDTH=15 VALIGN=CENTER>
+    </TD>
+    <TD VALIGN=TOP><P>
+    SQLPrepare prepares an SQL string for execution with the SQLExecute() function, sending an SQL statement to the data source and associating the results with hstmt. It returns one of the following values: SQL_SUCCESS, SQL_SUCCESS_WITH_INFO, SQL_STILL_EXECUTING, SQL_ERROR, or SQL_INVALID_HANDLE.</P>
+    <P>
+    <B>hstmt</B> (Input) Statement handle.<BR>
+    <B>szSqlStr</B> (Input) SQL text string.<BR>
+    <B>cbSqlStr</B> (Input) Length of szSqlStr.<P>
+    Once a statement is prepared, the application uses hstmt to refer to the statement in later function calls. The prepared statement associated with the hstmt may be reexecuted by calling SQLExecute until the application frees the hstmt with a call to SQLFreeStmt with the SQL_DROP option or until the hstmt is used in a call to SQLPrepare, SQLExecDirect, or one of the catalog functions (SQLColumns, SQLTables, etc.). Once the application prepares a statement, it can request information about the format of the result set.</P>
+    <P>
+    The application can include one or more parameter markers in the SQL statement. To include a parameter marker, the application embeds a question mark (?) into the SQL string at the appropriate position.</P>
+    <P>
+    If an application uses SQLPrepare to prepare and SQLExecute to submit a COMMIT or ROLLBACK statement, it will not be interoperable between DBMS products. To commit or roll back a transaction, call SQLTransact.</P>
+    <P>
+    For the driver, hstmt is similar to a statement identifier in embedded SQL code. If the data source supports statement identifiers, the driver can send a statement identifier and parameter values to the data source.</P>
+    <P>
+    Not all drivers can return syntax errors or access violations when the application calls SQLPrepare. A driver may handle syntax errors and access violations, only syntax errors, or neither syntax errors nor access violations. Therefore, an application must be able to handle these conditions when calling subsequent related functions such as SQLNumResultCols, SQLDescribeCol, SQLColAttributes, and SQLExecute.</TD>
+   </TR>
+  </TABLE>
+ <BR>
+  <TABLE CELLPADDING=1 CELLSPACING=2 BORDER=0>
+   <TR>
+    <TD COLSPAN=2 VALIGN=TOP><P>
+    <A NAME="sqlrowcount"></A><FONT FACE="arial,helvetica,monaco"><B>SQLRowCount(hstmt, pcrow)</B></FONT></TD>
+   </TR>
+   <TR>
+    <TD WIDTH=15 VALIGN=CENTER>
+    </TD>
+    <TD VALIGN=TOP><P>
+    SQLRowCount returns the number of rows affected by an UPDATE, INSERT, or DELETE statement associated with the specified <B>hstmt</B>. The value of <B>pcrow</B> will be modified to contain this information. One of the following values will be returned: SQL_SUCCESS, SQL_SUCCESS_WITH_INFO, SQL_ERROR, or SQL_INVALID_HANDLE.</P>
+    <P>
+    For UPDATE, INSERT, and DELETE requests, <B>pcrow</B> is the number of rows affected by the request or -1 if the number of affected rows is not available. For other requests, the driver may define the value of pcrow. For example, some data sources may be able to return the number of rows in a results set in advance of fetching all the rows. In this case SQLRowCount would return a non-negative number even though the SQL statement was not an INSERT, UPDATE, or DELETE. Note that this behavior will not be universally supported and applications should not rely on it.</P>
+    <P>
+    If the last executed statement associated with hstmt was not an update, insert, or delete request, the value of pcrow is driver-defined.</TD>
+   </TR>
+  </TABLE>
+ <BR>
+  <TABLE CELLPADDING=1 CELLSPACING=2 BORDER=0>
+   <TR>
+    <TD COLSPAN=2 VALIGN=TOP><P>
+    <A NAME="sqlsetcursorname"></A><FONT FACE="arial,helvetica,monaco"><B>SQLSetCursorName(hstmt, szCursor, cbCursor)</B></FONT>
+    </TD>
+   </TR>
+   <TR>
+    <TD WIDTH=15 VALIGN=CENTER>
+    </TD>
+    <TD VALIGN=TOP><P>
+    SQLSetCursorName associates the cursor name <B>szCursor</B> with an active <B>hstmt</B> and returns one of the following values: SQL_SUCCESS, SQL_SUCCESS_WITH_INFO, SQL_ERROR, or SQL_INVALID_HANDLE. If an application does not call SQLSetCursorName, the driver generates cursor names as needed for SQL statement processing.</P>
+    <P>
+    <B>cbCursor</B> (Input) Length of szCursor.</P>
+    <P>
+    The only ODBC operation that accepts a cursor name is a positioned update or delete (for example, UPDATE table-name ...WHERE CURRENT OF cursor-name). If the application does not call SQLSetCursorName to define a cursor name, on execution of a SELECT statement the driver generates a name that begins with the letters SQL_CUR and will not exceed 18 characters in length.</P>
+    <P>
+    All cursor names within the hdbc must be unique. The maximum length of a cursor name is defined by the driver. For maximum interoperability, it is recommended that applications limit cursor names to no more than 18 characters.</P>
+    <P>
+    A cursor name that has been set (either explicitly or implicitly) remains set until the hstmt with which it is associated is dropped using SQLFreeStmt with the SQL_DROP option.</TD>
+   </TR>
+  </TABLE>
+ <BR>
+  <TABLE CELLPADDING=1 CELLSPACING=2 BORDER=0>
+   <TR>
+    <TD COLSPAN=2 VALIGN=TOP><P>
+    <A NAME="sqltransact"></A><FONT FACE="arial,helvetica,monaco"><B>SQLTransact(henv, hdbc, fType)</B></FONT></TD>
+   </TR>
+   <TR>
+    <TD WIDTH=15 VALIGN=CENTER>
+    </TD>
+    <TD VALIGN=TOP><P>
+    SQLTransact requests a commit or rollback operation for all update, insert, and delete transactions in progress on all hstmts associated with a connection. SQLTransact can also request that a commit or rollback operation be performed for all connections associated with the henv. It returns one of the following values: SQL_SUCCESS, SQL_SUCCESS_WITH_INFO, SQL_ERROR, or SQL_INVALID_HANDLE.</P>
+    <P>
+    <B>henv</B> (Input) Environment handle.<BR>
+    <B>hdbc</B> (Input) Connection handle.<BR>
+    <B>fType</B> (Input) One of the following two values: SQL_COMMIT, SQL_ROLLBACK<P>
+    If hdbc is SQL_NULL_HDBC and henv is the valid environmental handle, then the Driver Manager will attempt to commit or rollback transactions on all hdbcs that are in a connected state. The Driver Manager calls SQLTransact in the driver associated with each hdbc. The Driver Manager will return SQL_SUCCESS only if it receives SQL_SUCCESS for each hdbc. If the Driver Manager receives SQL_ERROR on one or more hdbcs, it will return SQL_ERROR to the application. To determine which connection(s) failed during the commit or rollback operation, the application can call SQLError for each hdbc. Note that the Driver Manager does not simulate a global transaction across all hdbcs and therefore does not use two-phase commit protocols.</P>
+    <P>
+    If hdbc is a valid connection handle, henv is ignored and the Driver Manager calls SQLTransact in the driver for the hdbc.</P>
+    <P>
+    (If hdbc is SQL_NULL_HDBC and henv is SQL_NULL_HENV, SQLTransact returns SQL_INVALID_HANDLE.)</P>
+    <P>
+    If fType is SQL_COMMIT, SQLTransact issues a commit request for all active operations on any hstmt associated with an affected hdbc. If fType is SQL_ROLLBACK, SQLTransact issues a rollback request for all active operations on any hstmt associated with an affected hdbc. If no transactions are active, SQLTransact returns SQL_SUCCESS with no effect on any data sources.</P>
+    <P>
+    If the driver is in manual commit mode (by calling SQLSetConnectOption with the SQL_AUTOCOMMIT option set to zero), a new transaction is implicitly started when a SQL statement that can be contained within a transaction is executed against the current data source.</P>
+    <P>
+    To determine how transaction operations affect cursors, an application can call SQLGetInfo with the SQL_CURSOR_ROLLBACK_BEHAVIOR and SQL_CURSOR_COMMIT_BEHAVIOR options.</P>
+    <P>
+    If the SQL_CURSOR_ROLLBACK_BEHAVIOR or SQL_CURSOR_COMMIT_BEHAVIOR value equals zero, SQLTransact closes and deletes all open cursors associated with the hdbc and discards all pending results. SQLTransact leaves any hstmt present in an allocated state; the application can reuse them for subsequent SQL requests or can call SQLFreeStmt to deallocate them.</P>
+    <P>
+    If the SQL_CURSOR_ROLLBACK_BEHAVIOR or SQL_CURSOR_COMMIT_BEHAVIOR value equals one, SQLTransact closes all open cursors associated with the hdbc. SQLTransact leaves any hstmt present in a prepared state; the application can use an hstmt(s) to call SQLExecute without first calling SQLPrepare.</P>
+    <P>
+    If the SQL_ROLLBACK_CURSOR_BEHAVIOR or SQL_COMMIT_CURSOR_BEHAVIOR value equals two, SQLTransact does not affect open cursors associated with the hdbc. Cursors remain at the row they pointed to prior to the call to SQLTransact.</P>
+    <P>
+    For drivers and data sources that support transactions, calling SQLTransact with either SQL_COMMIT or SQL_ROLLBACK when no transaction is active will return SQL_SUCCESS (indicating that there is no work to be committed or rolled back) and have no effect on the data source.</P>
+    <P>
+    Drivers or data sources that do not support transactions (SQLGetInfo fOption SQL_TXN_CAPABLE is 0) are effectively always in autocommit mode. Therefore, calling SQLTransact with SQL_COMMIT will return SQL_SUCCESS. However, calling SQLTransact with SQL_ROLLBACK will result in S1C00 (Driver not capable), indicating that a rollback can never be performed.</TD>
+   </TR>
+  </TABLE>
+ <BR>
+  <TABLE CELLPADDING=1 CELLSPACING=2 BORDER=0>
+   <TR>
+    <TD COLSPAN=2 VALIGN=TOP><P>
+    <A NAME="sqlgetdata"></A><FONT FACE="arial,helvetica,monaco"><B>SQLGetData(hstmt, icol, fCType, rgbValue, cbValueMax, pcbValue)</B></FONT></TD>
+   </TR>
+   <TR>
+    <TD WIDTH=15 VALIGN=CENTER>
+    </TD>
+    <TD VALIGN=TOP><P>
+    One of the following values will be returned: SQL_SUCCESS, SQL_SUCCESS_WITH_INFO, SQL_NO_DATA_FOUND, SQL_STILL_EXECUTING, SQL_ERROR, or SQL_INVALID_HANDLE.</P>
+    <P>
+    <B>hstmt</B> (Input) Statement handle.<BR>
+    <B>icol</B> (Input) Column number. (If the application has called SQLGetData for the current row, icol must be greater than or equal to the column number in the preceding call to SQLGetData.)<BR>
+    <B>fCType</B> (Input) The C data type of the result data. This must be one of the following values: SQL_C_BINARY, SQL_C_BIT, SQL_C_CHAR, SQL_C_DATE, SQL_C_DEFAULT, SQL_C_DOUBLE, SQL_C_FLOAT, SQL_C_LONG, SQL_C_SHORT, SQL_C_TIME, SQL_C_TIMESTAMP, SQL_C_TINYINT<BR>
+    <B>rgbValue</B> (Output) Pointer to storage for the data.<BR>
+    <B>cbValueMax</B> (Input) Maximum length of the rgbValue buffer. cbValueMax determines the amount of data that can be received in a single call to SQLGetData. For more information about length, see Precision, Scale, Length, and Display Size in Appendix D.<BR>
+    <B>pcbValue</B> (Output) The total number of bytes (excluding the null termination byte) available to return in rgbValue or SQL_NO_TOTAL if the number of available bytes cannot be determined. If pcbValue is SQL_NO_TOTAL or is greater than or equal to cbValueMax, the data in rgbValue is truncated to cbValueMax - 1 bytes. If the data value is NULL, pcbValue is SQL_NULL_DATA.<P>
+    The application must call SQLFetch or SQLExtendedFetch before it calls SQLGetData. SQLFetch positions the cursor at the next row and retrieves all bound columns. The application can then call SQLGetData to retrieve data for specific unbound columns.</P>
+    <P>
+    SQLExtendedFetch retrieves all bound columns for each row in the rowset and leaves the cursor positioned on the first row of the rowset. The application must then call SQLSetPos to position the cursor to a specific row. Finally, it can call SQLGetData to retrieve data for specific unbound columns. Note that not all drivers allow an application to use SQLExtendedFetch to retrieve more than one row of data and then return that data with SQLGetData.</P>
+    <P>
+    The application cannot call SQLGetData to retrieve data for a column that resides at or before the last bound column, if bound columns exist for the result set. When SQLGetData is called for more than one column in a given row of data, the column specified in each call to SQLGetData must be greater than or equal to the column specified in the preceding call.</P>
+    <P>
+    If more than one call to SQLGetData is required to retrieve data for a single column, the driver returns SQL_SUCCESS_WITH_INFO. A subsequent call to SQLError returns SQLSTATE 01004 (Data truncated). The application can then use the same column number for subsequent calls until SQLGetData returns SQL_SUCCESS, indicating that all data for the column has been retrieved. SQLGetData will return SQL_NO_DATA_FOUND when it is called for a column after all of the data has been retrieved and before data is retrieved for a subsequent column. The application can ignore excess data by proceeding to the next result column.</P>
+    <P>
+    With each call, the driver sets pcbValue to the number of bytes that were available in the result column prior to the current call to SQLGetData. (If SQL_MAX_LENGTH has been set with SQLSetStmtOption, and the total number of bytes available on the first call is greater than SQL_MAX_LENGTH, the available number of bytes is set to SQL_MAX_LENGTH.) If the total number of bytes in the result column cannot be determined in advance, the driver sets pcbValue to SQL_NO_TOTAL. If the data value for the column is NULL, the driver stores SQL_NULL_DATA in pcbValue.</TD>
+   </TR>
+  </TABLE>
+ </BODY></HTML>

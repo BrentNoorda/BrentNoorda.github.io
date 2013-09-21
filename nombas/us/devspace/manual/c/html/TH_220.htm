@@ -1,0 +1,33 @@
+<html>
+<head>
+<title>RELEASE #object-id</title>
+<link rel="stylesheet" href="semanualstyles.css" type="text/css">
+<style type="text/css">
+ p { margin-top: 0; margin-bottom: 0; }
+</style>
+<script language="JavaScript" src="TrueHelp.js"></script>
+</head>
+<body onload="thload()">
+<div id=ienav>
+<ilayer id=nsnav>
+<br>
+<center>
+<p class=normal><a href="seisdkc-toc.htm" target="left">contents</a> &nbsp; <a href="seisdkc-index.htm" target="left">index</a> &nbsp; <a href="TH_219.htm">previous</a> &nbsp; <a href="TH_221.htm">next</a></p>
+</center>
+<br>
+<hr noshade size=1>
+</ilayer>
+</div>
+<p class=heading-4>RELEASE #object-id</p>
+<p class=senormalpara>Used after a <span class=secodephrase>GET</span> that returned an object identifier to indicate no longer interested in the object and can release that identifier. The application response is:</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=secodelinesindented>OBJECT&nbsp;RELEASED</p>
+<p class=secodelinesindented>OBJECT&nbsp;NOT&nbsp;FOUND</p>
+<p class=secodelinesindented>&nbsp;</p>
+<p class=senormalpara>The debugger must release object identifiers after it uses them to query subobjects, else it will lock a lot of memory on an application and can alter the behavior of the application. You are not allowed to have any pending locks when you issue a <span class=secodephrase>GO</span> or <span class=secodephrase>STEP</span> command, and if you do that command will be <span class=secodephrase>DENIED</span> with a message to this effect.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<hr noshade size=1>
+<p class=normal><a href="TH_221.htm"><img src="button.png" border=0></a><a href="TH_221.htm" style="text-decoration:none;">QUIT</a></p>
+<p>
+</body>
+</html>

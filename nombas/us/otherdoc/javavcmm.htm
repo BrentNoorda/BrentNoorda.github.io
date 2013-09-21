@@ -1,0 +1,225 @@
+<HTML>
+ <HEAD>
+ 
+ <TITLE>Cmm and Java compared</TITLE><META
+  NAME="VPSiteProject" CONTENT="file:///c|/visualpage/Nombas.vpp">
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-1754630-10']);
+  _gaq.push(['_trackPageview']);
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+ </HEAD>
+ <BODY BACKGROUND="../bwback.gif" BGCOLOR=#FFFFFF TEXT=#000000 LINK=#7F0000 VLINK=#7F0000 ALINK=#7F0000>
+ <P>
+  <TABLE WIDTH=590 CELLPADDING=6 CELLSPACING=0 BORDER=0>
+   <TR>
+    <TD WIDTH=140 VALIGN=CENTER><P ALIGN=CENTER>
+    <CENTER><A HREF="../index.htm"><IMG SRC="logo.gif" ALIGN=BOTTOM WIDTH=117 HEIGHT=57 BORDER=0 VSPACE=0 HSPACE=0></A></TD>
+    <TD WIDTH=1 VALIGN=CENTER>
+    </TD>
+    <TD WIDTH=414 VALIGN=TOP><P ALIGN=CENTER>
+    <CENTER><FONT SIZE=6><B>Cmm and Java Compared</B></FONT></TD></TR>
+   <TR>
+    <TD WIDTH=140 VALIGN=TOP><P ALIGN=CENTER>
+    <CENTER><FONT SIZE=2>Simplicity and Power Through Scripting</FONT></CENTER></P><P ALIGN=CENTER><CENTER><FONT SIZE=2>&nbsp;</FONT></CENTER></P><P ALIGN=CENTER><CENTER><A HREF="../index.htm"><FONT SIZE=2>Visit
+     Nombas Homepage for up-to-date script language technology</FONT></A></CENTER></P><P ALIGN=CENTER><CENTER><FONT SIZE=2>&nbsp;</FONT></CENTER></P><P ALIGN=CENTER><CENTER><IMG SRC="../spacers/pixel.gif" ALIGN=BOTTOM WIDTH=140 HEIGHT=1 BORDER=0 VSPACE=0 HSPACE=0></TD>
+    <TD WIDTH=1 VALIGN=CENTER><P>
+    <IMG SRC="../spacers/pixel.gif" ALIGN=BOTTOM WIDTH=1 HEIGHT=1 BORDER=0 VSPACE=0 HSPACE=0></TD>
+    <TD WIDTH=414 VALIGN=TOP>
+    <H3
+     ALIGN=CENTER>
+    <CENTER>A comparison of modern languages for the internet and WorldWide Web</CENTER>
+    </H3><P ALIGN=CENTER>
+    <CENTER><I>Author's note: I wrote this article late in 1995. It is now April 1997. For the most part this information is still accurate although there have been some changes; for example, both languages have been updated, both support more platforms (Cmm evens treats Java </I><B><I>as</I></B><I> a platform), and the Cmm language has gone from being called ScriptEase to its current merging with JavaScript as the ECMA standard EcmaScript language. For more information about the Java changes in the last 18 months see </I><A HREF="javamagk.htm#heretostay"><I>Author's Update to Java the Illusion</I></A><I>.</I></CENTER>
+    </P><P>
+    &nbsp;<BR>
+    The Java and Cmm languages were each developed to be a secure and portable C-like language for extending safe programming control to everything from personal computers to consumer electronics, from the mainframe to the washing machine. Both development companies, Sun who developed Java and Nombas who developed Cmm, independently designed a language that was portable between all (or most) hardware platforms and operating systems, was safe from the types of bugs (intentional and unintentional) that programmers too often create, and that was familiar to the legions of existing C/C++ programmers.<P>
+    Both languages attain these goals by creating a C-like interpreted language that protects programmers from the most common problems by automating memory management and removing risk-prone pointer references. Both languages implement run-time interpretation of virtual-machine object codes and also provide run-time verification of these object codes.</P>
+    <P>
+    But in deciding what changes to make to the C language to meet their goals, these teams followed very different paths. Java started with the C++ class syntax, which is already an extension of C, and extended that language further by adding new Java-specific syntax, keywords, and restrictions. At one point the Java developers decided that C++ would need too much work to meet their goals and so they developed an entirely new language, although it still resembles C and C++. Cmm followed the opposite approach: creating a simplified script-language version of C that removes or automates C's difficult or unnecessary restrictions on syntax, keywords, or data management. The Cmm design goal was always to keep the Cmm language as close to C as possible (but no closer).</P>
+    <P>
+    Both languages meet the goals of providing portability and restricting potential for errors. Java attains these goals by adding new complexity, restrictions, and classes to a new C++-like language, and creating a complete new safer set of classes and functions, putting the burden of extra work on the programmer. Cmm, on the other hand, achieves these goals by simplifying the C-language and loosening the restriction of that language, while retaining all of the of standard libraries of functions, putting the burden of extra work on the Cmm run-time interpreter (or compiler).</P>
+    <P>
+    Handling of text strings is one good example of how Java and Cmm differ--an example that illustrates how the different Java and Cmm paths taken for modifying C can lead to very different code. Java strings are handled by one of two newly-created classes: <I>String</I> for constant-length strings and <I>StringBuffer</I> for strings that can be modified. Because these strings are a new type they receive a complete new set of methods for modifying strings, comparing strings, converting strings to arrays, and getting/setting substrings. In Cmm, by contrast, strings are defined exactly as they are in C: as an array of characters. Cmm arrays are just like C arrays, and so all of the string functions that have become standard in C over 25 years are the same functions used in Cmm, but become even easier to use because Cmm arrays are automatically grown and cleaned as needed. These standard and traditional C/C++ string functions would not work in Java because arrays and strings are new and independent data classes. The plus and minus operators, for example, work the same on Cmm string as they do in C, but in Java the plus and minus operators have entirely new meanings for strings.</P>
+    <P>
+    Similar differences can be shown for handling structures, classes, arrays, lists, and so on. Starting from the same point, the initial design decisions differentiating Java from Cmm have sometimes led to very different paradigms. The following chart summarizes the main points:</TD>
+   </TR>
+  </TABLE>
+ </P><P>
+  <TABLE WIDTH=590 CELLPADDING=6 CELLSPACING=0 BORDER=2>
+   <TR>
+    <TD WIDTH=146 VALIGN=CENTER><P ALIGN=CENTER>
+    <CENTER><B>Feature</B></TD>
+    <TD WIDTH=204 VALIGN=CENTER><P ALIGN=CENTER>
+    <CENTER><B>Java</B></TD>
+    <TD WIDTH=204 VALIGN=CENTER><P ALIGN=CENTER>
+    <CENTER><B>Cmm</B></TD>
+   </TR>
+   <TR>
+    <TD WIDTH=146 VALIGN=CENTER><P ALIGN=CENTER>
+    <CENTER>robust, secure, portable, C-like language for the internet and WWW</TD>
+    <TD WIDTH=204 VALIGN=CENTER><P ALIGN=CENTER>
+    <CENTER>yes</TD>
+    <TD WIDTH=204 VALIGN=CENTER><P ALIGN=CENTER>
+    <CENTER>yes</TD>
+   </TR>
+   <TR>
+    <TD WIDTH=146 VALIGN=CENTER><P ALIGN=CENTER>
+    <CENTER>operators (math and logic)</TD>
+    <TD WIDTH=204 VALIGN=CENTER><P ALIGN=CENTER>
+    <CENTER>same as C</TD>
+    <TD WIDTH=204 VALIGN=CENTER><P ALIGN=CENTER>
+    <CENTER>same as C</TD>
+   </TR>
+   <TR>
+    <TD WIDTH=146 VALIGN=CENTER><P ALIGN=CENTER>
+    <CENTER>control flow</TD>
+    <TD WIDTH=204 VALIGN=CENTER><P ALIGN=CENTER>
+    <CENTER>same as C</TD>
+    <TD WIDTH=204 VALIGN=CENTER><P ALIGN=CENTER>
+    <CENTER>same as C</TD>
+   </TR>
+   <TR>
+    <TD WIDTH=146 VALIGN=CENTER><P ALIGN=CENTER>
+    <CENTER>number of keywords</TD>
+    <TD WIDTH=204 VALIGN=CENTER><P ALIGN=CENTER>
+    <CENTER>50 (30 new keywords plus C keywords<BR>
+    except for &quot;goto&quot;)</TD>
+    <TD WIDTH=204 VALIGN=CENTER><P ALIGN=CENTER>
+    <CENTER>12 (C keywords without type declarations)</TD>
+   </TR>
+   <TR>
+    <TD WIDTH=146 VALIGN=CENTER><P ALIGN=CENTER>
+    <CENTER>data types</TD>
+    <TD WIDTH=204 VALIGN=CENTER><P ALIGN=CENTER>
+    <CENTER>boolean, byte, char, double, float, int, long, short</TD>
+    <TD WIDTH=204 VALIGN=CENTER><P ALIGN=CENTER>
+    <CENTER>byte, int (32-bit), float (64-bit)</TD>
+   </TR>
+   <TR>
+    <TD WIDTH=146 VALIGN=CENTER><P ALIGN=CENTER>
+    <CENTER>arrays</TD>
+    <TD WIDTH=204 VALIGN=CENTER><P ALIGN=CENTER>
+    <CENTER>special type, requires &quot;new&quot; operator and<BR>
+    limited to allocated size</TD>
+    <TD WIDTH=204 VALIGN=CENTER><P ALIGN=CENTER>
+    <CENTER>intrinsic for all data types, no limit on index size or nested depth</TD>
+   </TR>
+   <TR>
+    <TD WIDTH=146 VALIGN=CENTER><P ALIGN=CENTER>
+    <CENTER>array operators</TD>
+    <TD WIDTH=204 VALIGN=CENTER><P ALIGN=CENTER>
+    <CENTER>none (use &quot;new&quot; for creation)</TD>
+    <TD WIDTH=204 VALIGN=CENTER><P ALIGN=CENTER>
+    <CENTER>same as C (Cmm array math is like C pointer math)</TD>
+   </TR>
+   <TR>
+    <TD WIDTH=146 VALIGN=CENTER><P ALIGN=CENTER>
+    <CENTER>strings</TD>
+    <TD WIDTH=204 VALIGN=CENTER><P ALIGN=CENTER>
+    <CENTER>two special classes; all-new Java-specific<BR>
+    functions for comparing and modifying</TD>
+    <TD WIDTH=204 VALIGN=CENTER><P ALIGN=CENTER>
+    <CENTER>same as C (byte array using the standard C library of strxxx functions)</TD>
+   </TR>
+   <TR>
+    <TD WIDTH=146 VALIGN=CENTER><P ALIGN=CENTER>
+    <CENTER>structures</TD>
+    <TD WIDTH=204 VALIGN=CENTER><P ALIGN=CENTER>
+    <CENTER>not supported; use instead class notation;<BR>
+    inherit at compile-time; static at run-time</TD>
+    <TD WIDTH=204 VALIGN=CENTER><P ALIGN=CENTER>
+    <CENTER>full support with C-notation; dynamic run-time creation and extension</TD>
+   </TR>
+   <TR>
+    <TD WIDTH=146 VALIGN=CENTER><P ALIGN=CENTER>
+    <CENTER>garbage collection</TD>
+    <TD WIDTH=204 VALIGN=CENTER><P ALIGN=CENTER>
+    <CENTER>automatic (delayed in separate thread)</TD>
+    <TD WIDTH=204 VALIGN=CENTER><P ALIGN=CENTER>
+    <CENTER>automatic (real-time as variables go out of scope)</TD>
+   </TR>
+   <TR>
+    <TD WIDTH=146 VALIGN=CENTER><P ALIGN=CENTER>
+    <CENTER>minimal<BR>
+    &quot;Hello, World&quot; program</TD>
+    <TD WIDTH=204 VALIGN=CENTER><PRE>import browser.Applet;<BR>import awt.Graphics;<BR>class HelloWorld<BR>  extends Applet {<BR>  public void init() {<BR>    resize(150,25);<BR>  }<BR>  public void<BR>  paint(Graphics g) {<BR>    g.drawString(<BR>      &quot;Hello,World!&quot;,<BR>      50,25);<BR>  }<BR>}</TD><TD
+     WIDTH=204 VALIGN=CENTER><PRE
+     ALIGN=CENTER><CENTER>puts(&quot;Hello&nbsp;World!&quot;)</TD></TR>
+   <TR>
+    <TD WIDTH=146 VALIGN=CENTER><P ALIGN=CENTER>
+    <CENTER>New concepts and functions for C/C++ programmer introduced in &quot;Hello, World&quot; above</TD>
+    <TD WIDTH=204 VALIGN=CENTER><P ALIGN=CENTER>
+    <CENTER>lots and lots</TD>
+    <TD WIDTH=204 VALIGN=CENTER><P ALIGN=CENTER>
+    <CENTER>only one P ( main() is now optional )</TD>
+   </TR>
+   <TR>
+    <TD WIDTH=146 VALIGN=CENTER><P ALIGN=CENTER>
+    <CENTER>security</TD>
+    <TD WIDTH=204 VALIGN=CENTER><P ALIGN=CENTER>
+    <CENTER>configurable</TD>
+    <TD WIDTH=204 VALIGN=CENTER><P ALIGN=CENTER>
+    <CENTER>configurable</TD>
+   </TR>
+   <TR>
+    <TD WIDTH=146 VALIGN=CENTER><P ALIGN=CENTER>
+    <CENTER>remote processing</TD>
+    <TD WIDTH=204 VALIGN=CENTER><P ALIGN=CENTER>
+    <CENTER>program-level</TD>
+    <TD WIDTH=204 VALIGN=CENTER><P ALIGN=CENTER>
+    <CENTER>program-, function-, or statement-level</TD>
+   </TR>
+   <TR>
+    <TD WIDTH=146 VALIGN=CENTER><P ALIGN=CENTER>
+    <CENTER>current version</TD>
+    <TD WIDTH=204 VALIGN=CENTER><P ALIGN=CENTER>
+    <CENTER>1.0 beta</TD>
+    <TD WIDTH=204 VALIGN=CENTER><P ALIGN=CENTER>
+    <CENTER>2.1</TD>
+   </TR>
+   <TR>
+    <TD WIDTH=146 VALIGN=CENTER><P ALIGN=CENTER>
+    <CENTER>Year of first commercial product</TD>
+    <TD WIDTH=204 VALIGN=CENTER><P ALIGN=CENTER>
+    <CENTER>1996 (estimated)</TD>
+    <TD WIDTH=204 VALIGN=CENTER><P ALIGN=CENTER>
+    <CENTER>1993</TD>
+   </TR>
+   <TR>
+    <TD WIDTH=146 VALIGN=CENTER><P ALIGN=CENTER>
+    <CENTER>Size of required executables</TD>
+    <TD WIDTH=204 VALIGN=CENTER><P ALIGN=CENTER>
+    <CENTER>~500K (does not include libraries)</TD>
+    <TD WIDTH=204 VALIGN=CENTER><P ALIGN=CENTER>
+    <CENTER>~160K (includes libraries)</TD>
+   </TR>
+   <TR>
+    <TD WIDTH=146 VALIGN=CENTER><P ALIGN=CENTER>
+    <CENTER>supported platforms</TD>
+    <TD WIDTH=204 VALIGN=CENTER><P ALIGN=CENTER>
+    <CENTER>Unix (Solaris), Windows 95 &amp; NT</TD>
+    <TD WIDTH=204 VALIGN=CENTER><P ALIGN=CENTER>
+    <CENTER>Windows &amp; WFWG 3.1x, Windows 95 &amp; NT, OS/2, DOS, DOS-32, Linux, Unix, Netware NLM</TD>
+   </TR>
+  </TABLE>
+ </P><P>
+  <TABLE WIDTH=590 CELLPADDING=6 CELLSPACING=0 BORDER=0>
+   <TR>
+    <TD WIDTH=140 VALIGN=TOP><P ALIGN=RIGHT>
+     <DIV ALIGN=RIGHT><I>Message from 1999:</I></DIV>
+    </P>
+    </DIV><P>
+   <IMG SRC="../spacers/pixel.gif" ALIGN=BOTTOM WIDTH=140 HEIGHT=1 BORDER=0 VSPACE=0 HSPACE=0></TD>
+    <TD WIDTH=1 VALIGN=CENTER><P>
+    <IMG SRC="../spacers/pixel.gif" ALIGN=BOTTOM WIDTH=1 HEIGHT=1 BORDER=0 VSPACE=0 HSPACE=0></TD>
+    <TD WIDTH=414 VALIGN=TOP><P>
+    It has been a long time since the above chart was created. Java and Cmm (now JavaScript) have both come a long. They're now found together in <A HREF="../toolkit/index.htm">ScriptEase:ISDK/Java</A>, the developer's kit for adding embedded JavaScript into any Java application.</TD>
+   </TR>
+  </TABLE>
+ </BODY></HTML>

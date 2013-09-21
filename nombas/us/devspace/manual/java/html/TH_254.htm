@@ -1,0 +1,35 @@
+<html>
+<head>
+<title>EXAMINING VARIABLES</title>
+<link rel="stylesheet" href="semanualstyles.css" type="text/css">
+<style type="text/css">
+ p { margin-top: 0; margin-bottom: 0; }
+</style>
+<script language="JavaScript" src="TrueHelp.js"></script>
+</head>
+<body onload="thload()">
+<div id=ienav>
+<ilayer id=nsnav>
+<br>
+<center>
+<p class=normal><a href="seisdkj-toc.htm" target="left">contents</a> &nbsp; <a href="seisdkj-index.htm" target="left">index</a> &nbsp; <a href="TH_253.htm">previous</a> &nbsp; <a href="TH_255.htm">next</a></p>
+</center>
+<br>
+<hr noshade size=1>
+</ilayer>
+</div>
+<p class=heading-2>EXAMINING VARIABLES</p>
+<p class=heading-2-p>&nbsp;</p>
+<p class=senormalpara>Now that you know how to select the variable you are interested in, let's look at examining its value. JavaScript does not have variables of fixed type. When a script is run, any variable can be assigned a value of any type. Each can be assigned a value of differing types as the script continues. For this reason, you have to look to see what type a variable currently is. You do this using the <span class=sejumptopic><a href="TH_30.htm">seGetType</a></span> API call. This tells you what type an object member is. You can use this to execute different code based on the type of a variable.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>Fortunately, you can let ScriptEase worry about converting types and just ask to get a variable's value as a certain type. If the variable is not of the correct type, it is converted. This is useful because many JavaScript functions are designed to work this way; when passing parameters to the standard JavaScript functions, they are converted to the type the function expects automatically. If you allow ScriptEase to do the same when you are accessing variables, you will automatically follow the JavaScript standard that variables are converted to the correct type whenever necessary. The <span class=secodephrase>seGetXXX</span> functions, where <span class=secodephrase>XXX</span> is based on the type you'd like to get, convert the ScriptEase variable value to the given type and return it to you, in Java format. Note that the variable is not permanently changed. You can use the <span class=secodephrase>seConvertXXX</span> API call to do that.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>All of the API calls that read a variable's value, either to get its type or get its value, read the value exactly once per API call. This is important to understand the behavior of dynamic objects. If you just use <span class=secodephrase>seGetXXX</span>, the value is read, converted to the required type, and returned to you. This is the preferred method. However, you may want to read the type then get the value of that particular type, presumably to do different things based on the variable's type. Understand that this involves two calls to API functions that read the value, one to <span class=sejumptopic><a href="TH_30.htm">seGetType</a></span> and one to a <span class=secodephrase>seGetXXX</span>. This means the value will be read twice. If the object the member is being retrieved from is dynamic, that dynamic <span class=secodephrase>get</span> will be called twice. It is possible for it to return two different values, defeating the purpose of your code. </p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>In this situation, because <span class=secodephrase>seGetXXX</span> is safe, your code will not crash just operate unexpectedly. You can ignore such objects and let the object's designer worry about it. Alternately, you can use <span class=secodephrase>seAssign</span> to grab the value and store it in a temporary location. This will read the value once. Now you can use <span class=sejumptopic><a href="TH_30.htm">seGetType</a></span> and <span class=secodephrase>seGetXXX</span> on that stored value, knowing it will not change.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<hr noshade size=1>
+<p class=normal><a href="TH_255.htm"><img src="button.png" border=0></a><a href="TH_255.htm" style="text-decoration:none;">MODIFYING VARIABLES</a></p>
+<p>
+</body>
+</html>

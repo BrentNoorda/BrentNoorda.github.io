@@ -1,0 +1,37 @@
+<html>
+<head>
+<title>Wrapper Functions And Security</title>
+<link rel="stylesheet" href="semanualstyles.css" type="text/css">
+<style type="text/css">
+ p { margin-top: 0; margin-bottom: 0; }
+</style>
+<script language="JavaScript" src="TrueHelp.js"></script>
+</head>
+<body onload="thload()">
+<div id=ienav>
+<ilayer id=nsnav>
+<br>
+<center>
+<p class=normal><a href="seisdkj-toc.htm" target="left">contents</a> &nbsp; <a href="seisdkj-index.htm" target="left">index</a> &nbsp; <a href="TH_391.htm">previous</a> &nbsp; <a href="TH_393.htm">next</a></p>
+</center>
+<br>
+<hr noshade size=1>
+</ilayer>
+</div>
+<p class=heading-2>Wrapper Functions And Security</p>
+<p class=heading-2-p>&nbsp;</p>
+<p class=senormalpara>Wrapper functions are insecure because they are labeled that way. When you write your own wrapper functions and add them using <span class=secodephrase>jseAddLibrary()</span>, you get to label them as either secure or insecure. Remember, if there is any possible way the function could be misused, make it insecure. If you are in doubt about whether a particular function should be labeled secure or insecure, choose insecure.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>When you are writing a wrapper function, it is possible for it to use <span class=secodephrase>jseCallFunction()</span> or <span class=secodephrase>jseInterpret()</span> to execute more code. These calls are affected by security. This allows security to propagate. For instance, the ECMAScript function <span class=secodephrase>eval()</span> executes a text string as script code exactly like the text string appeared directly in the script. In this case, the wrapper acts just as a pass through, and the code it executes should follow all of the standard security rules. In fact, the ECMAScript <span class=secodephrase>eval()</span> function itself is secure; whatever text it executes has the same security as what was already executing. ScriptEase uses this model when you use these two API calls. As a result, the following behavior applies:</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>When calling a function using <span class=secodephrase>jseCallFunction()</span>, the call is treated as if the wrapper function's caller was making the call. This means that the calling script function will need to get approval to call the new function. Typically, a wrapper function that just turns around and uses <span class=secodephrase>jseCallFunction()</span> is itself secure.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara><span class=secodephrase>jseInterpret()</span> has different behavior depending on the wrapper function itself. If the wrapper function is insecure, then the script run with <span class=secodephrase>jseInterpret()</span> starts with no security. If the wrapper function is secure, then <span class=secodephrase>jseInterpret()</span> starts with the same security as the calling function. </p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=normal>&nbsp;</p>
+<p class=normal>So, for instance, ECMAScript <span class=secodephrase>eval()</span> is secure as we already mentioned. Thus, when it runs a new script, that script has the existing security restrictions still on it. If the function was labeled insecure, then it has already passed a security check to be able to call it, and it can continue to do dangerous things, so any scripts it interprets are likewise at this high level of security. <span class=secodephrase>jseInterpret()</span> allows security to be added using the <span class=secodephrase>jseNewSecurity</span> flag. This is on top of whatever security it already has as specified above.</p>
+<hr noshade size=1>
+<p class=normal><a href="TH_393.htm"><img src="button.png" border=0></a><a href="TH_393.htm" style="text-decoration:none;">Sample Script</a></p>
+<p>
+</body>
+</html>

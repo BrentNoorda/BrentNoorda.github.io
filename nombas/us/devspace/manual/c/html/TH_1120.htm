@@ -1,0 +1,65 @@
+<html>
+<head>
+<title>SimpleDataset findAll()</title>
+<link rel="stylesheet" href="semanualstyles.css" type="text/css">
+<style type="text/css">
+ p { margin-top: 0; margin-bottom: 0; }
+</style>
+<script language="JavaScript" src="TrueHelp.js"></script>
+</head>
+<body onload="thload()">
+<div id=ienav>
+<ilayer id=nsnav>
+<br>
+<center>
+<p class=normal><a href="seisdkc-toc.htm" target="left">contents</a> &nbsp; <a href="seisdkc-index.htm" target="left">index</a> &nbsp; <a href="TH_1119.htm">previous</a> &nbsp; <a href="TH_1121.htm">next</a></p>
+</center>
+<br>
+<hr noshade size=1>
+</ilayer>
+</div>
+<p class=sereffunclevel4>SimpleDataset findAll()</p>
+<table cellpadding=0>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>syntax:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=sesyntax>simpledataset.findAll()<span class=truehelp-xe></span></p></td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>return:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>boolean - value indicating success.  In the case that the operation failed, use the <span class=secodephrase>getLastErrorCode()</span> and <span class=secodephrase>getLastError()</span> methods to determine the reason for the failure.</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>description:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>This method clears the contents of the <span class=secodephrase>SimpleDataset</span> and replaces them with the entire contents of the database table. Effectively, this resets the <span class=secodephrase>SimpleDataset</span> to its initial state.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>After setting the new contents, the current record is set to the record "before" the first record.</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>see:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara><span class=secodephrase>#include &lt;smdtset.jsh&gt;</span>, <span class=sejumptopic><a href="TH_1118.htm">SimpleDataset find() with template</a></span>, <span class=sejumptopic><a href="TH_1119.htm">SimpleDataset find() with clause</a></span>, <span class=sejumptopic><a href="TH_1121.htm">SimpleDataset findDistinct()</a></span></p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>example:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=secodelines>//&nbsp;reset&nbsp;the&nbsp;contents&nbsp;of&nbsp;the&nbsp;SimpleDataset</p>
+<p class=secodelines>err&nbsp;=&nbsp;ds.findAll();</p></td>
+</tr>
+</table>
+<p class=normal>&nbsp;</p>
+<hr noshade size=1>
+<p class=normal><a href="TH_1121.htm"><img src="button.png" border=0></a><a href="TH_1121.htm" style="text-decoration:none;">SimpleDataset findDistinct()</a></p>
+<p>
+</body>
+</html>

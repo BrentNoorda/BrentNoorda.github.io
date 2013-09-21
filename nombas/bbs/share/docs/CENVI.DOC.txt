@@ -1,0 +1,1208 @@
+                      CEnvi Demo Manual, Chapter 1:
+                       CEnvi Unregistered Shareware
+
+                           CEnvi version 2.11
+                            20 February 1996
+
+                 Copyright 1993, Nombas, All Rights Reserved.
+          Published by Nombas, 64 Salem Street, MEDFORD MA 02155 USA
+          
+             VOICE (617) 391-6595     EMAIL: nombas@nombas.com
+             BBS   (617) 391-3718     WWW: http://www.nombas.com
+             FAX   (617) 391-3842
+
+         Thank you for trying this shareware version of CEnvi from Nombas.
+
+                          _______
+                     ____|__     |                (R)
+                  --|       |    |-------------------
+                    |   ____|__  |  Association of
+                    |  |       |_|  Shareware
+                    |__|   o   |    Professionals
+                  -----|   |   |---------------------
+                       |___|___|    MEMBER
+
+
+1.  CEnvi Unregistered Shareware
+
+1.1.  Introduction to Cmm and CEnvi
+
+          Cmm (C minus minus) is 'C' for the rest of us.  CEnvi runs Cmm
+          programs in the DOS, Windows, OS/2, etc... environments.
+          Together, CEnvi and Cmm make the power and flexibility of the C
+          programming language part of every computer user's environment,
+          without the hardware, time, and programmer resources needed for
+          developing full-blown C programs.
+
+          With CEnvi and Cmm, anyone can take control of their computer
+          environment.  C is not just for programming nerds anymore.  CEnvi
+          utilites, macros, batch files, and scripts can quickly be
+          created, shared, and modified among all computer users,
+          professional and amateur alike.
+
+          CEnvi can be incorporated at a pace that is comfortable to you:
+          you may only want to use CEnvi code set up by a more experienced
+          user, you may want to enhance existing batch files with a line or
+          two of CEnvi code, or you may write complete utilities using
+          CEnvi.
+
+1.2.  CEnvi unregistered shareware version
+
+          This package is the unregistered shareware version of CEnvi.
+          Nombas provides this unregistered shareware version of CEnvi so
+          that you can try the program for a 30 days before deciding whether
+          to buy.  If, after 30 Days of using using this product, you
+          think CEnvi will be useful to you and/or your organization then
+          use the registration form at the end of this document (or see the
+          file: REGISTER.DOC) to register CEnvi.
+
+1.2.1   Why you should register
+
+          If you register, then you will receive:
+            *The latest version of CEnvi for all supported platforms
+              (currently DOS, OS/2, and Windows, with NT support expected
+              soon) without the annoying "Please Register" reminder.
+            *The CEnvi user's manual (almost 100 pages, including a
+              description of the Cmm programming language, a tutorial for
+              those who have never programmed, and descriptions and
+              examples of the nearly 150 functions included in the CEnvi
+              library).
+            */BIND option for creating standalone executables from Cmm
+              scripts for your own personal use.
+            *Support from Nombas and CEnvi/Cmm users through
+              CompuServe (72212,1622), internet (bsn@world.std.com), the
+              cenvi-cmm e-mail mailing list (cenvi-cmm@world.std.com), and
+              the Nombas BBS (617-391-6595).
+            *Access to the growing list of CEnvi utilities and libraries
+              (some of which are included in this unregistered shareware
+              package, and others are contributed by Nombas and CEnvi/Cmm
+              users to the electronic locations described above).
+            *Discounts for additional registered version of CEnvi to use
+              within your organization.
+
+1.2.2   How to register
+
+          See the REGISTER.DOC document that is included with this package
+          (and is also duplicated at the end of this document), to purchase
+          a registered version of CEnvi.
+
+1.3.  Installing CEnvi, documents, and sample files
+
+1.3.1   Installing CEnvi for DOS
+
+          Create a directory to install CEnvi for DOS in(we recommend 
+          CENVIDOS). UNZIP cenvidos.zip into the directory you created. CEnvi 
+          for DOS includes two executables. CEnvid.exe is a regular DOS
+          program. CEnvid32.exe is a 32 bit DOS version. It is useful if you
+          find that the regular DOS version of CEnvi is running out of
+          memory.
+          
+          The first time you run CEnvi for DOS, it will run the Cmm 
+          installation script. The installation script does 2 things if you
+          choose. It creates a CMMPATH environment variable pointing to the 
+          directory you chose and adds the CEnvi path to the DOS PATH.
+          
+
+1.3.2   Installing CEnvi for Windows
+
+          Create a directory to install CEnvi for Windows in(we recommend 
+          CENVIWIN). UNZIP cenviwin.zip into the directory you created. CEnvi 
+          for Windows includes two executables. CEnviw.exe is a Windows
+          program that is both a Cmm interpreter and a Windows Command line
+          and servewin.com allows windows to control DOS sessions.
+                    
+          The first time you run CEnvi for Windows from program manager, it
+          will run the Cmm installation script. The installation script will
+          set up CEnvi for Windows Properly. For Windows, install will add
+          the CMMPATH profile value in WIN.INI (in the [CEnvi] section), and
+          will also add the CMM file extension to the [Extensions] section
+          in WIN.INI.It will create a CEnvi program group containing CEnvi
+          for Windows, and a few sample Cmm utilities.
+          
+1.3.3   Installing CEnvi For OS/2
+
+          Create a directory to install CEnvi for OS/2 in(we recommend 
+          CENVIOS2). UNZIP cenvios2.zip into the directory you created. CEnvi 
+          for OS/2 includes two executables. CEnvi2.exe is a OS/2 program.
+          CEnvi2PM.exe is used by CEnvi2.exe to make presentation manager
+          calls. It must be in the current directory or in the search 
+          path for many of the Os/2 samples to work correctly.
+                    
+          The first time you run CEnvi for OS/2, it will run the Cmm 
+          installation script. The installation script will set up CEnvi for
+          OS/2 Properly. The installation script does 2 things if you
+          choose. It creates a CMMPATH environment variable pointing to the 
+          directory you chose and adds the CEnvi path to the DOS PATH.
+                    
+1.3.4   4DOS and 4OS2 users - .cmm executable extension
+
+          4DOS and 4OS2 users can directly execute .cmm files by
+          associating the .cmm file extension with your CEnvi executable.
+          Assuming the CEnvi.exe is in the c:\CENVID directory, then a 4DOS
+          user would want to add this line to AUTOEXEC.BAT:
+              SET .cmm=C:\CENVID\CEnvi.exe
+
+1.4.  Removing CEnvi unregistered shareware
+
+          If, after testing CEnvi for a few weeks, you choose not to
+          register this version of CEnvi, then you should remove the
+          program from your computer.  (Also please consider telling Nombas
+          why CEnvi did not suit your needs; we need such feedback if we
+          are to improve the product.)
+
+          For all operating systems, the first step for removing CEnvi is
+          to delete all the CEnvi files and the directory that you copied
+          the files to.  The next step depends on your operating system:
+
+1.4.1   DOS de-installation
+
+          Install.cmm made two changes to C:\AUTOEXEC.BAT: the directory
+          that CEnvi was in will have been added to your PATH statement,
+          and the CMMPATH environment variable will have been added.  To
+          de-install CEnvi you must remove the CEnvi directory from the
+          PATH statement and you must also delete the "SET CMMPATH=..."
+          line.
+
+1.4.2   OS/2 de-installation
+
+          Install.cmm made two changes to C:\CONFIG.SYS: the directory that
+          CEnvi was in will have been added to your PATH statement, and the
+          CMMPATH environment variable will have been added.  To de-install
+          CEnvi you must remove the CEnvi directory from the PATH statement
+          and you must also delete the "SET CMMPATH=..." line.
+
+1.4.3   Windows de-installation
+
+          Install.cmm made two changes to WIN.INI: the CMM profile
+          extension was added and the CMMPATH profile string was created.
+          To de-install CEnvi you must edit WIN.INI (with NOTEPAD.EXE for
+          example) and remove from the [Extensions] section a line similar
+          to this:
+               CMM=C:\CENVI\CENVI.EXE ^.CMM
+          and also remove these line (or lines much like these) from
+          WIN.INI:
+               [CEnvi]
+               CMMPATH=E:\NOMBAS\CENVI\EXAMPLES.WIN
+
+1.5.  Using this package
+
+1.5.1   Unregistered CEnvi shareware executable
+
+          The executables in this package, are identical to
+          the registered versions of CEnvi at the time this package was
+          created with one exception: this unregistered shareware version
+          will occasionally put up a screen to remind you to register your
+          copy of CEnvi (see the bottom of this document or REGISTER.DOC).
+          Nombas has spent, and will continue to spend, time and resources
+          developing and supporting CEnvi and Cmm.  Without your honest
+          support Nombas cannot improve and support CEnvi (and pay
+          mortgage, feed the kids, pay the doctor, etc...).
+
+          It is likely that months have elapsed since this shareware
+          package has been put together (see date at the top of this file).
+          If so, then the version of CEnvi you receive will be an updated
+          version of this one.  At the time of this release, incremental
+          improvements have been planned in memory use, speed of execution,
+          debugging tools, developer tools, and documentation.
+
+1.5.2   Example programs
+
+          The following example programs are included with this shareware
+          version of CEnvi.  Those files with a batch extension (.BAT for
+          DOS and .CMD for OS/2) can be run by invoking the batch file
+          directly.  Those files with the CEnvi source file extension
+          (.CMM) are invoked by executing CEnvi with the file name as the
+          first argument (e.g. CENVI FranTick.cmm).  Files with different
+          (e.g., *.LIB, *.H, *.DAT) are files used by CEnvi some of the
+          example programs.
+
+          Many of the files will provide help for how to use them if they
+          are invoked with "/?" as the only parameter.
+
+          All of these example files are here for you to view, study,
+          experiment with, and alter for your own use.  The Nombas BBS will
+          continue to gather CEnvi and Cmm example files created by Nombas
+          or uploaded by CEnvi and Cmm users; so registered users will have
+          a large library to choose from (maybe some other CEnvi user has
+          already solved your need, or perhaps their need is close to yours
+          and you will only have to make small modifications to someone
+          else's uploaded CEnvi program). 
+
+1.5.3   DOS example files:
+            *AllDirs.bat: Perform a command in this directory and all
+              sub-directories
+            *AllFiles.bat: Perform a command on all files matching a given
+              file specification
+            *Ascii.bat: Display the ascii character table
+            *BatLoops.bat: Examples of various methods CEnvi can use to
+              allow looping within batch files
+            *BattMem.cmm: Show values stored in a PC's battery-protected
+              memory
+            *CDfind.bat: Change to directory based on name search
+            *CmdCount.bat: Repeat DOS command Count times
+            *CmmEdit.cmm: VERY simple text editor; developed step-by-step
+              in the tutorial chapter of the CEnvi User Manual.
+            *DelOld.bat: Delete files older than specified age
+            *DelTree.bat: Delete a directory tree
+            *DirDiff.cmm: Compare two directory listings for differences
+            *DirStat.bat: Extract specific fields from a DOS "DIR" listing
+            *DiskFree.bat: Display free space on a disk drive
+            *DoList.cmm: Perform action on every element of a list
+            *DosTime.bat: Show time according to computer's internal clock
+            *EnviAsk.bat: Prompt and receive user input with many options
+            *EnviAsks.bat: Many examples of user input using EnviAsk.bat
+              and GetUKey.cmm
+            *EnvSort.bat: Sort environment variables alphabetically
+            *ErrLev.bat: Execute a command and set the ERRLEV value as the
+              return code, which makes ERRORLEVEL a variable
+            *Fibonacc.cmm: Two methods for generating the Fibonacci
+              sequence
+            *FileFind.bat: Wildcard search for files on current drive or on
+              all drives
+            *Find#.cmm: Extract a number from wordy output; used by
+              DirStat.bat
+            *FloppyIn.bat: Check if a floppy is in drive A: or B:
+            *FranTick.cmm: Animated tick who drank too much coffee
+            *GetUKey.cmm: Display a choice prompt and then set an
+              environment variable based on user's selection
+            *Hello.cmm: My first Cmm program. Used to begin the Cmm
+              tutorial.
+            *HexDump.bat: Display hexadecimal dump of a file
+            *Install.cmm: Install this version of CEnvi.
+            *Int16.bat: Display key code from keyboard interrupt 16 hex
+            *IsDay_1.bat: One method to check if it is a specific day of
+              the week
+            *IsDay_2.bat: Another method to check if it's a specific day of
+              the week
+            *IsItFri.bat: Is it Friday?
+            *KbdBuf.bat: Alter the size of the keyboard buffer
+            *KbdRate.bat: Alter the typematic rate of the keyboard
+            *KeyCode.bat: Display keycode of any key pressed
+            *KeyState.bat: Get or set the state of the NumLock, CapsLock,
+              or Insert keys
+            *KeyStuff.bat: Stuff characters into the keyboard buffer
+            *MemBlock.bat: Trace through DOS's allocated memory blocks
+            *Message.bat: Display very important message in box on screen
+            *Mouse.bat: Demonstrate reading a mouse's position and state
+            *MultiDir.bat: DOS's "DIR" command allowing multiple file
+              specifications
+            *NumLock.bat: Set the NumLock key on
+            *OneADay.bat: Perform any command(s) no more than once per day
+            *OptParms.lib: Library of routines for parsing the optional
+              parameters for executing a program. #included in other files
+            *OS2Sessn.cmm: Execute sessions from DOS under OS/2
+            *PathAdd.bat: Add a directory to your PATH environment
+              variable.
+            *PathDel.bat: Remove a directory from your PATH environment
+              variable
+            *PathStak.bat: Multi-level save or restore of current drive and
+              directory so that you can change drives and directories and
+              still return to this one
+            *PathSubs.bat: Use DOS's SUBST command to shorten your PATH
+              environment variable so that more paths can be fit with DOS'
+              127-byte limit
+            *Primes.bat: Demonstrate automatic array allocation for
+              calculating prime numbers
+            *Print.cmm: Copy file to printer, treating printer as a file
+            *PrmptDay.bat: Change command-line-prompt to display today's
+              date
+            *Quote.bat: Choose a "profound" quote at random
+            *REBOOT_1.BAT: One method to reboot your computer
+            *REBOOT_2.BAT: Another method to reboot your computer
+            *Redirect.bat: Demonstrate how to redirect standard output,
+              input, and errors while running any command
+            *Restrict.cmm: Allow a limited subset of DOS commands
+            *RunTime.bat: Rudimentary scheme for executing a command at a
+              certain time of day.
+            *Scrandom.bat: Use Screen.lib to draw randomly colored squares
+              around the screen
+            *Screen.lib: Library, #included in other files, for screen
+              output: colors, boxes, lines, etc...
+            *ScrnSave.bat: Use Screen.lib to save screen to a file
+            *SortLen.bat: Sort any file based on line length
+            *Sound.bat: Play a frequency for a given time period
+            *Tee.cmm: Save screen output to a file while it is being
+              displayed on the screen
+            *ValidDir.bat: Verify if a directory is valid
+            *VLabel.bat: Read or set disk volume label
+            *Wait.bat: Pause and do not return for specified number of
+              seconds
+            *Which.bat: Find in PATH which command is executed
+            *WinClip.cmm: Utility to access Windows clipboard from DOS
+            *WinClib.lib: Function to access Windows clipboard from DOS
+            *WinIni.lib: Modify Windows INI files from plain DOS
+            *WinShell.bat: Start windows with a specific shell.  Run
+              Windows for a single program.
+
+1.5.4   OS/2 example files:
+
+          For many of these functions, you must ensure that CEnvi2PM.exe is
+          accessible (in the current directory or in a directory in the
+          search PATH).  CEnvi2PM.exe is a small program used transparently
+          by CEnvi.exe when the PMxxxxx() calls are used to PM-specific
+          functions.
+            *AllDirs.cmd: Perform a command in this directory and all
+              sub-directories
+            *AllFiles.cmd: Perform a command on all files matching a given
+              file specification
+            *AltHome.cmd: Switch OS/2 session between windowed and
+              full-screen, much like ALT-HOME works in DOS sessions
+            *BarClock.cmd: Display time in title bar of active window
+            *BatLoops.cmd: Examples of various methods CEnvi can use to
+              allow looping within batch files
+            *BckGrnd.cmd: Specify a new file as your desktop background
+              image
+            *Bouncy.cmd: Start a bouncy OS/2 Command Window. This
+              demonstrates moving windows and silliness.
+            *CDfind.cmd: Change to directory based on name search
+            *CEnviSet.cmd: This file can be used instead of CEnvi.exe if
+              you are using environment variables as Cmm variables and need
+              them to be changed in the current OS/2 environment.
+            *ClipBrd.cmd: Get or modify clipboard text
+            *ClipBrd.lib: Library of routines for reading from or writing
+              to the clipboard
+            *CmmEdit.cmm: VERY simple text editor; developed step-by-step
+              in the tutorial chapter of the CEnvi User Manual.
+            *Comm.lib: Serial communications routines
+            *DelOld.cmd: Delete files older than specified age
+            *DelTree.cmd: Delete a directory tree
+            *DeskLock.cmd: Lock or unlock desktop
+            *DevIOCtl.lib: Function library for OS/2's DosDevIOCTL
+              functions
+            *DirDiff.cmm: Compare two directory listings for differences
+            *DiskFree.cmd: Display free space on a disk drive
+            *DlgCtrl.lib: Library of routines for interactive with PM
+              dialog boxes and other windows with sub-windows - this
+              library is only in its early stages
+            *DoFiles.cmd: Perform any command on a list of files selected
+              from a file dialog box
+            *DoList.cmd: Perform action on every element of a list
+            *DoMenu.cmd: Execute any menu selection of a PM application,
+              based on the name of the window and the menu text
+            *DOS.cmd: Perform DOS command from an OS/2 session, with the
+              option to "see" output of the command; mirrors OS2.BAT
+            *DosCalls.lib: Example library of "wrapper" function calls to
+              OS/2 API calls in the DosCalls library.  This file is
+              "#include"ed in many of the other example files.
+            *DropMany.cmd: Drag many files for single launch of program
+              object
+            *DumpIni.cmd: Display profile settings from a .INI file; uses
+              Profile.lib
+            *EditCmd.cmd: Use PM's file dialog (via FileDlg.lib) to select
+              a *.cmd file to edit.
+            *EnvSort.cmd: Sort environment variables alphabetically
+            *ErrLev.cmd: Execute a command and set the ERRLEV value as the
+              return code, which makes ERRORLEVEL a variable
+            *ExamineW.cmd: Display lots of data about any PM window on the
+              desktop, and sub-windows (this file in early stages)
+            *Fibonacc.cmm: Two methods for generating the Fibonacci
+              sequence
+            *FileDlg.lib: A simple interface to the WinFileDlg() PM
+              function.  This library file is #include'd in some of the
+              other CEnvi sample files.
+            *FileFind.cmd: Wildcard search for files on current drive or on
+              all drives
+            *FileIO.lib: Function to interface directly with OS/2's File IO
+            *Find#.cmm: Extract a number from wordy output; used by
+              DirStat.bat
+            *FranTick.cmm: Animated tick who drank too much coffee
+            *FSSlave.cmm: Control full screen OS/2 session from
+              TEXTBOSS.LIB
+            *GetUKey.cmd: Display a choice prompt and then set an
+              environment variable based on user's selection 
+            *GiveMem.lib: Library of routines for shareing memory with
+              other applications whose memory is otherwise "protected"
+            *Hello.cmm: My first Cmm program. Used to begin the Cmm
+              tutorial.
+            *HexDump.cmd: Display hexadecimal dump of a file
+            *HideTask.cmd: Hide task from the Task List window
+            *IDLE.cmd: Change process priority to run a CEnvi program only
+              during system idle time.
+            *IdleProg.cmd: Execute a program in the background; i.e., run
+              only during system idle time.
+            *Install.cmm: Install this version of CEnvi.
+            *IsItFri.cmd: Is it Friday?
+            *IsRun.cmd: Is process XXXXX running?
+            *KbdRate.cmd: Alter the typematic rate of the keyboard; in many
+              cases faster than OS/2 Keyboard tool can set it
+            *KeyCode.cmd: Display keycode of any key pressed
+            *KeyGhost.cmd: Sample for using KeyPush.lib to determine if
+              CEnvi is worth the price of registration.
+            *KeyPush.cmd: Send keystroke commands directly to a window by
+              window title; a quick interface into KeyPush.lib
+            *KeyPush.lib: Library of routines for sending keystrokes to PM
+              or Windowed applications.
+            *KeyState.cmd: Get or set the state of the NumLock, CapsLock,
+              or Insert keys for current session or for the whole WPS
+            *Kill.cmd: Terminate a running process by Process ID, Window
+              title, full name, or partial name
+            *MenuCtrl.lib: Library of routines for interactive with PM
+              menus
+            *MsgBox.lib: A wrapper library for the PM WinMessageBox()
+              function.  This file is #include'd in other CEnvi sample
+              files.
+            *MsgBoxes.cmd: Show various message box types using the
+              function in MsgBox.lib.
+            *NamePipe.lib: Library for OS/2 Named Pipes
+            *NoTitleB.cmd: Remove selected elements of a window title bar
+            *NumLock.cmd: Turn on NUMLOCK key once, or maintain NUMLOCK ON.
+              A shadow of NumLock.cmd can be put in startup folder to
+              default computer to NumLock ON. "NumLock 1000" will check
+              every second to make sure that NUMLOCK is still set.
+            *ObjSet.cmd: Alter WPS object and folder settings
+            *OneADay.cmd: Perform any command(s) no more than once per day
+            *OnTop.cmd: Float window to top of all other windows
+            *OptParms.lib: Library of routines for parsing the optional
+              parameters for executing a program. #included in other files
+            *OS2.bat: Perform OS/2 command from a DOS session, with the
+              option to "see" output of the command; mirrors DOS.CMD.  Note
+              that this requires CEnvi for DOS
+            *OS2Time.cmd: Show time according to computer's internal clock
+            *OS2Wait.bat: CEnvi for DOS tool to suspend DOS session for
+              specified interval
+            *Parents.cmd: Show hierarchical list of ancestor's process ID's
+              and names
+            *PathAdd.cmd: Add a directory to your PATH environment
+              variable.
+            *PathDel.cmd: Remove a directory from your PATH environment
+              variable
+            *PathStak.cmd: Multi-level save or restore of current drive and
+              directory so that you can change drives and directories and
+              still return to this one
+            *PMdll.lib: Example library of "wrapper" routines to function
+              in the PM DLL (Presentatiom Manager Dynamic Link Library).
+              This file is "#include"ed in many of the other example files.
+            *Print.cmm: Copy file to printer, treating printer as a file
+            *PrmptDay.cmd: Change command-line-prompt to display today's
+              date
+            *ProcList.cmd: Show list of all running processes; their names
+              and ID's
+            *Profile.lib: Function library for accessing Profiles; i.e.
+              .INI files
+            *Quote.cmd: Choose a text-mode "profound" quote at random
+            *QuotePM.cmd: Choose a PM-mode "profound" quote at random
+            *RndBckgr.cmd: Randomly select desktop background, at specified
+              interval, from a list of graphic file specifications
+            *RunTime.cmd: Rudimentary scheme for executing a command at a
+              certain time of day.
+            *ScanCode.lib: Retrieve keyboard scan codes for ascii
+              characters
+            *ServeOS2.com: DOS TSR to work with TextBoss.lib for complete
+              keyboard control of DOS sessions
+            *Session.cmd: Replace OS/2's START command for greater control
+              of starting sessions, including name, position, font,
+              notebook settings, etc...
+            *Sessions.cmd: batch file to demonstarte various uses of
+              Session.cmd
+            *ShutDown.cmd: Automated shutdown or reboot of OS/2 system
+            *SortLen.cmd: Sort any file based on line length
+            *Sound.cmd: Play a frequency for a given time period
+            *Switch.cmd: Switch foreground application to another process
+              base on process ID, full name, or partial name
+            *SysInfo.cmd: Display system configuration parameters
+            *TempFldr.cmd: Open folder temporarily, to automatically close
+              when it no longer has focus; good for menus
+            *Terminal.cmd: A VERY basic terminal program; demonstrates
+              COMM.LIB
+            *TextBoss.lib: Library of routines to interactively windowed
+              DOS or OS/2 applications: can work with ServeOS2.com
+            *TextEcho.cmd: Demonstrate TextBoss.lib by shadowing a DOS or
+              OS/2 box from an OS/2 box
+            *TextWin.cmd: GET/PUT text from/to a windowed DOS or OS/2
+              session
+            *Threads.cmd: Display list of all threads in all running
+              processes
+            *UnHang.cmm: Monitor your system to detect OS/2 "hangs", where
+              the workplace shell stops responding, then kill or otherwise
+              handle the application that is causing the problem
+            *ValidDir.cmd: Verify if a directory is valid
+            *Wait.cmd: Pause and do not return for specified number of
+              seconds
+            *Which.cmd: Find in PATH which command is executed
+            *WinList.cmd: Display list of all PM windows
+            *WinMsg.lib: Routines to send or post messages to PM windows
+            *WinSet.cmd: Set the position, size, state, etc... of a PM
+              Window
+            *WinSpawn.cmd: Pass simple commands to Windows session running
+              WinSpawn.cmm
+            *WinSpawn.cmm: Run in Windows session from CEnvi for Windows to
+              receive commands from WinSpawn.lib
+            *WinSpawn.lib: WinSpawn() function to send commands to Windows
+              session running CEnvi for Windows and WinSpawn.cmm
+            *WinTools.cmd: Demonstrate many of the capabilities of
+              WinTools.lib
+            *WinTools.lib: Library of routines for manipulating PM windows
+              by name or by handle
+            *WIN_Boss.lib: work with CEnvi for Windows' ServeOS2.cmm
+              program to all full control of Windows applications from an
+              OS/2 script
+            *WPFolder.cmd: Open a desktop folder for any specified
+              directory and optionally switch to that window
+
+1.5.5   Windows example files:
+
+          The following CEnvi source programs can be run by associating the
+          .cmm file extension with CEnvi.exe.  This can be done by using
+          the File Manager: select one of these .cmm files then choose
+          File/Association and select the full path to CEnvi.exe.  After
+          this, you can run any of these exmple files simply by
+          double-clicking on it.
+            *AddItem.cmm: Add Group and Item to Program Manager
+            *AllSave.cmm: Select SAVE option on all windows
+            *Ascii.cmm: Display the ascii character table
+            *BarClock.cmm: Display current time in title of active window
+            *BattMem.cmm: Show values stored in a PC's battery-protected
+              memory
+            *BMP.lib: Routines for reading and displaying .BMP files
+            *BmpView.cmm: Demonstrate the BMP.LIB routines by reading any
+              number of .BMP files and displaying them
+            *BootEd1.cmm: Start NotePad to edit c:\AutoExec.bat and
+              C:\Config.sys using Windows DLL's.
+            *BootEd2.cmm: Start NotePad to edit c:\AutoExec.bat and
+              C:\Config.sys using CEnvi's spawn() function.
+            *BugHunt.cmm: Example for using the ClipBrd.lib routines.
+              Constantly scan clipboard for "bug" in clipboard text
+            *ClipBrd.lib: Library of routines for reading from or writing
+              to the Windows clipboard
+            *ClipSort.cmm: Sort text in-place within the clipboard
+            *CmmEdit.cmm: VERY simple text editor; developed step-by-step
+              in the tutorial chapter of the CEnvi User Manual.
+            *CmmGroup.cmm: Create a CEnvi Programs group in Presentation
+              Manager with all of the .CMM files in it
+            *Comm.lib: Simplified function interface into Windows' serial
+              communication routines
+            *DDE.lib: Library of common routines and definitions for
+              Dynamic Data Exchange (DDE)
+            *DDEcli.cmm: Sample DDE client; works with DDEsrv.cmm
+            *DDEcli.lib: Library of routines for a DDE client
+            *DDEdir.cmm: Show directory listing of all DDE servers
+            *DDEsrv.cmm: Sample DDE server; works with DDEcli.cmm
+            *DDEsrv.lib: Library of routines for a DDE server
+            *DelOld.cmm: Delete files older than specified age
+            *DirDiff.cmm: Compare two directory listings for differences
+            *DlgCtrl.lib: Library of routines for interactive with Windows
+              dialog boxes and other windows with sub-window
+            *DosTime.cmm: Show time according to computer's internal clock
+            *DOS_BOSS.LIB: Functions for sending keystrokes to and reading
+              data from DOS sessions
+            *DOS_ECHO.CMM: Demonstrate DOS_BOSS.LIB by echoing text to/from
+              DOS session
+            *DOS_LOOK.CMM: Use DOS_BOSS.LIB to look at contents of a DOS
+              window
+            *Dropper.cmm: Perform command for all files Drag-&-Dropped to
+              this tool
+            *ExamineW.cmd: Display lots of data about any active window and
+              its sub-windows
+            *ExitWin.cmm: Exit Windows; options to save files, force
+              applications to quit, restart Windows, and reboot computer
+            *Fibonacc.cmm: Two methods for generating the Fibonacci
+              sequence
+            *FranTick.cmm: Animated tick who drank too much coffee
+            *FullScrn.cmm: Run any command started in maximized window
+            *GDI.cmm: Demonstrate some of Windows' graphics functions from
+              GDI.lib
+            *GDI.lib: Library of a few of Windows' graphics routines
+            *GloblMem.lib: Functions to work with Windows' global memory
+              resources
+            *Hello.cmm: My first Cmm program. Used to begin the Cmm
+              tutorial.
+            *HexDump.cmm: Display hexadecimal dump of a file
+            *Icon.lib: Functions for setting minimized icon
+            *IconMany.cmm: Show all of the icons in Program Manager
+            *Icons.cmm: Minimize all windows.  Demonstrate PostMessage()
+              from Message.lib.
+            *IdleTime.cmm: "ScreenSaver" - Show clock if computer is idle
+            *InputBox.cmm: Demonstrate uses of the InputBox() routine in
+              InputBox.lib
+            *InputBox.lib: InputBox() function to allow for a dialog-like
+              box for user input
+            *Install.cmm: Install this version of CEnvi.
+            *KeyCode.cmm: Display keycodes returned by getch().
+            *KeyGhost.cmm: Demonstrate how to use KeyPush.lib to control
+              other applications.
+            *KeyPush.lib: Library of routines created for passing
+              keystrokes to a window with the current focus.
+            *KillDOS.cmm: Force DOS window to close
+            *MenuCtrl.lib: Library of routines for interactive with menus
+            *MenuNot.cmm: Disable or delete a menu item
+            *Message.lib: Wrapper for Windows' PostMessage() and
+              SendMessage() function to send commands to windows.
+            *MsgBox.lib: A wrapper library for Windows' MessageBox()
+              function.  This file is #include'd in other CEnvi sample
+              files.
+            *MsgBoxes.cmm: Show various message box types using the
+              function in MsgBox.lib.
+            *MyCal.cmm: Start/menu/position calendar
+            *NumLock.cmm: Set the NUMLOCK key ON
+            *OneProg.cmm: Run one and only one program until it exits
+            *OnTop.cmm: Float window to top of all other windows
+            *OpenCmm.cmm: Use Windows' common dialog (via PickFile.lib) to
+              select a *.cmm file to edit.
+            *OptParms.lib: Library of routines for parsing the optional
+              parameters for executing a program. #included in other files
+            *OS2Sessn.cmm: Execute sessions from Windows under OS/2
+            *PGroups.cmm: list all of the groups and items Program Manager;
+              uses ProgMan.lig
+            *PickFile.lib: A simple interface to the GetOpenFileName()
+              function in the Windows Common Dialog DLL.  This library file
+              is #include'd in some of the other CEnvi sample files.
+            *PMButt.cmm: Replace Program Manager with a tiny button in
+              upper-left corner for access to all PM items
+            *PMCorner.cmm: Minimize Program Manager and then move its icon
+              to the lower-right corner of the screen.
+            *PongTime.cmm: Bounce the Windows clock mini-app around
+            *Print.cmm: Copy file to printer, treating printer as a file
+            *Profile.lib: Function library for accessing Profiles; i.e.
+              .INI files
+            *ProgMan.lib: Library of routines using DDE to communication
+              with Program Manager
+            *Quote.cmm: Choose a "profound" quote at random
+            *RebootNT.cmm: Reboot from Windows NT
+            *RndWalls.cmm: Random wallpaper selection at timed intervals
+            *RunAgain.cmm: Repeatedly run command at specified interval
+            *RunTime.cmm: Schedule a command to execute at a specified hour
+              and minute.
+            *SafeFMan.cmm: File Manager with dangerous menu options removed
+            *SaveScrn.cmm: Start screen saver now
+            *ServeOS2.cmm: Work with CEnvi for OS/2 and WIN_BOSS.LIB to
+              control Windows sessions from OS/2
+            *ServeWIN.com: DOS TSR to work with DOS_BOSS.LIB for complete
+              keyboard control of DOS sessions
+            *TaskButt: Task Manager replacement; 1-click access to tasks
+            *Terminal.cmm: A simple terminal program; demonstrate some of
+              the functions in COMM.lib
+            *WhoRYou.cmm: Design and implement a dialog box using CEnvi's
+              MakeWindow() and DoWindows() functions
+            *WinBeep.cmm: Call Windows' MessageBeep() function.
+            *Window.lib: A few functions and many defined values useful for
+              CEnvi's MakeWindow(), BreakWindow(), and DoWindows()
+              functions
+            *WinExec.lib: A wrapper library for Windows' WinExec()
+              function.  This file is #include'd in other CEnvi sample
+              files.
+            *WinExecs.cmm: Demonstration of Windows' WinExec() function
+              using the wrapper from WinExec.lib.
+            *WinList.cmm: Show a list of all Windows, their handles, and
+              their children.
+            *WinMsg.cmm: Demonstrate how to make a window, and show all the
+              messages that go to that window
+            *WinRun.bat: Run Windows commands from DOS session; client to
+              work with WinRun.cmm
+            *WinRun.cmm: Run Windows commands from DOS session; server for
+              WinRun.bat
+            *WinShell.bat: Start windows with a specific shell.  Run
+              Windows for a single program.  This use CENVI.EXE for DOS.
+            *WinTools.cmm: Demonstrate many of the capabilities of
+              WinTools.lib
+            *WinTools.lib: Library of routines for directly manipulating
+              windows by name or by handle
+            *WinUtil.lib: A small selection of utilities that may be
+              #include'd in CEnvi code to get simple access to Windows DLL
+              functions.
+
+1.6.  CEnvi - A Cmm Interpreter
+
+          This section describes the CEnvi program, and describes the
+          various methods for use CEnvi.exe to execute Cmm programs.
+
+1.6.1   What is CEnvi?
+
+          CEnvi is the first application to implement the Cmm programming
+          language.  CEnvi is a Command-line version of a Cmm interpreter,
+          and it can use Environment variables as if they were global Cmm
+          variables.  CEnvi contains a reasonable facsimile of the standard
+          C library, and can link at runtime to external Cmm libraries.
+
+          The "Envi" and the "C" in CEnvi reflects the envy that computer
+          professionals often feel when they are working on a computer that
+          does not have a complete C programming environment.  "Envi" also
+          refers to the environment variables that CEnvi attempts to work
+          with as if they were regular Cmm variables.
+
+          Like all implementations for Cmm, CEnvi is portable between
+          operating systems.  It is currently testing under DOS, OS/2, and
+          Windows, and other OS ports are in the works. NT and Presentation
+          manager are currently available in beta form.
+
+1.6.2   Environment Variables
+
+          Variables in all UPPERCASE letters are taken from the environment
+          variables.  Environment variables are treated like other
+          variables except that they don't need quotes around them to
+          default to being strings if they don't match another type.
+
+          In the source code, the only difference between a variable and an
+          environment variable is that environment variables are all
+          UPPER_CASE letters.  When an environment variable is first used,
+          it is read from the environment block and some assumptions are
+          made about what kind of variable it is; this can lead to problems.
+          When I=666 is interpreted as the number 666 when really it maybe
+          should have been the string "666".  Before the program exits, all
+          environment variables used by the code are then written to the
+          environment block.
+
+          In some implementations (CEnvi for DOS, for example) the
+          environment variables remain changed even after the Cmm
+          interpreter exits.  In other cases, special kludges must be added
+          to alter a parent process' environment variables (see ESet() for
+          OS/2).
+
+1.6.3   Special Environment Variables
+
+          These environment variables affect where CEnvi looks for source
+          files:
+            *CMMPATH: This environment will be checked for directories to
+              search for include files if the include file is not in the
+              current directory.  For Windows, this value may come from the
+              CMMPATH profile value in WIN.INI (in the [CEnvi] section).
+            *PATH: Batch-file source files (see below) will be searched in
+              these directories if not found in the current directory.
+            *CENVI_ESET: In those environment for which CEnvi cannot
+              covertly alter the environment variables of the command
+              interpreter (e.g., OS/2), this environment variable specifies
+              a file name.  CEnvi will write the strings necessary for the
+              command interpreter to set environment variables as altered
+              by your Cmm code.  See the description of ESet() for more
+              information about this command.
+
+1.6.4   Executing Code as command-line Input Parameters
+
+          If a Cmm program is very short, then it can be executed wholly
+          from the command line.  For example, here is the famous hello
+          world program executed from the cli prompt:
+              CEnvid main() { printf("Hello world!"); }
+          which can be written more conisely under Cmm rules as:
+              CEnvid printf("Hello world!")
+
+          You may have to keep in mind bahavior of the cli when inputting
+          code.  It is sometimes necessary to put quotes around code to
+          keep symbols from being interpreted by the cli, as in this
+          example:
+              CEnvid "for(i=0;i<10;i++) printf("%d\n",i)"
+          where the quotes are necessary to prevent the cli from
+          interpreting the "<" as file redirection.
+
+          Also, in batch files (DOS, OS/2) you need to remember that "%"
+          has special meaning for the batch file processor, so the
+          above line in a batch would have to be written as:
+              CEnvid "for(i=0;i<10;i++) printf("%%d\n",i)"
+
+1.6.5   Executing *.CMM Source File Code
+
+          A file with the extension ".CMM", if the file name is given as
+          the first parameter to CEnvi.exe, is considered by CEnvi to be
+          pure CMM source code.  This file with the .CMM extension is
+          expected to be a plain Cmm source file, just as a C compiler
+          expects a file with the .C extension to be C source code.  CEnvi
+          will check the current directory for the .CMM file, and then
+          check directories in the PATH environment variable.  Any
+          arguments passed to CEnvi.exe after the .CMM source name are
+          given to the main(argc,argv) function in the source, if there is
+          one.  So the hellow.cmm program can look identical to the
+          hellow.c program, and when you run CEnvi.exe hellow.cmm you get
+          the same output.  If you run
+              CEnvi.exe FOO.CMM One Two Three
+          the main function in FOO.CMM would get argc=4 and
+          argv[0]="FOO.CMM" and argv[3]="THREE".
+
+          This means that if you were to have an executable FOO.EXE
+          that is similar to FOO.CMM, then "FOO.EXE" is interchangeable
+          with "CENVI FOO.CMM", i.e.,
+              FOO.EXE arg1 arg2 arg3
+          is the same as:
+              CENVI FOO.CMM arg1 arg2 arg3
+
+          In OS/2 or Windows or other environments where file extensions
+          can be associated with programs, you may want to associate the
+          .CMM extension with CEnvi.exe, so that double-clicking on
+          HELLOW.CMM will act identically to double-clicking on the
+          compiled-and-linked HELLOW.EXE. In any of the CEnvi shells,
+          CEnvi scripts can be launched from the command line by simply
+          typing in their name.
+
+1.6.6   Running CEnvi from a Batch-File
+
+          The most convenient method for executing Cmm source code from the
+          DOS or OS/2 command line is to use a batch file. If the first
+          argument to CEnvi is the name of a batch file, then CEnvi reads
+          that batch file and accepts as source all the code between the
+          lines "GOTO CENVI_EXIT" and ":CENVI_EXIT", and passes the command
+          line arguments to main(argc,argv).  This is very similar to
+          executing:
+              CEnvi.exe #include'foo,bat,,GOTO CENVI_EXIT,:CENVI_EXIT'
+          except that the '#include' statement is handled automatically by
+          CEnvi, and the rest of the command-line arguments are passed to
+          main().
+
+          Note that ".bat" is the DOS version of the batch file name
+          extension.  This name is different for different operating
+          systems.
+
+          In this way, a batch file can be run exactly like a .EXE file,
+          and the command arguments are passed to main in the same way.  If
+          the full path of the batch file is not supplied, then CENvi will
+          look in the current directory and then in directories in the
+          PATH.
+
+          Here is an example of an OS/2 batch file that expects any number
+          (up to 9) of integers and sets the SUM environment variable to
+          the values added together.  (It calls CEnviSet instead of CEnvi
+          directly in order to set the environment variable.)
+
+              @echo off
+              REM *********************************************************
+              REM *** SUM.CMD - Use CEnvi to sum lots of numbers together,*
+              REM ***           setting the SUM environment variable to   *
+              REM ***           the result of adding all the numbers.     *
+              REM *********************************************************
+              call CEnviSet %0.cmd %1 %2 %3 %4 %5 %6 %7 %8 %9
+              GOTO CENVI_EXIT
+
+              main(argc,argv)
+              {
+                SUM = 0;
+                for ( i = 1; i < argc; i++ )
+                SUM += atoi(argv[i])
+              }
+
+              :CENVI_EXIT
+
+1.6.7   EXTPROC: *.CMD Source file (For OS/2)
+
+          Under the OS/2 command processor, you can define an external
+          processor to process a batch (*.cmd) file if the first statement
+          is EXTPROC.  EXTPROC is followed by the name of the processor,
+          which in this case will be "CEnvi".  This is an example file,
+          ARGS.CMD, of a program to display all input parameters:
+
+              EXTPROC CEnvi
+
+              main(argc,argv)
+              {
+                for ( i = 0; i < argc; i++ )
+                printf("Input argument %d = \%s\n",i,argv[i]);
+              }
+
+1.6.8   Running CEnvi from a REXX-File (For OS/2)
+
+          Similar to the running CEnvi from a Batch-File described above, 
+          if the first argument to CEnvi is the name of a REXX source file,
+          then CEnvi automatically executes the code between 
+          "SIGNAL CENVI_EXIT" and "CENVI_EXIT:".  This example Rexx file for
+          OS/2 behaves the same as the previous batch program example
+          (CEnviSet.cmd is an OS/2 batch file that helps run Cmm files if
+          environment variables need to be altered--see ESet in the OS2Lib
+          appendix):
+
+              /***********************************************************
+               *** SUM.CMD - Use CEnvi to sum lots of numbers together,***
+               ***           setting the SUM environment variable to   ***
+               ***           the result of adding all the numbers.     ***
+               ***********************************************************/
+              'call CEnviSet %0.cmd %1 %2 %3 %4 %5 %6 %7 %8 %9'
+              SIGNAL CENVI_EXIT
+
+              main(argc,argv)
+              {
+                SUM = 0;
+                for ( i = 1; i < argc; i++ )
+                SUM += atoi(argv[i])
+              }
+
+              CENVI_EXIT:
+
+1.6.9   CMM File Association and Drag-and-Drop (OS/2)
+
+          You can associate CEnvi.exe with .cmm files through the settings
+          notebook of CEnvi.exe.  This lets you executed any CEnvi *.cmm
+          file simply by double-clicking its icon in the desktop.
+
+          A Cmm program can be set up as a Workplace Shell program that
+          accepts drag and drop.  To do this, drag a program template out
+          of the templates folder and place it on the desktop where you
+          want your Cmm program to run from.  In program settings for this
+          program object set the program name to the path and file
+          specification for CEnvi.exe (e.g., "C:\CMM\CEnvi.exe").  Set
+          Parameters to the full source and file name of the Cmm file
+          (e.g., "C:\CMM\CZIP.cmm").  Then rename the program object to
+          whatever you want (e.g., "CZIP").  Then whenever you drag a file
+          onto that object then the filename will be the second argument to
+          main().
+
+1.6.10  CMM File Association and Drag-and-Drop (Windows)
+
+          You can associate Cmm files with CEnvi.exe by using the File
+          Manager: select a .cmm file then choose File/Association and
+          select the full path to CEnvi.exe.  After this, you can run any
+          of *.cmm program simply by double-clicking on it.
+
+1.6.11  /BIND= Create Stand-Alone Cmm Executables
+
+          The CEnvi /BIND option allows you to create stand-alone,
+          royalty-free executables from your Cmm code.  The result of /BIND
+          is a binary executable file that operates the same as if CEnvi
+          were invoked as an interpreter, except that CEnvi.exe is not
+          needed to execute the bound file, because CEnvi.exe and your Cmm
+          code are bound together in the created executable.
+
+          The following example creates an executable named HELLOW.EXE that
+          would print "Hello world!".
+              CEnvi /BIND=HELLOW printf("Hello world!");
+
+          As another example, you could create a stand-alone editor, which
+          we'll call CMMEDIT.EXE, from the result of the CEnvi tutorial
+          with the following command:
+
+              CEnvi /BIND=CMMEDIT.EXE CMMEDIT.CMM
+
+          Now running "CMMEDIT.EXE C:\AUTOEXEC.BAT" from the command line
+          would be identical to executing "CENVI.EXE CMMEDIT.CMM
+          C:\AUTOEXEC.BAT".
+
+1.6.12  /BIND for OS/2 and CEnvi2PM.EXE
+
+          When you /BIND Cmm source code that contains calls to
+          PMDynamicLink(), or other PMxxx() calls that invoke CEnvi2PM.exe,
+          the resulting executable will still require CEnvi2PM.exe.  So
+          users running the bound executable will still need CEnvi2PM.exe
+          in a directory of their search path.  CEnvi2PM.exe may be
+          distributed royalty-free.
+
+1.6.13  /BIND for Windows
+
+          The simplest method for using /BIND in Windows is to execute
+          CEnvi.exe, and then to enter the /BIND statement and Cmm source
+          name from the CEnvi command prompt.  For example, to turn
+          WhoRYou.cmm into the stand-alone WhoRYou.exe, you would execute
+          CEnvi.exe and then enter the following at the CEnvi "Code:"
+          prompt:
+
+              Code: /BIND=WhoRYou WhoRYou.cmm
+
+----------------------------- FILE LIST -----------------------------------
+
+The CEnvi Unregistered Shareware package includes all the files
+in the following lists.  You are not permitted to upload or otherwise transfer
+copies of any unregistered version of CEnvi that do not include all of the
+files in these lists. If you want to upload a CEnvi sharware version to a
+BBS, you may consider calling the Nombas BBS to download the latest shareware
+zip files.
+
+--------------- CENVIW.zip Contains the following files -------------------
+
+CENVIW.EXE:   CEnvi shareware executable for Windows
+SERVEWIN.COM: Allows CEnvi for Windows to control DOS Boxes
+CENVI.DOC:    CEnvi Shareware Manual, Chapter 1: CEnvi Unregistered Shareware
+CMMTUTOR.DOC: CEnvi Shareware Manual, Chapter 2: Cmm Language Tutorial
+CMM_VS_C.DOC: CEnvi Shareware Manual, Chapter 3: Cmm versus C, for C
+              Programmers
+CENVILIB.DOC: CEnvi Shareware Manual, Chapter 4: Function Library
+LICENSE.DOC:  CEnvi Unregistered Shareware License Agreement
+README.DOC:   Introductory file. Read this first for quick intallation.
+REGISTER.DOC: CEnvi registration form
+INSTALL.CMM:  Cmm source file for installing this shareware version
+
+*.CMM, *.CMD, *.BAT, *.LIB: Many sample programs using CEnvi for Windows.
+  See CENVI.DOC for a complete list.
+
+----------------- CENVID.zip Contains the following files -----------------
+
+CENVID.EXE:   CEnvi shareware executable for DOS
+CENVID32.EXE: CEnvi shareware 32 Bit executable for DOS
+CMMTUTOR.DOC: CEnvi Shareware Manual, Chapter 2: Cmm Language Tutorial
+CMM_VS_C.DOC: CEnvi Shareware Manual, Chapter 3: Cmm versus C, for C
+              Programmers
+CENVILIB.DOC: CEnvi Shareware Manual, Chapter 4: Function Library
+LICENSE.DOC:  CEnvi Unregistered Shareware License Agreement
+README.DOC:   Introductory file. Read this first for quick intallation.
+REGISTER.DOC: CEnvi registration form
+INSTALL.CMM:  Cmm source file for installing this shareware version
+
+*.CMM, *.CMD, *.BAT, *.LIB: Many sample programs using CEnvi for DOS.
+  See CENVI.DOC for a complete list.
+
+
+------------------CENVI2.zip Contains the following files -----------------
+
+CENVI2.EXE:   CEnvi shareware executable for OS/2
+CENVI2PM.EXE: Gateway program, executed transparently by CEnvi, for access
+              to PM-dependent system calls (OS/2 version only).
+CENVI.DOC:    CEnvi Shareware Manual, Chapter 1: CEnvi Unregistered Shareware
+CMMTUTOR.DOC: CEnvi Shareware Manual, Chapter 2: Cmm Language Tutorial
+CMM_VS_C.DOC: CEnvi Shareware Manual, Chapter 3: Cmm versus C, for C
+              Programmers
+CENVILIB.DOC: CEnvi Shareware Manual, Chapter 4: Function Library
+LICENSE.DOC:  CEnvi Unregistered Shareware License Agreement
+README.DOC:   Introductory file. Read this first for quick intallation.
+REGISTER.DOC: CEnvi registration form
+INSTALL.CMM:  Cmm source file for installing this shareware version
+
+*.CMM, *.CMD, *.BAT, *.LIB: Many sample programs using CEnvi for OS/2.
+  See CENVI.DOC for a complete list.
+
+-------------------------- REGISTRATION --------------------------------
+
+This is a shareware release  Please register.  As a registered CEnvi user
+you will receive the following benefits:
+
+*The latest version of CEnvi for all supported platforms (currently DOS,
+  OS/2, Windows, and NT).
+  
+*The CEnvi user's manual--about 200 pages, including a description of the
+  Cmm programming language and a tutorial for those who have never programmed,
+  and descriptions and examples of the over 150 functions included in the
+  CEnvi library).
+  
+*/BIND option for creating standalone executables from Cmm scripts for you
+  own personal use.
+  
+*Ssupport from Nombas and CEnvi/Cmm users through CompuServe
+  (72212,1622), internet (nombas@nobmas.com), the cenvi-cmm e-mail mailing
+  list (cenvi-cmm@world.std.com), phone (617-391-6595), the Nombas BBS
+  (617-391-3718), or Compuserve in PCUTIL forum 3.
+  
+*Access to the growing list of CEnvi utilities and libraries (some of which
+  are included in this unregistered shareware package, and others are
+  contributed by Nombas and CEnvi/Cmm users to the electronic locations
+  described above). Available on the Nombas BBS, from internet via
+  anonymous ftp at ftp.std.com in the /vendors/CEnvi-Cmm directory, or in
+  CompuServe in PCUTIL library 3 (search on CEnvi, Cmm, CENV, & CNV).
+ 
+There are four ways to register CEnvi version 2.11:
+
+************************************************************************
+****** REGISTRATION METHOD 1: CENVI MAIL-IN/FAX REGISTRATION FORM ******
+************************************************************************
+Please fill out and mail in or fax this form, along with payment.
+
+Name: _________________________________________________________________
+
+Company: ______________________________ Position: _____________________
+
+Address: ______________________________________________________________
+
+_______________________________________________________________________
+
+______________________________________________________________________
+
+Country: _________________________   (add ZIP code if applicable)
+
+Phone: ___________________________  EMail: ______________________________
+
+
+CEnvi Single-user License & Manual .. Quantity _____ x $69.00 = $ _________
+License fee for additional CEnvi users at your
+organization (does not include additional manual
+or diskettes)... Additional simultaneous users _____ x $39.00 = $ _________
+10-User License .. 2 media & manual.. Quantity ____ x $299.00 = $ _________
+50-User License .. 2 media & manual.. Quantity ____ x $899.00 = $ _________
+
+Additional CEnvi Manuals ............ Quantity _____ x $15.00 = $ _________
+Shipping outside USA, Canada, or Mexico  $4.00 ................ $ _________
+                                                       Subtotal $ _________
+Massachusetts residents please add 5% sales tax ............... $ _________
+Check handling fee IF CHECK NOT DRAWN ON A U.S. BANK . $30.00 = $ _________
+
+                                                          Total $ _________
+
+Include a check or money order for this total, IN U.S. FUNDS AND DRAWN ON A
+U.S. BANK (if not drawn on U.S. bank then add the $30 handling fee),
+payable to Nombas, or supply the following credit card payment information.
+
+Credit card orders (circle one): MasterCard / Visa / American Express
+
+    Card Number _____________________________________  Expires ____________
+
+    Exact name on card (print) ____________________________________________
+
+    Signature (REQUIRED) __________________________________________________
+
+Mail this form, along with payment or credit information, to:
+               Nombas
+               64 Salem St.
+               MEDFORD MA 02155   USA
+or fax to:
+               Nombas
+               (617) 391-3842
+
+
+***************************************************************************
+******** REGISTRATION METHOD 2: COMPUSERVE ELECTRONIC REGISTRATION ********
+***************************************************************************
+CompuServe members may register directly through the CompuServe
+Registration Service.  To use this service enter GO SWREG at your CI$
+prompt.  Registration ID is 1354 for CEnvi for DOS, 1355 for CEnvi for
+OS/2, and 1356 for CEnvi for Windows (you only need to register ONE
+version).  Nombas will immediately be informed of your registration, and
+the CEnvi registration fee will automatically be added to your CompuServe
+bill.
+
+
+***************************************************************************
+************ REGISTRATION METHOD 3: Public (software) Library *************
+***************************************************************************
+CREDIT CARD ORDERS ONLY -
+
+You can order with MC, Visa, Amex, or Discover from Public (software)
+Library by calling 800-2424-PsL or 713-524-6394 or by FAX to 713-524-6398
+or by CIS EMail to 71355,470. You can also mail credit card orders to PsL
+at P.O.Box 35705, Houston, TX 77235-5705.
+
+THE ABOVE NUMBERS ARE FOR ORDERS ONLY.
+
+Any questions about the status of the shipment of the order, refunds,
+registration options, product details, technical support, volume discounts,
+dealer pricing, site licenses, etc., must be directed to Nombas (see phone
+number and addresses below).
+
+To insure that you get the latest version, PsL will notify Nombas the day
+of your order and we will ship the product directly to you.
+
+CEnvi (all versions) is PsL product #11069.
+
+
+***************************************************************************
+************** REGISTRATION METHOD 4: KDL (Germany) Library ***************
+***************************************************************************
+
+Registration and instructions may be found through KDL-Registration Service
+in Germany:
+
+fax number:
+	* for German customers only:	089-895626-99
+	* for international customers: ++49-895626-99
+
+phone number: 
+	* for German customers only:	089-895626-50
+	* international customers:	++49-89-895626-50
+
+Normally we do not take any orders by phone, but this number can be used to
+request our registration form and our general registration rules.
+
+Email-adresses:
+	* INTERNET:100347.2627@compuserve.com
+	* INTERNET:regservice@kellydata.de
+
+The second number is available in March 1996, but should be used from that time
+on.
+	
+Mail.adress:	KDL-Registrierungsservice
+		Norbert M. Burkhard
+		Lena-Christ-Str.: 50
+		82152 Martinsried  / Munich
+		Germany
+
+***************************************************************************
+Thank you for trying this shareware copy of CEnvi.  Mail inquires and other
+correspondences to:
+     Nombas
+     64 Salem Street
+     Medford, MA  02155   USA
+
+Nombas may also be contacted at:
+     Phone:      (617)391-6595
+     Internet:   nombas@nombas.com
+     WEB:        http://www/nombas.com
+     CompuServe: 72212,1622
+     BBS:        (617)391-3718
+     Fax:        (617)391-3842

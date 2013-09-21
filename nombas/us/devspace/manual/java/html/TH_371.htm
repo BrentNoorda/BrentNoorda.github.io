@@ -1,0 +1,41 @@
+<html>
+<head>
+<title>Function property arguments[]</title>
+<link rel="stylesheet" href="semanualstyles.css" type="text/css">
+<style type="text/css">
+ p { margin-top: 0; margin-bottom: 0; }
+</style>
+<script language="JavaScript" src="TrueHelp.js"></script>
+</head>
+<body onload="thload()">
+<div id=ienav>
+<ilayer id=nsnav>
+<br>
+<center>
+<p class=normal><a href="seisdkj-toc.htm" target="left">contents</a> &nbsp; <a href="seisdkj-index.htm" target="left">index</a> &nbsp; <a href="TH_370.htm">previous</a> &nbsp; <a href="TH_372.htm">next</a></p>
+</center>
+<br>
+<hr noshade size=1>
+</ilayer>
+</div>
+<p class=heading-3>Function property arguments[]</p>
+<p class=heading-3-p>&nbsp;</p>
+<p class=senormalpara>The <span class=secodephrase>arguments[]</span> property is an array of all of the arguments passed to a function. The first variable passed to a function is referred to as <span class=secodephrase>arguments[0]</span>, the second as <span class=secodephrase>arguments[1]</span>, and so forth.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>The most useful aspect of this property is that it allows you to have functions with an indefinite number of parameters. Here is an example of a function that takes a variable number of arguments and returns the sum of them all.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=secodelinesindented>function&nbsp;SumAll()</p>
+<p class=secodelinesindented>{</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;var&nbsp;total&nbsp;=&nbsp;0;</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;for&nbsp;(var&nbsp;ssk&nbsp;=&nbsp;0;&nbsp;ssk&nbsp;&lt;&nbsp;SumAll.arguments.length;&nbsp;ssk++)</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;{</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;total&nbsp;+=&nbsp;SumAll.arguments[ssk];</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;}</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;return&nbsp;total;</p>
+<p class=secodelinesindented>}</p>
+<p class=secodelinesindented>&nbsp;</p>
+<hr noshade size=1>
+<p class=normal><a href="TH_372.htm"><img src="button.png" border=0></a><a href="TH_372.htm" style="text-decoration:none;">Function recursion</a></p>
+<p>
+</body>
+</html>

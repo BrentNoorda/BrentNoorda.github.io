@@ -1,0 +1,99 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 FINAL//EN">
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=ISO-8859-1">
+<TITLE>ScriptEase ISDK Newsletter</TITLE>
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-1754630-10']);
+  _gaq.push(['_trackPageview']);
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+</HEAD>
+<BODY BGCOLOR="#FFFFFF" LINK="#0000FF" VLINK="#800080" TEXT="#000000" TOPMARGIN=0 LEFTMARGIN=0 MARGINWIDTH=0 MARGINHEIGHT=0>
+    <TABLE BORDER=0 CELLSPACING=0 CELLPADDING=0 WIDTH=640>
+        <TR VALIGN=TOP ALIGN=LEFT>
+            <TD WIDTH=640 HEIGHT=80 ALIGN=LEFT VALIGN=TOP><IMG ID="Picture1" HEIGHT=80 WIDTH=640 SRC="Newsbanner.jpg" BORDER=0></TD>
+        </TR>
+    </TABLE>
+    <TABLE CELLPADDING=0 CELLSPACING=0 BORDER=0 WIDTH=638>
+        <TR VALIGN=TOP ALIGN=LEFT>
+            <TD>
+                <TABLE BORDER=0 CELLSPACING=0 CELLPADDING=0 WIDTH=182>
+                    <TR VALIGN=TOP ALIGN=LEFT>
+                        <TD WIDTH=7 HEIGHT=9><IMG SRC="../../clearpixel.gif" WIDTH=7 HEIGHT=1 BORDER=0></TD>
+                        <TD></TD>
+                    </TR>
+                    <TR VALIGN=TOP ALIGN=LEFT>
+                        <TD HEIGHT=215></TD>
+                        <TD WIDTH=175 ALIGN=LEFT VALIGN=TOP><IMG ID="Picture14" HEIGHT=215 WIDTH=175 SRC="upgrade.gif" BORDER=0 USEMAP="#map6"><MAP NAME="map6"><AREA SHAPE=RECT ALT="" COORDS="2,189,114,207" HREF="http://support.nombasxxx.com/"></MAP></TD>
+                    </TR>
+                    <TR VALIGN=TOP ALIGN=LEFT>
+                        
+          <TD COLSPAN=2 HEIGHT=14>
+            <p><font size="-2" face="Verdana,Tahoma,Arial,Helvetica"><a href="../../devspace/newsletters/index.htm">Other 
+              Newsletters</a></font></p>
+            </TD>
+                    </TR>
+                    <TR VALIGN=TOP ALIGN=LEFT>
+                        <TD HEIGHT=165></TD>
+                        <TD WIDTH=175 ALIGN=LEFT VALIGN=TOP><IMG ID="Picture8" HEIGHT=165 WIDTH=175 SRC="moreinfo.gif" BORDER=0 USEMAP="#map7"><MAP NAME="map7"><AREA SHAPE=RECT ALT="" COORDS="2,89,171,159"
+                             HREF="http://www.nombasxxx.com/us/toolkit/isdkdownload.htm"><AREA SHAPE=RECT ALT="" COORDS="2,1,172,76" HREF="../../devspace/index.htm"></MAP></TD>
+                    </TR>
+                </TABLE>
+            </TD>
+            <TD>
+                <TABLE BORDER=0 CELLSPACING=0 CELLPADDING=0 WIDTH=456>
+                    <TR VALIGN=TOP ALIGN=LEFT>
+                        <TD WIDTH=6 HEIGHT=8><IMG SRC="../../clearpixel.gif" WIDTH=6 HEIGHT=1 BORDER=0></TD>
+                        <TD WIDTH=2><IMG SRC="../../clearpixel.gif" WIDTH=2 HEIGHT=1 BORDER=0></TD>
+                        <TD WIDTH=443><IMG SRC="../../clearpixel.gif" WIDTH=443 HEIGHT=1 BORDER=0></TD>
+                        <TD WIDTH=5><IMG SRC="../../clearpixel.gif" WIDTH=5 HEIGHT=1 BORDER=0></TD>
+                    </TR>
+                    <TR VALIGN=TOP ALIGN=LEFT>
+                        <TD HEIGHT=54></TD>
+                        <TD WIDTH=450 COLSPAN=3 ALIGN=LEFT VALIGN=TOP><IMG ID="Picture5" HEIGHT=54 WIDTH=450 SRC="a_Article2title.gif" BORDER=0></TD>
+                    </TR>
+                    <TR VALIGN=TOP ALIGN=LEFT>
+                        <TD COLSPAN=4 HEIGHT=3></TD>
+                    </TR>
+                    <TR VALIGN=TOP ALIGN=LEFT>
+                        <TD COLSPAN=2></TD>
+                        <TD WIDTH=443><P ALIGN=LEFT><A NAME="article1"></A><IMG ID="Picture10" HEIGHT=150 WIDTH=150 SRC="drscripter.jpg" VSPACE=6 HSPACE=2 ALIGN="RIGHT" BORDER=0><FONT COLOR="#000000" SIZE="-1"
+                             FACE="Verdana,Tahoma,Arial,Helvetica">The newly released ScriptEase ISDK v. 4.30d provides a useful new feature called the </FONT><FONT COLOR="#000000" SIZE="-1" FACE="Courier New,Courier">jseWeakAPIReference</FONT>
+                            <FONT COLOR="#000000" SIZE="-1" FACE="Verdana,Tahoma,Arial,Helvetica"> flag that allows tighter and quicker binding between C++ objects and JavaScript objects. </FONT><P ALIGN=LEFT><FONT SIZE="-1"
+                             FACE="Verdana,Tahoma,Arial,Helvetica">Without weak referencing, you can run into a lifetime problem when trying to map a C++ object to an equivalent JavaScript object, as C++ needs a reference to the 
+                            jseVariable, and the jseVariable needs a reference to the C++ object. These two different environments then need to retain a lock on each other, so how do either of them know when it's time to clean up? <P>
+                            Weak referencing solves this "catch-22" situation by allowing you to link to a C++ object directly, without locking in its lifetime or needing to add external reference counting. You can continue to 
+                            access a weak reference variable, but the garbage collector will ignore it. </FONT><P><FONT SIZE="-1"
+                             FACE="Verdana,Tahoma,Arial,Helvetica">To use weak referencing, the changes you need to make to your code are surprisingly minimal. Just build with the </font><FONT SIZE="-1"
+                             FACE="Courier New,Courier">JSE_WEAK_REFERENCE</FONT><FONT SIZE="-1" FACE="Verdana,Tahoma,Arial,Helvetica"> defined in the jseopt.h file and then apply the </FONT><FONT COLOR="#000000" SIZE="-1"
+                             FACE="Courier New,Courier">jseWeakAPIReference</FONT><FONT SIZE="-1" FACE="Verdana,Tahoma,Arial,Helvetica"> flag to any variable you want to retrieve in this matter. Once an object is marked as a having a 
+                            weak reference, the ScriptEase engine will not consider this object to be held by the external code. The variable will then remain valid only as long as the underlying ScriptEase JavaScript object is valid. <P>
+                            However, when using this flag, the calling code <I>must</I> install a delete callback in order to receive notification of when the ScriptEase engine has determined the referenced variable is no longer needed.&nbsp; </FONT><P><FONT SIZE="-1" FACE="Verdana,Tahoma,Arial,Helvetica">
+                            In summary, with </font><FONT COLOR="#000000" SIZE="-1" FACE="Courier New,Courier">jseWeakAPIReference</FONT><FONT SIZE="-1" FACE="Verdana,Tahoma,Arial,Helvetica">, you can now create a 
+                            direct C++/JavaScript mapping between two objects that will not lock lifetimes at either end. Just remember to implement the delete callback on the object so you know when JavaScript believes it is no longer in use. </FONT><P><FONT SIZE="-1" FACE="Verdana,Tahoma,Arial,Helvetica">
+                            <I>Have a question about how to use ScriptEase:ISDK? Let Dr. Scripter know at </I></font><A HREF="../../index.htm"><I><FONT SIZE="-1" FACE="Verdana,Tahoma,Arial,Helvetica">http://support.nombasxxx.com/</FONT></I>
+                            <FONT SIZE="-1" FACE="Verdana,Tahoma,Arial,Helvetica"></FONT></A><FONT SIZE="-1" FACE="Verdana,Tahoma,Arial,Helvetica">. <I> </I></FONT></TD>
+                        <TD></TD>
+                    </TR>
+                </TABLE>
+            </TD>
+        </TR>
+    </TABLE>
+    <TABLE BORDER=0 CELLSPACING=0 CELLPADDING=0 WIDTH=640>
+        <TR VALIGN=TOP ALIGN=LEFT>
+            <TD HEIGHT=13></TD>
+        </TR>
+        <TR VALIGN=TOP ALIGN=LEFT>
+            <TD WIDTH=640 HEIGHT=30 ALIGN=LEFT VALIGN=TOP><IMG ID="Picture9" HEIGHT=30 WIDTH=640 SRC="a_Footer.jpg" BORDER=0 ALT="ScriptEase: ISDK is a product of Nombas, Inc. Visit us at ../../index.htm" USEMAP="#map8"><MAP NAME="map8">
+                <AREA SHAPE=RECT ALT="" COORDS="396,4,530,25" HREF="../../index.htm"></MAP></TD>
+        </TR>
+    </TABLE>
+</BODY>
+</HTML>
+ 

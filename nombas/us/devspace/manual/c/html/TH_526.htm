@@ -1,0 +1,44 @@
+<html>
+<head>
+<title>Converting existing C code to ScriptEase</title>
+<link rel="stylesheet" href="semanualstyles.css" type="text/css">
+<style type="text/css">
+ p { margin-top: 0; margin-bottom: 0; }
+</style>
+<script language="JavaScript" src="TrueHelp.js"></script>
+</head>
+<body onload="thload()">
+<div id=ienav>
+<ilayer id=nsnav>
+<br>
+<center>
+<p class=normal><a href="seisdkc-toc.htm" target="left">contents</a> &nbsp; <a href="seisdkc-index.htm" target="left">index</a> &nbsp; <a href="TH_525.htm">previous</a> &nbsp; next</p>
+</center>
+<br>
+<hr noshade size=1>
+</ilayer>
+</div>
+<p class=heading-2>Converting existing C code to ScriptEase</p>
+<p class=heading-2-p>&nbsp;</p>
+<p class=senormalpara>Converting existing C code to ScriptEase is mostly a process of deleting unnecessary text. Type declarations<span class=truehelp-xe></span>, such as <span class=secodeterm>int</span>, <span class=secodeterm>float</span>, <span class=secodeterm>struct</span>, <span class=secodeterm>char</span>, and <span class=secodephrase>[]</span>, should be deleted. The following two columns give examples of how to make such changes. C code is on the left and can be replaced by the ScriptEase code on the right.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara><b>C</b>	<b>ScriptEase</b></p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=secodelinesindented>int&nbsp;i;	var&nbsp;i;&nbsp;//&nbsp;or&nbsp;nothing</p>
+<p class=secodelinesindented>int&nbsp;foo&nbsp;=&nbsp;3;	var&nbsp;foo&nbsp;=&nbsp;3;</p>
+<p class=secodelinesindented>struct	var&nbsp;st;&nbsp;//&nbsp;no&nbsp;struct&nbsp;type&nbsp;</p>
+<p class=secodelinesindented>{	&nbsp;&nbsp;&nbsp;//&nbsp;Simply&nbsp;use&nbsp;st.row</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;int&nbsp;row;	&nbsp;&nbsp;&nbsp;//&nbsp;and&nbsp;st.col</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;int&nbsp;col;	&nbsp;&nbsp;&nbsp;//&nbsp;when&nbsp;needed.</p>
+<p class=secodelinesindented>}</p>
+<p class=secodelinesindented>char&nbsp;name[]&nbsp;=&nbsp;"George";	var&nbsp;name&nbsp;=&nbsp;"George";</p>
+<p class=secodelinesindented>int&nbsp;goo(int&nbsp;a,&nbsp;char&nbsp;*s,&nbsp;int&nbsp;c);	var&nbsp;goo(a,&nbsp;buf,&nbsp;c);</p>
+<p class=secodelinesindented>int&nbsp;zoo[]&nbsp;=&nbsp;{1,&nbsp;2,&nbsp;3};	var&nbsp;zoo&nbsp;=&nbsp;{1,&nbsp;2,&nbsp;3};</p>
+<p class=secodelinesindented>&nbsp;</p>
+<p class=senormalpara>Another step in converting C to ScriptEase is to search for pointer and address operators, <span class=secodephrase>*</span> and <span class=secodephrase>&amp;</span>. Since the <span class=secodephrase>*</span> operator and <span class=secodephrase>&amp;</span> operator work together when the address of a variable is passed to a function, these operators are unnecessary in the C portion of ScriptEase. If code has <span class=secodephrase>*</span> operators in it, they usually refer to the base value of a pointer address. A statement like "<span class=secodephrase>*foo = 4</span>" can be replaced by "<span class=secodephrase>foo[0] = 4</span>".</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara> Finally, the <span class=secodephrase>&gt;</span> operator in C which is used with <span class=sepopuptopic><a href="TH_517.htm" onClick="return thwindow('TH_517.htm', 'GenPopup')">structures</a></span> may be replaced by a period for values passed by address and then by reference.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p>
+</body>
+</html>

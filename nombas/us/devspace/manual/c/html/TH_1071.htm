@@ -1,0 +1,72 @@
+<html>
+<head>
+<title>update()</title>
+<link rel="stylesheet" href="semanualstyles.css" type="text/css">
+<style type="text/css">
+ p { margin-top: 0; margin-bottom: 0; }
+</style>
+<script language="JavaScript" src="TrueHelp.js"></script>
+</head>
+<body onload="thload()">
+<div id=ienav>
+<ilayer id=nsnav>
+<br>
+<center>
+<p class=normal><a href="seisdkc-toc.htm" target="left">contents</a> &nbsp; <a href="seisdkc-index.htm" target="left">index</a> &nbsp; <a href="TH_1070.htm">previous</a> &nbsp; next</p>
+</center>
+<br>
+<hr noshade size=1>
+</ilayer>
+</div>
+<p class=sereffunclevel4>update()</p>
+<table cellpadding=0>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>syntax:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=sesyntax>md5.update(<span class=truehelp-xe></span>buffer[,&nbsp;length])</p></td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>where:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>buffer - A string or buffer of data to add into this checksum</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>length - Length of data to be added.  If not supplied, then the length of buffer is used.</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>return:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>void.</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>description:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>This method adds the supplied buffer into the running md5 checksum. If <span class=secodephrase>length</span> is greater than the length of <span class=secodephrase>buffer</span>, then the buffer is expanded as if filled with <span class=secodephrase>null</span> bytes.</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>see:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara><span class=secodephrase>#link &lt;md5&gt;</span></p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>example:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=secodelines>var&nbsp;md5sum&nbsp;=&nbsp;new&nbsp;md5();</p>
+<p class=secodelines>md5sum.update("hello");</p>
+<p class=secodelines>md5sum.update(",&nbsp;world!",4);</p>
+<p class=secodelines>md5sum.term();&nbsp;&nbsp;//&nbsp;Return&nbsp;the&nbsp;checksum&nbsp;of&nbsp;"hello,&nbsp;wo"</p></td>
+</tr>
+</table>
+<p class=normal>&nbsp;</p>
+<p>
+</body>
+</html>

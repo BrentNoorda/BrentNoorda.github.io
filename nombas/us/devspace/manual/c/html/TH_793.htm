@@ -1,0 +1,82 @@
+<html>
+<head>
+<title>Date.UTC()</title>
+<link rel="stylesheet" href="semanualstyles.css" type="text/css">
+<style type="text/css">
+ p { margin-top: 0; margin-bottom: 0; }
+</style>
+<script language="JavaScript" src="TrueHelp.js"></script>
+</head>
+<body onload="thload()">
+<div id=ienav>
+<ilayer id=nsnav>
+<br>
+<center>
+<p class=normal><a href="seisdkc-toc.htm" target="left">contents</a> &nbsp; <a href="seisdkc-index.htm" target="left">index</a> &nbsp; <a href="TH_792.htm">previous</a> &nbsp; next</p>
+</center>
+<br>
+<hr noshade size=1>
+</ilayer>
+</div>
+<p class=sereffunclevel4>Date.UTC()</p>
+<table cellpadding=0>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>syntax:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=sesyntax>Date.UTC(<span class=truehelp-xe></span>year,&nbsp;month,&nbsp;day[,&nbsp;hours[,&nbsp;minutes[,</p>
+<p class=sesyntax>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;seconds[,&nbsp;milliseconds]]]])</p></td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>where:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>year - A year, represented in four or two-digit format after 1900. NOTE: For year 2000 compliance, this year MUST be represented in four-digit format</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>month - A number between 0 (January) and 11 (December) representing the month</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>day - A number between 1 and 31 representing the day of the month. Note that <span class=secodephrase>Month</span> uses 1 as its lowest value whereas many other arguments use 0</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>hours - A number between 0 (midnight) and 23 (11 PM) representing the hours</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>minutes - A number between 0 (one minute) and 59 (59 minutes) representing the minutes.  This is an optional argument which may be omitted if <span class=secodephrase>Seconds</span> and <span class=secodephrase>Minutes</span> are omitted as well.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>seconds - A number between 0 and 59 representing the seconds. This parameter is optional.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>milliseconds - A number between 0 and 999 which represents the milliseconds. This is an optional parameter.</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>return:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>number - milliseconds from midnight, January 1, 1970, to the date and time specified.</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>description:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>The method interprets its parameters as a date. The parameters are interpreted as referring to Greenwich Mean Time (GMT).</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>see:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara><span class=sejumptopic><a href="TH_742.htm">Date object</a></span>, <span class=sejumptopic><a href="TH_792.htm">Date.parse()</a></span>, <span class=sejumptopic><a href="TH_771.htm">Date setTime()</a></span></p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>example:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=secodelines>//&nbsp;The&nbsp;following&nbsp;code&nbsp;creates&nbsp;a&nbsp;Date&nbsp;object</p>
+<p class=secodelines>//&nbsp;using&nbsp;UTC&nbsp;time:</p>
+<p class=secodelines>foo&nbsp;=&nbsp;new&nbsp;Date(Date.UTC(1998,&nbsp;3,&nbsp;9,&nbsp;1,&nbsp;0,&nbsp;0,&nbsp;8))</p></td>
+</tr>
+</table>
+<p class=normal>&nbsp;</p>
+<p>
+</body>
+</html>

@@ -1,0 +1,860 @@
+ 
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 FINAL//EN">
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=ISO-8859-1">
+<TITLE>ScriptEase ISDK DevSpace Tips</TITLE>
+<!-- begin metaTags --> 
+<META NAME="keywords" CONTENT="javascript,ecmascript,ecma,scriptease,jscript,scripting,nombas,isdk,sedesk,web application development,embedded devices,distributed computing,peer-to-peer,p2p,peer,data mining,javascript.com,cycletraders,integrated sdk,script ease,java,c++,c,simplicity,power,palm,windows ce,integration: sdk,integration:sdk,scriptease:desktop,scriptease: desktop,se:desktop,se:desk,se:isdk, se: isdk,development tools,devtools">
+<META HTTP-EQUIV="DESCRIPTION" CONTENT="Nombas delivers simplicity and power through scripting by providing market-leading development tools and software for JavaScript and ECMAScript.">
+<!-- end metaTags --> <!-- begin navbar includes --> 
+<SCRIPT language=JavaScript1.2>
+  navbarPath = '../../'; 
+</SCRIPT>
+<SCRIPT language=JavaScript1.2 SRC="../../navbarData.js"></SCRIPT>
+<SCRIPT language=JavaScript1.2 SRC="../../navbarMenu.js"></SCRIPT>
+<SCRIPT language=JavaScript SRC="../../imgRollover.js"></SCRIPT>
+<!-- end navbar includes --> <!-- begin style and icon definition --> 
+<LINK REL="SHORTCUT ICON" HREF="../../nombas.ico">
+<STYLE> 
+A:hover { color:#941810;} 
+</STYLE>
+<!-- end style and icon definition --> 
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-1754630-10']);
+  _gaq.push(['_trackPageview']);
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+</HEAD>
+<BODY BGCOLOR="#06086F" LINK="#0000FF" VLINK="#800080" TEXT="#000000" TOPMARGIN=0 LEFTMARGIN=0 MARGINWIDTH=0 MARGINHEIGHT=0>
+<TABLE BORDER=0 CELLSPACING=0 CELLPADDING=0 WIDTH=213>
+  <TR VALIGN=TOP ALIGN=LEFT> 
+    <TD WIDTH=28 HEIGHT=4><IMG SRC="../../clearpixel.gif" WIDTH=28 HEIGHT=1 BORDER=0></TD>
+    <TD></TD>
+  </TR>
+  <TR VALIGN=TOP ALIGN=LEFT> 
+    <TD HEIGHT=60></TD>
+    <TD WIDTH=185 ALIGN=LEFT VALIGN=TOP><A HREF="../../index.htm"><IMG ID="Picture1" HEIGHT=60 WIDTH=185 SRC="../../logo.gif" BORDER=0></A></TD>
+  </TR>
+</TABLE>
+    <div id="nombas-legacy"></div>
+<TABLE BORDER=0 CELLSPACING=0 CELLPADDING=0>
+  <TR VALIGN=TOP ALIGN=LEFT> 
+    <TD WIDTH=30 HEIGHT=10><IMG SRC="../../clearpixel.gif" WIDTH=30 HEIGHT=1 BORDER=0></TD>
+    <TD></TD>
+  </TR>
+  <TR VALIGN=TOP ALIGN=LEFT> 
+    <TD></TD>
+    <TD WIDTH=582> 
+      <TABLE ID="Table1" BORDER=0 CELLSPACING=0 CELLPADDING=0 WIDTH=582>
+        <TR> 
+          <TD WIDTH=97> 
+            <P><A HREF="../../scripting/scripting.htm" 
+                            onmouseover="changeImages('scripting', '../../htab_scripting.gif'); popUp('elMenu1',event); return true;" 
+onmouseout="changeImages('scripting', '../../tab_scripting.gif'); popDown('elMenu1'); return true;"
+><IMG
+                             ID="scripting" HEIGHT=21 WIDTH=97 SRC="../../tab_scripting.gif" VSPACE=0 HSPACE=0 ALIGN="TOP" BORDER=0 name="scripting"></A> 
+          </TD>
+          <TD WIDTH=97> 
+            <P><A HREF="../../products/products.htm" 
+                            onmouseover="changeImages('products', '../../htab_products.gif'); popUp('elMenu2',event); return true;" 
+onmouseout="changeImages('products', '../../tab_products.gif'); popDown('elMenu2'); return true;"><IMG ID="products"
+                             HEIGHT=21 WIDTH=97 SRC="../../tab_products.gif" VSPACE=0 HSPACE=0 ALIGN="TOP" BORDER=0 name=products></A> 
+          </TD>
+          <TD WIDTH=97> 
+            <P><A HREF="../../purchase/purchase.htm" onmouseover="changeImages('purchase', '../../htab_purchase.gif');return true;" 
+onmouseout="changeImages('purchase', '../../tab_purchase.gif');return true;"><IMG ID="purchase"
+                             HEIGHT=21 WIDTH=97 SRC="../../tab_purchase.gif" VSPACE=0 HSPACE=0 ALIGN="TOP" BORDER=0 name=purchase></A> 
+          </TD>
+          <TD WIDTH=97> 
+            <P><A HREF="../../download/ndownload.htm" onmouseover="changeImages('download', '../../htab_download.gif');return true;" 
+onmouseout="changeImages('download', '../../tab_download.gif');return true;"><IMG ID="download"
+                             HEIGHT=21 WIDTH=97 SRC="../../tab_download.gif" VSPACE=0 HSPACE=0 ALIGN="TOP" BORDER=0 name=download></A> 
+          </TD>
+          <TD WIDTH=97> 
+            <P><a target="support" href="http://support.nombas.com/" onmouseover="changeImages('support', '../../htab_support.gif'); return true;" 
+onmouseout="changeImages('support', '../../tab_support.gif'); return true;"><IMG ID="support"
+                             HEIGHT=21 WIDTH=97 SRC="../../tab_support.gif" VSPACE=0 HSPACE=0 ALIGN="TOP" BORDER=0 name=support></A> 
+          </TD>
+          <TD WIDTH=97> 
+            <P><A HREF="../../company/company.htm" 
+                            onmouseover="changeImages('company', '../../htab_company.gif'); popUp('elMenu6',event); return true;" 
+onmouseout="changeImages('company', '../../tab_company.gif'); popDown('elMenu6'); return true;"><IMG ID="company"
+                             HEIGHT=21 WIDTH=97 SRC="../../tab_company.gif" VSPACE=0 HSPACE=0 ALIGN="TOP" BORDER=0 name=company></A> 
+          </TD>
+        </TR>
+      </TABLE>
+    </TD>
+  </TR>
+</TABLE>
+<TABLE BORDER=0 CELLSPACING=0 CELLPADDING=0 WIDTH=637>
+  <TR VALIGN=TOP ALIGN=LEFT> 
+    <TD WIDTH=5 HEIGHT=20><IMG SRC="../../clearpixel.gif" WIDTH=5 HEIGHT=1 BORDER=0></TD>
+    <TD WIDTH=632> 
+      <TABLE BORDER=0 CELLSPACING=0 CELLPADDING=0 WIDTH=632 HEIGHT=20 bgcolor="#FFFFFF">
+        <TR ALIGN=LEFT VALIGN=TOP> 
+          <TD> 
+            <TABLE BORDER=0 CELLSPACING=0 CELLPADDING=0 WIDTH=632>
+              <TR VALIGN=TOP ALIGN=LEFT> 
+                <TD WIDTH=20 HEIGHT=20 ALIGN=LEFT VALIGN=TOP><IMG ID="Picture12" HEIGHT=20 WIDTH=20 SRC="../../curve_topleft.gif" BORDER=0></TD>
+                <TD WIDTH=592><IMG SRC="../../clearpixel.gif" WIDTH=592 HEIGHT=1 BORDER=0></TD>
+                <TD WIDTH=20 ALIGN=LEFT VALIGN=TOP><IMG ID="Picture10" HEIGHT=20 WIDTH=20 SRC="../../curve_top.gif" BORDER=0></TD>
+              </TR>
+            </TABLE>
+          </TD>
+        </TR>
+      </TABLE>
+    </TD>
+  </TR>
+</TABLE>
+<TABLE BORDER=0 CELLSPACING=0 CELLPADDING=0 WIDTH=637>
+  <TR VALIGN=TOP ALIGN=LEFT> 
+    <TD HEIGHT=245></TD>
+    <TD WIDTH=632 COLSPAN=2 height="245"> 
+      <TABLE BORDER=0 CELLSPACING=0 CELLPADDING=0 WIDTH=632 HEIGHT=200 bgcolor="#FFFFFF">
+        <TR ALIGN=LEFT VALIGN=TOP> 
+          <TD height="236"> 
+            <TABLE BORDER=0 CELLSPACING=0 CELLPADDING=0 WIDTH=600>
+              <TR VALIGN=TOP ALIGN=LEFT> 
+                <TD WIDTH=14 HEIGHT=1><IMG SRC="../../clearpixel.gif" WIDTH=13 HEIGHT=1 BORDER=0></TD>
+                <TD WIDTH=586><IMG SRC="../../clearpixel.gif" WIDTH=316 HEIGHT=1 BORDER=0></TD>
+              </TR>
+              <TR VALIGN=TOP ALIGN=LEFT> 
+                <TD width="14"></TD>
+                <TD WIDTH=586> 
+                  <P ALIGN=LEFT><A HREF="../../index.htm"><FONT SIZE="-2" FACE="Verdana,Tahoma,Arial,Helvetica">Nombas</FONT></A><FONT SIZE="-2" FACE="Verdana,Tahoma,Arial,Helvetica"> 
+                    &gt; <a href="../index.htm">SE:ISDK DevSpace</a> &gt; <a href="../tips/index.htm">Tips</a> 
+                    &gt; Creating Dynamic Objects </FONT> 
+                </TD>
+              </TR>
+            </TABLE>
+            <TABLE BORDER=0 CELLSPACING=0 CELLPADDING=0 WIDTH=615>
+              <TR VALIGN=TOP ALIGN=LEFT> 
+                <TD WIDTH=15 HEIGHT=5><IMG SRC="../../clearpixel.gif" WIDTH=15 HEIGHT=1 BORDER=0></TD>
+                <TD></TD>
+              </TR>
+              <TR VALIGN=TOP ALIGN=LEFT> 
+                <TD HEIGHT=80></TD>
+                <TD WIDTH=600 ALIGN=LEFT VALIGN=TOP><IMG ID="Picture14" HEIGHT=80 WIDTH=600 SRC="../../devspace/bnr_devspace.gif" BORDER=0></TD>
+              </TR>
+              <TR VALIGN=TOP ALIGN=LEFT> 
+                <TD HEIGHT=135></TD>
+                <TD WIDTH=600 ALIGN=LEFT VALIGN=TOP height="135"> 
+                  <table width="100%" border="0">
+                    <tr> 
+                      <td colspan="1" height="9"><img SRC="../../clearpixel.gif" width="1" height="1"></td>
+                    </tr>
+                    <tr> 
+                      <td width="1" height="100%">&nbsp;</td>
+                      <td valign="top" width="100%"> 
+                        <p align="left"><font face="Verdana, Arial, Helvetica, sans-serif" size="3"><b>Creating 
+                          Dynamic Objects</b></font></p>
+                        <p><b><font face="Verdana, Arial, Helvetica, sans-serif" size="2">Contents</font></b></p>
+                        <blockquote> 
+                          <p> <font face="Verdana, Arial, Helvetica, sans-serif" size="2">Dynamic 
+                            Objects<br>
+                            Writing Dynamic Functions<br>
+                            Available Dynamic Properties<br>
+                            Building Your Own Classes<br>
+                            Prototype Vs _Prototype, Or What's The Deal With This?<br>
+                            Now Back To The Program<br>
+                            Let's Be Courteous, Ok?<br>
+                            Growth, Expansion, World Domination... Muhahahaha<br>
+                            Starting From Scratch<br>
+                            Your Grandfather's Pretty Stingy, Or Why Dynamic Properties 
+                            Don't Inherit<br>
+                            Leave Me Alone, You Bother Me, Kid</font></p>
+                        </blockquote>
+                        <p><font size="2" face="Verdana, Arial, Helvetica, sans-serif"><b>DYNAMIC 
+                          OBJECTS</b></font> 
+                        <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                          ScriptEase allows the Javascript programmer to change 
+                          how an object's properties are accessed. Let's say you 
+                          have an object 'x' which you created using this line 
+                          of code:</font></p>
+                        <p> <font face="Verdana, Arial, Helvetica, sans-serif" size="2">var 
+                          x = new Object();</font></p>
+                        <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                          Normally, whenever any property of 'x' is accessed or 
+                          written to, the interpreter runs its internal code which 
+                          looks up the value of the given property or changes 
+                          it. For example, if you use:</font></p>
+                        <p> <font face="Verdana, Arial, Helvetica, sans-serif" size="2">var 
+                          y = x.foo;</font></p>
+                        <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                          the internal code checks to see if 'x' has a property 
+                          called 'foo' and if so, assigns it to 'y', otherwise 
+                          it assigns the undefined value to 'y'.<br>
+                          &nbsp;</font></p>
+                        <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                          That is the usual behavior that everyone expects. However, 
+                          suppose instead you want to create a special object 
+                          that doesn't do these normal things. Instead, lets say 
+                          that you want to create a new object 'x' that behaves 
+                          differently.<br>
+                          'x' will have only the property 'color', and if you 
+                          assign to it, you want the color displayed by your monitor 
+                          to change. If you read from the property 'color', you 
+                          want it to check what the current color is and return 
+                          it. In this way, you can write programs that fight with 
+                          each other changing the color of your screen (what fun!). 
+                          This capability is what dynamic objects give you.<br>
+                          </font></p>
+                        <p> <font size="2" face="Verdana, Arial, Helvetica, sans-serif"><b>CREATING 
+                          A DYNAMIC OBJECT</b></font></p>
+                        <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                          What makes a dynamic object special? Good question. 
+                          A dynamic object is just like any other object, except 
+                          that it has some special properties which tell the ScriptEase 
+                          processor how to perform the tasks you want. The simplest<br>
+                          dynamic property is '_get'. When any member of an object 
+                          (except the dynamic properties) is read from, if the 
+                          object has a '_get' property, it is used to get the 
+                          value of the property. Here is a short example:</font></p>
+                        <p> <font face="Verdana, Arial, Helvetica, sans-serif" size="2">function 
+                          my_get(property)<br>
+                          {<br>
+                          &nbsp; Clib.printf(&quot;Someone tried to read property 
+                          '%s'\n&quot;,property);<br>
+                          &nbsp; return 10;<br>
+                          }<br>
+                          &nbsp;</font></p>
+                        <p> <font face="Verdana, Arial, Helvetica, sans-serif" size="2">var 
+                          x = new Object();<br>
+                          x._get = my_get;<br>
+                          &nbsp;</font></p>
+                        <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                          That's it, now 'x' is a dynamic object. Whenever anyone 
+                          tries to read a property of 'x', your function will 
+                          be called. So, if someone wrote 'a = x.foo', they are 
+                          trying to access the property 'foo' of 'x', and your 
+                          function is called. The parameter 'property' is a string 
+                          with the text of the property being accessed. The 'this' 
+                          value is set the object being manipulated. So in this 
+                          example, 'property' would have the value &quot;foo&quot; 
+                          and 'this' would be the same as 'x'. This example '_get' 
+                          property prints the name of the property being accessed 
+                          and then returns 10. So for this object, all properties 
+                          have the value of 10 and print a short message when 
+                          they are accessed.<br>
+                          </font></p>
+                        <p> <font size="2" face="Verdana, Arial, Helvetica, sans-serif"><b>WRITING 
+                          DYNAMIC FUNCTIONS</b></font></p>
+                        <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                          A couple of notes are in order. First, you may use the 
+                          ScriptEase toolkit API to perform the same tasks. jseCreateWrapperFunction() 
+                          and jseMemberWrapperFunction() will be useful in getting 
+                          the function you want to be called assigned to the member. 
+                          Second, both API and script code performs identically; 
+                          whatever value you return from your function is the 
+                          value that the member has THIS TIME. If someone accesses 
+                          the member again, and you return a different value, 
+                          that is OK! Remember that in ECMAScript, all functions 
+                          return a value. If you don't explicitly return one using 
+                          the return statement (or the equivelent API call), the 
+                          undefined value is returned.</font></p>
+                        <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                          I mentioned before that '_get' is not used to look up 
+                          dynamic properties. That means that when the interpretter 
+                          is looking to see if your object has a '_get' property, 
+                          it doesn't try to use your '_get' to do it (which wouldn't 
+                          make much sense.) It doesn't use '_get' for any other 
+                          dynamic property either.</font></p>
+                        <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                          Finally, what if you want to access the real members 
+                          in your object inside your '_get' function? You might 
+                          think that doing so would cause your '_get' to be called 
+                          again, and so on, leading to a big mess. Fortunately 
+                          that is not the case. Inside any dynamic function, that 
+                          particular dynamic function is turned off. So inside 
+                          '_get', if you access a member of your object, it does 
+                          the 'normal' thing. The standard way to read a property 
+                          inside your object is to use 'this[property]'. If you 
+                          want to write what I've referred to as the 'normal' 
+                          thing in ScriptEase, you might do this:<br>
+                          &nbsp;</font></p>
+                        <p> <font face="Verdana, Arial, Helvetica, sans-serif" size="2">function 
+                          normal_get(property)<br>
+                          {<br>
+                          &nbsp;&nbsp; return this[property];<br>
+                          }</font></p>
+                        <p> <font face="Verdana, Arial, Helvetica, sans-serif" size="2">var 
+                          x = new Object();<br>
+                          x._get = normal_get;<br>
+                          &nbsp;</font></p>
+                        <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                          This dynamic '_get' property just returns that value 
+                          of the property exactly like what normally happens (except 
+                          that it takes a lot longer).</font></p>
+                        <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                          Please note that only the dynamic property being called 
+                          is shut off. So if in your '_get' property you assign 
+                          a value to a property, your dynamic '_put' function 
+                          will be called if it exists.<br>
+                          </font></p>
+                        <p> <font size="2" face="Verdana, Arial, Helvetica, sans-serif"><b>AVAILABLE 
+                          DYNAMIC PROPERTIES</b></font></p>
+                        <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                          What object behaviors can you change? Glad you asked. 
+                          What follows is a description of each dynamic property, 
+                          including the property name you must assign it to, what 
+                          parameters it receives, and what the heck it is supposed 
+                          to do. For all dynamic properties, 'this' is set to 
+                          the object being manipulated. Finally, the dynamic property 
+                          replaces the existing behavior; it is not in addition 
+                          to it.<br>
+                          &nbsp;<font size="1"><br>
+                          </font></font> 
+                        <table width="100%" cellpadding="1" cellspacing="2" border="1">
+                          <tr> 
+                            <td valign=CENTER> 
+                              <p> <font size="1" face="Verdana, Arial, Helvetica, sans-serif"><b>SYNTAX</b></font> 
+                            </td>
+                            <td valign=CENTER> 
+                              <p> <font face="Verdana, Arial, Helvetica, sans-serif" size="1">function 
+                                ._get(property)</font> 
+                            </td>
+                          </tr>
+                          <tr> 
+                            <td valign=CENTER> 
+                              <p> <font size="1" face="Verdana, Arial, Helvetica, sans-serif"><b>DESCRIPTION</b></font> 
+                            </td>
+                            <td valign=CENTER> 
+                              <p><font face="Verdana, Arial, Helvetica, sans-serif" size="1"> 
+                                The '_get' dynamic property is called whenever 
+                                any property of the object is read from. It is 
+                                passed the property name being accessed as a parameter. 
+                                Whatever value is returned is taken to be the 
+                                properties' value THIS TIME. If you don't explicitly 
+                                return a value, the undefined value is returned.</font> 
+                            </td>
+                          </tr>
+                        </table>
+                        <font face="Verdana, Arial, Helvetica, sans-serif" size="1">&nbsp;<br>
+                        </font> 
+                        <table width="100%" cellpadding="1" cellspacing="2" border="1">
+                          <tr> 
+                            <td valign=CENTER> 
+                              <p> <font size="1" face="Verdana, Arial, Helvetica, sans-serif"><b>SYNTAX</b></font> 
+                            </td>
+                            <td valign=CENTER> 
+                              <p><font face="Verdana, Arial, Helvetica, sans-serif" size="1"> 
+                                function ._put(property,value)</font> 
+                            </td>
+                          </tr>
+                          <tr> 
+                            <td valign=CENTER> 
+                              <p> <font size="1" face="Verdana, Arial, Helvetica, sans-serif"><b>DESCRIPTION</b></font> 
+                            </td>
+                            <td valign=CENTER> 
+                              <p><font face="Verdana, Arial, Helvetica, sans-serif" size="1"> 
+                                The '_put' dynamic property is called whenever 
+                                any property is assigned a new value. The first 
+                                parameter is the property name being assigned 
+                                and the second parameter is the actual value being 
+                                assigned. The value could be anything, from a 
+                                number to a string to an object. No return value 
+                                is expected and is ignored if you provide one. 
+                                The default behavior is to just set the value 
+                                if the property in question is not read-only. 
+                                If it is read-only, nothing is done, but this 
+                                is not considered an error.</font> 
+                            </td>
+                          </tr>
+                        </table>
+                        <font face="Verdana, Arial, Helvetica, sans-serif" size="1">&nbsp;<br>
+                        </font> 
+                        <table width="100%" cellpadding="1" cellspacing="2" border="1">
+                          <tr> 
+                            <td valign=CENTER> 
+                              <p> <font size="1" face="Verdana, Arial, Helvetica, sans-serif"><b>SYNTAX</b></font> 
+                            </td>
+                            <td valign=CENTER> 
+                              <p><font face="Verdana, Arial, Helvetica, sans-serif" size="1"> 
+                                function ._canPut(property)</font> 
+                            </td>
+                          </tr>
+                          <tr> 
+                            <td valign=CENTER> 
+                              <p> <font size="1" face="Verdana, Arial, Helvetica, sans-serif"><b>DESCRIPTION</b></font> 
+                            </td>
+                            <td valign=CENTER> 
+                              <p><font face="Verdana, Arial, Helvetica, sans-serif" size="1"> 
+                                Before any value is put into a property, if you 
+                                have a '_canPut' dynamic property, it is called. 
+                                If you return False, the attempt to put the value 
+                                is ignored (but it is not considered to be an 
+                                error.) If True is returned, the put process continues 
+                                as normal. You can use this dynamic property as 
+                                a security guard to not allow certain properties 
+                                to be changed, or to put up a dialog box asking 
+                                for a password for examples. The default behavior 
+                                for this is to always return True. If you return 
+                                no value, True is assumed.</font> 
+                            </td>
+                          </tr>
+                        </table>
+                        <font face="Verdana, Arial, Helvetica, sans-serif" size="1">&nbsp;<br>
+                        </font> 
+                        <table width="100%" cellpadding="1" cellspacing="2" border="1">
+                          <tr> 
+                            <td valign=CENTER> 
+                              <p> <font size="1" face="Verdana, Arial, Helvetica, sans-serif"><b>SYNTAX</b></font> 
+                            </td>
+                            <td valign=CENTER> 
+                              <p><font face="Verdana, Arial, Helvetica, sans-serif" size="1"> 
+                                function ._hasProperty(property)</font> 
+                            </td>
+                          </tr>
+                          <tr> 
+                            <td valign=CENTER> 
+                              <p> <font size="1" face="Verdana, Arial, Helvetica, sans-serif"><b>DESCRIPTION</b></font> 
+                            </td>
+                            <td valign=CENTER> 
+                              <p><font face="Verdana, Arial, Helvetica, sans-serif" size="1"> 
+                                When Javascript it trying to resolve a variable 
+                                name in the script, it calls the 'hasProperty' 
+                                property of each object in the scope chain. If 
+                                the object has the property in question, True 
+                                is returned. The object's prototype is also searched. 
+                                If you return no value, False is assumed.&nbsp;</font></p>
+                              <p><font face="Verdana, Arial, Helvetica, sans-serif" size="1"> 
+                                NOTE: It is unlikely your object will ever end 
+                                up in the scope chain, so this property will probably 
+                                never be used.</font> 
+                            </td>
+                          </tr>
+                        </table>
+                        <font face="Verdana, Arial, Helvetica, sans-serif" size="1">&nbsp;<br>
+                        </font> 
+                        <table width="100%" cellpadding="1" cellspacing="2" border="1">
+                          <tr> 
+                            <td valign=CENTER> 
+                              <p> <font size="1" face="Verdana, Arial, Helvetica, sans-serif"><b>SYNTAX</b></font> 
+                            </td>
+                            <td valign=CENTER> 
+                              <p><font face="Verdana, Arial, Helvetica, sans-serif" size="1"> 
+                                function ._delete(property)</font> 
+                            </td>
+                          </tr>
+                          <tr> 
+                            <td valign=CENTER> 
+                              <p> <font size="1" face="Verdana, Arial, Helvetica, sans-serif"><b>DESCRIPTION</b></font> 
+                            </td>
+                            <td valign=CENTER> 
+                              <p><font face="Verdana, Arial, Helvetica, sans-serif" size="1"> 
+                                The '_delete' dynamic property is used whenever 
+                                the delete operator is used to delete an object's 
+                                property.&nbsp; The default behavior is to remove 
+                                the specified property if it exists and is not 
+                                marked as jseDontDelete.&nbsp;</font></p>
+                              <p><font face="Verdana, Arial, Helvetica, sans-serif" size="1"> 
+                                When an object itself is deleted (such as going 
+                                out of scope), the object's members are NOT deleted 
+                                individually.&nbsp; However, the 'delete' property 
+                                will be called with &quot;_delete&quot; as the 
+                                property name. This is a special courtesy to allow 
+                                object writers to destroy objects and can be considered 
+                                a destructor. However, if an object is part of 
+                                a cyclic loop there is no guarantee that the destructor 
+                                will be called. Currently, it is called in most 
+                                cases, but that may change in a later version. 
+                                For example:&nbsp;<br>
+                                &nbsp;</font></p>
+                              <p><font face="Verdana, Arial, Helvetica, sans-serif" size="1"> 
+                                var a.x = a;&nbsp;<br>
+                                a._delete = my_delete_function;&nbsp;<br>
+                                &nbsp;</font></p>
+                              <p><font face="Verdana, Arial, Helvetica, sans-serif" size="1"> 
+                                In this case, 'a' may never have its destructor 
+                                called. You have been warned.&nbsp;<br>
+                                &nbsp;</font></p>
+                              <p><font face="Verdana, Arial, Helvetica, sans-serif" size="1"> 
+                                A note to toolkit users: jseDontDelete is checked 
+                                only by the Javascript language delete operator, 
+                                not by the jseDeleteMember() API call.&nbsp;</font> 
+                            </td>
+                          </tr>
+                        </table>
+                        <font face="Verdana, Arial, Helvetica, sans-serif" size="1">&nbsp;<br>
+                        </font> 
+                        <table width="100%" cellpadding="1" cellspacing="2" border="1">
+                          <tr> 
+                            <td valign=CENTER> 
+                              <p> <font size="1" face="Verdana, Arial, Helvetica, sans-serif"><b>SYNTAX</b></font> 
+                            </td>
+                            <td valign=CENTER> 
+                              <p><font face="Verdana, Arial, Helvetica, sans-serif" size="1"> 
+                                function ._defaultValue([hint])</font> 
+                            </td>
+                          </tr>
+                          <tr> 
+                            <td valign=CENTER> 
+                              <p> <font size="1" face="Verdana, Arial, Helvetica, sans-serif"><b>DESCRIPTION</b></font> 
+                            </td>
+                            <td valign=CENTER> 
+                              <p><font face="Verdana, Arial, Helvetica, sans-serif" size="1"> 
+                                When an object is converted to a primitive type, 
+                                this routine is called to get its value. A single 
+                                parameter is optionally passed to it, called 'hint'. 
+                                'hint' is either a string or a number. Its value 
+                                is unimportant, only its type is; the 'hint's 
+                                type is the same as what we would like the return 
+                                from '_defaultValue' to be. For example, if the 
+                                hint is a string, we would like a string. You 
+                                may check the type of the 'hint' by using 'typeof 
+                                hint'.&nbsp;</font></p>
+                              <p><font face="Verdana, Arial, Helvetica, sans-serif" size="1"> 
+                                The default behavior is to check the object for 
+                                either a 'toString()' method or a 'valueOf()' 
+                                method, and call those if found. If the hint is 
+                                a string, 'toString()' is looked for first, else 
+                                'valueOf()' is looked for first.&nbsp;</font></p>
+                              <p><font face="Verdana, Arial, Helvetica, sans-serif" size="1"> 
+                                These two functions are not internal functions, 
+                                so '_defaultValue' searches the prototype for 
+                                them. The easiest way to implement this functionality 
+                                is to leave '_defaultValue' alone and simply provide 
+                                these two functions in your prototype.</font> 
+                            </td>
+                          </tr>
+                        </table>
+                        <font face="Verdana, Arial, Helvetica, sans-serif" size="1">&nbsp;<br>
+                        </font> 
+                        <table width="100%" cellpadding="1" cellspacing="2" border="1">
+                          <tr> 
+                            <td valign=CENTER> 
+                              <p> <font size="1" face="Verdana, Arial, Helvetica, sans-serif"><b>SYNTAX</b></font> 
+                            </td>
+                            <td valign=CENTER> 
+                              <p><font face="Verdana, Arial, Helvetica, sans-serif" size="1"> 
+                                function ._construct(...)</font> 
+                            </td>
+                          </tr>
+                          <tr> 
+                            <td valign=CENTER> 
+                              <p> <font size="1" face="Verdana, Arial, Helvetica, sans-serif"><b>DESCRIPTION</b></font> 
+                            </td>
+                            <td valign=CENTER> 
+                              <p><font face="Verdana, Arial, Helvetica, sans-serif" size="1"> 
+                                When an object is used as a constructor, it can 
+                                only do so if it has the '_construct' property. 
+                                By default, the '_construct' property is the same 
+                                as the '_call' property, but it can be changed. 
+                                Whatever parameters were part of the 'new' call 
+                                are passed along.</font></p>
+                              <p> <font face="Verdana, Arial, Helvetica, sans-serif" size="1">&nbsp;<br>
+                                'this' is setup already as a blank slate object 
+                                with the prototype already copied in. You can 
+                                just fill it in. If you return no value or don't 
+                                return an object, the filled-in 'this' object 
+                                becomes the result of the 'new' call. Alternately, 
+                                you can return an object which becomes the result.&nbsp;</font> 
+                            </td>
+                          </tr>
+                        </table>
+                        <font face="Verdana, Arial, Helvetica, sans-serif" size="1">&nbsp;<br>
+                        </font> 
+                        <table width="100%" cellpadding="1" cellspacing="2" border="1">
+                          <tr> 
+                            <td valign=CENTER> 
+                              <p> <font size="1" face="Verdana, Arial, Helvetica, sans-serif"><b>SYNTAX</b></font> 
+                            </td>
+                            <td valign=CENTER> 
+                              <p><font face="Verdana, Arial, Helvetica, sans-serif" size="1"> 
+                                function ._call(...)&nbsp;</font> 
+                            </td>
+                          </tr>
+                          <tr> 
+                            <td valign=CENTER> 
+                              <p> <font size="1" face="Verdana, Arial, Helvetica, sans-serif"><b>DESCRIPTION</b></font> 
+                            </td>
+                            <td valign=CENTER> 
+                              <p><font face="Verdana, Arial, Helvetica, sans-serif" size="1"> 
+                                Whenever a function is called, the function's 
+                                '_call' property is used to determine what routine 
+                                to call. You may set up any object's '_call' dynamic 
+                                property to point to a function to be called. 
+                                Whatever parameters were passed to the call are 
+                                received. Whatever value is returned from the 
+                                call is the result of the call.&nbsp;<br>
+                                </font> 
+                            </td>
+                          </tr>
+                        </table>
+                        <font face="Verdana, Arial, Helvetica, sans-serif" size="1">&nbsp; 
+                        </font> 
+                        <p></p>
+                        <p> <font size="2" face="Verdana, Arial, Helvetica, sans-serif"><b>BUILDING 
+                          YOUR OWN CLASSES</b><br>
+                          &nbsp;<br>
+                          Using the capabilities of ScriptEase, it is easy to 
+                          build your own classes. You can build a class from scratch 
+                          by defining a new variable and filling in all of the 
+                          fields as described below. Alternately, you can start 
+                          building by declaring a function with the name of your 
+                          class. That function will automatically become the constructor 
+                          for your new class.</font></p>
+                        <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                          The most basic operation that your new class will perform 
+                          is to construct new objects of your class. Let us start 
+                          with a minimal beginning:<br>
+                          &nbsp;</font></p>
+                        <p> <font face="Verdana, Arial, Helvetica, sans-serif" size="2">&nbsp;&nbsp; 
+                          function MyClass()<br>
+                          &nbsp;{<br>
+                          &nbsp;}</font></p>
+                        <p> <font face="Verdana, Arial, Helvetica, sans-serif" size="2">&nbsp;MyClass.prototype.foo 
+                          = 10;<br>
+                          &nbsp;</font></p>
+                        <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                          Now, we can construct an object of MyClass by using 
+                          this code:<br>
+                          &nbsp;</font></p>
+                        <p> <font face="Verdana, Arial, Helvetica, sans-serif" size="2">&nbsp;&nbsp; 
+                          var myobj = new MyClass();<br>
+                          &nbsp;</font></p>
+                        <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                          What actually happens in this call? First a new object 
+                          is created which will be the object that is generated 
+                          by the new operator. Next, its internal prototype property 
+                          (_prototype) is set to point to the same object as 'MyClass.prototype'. 
+                          Finally, MyClass() is called with this newly constructed 
+                          object as the 'this' variable. MyClass() could do any 
+                          initialization of this object before it returns.<br>
+                          &nbsp;<br>
+                          <b>PROTOTYPE VS _PROTOTYPE, or WHAT'S THE DEAL WITH 
+                          THIS?</b></font></p>
+                        <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                          The difference between 'prototype' and '_prototype' 
+                          can be confusing. After all, they look similar. Let's 
+                          start with '_prototype.' EVERY object has an '_prototype' 
+                          property. Whenever a member of that object is read from, 
+                          if the object doesn't seem to contain that property, 
+                          the '_prototype' object is searched to see if it contains 
+                          it, and if it does, we use that one. This allows a form 
+                          of inheritance. If that object doesn't contain it, its 
+                          '_prototype' is searched, and so on until a '_prototype' 
+                          that is null is encountered, which signals the end of 
+                          the chain.</font></p>
+                        <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                          So what the heck is 'prototype' without the underscore? 
+                          Think of&nbsp; 'prototype' as a construction area. You 
+                          use it to set up the '_prototype' of any object derived 
+                          from it using the new operator. Whenever any object 
+                          is created using new, its '_prototype' is set to point 
+                          back to the 'prototype' of the parent. A bit confusing, 
+                          huh? Its best to forget about '_prototype' and just 
+                          remember that you set up the 'prototype' of the new 
+                          class you are building and when you are done, objects 
+                          created from that class will inherit that prototype.&nbsp;</font></p>
+                        <p> <font size="2" face="Verdana, Arial, Helvetica, sans-serif"><b>NOW 
+                          BACK TO THE PROGRAM</b><br>
+                          &nbsp;<br>
+                          So the example we gave above constructs a new object, 
+                          but the constructor doesn't do anything with it. The 
+                          only difference between this object and any old generic 
+                          object so far is that its '_prototype' points to an 
+                          object with one member: foo. That means that this object 
+                          will act just like any old other object, except if someone 
+                          tries to read its member 'foo', it will find that it 
+                          is already there, inherited through the prototype. In 
+                          fact, all members of this class will have that same 
+                          member foo. It would be a good idea to grab a book on 
+                          Javascript to see how prototypes work and some good 
+                          uses you can put them too. The most common use it to 
+                          stick in functions which you'd like all members of the 
+                          object to have.</font></p>
+                        <p> <font size="2" face="Verdana, Arial, Helvetica, sans-serif"><b>LET'S 
+                          BE COURTEOUS, OK?</b></font></p>
+                        <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                          All of the native Javascript objects have a _class property. 
+                          That is just a text string that holds the name of the 
+                          class.<br>
+                          It isn't used for anything by the language, but it is 
+                          a courtesy to programmers who might want to use your 
+                          class; if something isn't happening the way they expect, 
+                          they can easily print out the class string to find out 
+                          what is going wrong (huh, I expected class &quot;Foo&quot; 
+                          but it is &quot;String&quot; instead - oh, I see, I 
+                          used the wrong variable... oops.) You can do this by 
+                          simply assigning an appropriate text string in the prototype 
+                          like this:<br>
+                          &nbsp;</font></p>
+                        <p> <font face="Verdana, Arial, Helvetica, sans-serif" size="2">&nbsp;&nbsp; 
+                          MyClass.prototype._class = &quot;MyClass&quot;;<br>
+                          </font></p>
+                        <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                          Although class looks like a dynamic property because 
+                          of the '_', it is never used by the Javascript interpretter. 
+                          This allows you to treat it just likely a regular class 
+                          member and inherit it through the prototype since you 
+                          will be the only one ever accessing it. If you want, 
+                          you can set the _class&nbsp;on each individual object 
+                          in the constructor instead.</font></p>
+                        <p> <font face="Verdana, Arial, Helvetica, sans-serif" size="2">&nbsp;<br>
+                          <b>GROWTH, EXPANSION, WORLD DOMINATION... MUHAHAHAHA</b></font></p>
+                        <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                          Let's expand our class to have a function like we talked 
+                          about above. Also, we'll make sure it is only called 
+                          on objects of our class.<br>
+                          &nbsp;</font></p>
+                        <p> <font face="Verdana, Arial, Helvetica, sans-serif" size="2">&nbsp;&nbsp; 
+                          function foo()<br>
+                          &nbsp;{<br>
+                          &nbsp;&nbsp;&nbsp; Clib.assert( this._class==&quot;MyClass&quot; 
+                          );<br>
+                          &nbsp;&nbsp;&nbsp; Clib.printf(&quot;Hi there!\n&quot;);<br>
+                          &nbsp;}<br>
+                          &nbsp;MyClass.prototype.hello = foo;<br>
+                          &nbsp;</font></p>
+                        <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                          There, add that to the previous code, and now new class 
+                          objects have a function that can be called! You'd do 
+                          it just like this:<br>
+                          &nbsp;</font></p>
+                        <p> <font face="Verdana, Arial, Helvetica, sans-serif" size="2">&nbsp;myobj.hello();</font></p>
+                        <p> <font face="Verdana, Arial, Helvetica, sans-serif" size="2">&nbsp;<br>
+                          <b>STARTING FROM SCRATCH</b></font></p>
+                        <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                          You may have noticed that you can still call MyClass() 
+                          just like any other function, only in this case the 
+                          'this' property is set to the global object. That's 
+                          because generic functions have both a '_call' and '_construct' 
+                          method. In each case, both are just set up to call the 
+                          function. BUT, you can redirect either, so that a different 
+                          function will be invoced for a call than will be for 
+                          a constructor. The easiest way is to start with a blank 
+                          object and explicitly assign these properties.<br>
+                          &nbsp;</font></p>
+                        <p> <font face="Verdana, Arial, Helvetica, sans-serif" size="2">&nbsp;&nbsp; 
+                          function MyClassConstructor()<br>
+                          &nbsp; {<br>
+                          &nbsp; }</font></p>
+                        <p> <font face="Verdana, Arial, Helvetica, sans-serif" size="2">&nbsp; 
+                          var MyClass;<br>
+                          &nbsp; MyClass._construct = MyClassConstructor;<br>
+                          &nbsp;</font></p>
+                        <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                          There, now your class exists, and new objects can be 
+                          constructed from it. However, if anyone tries to call 
+                          it, an error will be generated. You are safe to play 
+                          around with the 'this' if you want because you know 
+                          it will always be a newly constructed object ready for 
+                          you to extend.</font></p>
+                        <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                          It is possible to completely ignore the 'this' object 
+                          in a constructor and build your own up from scratch! 
+                          To do this, simple build an object in any way you like 
+                          and return it (using the return statement.) It will 
+                          be the result of the constructor and the original object 
+                          will be thrown away.<br>
+                          &nbsp;<br>
+                          <b>YOUR GRANDFATHER'S PRETTY STINGEE, or WHY DYNAMIC 
+                          PROPERTIES DON'T INHERIT</b></font></p>
+                        <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                          You want your class objects to have a dynamic property, 
+                          perhaps a '_get'. Ahah, you say! I'll stick it in the 
+                          prototype and all my objects will inherit it. Unfortunately, 
+                          you try it and it doesn't work. There are a number of 
+                          reasons for this. First, it makes it hard to track bugs, 
+                          since a user may have an object that doesn't seem to 
+                          have a dynamic property, but acts weird nonetheless. 
+                          Second, the dynamic properties are just the regular 
+                          Javascript internal properties given accessable names. 
+                          Although it might be reasonable to search for them in 
+                          the prototype, it is just as reasonable to treat them 
+                          as internal to the particular object. Third, performance 
+                          would be negatively impacted by having to search prototype 
+                          chains for these properties. Thus, the current decision 
+                          is that they DON'T inherit.</font></p>
+                        <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                          So, how do you get around this? Simple, inside your 
+                          constructor you can do any initializations on the object 
+                          before you finish. So you might write your constructor 
+                          like this:<br>
+                          &nbsp;</font></p>
+                        <p> <font face="Verdana, Arial, Helvetica, sans-serif" size="2">&nbsp;&nbsp; 
+                          function MyClassConstructor()<br>
+                          &nbsp; {<br>
+                          &nbsp;&nbsp;&nbsp;&nbsp; this._get = MyDynamicGetFunction;<br>
+                          &nbsp; }<br>
+                          &nbsp;<br>
+                          <b>LEAVE ME ALONE, YOU BOTHER ME, KID.</b></font></p>
+                        <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2">Well, 
+                          that's it, all the information you need to start writing 
+                          your own classes, perhaps that even use dynamic properties.</font></p>
+                        <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2">To 
+                          help you, Nombas has written a number of sample classes 
+                          in both Javascript and using the C++ ScriptEase ISDK 
+                          toolkit API. These dynamic-object samples ship with 
+                          the ISDK as files ISDK\SAMPLES\OBJSAMPS\OBJECT?.C. </font></p>
+                        <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2">For 
+                          ScriptEase:Desktop you can find JavaScript source versions 
+                          of these samples as OBJECT?.JSE. Take a look at them 
+                          to see how you might go about writing your own.</font></p>
+                        </td>
+                    </tr>
+                  </table>
+                </TD>
+              </TR>
+            </TABLE>
+          </TD>
+        </TR>
+      </TABLE>
+    </TD>
+  </TR>
+  <TR VALIGN=TOP ALIGN=LEFT> 
+    <TD HEIGHT=2></TD>
+    <TD WIDTH=632 COLSPAN=2 height="2"> 
+      <TABLE BORDER=0 CELLSPACING=0 CELLPADDING=0 WIDTH=632 HEIGHT=20 bgcolor="#FFFFFF">
+        <TR ALIGN=LEFT VALIGN=TOP> 
+          <TD> 
+            <TABLE BORDER=0 CELLSPACING=0 CELLPADDING=0 WIDTH=632>
+              <TR VALIGN=TOP ALIGN=LEFT> 
+                <TD WIDTH=20 HEIGHT=2 ALIGN=LEFT VALIGN=TOP><IMG ID="Picture13" HEIGHT=20 WIDTH=20 SRC="../../curve_botleft.gif" BORDER=0></TD>
+                <TD WIDTH=592 height="2"><IMG SRC="../../clearpixel.gif" WIDTH=592 HEIGHT=1 BORDER=0></TD>
+                <TD WIDTH=20 ALIGN=LEFT VALIGN=TOP height="2"><IMG ID="Picture11" HEIGHT=20 WIDTH=20 SRC="../../curve_bot.gif" BORDER=0></TD>
+              </TR>
+            </TABLE>
+          </TD>
+        </TR>
+      </TABLE>
+    </TD>
+  </TR>
+  <TR VALIGN=TOP ALIGN=LEFT> 
+    <TD WIDTH=5 HEIGHT=6><IMG SRC="../../clearpixel.gif" WIDTH=5 HEIGHT=1 BORDER=0></TD>
+    <TD WIDTH=613><IMG SRC="../../clearpixel.gif" WIDTH=613 HEIGHT=1 BORDER=0></TD>
+    <TD WIDTH=19><IMG SRC="../../clearpixel.gif" WIDTH=19 HEIGHT=1 BORDER=0></TD>
+  </TR>
+  <TR VALIGN=TOP ALIGN=LEFT> 
+    <TD WIDTH=618 COLSPAN=2> 
+      <P ALIGN=RIGHT><A HREF="../../index.htm"><FONT COLOR="#FFFFFF" SIZE="-2" FACE="Verdana,Tahoma,Arial,Helvetica">Home</FONT></A><FONT COLOR="#FFFFFF" SIZE="-2" FACE="Verdana,Tahoma,Arial,Helvetica"> 
+        | </FONT><A
+                 HREF="../../scripting/scripting.htm"><FONT COLOR="#FFFFFF" SIZE="-2" FACE="Verdana,Tahoma,Arial,Helvetica">Scripting</FONT></A><FONT COLOR="#FFFFFF" SIZE="-2" FACE="Verdana,Tahoma,Arial,Helvetica"> 
+        | </FONT><A
+                 HREF="../../products/products.htm"><FONT COLOR="#FFFFFF" SIZE="-2" FACE="Verdana,Tahoma,Arial,Helvetica">Products</FONT></A><FONT COLOR="#FFFFFF" SIZE="-2" FACE="Verdana,Tahoma,Arial,Helvetica"> 
+        | </FONT><A
+                 HREF="../../purchase/purchase.htm"><FONT COLOR="#FFFFFF" SIZE="-2" FACE="Verdana,Tahoma,Arial,Helvetica">Purchase</FONT></A><FONT COLOR="#FFFFFF" SIZE="-2" FACE="Verdana,Tahoma,Arial,Helvetica"> 
+        | </FONT><A
+                 HREF="../../download/ndownload.htm"><FONT COLOR="#FFFFFF" SIZE="-2" FACE="Verdana,Tahoma,Arial,Helvetica">Download</FONT></A><FONT COLOR="#FFFFFF" SIZE="-2" FACE="Verdana,Tahoma,Arial,Helvetica"> 
+        | </FONT><A
+                 HREF="http://support.nombas.com/"><FONT COLOR="#FFFFFF" SIZE="-2" FACE="Verdana,Tahoma,Arial,Helvetica">Support</FONT></A><FONT COLOR="#FFFFFF" SIZE="-2" FACE="Verdana,Tahoma,Arial,Helvetica"> 
+        | </FONT><A HREF="../../company/company.htm"> <FONT COLOR="#FFFFFF" SIZE="-2" FACE="Verdana,Tahoma,Arial,Helvetica">Company</FONT></A><FONT COLOR="#FFFFFF" SIZE="-2" FACE="Verdana,Tahoma,Arial,Helvetica"><BR>
+        <BR>
+        Copyright &#169;2001, Nombas, Inc. All Rights Reserved.<BR>
+        Questions? Visit </FONT><A HREF="http://support.nombas.com/"><FONT COLOR="#FFFFFF" SIZE="-2" FACE="Verdana,Tahoma,Arial,Helvetica">http://support.nombas.com/</FONT></A> 
+    </TD>
+    <TD></TD>
+  </TR>
+</TABLE>
+<SCRIPT language=JavaScript1.2>
+  display_nombas_legacy_message();
+</SCRIPT>
+</BODY>
+</HTML>

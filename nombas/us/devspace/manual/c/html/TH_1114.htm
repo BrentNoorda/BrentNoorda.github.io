@@ -1,0 +1,69 @@
+<html>
+<head>
+<title>SimpleDataset nextRecord()</title>
+<link rel="stylesheet" href="semanualstyles.css" type="text/css">
+<style type="text/css">
+ p { margin-top: 0; margin-bottom: 0; }
+</style>
+<script language="JavaScript" src="TrueHelp.js"></script>
+</head>
+<body onload="thload()">
+<div id=ienav>
+<ilayer id=nsnav>
+<br>
+<center>
+<p class=normal><a href="seisdkc-toc.htm" target="left">contents</a> &nbsp; <a href="seisdkc-index.htm" target="left">index</a> &nbsp; <a href="TH_1113.htm">previous</a> &nbsp; <a href="TH_1115.htm">next</a></p>
+</center>
+<br>
+<hr noshade size=1>
+</ilayer>
+</div>
+<p class=sereffunclevel4>SimpleDataset nextRecord()</p>
+<table cellpadding=0>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>syntax:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=sesyntax>simpledataset.nextRecord()<span class=truehelp-xe></span></p></td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>return:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>object - the next record in the <span class=secodephrase>SimpleDataset</span>.  If there is no next record, <span class=secodephrase>null</span> is returned.</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>description:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>This method moves the current record forward in the <span class=secodephrase>SimpleDataset</span> and returns the new current record.  If the previous current record was the last record or the <span class=secodephrase>SimpleDataset</span> is empty, <span class=secodephrase>null</span> is returned.</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>see:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara><span class=secodephrase>#include &lt;smdtset.jsh&gt;</span>, <span class=sejumptopic><a href="TH_1113.htm">SimpleDataset currentRecord()</a></span>, <span class=sejumptopic><a href="TH_1115.htm">SimpleDataset prevRecord()</a></span>, <span class=sejumptopic><a href="TH_1116.htm">SimpleDataset firstRecord()</a></span>, <span class=sejumptopic><a href="TH_1117.htm">SimpleDataset lastRecord()</a></span></p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>example:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=secodelines>//&nbsp;get&nbsp;the&nbsp;next&nbsp;record</p>
+<p class=secodelines>var&nbsp;rec&nbsp;=&nbsp;ds.nextRecord();</p>
+<p class=secodelines>&nbsp;</p>
+<p class=secodelines>//&nbsp;so&nbsp;long&nbsp;as&nbsp;the&nbsp;record&nbsp;isn't&nbsp;null,&nbsp;print&nbsp;out&nbsp;all</p>
+<p class=secodelines>//&nbsp;of&nbsp;the&nbsp;fields&nbsp;of&nbsp;the&nbsp;object</p>
+<p class=secodelines>if(&nbsp;null&nbsp;!=&nbsp;rec&nbsp;)</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;for(&nbsp;var&nbsp;prop&nbsp;in&nbsp;rec&nbsp;)</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Clib.printf(prop&nbsp;+&nbsp;"&nbsp;=&nbsp;"&nbsp;+&nbsp;rec[prop]&nbsp;+&nbsp;"\n");</p></td>
+</tr>
+</table>
+<p class=normal>&nbsp;</p>
+<hr noshade size=1>
+<p class=normal><a href="TH_1115.htm"><img src="button.png" border=0></a><a href="TH_1115.htm" style="text-decoration:none;">SimpleDataset prevRecord()</a></p>
+<p>
+</body>
+</html>

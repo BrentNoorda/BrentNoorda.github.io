@@ -1,0 +1,66 @@
+<html>
+<head>
+<title>seMakeStack</title>
+<link rel="stylesheet" href="semanualstyles.css" type="text/css">
+<style type="text/css">
+ p { margin-top: 0; margin-bottom: 0; }
+</style>
+<script language="JavaScript" src="TrueHelp.js"></script>
+</head>
+<body onload="thload()">
+<div id=ienav>
+<ilayer id=nsnav>
+<br>
+<center>
+<p class=normal><a href="seisdkj-toc.htm" target="left">contents</a> &nbsp; <a href="seisdkj-index.htm" target="left">index</a> &nbsp; <a href="TH_51.htm">previous</a> &nbsp; <a href="TH_53.htm">next</a></p>
+</center>
+<br>
+<hr noshade size=1>
+</ilayer>
+</div>
+<p class=sereffunclevel3>seMakeStack</p>
+<p class=sereffunclevel3-p>&nbsp;</p>
+<table cellpadding=0>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>syntax:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=sesyntax>&nbsp;&nbsp;&nbsp;SEObject</p>
+<p class=sesyntax>SEContext.seMakeStack();</p></td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>where:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>None</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>return:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>A handle to the created object (stack).</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>description:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>This call creates a new stack. The returned object handle follows the standard object lifetime rules described in chapter VIII.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>A stack is an object and can be used wherever an object can be used. However, you probably should not, as stacks are significantly slower to manipulate than objects. Stacks do have the benefit of guaranteeing that members will remain in the order they are created, so that SE.INDEX(0) is always the first member created, SE.INDEX(1) is the second, and so forth. Regular objects do not have this property. Stacks are used when needing to pass a list of items to the API, such as the parameters or the scope chain to <span class=secodephrase>seEval</span>.</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>see:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara><span class=sepopuptopic><a href="TH_51.htm" onClick="return thwindow('TH_51.htm', 'GenPopup')">seMakeObject</a></span>, <span class=sepopuptopic><a href="TH_62.htm" onClick="return thwindow('TH_62.htm', 'GenPopup')">seEval</a></span></p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+</table>
+<hr noshade size=1>
+<p class=normal><a href="TH_53.htm"><img src="button.png" border=0></a><a href="TH_53.htm" style="text-decoration:none;">sePutWrapper</a></p>
+<p>
+</body>
+</html>

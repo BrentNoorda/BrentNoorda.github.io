@@ -1,0 +1,46 @@
+<html>
+<head>
+<title>#define <name> <body>|<name>(<args>) <body>#undef <name></title>
+<link rel="stylesheet" href="semanualstyles.css" type="text/css">
+<style type="text/css">
+ p { margin-top: 0; margin-bottom: 0; }
+</style>
+<script language="JavaScript" src="TrueHelp.js"></script>
+</head>
+<body onload="thload()">
+<div id=ienav>
+<ilayer id=nsnav>
+<br>
+<center>
+<p class=normal><a href="seisdkj-toc.htm" target="left">contents</a> &nbsp; <a href="seisdkj-index.htm" target="left">index</a> &nbsp; <a href="TH_183.htm">previous</a> &nbsp; <a href="TH_185.htm">next</a></p>
+</center>
+<br>
+<hr noshade size=1>
+</ilayer>
+</div>
+<p class=heading-4>#define &lt;name&gt; &lt;body&gt;|&lt;name&gt;(&lt;args&gt;) &lt;body&gt;<br>
+#undef &lt;name&gt;</p>
+<p class=senormalpara>The <span class=secodephrase>#define</span> command defines a preprocessor macro.  When the preprocessor encounters the macro name, it replaces it with the tokens in the specified body.  This directive can also be used to defined parameterized macros.  The Nombas preprocessor follows the same rules as C regarding the scanning and rescanning of macro expansions.  Once a macro is expanded the preprocessor will rescan the resulting tokens for other defined macros.  If other macros are found during the rescanning phase, they are expanded and scanned recursively.  If a macro is found while scanning its own expansion, directly or as a result of recursion, that macro is not expanded.  For instance, given the following macro definitions:</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=secodelinesindented>#define&nbsp;A&nbsp;B&nbsp;B</p>
+<p class=secodelinesindented>#define&nbsp;B&nbsp;C&nbsp;C</p>
+<p class=secodelinesindented>#define&nbsp;C&nbsp;A&nbsp;A</p>
+<p class=senormalpara>The code </p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=secodelinesindented><span class=secodephrase>A&nbsp;B&nbsp;C</span>&nbsp;</p>
+<p class=senormalpara>will be expanded into </p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=secodelinesindented><span class=secodephrase>A&nbsp;A&nbsp;A&nbsp;A&nbsp;A&nbsp;A&nbsp;A&nbsp;A&nbsp;B&nbsp;B&nbsp;B&nbsp;B&nbsp;B&nbsp;B&nbsp;B&nbsp;B&nbsp;C&nbsp;C&nbsp;C&nbsp;C&nbsp;C&nbsp;C&nbsp;C&nbsp;C</span>&nbsp;</p>
+<p class=senormalpara>When defining parameterized macros, the &#8216;#&#8217; character can be used to turn macro parameters into string tokens.  For example, the following code results in <span class=secodephrase>Hello World!</span> being printed to standard output:</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=secodelinesindented>#define&nbsp;FOO(x)&nbsp;#x</p>
+<p class=secodelinesindented>System.out.println(FOO(Hello&nbsp;World!));</p>
+<p class=senormalpara>&nbsp;</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>The <span class=secodephrase>#undef</span> command is used to undefined a macro.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<hr noshade size=1>
+<p class=normal><a href="TH_185.htm"><img src="button.png" border=0></a><a href="TH_185.htm" style="text-decoration:none;">#if <constant expression>#elif <constant expression>#ifdef <name>#ifndef <name>#else#endif</a></p>
+<p>
+</body>
+</html>

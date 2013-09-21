@@ -1,0 +1,33 @@
+<html>
+<head>
+<title>SECONTINUEFUNC</title>
+<link rel="stylesheet" href="semanualstyles.css" type="text/css">
+<style type="text/css">
+ p { margin-top: 0; margin-bottom: 0; }
+</style>
+<script language="JavaScript" src="TrueHelp.js"></script>
+</head>
+<body onload="thload()">
+<div id=ienav>
+<ilayer id=nsnav>
+<br>
+<center>
+<p class=normal><a href="seisdkc-toc.htm" target="left">contents</a> &nbsp; <a href="seisdkc-index.htm" target="left">index</a> &nbsp; <a href="TH_195.htm">previous</a> &nbsp; <a href="TH_197.htm">next</a></p>
+</center>
+<br>
+<hr noshade size=1>
+</ilayer>
+</div>
+<p class=heading-2>SECONTINUEFUNC</p>
+<p class=heading-2-p>&nbsp;</p>
+<p class=senormalpara>The proper place to put a debugger hook is in the <span class=secodephrase>seContinueFunc</span> specified in your ScriptEase <span class=secodephrase>seContextParams</span> structure. This function is called after each statement is processed. An alternative would be to evaluate a script using <span class=secodephrase>seEval</span> with the <span class=secodephrase>SE_START</span> option and do debugging work after each call to <span class=secodephrase>seExec</span>. The problem with this alternative is that calls to wrapper functions are atomic. Therefore, if a wrapper function itself invokes code, such as a script call to <span class=secodephrase>eval()</span>, your debugging work would not be called during that code.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>The debugger must regain control after each statement to be useful. The easiest way to force this is to use <span class=secodephrase>seGetContextParams</span> and set the <span class=secodephrase>SE_OPT_DEBUGGER</span> flag on, like this:</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=secodelinesindented>struct&nbsp;seContextParams&nbsp;*params&nbsp;=&nbsp;seGetContextParams(se);</p>
+<p class=secodelinesindented>params-&gt;seOptions&nbsp;|=&nbsp;SE_OPT_DEBUGGER;</p>
+<hr noshade size=1>
+<p class=normal><a href="TH_197.htm"><img src="button.png" border=0></a><a href="TH_197.htm" style="text-decoration:none;">THE SIMPLE DEBUGGER</a></p>
+<p>
+</body>
+</html>

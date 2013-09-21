@@ -1,0 +1,83 @@
+<html>
+<head>
+<title>Clib.memcmp()</title>
+<link rel="stylesheet" href="semanualstyles.css" type="text/css">
+<style type="text/css">
+ p { margin-top: 0; margin-bottom: 0; }
+</style>
+<script language="JavaScript" src="TrueHelp.js"></script>
+</head>
+<body onload="thload()">
+<div id=ienav>
+<ilayer id=nsnav>
+<br>
+<center>
+<p class=normal><a href="seisdkj-toc.htm" target="left">contents</a> &nbsp; <a href="seisdkj-index.htm" target="left">index</a> &nbsp; <a href="TH_585.htm">previous</a> &nbsp; <a href="TH_587.htm">next</a></p>
+</center>
+<br>
+<hr noshade size=1>
+</ilayer>
+</div>
+<p class=sereffunclevel4>Clib.memcmp()</p>
+<table cellpadding=0>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>syntax:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=sesyntax>Clib.memcmp(<span class=truehelp-xe></span>buf1,&nbsp;buf2[,&nbsp;maxLen])</p></td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>where:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>buf1 - first buffer or byte array to use in comparison.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>buf2 - second buffer or byte array to use in comparison.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>maxLen - maximum number of characters to compare.</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>return:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>number - negative, zero, or positive according to the following rules:</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=list-bullet>&#8226;</p><p class=list-bullet-tab1><span class=secodephrase>&lt; 0</span>   if str1 is less than str2</p>
+<p class=list-bullet>&#8226;</p><p class=list-bullet-tab1><span class=secodephrase>= 0</span>   if str1 is the same as str2</p>
+<p class=list-bullet>&#8226;</p><p class=list-bullet-tab1><span class=secodephrase>&gt; 0</span>   if str1 is greater than str2</p></td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>description:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>This method compares the first maxLen bytes of buf1 and buf2. If the parameter maxLen is not specified, then maxLen is the smaller of the lengths of buf1 and buf2. If maxLen is specified and one of the arrays is shorter than the specified length, then ScriptEase treats length of the shorter array as being maxLen.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>The example function checks to see if the shorter string is the same as the beginning of the longer string. This method differs from <span class=sepopuptopic><a href="TH_559.htm" onClick="return thwindow('TH_559.htm', 'GenPopup')">Clib.strcmp()</a></span> in that this function returns <span class=secodephrase>true</span> if passed the strings "foo" and "foobar", since it only compares characters up to the end of the shorter string.</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>see:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara><span class=sejumptopic><a href="TH_559.htm">Clib.strcmp()</a></span></p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>example:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=secodelines>function&nbsp;MyStrCmp(string1,&nbsp;string2)</p>
+<p class=secodelines>{</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;var&nbsp;len&nbsp;=&nbsp;Clib.min(string1.length,</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;string2.length);</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;return(Clib.memcmp(string1,&nbsp;string2,&nbsp;len)&nbsp;==&nbsp;0);&nbsp;</p>
+<p class=secodelines>}</p></td>
+</tr>
+</table>
+<p class=normal>&nbsp;</p>
+<hr noshade size=1>
+<p class=normal><a href="TH_587.htm"><img src="button.png" border=0></a><a href="TH_587.htm" style="text-decoration:none;">Clib.memcpy()</a></p>
+<p>
+</body>
+</html>

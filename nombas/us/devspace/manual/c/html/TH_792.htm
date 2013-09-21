@@ -1,0 +1,86 @@
+<html>
+<head>
+<title>Date.parse()</title>
+<link rel="stylesheet" href="semanualstyles.css" type="text/css">
+<style type="text/css">
+ p { margin-top: 0; margin-bottom: 0; }
+</style>
+<script language="JavaScript" src="TrueHelp.js"></script>
+</head>
+<body onload="thload()">
+<div id=ienav>
+<ilayer id=nsnav>
+<br>
+<center>
+<p class=normal><a href="seisdkc-toc.htm" target="left">contents</a> &nbsp; <a href="seisdkc-index.htm" target="left">index</a> &nbsp; <a href="TH_791.htm">previous</a> &nbsp; <a href="TH_793.htm">next</a></p>
+</center>
+<br>
+<hr noshade size=1>
+</ilayer>
+</div>
+<p class=sereffunclevel4>Date.parse()</p>
+<table cellpadding=0>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>syntax:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=sesyntax>Date.parse(<span class=truehelp-xe></span>datestring)</p></td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>where:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>datestring - A string representing the date and time to be passed</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>return:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>number - milliseconds between the <span class=secodephrase>datestring</span> and midnight , January 1, 1970 GMT. </p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>description:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>This method converts the string datestring to a <span class=sepopuptopic><a href="TH_742.htm" onClick="return thwindow('TH_742.htm', 'GenPopup')">Date object</a></span>. The string should be in the following format: <span class=secodephrase>Friday, October 31, 1998 15:30:00</span>, or a substring of this format. The full format is returned by the <span class=sepopuptopic><a href="TH_781.htm" onClick="return thwindow('TH_781.htm', 'GenPopup')">Date toGMTString()</a></span> method, by email and by Internet applications. The day of the week, time zone, time specification or seconds field may be omitted. </p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>see:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara><span class=sejumptopic><a href="TH_742.htm">Date object</a></span>, <span class=sejumptopic><a href="TH_771.htm">Date setTime()</a></span>, <span class=sejumptopic><a href="TH_781.htm">Date toGMTString()</a></span>, <span class=sejumptopic><a href="TH_793.htm">Date.UTC</a></span></p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>example:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=secodelines>//The&nbsp;following&nbsp;code&nbsp;sets&nbsp;the&nbsp;date&nbsp;to&nbsp;March&nbsp;2,&nbsp;1992</p>
+<p class=secodelines>var&nbsp;theDate&nbsp;=&nbsp;Date.parse("March&nbsp;2,&nbsp;1992")</p>
+<p class=secodelines>//Note:</p>
+<p class=secodelines>var&nbsp;theDate&nbsp;=&nbsp;Date.parse(datestring);</p>
+<p class=secodelines>//is&nbsp;equivalent&nbsp;to:</p>
+<p class=secodelines>var&nbsp;theDate&nbsp;=&nbsp;new&nbsp;Date(datestring);</p>
+<p class=secodelines>//&nbsp;The&nbsp;following&nbsp;are&nbsp;valid,&nbsp;but&nbsp;not&nbsp;exhaustive</p>
+<p class=secodelines>var&nbsp;ms;</p>
+<p class=secodelines>ms&nbsp;=&nbsp;Date.parse(new&nbsp;Date().toGMTString());</p>
+<p class=secodelines>ms&nbsp;=&nbsp;Date.parse("Mon&nbsp;Aug&nbsp;20&nbsp;14:41:01&nbsp;2001&nbsp;GMT");</p>
+<p class=secodelines>ms&nbsp;=&nbsp;Date.parse("Mon&nbsp;Aug&nbsp;20&nbsp;14:41:01&nbsp;2001");</p>
+<p class=secodelines>ms&nbsp;=&nbsp;Date.parse("Mon&nbsp;Aug&nbsp;20&nbsp;14:41:01&nbsp;2001");</p>
+<p class=secodelines>ms&nbsp;=&nbsp;Date.parse("August&nbsp;20&nbsp;09:35:50&nbsp;2001");</p>
+<p class=secodelines>ms&nbsp;=&nbsp;Date.parse("Aug&nbsp;20&nbsp;09:35:50&nbsp;2001");</p>
+<p class=secodelines>ms&nbsp;=&nbsp;Date.parse("August&nbsp;20,&nbsp;2001");</p>
+<p class=secodelines>ms&nbsp;=&nbsp;Date.parse("August&nbsp;20&nbsp;2001");</p>
+<p class=secodelines>ms&nbsp;=&nbsp;Date.parse("Aug&nbsp;20,&nbsp;2001");</p>
+<p class=secodelines>ms&nbsp;=&nbsp;Date.parse("Aug&nbsp;20&nbsp;2001");</p></td>
+</tr>
+</table>
+<p class=normal>&nbsp;</p>
+<hr noshade size=1>
+<p class=normal><a href="TH_793.htm"><img src="button.png" border=0></a><a href="TH_793.htm" style="text-decoration:none;">Date.UTC()</a></p>
+<p>
+</body>
+</html>

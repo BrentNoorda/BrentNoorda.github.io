@@ -1,0 +1,39 @@
+<html>
+<head>
+<title>Using a DSP object</title>
+<link rel="stylesheet" href="semanualstyles.css" type="text/css">
+<style type="text/css">
+ p { margin-top: 0; margin-bottom: 0; }
+</style>
+<script language="JavaScript" src="TrueHelp.js"></script>
+</head>
+<body onload="thload()">
+<div id=ienav>
+<ilayer id=nsnav>
+<br>
+<center>
+<p class=normal><a href="seisdkc-toc.htm" target="left">contents</a> &nbsp; <a href="seisdkc-index.htm" target="left">index</a> &nbsp; <a href="TH_1001.htm">previous</a> &nbsp; <a href="TH_1003.htm">next</a></p>
+</center>
+<br>
+<hr noshade size=1>
+</ilayer>
+</div>
+<p class=heading-3>Using a DSP object</p>
+<p class=heading-3-p>&nbsp;</p>
+<p class=senormalpara>Once a DSP object is created using the method described above, every DSP object behaves in exactly the same way.  Once the functions are set up, the transport layer of the protocol is hidden.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>The basic idea is that all DSP objects are in fact references to objects on the remote side, and they will remain so except under certain circumstances (described below).  When a connection is first established, it is a reference to the global object.  Members of the remote global object can be accessed as members of the connection.  But they remain references, so <span class=secodephrase>var print = connection.Clib.printf</span> will not actually make a remote call to the server.  At the appropriate time, <span class=secodephrase>print</span> will be resolved into <span class=sepopuptopic><a href="TH_579.htm" onClick="return thwindow('TH_579.htm', 'GenPopup')">Clib.printf()</a></span> and sent to the server in the appropriate manner.  The circumstances which can trigger a de-referencing and remote call are:</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara><b>Calling functions</b> - When a DSP reference is called as a function, it gets resolved into the appropriate path and the function is called on the remote server.  All parameters are converted to source with ToSource() and passed to the server, and set back afterwards (in case any were passed by reference).  The client waits for the return value from the server and returns that as the result of the function call. This makes calling functions transparent to the client, so <span class=secodephrase>connection.Screen.writeln("hi")</span> will actually call <span class=secodephrase>Screen.writeln</span> on the server and print out "hi".</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara><b>Setting a value</b> - When a value is put to a DSP reference, such as <span class=secodephrase>connection.globalCount = 5</span>, a remote call to the server is generated, and the remote value is updated.  The above case acts just as if <span class=secodephrase>globalCount = 5</span> was executed on the server.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara><b>Implicitly</b> - When a DSP reference is converted to a primitive, then it gets de-referenced.  This implicit conversion happens mostly in operator expressions, in which both values are converted to primitives first.  So <span class=secodephrase>var myCount = connection.globalCount + 1</span> will get the value of <span class=secodephrase>globalCount</span> from the server and add one to it.  This can also be accomplished explicitly with <span class=secodephrase>ToPrimitive()</span>, but the method below is more straightforward and understandable.  The explicit use of ToPrimitive() on DSP references is discouraged.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara><b>Explicitly</b> - Any DSP reference can be explicitly de-referenced with a call to<span class=secodephrase>.dspGetValue</span>.  Once an object has been de-referenced this way, any subsequent accesses will not cause a remote call, and changes will only affect the local copy.  Note that calling a function in this way will result in the function being called on the local client, not the server.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<hr noshade size=1>
+<p class=normal><a href="TH_1003.htm"><img src="button.png" border=0></a><a href="TH_1003.htm" style="text-decoration:none;">DSP object instance methods</a></p>
+<p>
+</body>
+</html>

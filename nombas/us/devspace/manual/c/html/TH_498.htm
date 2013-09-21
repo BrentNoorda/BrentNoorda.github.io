@@ -1,0 +1,46 @@
+<html>
+<head>
+<title>jseSecurityInit</title>
+<link rel="stylesheet" href="semanualstyles.css" type="text/css">
+<style type="text/css">
+ p { margin-top: 0; margin-bottom: 0; }
+</style>
+<script language="JavaScript" src="TrueHelp.js"></script>
+</head>
+<body onload="thload()">
+<div id=ienav>
+<ilayer id=nsnav>
+<br>
+<center>
+<p class=normal><a href="seisdkc-toc.htm" target="left">contents</a> &nbsp; <a href="seisdkc-index.htm" target="left">index</a> &nbsp; <a href="TH_497.htm">previous</a> &nbsp; <a href="TH_499.htm">next</a></p>
+</center>
+<br>
+<hr noshade size=1>
+</ilayer>
+</div>
+<p class=heading-3>jseSecurityInit</p>
+<p class=heading-3-p>&nbsp;</p>
+<p class=senormalpara>This function is the main security function. It is run before the script that it is protecting is run, and it sets up the security the child is going to be run under. It specifies which functions the child will be allowed to call. By default, the child will not be allowed to call any insecure functions. In this function, you explicitly specify which insecure functions the child will be allowed to call. You do this by calling the <span class=secodephrase>setSecurity()</span> method, which is a method of all ScriptEase functions. </p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>In case that is confusing, a quick example of a <span class=secodephrase>jseSecurityInit</span> function should clear it up: </p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=secodelinesindented>function&nbsp;jseSecurityInit(security_var)</p>
+<p class=secodelinesindented>{</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;Clib.remove.setSecurity(jseSecureAllow);</p>
+<p class=secodelinesindented>}</p>
+<p class=secodelines>&nbsp;</p>
+<p class=senormalpara>This particular security initialization function is written in ScriptEase script. However, you can also implement all of these functions using the ScriptEase API and wrapper functions. We will implement the examples as scripts for clarity. The first thing you notice about the function is that it takes a parameter, we have named it <span class=secodephrase>security_var</span>. We did not use it in this example. This parameter is the "security variable" described below."</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>The body of the function usually lists which functions are to be allowed. Notice that we call the <span class=secodephrase>setSecurity()</span> method of the particular function we want to allow. This method takes one parameter, the security state of the function. <span class=secodephrase>jseSecureAllow</span> specifies that this function is allowed to be called. </p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>There are two other values we could have used instead. The value <span class=secodephrase>jseSecureReject</span> causes calls to the function to fail. This is the default for all functions, so it is usually redundant to specify it. However, if <span class=secodephrase>setSecurity()</span> is called more than once for the same function, the last call takes precedence. You can use this value to undo allowing access to a particular function. </p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>The final value is <span class=secodephrase>jseSecureGuard</span>, which says that any time this function is called, we must first call the <span class=secodephrase>jseSecurityGuard</span> function to determine if the call will be allowed. This function is described below.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara><b>Note:</b> The <span class=secodephrase>setSecurity()</span> method can only be called in a security initialization function. Trying to call it at other times generates errors.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<hr noshade size=1>
+<p class=normal><a href="TH_499.htm"><img src="button.png" border=0></a><a href="TH_499.htm" style="text-decoration:none;">jseSecurityTerm</a></p>
+<p>
+</body>
+</html>

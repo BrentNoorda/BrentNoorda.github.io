@@ -1,0 +1,2121 @@
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 FINAL//EN">
+<HTML><!-- #BeginTemplate "/us/Templates/erratapage.dwt" -->
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=ISO-8859-1">
+<!-- #BeginEditable "doctitle" -->
+<TITLE>ScriptEase ISDK/C 5.01x Errata</TITLE>
+<!-- #EndEditable --> <!-- begin metaTags -->
+<META NAME="keywords" CONTENT="javascript,ecmascript,ecma,scriptease,jscript,scripting,nombas,isdk,sedesk,web application development,embedded devices,distributed computing,peer-to-peer,p2p,peer,data mining,javascript.com,cycletraders,integrated sdk,script ease,java,c++,c,simplicity,power,palm,windows ce,integration: sdk,integration:sdk,scriptease:desktop,scriptease: desktop,se:desktop,se:desk,se:isdk, se: isdk,development tools,devtools">
+<META HTTP-EQUIV="DESCRIPTION" CONTENT="Nombas delivers simplicity and power through scripting by providing market-leading development tools and software for JavaScript and ECMAScript.">
+<!-- end metaTags -->
+<!-- begin navbar includes -->
+<SCRIPT language=JavaScript1.2>
+  navbarPath = '../../../';
+</SCRIPT>
+<SCRIPT language=JavaScript1.2 SRC="../../../navbarData.js"></SCRIPT>
+<SCRIPT language=JavaScript1.2 SRC="../../../navbarMenu.js"></SCRIPT>
+<SCRIPT language=JavaScript SRC="../../../imgRollover.js"></SCRIPT>
+<!-- end navbar includes -->
+<!-- begin style and icon definition -->
+<LINK REL="SHORTCUT ICON" HREF="../../../nombas.ico">
+<STYLE>
+A:hover { color:#941810;}
+</STYLE>
+<!-- end style and icon definition -->
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-1754630-10']);
+  _gaq.push(['_trackPageview']);
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+</HEAD>
+<BODY BGCOLOR="#06086F" LINK="#0000FF" VLINK="#800080" TEXT="#000000" TOPMARGIN=0 LEFTMARGIN=0 MARGINWIDTH=0 MARGINHEIGHT=0>
+<table width="632" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td>
+<TABLE BORDER=0 CELLSPACING=0 CELLPADDING=0 WIDTH=213>
+  <TR VALIGN=TOP ALIGN=LEFT>
+    <TD WIDTH=28 HEIGHT=4><IMG SRC="../../../clearpixel.gif" WIDTH=28 HEIGHT=1 BORDER=0></TD>
+    <TD></TD>
+  </TR>
+  <TR VALIGN=TOP ALIGN=LEFT>
+    <TD HEIGHT=60></TD>
+          <TD WIDTH=185 ALIGN=LEFT VALIGN=TOP><A HREF="../../../index.htm"><IMG ID="Picture1" HEIGHT=60 WIDTH=185 SRC="../../../logo.gif" BORDER=0 alt="Nombas Homepage"></A></TD>
+  </TR>
+</TABLE>
+    <div id="nombas-legacy"></div>
+<TABLE BORDER=0 CELLSPACING=0 CELLPADDING=0>
+  <TR VALIGN=TOP ALIGN=LEFT>
+    <TD WIDTH=30 HEIGHT=10><IMG SRC="../../../clearpixel.gif" WIDTH=30 HEIGHT=1 BORDER=0></TD>
+    <TD></TD>
+  </TR>
+  <TR VALIGN=TOP ALIGN=LEFT>
+    <TD></TD>
+    <TD WIDTH=582>
+      <TABLE ID="Table1" BORDER=0 CELLSPACING=0 CELLPADDING=0 WIDTH=582>
+        <TR>
+          <TD WIDTH=97>
+                  <P><A HREF="../../../scripting/scripting.htm"
+                            onmouseover="changeImages('scripting', '../../../htab_scripting.gif'); popUp('elMenu1',event); return true;"
+onmouseout="changeImages('scripting', '../../../tab_scripting.gif'); popDown('elMenu1'); return true;"
+><IMG
+                             ID="scripting" HEIGHT=21 WIDTH=97 SRC="../../../tab_scripting.gif" VSPACE=0 HSPACE=0 ALIGN="TOP" BORDER=0 name="scripting" alt="Scripting"></A>
+                </TD>
+          <TD WIDTH=97>
+                  <P><A HREF="../../../products/products.htm"
+                            onmouseover="changeImages('products', '../../../htab_products.gif'); popUp('elMenu2',event); return true;"
+onmouseout="changeImages('products', '../../../tab_products.gif'); popDown('elMenu2'); return true;"><IMG ID="products"
+                             HEIGHT=21 WIDTH=97 SRC="../../../tab_products.gif" VSPACE=0 HSPACE=0 ALIGN="TOP" BORDER=0 name=products alt="Products"></A>
+                </TD>
+          <TD WIDTH=97>
+                  <P><A HREF="../../../purchase/purchase.htm" onmouseover="changeImages('purchase', '../../../htab_purchase.gif');return true;"
+onmouseout="changeImages('purchase', '../../../tab_purchase.gif');return true;"><IMG ID="purchase"
+                             HEIGHT=21 WIDTH=97 SRC="../../../tab_purchase.gif" VSPACE=0 HSPACE=0 ALIGN="TOP" BORDER=0 name=purchase alt="Purchase"></A>
+                </TD>
+          <TD WIDTH=97>
+                  <P><A HREF="../../../download/ndownload.htm" onmouseover="changeImages('download', '../../../htab_download.gif');return true;"
+onmouseout="changeImages('download', '../../../tab_download.gif');return true;"><IMG ID="download"
+                             HEIGHT=21 WIDTH=97 SRC="../../../tab_download.gif" VSPACE=0 HSPACE=0 ALIGN="TOP" BORDER=0 name=download alt="Download"></A>
+                </TD>
+          <TD WIDTH=97>
+                  <P><A target="support" HREF="http://support.nombas.com/" onmouseover="changeImages('support', '../../../htab_support.gif'); return true;"
+onmouseout="changeImages('support', '../../../tab_support.gif'); return true;"><IMG ID="support"
+                             HEIGHT=21 WIDTH=97 SRC="../../../tab_support.gif" VSPACE=0 HSPACE=0 ALIGN="TOP" BORDER=0 name=support alt="Support"></A>
+                </TD>
+          <TD WIDTH=97>
+                  <P><A HREF="../../../company/company.htm"
+                            onmouseover="changeImages('company', '../../../htab_company.gif'); popUp('elMenu6',event); return true;"
+onmouseout="changeImages('company', '../../../tab_company.gif'); popDown('elMenu6'); return true;"><IMG ID="company"
+                             HEIGHT=21 WIDTH=97 SRC="../../../tab_company.gif" VSPACE=0 HSPACE=0 ALIGN="TOP" BORDER=0 name=company alt="Company"></A>
+                </TD>
+        </TR>
+      </TABLE>
+    </TD>
+  </TR>
+</TABLE>
+      <TABLE BORDER=0 CELLSPACING=0 CELLPADDING=0 WIDTH=100%>
+        <TR VALIGN=TOP ALIGN=LEFT>
+    <TD WIDTH=5 HEIGHT=20><IMG SRC="../../../clearpixel.gif" WIDTH=5 HEIGHT=1 BORDER=0></TD>
+          <TD>
+            <TABLE BORDER=0 CELLSPACING=0 CELLPADDING=0 WIDTH=100% HEIGHT=20 bgcolor="#FFFFFF">
+              <TR ALIGN=LEFT VALIGN=TOP>
+          <TD>
+                  <TABLE BORDER=0 CELLSPACING=0 CELLPADDING=0 WIDTH=100%>
+                    <TR VALIGN=TOP ALIGN=LEFT>
+                <TD WIDTH=20 HEIGHT=20 ALIGN=LEFT VALIGN=TOP><IMG ID="Picture12" HEIGHT=20 WIDTH=20 SRC="../../../curve_topleft.gif" BORDER=0></TD>
+                      <TD><IMG SRC="../../../clearpixel.gif" WIDTH=592 HEIGHT=1 BORDER=0></TD>
+                <TD WIDTH=20 ALIGN=LEFT VALIGN=TOP><IMG ID="Picture10" HEIGHT=20 WIDTH=20 SRC="../../../curve_top.gif" BORDER=0></TD>
+              </TR>
+            </TABLE>
+          </TD>
+        </TR>
+      </TABLE>
+    </TD>
+  </TR>
+</TABLE>
+<TABLE BORDER=0 CELLSPACING=0 CELLPADDING=0 WIDTH=637>
+  <TR VALIGN=TOP ALIGN=LEFT>
+    <TD HEIGHT=471 width="5"></TD>
+    <TD COLSPAN=2 height="471">
+      <TABLE BORDER=0 CELLSPACING=0 CELLPADDING=0 WIDTH=632 HEIGHT=200 bgcolor="#FFFFFF">
+        <TR ALIGN=LEFT VALIGN=TOP>
+          <TD height="471">
+            <TABLE BORDER=0 CELLSPACING=0 CELLPADDING=0 WIDTH=516>
+              <TR VALIGN=TOP ALIGN=LEFT>
+                <TD WIDTH=14 HEIGHT=1><IMG SRC="../../../clearpixel.gif" WIDTH=13 HEIGHT=1 BORDER=0></TD>
+                <TD WIDTH=502><IMG SRC="../../../clearpixel.gif" WIDTH=316 HEIGHT=1 BORDER=0></TD>
+              </TR>
+              <TR VALIGN=TOP ALIGN=LEFT>
+                <TD width="14"></TD>
+                <TD WIDTH=502><!-- #BeginEditable "hier" -->
+                        <P ALIGN=LEFT><A HREF="../../../index.htm"><FONT SIZE="-2" FACE="Verdana,Tahoma,Arial,Helvetica">Nombas</FONT></A><FONT SIZE="-2" FACE="Verdana,Tahoma,Arial,Helvetica">
+                          &gt; <a HREF="../../index.htm">SE:ISDK DevSpace</a>
+                          &gt; <a href="../index.htm">Errata</a> &gt; Integration
+                          SDK 5.01x Errata</FONT>
+                        <!-- #EndEditable --></TD>
+              </TR>
+            </TABLE>
+            <TABLE BORDER=0 CELLSPACING=0 CELLPADDING=0 WIDTH=300>
+              <TR VALIGN=TOP ALIGN=LEFT>
+                <TD WIDTH=15 HEIGHT=5><IMG SRC="../../../clearpixel.gif" WIDTH=15 HEIGHT=1 BORDER=0></TD>
+                <TD></TD>
+              </TR>
+              <TR VALIGN=TOP ALIGN=LEFT>
+                <TD HEIGHT=80></TD>
+                <TD WIDTH=600 ALIGN=LEFT VALIGN=TOP><IMG ID="Picture14" HEIGHT=80 WIDTH=600 SRC="../../bnr_devspace.gif" BORDER=0></TD>
+              </TR>
+              <TR VALIGN=TOP ALIGN=LEFT>
+                <TD HEIGHT=368></TD>
+                <TD WIDTH=600 ALIGN=LEFT VALIGN=TOP height="368">
+                  <table width="100%" border="0">
+                    <tr>
+                      <td colspan="4" height="9"><img SRC="../../../clearpixel.gif" width="1" height="1"></td>
+                    </tr>
+                    <tr>
+                      <td width="1" height="326">&nbsp;</td>
+                            <td valign="top" height="326"><!-- #BeginEditable "main" --> 
+                              <p><font size="4" face="Verdana, Arial, Helvetica, sans-serif"><b>Integration 
+                                SDK 5.01x Errata</b></font><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><br>
+                                <i><b>Fixes Affecting Users of the ScriptEase 
+                                ISDKs</b></i></font></p>
+                              <ul>
+                                <li><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><a href="#v501b">5.01b 
+                                  API</a> - latest update: December 8, 2004</font></li>
+                              </ul>
+                              <ul>
+                                <li><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><a href="#v501a">5.01a 
+                                  API</a> - latest update: March 18, 2004</font></li>
+                              </ul>
+                              <hr width="90%">
+                              <font face="Verdana, Arial, Helvetica, sans-serif" size="2"><a name="v501b"></a> 
+                              API Errata, version <b>5.01b</b><br>
+                              &nbsp;&nbsp;<b>New</b>, December 2, 2004</font> 
+                              <ul>
+                                <li><a href="#cmcce"><font face="Verdana, Arial, Helvetica, sans-serif" size="2">Clib method configuration compiler error</font></a> 
+                                <li><a href="#slsrg"><font face="Verdana, Arial, Helvetica, sans-serif" size="2">seLockString() returns garbage</font></a> 
+                                <li><a href="#sdfcsr"><font face="Verdana, Arial, Helvetica, sans-serif" size="2">seEval() does not follow correct function scoping rules when executing a function literal object</font></a> 
+                                <li><a href="#dgnchgv"><font face="Verdana, Arial, Helvetica, sans-serif" size="2">Dynamic 
+                                  get callback is not receiving call_hint when 
+                                  applied to the global variable</font></a> 
+                                <li><a href="#mcdas"><font face="Verdana, Arial, Helvetica, sans-serif" size="2">The 
+                                  Math constants (Math.PI, Math.LOG2E, ect) are 
+                                  defined as strings, not numbers</font></a> 
+                                <li><a href="#cpwbv"><font face="Verdana, Arial, Helvetica, sans-serif" size="2">comobj 
+                                  library passing wrong Boolean values to COM 
+                                  object functions</font></a> 
+                                <li><a href="#chban"><font face="Verdana, Arial, Helvetica, sans-serif" size="2">comobj 
+                                  library handling Bools as numbers, causing heap 
+                                  to be overwritten</font></a> 
+                                <li><a href="#craca"><font face="Verdana, Arial, Helvetica, sans-serif" size="2">COM 
+                                  object methods returning an array may cause 
+                                  an assertion</font></a> 
+                                <li><a href="#gscetei"><font face="Verdana, Arial, Helvetica, sans-serif" size="2">seGetSourceFunc() 
+                                  being called an extra time for empty include 
+                                  files</font></a> 
+                                <li><a href="#xntwft"><font face="Verdana, Arial, Helvetica, sans-serif" size="2">XML 
+                                  object not trimming whitespace from tail of 
+                                  incoming text elements</font></a> 
+                                <li><a href="#xomtap"><font face="Verdana, Arial, Helvetica, sans-serif" size="2">XML 
+                                  object mistreating special 'tag' and 'attribute' 
+                                  properties</font></a> 
+                                <li><a href="#snddlu"><font face="Verdana, Arial, Helvetica, sans-serif" size="2">stricmp 
+                                  not defined for sexml when built as dynamic 
+                                  library on Unix platforms</font></a> 
+                                <li><a href="#ehicfo"><font face="Verdana, Arial, Helvetica, sans-serif" size="2">seEval() 
+                                  does not honor SE_INFREQUENT_CONT flag when 
+                                  interpreting a function object</font></a> 
+                                <li><a href="#xofo"><font face="Verdana, Arial, Helvetica, sans-serif" size="2">XML 
+                                  object creates faulty output sometimes</font></a> 
+                                <li><a href="#xide"><font face="Verdana, Arial, Helvetica, sans-serif" size="2">XML.toText(), 
+                                  XML.toFile() including SE_DONTENUM properties 
+                                  in output</font></a> 
+                                <li><a href="#srcbre"><font face="Verdana, Arial, Helvetica, sans-serif" size="2">string.replace 
+                                  can crash or return incorrect results when \b 
+                                  is used at the beginning of a regular expression</font></a> 
+                                <li><a href="#ssnigf"><font face="Verdana, Arial, Helvetica, sans-serif" size="2">string.split 
+                                  is not ignoring the global flag on regular expressions</font></a> 
+                                <li><a href="#igposi"><font face="Verdana, Arial, Helvetica, sans-serif" size="2">assert 
+                                  or invalid global pop on seExec() if params 
+                                  supplied to seStart()</font></a> 
+                                <li><a href="#ifmca"><font face="Verdana, Arial, Helvetica, sans-serif" size="2">inner 
+                                  function may cause assertion in call.c</font></a> 
+                                <li><a href="#srnil"><font face="Verdana, Arial, Helvetica, sans-serif" size="2">string.replace() 
+                                  may get caught in near-infinite loop</font></a> 
+                                <li><a href="#vsiwnf"><font face="Verdana, Arial, Helvetica, sans-serif" size="2">variable 
+                                  scoping incorrect within nested functions</font></a><a href="#exrp"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"></font></a> 
+                                <li><a href="#sibnro"><font face="Verdana, Arial, Helvetica, sans-serif" size="2">string.replace() 
+                                  incorrect if first arguments is not a RegExp 
+                                  object</font></a><a href="#exrp"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"></font></a> 
+                                <li><a href="#idscff"><font face="Verdana, Arial, Helvetica, sans-serif" size="2">invalid 
+                                  debug assertion if seContinueFunc() sets SE_RETURN,SE_ERROR 
+                                  during script return statement</font></a><a href="#exrp"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"></font></a> 
+                              </ul>
+                              <hr width="90%">
+                              <font face="Verdana, Arial, Helvetica, sans-serif" size="2"><a name="v501a"></a> 
+                              API Errata, version <b>5.01a</b><br>
+                              &nbsp;&nbsp;<b>New</b>, March 18, 2004</font> 
+                              <ul>
+                                <li><a href="#gsmb"><font face="Verdana, Arial, Helvetica, sans-serif" size="2">seGetSourceFunc() 
+                                  callback being called an extra time when script 
+                                  is missing a closing brace</font></a> 
+                                <li><a href="#exrp"><font face="Verdana, Arial, Helvetica, sans-serif" size="2">seExec() 
+                                  returning prematurely when SE_INFREQUENT_CONT 
+                                  flag used to initialize secontext</font></a> 
+                                <li><a href="#pxuva"><font face="Verdana, Arial, Helvetica, sans-serif" size="2">seMustPutXXX() 
+                                  and seMustPutDirectXXX() unsetting most variable 
+                                  attributes</font></a> 
+                                <li><a href="#pwivf"><font face="Verdana, Arial, Helvetica, sans-serif" size="2">sePutWrapper() 
+                                  ignoring the varFlags (variable attributes) 
+                                  parameters</font></a> 
+                                <li><a href="#sedbcuv"><font face="Verdana, Arial, Helvetica, sans-serif" size="2">SEDBC 
+                                  library sometimes references uninitialized variables</font></a> 
+                                <li><a href="#sedbcam"><font face="Verdana, Arial, Helvetica, sans-serif" size="2">SEDBC 
+                                  library allocates unnecessary memory on stack</font></a> 
+                                <li><a href="#mrnvr16"><font face="Verdana, Arial, Helvetica, sans-serif" size="2">Math.random() 
+                                  is not very random on systems with 16-bit integers</font></a> 
+                                <li><a href="#12amutc"><font face="Verdana, Arial, Helvetica, sans-serif" size="2">Date 
+                                  parser not recognizing 12 AM or &quot;UTC&quot;</font></a> 
+                                <li><a href="#fccs"><font face="Verdana, Arial, Helvetica, sans-serif" size="2">Function 
+                                  constructor causes swapping for created functions</font></a> 
+                                <li><a href="#smsrn"><font face="Verdana, Arial, Helvetica, sans-serif" size="2">String 
+                                  match function should return null on no match</font></a> 
+                                <li><a href="#segcc2"><font face="Verdana, Arial, Helvetica, sans-serif" size="2">seGetSourceFunc(...seSourceGetLine...) 
+                                  called twice if first call returns False</font></a> 
+                                <li><a href="#e12e2"><font face="Verdana, Arial, Helvetica, sans-serif" size="2">SE_GF_NOCALLBACKS 
+                                  errata fix causes SE_GF_DIRECT failure on strings 
+                                  </font></a> 
+                                <li><a href="#mlats"><font face="Verdana, Arial, Helvetica, sans-serif" size="2">memory 
+                                  leak with array.toSource </font></a> 
+                                <li><a href="#ssieo"><font face="Verdana, Arial, Helvetica, sans-serif" size="2">string.split 
+                                  returns undefined element 0 if no match </font></a> 
+                                <li><a href="#crasc"><font face="Verdana, Arial, Helvetica, sans-serif" size="2">converting 
+                                  a recursive array to a string can crash </font></a> 
+                                <li><a href="#dcnp"><font face="Verdana, Arial, Helvetica, sans-serif" size="2">no 
+                                  flag provided to bypass dynamic callbacks, but 
+                                  allow for prototype chain </font></a> 
+                                <li><a href="#cbrftalvr"><font face="Verdana, Arial, Helvetica, sans-serif" size="2">calling 
+                                  byref function turns all local variables into 
+                                  references </font></a> 
+                                <li><font size="2" face="Verdana, Arial, Helvetica, sans-serif"><a href="#tmgcb">too 
+                                  many callbacks for global get and for hasprop 
+                                  returning HP_DIRECTCHECK</a></font> 
+                                <li><font size="2" face="Verdana, Arial, Helvetica, sans-serif"><a href="#hugu">hang 
+                                  on assigning to undefined variable if global 
+                                  object is SE_DYNA_UNDEF</a></font> 
+                                <li><font size="2" face="Verdana, Arial, Helvetica, sans-serif"><a href="#cafp">Clib.fread() 
+                                  leaves unread parts of buffers uninitialized</a></font> 
+                                <li><font size="2" face="Verdana, Arial, Helvetica, sans-serif"><a href="#cafp">Alignment 
+                                  errors with Clib *printf and *scanf floating-point 
+                                  on HP-UX</a></font> 
+                              </ul>
+                              <hr width="90%">
+                              <p> 
+                              <p><font face="Verdana, Arial, Helvetica, sans-serif" size="3"><b>The 
+                                Details</b> </font></p>
+                              <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><b>for 
+                                5.01b</b> -- <font face="Verdana, Arial, Helvetica, sans-serif" size="2">(may 
+                                apply to earlier version)</font></font></p>
+                              <p><a name="cmcce"></a> </p>
+                              <ul>
+                                <li><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><b><font face="Verdana, Arial, Helvetica, sans-serif" size="2">Clib method configuration compiler error</font></b><br>
+                                  (for ISDK/C 5.01b) </font> </li>
+                              </ul>
+                              <blockquote> 
+                                <p> <font face="Verdana, Arial, Helvetica, sans-serif" size="2">Bug: 
+                                  When the JSE_CLIB_ALL flag is turned off in a jseopt.h file, and just the JSE_CLIB_SPRINTF, JSE_CLIB_RSPRINTF, and JSE_CLIB_SSCANF flags are turned on, the compiler complains that vsscanf_sechar is undefined.
+                                  </font>
+                                <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><b>Fix 
+                                  </b> n src/lib/clib/sestdio.c, near line 1075, there is a comment an an #if statement that looks like this:
+<pre><font face="Courier New, Courier, mono" size="2">
+   /* Disgusting kludge to get a vscanf-type function on platforms that don't support it */
+   #if defined(JSE_CLIB_FSCANF) || \
+       defined(JSE_CLIB_VFSCANF) || \
+       defined(JSE_CLIB_SCANF) || \
+       defined(JSE_CLIB_VSCANF)
+</font></pre>
+Add line to that #if statement, so that it looks like this:
+<pre><font face="Courier New, Courier, mono" size="2">
+   /* Disgusting kludge to get a vscanf-type function on platforms that don't support it */
+   #if defined(JSE_CLIB_FSCANF) || \
+       defined(JSE_CLIB_VFSCANF) || \
+       defined(JSE_CLIB_SCANF) || \
+       defined(JSE_CLIB_VSCANF) || \
+       defined(JSE_CLIB_SSCANF)
+</font></pre>
+Then, in src/lib/clib/sefile.h, around line 59, there is a #define statement that looks like this:
+<pre><font face="Courier New, Courier, mono" size="2">
+   # define DEFAULT_FGETS_BUFSIZE 1000 /* used if none supplied */
+</font></pre>
+Just above that #define statement, there is a large #if statement.  Add a line to the end of it so that instead of having the last few lines look like this:
+<pre><font face="Courier New, Courier, mono" size="2">
+   ...
+   || defined(JSE_CLIB_GETCHAR) \
+   || defined(JSE_CLIB_PUTCHAR) \
+   || defined(JSE_CLIB_PERROR) \
+   || defined(JSE_CLIB_PUTS)
+</font></pre>
+...it should look like this:
+<pre><font face="Courier New, Courier, mono" size="2">
+   ...
+   || defined(JSE_CLIB_GETCHAR) \
+   || defined(JSE_CLIB_PUTCHAR) \
+   || defined(JSE_CLIB_PERROR) \
+   || defined(JSE_CLIB_PUTS) \
+   || defined(JSE_CLIB_SSCANF)
+</font></pre>
+                                </blockquote>
+                              <p><a name="slsrg"></a> </p>
+                              <ul>
+                                <li><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><b><font face="Verdana, Arial, Helvetica, sans-serif" size="2">seLockString() returns garbage</font></b><br>
+                                  (for ISDK/C 5.01b) </font> </li>
+                              </ul>
+                              <blockquote> 
+                                <p> <font face="Verdana, Arial, Helvetica, sans-serif" size="2">Bug: 
+                                  seLockString() does not return a valid string value. 
+                                  </font>
+                                <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><b>Fix 
+                                  </b> Around line 787, change this line:
+                                <pre><font face="Courier New, Courier, mono" size="2">   struct seapiLockItem *str = (struct seapiLockItem *)data;</font></pre>
+                                <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2">to 
+                                  this:</font>
+                                <pre><font face="Courier New, Courier, mono" size="2">   struct seapiLockItem *str = find_seTempLockString(call,data);</font></pre>
+                                </blockquote>
+                              <p><a name="sdfcsr"></a> </p>
+                              <ul>
+                                <li><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><b><font face="Verdana, Arial, Helvetica, sans-serif" size="2">seEval() does not follow correct function scoping rules when executing a function literal object</font></b><br>
+                                  (for ISDK/C 5.01b) </font> </li>
+                              </ul>
+                              <blockquote> 
+                                <p> <font face="Verdana, Arial, Helvetica, sans-serif" size="2">Bug: 
+                                  When calling a function literal, that function is supposed to remember the values of the variables it had access to at the time of its creation.  This works in ScriptEase as long as the funciton literal is being called from within a script.  However, before applying this erratum, this won't work in ScriptEase when calling the function literal from a wrapper function using seEval().  
+                                  </font>
+                                <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><b>Fix 
+                                  </b> Replace se501/src/core/analyze.c, se501/src/core/call.h, se501/src/core/garbage.c, and se501/src/core/se501.c with the ones found in this zip file: <a href="scope.tar.gz" target="_blank">scope.tar.gz</a>
+                                </blockquote>
+                              <p><a name="dgnchgv"></a> </p>
+                              <ul>
+                                <li><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><b><font face="Verdana, Arial, Helvetica, sans-serif" size="2">Dynamic 
+                                  get callback is not receiving call_hint when 
+                                  applied to the global variable</font></b><br>
+                                  (for ISDK/C 5.01b) </font> </li>
+                              </ul>
+                              <blockquote> 
+                                <p> <font face="Verdana, Arial, Helvetica, sans-serif" size="2">Bug: 
+                                  If the global variable has a get() callback 
+                                  assigned through <font face="Courier New, Courier, mono">seSetCallbacks</font>, 
+                                  then the get callback may not be receiving the 
+                                  <font face="Courier New, Courier, mono">call_hint</font> 
+                                  variable set as <font face="Courier New, Courier, mono">True</font> 
+                                  when a property is retrieved as a method (e.g. 
+                                  <font face="Courier New, Courier, mono">global.foo()</font>, 
+                                  or just <font face="Courier New, Courier, mono">foo()</font>). 
+                                  </font>
+                                <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><b>Fix 
+                                  </b> : In se501/src/core/varutil.c, function 
+                                  seobjHasProperty(), at around line 2733 change 
+                                  this statement:</font>
+                                <pre><font face="Courier New, Courier, mono" size="2">   if( seobjCallDynamicProperty(call,hobj,SE_GET_CALLBACK,propname,False,rhs) )</font></pre>
+                                <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2">to 
+                                  this statement:</font>
+                                <pre><font face="Courier New, Courier, mono" size="2">   if( seobjCallDynamicProperty(call,hobj,SE_GET_CALLBACK,propname,
+         (rSEVar)( NULL != FUNCPTR
+                &amp;&amp; FUNCTION_IS_LOCAL(FUNCPTR)
+                &amp;&amp; ( (seThisAndValue == IPTR[0] &amp;&amp; ( seToCallFunc==IPTR[1]
+                                                  || seToNewFunc==IPTR[1]))
+                  || seToNewFunc==IPTR[0] ) ),
+         rhs) )</font></pre>
+                                </blockquote>
+                              <p><a name="mcdas"></a> </p>
+                              <ul>
+                                <li><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><b>The 
+                                  Math constants (Math.PI, Math.LOG2E, ect) are 
+                                  defined as strings, not numbers</b><br>
+                                  (for ISDK/C 5.01b) </font> </li>
+                              </ul>
+                              <blockquote> 
+                                <p> <font face="Verdana, Arial, Helvetica, sans-serif" size="2">Bug: 
+                                  The Math constants (Math.PI, Math.E, Math.LN10, 
+                                  Math.LN2, Math.LOG2E, Math.LOG10E, Math.SQRT1_2, 
+                                  Math.SQRT2) are incorrectly defined as strings, 
+                                  not numbers. For most math operations, that 
+                                  is acceptable (although ineffecient) because 
+                                  the string values are converted to numbers. 
+                                  But addition fails, because any addition involving 
+                                  strings turns into a concatenation operation. 
+                                  That means 5 + Math.PI results in the string 
+                                  &quot;53.14159265358979323846&quot;. </font>
+                                <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                                  <b> Fix </b> : In se501/src/lib/ecma/mathobj.c 
+                                  locate the Math library table, identified by 
+                                  SE_BEGIN_LIB_TABLE, around line 1751. In the 
+                                  library table, each of the Math constants listed 
+                                  above is declared with the SE_STRING() macro. 
+                                  Change each Math constant entry to use the SE_NUMLITERAL() 
+                                  macro. This is what the Math.E entry looks like 
+                                  after applying the fix:</font> 
+                                <pre><font face="Courier New, Courier, mono" size="2">     SE_NUMLITERAL(UNISTR("E"),        E_VALUE,        SE_DONTENUM|SE_DONTDELETE|SE_READONLY)</font></pre>
+                                <p> <font face="Verdana, Arial, Helvetica, sans-serif" size="2">Also, 
+                                  in se501/src/core/se501.c, function seAddLibTable() 
+                                  around line 6224, add a 'break' statement at 
+                                  the end of the 'case SE_NUMLITERAL_TYPE:' block. 
+                                  The block should look like this after applying 
+                                  the fix:</font> 
+                                <pre><font face="Courier New, Courier, mono" size="2">     case SE_NUMLITERAL_TYPE:
+        SEVAR_COPY(tmp,place);
+        str_name = PALMTABLE_STR_DEREF(table->name);
+        GetDotNamedVar(call,tmp,str_name,SE_DEFAULT);
+        str_value = PALMTABLE_STR_DEREF(table->value);
+        SEVAR_INIT_NUMBER(tmp2,convertStringToNumber(call,str_value,strlen_sechar(str_value)));
+        /* We must turn off flags for this variable so put succeeds */
+        SEASSERT( SEVAR_GET_TYPE(tmp)==VReference );
+        seobjSetAttributes(call,tmp->data.ref_val.hBase,
+                           tmp->data.ref_val.reference,0);
+        SEVAR_DO_PUT(call,tmp,tmp2);
+        /* Now restore flags with the user-supplied var attribs */
+        seobjSetAttributes(call,tmp->data.ref_val.hBase,
+                           tmp->data.ref_val.reference,
+                           table->varFlags);
+
+        break;</font><font face="Verdana, Arial, Helvetica, sans-serif" size="2">            </font> </pre>
+                              </blockquote>
+                              <p><a name="cpwbv"></a></p>
+                              <p> 
+                              <ul>
+                                <li><b><font face="Verdana, Arial, Helvetica, sans-serif" size="2">comobj 
+                                  library passing wrong Boolean values to COM 
+                                  object functions</font></b><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><br>
+                                  (for ISDK/C 5.01b) </font> </li>
+                              </ul>
+                              <blockquote> 
+                                <p> <font face="Verdana, Arial, Helvetica, sans-serif" size="2">Bug: 
+                                  When calling a method of a COM object, the comobj 
+                                  library passes its native values for True and 
+                                  False, which are 1 and 0, respectively. This 
+                                  can cause Visual Basic 6 methods to behave strangely, 
+                                  for instance interpreting the value as Boolean 
+                                  True, but then interpreting the logical Not 
+                                  value of the argument as also being True. </font> 
+                                <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                                  <b> Fix </b> : In se501/src/lib/comobj/comobj.cpp, 
+                                  in the function convertFromJSBoolean(), around 
+                                  line 1855, there is the VT_BOOL case statement. 
+                                  Change the code in that statement from this: 
+                                  </font> 
+                                <pre><font face="Courier New, Courier, mono" size="2">      V_VT(varg) = (VARTYPE)(VT_BOOL | byRefModifier);
+      if ( byRefModifier != 0 )
+      {
+         short * temp = comobjMustMalloc(short,sizeof(*temp));
+         *temp = JSVal;
+         V_BOOLREF(varg) = temp;
+      }
+      else
+      {
+         V_BOOL(varg) = JSVal;
+      }
+      break;</font></pre>
+                                <p> <font face="Verdana, Arial, Helvetica, sans-serif" size="2">to 
+                                  this: </font> 
+                                <pre><font face="Courier New, Courier, mono" size="2">      short result;
+      hr = VarBoolFromR8(JSVal, &result);
+      V_VT(varg) = (VARTYPE)(VT_BOOL | byRefModifier);
+      if ( byRefModifier != 0 )
+      {
+         short * temp = comobjMustMalloc(short,sizeof(*temp));
+         *temp = result;
+         V_BOOLREF(varg) = temp;
+      }
+      else
+      {
+         V_BOOL(varg) = result;
+      }
+         break;</font></pre>
+                                <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                                  Doing so uses the system's VarBoolFromR8() COM 
+                                  API function to obtain the numeric values for 
+                                  True and False that are expected by other applications. 
+                                  </font> 
+                              </blockquote>
+                              <p><a name="chban"></a></p>
+                              <p> 
+                              <ul>
+                                <li><b><font face="Verdana, Arial, Helvetica, sans-serif" size="2">comobj 
+                                  library handling Bools as numbers, causing heap 
+                                  to be overwritten</font></b><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><br>
+                                  (for ISDK/C 5.01b) </font> </li>
+                              </ul>
+                              <blockquote> 
+                                <p> <font face="Verdana, Arial, Helvetica, sans-serif" size="2">Bug: 
+                                  When calling a method of a COM object, the comobj 
+                                  library passes boolean arguments as numbers, 
+                                  which can cause the heap to be overwritten when 
+                                  used in conjunction with .NET COM objects. </font> 
+                                <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                                  <b> Fix </b> : In se501/src/lib/comobj/comobj.cpp, 
+                                  around line 2372, in the SE_TYPE_BOOLEAN case 
+                                  statement, there is a statement that looks like 
+                                  this: </font> 
+                                <pre><font face="Courier New, Courier, mono" size="2">      V_VT(pCurVar) = VT_R8 | passByRefValue;</font></pre>
+                                <p> <font face="Verdana, Arial, Helvetica, sans-serif" size="2">Replace 
+                                  that statement with this one: </font> 
+                                <pre><font face="Courier New, Courier, mono" size="2">      V_VT(pCurVar) = VT_BOOL | passByRefValue;</font></pre>
+                                <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                                  Approximately ten lines below, within that same 
+                                  case statement, there is a line that looks like 
+                                  this: </font> 
+                                <pre><font face="Courier New, Courier, mono" size="2">      V_R8(pCurVar) = lVar;</font></pre>
+                                <p> <font face="Verdana, Arial, Helvetica, sans-serif" size="2">Replace 
+                                  that statement with this one: </font> 
+                                <pre><font face="Courier New, Courier, mono" size="2">      V_BOOL(pCurVar) = (short)lVar;</font></pre>
+                              </blockquote>
+                              <p><a name="craca"></a></p>
+                              <p> 
+                              <ul>
+                                <li><b><font face="Verdana, Arial, Helvetica, sans-serif" size="2">COM 
+                                  object methods returning an array may cause 
+                                  an assertion</font></b><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><br>
+                                  (for ISDK/C 5.01b) </font> </li>
+                              </ul>
+                              <blockquote> 
+                                <p> <font face="Verdana, Arial, Helvetica, sans-serif" size="2">Bug: 
+                                  Calling a method of a COM object that returns 
+                                  an array may cause an assertion around line 
+                                  900 in src/lib/comobj/comobj.cpp, function CreateReturnedVariant(). 
+                                  </font> 
+                                <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                                  <b> Fix </b> : In se501/src/lib/comobj/comobj.cpp, 
+                                  around line 959, there is an else statement 
+                                  containing a for loop that looks like this: 
+                                  </font> 
+                                <pre><font face="Courier New, Courier, mono" size="2">      for( i = lowerBound; i <= upperBound; i++ )
+      {
+         VARIANT v;
+         indicies[dim] = i;
+         /* Get the element from the safe array */
+         /* I'm making an assumption here, which is the elements of the
+          * array will be VARIANTS.
+          */
+         hr = SafeArrayGetElement(psa,indicies,&v);
+
+         if(FAILED(hr))
+         {
+            ReportComError( se, hr, &excepInfo );
+         }
+
+         CreateReturnedVariant(se,v,wName);
+
+         seAssign(se, seRet, SE_NUM(i), SE_RETURN, SE_VALUE);
+         sePutUndefined(se, SE_RETURN, SE_VALUE);
+      }</font></pre>
+                                <p> <font face="Verdana, Arial, Helvetica, sans-serif" size="2">Replace 
+                                  that entire for loop with this one: </font> 
+                                <pre><font face="Courier New, Courier, mono" size="2">      for( i = lowerBound; i <= upperBound; i++ )
+      {
+         VARIANT v;
+         VARTYPE vt;
+         VariantInit(&v);
+         indicies[dim] = i;
+         /* Get the element from the safe array */
+         /* I'm making an assumption here, which is the elements of the
+          * array will be VARIANTS.
+          */
+         hr = SafeArrayGetVartype(psa, &vt);
+
+         if(FAILED(hr))
+         {
+            ReportComError( se, hr, &excepInfo );
+         }
+
+         V_VT(&v) = vt;
+
+         switch (vt) /* default to original assumption of variant */
+         {
+            case VT_BOOL:
+               hr = SafeArrayGetElement(psa,indicies,&(V_BOOL(&v)));
+               break;
+            case VT_BSTR:
+               hr = SafeArrayGetElement(psa,indicies,&(V_BSTR(&v)));
+               break;
+            case VT_I4:
+               hr = SafeArrayGetElement(psa,indicies,&(V_I4(&v)));
+               break;
+            case VT_UI4:
+               hr = SafeArrayGetElement(psa,indicies,&(V_UI4(&v)));
+               break;
+            case VT_UI2:
+               hr = SafeArrayGetElement(psa,indicies,&(V_UI2(&v)));
+               break;
+            case VT_I2:
+               hr = SafeArrayGetElement(psa,indicies,&(V_I2(&v)));
+               break;
+            case VT_I1:
+               hr = SafeArrayGetElement(psa,indicies,&(V_I1(&v)));
+               break;
+            case VT_UI1:
+               hr = SafeArrayGetElement(psa,indicies,&(V_UI1(&v)));
+               break;
+            case VT_R4:
+               hr = SafeArrayGetElement(psa,indicies,&(V_R4(&v)));
+               break;
+            case VT_R8:
+               hr = SafeArrayGetElement(psa,indicies,&(V_R8(&v)));
+               break;
+            case VT_DECIMAL:
+               hr = SafeArrayGetElement(psa,indicies,&(V_DECIMAL(&v)));
+               break;
+            case VT_DATE:
+               hr = SafeArrayGetElement(psa,indicies,&(V_DATE(&v)));
+               break;
+            default:
+               hr = SafeArrayGetElement(psa,indicies,&v);
+         }
+
+         if(FAILED(hr))
+         {
+            ReportComError( se, hr, &excepInfo );
+         }
+
+         CreateReturnedVariant(se,v,wName);
+
+         seAssign(se, seRet, SE_NUM(i), SE_RETURN, SE_VALUE);
+         sePutUndefined(se, SE_RETURN, SE_VALUE);
+      }</font></pre>
+                              </blockquote>
+                              <p><a name="gscetei"></a></p>
+                              <p> 
+                              <ul>
+                                <li><b><font face="Verdana, Arial, Helvetica, sans-serif" size="2">seGetSourceFunc() 
+                                  being called an extra time for empty include 
+                                  files</font></b><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><br>
+                                  (for ISDK/C 5.01b) </font> </li>
+                              </ul>
+                              <blockquote> 
+                                <p> <font face="Verdana, Arial, Helvetica, sans-serif" size="2">Bug: 
+                                  If a script uses the #include preprocessor directive 
+                                  to include an empty file, the seGetSourceFunc() 
+                                  gets called with the seSourceGetLine flag an 
+                                  extra time after it returns False. </font> 
+                                <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                                  <b> Fix </b> : In se501/src/core/source.c, around 
+                                  line 1069, there is a comment that says &quot;/* 
+                                  nothing was read at all */&quot;. It's in an 
+                                  if statement that looks like this: </font> 
+                                <pre><font face="Courier New, Courier, mono" size="2">   if( success )
+   {
+      if ( !sourceNextLine(*source,call,False,&success,True) )
+      {
+         /* nothing was read at all */
+         (*source)->MemoryPtr = UNISTR("");
+      }
+   }</font></pre>
+                                <p> <font face="Verdana, Arial, Helvetica, sans-serif" size="2">Deleting 
+                                  that whole &quot;if( !success )&quot; statement 
+                                  and its contents fixes this bug. </font> 
+                              </blockquote>
+                              <p><a name="xntwft"></a></p>
+                              <p> 
+                              <ul>
+                                <li><b><font face="Verdana, Arial, Helvetica, sans-serif" size="2">XML 
+                                  object not trimming whitespace from tail of 
+                                  incoming text elements</font></b><font face="Verdana, Arial, Helvetica,
+                                  sans-serif" size="2"><br>
+                                  (for ISDK/C 5.01b) </font> </li>
+                              </ul>
+                              <blockquote> 
+                                <p> <font face="Verdana, Arial, Helvetica, sans-serif" size="2">Bug: 
+                                  According to standard treatment of whitespace 
+                                  in XML text elements, the whitespace at the 
+                                  beginning and end of them should be discarded, 
+                                  but the XML object was only discarding the leading 
+                                  whitespace. This resulted in extra whitespace 
+                                  at the end of text elements that were converted 
+                                  to native objects from XML. </font> 
+                                <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                                  <b> Fix </b> : In se501/src/lib/xml/sexml.c, 
+                                  around line 1070, just before a break statement, 
+                                  add the following line of code: </font> 
+                                <pre><font face="Courier New, Courier, mono" size="2">    RemoveWhitespaceFromHeadAndTail(text_elem);</font></pre>
+                              </blockquote>
+                              <p><a name="xomtap"></a></p>
+                              <p> 
+                              <ul>
+                                <li><b><font face="Verdana, Arial, Helvetica, sans-serif" size="2">XML 
+                                  object mistreating special 'tag' and 'attribute' 
+                                  properties</font></b><font face="Verdana, Arial, Helvetica,
+                                  sans-serif" size="2"><br>
+                                  (for ISDK/C 5.01b) </font> </li>
+                              </ul>
+                              <blockquote> 
+                                <p> <font face="Verdana, Arial, Helvetica, sans-serif" size="2">Bug: 
+                                  The XML object is supposed recognize tag and 
+                                  attribute properties as being special properties, 
+                                  but the current implementation was not. This 
+                                  resulted in extra elements in outputted XML, 
+                                  and no attributes inside the tag itself. </font> 
+                                <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                                  <b> Fix </b> : First, be sure to apply previous 
+                                  XML errata items. At line 1625 of se501/src/lib/xml/sexml.c, 
+                                  in function obj_to_xml(), between the following 
+                                  two lines of code: </font> 
+                                <pre><font face="Courier New, Courier, mono" size="2">    concatenate_return_string(se,seGetString(se,obj,SEXML_TAG_MEMBER,NULL),True);
+    concatenate_return_string(se,UNISTR(">\n"),False);</font></pre>
+                                <font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                                ..insert the following block of code: </font> 
+                                <pre><font face="Courier New, Courier, mono" size="2">    if ( seExists(se,obj,SEXML_ATTRIBUTE_MEMBER) )
+    {
+       sememcount attrIndex;
+       seobject attrs = seGetObject(se,obj,SEXML_ATTRIBUTE_MEMBER);
+       sememcount lim = (sememcount)seGetLong(se,attrs,SE_STOCK(length));
+
+       for( attrIndex=0;attrIndex< lim;attrIndex++ )
+       {
+          seobject attr = seGetObject(se,attrs,SE_NUM(attrIndex));
+
+          concatenate_return_string(se,UNISTR(" "),False);
+          concatenate_return_string(se,seGetString(se,attr,SEXML_TAG_MEMBER,NULL),True);
+          concatenate_return_string(se,UNISTR("='"),False);
+          concatenate_return_string(se,seGetString(se,attr,SEXML_CONTENT_MEMBER,NULL),True);
+          concatenate_return_string(se,UNISTR("'"),False);
+       }
+    }</font></pre>
+                                <font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                                Also, at line 1668 of the same file and function, 
+                                replace the following line of code: </font> 
+                                <pre><font face="Courier New, Courier, mono" size="2">    if( strcmp_sechar(name,UNISTR("tag"))==0 ) continue;</font></pre>
+                                <font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                                with this line of code: </font> 
+                                <pre><font face="Courier New, Courier, mono" size="2">    if( stricmp_sechar(name,UNISTR("tag"))==0 || stricmp_sechar(name,UNISTR("attribute"))==0 ) continue;</font></pre>
+                              </blockquote>
+                              <p><a name="snddlu"></a></p>
+                              <p> 
+                              <ul>
+                                <li><b><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><font face="Verdana, Arial, Helvetica, sans-serif" size="2">stricmp 
+                                  not defined for sexml when built as dynamic 
+                                  library on Unix platforms</font></font></b><font face="Verdana, Arial, Helvetica,
+                                  sans-serif" size="2"><br>
+                                  (for ISDK/C 5.01b) </font> </li>
+                              </ul>
+                              <blockquote> 
+                                <p> <font face="Verdana, Arial, Helvetica, sans-serif" size="2">Bug: 
+                                  The stricmp() function is not being defined 
+                                  for Unix platform extlibs. Since the SEXML library 
+                                  requires that function, compilation of the SEXML 
+                                  library as an extlib dynamic library fails. 
+                                  </font> 
+                                <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                                  <b> Fix </b> : In src/misc/utilstr.c, at about 
+                                  line 956 rename the stricmp_sechar() function 
+                                  to be stricmp(). Then, in se501/lib/makefile, 
+                                  around line 172, append the following line to 
+                                  the end of the definition of SRCEXTLIB: </font> 
+                                <pre><font face="Courier New, Courier, mono" size="2">    \
+    $(SEISDKC_HOME)/src/misc/utilstr.c</font></pre>
+                                <font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                                Also, append the following line to the end of 
+                                the definition of OBJEXTLIB around line 179: </font> 
+                                <pre><font face="Courier New, Courier, mono" size="2">    \
+    seextlib/release/utilstr.o</font></pre>
+                                <font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                                Finally, append the following line to the end 
+                                of the definition of OBJEXTLIB.DBG around line 
+                                187: </font> 
+                                <pre><font face="Courier New, Courier, mono" size="2">    \
+    seextlib/debug/utilstr.o</font></pre>
+                              </blockquote>
+                              <p><a name="ehicfo"></a></p>
+                              <p> 
+                              <ul>
+                                <li><b><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><font face="Verdana, Arial, Helvetica, sans-serif" size="2">seEval() 
+                                  does not honor SE_INFREQUENT_CONT flag when 
+                                  interpreting a function object</font></font></b><font face="Verdana, Arial, Helvetica,
+                                  sans-serif" size="2"><br>
+                                  (for ISDK/C 5.01b) </font> </li>
+                              </ul>
+                              <blockquote> 
+                                <p> <font face="Verdana, Arial,
+                                Helvetica, sans-serif" size="2"> <font face="Verdana, Arial, Helvetica, sans-serif">Bug: 
+                                  When calling seEval() to interpret a function 
+                                  object (using the SE_FUNC interp_type flag) 
+                                  in combination with the SE_INFREQUENT_CONT flag, 
+                                  the SE_INFREQUENT_CONT flag will be ignored. 
+                                  This results in the application's seContinueFunc 
+                                  to get called far more frequently than would 
+                                  be expected.</font></font> 
+                                <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                                  <b> Fix </b> : In src/core/se501.c, function 
+                                  seEvalFunc(), at about line 5911 replace the 
+                                  following statement: </font> 
+                                <pre><font face="Courier New, Courier, mono" size="2">   call->resetContinueCount = ( (flags & JSE_INTERPRET_INFREQUENT_CONT) != 0 ) ? 
+                              (uword32)JSE_INFREQUENT_COUNT : 1 ;</font></pre>
+                                <font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                                with this one: </font> 
+                                <pre><font face="Courier New, Courier, mono" size="2">   call->resetContinueCount = ( (flags & SE_INFREQUENT_CONT) != 0 ) ? (uword32)JSE_INFREQUENT_COUNT : 1 ;</font></pre>
+                              </blockquote>
+                              <p><a name="xofo"></a></p>
+                              <p> 
+                              <ul>
+                                <li><b><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><font face="Verdana, Arial, Helvetica, sans-serif" size="2">XML 
+                                  object creates faulty output sometimes</font></font></b><font face="Verdana, Arial, Helvetica,
+                                  sans-serif" size="2"><br>
+                                  (for ISDK/C 5.01b) </font> </li>
+                              </ul>
+                              <blockquote> 
+                                <p> <font face="Verdana, Arial,
+                                Helvetica, sans-serif" size="2"> <font face="Verdana, Arial, Helvetica, sans-serif">Bug: 
+                                  The output generation code in the SEXML library 
+                                  doesn't output the correct XML markup when an 
+                                  object has a property that is an Array, or if 
+                                  the object has the special .tag and .element 
+                                  properties</font></font> 
+                                <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                                  <b> Fix </b> : Replace se501/src/lib/xml/sexml.c 
+                                  with the one located here: <a href="ftp://ftp.nombas.com/pub/isdkeval/se501/sexml.c">ftp://ftp.nombas.com/pub/isdkeval/se501/sexml.c</a></font> 
+                              </blockquote>
+                              <p><a name="xide"></a></p>
+                              <p> 
+                              <ul>
+                                <li><b><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><font face="Verdana, Arial, Helvetica, sans-serif" size="2">XML.toText(), 
+                                  XML.toFile() including SE_DONTENUM properties 
+                                  in output</font></font></b><font face="Verdana, Arial, Helvetica,
+                                  sans-serif" size="2"><br>
+                                  (for ISDK/C 5.01b) </font> </li>
+                              </ul>
+                              <blockquote> 
+                                <p> <font face="Verdana, Arial,
+                                Helvetica, sans-serif" size="2"> <font face="Verdana, Arial, Helvetica, sans-serif">Bug: 
+                                  The output generation code in the SEXML library 
+                                  includes object properties marked as SE_DONTENUM 
+                                  in the text it outputs. This results in incorrect 
+                                  XML output, and can sometimes result in an infinite 
+                                  recursion.</font></font> 
+                                <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                                  <b> Fix </b> : In src/lib/xml/sexml.c, function 
+                                  obj_to_xml(), at about line 1637 (below the 
+                                  statement "seconstcharptr name = seObjectMemberName(se,obj,SE_INDEX(i),NULL);") 
+                                  add the following statement: </font> 
+                                <pre><font face="Courier New, Courier, mono" size="2">   if ( seGetAttribs(se, obj, SE_INDEX(i)) & SE_DONTENUM )
+   {
+      continue;
+   }</font></pre>
+                              </blockquote>
+                              <p><a name="srcbre"></a></p>
+                              <p> 
+                              <ul>
+                                <li><b><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><font face="Verdana, Arial, Helvetica, sans-serif" size="2">string.replace 
+                                  can crash or return incorrect results when \b 
+                                  is used at the beginning of a regular expression</font></font></b><font face="Verdana, Arial, Helvetica,
+                                  sans-serif" size="2"><br>
+                                  (for ISDK/C 5.01b) </font> </li>
+                              </ul>
+                              <blockquote> 
+                                <p> <font face="Verdana, Arial,
+                                Helvetica, sans-serif" size="2"> <font face="Verdana, Arial, Helvetica, sans-serif">Bug: 
+                                  String.prototype.replace() can crash when built 
+                                  in MBCS mode, or give incorrect results when 
+                                  built in ASCII or UNICODE modes, when a regular 
+                                  expression starting with \b is passed as the 
+                                  first argument. Here is an example of what can 
+                                  cause a crash:</font></font> 
+                                <pre><font face="Courier New, Courier, mono" size="2">   "foo car".replace(/\bc/g, "b")</font></pre>
+                                <p> <font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                                  <b> Fix </b> : In src/lib/ecma/seregex.c, function 
+                                  seregex_match(), at about line 1398 (below the 
+                                  comment "/* match word boundary */") change 
+                                  this statement</font> 
+                                <pre><font face="Courier New, Courier, mono" size="2">   a = IsWordCharAtPosition(stringStart,stringEnd,PREVIOUS_SECHARPTR(execute.str,stringStart));</font></pre>
+                                <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2">to 
+                                  be</font></p>
+                                <pre><font face="Courier New, Courier, mono" size="2">   a = ( execute.str == stringStart ) ? False : 
+       IsWordCharAtPosition(stringStart,stringEnd,PREVIOUS_SECHARPTR(execute.str,stringStart));</font></pre>
+                              </blockquote>
+                              <p><a name="ssnigf"></a></p>
+                              <p> 
+                              <ul>
+                                <li><b><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><font face="Verdana, Arial, Helvetica, sans-serif" size="2">string.split 
+                                  is not ignoring the global flag on regular expressions</font></font></b><font face="Verdana, Arial, Helvetica,
+                                  sans-serif" size="2"><br>
+                                  (for ISDK/C 5.01b) </font> </li>
+                              </ul>
+                              <blockquote> 
+                                <p> <font face="Verdana, Arial,
+                                Helvetica, sans-serif" size="2"> <font face="Verdana, Arial, Helvetica, sans-serif">Bug: 
+                                  String.prototype.split() should ignore the global 
+                                  flag if it is set on the matching regular expression, 
+                                  according to the final note in section 15.5.4.14 
+                                  of the EcmaScript. The ScriptEase engine is 
+                                  not ignoring that flag.</font></font> 
+                                <p> <font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                                  <b> Fix </b> : In src/lib/ecma/seobject.c, function 
+                                  SplitMatch(), at about line 2830 change this 
+                                  block</font> 
+                                <pre><font face="Courier New, Courier, mono" size="2">   struct seEvalParams params;
+   seobject tmpObj;
+   
+   memset(&amp;param,0,sizeof(params));
+   params.default_this = R</font></pre>
+                                <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2">to 
+                                  be</font></p>
+                                <pre><font face="Courier New, Courier, mono" size="2">   struct seEvalParams params;
+   seobject tmpObj;
+   sebool restore_global_flag = seGetBool(se,R,SE_STOCK(global));
+   
+   /* split should ignore the global flag */
+   if ( restore_global_flag )
+      seMustPutBool(se,R,SE_STOCK(global),False);
+   
+   memset(&amp;params,0,sizeof(params));
+   params.default_this = R;</font></pre>
+                                <p><font face="Courier New, Courier, mono" size="2"></font><font face="Verdana, Arial, Helvetica, sans-serif" size="2">and 
+                                  </font><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                                  near the end of that block, around line 2850, 
+                                  change this block</font></p>
+                                <pre><font face="Courier New, Courier, mono" size="2">      else<br>      {<br>         ret = NULL;<br>      }<br>      seFreeObject(se,tmpObj);<br>   }<br>   seFreeObject(se,stack);</font></pre>
+                                <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2">to 
+                                  be</font></p>
+                                <pre><font face="Courier New, Courier, mono" size="2">      else<br>      {<br>         ret = NULL;<br>      }<br>      seFreeObject(se,tmpObj);<br>      if ( restore_global_flag )<br>         seMustPutBool(se,R,SE_STOCK(global),True);<br>   }<br>   seFreeObject(se,stack);</font></pre>
+                              </blockquote>
+                              <p><a name="igposi"></a></p>
+                              <p> 
+                              <ul>
+                                <li><b><font face="Verdana, Arial, Helvetica, sans-serif" size="2">assert 
+                                  or invalid global pop on seExec() if params 
+                                  supplied to seStart()</font></b><font face="Verdana, Arial, Helvetica,
+                                  sans-serif" size="2"><br>
+                                  (for ISDK/C 5.01b) </font> </li>
+                              </ul>
+                              <blockquote> 
+                                <p> <font face="Verdana, Arial,
+                                Helvetica, sans-serif" size="2"> <font face="Verdana, Arial, Helvetica, sans-serif">Bug: 
+                                  If seEval(...SE_START...,params) is called with 
+                                  params!=NULL, then an ASSERT may be triggered 
+                                  or an invalid global may be restored at the 
+                                  end of seExec() or seEnd().</font></font> 
+                                <p> <font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                                  <b> Fix </b> : In src/core/call.h, change both 
+                                  instances (around lines 1132 and 1324) of</font> 
+                                <pre><font face="Courier New, Courier, mono" size="2">   struct seEvalParams *params</font></pre>
+                                <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2">with</font></p>
+                                <pre><font face="Courier New, Courier, mono" size="2">   uword8 pop_global_on_seEnd</font></pre>
+                                <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2">and 
+                                  in src/core/se501.c, function seEvalFunc(), 
+                                  replace (near line 5981)</font></p>
+                                <pre><font face="Courier New, Courier, mono" size="2">   start_info-&gt;params = params;</font></pre>
+                                <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2">with</font></p>
+                                <pre><font face="Courier New, Courier, mono" size="2">   start_info->pop_global_on_seEnd = params!=NULL && params->global!=NULL;</font></pre>
+                                <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2">and 
+                                  in function seEval(), replace (near line 6519)</font></p>
+                                <pre><font face="Courier New, Courier, mono" size="2">   newc-&gt;params = params;</font></pre>
+                                <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2">with</font></p>
+                                <pre><font face="Courier New, Courier, mono" size="2">   newc->pop_global_on_seEnd = params!=NULL && params->global!=NULL;</font></pre>
+                                <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2">and 
+                                  in function seExec() replace (near line 6678)</font></p>
+                                <pre><font face="Courier New, Courier, mono" size="2">   if( call->start_info->params!=NULL && call->start_info->params->global!=NULL )</font></pre>
+                                <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2">with</font></p>
+                                <pre><font face="Courier New, Courier, mono" size="2">   if( call->start_info->pop_global_on_seEnd )</font></pre>
+                                <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2">and 
+                                  replace (near line 6703)</font></p>
+                                <pre><font face="Courier New, Courier, mono" size="2">   sebool need_to_restore = call->params!=NULL && call->params->global!=NULL;</font></pre>
+                                <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2">with</font></p>
+                                <pre><font face="Courier New, Courier, mono" size="2">   sebool need_to_restore = call->pop_global_on_seEnd;</font></pre>
+                                <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2">and 
+                                  in function seEnd() replace (near line 6737)</font></p>
+                                <pre><font face="Courier New, Courier, mono" size="2">   sebool need_to_restore = call->params!=NULL && call->params->global!=NULL;</font></pre>
+                                <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2">with 
+                                  </font></p>
+                                <pre><font face="Courier New, Courier, mono" size="2">   sebool need_to_restore = call->pop_global_on_seEnd;</font></pre>
+                                <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2">and 
+                                  finally replace (near line 6763)</font></p>
+                                <pre><font face="Courier New, Courier, mono" size="2">   if( call->start_info->params!=NULL && call->start_info->params->global!=NULL )</font></pre>
+                                <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2">with</font></p>
+                                <pre><font face="Courier New, Courier, mono" size="2">   if( call->start_info->pop_global_on_seEnd )</font></pre>
+                              </blockquote>
+                              <p><a name="ifmca"></a></p>
+                              <p> 
+                              <ul>
+                                <li> <font face="Verdana, Arial, Helvetica,
+                                  sans-serif" size="2"> <b><font face="Verdana, Arial, Helvetica, sans-serif" size="2">internal 
+                                  function may cause assertion in call.c</font></b><br>
+                                  (for ISDK/C 5.01b) </font> </li>
+                              </ul>
+                              <blockquote> 
+                                <p> <font face="Verdana, Arial,
+                                Helvetica, sans-serif" size="2"> <font face="Verdana, Arial, Helvetica, sans-serif">Issue: 
+                                  A function containing an inner function may 
+                                  cause an assertion to be thrown around line 
+                                  774 (`SEVAR_GET_TYPE(wv)>=VReference').</font></font> 
+                                <p> <font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                                  <b> Fix </b> : In src/core/se501.c around line 
+                                  5916 there is a block of code like this: </font> 
+                                <pre><font face="Courier New,Courier, mono" size="2"></font><font face="Courier New,Courier, mono" size="2">   if( flags&SE_START )
+   {
+      struct evalFuncStart *start_info;
+
+      start_info = (struct evalFuncStart *)secoreAlloc(call,NULL,sizeof(struct evalFuncStart),SE_DEFAULT);</font></pre>
+                                <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2">On 
+                                  the line just above that if statement, add this 
+                                  statement: </font> 
+                                <pre> <font face="Courier New,Courier, mono" size="2">   SEVAR_INIT_UNDEFINED(CALL_NEWSCOPE(call));</font></pre>
+                              </blockquote>
+                              <p><a name="srnil"></a></p>
+                              <p> 
+                              <ul>
+                                <li> <font face="Verdana, Arial, Helvetica,
+                                  sans-serif" size="2"> <b><font face="Verdana, Arial, Helvetica, sans-serif" size="2">string.replace() 
+                                  may get caught in near-infinite loop</font></b><br>
+                                  (for ISDK/C 5.01b) </font> </li>
+                              </ul>
+                              <blockquote> 
+                                <p> <font face="Verdana, Arial,
+                                Helvetica, sans-serif" size="2"> <font face="Verdana, Arial, Helvetica, sans-serif">Issue: 
+                                  If string.replace() is called using the global 
+                                  flag and such that the result of the search 
+                                  expression replaces the null-patch at the end 
+                                  of the line, then replace may run for a long 
+                                  long while (until a memory object is returned). 
+                                  This is an example of a problem script.</font></font> 
+                                <pre><font face="Courier New, Courier, mono" size="2">   &quot;a&quot;.replace( /a*/g, &quot;stuff&quot; );</font></pre>
+                                <p> <font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                                  <b> Fix </b> : In src/lib/ecma/seobject.c make 
+                                  the following changes:</font> 
+                                <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2">1) 
+                                  near line 3492 replace the definition of the 
+                                  replace_string() function from this: </font> 
+                                <pre> <font face="Courier New,Courier, mono" size="2">   static void JSE_NEAR_CALL replace_string(... </font></pre>
+                                <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2">to 
+                                  this </font></p>
+                                <pre><font face="Courier New,Courier, mono" size="2"></font><font face="Courier New,Courier, mono" size="2">   static sememcount JSE_NEAR_CALL replace_string(...</font></pre>
+                                <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2">2) 
+                                  replace the last line of the replace_string() 
+                                  function (around line 3686) from this:</font></p>
+                                <pre><font face="Courier New,Courier, mono" size="2">   return;</font></pre>
+                                <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                                  to this</font></p>
+                                <pre><font face="Courier New,Courier, mono" size="2">   return replace_len;</font></pre>
+                                <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2">3) 
+                                  in function string_which_search_helper(), near 
+                                  line 3762, follow this line:</font></p>
+                                <pre><font face="Courier New,Courier, mono" size="2">   seobject eval_ret = seGetObject(se,SE_RETURN,SE_VALUE);</font></pre>
+                                <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2">with 
+                                  this additional line</font></p>
+                                <pre><font face="Courier New,Courier, mono" size="2">   sememcount replace_len = 0;</font></pre>
+                                <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2">and 
+                                  about seven lines below that replace</font></p>
+                                <pre><font face="Courier New,Courier, mono" size="2">   replace_string(se,temp = ...</font></pre>
+                                <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                                  with</font></p>
+                                <pre><font face="Courier New,Courier, mono" size="2">   replace_len = replace_string(se,temp = ...</font></pre>
+                                <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2">4) 
+                                  around line 3788 of the same function replace 
+                                  this block</font></p>
+                                <pre><font face="Courier New,Courier, mono" size="2">   if( new_index==last_index )
+</font><font face="Courier New,Courier, mono" size="2">   {
+      new_index++;</font></pre>
+                                <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2">with 
+                                  this</font></p>
+                                <pre><font face="Courier New,Courier, mono" size="2">   if( new_index == (slong)(last_index+replace_len) )
+</font><font face="Courier New,Courier, mono" size="2">   {
+      new_index = 1 + (last_index+replace_len);</font></pre>
+                              </blockquote>
+                              <p><a name="vsiwnf"></a></p>
+                              <p> 
+                              <ul>
+                                <li> <font face="Verdana, Arial, Helvetica,
+                                  sans-serif" size="2"> <font face="Verdana,
+                                  Arial, Helvetica, sans-serif" size="2"> <b> 
+                                  <font face="Verdana, Arial, Helvetica,
+                                  sans-serif" size="2">Variable scoping incorrect 
+                                  within nested functions</font></b></font><br>
+                                  (for ISDK/C 5.01b) </font> </li>
+                              </ul>
+                              <blockquote> 
+                                <p> <font face="Verdana, Arial,
+                                Helvetica, sans-serif" size="2"> <font face="Verdana, Arial, Helvetica, sans-serif">Issue: 
+                                  This issue is best described by the following 
+                                  script:</font></font> 
+                                <pre><font face="Courier New, Courier, mono" size="2">   function foo()
+   {
+      var a = 7;
+   
+      function foo1()
+      {
+         function foo2()
+         {
+            return a;
+         }
+   
+         return foo2();
+      }
+   
+      return foo1();
+   }
+   var x = foo();</font></pre>
+                                <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2">Currently, 
+                                  the nested function foo2() cannot find the variable 
+                                  "a", resulting in an error being thrown.</font></p>
+                                <p></p>
+                                <p> <font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                                  <b> Fix </b> : In src/core/call.c, function 
+                                  callFunction(), around line 747 there is a comment 
+                                  that starts </font> 
+                                <pre> <font face="Courier New,Courier, mono" size="2">   /* Build the saved scope chain ... </font></pre>
+                                <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2">A 
+                                  few lines below that is a for( ; ; ) loop. After 
+                                  that for loop add this block of code:</font></p>
+                                <pre><font face="Courier New,Courier, mono" size="2">   /* Now add the current function's saved scope chain to the new scope
+    * chain we are creating.
+    */
+   if ( funcvar->data.object_val.hSavedScopeChain != NULL )
+   {
+      sememcount lookin;
+      sememcount used;
+      hSEObject cur_chain;
+   
+      HSEOBJECT_BRUTE_ASSIGN(cur_chain,funcvar->data.object_val.hSavedScopeChain);
+      used = SEOBJECT_GET(call,cur_chain,used);
+   
+      for ( lookin = 0; lookin&lt;used; lookin++ )
+      {
+         hSEMembers mems;
+         wSEVar tmp;
+      
+         mems = SEOBJECT_GET(call,cur_chain,hsemembers);
+         LOCK_READ_MEMBERS(call,mems);
+      
+         tmp = STACK_PUSH;
+      
+         SEVAR_COPY(tmp,SEMEMBERS_GET_sevar(call,mems,lookin));
+         SEASSERT( SEVAR_GET_TYPE(SEMEMBERS_GET_sevar(call,mems,lookin))==VObject );
+      
+         seobjCreateMemberCopy(call,new_chain,SE_NO_VARNAME,tmp,SE_DEFAULT);
+   
+         STACK_POP;
+      }
+   }</font></pre>
+                              </blockquote>
+                              <p><a name="sibnro"></a></p>
+                              <p> 
+                              <ul>
+                                <li> <font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                                  <font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                                  <b> <font face="Verdana, Arial, Helvetica, sans-serif" size="2">string.replace() 
+                                  incorrect if first arguments is not a RegExp 
+                                  object</font></b></font><br>
+                                  (for ISDK/C 5.01b) </font> </li>
+                              </ul>
+                              <blockquote> 
+                                <p> <font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                                  Bug: If the first parameter to String.prototype.replace() 
+                                  is not a RegExp object then it will be compiled 
+                                  into a RegExp object. This is incorrect behavior 
+                                  and based on an incomplete version of the EcmaScript 
+                                  specification. Instead, if the first arguments 
+                                  is not a RegExp object then it should be converted 
+                                  into a string and a direct string replacement 
+                                  should follow. </font> </p>
+                                <p> <font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                                  <b> Fix </b> : In src/lib/ecma/seobject.c, replace 
+                                  the function Ecma_String_replace() at about 
+                                  line 4022 with the code at <a href="ecma_string_replace.c" target="_blank">ecma_string_replace.c</a></font></p>
+                              </blockquote>
+                              <p><a name="idscff"></a></p>
+                              <p> 
+                              <ul>
+                                <li> <font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                                  <font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                                  <b> <font face="Verdana, Arial, Helvetica, sans-serif" size="2">invalid 
+                                  debug assertion if seContinueFunc() sets SE_RETURN,SE_ERROR 
+                                  during script return statement</font></b></font><br>
+                                  (for ISDK/C 5.01b) </font> </li>
+                              </ul>
+                              <blockquote> 
+                                <p> <font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                                  Problem: If a script happens to be executing 
+                                  a return statement when seContinueFunc() is 
+                                  called and sets the SE_RETURN,SE_ERROR flag, 
+                                  then an SE_ASSERT() statement will be triggered. 
+                                  That SE_ASSERT should not be triggered. </font> 
+                                </p>
+                                <p> <font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                                  <b> Fix </b> : In src/core/secode.c, function 
+                                  secodeInterpret(), within &quot;case seReturnExpr:&quot; 
+                                  around line 2639, change this code:</font></p>
+                                <pre>   <font face="Courier New, Courier, mono" size="2">if ( !run_iterative )
+      callMayIContinue(call);</font></pre>
+                                <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2">to 
+                                  this</font></p>
+                                <pre>   <font face="Courier New, Courier, mono" size="2">if ( !run_iterative &amp;&amp; !callMayIContinue(call) )
+   {
+      callError(call,textcoreMAYICONTINUE);
+      return False;
+   }</font></pre>
+                              </blockquote>
+                              <hr width="90%">
+                              <p> 
+                              <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><b>for 
+                                5.01a</b> --</font></p>
+                              <p><a name="gsmb"></a></p>
+                              <p> 
+                              <ul>
+                                <li> <font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                                  <font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                                  <b> seGetSourceFunc() callback being called 
+                                  an extra time when script is missing a closing 
+                                  brace </b> </font> <br>
+                                  (for ISDK/C 5.01a) </font> </li>
+                              </ul>
+                              <blockquote> 
+                                <p> <font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                                  Issue: When a script that is missing a closing 
+                                  brace ('}') is being compiled by the ScriptEase 
+                                  engine, the seGetSourceFunc() callback of the 
+                                  seContextParams structure gets called by the 
+                                  engine with the seSourceGetLine flag one time 
+                                  too many. That is to say, after the seGetSourceFunc() 
+                                  has been called with the seSourceGetLine flag 
+                                  and has returned False once, on the next call 
+                                  to seGetSourceFunc() the ScriptEase engine should 
+                                  pass it the seSourceClose flag, but instead 
+                                  the engine calls it one more time passing it 
+                                  the seSourceGetLine flag before calling it a 
+                                  final time passing it the seSourceClose flag. 
+                                  This can be a source of error if the seGetSourceFunc()'s 
+                                  seSourceGetLine handler does not expect to be 
+                                  called anymore once it has returned False to 
+                                  the ScriptEase engine. </font> </p>
+                                <p> <font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                                  <b> Fix </b> : To fix this issue, go to the 
+                                  secompileStatement() function in src/core/statemnt.c. 
+                                  Within the switch statement, there is a case 
+                                  statement for the character '{'. In that case 
+                                  statement (at approx. line 975), add the following 
+                                  code inside the while() loop, before the code 
+                                  already in that loop: </font> </p>
+                                <pre><font face="Courier New, Courier, mono" size="2">      if ( tokType(This->token)==seTokEOF )
+      {
+         success = False;
+         callQuit(call, textcoreBAD_PRIMARY);
+         break;
+      }
+
+                                </font></pre>
+                                <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2">So 
+                                  now your while() loop should look like this:</font></p>
+                                <pre><font face="Courier New, Courier, mono" size="2">   while( tokType(This->token)!='}' )
+   {
+      if ( tokType(This->token)==seTokEOF )
+      {
+         success = False;
+         callQuit(call, textcoreBAD_PRIMARY);
+         break;
+      }
+
+      if( !secompileStatement(This) )
+      {
+         success = False;
+         break;
+      }
+   }
+</font></pre>
+                              </blockquote>
+                              <p><a name="exrp"></a></p>
+                              <p> 
+                              <ul>
+                                <li> <font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                                  <font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                                  <b> seExec() returning prematurely when SE_INFREQUENT_CONT 
+                                  flag used to initialize secontext </b> </font> 
+                                  <br>
+                                  (for ISDK/C 5.01a) </font> </li>
+                              </ul>
+                              <blockquote> 
+                                <p> <font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                                  Bug: seExec() returns on any throw statement 
+                                  (caught or uncaught), regardless of the SE_INFREQUENT_CONT 
+                                  flag being used to initialize the context </font> 
+                                </p>
+                                <p> <font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                                  <b> Fix </b> : To fix the source code in src/core/secode.c, 
+                                  function secodeInterpret(), at about line 744 
+                                  replace: </font> </p>
+                                <pre><font face="Courier New, Courier, mono" size="2">   return secode_reasonToQuit(call,False);</font></pre>
+                                <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2">with</font></p>
+                                <pre><font face="Courier New, Courier, mono" size="2">   if ( !(ret = secode_ReasonToQuit(call,False,return_immediate_from_any_seReturn)) ||
+         return_immediate_from_any_seReturn )
+   {
+      return ret;
+   }</font></pre>
+                              </blockquote>
+                              <p><a name="pxuva"></a></p>
+                              <p> 
+                              <ul>
+                                <li> <font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                                  <font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                                  <b> seMustPutXXX() and seMustPutDirectXXX() 
+                                  unsetting most variable attributes </b> </font> 
+                                  <br>
+                                  (for ISDK/C 5.01a) </font> </li>
+                              </ul>
+                              <blockquote> 
+                                <p> <font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                                  Bug: The seMustPutXXX() and seMustPutDirectXXX() 
+                                  functions strip variable attributes, such as 
+                                  SE_DONTENUM and SE_READONLY, from the variable 
+                                  on which they are called. </font> </p>
+                                <p> <font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                                  <b> Fix </b> : A simple workaround is to call 
+                                  seSetAttribs after calling seMustPutXXX() and 
+                                  seMustPutDirectXXX(). Or to fix the source code 
+                                  in src/core/se501.c, function sePutMember(), 
+                                  at about line 3225 replace: </font> </p>
+                                <pre><font face="Courier New, Courier, mono" size="2">   seobjNewMember(call,obj,name,tmp,SE_DEFAULT,SE_NM_UPDATE);</font></pre>
+                                <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2">with</font></p>
+                                <pre><font face="Courier New, Courier, mono" size="2">   seobjNewMember(call,obj,name,tmp,attr,SE_NM_UPDATE);</font></pre>
+                                <p> <font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                                  Also, at about line 3292 replace: </font> </p>
+                                <pre><font face="Courier New, Courier, mono" size="2">   seobjNewMember(call,obj,name,tmp,SE_DEFAULT,SE_NM_UPDATE);</font></pre>
+                                <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2">with</font></p>
+                                <pre><font face="Courier New, Courier, mono" size="2">   seobjNewMember(call,obj,name,tmp,attrib,SE_NM_UPDATE);</font></pre>
+                              </blockquote>
+                              <p><a name="pwivf"></a></p>
+                              <p> 
+                              <ul>
+                                <li><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><b>sePutWrapper() 
+                                  ignoring the varFlags (variable attributes) 
+                                  parameters</b></font><br>
+                                  (for ISDK/C 5.01a)</font></li>
+                              </ul>
+                              <blockquote> 
+                                <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2">Bug: 
+                                  The sePutWrapper() varFlags parameter (used 
+                                  to set variable attributes such as SE_DONTENUM) 
+                                  is being ignored.</font> 
+                                <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><b>Fix</b>: 
+                                  A simple workaround is to call seSetAttribs 
+                                  after calling sePutWrapper(). Or to fix the 
+                                  source code in src/core/se501.c, function sePutWrapperEx(), 
+                                  at about line 5073 replace:</font></p>
+                                <pre><font face="Courier New, Courier, mono" size="2">   </font><font face="Courier New, Courier, mono" size="2">sePutMember(call,obj,type,memdata,flags,temp_put);</font></pre>
+                                <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2">with</font></p>
+                                <pre><font face="Courier New, Courier, mono" size="2">   if ( !sePutMember(call,obj,type,memdata,flags,temp_put)
+     || SE_DEFAULT != varFlags )
+   {
+      if ( !IS_STOCK_OBJ(obj) )
+         seSetAttribs(se,obj,type,memdata,(seAttributes)varFlags);
+   }</font></pre>
+                              </blockquote>
+                              <p><a name="sedbcuv"></a></p>
+                              <p> 
+                              <ul>
+                                <li><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><b><font face="Verdana, Arial, Helvetica, sans-serif" size="2">SEDBC 
+                                  library sometimes references uninitialized variables</font></b><br>
+                                  (for ISDK/C 5.01a)</font></li>
+                              </ul>
+                              <blockquote> 
+                                <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2">Problem: 
+                                  In src/lib/sedbc/jse_rs_s.c, some variables 
+                                  can be referenced before they are initialized 
+                                  due to two <code>continue</code> statements 
+                                  preceeding their initializations.</font> 
+                                <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><b>Fix</b>: 
+                                  In src/lib/sedbc/jse_rs_s.c, function FindSQLToken(), 
+                                  initialize the variables bInLiteral, bInBrackets, 
+                                  nLeftBrackets, and nRightBrackets before the 
+                                  <code>continue</code> statements; for instance, 
+                                  at line 45 instead of line 69.</font> </p>
+                              </blockquote>
+                              <p><a name="sedbcam"></a></p>
+                              <p> 
+                              <ul>
+                                <li><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><b><font face="Verdana, Arial, Helvetica, sans-serif" size="2">SEDBC 
+                                  library allocates unnecessary memory on stack</font></b><br>
+                                  (for ISDK/C 5.01a)</font></li>
+                              </ul>
+                              <blockquote> 
+                                <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2">Problem: 
+                                  In src/lib/sedbc/jse_db.c, a few buffers were 
+                                  being allocated on the stack instead of on the 
+                                  heap, which caused some embedded platforms to 
+                                  run out of stack space.</font> 
+                                <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><b>Fix</b>: 
+                                  In src/lib/sedbc/jse_db.c, function BuildErrorString(), 
+                                  declare the variables named lpszMsg, lpszState, 
+                                  and lpszNative as sedbccharptr's instead of 
+                                  sedbcchar arrays. Next allocate memory to those 
+                                  variables as shown below:</font> </p>
+                                <pre><font face="Courier New, Courier, mono" size="2">   lpszMsg = (sedbccharptr)seGCMalloc(sedbc->se, \
+      (sememcount)((SQL_MAX_MESSAGE_LENGTH + 1) * sizeof(sedbcchar)));
+   lpszState = (sedbccharptr)seGCMalloc(sedbc->se, \
+      (sememcount)((SQL_SQLSTATE_SIZE + 1) * sizeof(sedbcchar)));
+   lpszNative = (sedbccharptr)seGCMalloc(sedbc->se, \
+      (sememcount)(50 * sizeof(sedbcchar)));</font></pre>
+                                <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2">Then 
+                                  at the end of the function, below the <code>func_exit</code> 
+                                  label, free that memory using seGCFree().</font></p>
+                              </blockquote>
+                              <p><a name="mrnvr16"></a></p>
+                              <p> 
+                              <ul>
+                                <li><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><b><font face="Verdana, Arial, Helvetica, sans-serif" size="2">Math.random() 
+                                  is not very random on systems with 16-bit integers</font></b><br>
+                                  (for ISDK/C 5.01a)</font></li>
+                              </ul>
+                              <blockquote> 
+                                <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2">Bug: 
+                                  On systems compiled with 16-bit integers, Math.random() 
+                                  always generates numbers very close to 0.0 or 
+                                  1.0 (e.g. 0.0545345 or 0.992322), and not well-spread 
+                                  between 0 and 1.</font> 
+                                <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><b>Fix</b>: 
+                                  In src/lib/ecma/mathobj.c, function Ecma_Math_random(), 
+                                  change this line:</font> </p>
+                                <pre><font face="Courier New, Courier, mono" size="2">   int r[5];</font></pre>
+                                <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2">to 
+                                  this:</font></p>
+                                <pre><font face="Courier New, Courier, mono" size="2">   uword32 r[5];</font></pre>
+                                <font face="Courier New, Courier, mono" size="2"> 
+                                </font></blockquote>
+                              <p><a name="12amutc"></a></p>
+                              <p> 
+                              <ul>
+                                <li><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><b><font face="Verdana, Arial, Helvetica, sans-serif" size="2">Date 
+                                  parser not recognizing 12 AM or &quot;UTC&quot;</font></b><br>
+                                  (for ISDK/C 5.01a)</font></li>
+                              </ul>
+                              <blockquote> 
+                                <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2">Problem: 
+                                  When parsing a date/time with &quot;12:00 AM 
+                                  UTC&quot; the date parser is not recognizing 
+                                  this as midnight, but is instead registering 
+                                  that time as noon. Also, although the ECMAScript 
+                                  specification sets &quot;GMT&quot; as the tag 
+                                  for declaring universal time, it has become 
+                                  common to also use &quot;UTC&quot;</font>. 
+                                <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><b>Change</b>: 
+                                  In src/lib/ecma/sedate.c, function do_parse(), 
+                                  at around line 852, just before the comment 
+                                  that begins &quot;/* if there is a PM anywhere...&quot; 
+                                  add this code:</font> </p>
+                                <pre><font face="Courier New, Courier, mono" size="2">   /* if it is 12, but 12 AM, then that time is really 0 */
+   if ( time[0] == 12  &amp;&amp;  strstr_sechar(DateBuf,UNISTR(&quot;am&quot;)) )
+      time[0] = 0;</font></pre>
+                                <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2">and 
+                                  then at about line 974 change this code</font></p>
+                                <pre><font face="Courier New, Courier, mono" size="2">   gmt = strstr_sechar(DateBuf,UNISTR(&quot;gmt&quot;));
+   if ( gmt == NULL )</font></pre>
+                                <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2">to 
+                                  this</font></p>
+                                <pre><font face="Courier New, Courier, mono" size="2">   if ( NULL == (gmt = strstr_sechar(DateBuf,UNISTR(&quot;gmt&quot;)))
+     &amp;&amp; NULL == (gmt = strstr_sechar(DateBuf,UNISTR(&quot;utc&quot;))) )</font></pre>
+                              </blockquote>
+                              <a name="fccs"></a> 
+                              <p> 
+                              <p> 
+                              <ul>
+                                <font face="Verdana, Arial, Helvetica, sans-serif" size="2"><b><font face="Verdana, Arial, Helvetica, sans-serif" size="2">Function 
+                                constructor causes swapping for created functions</font></b><br>
+                                (for ISDK/C 5.01a)</font> 
+                              </ul>
+                              <blockquote> 
+                                <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2">Problem: 
+                                  When JSE_MULTIPLE_GLOBAL is defined (the default), 
+                                  any anonymous function created at runtime with 
+                                  the Function constructor will preserve the global 
+                                  from when the Function library was loaded (usually 
+                                  at program initialization). This will cause 
+                                  the global to change to the original global 
+                                  whenever that anonymous function is later called.</font> 
+                                <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><b>Change</b>: 
+                                  To keep the Function constructor from restoring 
+                                  its own global replace add the SE_KEEP_GLOBAL 
+                                  line 2296 of src/lib/ecma/seobject.c so it becomes</font><font face="Verdana, Arial, Helvetica, sans-serif" size="2">:</font> 
+                                </p>
+                                <pre><font face="Courier New, Courier, mono" size="2">   SE_CLASS( JseStr(se,Function), Ecma_Function_construct, 0, -1, \
+             SE_SECURE|SE_KEEP_GLOBAL, SE_DONTENUM )</font></pre>
+                              </blockquote>
+                              <p><a name="smsrn"></a></p>
+                              <p> 
+                              <ul>
+                                <li><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><b><font face="Verdana, Arial, Helvetica, sans-serif" size="2">String 
+                                  match function should return null on no match</font></b><br>
+                                  (for ISDK/C 5.01a)</font></li>
+                              </ul>
+                              <blockquote> 
+                                <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2">Issue: 
+                                  According to the commonly recognized ECMAScript 
+                                  Edition 3 Errata, string.match should return 
+                                  NULL if there are no items matched. This differs 
+                                  from the ECMAScript document, and from our 5.01a 
+                                  code, which would return a zero-length array.</font> 
+                                <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><b>Change</b>: 
+                                  To get the return-null behavior, In src/lib/ecma/seobject.c, 
+                                  near the end of string_which_search_helper() 
+                                  (at about line 3839) replace this code</font><font face="Verdana, Arial, Helvetica, sans-serif" size="2">:</font> 
+                                </p>
+                                <pre><font face="Courier New, Courier, mono" size="2">   if( mode==SE_MATCH_MODE )
+   {
+      sePutObject(se,SE_RETURN,SE_VALUE,ret);
+   }</font></pre>
+                                <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                                  with </font></p>
+                                <pre><font face="Courier New, Courier, mono" size="2">   </font><font face="Courier New, Courier, mono" size="2">if( mode==SE_MATCH_MODE )
+   {
+      #if 1  /* this part of the code is a result of the ECMA-262 errata */
+      if ( array_index == 0 )
+         sePutNull(se,SE_RETURN,SE_VALUE);
+      else
+      #endif
+         sePutObject(se,SE_RETURN,SE_VALUE,ret);
+   }</font></pre>
+                              </blockquote>
+                              <p><a name="segcc2"></a></p>
+                              <p> 
+                              <ul>
+                                <li><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><b>seGetSourceFunc(...seSourceGetLine...) 
+                                  called twice if first call returns False</b></font><br>
+                                  (for ISDK/C 5.01a)</font></li>
+                              </ul>
+                              <blockquote> 
+                                <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2">Bug: 
+                                  If seGetSourceFunc(...seSourceGetLine...) (aka 
+                                  seGetSourceFunc(...SE_SOURCE_GETLINE...)) returns 
+                                  False the first time it is called, it will be 
+                                  called again a second time.</font> 
+                                <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><b>Fix</b>: 
+                                  In src/core/source.c, function sourceNewFromFile(), 
+                                  change the code after !sourceNextLine() (around 
+                                  line 545) from</font><font face="Verdana, Arial, Helvetica, sans-serif" size="2">:</font> 
+                                </p>
+                                <pre><font face="Courier New, Courier, mono" size="2">   This-&gt;MemoryPtr = UNISTR(&quot;&quot;);</font></pre>
+                                <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                                  to</font></p>
+                                <pre><font face="Courier New, Courier, mono" size="2">   </font>*Success = False;</pre>
+                              </blockquote>
+                              <p><a name="e12e2"></a></p>
+                              <p> 
+                              <ul>
+                                <li><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><b>SE_GF_NOCALLBACKS 
+                                  errata fix causes SE_GF_DIRECT failure on strings</b><br>
+                                  (for ISDK/C 5.01a)</font></li>
+                              </ul>
+                              <blockquote> 
+                                <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2">Bug: 
+                                  After apply the SE_GF_NOCALLBACKS errata <a href="#dcnp">posted 
+                                  below</a>, calls to sePutDirectString() or sePutStringEx(...SE_GF_DIRECT) 
+                                  will cause memory allocation errors.</font> 
+                                <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><b>Fix</b>: 
+                                  After applying the errata <a href="#dcnp">posted 
+                                  below</a>, edit src/include/se501.h and change 
+                                  (near line 632)</font><font face="Verdana, Arial, Helvetica, sans-serif" size="2">:</font> 
+                                </p>
+                                <pre><font face="Courier New, Courier, mono" size="2">   #define SE_PS_USEPOINTER         0x004
+   #define SE_PS_BORROWPOINTER      0x008</font></pre>
+                                <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                                  to</font></p>
+                                <pre><font face="Courier New, Courier, mono" size="2">   #define SE_PS_USEPOINTER         0x020
+</font><font face="Courier New, Courier, mono" size="2">   #define SE_PS_BORROWPOINTER      0x040</font></pre>
+                              </blockquote>
+                              <p><a name="mlats"></a></p>
+                              <p> 
+                              <ul>
+                                <li><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><b>memory 
+                                  leak with array.toSource</b></font><br>
+                                  (for ISDK/C 5.01a)</font></li>
+                              </ul>
+                              <blockquote> 
+                                <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2">Bug: 
+                                  A memory buffer remains unreleased for each 
+                                  call to Array.prototype.toSource. This would 
+                                  happen any time ToSource is applied to an instance 
+                                  of an Array, or to any object containing an 
+                                  instance of an Array.</font> 
+                                <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><b>Fix</b>: 
+                                  In src/lib/ecma/seobject.c, function Ecma_Array_toSource, 
+                                  the following should be added as the last line 
+                                  of the function at about line 1465</font><font face="Verdana, Arial, Helvetica, sans-serif" size="2">:</font> 
+                                </p>
+                                <pre><font face="Courier New, Courier, mono" size="2">   dynamicBufferTerm(&buffer);</font></pre>
+                              </blockquote>
+                              <p><a name="ssieo"></a></p>
+                              <p> 
+                              <ul>
+                                <li><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><b>string.split 
+                                  returns undefined element 0 if no match</b></font><br>
+                                  (for ISDK/C 5.01a)</font></li>
+                              </ul>
+                              <blockquote> 
+                                <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2">Bug: 
+                                  If String.prototype.split(delimeter) is called, 
+                                  but there is no delimeter matched, then this 
+                                  function should return a 1-element array with 
+                                  the original string as element 0. Instead it 
+                                  is wrongly returning and undefined type as element 
+                                  0.</font> 
+                                <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><b>Fix</b>: 
+                                  In src/lib/ecma/seobject.c, function Ecma_String_split, 
+                                  at about line 2945 this statement</font><font face="Verdana, Arial, Helvetica, sans-serif" size="2">:</font> 
+                                </p>
+                                <pre><font face="Courier New, Courier, mono" size="2">   seAssign(se,ret,SE_NUM((sememcount)seGetLong(se,ret,SE_STOCK(length))),
+            SE_WRAPPER_TEMP, SE_MEM("temp"));</font></pre>
+                                <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2">should 
+                                  be changed to:</font></p>
+                                <pre><font face="Courier New, Courier, mono" size="2">   sePutString(se,ret,SE_NUM((sememcount)seGetLong(se,ret,SE_STOCK(length))),str,s);</font></pre>
+                              </blockquote>
+                              <p><a name="crasc"></a></p>
+                              <p> 
+                              <ul>
+                                <li><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><b>converting 
+                                  a recursive array to a string can crash</b></font><br>
+                                  (for ISDK/C 5.01a)</font></li>
+                              </ul>
+                              <blockquote> 
+                                <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2">Bug: 
+                                  In an array contains a recursive element that 
+                                  recursively refers back to the array, and if 
+                                  the array is then converted to a string, then 
+                                  the scriptease engine will crash. The following 
+                                  script demonstrates the problem:</font> 
+                                <pre><font face="Courier New, Courier, mono" size="2">   var a = new Array( &quot;a&quot;, &quot;b&quot;, &quot;c&quot; );
+   a[1] = new Array( a, 2, 3 );
+   var foo = &quot;&quot; + a; // will crash here from recursion</font></pre>
+                                <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><b>Fix</b>: 
+                                  In src/lib/ecma/seobject.c, function Ecma_Array_join, 
+                                  after the declaration of variables (around line 
+                                  662) add this block</font><font face="Verdana, Arial, Helvetica, sans-serif" size="2">:</font> 
+                                </p>
+                                <pre><font face="Courier New, Courier, mono" size="2">   #define PREVENT_RECURSION_NAME "join recursed"
+   /* if this object was already visited, then just return a blank string */
+   if ( seExists(se,SE_THIS,SE_HIDDEN_MEM(PREVENT_RECURSION_NAME)) )
+   {
+      sePutString(se,SE_RETURN,SE_VALUE,UNISTR(""),0);
+      return;
+   }
+   sePutBool(se,SE_THIS,SE_HIDDEN_MEM(PREVENT_RECURSION_NAME),True);</font></pre>
+                                <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2">and 
+                                  add the following as the final line of function 
+                                  Ecma_Array_join:</font></p>
+                                <pre><font face="Courier New, Courier, mono" size="2">   seDelete(se,SE_THIS,SE_HIDDEN_MEM(PREVENT_RECURSION_NAME));</font></pre>
+                              </blockquote>
+                              <p><a name="dcnp"></a></p>
+                              <p> 
+                              <ul>
+                                <li><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><b>no 
+                                  flag provided to bypass dynamic callbacks, but 
+                                  allow for prototype chain</b></font><br>
+                                  (for ISDK/C 5.01a)</font></li>
+                              </ul>
+                              <blockquote> 
+                                <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2">Bug: 
+                                  SE_GF_DIRECT (as used by the seGetDirect and 
+                                  seGetEx calls) bypasses the dynamic callbacks 
+                                  and the prototype chain. SE_GF_NOPROTOTYPE bypasses 
+                                  the prototype chain but not the callbacks. There 
+                                  is no corresponding call to skip dynamic callbacks 
+                                  but still allow access via the prototype chain.</font> 
+                                <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><b>Fix</b>: 
+                                  Add a new SE_GF_NOCALLBACKS option to bypass 
+                                  callbacks but still allow access via the prototype 
+                                  chain. This fix assumes that the<a href="#tmgcb"> 
+                                  HP_DIRECTCHECK errata</a> has already been applied. 
+                                  In src\include\se501.h</font><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                                  at about line 617 replace this line:</font> 
+                                <pre><font face="Courier New, Courier, mono" size="2">   #define SE_GF_DIRECT             0x001</font></pre>
+                                <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2">with 
+                                  these two lines:</font></p>
+                                <pre><font face="Courier New, Courier, mono" size="2">   #define SE_GF_NOCALLBACKS        0x001
+   #define SE_GF_DIRECT             (SE_GF_NOPROTOTYPE|SE_GF_NOCALLBACKS)</font></pre>
+                                <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2">and 
+                                  in src/core/var.h, near line 363 change</font></p>
+                                <pre><font face="Courier New, Courier, mono" size="2">   #define GV_NO_PROTOTYPE 1
+   #define GV_NO_DYNAMIC   2</font></pre>
+                                <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2">to</font></p>
+                                <pre><font face="Courier New, Courier, mono" size="2">   #define GV_NO_PROTOTYPE SE_GF_NOPROTOTYPE
+</font><font face="Courier New, Courier, mono" size="2">   #define GV_NO_DYNAMIC SE_GF_NOCALLBACKS</font></pre>
+                                <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2">and 
+                                  then in src/core/se501.c change every reference 
+                                  from</font></p>
+                                <pre><font face="Courier New, Courier, mono" size="2">   SE_GF_DIRECT</font></pre>
+                                <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2">to</font></p>
+                                <pre><font face="Courier New, Courier, mono" size="2">   SE_GF_NOCALLBACKS</font></pre>
+                                <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2">and 
+                                  also in src/core/se501.c, function seGetMember(), 
+                                  at around line 2574 change</font></p>
+                                <pre><font face="Courier New, Courier, mono" size="2">   direct = TRUE;</font></pre>
+                                <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2">to</font></p>
+                                <pre><font face="Courier New, Courier, mono" size="2">   flags |= SE_GF_NOCALLBACKS;</font></pre>
+                                <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2">finally, 
+                                  about 17 lines later, replace this block:</font></p>
+                                <pre><font face="Courier New, Courier, mono" size="2">   int f = ( (flags & SE_GF_DIRECT) || direct )
+         ? ( GV_NO_PROTOTYPE | GV_NO_DYNAMIC )
+          : ( ( flags & SE_GF_NOPROTOTYPE ) ? GV_NO_PROTOTYPE : GV_DEFAULT );
+   SEVAR_INIT_OBJECT(tmpobj,obj);
+   ret = sevarGetValue(call,tmpobj,name,temp_get,f);</font></pre>
+                                <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2">with 
+                                  this</font></p>
+                                <pre><font face="Courier New, Courier, mono" size="2">   SEVAR_INIT_OBJECT(tmpobj,obj);
+   </font><font face="Courier New, Courier, mono" size="2">ret = sevarGetValue(call,tmpobj,name,temp_get,flags);</font></pre>
+                                <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2">After 
+                                  applying this fix be sure to also apply the 
+                                  SE_GF_DIRECT failure on strings fix <a href="#e12e2">posted 
+                                  above</a>.</font></p>
+                              </blockquote>
+                              <p><a name="cbrftalvr"></a></p>
+                              <p> 
+                              <ul>
+                                <li><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><b>calling 
+                                  byref function turns all local variables into 
+                                  references</b><br>
+                                  (for ISDK/C 5.01a)</font></li>
+                              </ul>
+                              <blockquote> 
+                                <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2">Bug: 
+                                  If a byref function is called from within another 
+                                  function, all of the local variables in the 
+                                  outer function will be turned into references.</font> 
+                                <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><b>Fix</b>: 
+                                  In src/core/secode.c, function secodeInterpret(), 
+                                  near line 829 this block of code:</font> 
+                                <pre><font face="Courier New, Courier, mono" size="2">   #if JSE_PASSBYREF==1
+      if ( FUNCTION_PASSBYREF(function)
+        || ( FUNCTION_IS_LOCAL(function)
+          && with_tmp < ((struct LocalFunction*)function)->localItems.InputParameterCount
+          && ((struct LocalFunction*)function)->localItems.items[with_tmp].passByRef ) )
+        {
+           /* In this case we have pass-by-reference */
+           SEVAR_INIT_UNDEFINED(w_lhs);
+           if( CALL_VAROBJ(call)==hSEObjectNull )
+              callCreateVariableObject(call,NULL,0);
+        }
+   #endif
+   
+   SEVAR_COPY(w_lhs,w_rhs);</font></pre>
+                                <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2">should 
+                                  be changed to this code:</font></p>
+                                <pre><font face="Courier New, Courier, mono" size="2">   #if JSE_PASSBYREF==1
+      if ( FUNCTION_PASSBYREF(function)
+        || ( FUNCTION_IS_LOCAL(function)
+          && with_tmp < ((struct LocalFunction*)function)->localItems.InputParameterCount
+          && ((struct LocalFunction*)function)->localItems.items[with_tmp].passByRef ) )
+      {
+         /* In this case we have pass-by-reference */
+         SEVAR_INIT_UNDEFINED(w_lhs);
+         if( CALL_VAROBJ(call)==hSEObjectNull )
+            callCreateVariableObject(call,NULL,0);
+   
+         SEVAR_COPY(w_lhs,w_rhs);
+      }
+      else
+      {
+         /* The local variable could be a reference into the variable object.
+          * If this is true, it will be passed by reference even though it
+          * should not be. To avoid this, we now copy the variable to the stack
+          * and dereference it.
+          */
+         SEVAR_COPY(w_lhs,w_rhs);
+         SEVAR_DEREFERENCE(call,w_lhs);
+
+      }
+   #else
+      /* No pass by reference, so just copy the variable to the stack */
+      SEVAR_COPY(w_lhs,w_rhs);
+   
+   #endif</font></pre>
+                              </blockquote>
+                              <p><a name="tmgcb"></a></p>
+                              <p> 
+                              <ul>
+                                <li><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><b>too 
+                                  many callbacks for global get and for hasprop 
+                                  returning HP_DIRECTCHECK</b><br>
+                                  (for ISDK/C 5.01a)</font></li>
+                              </ul>
+                              <blockquote> 
+                                <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2">Bug: 
+                                  If the global object has a get callback, then 
+                                  get is called too often while initializing code. 
+                                  Also, if any hasProp callback is returning HP_DIRECTCHECK 
+                                  then the get callback is being called, although 
+                                  it shouldn't.</font></p>
+                                <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><b>Fix</b>: 
+                                  In src/core/call.c, function callFunction(), 
+                                  near line 768 this block of code:</font></p>
+                                <pre><font face="Courier New, Courier, mono" size="2">   wSEVar wLoc = STACK_PUSH;
+   wSEVar wTmp = STACK_PUSH;
+   
+   SEVAR_INIT_UNDEFINED(wTmp);
+   SEVAR_INIT_OBJECT(wLoc,CALL_VAROBJ(call));
+   GetDotNamedVar(call,wLoc,GetSEStringTableEntry(call,ourname,NULL),GDNV_DONT_DELETE);
+   if( hif_func!=hSEObjectNull )
+   {
+      SEVAR_INIT_OBJECT(wTmp,hif_func);
+      if ( VObject == SEVAR_GET_TYPE(CALL_NEWSCOPE(call)) )
+      {
+         hSEObject hobj;
+   
+         HSEOBJECT_BRUTE_ASSIGN(hobj,SEVAR_GET_OBJECT(CALL_NEWSCOPE(call)));
+         SEASSERT( hSEObjectNull != hobj );
+         if( 0data.object_val.hSavedScopeChain,hobj);
+         }
+      }
+   }
+   else
+   {
+      SEVAR_INIT_UNDEFINED(wTmp);
+   }</font></pre>
+                                <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2">should 
+                                  be changed to this code:</font></p>
+                                <pre><font face="Courier New, Courier, mono" size="2">   wSEVar wLoc = STACK_PUSH;
+   wSEVar wTmp = STACK_PUSH;
+   
+   if( hif_func != hSEObjectNull )
+   {
+      SEVAR_INIT_OBJECT(wTmp,hif_func);
+      SEVAR_INIT_OBJECT(wLoc,CALL_VAROBJ(call));
+      GetDotNamedVar(call,wLoc,GetSEStringTableEntry(call,ourname,NULL),GDNV_DONT_DELETE);
+      if ( VObject == SEVAR_GET_TYPE(CALL_NEWSCOPE(call)) )
+      {
+         hSEObject hobj;
+   
+         HSEOBJECT_BRUTE_ASSIGN(hobj,SEVAR_GET_OBJECT(CALL_NEWSCOPE(call)));
+         SEASSERT( hSEObjectNull != hobj );
+         if( 0&lt;SEOBJECT_GET(call,hobj,used) )
+         {
+            HSEOBJECT_INIT_ASSIGN(wTmp-&gt;data.object_val.hSavedScopeChain,hobj);
+         }
+      }
+   }
+   else
+   {
+      SEVAR_INIT_UNDEFINED(wTmp);
+      SEVAR_INIT_REFERENCE(wLoc,CALL_VAROBJ(call),ourname);
+   }</font></pre>
+                                <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2">Then 
+                                  in src/core/se501.c function seGetMember(), 
+                                  near line 2547 (about 22 lines below the "not_there:" 
+                                  target), replace the else block that begins 
+                                  with this line:</font></p>
+                                <pre><font face="Courier New, Courier, mono" size="2">   wSEVar tmpobj = STACK_PUSH;</font></pre>
+                                <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2">with 
+                                  this block</font></p>
+                                <pre><font face="Courier New, Courier, mono" size="2">   wSEVar tmpobj = STACK_PUSH;
+</font><font face="Courier New, Courier, mono" size="2">   sebool direct = FALSE;
+   
+   #if JSE_DYNAMIC_CALLBACKS==1
+   ret = TRUE;
+   SEVAR_INIT_UNDEFINED(tmpobj);
+   /* If the object says it does not have the property,
+    * believe it. Return FALSE with the undefined value.
+    */
+   if( (flags&SE_GF_DIRECT)==0
+    && SEOBJ_IS_DYNAMIC_PROP(call,obj,hasProp)
+    && !IS_HIDDEN_PROP(name) )
+   {
+      if( seobjCallDynamicProperty(call,obj,SE_HASPROP_CALLBACK,name,NULL,tmpobj) )
+      {
+         if ( HP_HASNOT == SEVAR_GET_SLONG(tmpobj) )
+         {
+            ret = FALSE;
+            SEVAR_INIT_UNDEFINED(temp_get);
+         }
+      }
+      else
+      {
+         if ( VNumber == SEVAR_GET_TYPE(tmpobj) )
+         {
+            if ( HP_DIRECTCHECK == SEVAR_GET_SLONG(tmpobj) )
+               direct = TRUE;
+         }
+      }
+   }
+   ELSE_ALWAYS_COLLECT(call)
+   
+   if( ret )
+   #else
+      /* above calldyna would have caused GC */
+      ALWAYS_COLLECT(call)
+   #endif
+   {
+      int f = ( (flags & SE_GF_DIRECT) || direct )
+            ? ( GV_NO_PROTOTYPE | GV_NO_DYNAMIC )
+            : ( ( flags & SE_GF_NOPROTOTYPE ) ? GV_NO_PROTOTYPE : GV_DEFAULT );
+      SEVAR_INIT_OBJECT(tmpobj,obj);
+      ret = sevarGetValue(call,tmpobj,name,temp_get,f);
+   
+   }
+   
+   STACK_POP;</font></pre>
+                                <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2">And 
+                                  in src/core/varutil.c, function seobjCallDynamicProperty(), 
+                                  replace "case SE_HASPROP_CALLBACK:" around line 
+                                  2300 with this code: </font></p>
+                                <pre><font face="Courier New, Courier, mono" size="2">   case SE_HASPROP_CALLBACK:
+   </font><font face="Courier New, Courier, mono" size="2">{
+      int cp = DYNA_CALLBACK1(callbacks->hasProp,prop_name);
+   
+      if ( cp < 0 )
+      {
+         SEASSERT( cp==HP_CHECK || cp==HP_DIRECTCHECK );
+         done = False;
+      }
+      else
+      {
+         SEASSERT( cp==HP_HAS || cp==HP_HASNOT );
+      }
+      SEASSERT( result!=NULL );
+      SEVAR_INIT_SLONG(result,cp);
+      break;
+   }</font></pre>
+                                <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2">then 
+                                  around line 2665 replace these lines:</font></p>
+                                <pre><font face="Courier New, Courier, mono" size="2">   STACK_POP;
+   
+</font><font face="Courier New, Courier, mono" size="2">   /* Call the 'get' to get the property */</font></pre>
+                                <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2">with 
+                                  this block</font></p>
+                                <pre><font face="Courier New, Courier, mono" size="2">   else
+</font><font face="Courier New, Courier, mono" size="2">   {
+      if ( VNumber == SEVAR_GET_TYPE(value) )
+      {
+         if ( HP_DIRECTCHECK == SEVAR_GET_SLONG(value) )
+         {
+            STACK_POP; /* value */
+            goto standard_directcheck;
+         }
+      }
+   }
+   STACK_POP; /* value */
+   
+   /* Call the 'get' to get the property */</font></pre>
+                                <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2">finally, 
+                                  around line 2719 replace this code</font></p>
+                                <pre><font face="Courier New, Courier, mono" size="2">   # else
+      </font><font face="Courier New, Courier, mono" size="2">/* on some occasions calldyna will happen and GC may happen, so force it always */</font></pre>
+                                <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                                  </font><font face="Verdana, Arial, Helvetica, sans-serif" size="2">with 
+                                  this (only a label is added) </font></p>
+                                <pre><font face="Courier New, Courier, mono" size="2">      standard_directcheck:
+   #  else
+         /* on some occasions calldyna will happen and GC may happen, so force it always */</font></pre>
+                              </blockquote>
+                              <p><a name="hugu"></a></p>
+                              <p> 
+                              <ul>
+                                <li><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><b>hang 
+                                  on assigning to undefined variable if global 
+                                  object is SE_DYNA_UNDEF</b><br>
+                                  (for ISDK/C 5.01a)</font></li>
+                              </ul>
+                              <blockquote> 
+                                <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2">Bug: 
+                                  If the global object is dynamic (i.e. setSetCallbacks 
+                                  has been called on SE_GLOBAL), and if jseopt.h 
+                                  defines JSE_CACHE_GLOBAL_VARS, and if a property 
+                                  of the global is of type undefined, then assigning 
+                                  to that property will result in an assertion 
+                                  being raised (if a debug build) or in the engine 
+                                  haning in an infinite loop.</font></p>
+                                <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><b>Fix</b>: 
+                                  In src/core/call.c, function secoreFindAnyVar(), 
+                                  at about line 1899, change this code:</font></p>
+                                <pre><font face="Courier New, Courier, mono" size="2">   #  if JSE_DYNAMIC_CALLBACKS==1
+      if ( obj_flag==0 || VUndefined != SEVAR_GET_TYPE(wslot) )
+   #  endif</font></pre>
+                                <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2">to 
+                                  this</font></p>
+                                <pre><font face="Courier New, Courier, mono" size="2">   #  if JSE_DYNAMIC_CALLBACKS==1
+      if ( !(obj_flag==0 || VUndefined != SEVAR_GET_TYPE(wslot)) )
+         wslot = STACK0;
+      else
+   #  endif</font></pre>
+                              </blockquote>
+                              <p><a name="cafp"></a></p>
+                              <p> 
+                              <ul>
+                                <li><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><b>Clib.fread() 
+                                  leaves unread parts of buffers uninitialized</b><br>
+                                  (for ISDK/C 5.01a)</font></li>
+                              </ul>
+                              <blockquote> 
+                                <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2">Bug: 
+                                  If Clib.fread(...buffer_size...) reads less 
+                                  than buffer_size bytes, then the buffer size 
+                                  will be created large enough for buffer_size 
+                                  bytes and the parts of the buffer beyond what 
+                                  are read will be uninitialized and may contain 
+                                  random data. Instead, the buffer should not 
+                                  be expanded beyond the number of bytes that 
+                                  are read.</font></p>
+                                <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><b>Fix</b>: 
+                                  Replace the Clib_fread() function in src/lib/clib/sestdio.c 
+                                  with the code at <a href="clib_fread.c" target="_blank">clib_fread.c</a></font></p>
+                              </blockquote>
+                              <p><a name="cafp"></a></p>
+                              <p> 
+                              <ul>
+                                <li><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><b>Alignment 
+                                  errors with Clib *printf and *scanf floating-point 
+                                  on HP-UX</b><br>
+                                  (for ISDK/C 5.01a)</font></li>
+                              </ul>
+                              <blockquote> 
+                                <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2">Bug: 
+                                  If a call to the Clib *printf or *scanf methods 
+                                  (e.g. Clib.sprintf) contains non-floating-point 
+                                  data types following a floating-point type, 
+                                  data alignment may be incorrect and invalid 
+                                  data or crashes will result. This problem appears 
+                                  only on HPUX systems.</font></p>
+                                <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><b>Fix</b>: 
+                                  Replace src/lib/clib/sefmtio.c with the file 
+                                  at <a href="sefmtio.c" target="_blank">sefmtio.c</a></font></p>
+                              </blockquote>
+                              <!-- #EndEditable --></td>
+                    </tr>
+                    <tr>
+                      <td width="1">&nbsp;</td>
+                      <td width="460">&nbsp;</td>
+                    </tr>
+                  </table>
+                  </TD>
+              </TR>
+            </TABLE>
+          </TD>
+        </TR>
+      </TABLE>
+    </TD>
+  </TR>
+  <TR VALIGN=TOP ALIGN=LEFT>
+    <TD HEIGHT=2 width="5"></TD>
+    <TD COLSPAN=2 height="2">
+            <TABLE BORDER=0 CELLSPACING=0 CELLPADDING=0 WIDTH=100% HEIGHT=20 bgcolor="#FFFFFF">
+              <TR ALIGN=LEFT VALIGN=TOP>
+          <TD>
+                  <TABLE BORDER=0 CELLSPACING=0 CELLPADDING=0 WIDTH=100%>
+                    <TR VALIGN=TOP ALIGN=LEFT>
+                <TD WIDTH=20 HEIGHT=2 ALIGN=LEFT VALIGN=TOP><IMG ID="Picture13" HEIGHT=20 WIDTH=20 SRC="../../../curve_botleft.gif" BORDER=0></TD>
+                      <TD height="2"><IMG SRC="../../../clearpixel.gif" WIDTH=592 HEIGHT=1 BORDER=0></TD>
+                <TD WIDTH=20 ALIGN=LEFT VALIGN=TOP height="2"><IMG ID="Picture11" HEIGHT=20 WIDTH=20 SRC="../../../curve_bot.gif" BORDER=0></TD>
+              </TR>
+            </TABLE>
+          </TD>
+        </TR>
+      </TABLE>
+    </TD>
+  </TR>
+  <TR VALIGN=TOP ALIGN=LEFT>
+    <TD WIDTH=5 HEIGHT=6><IMG SRC="../../../clearpixel.gif" WIDTH=5 HEIGHT=1 BORDER=0></TD>
+    <TD WIDTH=613><IMG SRC="../../../clearpixel.gif" WIDTH=613 HEIGHT=1 BORDER=0></TD>
+    <TD WIDTH=22><IMG SRC="../../../clearpixel.gif" WIDTH=19 HEIGHT=1 BORDER=0></TD>
+  </TR>
+  <TR VALIGN=TOP ALIGN=LEFT>
+    <TD COLSPAN=2>
+            <P ALIGN=RIGHT><A HREF="../../../index.htm"><FONT COLOR="#FFFFFF" SIZE="-2" FACE="Verdana,Tahoma,Arial,Helvetica">Home</FONT></A><FONT COLOR="#FFFFFF" SIZE="-2" FACE="Verdana,Tahoma,Arial,Helvetica">
+              | </FONT><A
+                 HREF="../../../scripting/scripting.htm"><FONT COLOR="#FFFFFF" SIZE="-2" FACE="Verdana,Tahoma,Arial,Helvetica">Scripting</FONT></A><FONT COLOR="#FFFFFF" SIZE="-2" FACE="Verdana,Tahoma,Arial,Helvetica">
+              | </FONT><A
+                 HREF="../../../products/products.htm"><FONT COLOR="#FFFFFF" SIZE="-2" FACE="Verdana,Tahoma,Arial,Helvetica">Products</FONT></A><FONT COLOR="#FFFFFF" SIZE="-2" FACE="Verdana,Tahoma,Arial,Helvetica">
+              | </FONT><A
+                 HREF="../../../purchase/purchase.htm"><FONT COLOR="#FFFFFF" SIZE="-2" FACE="Verdana,Tahoma,Arial,Helvetica">Purchase</FONT></A><FONT COLOR="#FFFFFF" SIZE="-2" FACE="Verdana,Tahoma,Arial,Helvetica">
+              | </FONT><A
+                 HREF="../../../download/ndownload.htm"><FONT COLOR="#FFFFFF" SIZE="-2" FACE="Verdana,Tahoma,Arial,Helvetica">Download</FONT></A><FONT COLOR="#FFFFFF" SIZE="-2" FACE="Verdana,Tahoma,Arial,Helvetica">
+              | </FONT><A
+                 target="support" HREF="http://support.nombas.com/"><FONT COLOR="#FFFFFF" SIZE="-2" FACE="Verdana,Tahoma,Arial,Helvetica">Support</FONT></A><FONT COLOR="#FFFFFF" SIZE="-2" FACE="Verdana,Tahoma,Arial,Helvetica">
+              | </FONT><A HREF="../../../company/company.htm"> <FONT COLOR="#FFFFFF" SIZE="-2" FACE="Verdana,Tahoma,Arial,Helvetica">Company</FONT></A><FONT COLOR="#FFFFFF" SIZE="-2" FACE="Verdana,Tahoma,Arial,Helvetica"><BR>
+        <BR>
+        Copyright &#169;2001, Nombas, Inc. All Rights Reserved.<BR>
+        Questions? Visit </FONT><A HREF="http://support.nombas.com/"><FONT COLOR="#FFFFFF" SIZE="-2" FACE="Verdana,Tahoma,Arial,Helvetica">http://support.nombas.com/</FONT></A>
+    </TD>
+    <TD width="22"></TD>
+  </TR>
+</TABLE>
+</td>
+  </tr>
+</table>
+<SCRIPT language=JavaScript1.2>
+  display_nombas_legacy_message();
+</SCRIPT>
+</BODY>
+<!-- #EndTemplate --></HTML>

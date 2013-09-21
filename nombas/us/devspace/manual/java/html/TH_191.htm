@@ -1,0 +1,88 @@
+<html>
+<head>
+<title>Lifetimes</title>
+<link rel="stylesheet" href="semanualstyles.css" type="text/css">
+<style type="text/css">
+ p { margin-top: 0; margin-bottom: 0; }
+</style>
+<script language="JavaScript" src="TrueHelp.js"></script>
+</head>
+<body onload="thload()">
+<div id=ienav>
+<ilayer id=nsnav>
+<br>
+<center>
+<p class=normal><a href="seisdkj-toc.htm" target="left">contents</a> &nbsp; <a href="seisdkj-index.htm" target="left">index</a> &nbsp; previous &nbsp; next</p>
+</center>
+<br>
+<hr noshade size=1>
+</ilayer>
+</div>
+<p class=heading-1>Lifetimes</p>
+<p class=heading-1-p>&nbsp;</p>
+<p class=senormalpara>&nbsp;</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>A primary ScriptEase consideration is the lifetime of the return from certain API calls. These calls include  <span class=secodephrase>seGetObject</span>, <span class=secodephrase>seMakeObject</span> and <span class=secodephrase>seMakeStack.</span> If you read the API manual section, they will all mention that they follow the standard ScriptEase lifetime model. That is what we describe here.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>The major point to understand is that the underlying item, we will use an object as an example, always has its lifetime determined by the ScriptEase system. The return value is always a handle to the underlying object, not the underlying object itself. You control the lifetime of the handle only. No ScriptEase API call allows you to destroy an object. You can force a new object to be created via the <span class=secodephrase>seMakeObject</span> API call but that new object is part of the ScriptEase system and therefore is destroyed when the ScriptEase system sees fit to destroy it. </p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>So what do you get when you call, for instance, <span class=secodephrase>seMakeObject</span> and retrieve a handle to that object? You get a lock on the object, so that the ScriptEase system will not delete the object until you are done using it. During the time you have the lock, you may use the returned object in any other ScriptEase API call. Once your lock goes away, you are no longer using the object and may not use it in ScriptEase API calls. However, it is quite likely that the object is still in use somewhere on the system which is why the object will not necessarily go away. You should think of getting a lock on an object as a license to use it only. Once you stop using it, it is out of your control and what happens to it is no longer your concern. Don't worry about it, the ScriptEase system will keep the object around as long as it is needed and get rid of it when it is not.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>That leads us to the lifetime of your handle. Continuing with the example of an object lock returned via <span class=secodephrase>seMakeObject</span>, how long can you use that object? The answer is simple; you can use it until the callback you got the lock in returns. Typically, the callback is a wrapper function. The lifetime operates exactly like a Java local variable to your wrapper function. Here is a valid wrapper function:</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=secodelinesindented>public&nbsp;void&nbsp;foo(SEContext&nbsp;se,int&nbsp;argc)</p>
+<p class=secodelinesindented>{</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;SEObject&nbsp;myobj&nbsp;=&nbsp;se.seMakeObject();</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;se.sePutObject(SE.RETURN,SE.VALUE,&nbsp;myobj);</p>
+<p class=secodelinesindented>}</p>
+<p class=secodelinesindented>&nbsp;</p>
+<p class=senormalpara>The function of this wrapper should be obvious, it creates and returns a new blank object. However, the following wrapper function is invalid:</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=secodelinesindented>static&nbsp;SEObject&nbsp;myobj&nbsp;=&nbsp;null;</p>
+<p class=secodelinesindented>&nbsp;</p>
+<p class=secodelinesindented>public&nbsp;foo(SEContext&nbsp;se,int&nbsp;argc)</p>
+<p class=secodelinesindented>{</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;if(&nbsp;myobj==null&nbsp;)</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;{</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;myobj&nbsp;=&nbsp;se.seMakeObject();</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;}</p>
+<p class=secodelinesindented>&nbsp;</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;se.sePutObject(SE.RETURN,SE.VALUE,&nbsp;myobj);</p>
+<p class=secodelinesindented>}</p>
+<p class=secodelinesindented>&nbsp;</p>
+<p class=senormalpara>The intent is clear, to create a new object and return it then keep returning that same object for any further calls to the function. But, as we know, the handle returned by <span class=secodephrase>seMakeObject</span> is only valid until the end of the wrapper function, so when the wrapper function returns the first time, <span class=secodephrase>myobj</span> is no longer valid. Trying to use it in later invocations will use it after it has become invalid and obviously not work. We will see how to make this example work as intended shortly.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>The careful reader will be wondering what happens if you get a lock when not inside a wrapper function. Locks retrieved in a wrapper function are local variables, locked retrieved not in a wrapper function are global variables. The lock is permanent and lasts for the life of the program. It lasts until the <span class=secodephrase>SEContext</span> is destroyed and all variables and objects in it are freed.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>While you may want to use the lock for your entire program, often you want to manipulate an object for a few lines of code, then you are done with it. Eventually, when everyone else is done using the object, you'd like it to be freed. If you keep the object locked, it can never be freed, and it will continue to use up memory until your program is done. For this reason, you may use the <span class=secodephrase>seFreeXXX</span> API routines, such as <span class=secodephrase>seFreeObject.</span> <span class=secodephrase>seFreeObject</span> simply tells ScriptEase that you are done using the object at that point and that your lock is to be freed then. Remember, this does not destroy the object. It only tells ScriptEase that you are no longer using the object. As was emphasized before, ScriptEase will actually destroy the object some time in the future when it determines it is safe to do so.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>An issue related to object lifetimes was brought up in the second wrapper function described above. How do we keep an object handle past the wrapper function it was created in?  The answer is that you use the <span class=secodephrase>seLockXXX</span> API calls, in this case <span class=secodephrase>seLockObject</span>. This call indicates that the given object handle is to be valid for the life of the program. Once you pass an <span class=secodephrase>SEObject</span> to this routine, it will be treated exactly like a handle returned outside of any wrapper function, it lasts until the end of the program unless you explicitly remove it using <span class=secodephrase>seFreeObject</span>. If the handle already is a global handle, <span class=secodephrase>seLockObject</span> has no additional effect.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>So, the second wrapper function written correctly is:</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=secodelinesindented>static&nbsp;SEObject&nbsp;myobj&nbsp;=&nbsp;null;</p>
+<p class=secodelinesindented>&nbsp;</p>
+<p class=secodelinesindented>public&nbsp;foo(SEContext&nbsp;se,int&nbsp;argc)</p>
+<p class=secodelinesindented>{</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;if(&nbsp;myobj==null&nbsp;)</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;{</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;myobj&nbsp;=&nbsp;se.seMakeObject();</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;se.seLockObject(myobj);</p>
+<p class=secodelinesindented>&nbsp;</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/*&nbsp;make&nbsp;the&nbsp;lock&nbsp;permanent</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;so&nbsp;we&nbsp;can&nbsp;keep&nbsp;using&nbsp;it</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;in&nbsp;every&nbsp;call&nbsp;to&nbsp;this</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;wrapper&nbsp;function.</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*/</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;}</p>
+<p class=secodelinesindented>&nbsp;</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;se.sePutObject(SE.RETURN,SE.VALUE,&nbsp;myobj);</p>
+<p class=secodelinesindented>}</p>
+<p class=secodelinesindented>&nbsp;</p>
+<p class=senormalpara>Summarizing the basic ScriptEase lifetime rules: Objects returned by the API are handles that allow you to use the given item. The handle, if given to you in a wrapper function, lasts until that wrapper function returns. If given to you outside a wrapper function, the handle is permanent. As long as the handle is valid, you may refer to the item, and the item will not be destroyed. Once you release the handle, you cannot say what will happen to the item, but you shouldn't worry about it as the ScriptEase system will properly take care of it. </p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>You will notice the <span class=secodephrase>seCloneXXX</span> API calls, such as <span class=secodephrase>seCloneObject</span>. These calls take a lock, which follows the rules just described, and makes a second lock identical to the first. If the first lock was to be destroyed when the wrapper returns, the second does as well. Once created, you have two independent locks with different references although they both refer to the same ScriptEase object. They both follow the lifetime rules given above independently. For instance, you might clone a regular local lock and pass it to a utility routine. You continue to use the original lock until it goes away at the end of the wrapper function. The utility routine may call <span class=secodephrase>seLockObject</span> on the cloned lock and use it for a while. That is perfectly valid, both locks are independent.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p>
+</body>
+</html>

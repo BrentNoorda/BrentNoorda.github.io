@@ -1,0 +1,726 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML EXPERIMENTAL 970324//EN">
+<HTML>
+<HEAD>
+<META NAME="GENERATOR" CONTENT="Adobe FrameMaker 5.5/HTML Export Filter">
+<LINK REL="STYLESHEET" HREF="desk3man.css">
+<TITLE>ScriptEase:Desktop v3 Manual: ScriptEase vs. C</TITLE>
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-1754630-10']);
+  _gaq.push(['_trackPageview']);
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+</HEAD>
+<BODY BACKGROUND="desk3pat.gif">
+<TABLE WIDTH="225" BORDER="0" CELLSPACING="0" CELLPADDING="0">
+  <TR>
+    <TD WIDTH="71"><a href="1-lang.htm"><IMG SRC="prev.gif" WIDTH="71" height="18" border="0"></a></TD>
+    <TD WIDTH="80"><a href="../index.htm"><IMG SRC="tocidx.gif" WIDTH="80" height="18" border="0"></a></TD>
+    <TD WIDTH="74"><a href="3-tutor.htm"><IMG SRC="next.gif" WIDTH="74" height="18" border="0"></a></TD>
+  </TR>
+</TABLE>
+
+<H1 CLASS="Title">
+ScriptEase vs. C</H1>
+<P CLASS="Abstract">
+This chapter is for those who already know how to program in C. It describes those elements of ScriptEase that differ from standard C. If you don't already know how to program in C, then you should instead look at Chapter 2: The ScriptEase Language.</P>
+<P CLASS="Body">
+We assume that readers of this section already know C, therefore only those aspects of ScriptEase that differ from C are described herein. If it's not mentioned here, you may assume that ScriptEase behavior will be standard C behavior. </P>
+<P CLASS="Body">
+Deviations from C are a result of these two directives: Convenience and Safety. ScriptEase is different from C where the change makes ScriptEase more convenient for small programs, command-line code, or scripting files, or where unaltered C rules encourage coding that is potentially unsafe. </P>
+<DIV>
+<H2 CLASS="Topic">
+The ScriptEase Language</H2>
+<P CLASS="Body">
+ScriptEase is C without Type Declarations and Pointers. If you already know C, and can remember to forget these two aspects of C, then you already know ScriptEase. If you were to take C code and delete all the lines, code-words, and symbols that either declare data types or explicitly point to data, then you would be left with ScriptEase code; and although you would be removing bytes of source code, you would not be removing capabilities.</P>
+<P CLASS="Body">
+All of the details below that compare ScriptEase against C follow from the general rule: ScriptEase is C without Type Declarations and Pointers.</P>
+</DIV>
+<DIV>
+<H2 CLASS="Topic">
+Case Sensitivity</H2>
+<P CLASS="Body">
+ScriptEase is not case sensitive. John is equivalent to jOHN which is equivalent to JoHn. This holds true for function and variable names. </P>
+</DIV>
+<DIV>
+<H2 CLASS="Topic">
+<A NAME="997271">
+ </A>
+Data Types</H2>
+<P CLASS="Body">
+The only recognized data types are Float, Long, and Byte. The words &quot;Float&quot;, &quot;Long&quot;, and &quot;Byte&quot; do not appear in the source code; instead, the data types are determined by context. For instance, 6 is a Long, 6.6 is a Float, and `6' is a Byte. Byte is unsigned, and the other types are signed.</P>
+</DIV>
+<DIV>
+<H2 CLASS="Topic">
+<A NAME="997272">
+ </A>
+Automatic Type Declaration</H2>
+<P CLASS="Body">
+There are no type declarators and no type casting. Types are determined from context. If the code says &quot;i = 6&quot; then i is a Long, unless a previous statement has indicated otherwise. For instance, this C code:</P>
+<P CLASS="ciBody">
+int Max(int a, int b)</P>
+<P CLASS="ciBody">
+{</P>
+<P CLASS="ciBody">
+	int result;</P>
+<P CLASS="ciBody">
+	result = ( a &lt; b ) ? b : a ;</P>
+<P CLASS="ciBody">
+	return result;</P>
+<P CLASS="ciBody">
+}</P>
+<P CLASS="Body">
+could become this ScriptEase code:</P>
+<P CLASS="ciBody">
+Max(a,b)</P>
+<P CLASS="ciBody">
+{</P>
+<P CLASS="ciBody">
+	result = ( a &lt; b ) ? b : a ;</P>
+<P CLASS="ciBody">
+	return result;</P>
+<P CLASS="ciBody">
+}</P>
+</DIV>
+<DIV>
+<H2 CLASS="Topic">
+<A NAME="997273">
+ </A>
+Array Representation</H2>
+<P CLASS="Body">
+Arrays are used in ScriptEase much like they are in C, except that they are stored differently: a first-order array (e.g., a string) is stored in consecutive bytes in memory, just as in C, but arrays of arrays are not in consecutive memory locations. The C declaration:</P>
+<P CLASS="Body">
+char c[3][3];		// this is the C version</P>
+<P CLASS="Body">
+would state that there are nine consecutive bytes in memory. In ScriptEase a similar statement such as:</P>
+<P CLASS="ciBody">
+c[2][2] = `A';								// this is the ScriptEase version</P>
+<P CLASS="Body">
+would tell you that there are (at least) three arrays of characters, and the third array of arrays has (at least) three characters in it; and although the characters in c[0] are in consecutive bytes, and the characters in c[1] are in consecutive bytes, the two arrays c[0] and c[1] are not necessarily adjacent in memory.</P>
+</DIV>
+<DIV>
+<H2 CLASS="Topic">
+<A NAME="997274">
+ </A>
+Automatic Array Allocation</H2>
+<P CLASS="Body">
+Arrays are dynamic, and any index (positive or negative) into an array is always valid. If an element of an array is referred to, then ScriptEase must see to it that such an element will exist. For instance, if the first statement in the ScriptEase source code is:</P>
+<P CLASS="ciBody">
+foo[4] = 7</P>
+<P CLASS="Body">
+then the ScriptEase interpreter will make an array of 5 integers referred to by the variable foo. If a statement further on refers to foo[6] then the ScriptEase interpreter will expand foo, if it has to, to ensure that the element foo[6] exists. This works with negative indices as well. When you refer to foo[-10], then foo is grown in the other direction if it needs to be, but foo[4] will still refer to that &quot;7&quot; you put there earlier. Arrays can reach any dimension order, so foo[6][7][34][-1][4] is a valid variable.</P>
+</DIV>
+<DIV>
+<H2 CLASS="Topic">
+Literal Strings</H2>
+<P CLASS="Body">
+A literal string in ScriptEase is any byte array (string) appearing in source code within double- or back-tick quotes. The following show examples of what are and are not literal strings:</P>
+<P CLASS="ciBodyTab">
+&quot;dog&quot;;	// literal string (double quotes)</P>
+<P CLASS="ciBodyTab">
+`dog';		// not a literal string (single quotes)</P>
+<P CLASS="ciBodyTab">
+{ `d', `o', `g', `\0' };								// not a literal string (array initializa-</P>
+<P CLASS="ciBodyTab">
+	   tion)</P>
+<P CLASS="ciBodyTab">
+`dog`;				//	literal string (back-ticks)</P>
+<P CLASS="Body">
+Literal strings have special treatment for certain ScriptEase operations for these reasons:</P>
+<UL>
+<LI CLASS="Bulleted">
+	Protect literal string (constant) data from being inadvertently overwritten</LI>
+<LI CLASS="Bulleted">
+	Reduce confusion in novice programmers who don't understand strings as arrays of bytes</LI>
+<LI CLASS="Bulleted">
+	Simplify writing code for common operations (strcmp() can get tiresome)</LI>
+</UL>
+<P CLASS="Body">
+In general, literal strings follow these two rules:</P>
+<UL>
+<LI CLASS="Bulleted">
+	Comparisons are intrinsically handled by strcmp()</LI>
+<LI CLASS="Bulleted">
+	Literal strings assignment and passing is handled by making copies of the literal string</LI>
+</UL>
+</DIV>
+<DIV>
+<H2 CLASS="Topic">
+<A NAME="997275">
+ </A>
+Assignment (=) of Literal Strings</H2>
+<P CLASS="Body">
+When a literal string is assigned to a variable, a copy is made of that string and the variable is assigned the copy of the literal string. For example, this code:</P>
+<P CLASS="ciBody">
+for ( i = 0; i &lt; 3; i++ ) {</P>
+<P CLASS="ciBody">
+	str = &quot;dog&quot;;</P>
+<P CLASS="ciBody">
+	strcat(str,&quot;house&quot;);</P>
+<P CLASS="ciBody">
+	puts(str);</P>
+<P CLASS="ciBody">
+}</P>
+<P CLASS="Body">
+results in this output:</P>
+<P CLASS="ciBody">
+doghouse</P>
+<P CLASS="ciBody">
+doghouse</P>
+<P CLASS="ciBody">
+doghouse</P>
+<P CLASS="Body">
+A strict C interpretation of this code would not only overwrite memory, but would also generate the output:</P>
+<P CLASS="ciBody">
+doghouse</P>
+<P CLASS="ciBody">
+doghousehouse</P>
+<P CLASS="ciBody">
+doghousehousehouse</P>
+</DIV>
+<DIV>
+<H2 CLASS="Topic">
+<A NAME="997276">
+ </A>
+Comparisons (==, &lt;=, &lt;, !=, etc...) and Literal Strings</H2>
+<P CLASS="Body">
+If both sides of a comparison operator are strings, and at least one of them is a literal string, then the comparison is performed as if you were using strcmp(). If one or both vars are a literal string, then the following comparison operation translation is performed:</P>
+<P CLASS="ciBody">
+lvar operator rvar		strcmp(lvar,rvar) operator 0</P>
+<P CLASS="Body">
+These examples demonstrate how the literal string uses a strcmp()-like logic:</P>
+<P CLASS="ciBody">
+if ( animal == &quot;dog&quot; )				// i.e., if ( 0 == strcmp(animal,&quot;dog&quot;) )</P>
+<P CLASS="ciBody">
+if ( animal &lt; &quot;dog&quot; )				// i.e., if ( strcmp(animal,&quot;dog&quot;) &lt; 0 )</P>
+<P CLASS="ciBody">
+if ( &quot;dog&quot; &lt;= animal )				// i.e., if ( strcmp(&quot;dog&quot;,animal) &lt;= 0 )</P>
+<P CLASS="Body">
+In ScriptEase, this code:</P>
+<P CLASS="ciBody">
+animal = &quot;dog&quot;;</P>
+<P CLASS="ciBody">
+if animal == &quot;dog&quot;</P>
+<P CLASS="ciBody">
+	puts(&quot;hush puppy&quot;);</P>
+<P CLASS="ciBody">
+would print &quot;hush puppy&quot;.</P>
+</DIV>
+<DIV>
+<H2 CLASS="Topic">
+<A NAME="997277">
+ </A>
+Function Parameters and Literal Strings</H2>
+<P CLASS="Body">
+When a literal string is a parameter to a function, then it is always passed as a copy (strcpy()). For example, this code:</P>
+<P CLASS="ciBody">
+for ( i = 0; i &lt; 3; i++ ) {</P>
+<P CLASS="ciBody">
+	str = strcat(&quot;dog&quot;,&quot;house&quot;);</P>
+<P CLASS="ciBody">
+	puts(str)</P>
+<P CLASS="ciBody">
+}</P>
+<P CLASS="Body">
+results in this output:</P>
+<P CLASS="ciBody">
+doghouse</P>
+<P CLASS="ciBody">
+doghouse</P>
+<P CLASS="ciBody">
+doghouse</P>
+</DIV>
+<DIV>
+<H2 CLASS="Topic">
+<A NAME="997278">
+ </A>
+Return and Literal Strings</H2>
+<P CLASS="Body">
+When a literal string is returned from a function with the return statement, then it is returned as a copy (strcpy()) of the string. This code:</P>
+<P CLASS="ciBody">
+for ( i = 0; i &lt; 3; i++ ) {</P>
+<P CLASS="ciBody">
+	str = strcat(dog(),&quot;house&quot;);</P>
+<P CLASS="ciBody">
+	puts(str)</P>
+<P CLASS="ciBody">
+}</P>
+<P CLASS="ciBody">
+&nbsp;</P>
+<P CLASS="ciBody">
+dog()</P>
+<P CLASS="ciBody">
+{</P>
+<P CLASS="ciBody">
+	return &quot;dog&quot;;</P>
+<P CLASS="ciBody">
+}</P>
+<P CLASS="Body">
+results in this output:</P>
+<P CLASS="ciBody">
+doghouse</P>
+<P CLASS="ciBody">
+doghouse</P>
+<P CLASS="ciBody">
+doghouse</P>
+</DIV>
+<DIV>
+<H2 CLASS="Topic">
+<A NAME="997279">
+ </A>
+Switch/Case and Literal Strings</H2>
+<P CLASS="Body">
+If either the switch expression or the case expression are a literal string, then that case statement will match based on a string comparison (strcmp()) of the two variables. This may be used in code such as:</P>
+<P CLASS="ciBody">
+switch(strlwr(temp,argv[1])) {</P>
+<P CLASS="ciBody">
+	case &quot;add&quot;:{</P>
+<P CLASS="ciBody">
+		DoTheAddThing();</P>
+<P CLASS="ciBody">
+		break;</P>
+<P CLASS="ciBody">
+	}</P>
+<P CLASS="ciBody">
+	case &quot;remove&quot;:{</P>
+<P CLASS="ciBody">
+		DoTheRemoveThing();</P>
+<P CLASS="ciBody">
+		break;</P>
+<P CLASS="ciBody">
+	}</P>
+<P CLASS="ciBody">
+	default:{</P>
+<P CLASS="ciBody">
+		puts(&quot;Whaddya want?&quot;);</P>
+<P CLASS="ciBody">
+	}</P>
+<P CLASS="ciBody">
+}</P>
+</DIV>
+<DIV>
+<H2 CLASS="Topic">
+<A NAME="997280">
+ </A>
+Structures</H2>
+<P CLASS="Body">
+Structures are created dynamically, and their elements are not necessarily contiguous in memory. When the ScriptEase interpreter comes across the statement</P>
+<P CLASS="ciBody">
+foo.animal = &quot;dog&quot;</P>
+<P CLASS="Body">
+it creates a structure element of foo that is referred to as &quot;animal&quot; and is a an array of characters, and this &quot;animal&quot; variable is thereafter carried around with foo. The resulting code looks very much like regular C code, except that there is not a separate structure definition anywhere.</P>
+<P CLASS="Body">
+This C code:</P>
+<P CLASS="ciBody">
+struct Point {</P>
+<P CLASS="ciBody">
+ int Row;</P>
+<P CLASS="ciBody">
+ int Column;</P>
+<P CLASS="ciBody">
+};</P>
+<P CLASS="ciBody">
+&nbsp;</P>
+<P CLASS="ciBody">
+struct Square {</P>
+<P CLASS="ciBody">
+ struct Point BottomLeft;</P>
+<P CLASS="ciBody">
+ struct Point TopRight;</P>
+<P CLASS="ciBody">
+};</P>
+<P CLASS="ciBody">
+&nbsp;</P>
+<P CLASS="ciBody">
+void main()</P>
+<P CLASS="ciBody">
+{</P>
+<P CLASS="ciBody">
+ struct Square sq;</P>
+<P CLASS="ciBody">
+ int Area;</P>
+<P CLASS="ciBody">
+ sq.BottomLeft.Row = 1;</P>
+<P CLASS="ciBody">
+ sq.BottomLeft.Column = 15;</P>
+<P CLASS="ciBody">
+ sq.TopRight.Row = 82;</P>
+<P CLASS="ciBody">
+ sq.TopRight.Column = 120;</P>
+<P CLASS="ciBody">
+ Area = AreaOfASquare(sq);</P>
+<P CLASS="ciBody">
+}</P>
+<P CLASS="ciBody">
+&nbsp;</P>
+<P CLASS="ciBody">
+int AreaOfASquare(struct Square s)</P>
+<P CLASS="ciBody">
+{</P>
+<P CLASS="ciBody">
+ int width, height;</P>
+<P CLASS="ciBody">
+ width = s.TopRight.Column - s.BottomLeft.Column + 1;</P>
+<P CLASS="ciBody">
+ height = s.TopRight.Row - s.BottomLeft.Row + 1;</P>
+<P CLASS="ciBody">
+ return( width * height );</P>
+<P CLASS="ciBody">
+}</P>
+<P CLASS="Body">
+can be changed into the equivalent ScriptEase code simply by removing the declaration lines, resulting in:</P>
+<P CLASS="ciBody">
+main()</P>
+<P CLASS="ciBody">
+{</P>
+<P CLASS="ciBody">
+ sq.BottomLeft.Row = 1;</P>
+<P CLASS="ciBody">
+ sq.BottomLeft.Column = 15;</P>
+<P CLASS="ciBody">
+ sq.TopRight.Row = 82;</P>
+<P CLASS="ciBody">
+ sq.TopRight.Column = 120;</P>
+<P CLASS="ciBody">
+ Area = AreaOfASquare(sq);</P>
+<P CLASS="ciBody">
+}</P>
+<P CLASS="ciBody">
+&nbsp;</P>
+<P CLASS="ciBody">
+int AreaOfASquare(s)</P>
+<P CLASS="ciBody">
+{</P>
+<P CLASS="ciBody">
+ width = s.TopRight.Column - s.BottomLeft.Column + 1;</P>
+<P CLASS="ciBody">
+ height = s.TopRight.Row - s.BottomLeft.Row + 1;</P>
+<P CLASS="ciBody">
+ return( width * height );</P>
+<P CLASS="ciBody">
+}</P>
+<P CLASS="Body">
+Structures can be passed, returned, and modified just as any other variable. Of course structures and arrays are independent, so you could very well have the statement</P>
+<P CLASS="ciBody">
+ foo[8].animal.forge[3] = bil.bo</P>
+<P CLASS="Body">
+Some operations, such as addition, are not yet defined for structures.</P>
+</DIV>
+<DIV>
+<H2 CLASS="Topic">
+<A NAME="997281">
+ </A>
+Passing Variables by Reference</H2>
+<P CLASS="Body">
+By default, LValues in ScriptEase are passed to functions by reference, so if the function alters a variable, then the variable in the calling function is altered as well IF IT IS AN LVALUE. So instead of this C code:</P>
+<P CLASS="ciBody">
+main() </P>
+<P CLASS="ciBody">
+{</P>
+<P CLASS="ciBody">
+	CQuadrupleInPlace(&amp;i);</P>
+<P CLASS="ciBody">
+	.</P>
+<P CLASS="ciBody">
+	.</P>
+<P CLASS="ciBody">
+}</P>
+<P CLASS="ciBody">
+&nbsp;</P>
+<P CLASS="ciBody">
+void CQuadrupleInPlace(int *j)</P>
+<P CLASS="ciBody">
+{</P>
+<P CLASS="ciBody">
+	*j *= 4;</P>
+<P CLASS="ciBody">
+}</P>
+<P CLASS="ciBody">
+&nbsp;</P>
+<P CLASS="ciBody">
+the ScriptEase version would be:</P>
+<P CLASS="ciBody">
+main() </P>
+<P CLASS="ciBody">
+{</P>
+<P CLASS="ciBody">
+	.</P>
+<P CLASS="ciBody">
+	.</P>
+<P CLASS="ciBody">
+	QuadrupleInPlace(i);</P>
+<P CLASS="ciBody">
+	.</P>
+<P CLASS="ciBody">
+	.</P>
+<P CLASS="ciBody">
+}</P>
+<P CLASS="ciBody">
+&nbsp;</P>
+<P CLASS="ciBody">
+void QuadrupleInPlace(j)</P>
+<P CLASS="ciBody">
+{</P>
+<P CLASS="ciBody">
+	j *= 4;</P>
+<P CLASS="ciBody">
+}	</P>
+<P CLASS="Body">
+If the rare circumstance arises that you want to pass a copy of an LValue to a function, instead of passing the variable by reference, then you can use the &quot;copy-of&quot; operator &quot;=&quot;. foo(=i) can be interpreted as saying &quot;pass a value equal to i, but not i itself&quot;; so that &quot;foo(=i) ... foo(j) { j *= 4; }&quot; would not change the value at i.</P>
+<P CLASS="Body">
+Note the following ScriptEase calls to QuadrupleInPlace() would be valid, but no value will have changed upon return from QuadrupleInPlace() because an LValue is not being passed:</P>
+<P CLASS="ciBody">
+QuadrupleInPlace(8);</P>
+<P CLASS="ciBody">
+QuadrupleInPlace(i+1);</P>
+<P CLASS="ciBody">
+QuadrupleInPlace(=1);</P>
+</DIV>
+<DIV>
+<H2 CLASS="Topic">
+<A NAME="997282">
+ </A>
+Data Pointers(*) and Addresses(&amp;)</H2>
+<P CLASS="Body">
+No pointers. None. The &quot;*&quot; symbol NEVER means &quot;pointer&quot; and the &quot;&amp;&quot; symbol never means &quot;address&quot;. This may at first cause seasoned C programmers to gasp in disbelief, but it turns out to be not such a big deal, these two operators are seldom missed, after considering these two rules:</P>
+<UL>
+<LI CLASS="Bulleted">
+	&quot;*var&quot; can be replaced in all instances by &quot;var[0]&quot;</LI>
+<LI CLASS="Bulleted">
+	variables are passed by reference</LI>
+</UL>
+</DIV>
+<DIV>
+<H2 CLASS="Topic">
+<A NAME="997283">
+ </A>
+Case Statements</H2>
+<P CLASS="Body">
+Case statements in a switch statement may be a constant, a variable, or any other statement that can be evaluated to a variable. So you might see this ScriptEase code:</P>
+<P CLASS="ciBody">
+switch(i) {</P>
+<P CLASS="ciBody">
+	case 4:</P>
+<P CLASS="ciBody">
+	case foe():</P>
+<P CLASS="ciBody">
+	case &quot;thorax&quot;:</P>
+<P CLASS="ciBody">
+	case sqrt(foe()):</P>
+<P CLASS="ciBody">
+	case (PILLBOX * 3 - 2):</P>
+<P CLASS="ciBody">
+	default:</P>
+<P CLASS="ciBody">
+	}</P>
+<P CLASS="Body">
+As described in the Literal Strings section above, if either the switch expression or the case expression is a literal string, then the comparison is made based on the contents of the two arrays (i.e., as if the comparison is !strcmp(switch_expr,case_expr)).</P>
+</DIV>
+<DIV>
+<H2 CLASS="Topic">
+<A NAME="997284">
+ </A>
+Initialization: Code external to functions</H2>
+<P CLASS="Body">
+All code that is not inside any function block is interpreted before main() is called. So the following ScriptEase code:</P>
+<P CLASS="ciBody">
+printf(&quot;first &quot;);</P>
+<P CLASS="ciBody">
+main()</P>
+<P CLASS="ciBody">
+{</P>
+<P CLASS="ciBody">
+printf(&quot;third.&quot;);</P>
+<P CLASS="ciBody">
+}</P>
+<P CLASS="ciBody">
+printf(&quot;second &quot;);</P>
+<P CLASS="Body">
+would result in the output &quot;first second third.&quot;</P>
+</DIV>
+<DIV>
+<H2 CLASS="Topic">
+<A NAME="997285">
+ </A>
+Unnecessary tokens</H2>
+<P CLASS="Body">
+If symbols are redundant, they are usually unnecessary in ScriptEase. This allows for more flexibility for the non-C-trained and also lets more code get in the tiny space available on the command line. (What good is a semicolon if it doesn't tell the compiler anything new?) So you can have the statement &quot;foo()&quot; as well as &quot;foo();&quot;. It certainly doesn't hurt to have the semicolon there, especially when it can clarify a &quot;return;&quot; statement, for example, but it isn't necessary. Similarly, &quot;(&quot; and &quot;)&quot; are often unnecessary, so you may have &quot;while a &lt; b a++&quot; as a complete statement.</P>
+</DIV>
+<DIV>
+<H2 CLASS="Topic">
+<A NAME="997286">
+ </A>
+#include</H2>
+<P CLASS="Body">
+The #include statement has been enhanced so that you can use it only to include a designated part of a file, if that is all that is required. So we have:</P>
+<P CLASS="ciBody">
+#Include &lt;filespec, FileExtension, LinePrefix, HeaderLine, FooterLine&gt;</P>
+<P CLASS="Body">
+where:</P>
+<P CLASS="deBody">
+<EM CLASS="Element">
+filespec</EM>
+	 is the same as the C #include &lt;filespec&gt; statement</P>
+<P CLASS="deBody">
+<EM CLASS="Element">
+FileExtension</EM>
+	is a file extension (such as BAT) that may be added to filespec (so batch files can say #include &lt;%0,bat&gt;&quot;</P>
+<P CLASS="deBody">
+<EM CLASS="Element">
+LinePrefix</EM>
+ specifies that only those lines in filespec that begin with LinePrefix will be source</P>
+<P CLASS="deBody">
+<EM CLASS="Element">
+HeaderLine</EM>
+ and <EM CLASS="Element">
+FooterLine</EM>
+ specify that source will be read only from sections of filespec between HeaderLine and FooterLine.</P>
+<P CLASS="Body">
+If a full path is not specified, the ScriptEase interpreter searches for the file in various paths in this order:</P>
+<UL>
+<LI CLASS="Bulleted">
+	Search the current directory.</LI>
+<LI CLASS="Bulleted">
+	If the code is #included from a *.cmm source, then search in the source directory for the .cmm file.</LI>
+<LI CLASS="Bulleted">
+	If you are using the Windows version, search all the files in the CMMPATH profile value (from WIN.INI in the [SEWSE] section). If you are using Windows 95 or NT, then search the CMMPATH in the registry.</LI>
+<LI CLASS="Bulleted">
+	Search all directories in the CMMPATH environment variable.</LI>
+<LI CLASS="Bulleted">
+	Search the directory where SEWSE.EXE executes from.</LI>
+<LI CLASS="Bulleted">
+	Search all directories from the PATH environment variable.</LI>
+</UL>
+<P CLASS="Body">
+A file will not be included more than once in the ScriptEase interpreter, and so if it has already been included, a second (or third) #include statement will have no effect.</P>
+</DIV>
+<DIV>
+<H2 CLASS="Topic">
+<A NAME="997287">
+ </A>
+Macros</H2>
+<P CLASS="Body">
+Function macros are not currently supported. Since speed is not of primary importance, a macro gains little over a function call, so any macros may simply become functions.</P>
+<P CLASS="Body">
+Token replacement macros, such as:</P>
+<P CLASS="ciBody">
+#define NULL 0</P>
+<P CLASS="Body">
+are supported in ScriptEase.</P>
+</DIV>
+<DIV>
+<H2 CLASS="Topic">
+<A NAME="997288">
+ </A>
+Back-quote strings</H2>
+<P CLASS="Body">
+The back-quote character (`), also known as a &quot;back-tick&quot; or &quot;grave accent&quot;, can be used in ScriptEase in place of a double quote (&quot;) to specify a string where escape sequences are not to be translated. For example, here are two ways to describe the same file name:</P>
+<P CLASS="ciBody">
+&quot;c:\\autoexec.bat&quot;		// traditional C method</P>
+<P CLASS="ciBody">
+`c:\autoexec.bat`		// alternative ScriptEase method</P>
+</DIV>
+<DIV>
+<H2 CLASS="Topic">
+<A NAME="997289">
+ </A>
+Converting existing C code to ScriptEase</H2>
+<P CLASS="Body">
+Converting existing C code to ScriptEase is mostly a process of deleting unnecessary text. You search on type declarations, such as &quot;int&quot;, &quot;float&quot;, &quot;struct&quot;, &quot;char&quot;, &quot;[ ]&quot;, etc... and then delete these declaration strings. For example, these instances of C code (or C++ code) on the left can be replaced by the ScriptEase code on the right:</P>
+<TABLE>
+<TR>
+<TD>
+<P CLASS="cb">
+C</P>
+</TD>
+<TD>
+<P CLASS="cb">
+ScriptEase</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="cb">
+int i;</P>
+</TD>
+<TD>
+<P CLASS="cb">
+i (or nothing at all)</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="cb">
+int foo=3</P>
+</TD>
+<TD>
+<P CLASS="cb">
+foo =3</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="cb">
+struct {    int row;    int col; }</P>
+</TD>
+<TD>
+<P CLASS="cb">
+/* nothing */</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="cb">
+char name[] = &quot;George&quot;</P>
+</TD>
+<TD>
+<P CLASS="cb">
+name = &quot;George&quot;</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="cb">
+int goo(int a, char *s, int c)</P>
+</TD>
+<TD>
+<P CLASS="cb">
+goo(a, buf, c)</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="cb">
+int zoo[] = {1, 2, 3}</P>
+</TD>
+<TD>
+<P CLASS="cb">
+zoo = {1, 2, 3}</P>
+</TD>
+</TR>
+</TABLE>
+<P CLASS="Body">
+Much of this could be handled automatically with statements such as these:</P>
+<P CLASS="ciBody">
+#define int							/* nothing */</P>
+<P CLASS="ciBody">
+#define char							/* nothing */</P>
+<P CLASS="ciBody">
+#define float							/* nothing */</P>
+<P CLASS="Body">
+The next step in converting C to ScriptEase is to search for the address and pointer operators (* and &amp;). If the &amp; and * work together so that the address of a variable is passed to a function, then both of these operators become unnecessary because ScriptEase passes lvars by reference. If the script still has *'s in it they usually refer to the 0th value of a pointer address, and so can be replaced with [0], as in &quot;*foo = 4&quot; replaced by &quot;foo[0] = 4&quot;. Finally, the &quot;-&gt;&quot; operator for structures may need to be replaced by &quot;.&quot; if a value that was passed by address is now being passed by reference.</P>
+</DIV>
+<TABLE WIDTH="225" BORDER="0" CELLSPACING="0" CELLPADDING="0">
+  <TR>
+    <TD WIDTH="71"><a href="1-lang.htm"><IMG SRC="prev.gif" WIDTH="71" height="18" border="0"></a></TD>
+    <TD WIDTH="80"><a href="../index.htm"><IMG SRC="tocidx.gif" WIDTH="80" height="18" border="0"></a></TD>
+    <TD WIDTH="74"><a href="3-tutor.htm"><IMG SRC="next.gif" WIDTH="74" height="18" border="0"></a></TD>
+  </TR>
+</TABLE>
+
+</BODY>
+</HTML>

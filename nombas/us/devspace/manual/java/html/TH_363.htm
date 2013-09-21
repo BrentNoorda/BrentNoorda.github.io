@@ -1,0 +1,68 @@
+<html>
+<head>
+<title>switch, case, and default</title>
+<link rel="stylesheet" href="semanualstyles.css" type="text/css">
+<style type="text/css">
+ p { margin-top: 0; margin-bottom: 0; }
+</style>
+<script language="JavaScript" src="TrueHelp.js"></script>
+</head>
+<body onload="thload()">
+<div id=ienav>
+<ilayer id=nsnav>
+<br>
+<center>
+<p class=normal><a href="seisdkj-toc.htm" target="left">contents</a> &nbsp; <a href="seisdkj-index.htm" target="left">index</a> &nbsp; <a href="TH_362.htm">previous</a> &nbsp; <a href="TH_364.htm">next</a></p>
+</center>
+<br>
+<hr noshade size=1>
+</ilayer>
+</div>
+<p class=heading-3>switch, case, and default</p>
+<p class=heading-3-p>&nbsp;</p>
+<p class=senormalpara>The <span class=secodephrase>switch</span> statement makes a decision based on the value of a variable or statement. The <span class=secodephrase>switch</span> statement follows the following format:</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=secodelinesindented>switch(&nbsp;switch_variable&nbsp;)</p>
+<p class=secodelinesindented>{</p>
+<p class=secodelinesindented>case&nbsp;value1:</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;statement1</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;break;</p>
+<p class=secodelinesindented>case&nbsp;value2:</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;statement2</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;break;</p>
+<p class=secodelinesindented>&nbsp;</p>
+<p class=secodelinesindented>...</p>
+<p class=secodelinesindented>&nbsp;</p>
+<p class=secodelinesindented>default:&nbsp;</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;default_statement</p>
+<p class=secodelinesindented>}</p>
+<p class=secodelinesindented>&nbsp;</p>
+<p class=senormalpara>The variable switch_variable is evaluated, and then it is compared to all of the values in the case statements (value1, value2, &#160;.&#160;.&#160;. , default) until a match is found. The statement or statements following the matched case are executed until the end of the <span class=secodephrase>switch</span> block is reached or until a <span class=sepopuptopic><a href="TH_361.htm" onClick="return thwindow('TH_361.htm', 'GenPopup')">break</a></span> statement exits the <span class=secodephrase>switch</span> block. If no match is found, the <span class=secodephrase>default</span> statement is executed, if there is one.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>For example, suppose you had a series of account numbers, each beginning with a letter that determines what type of account it is. You could use a <span class=secodephrase>switch</span> statement to carry out actions depending on that first letter. The same task could be accomplished with a series of nested if statements, but they require much more typing and are harder to read.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=secodelinesindented>switch&nbsp;(&nbsp;key[0]&nbsp;)</p>
+<p class=secodelinesindented>{</p>
+<p class=secodelinesindented>case&nbsp;'A':</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;Screen.write("A");&nbsp;//handle&nbsp;'A'&nbsp;accounts...</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;break;</p>
+<p class=secodelinesindented>case&nbsp;'B':</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;Screen.write("B");&nbsp;//handle&nbsp;'B'&nbsp;accounts...</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;break;</p>
+<p class=secodelinesindented>case&nbsp;'C':</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;Screen.write("C");&nbsp;//handle&nbsp;'C'&nbsp;accounts...</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;break;</p>
+<p class=secodelinesindented>default:</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;Screen.write("Invalid&nbsp;account&nbsp;number.\n");</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;break;</p>
+<p class=secodelinesindented>}</p>
+<p class=secodelinesindented>&nbsp;</p>
+<p class=senormalpara>A common mistake is to omit a <span class=secodephrase>break</span> statement to end each case. In the preceding example, if the <span class=secodephrase>break</span> statement after the <span class=secodephrase>Screen.write("B")</span> statement were omitted, the computer would print both "B" and "C", since the interpreter executes commands until a <span class=secodephrase>break</span> statement is encountered.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>Normally, if a <span class=secodephrase>switch</span> and series of case statements reference array variables, then a comparison is performed whether or not the reference the same array data. But if either the <span class=secodephrase>switch</span> variable or one of the case values is a literal string, then the comparison of the strings is done using the values of the strings in a <span class=sepopuptopic><a href="TH_559.htm" onClick="return thwindow('TH_559.htm', 'GenPopup')">Clib.strcmp()</a></span> type of comparison.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<hr noshade size=1>
+<p class=normal><a href="TH_364.htm"><img src="button.png" border=0></a><a href="TH_364.htm" style="text-decoration:none;">goto and labels</a></p>
+<p>
+</body>
+</html>

@@ -1,0 +1,70 @@
+<html>
+<head>
+<title>Array concat()</title>
+<link rel="stylesheet" href="semanualstyles.css" type="text/css">
+<style type="text/css">
+ p { margin-top: 0; margin-bottom: 0; }
+</style>
+<script language="JavaScript" src="TrueHelp.js"></script>
+</head>
+<body onload="thload()">
+<div id=ienav>
+<ilayer id=nsnav>
+<br>
+<center>
+<p class=normal><a href="seisdkj-toc.htm" target="left">contents</a> &nbsp; <a href="seisdkj-index.htm" target="left">index</a> &nbsp; <a href="TH_422.htm">previous</a> &nbsp; <a href="TH_424.htm">next</a></p>
+</center>
+<br>
+<hr noshade size=1>
+</ilayer>
+</div>
+<p class=sereffunclevel4>Array concat()</p>
+<table cellpadding=0>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>syntax:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=sesyntax>array.concat(<span class=truehelp-xe></span>[element1,&nbsp;...])</p></td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>where:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>elementN - list of elements to be concatenated<span class=truehelp-xe></span> to this Array object.</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>return:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>object - a new array consisting of the elements of the current object, with any additional arguments appended.</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>description:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>The return array is first constructed to consist of the elements of the current object.  If the current object is not an <span class=sepopuptopic><a href="TH_416.htm" onClick="return thwindow('TH_416.htm', 'GenPopup')">Array object</a></span>, then the object is converted to a string and inserted as the first element of the newly created array.  This method then cycles through all of the arguments, and if they are arrays then the elements of the array are appended to the end of the return array, including empty elements.  If an argument is not an array, then it is first converted to a string and appended as the last element of the array.  The length of the newly created array is adjusted to reflect the new length.  Note that the original object remains unaltered.</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>see:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara><span class=sejumptopic><a href="TH_856.htm">String concat()</a></span></p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>example:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=secodelines>var&nbsp;a&nbsp;=&nbsp;new&nbsp;Array(1,2);</p>
+<p class=secodelines>var&nbsp;b&nbsp;=&nbsp;a.concat(3);</p></td>
+</tr>
+</table>
+<p class=normal>&nbsp;</p>
+<hr noshade size=1>
+<p class=normal><a href="TH_424.htm"><img src="button.png" border=0></a><a href="TH_424.htm" style="text-decoration:none;">Array join()</a></p>
+<p>
+</body>
+</html>

@@ -1,0 +1,73 @@
+<html>
+<head>
+<title>DSP dspSecurityInit()</title>
+<link rel="stylesheet" href="semanualstyles.css" type="text/css">
+<style type="text/css">
+ p { margin-top: 0; margin-bottom: 0; }
+</style>
+<script language="JavaScript" src="TrueHelp.js"></script>
+</head>
+<body onload="thload()">
+<div id=ienav>
+<ilayer id=nsnav>
+<br>
+<center>
+<p class=normal><a href="seisdkc-toc.htm" target="left">contents</a> &nbsp; <a href="seisdkc-index.htm" target="left">index</a> &nbsp; <a href="TH_1011.htm">previous</a> &nbsp; <a href="TH_1013.htm">next</a></p>
+</center>
+<br>
+<hr noshade size=1>
+</ilayer>
+</div>
+<p class=sereffunclevel4>DSP dspSecurityInit()</p>
+<table cellpadding=0>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>syntax:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=sesyntax>dsp.dspSecurityInit(<span class=truehelp-xe></span>secureVar)</p></td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>where:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>secureVar - private storage for the DSP security. The member 'dsp' is preset to the DSP object. Remember, the DSP object can be seen by the running script, but not the secure variable itself.</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>return:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>void.</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>description:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>The dspSecurityInit function turns on security for a DSP object. This means when the remote client tries to run a script on your machine using DSP, it will be run with your security manager in effect. In the case of DSP, each security function (jseSecurityInit, jseSecurityTerm, and jseSecurityGuard) has an exactly corresponding function, i.e., dspSecurityInit, dspSecurityTerm, and dspSecurityGuard. In the security initialization function, you'll typically select some functions to be allowed, and let all others be vetoed.</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>see:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara><span class=secodephrase>#link &lt;sedsp&gt;</span>, <span class=sejumptopic><a href="TH_1013.htm">DSP dspSecurityTerm()</a></span>, <span class=sejumptopic><a href="TH_1014.htm">DSP dspSecurityGuard()</a></span></p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>example:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=secodelines>function&nbsp;iDSP.dspSecurityGuard(&nbsp;conn&nbsp;)</p>
+<p class=secodelines>{</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;myfunc.setSecurity(jseSecureAllow);</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;myotherfunc.setSecurity(jseSecureGuard);</p>
+<p class=secodelines>}</p></td>
+</tr>
+</table>
+<p class=normal>&nbsp;</p>
+<hr noshade size=1>
+<p class=normal><a href="TH_1013.htm"><img src="button.png" border=0></a><a href="TH_1013.htm" style="text-decoration:none;">DSP dspSecurityTerm()</a></p>
+<p>
+</body>
+</html>

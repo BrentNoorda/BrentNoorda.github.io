@@ -1,0 +1,118 @@
+<html>
+<head>
+<title>Exception handling</title>
+<link rel="stylesheet" href="semanualstyles.css" type="text/css">
+<style type="text/css">
+ p { margin-top: 0; margin-bottom: 0; }
+</style>
+<script language="JavaScript" src="TrueHelp.js"></script>
+</head>
+<body onload="thload()">
+<div id=ienav>
+<ilayer id=nsnav>
+<br>
+<center>
+<p class=normal><a href="seisdkc-toc.htm" target="left">contents</a> &nbsp; <a href="seisdkc-index.htm" target="left">index</a> &nbsp; <a href="TH_476.htm">previous</a> &nbsp; <a href="TH_478.htm">next</a></p>
+</center>
+<br>
+<hr noshade size=1>
+</ilayer>
+</div>
+<p class=heading-2>Exception handling</p>
+<p class=heading-2-p>&nbsp;</p>
+<p class=senormalpara>Exception handling statements consist of: <span class=secodephrase>throw</span><span class=truehelp-xe></span>, <span class=secodephrase>try</span><span class=truehelp-xe></span>, <span class=secodephrase>catch</span><span class=truehelp-xe></span>, and <span class=secodephrase>finally</span><span class=truehelp-xe></span>. The concept of exception handling includes dealing with unusual results in a function and with errors and recovery from them. Exception handling that uses the <span class=secodephrase>try</span> related statements is most useful with complex error handling and recovery. Testing for simple errors and unwanted results is usually handled most easily with familiar <span class=secodephrase>if</span> or <span class=secodephrase>switch</span> statements. In this section, the discussion and examples deal with simple situations, since explanation and illustration are the goals. The exception handling statements might seem clumsy or bulky here, but do not lose sight of the fact that they are very powerful and elegant in real world programming where error recovery can be very complex and require much code when using traditional statements.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>Another advantage of using <span class=secodephrase>try</span> related exception handling is that much of the error trapping code may be in a function rather than in the all the places that call a function.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>Before getting to specifics, here is some generalized phrasing that might help working with exception handling statements. A function may have code in it to detect unusual results and to <b>throw an exception</b>. The function is called from inside a <span class=secodephrase>try</span> statement block which will <b>try to run the function</b> successfully. If there is a problem in the function, the exception thrown is <b>caught and handled</b> in a <span class=secodephrase>catch</span> statement block. If all exceptions have been handled when execution reaches the <b>finally</b> statement block, the <b>final code is executed</b>.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>Remember these execution guides:</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=list-bullet>&#8226;</p><p class=list-bullet-tab1>When a <span class=secodephrase>throw</span> statement executes, the rest of the code in a function is ignored, and the function does not return a value.</p>
+<p class=list-bullet>&#8226;</p><p class=list-bullet-tab1>A program continues in the next <span class=secodephrase>catch</span> statement block after the <span class=secodephrase>try</span> statement block in which an exception occurred., and any value thrown is caught in a parameter in the catch statement.</p>
+<p class=list-bullet>&#8226;</p><p class=list-bullet-tab1>A program executes a <span class=secodephrase>finally</span> statement block if all thrown exceptions have been caught and handled.</p>
+<p class=secodelines>&nbsp;</p>
+<p class=senormalpara><span class=secodephrase>catch</span> will receive an error object that can be printed directly as a string, and which will contain these properties</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=list-bullet>&#8226;</p><p class=list-bullet-tab1><span class=secodephrase>name</span> - Name of the exception class, e.g. "ConversionError"</p>
+<p class=list-bullet>&#8226;</p><p class=list-bullet-tab1><span class=secodephrase>message</span> - text of error, e.g. "1607: Variable "b" is undefined."</p>
+<p class=list-bullet>&#8226;</p><p class=list-bullet-tab1><span class=secodephrase>fileName</span> - Name of the source file where error occurred, if available, e.g. "c:\foo\myscript.jsa"</p>
+<p class=list-bullet>&#8226;</p><p class=list-bullet-tab1><span class=secodephrase>lineNum</span> - Line number if file where error occurred, if available, e.g. "173"</p>
+<p class=list-bullet>&#8226;</p><p class=list-bullet-tab1><span class=secodephrase>functionName</span> - Name of executing function where error occurred, if available, e.g. "foobar"</p>
+<p class=list-bullet>&nbsp;</p>
+<p class=list-bullet>The following simple script illustrates all exception handling statements. The <span class=sepopuptopic><a href="TH_485.htm" onClick="return thwindow('TH_485.htm', 'GenPopup')">main() function</a></span> has <span class=secodephrase>try</span>, <span class=secodephrase>catch</span>, and <span class=secodephrase>finally</span> statement blocks. The <span class=secodephrase>try</span> block calls <span class=secodephrase>SquareEven()</span>, which throws an exception if an odd number is passed to it. If an even number is passed to the function, then the number is squared and returned. If an odd number is passed, it is fixed, and an exception is thrown. When the <span class=secodephrase>throw</span> statement executes, it passes an object, as an argument, with information for the <span class=secodephrase>catch</span> statement to use.</p>
+<p class=senormalpara>For example, the script below, as shown, displays:</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=secodelinesindented>16</p>
+<p class=secodelinesindented>We&nbsp;caught&nbsp;odd&nbsp;and&nbsp;squared&nbsp;even.</p>
+<p class=secodelines>&nbsp;</p>
+<p class=senormalpara>If you change <span class=secodephrase>rtn = SquareEven(4)</span> to <span class=secodephrase>rtn = SquareEven(3)</span>, the display is:</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=secodelinesindented>Fixed&nbsp;odd&nbsp;number&nbsp;to&nbsp;next&nbsp;higher&nbsp;even.&nbsp;16</p>
+<p class=secodelinesindented>We&nbsp;caught&nbsp;odd&nbsp;and&nbsp;squared&nbsp;even.</p>
+<p class=senormalpara>&nbsp;</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=secodelinesindented>function&nbsp;main(argc,&nbsp;argv)</p>
+<p class=secodelinesindented>{</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;var&nbsp;rtn;</p>
+<p class=secodelinesindented>&nbsp;</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;try</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;{</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;rtn&nbsp;=&nbsp;SquareEven(4);</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//&nbsp;No&nbsp;display&nbsp;here&nbsp;if&nbsp;number&nbsp;is&nbsp;odd</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Screen.writeln(rtn);</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;}</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;catch&nbsp;(err)</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;{</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//&nbsp;Catch&nbsp;the&nbsp;exception&nbsp;info</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//&nbsp;that&nbsp;was&nbsp;thrown&nbsp;by&nbsp;the&nbsp;function.</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//&nbsp;In&nbsp;this&nbsp;case,&nbsp;the&nbsp;info&nbsp;was&nbsp;returned</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//&nbsp;in&nbsp;an&nbsp;object.</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Screen.writeln(err);</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Screen.write("Error&nbsp;occurred&nbsp;at&nbsp;line&nbsp;"&nbsp;+&nbsp;err.lineNum&nbsp;);</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;(&nbsp;err.fileName&nbsp;)</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Screen.write("&nbsp;of&nbsp;file&nbsp;"&nbsp;+&nbsp;err.fileName&nbsp;);</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;(&nbsp;err.functionName&nbsp;)</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Screen.writeln("&nbsp;in&nbsp;function&nbsp;"&nbsp;+&nbsp;err.functionName&nbsp;);</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Screen.writeln("");</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;}</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;finally</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;{</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//&nbsp;Finally,&nbsp;display&nbsp;this&nbsp;line&nbsp;after&nbsp;normal&nbsp;processing</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//&nbsp;or&nbsp;exceptions&nbsp;have&nbsp;been&nbsp;caught.</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Screen.writeln("We&nbsp;caught&nbsp;odd&nbsp;and&nbsp;squared&nbsp;even.");</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;}</p>
+<p class=secodelinesindented>&nbsp;</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;Screen.write("Paused...");&nbsp;Clib.getch();</p>
+<p class=secodelinesindented>}&nbsp;//main</p>
+<p class=secodelinesindented>&nbsp;</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;//&nbsp;Check&nbsp;for&nbsp;odd&nbsp;integers</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;//&nbsp;If&nbsp;odd,&nbsp;make&nbsp;even,&nbsp;simplistic&nbsp;by&nbsp;adding&nbsp;1</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;//&nbsp;Square&nbsp;even&nbsp;number</p>
+<p class=secodelinesindented>function&nbsp;SquareEven(num)</p>
+<p class=secodelinesindented>{</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//&nbsp;Catch&nbsp;an&nbsp;odd&nbsp;number&nbsp;and&nbsp;fix&nbsp;it.</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//&nbsp;"throw&nbsp;an&nbsp;exception"&nbsp;to&nbsp;be&nbsp;caught&nbsp;by&nbsp;caller</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;if&nbsp;((num&nbsp;%&nbsp;2)&nbsp;!=&nbsp;0)</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;{</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;num&nbsp;+=&nbsp;1;</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;throw&nbsp;{msg:"Fixed&nbsp;odd&nbsp;number&nbsp;to&nbsp;next&nbsp;higher&nbsp;even.&nbsp;",</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;rtn:num&nbsp;*&nbsp;num};</p>
+<p class=secodelinesindented>&nbsp;</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//&nbsp;We&nbsp;throw&nbsp;an&nbsp;object&nbsp;here.&nbsp;We&nbsp;could&nbsp;have&nbsp;thrown</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//&nbsp;a&nbsp;primitive,&nbsp;such&nbsp;as:</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//&nbsp;&nbsp;throw("Caught&nbsp;and&nbsp;odd");</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//&nbsp;We&nbsp;would&nbsp;have&nbsp;to&nbsp;alter&nbsp;the&nbsp;catch&nbsp;statement</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//&nbsp;to&nbsp;expect&nbsp;whatever&nbsp;data&nbsp;type&nbsp;is&nbsp;used.</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;}</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//&nbsp;Normal&nbsp;return&nbsp;for&nbsp;an&nbsp;even&nbsp;number.</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;return&nbsp;num&nbsp;*&nbsp;num;</p>
+<p class=secodelinesindented>}&nbsp;//SquareEven</p>
+<p class=secodelines>&nbsp;</p>
+<p class=senormalpara>This example script does not actually handle errors. Its purpose is to illustrate how exception handling statements work. For purposes of this illustration, assume that an odd number being passed to <span class=secodephrase>SquareEven()</span> is an error or extraordinary event.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<hr noshade size=1>
+<p class=normal><a href="TH_478.htm"><img src="button.png" border=0></a><a href="TH_478.htm" style="text-decoration:none;">Functions</a></p>
+<p>
+</body>
+</html>

@@ -1,0 +1,70 @@
+<html>
+<head>
+<title>SElib.baseWindowFunction()</title>
+<link rel="stylesheet" href="semanualstyles.css" type="text/css">
+<style type="text/css">
+ p { margin-top: 0; margin-bottom: 0; }
+</style>
+<script language="JavaScript" src="TrueHelp.js"></script>
+</head>
+<body onload="thload()">
+<div id=ienav>
+<ilayer id=nsnav>
+<br>
+<center>
+<p class=normal><a href="seisdkj-toc.htm" target="left">contents</a> &nbsp; <a href="seisdkj-index.htm" target="left">index</a> &nbsp; <a href="TH_813.htm">previous</a> &nbsp; <a href="TH_815.htm">next</a></p>
+</center>
+<br>
+<hr noshade size=1>
+</ilayer>
+</div>
+<p class=sereffunclevel4>SElib.baseWindowFunction()</p>
+<table cellpadding=0>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>syntax:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=sesyntax>SElib.baseWindowFunction(hWnd,&nbsp;message,&nbsp;param1,</p>
+<p class=sesyntax>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;param2)</p></td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>where:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>hWnd - a number, a handle of the window receiving the message.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>message - a number, a Windows message ID.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>param1 - the first parameter of the message ID.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>param2 - the second parameter of the message ID.</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>return:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>value - the value returned by the base window function.  If the parameter handle is not a window with a windowFunction created with <span class=secodephrase>SElib.makeWindow()</span> or is not a window subclassed with <span class=secodephrase>SElib.subclassWindow()</span>, then the return is 0.</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>description:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>Calls the base procedure of a window created with a windowFunction in <span class=sepopuptopic><a href="TH_826.htm" onClick="return thwindow('TH_826.htm', 'GenPopup')">SElib.makeWindow()</a></span> or subclassed with <span class=sepopuptopic><a href="TH_836.htm" onClick="return thwindow('TH_836.htm', 'GenPopup')">SElib.subclassWindow()</a></span>. This method is normally used within a ScriptEase window function to pass the window parameter to the base procedure before handling it in your own code.  Remember that if your window function returns no value, ScriptEase will call the base procedure automatically, which is the preferred method.</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>see:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara><span class=sejumptopic><a href="TH_826.htm">SElib.makeWindow()</a></span>, <span class=sejumptopic><a href="TH_836.htm">SElib.subclassWindow()</a></span>, Window object in <i>winobj.jsh</i></p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+</table>
+<p class=normal>&nbsp;</p>
+<hr noshade size=1>
+<p class=normal><a href="TH_815.htm"><img src="button.png" border=0></a><a href="TH_815.htm" style="text-decoration:none;">SElib.bound()</a></p>
+<p>
+</body>
+</html>

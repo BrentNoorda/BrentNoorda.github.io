@@ -1,0 +1,102 @@
+<html>
+<head>
+<title>WRAPPER TABLES</title>
+<link rel="stylesheet" href="semanualstyles.css" type="text/css">
+<style type="text/css">
+ p { margin-top: 0; margin-bottom: 0; }
+</style>
+<script language="JavaScript" src="TrueHelp.js"></script>
+</head>
+<body onload="thload()">
+<div id=ienav>
+<ilayer id=nsnav>
+<br>
+<center>
+<p class=normal><a href="seisdkc-toc.htm" target="left">contents</a> &nbsp; <a href="seisdkc-index.htm" target="left">index</a> &nbsp; <a href="TH_375.htm">previous</a> &nbsp; <a href="TH_377.htm">next</a></p>
+</center>
+<br>
+<hr noshade size=1>
+</ilayer>
+</div>
+<p class=sereffunclevel2>WRAPPER TABLES</p>
+<p class=sereffunclevel2-p>&nbsp;</p>
+<p class=senormalpara>The basic idea behind a wrapper table is that it is a list of wrapper functions to be made available to your scripts. However, wrapper tables have additional capabilities as well. You can define entire object classes using these tables.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>Here is a sample wrapper table that includes many of the options that can be used.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=secodelinesindented>SE_BEGIN_LIB_TABLE(&nbsp;my_lib&nbsp;)</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;SE_NUMLITERAL(&nbsp;UNISTR("Identification"),&nbsp;UNISTR(&#147;1.03&#148;),</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;SE_DONTENUM&nbsp;)</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;SE_STRING(&nbsp;UNISTR("IdentString"),&nbsp;UNISTR("Version&nbsp;1.03b"),</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;SE_DONTENUM&nbsp;)</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;/*&nbsp;Move&nbsp;into&nbsp;"Clib"&nbsp;*/</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;SE_INOBJECT(&nbsp;UNISTR("Clib"),SE_DONTENUM&nbsp;)</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/*&nbsp;SE_METHOD&nbsp;is&nbsp;a&nbsp;synonym&nbsp;for&nbsp;SE_FUNCTION&nbsp;*/</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;SE_FUNCTION(&nbsp;UNISTR("MyFuncCall"),&nbsp;MyFuncCallWrapper,</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;0,&nbsp;10,&nbsp;SE_SECURE|SE_BYREF,&nbsp;SE_READONLY&nbsp;)</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;SE_CLASS(&nbsp;UNISTR("MyDate"),&nbsp;MyDateWrapper,&nbsp;0,1,</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;SE_INSECURE,&nbsp;SE_STOCK_ATTRIBS&nbsp;)</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/*&nbsp;Stock&nbsp;attributes&nbsp;are&nbsp;DontDelete,&nbsp;ReadOnly,</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;and&nbsp;DontEnum</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*/</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;SE_PROTO</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;SE_FUNCTION(&nbsp;UNISTR("valueOf"),&nbsp;MyDateValueOfWrapper,</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;0,&nbsp;0,&nbsp;SE_SECURE,&nbsp;SE_STOCK_ATTRIBS&nbsp;)</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;SE_END_PROTO</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;SE_END_CLASS</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;SE_END_OBJECT</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;/*&nbsp;And&nbsp;why&nbsp;not&nbsp;some&nbsp;stuff&nbsp;in&nbsp;"SElib",&nbsp;note&nbsp;that&nbsp;'INOBJECT'</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;is&nbsp;always&nbsp;relative&nbsp;to&nbsp;the&nbsp;global&nbsp;object</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;&nbsp;*/</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;SE_INOBJECT(&nbsp;UNISTR("SElib"),&nbsp;SE_STOCK_ATTRIBS&nbsp;)</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;SE_FUNCTION(&nbsp;UNISTR("Version"),&nbsp;MyVersionWrapper,</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;0,0,&nbsp;SE_SECURE,&nbsp;SE_STOCK_ATTRIBS&nbsp;)</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;SE_END_OBJECT</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;/*&nbsp;And&nbsp;demonstrate&nbsp;the&nbsp;last&nbsp;two&nbsp;functions.&nbsp;First&nbsp;we&nbsp;make</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;'MyLib'&nbsp;a&nbsp;copy&nbsp;of&nbsp;'Clib'.&nbsp;Then&nbsp;we&nbsp;change&nbsp;the&nbsp;attributes</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;on&nbsp;an&nbsp;existing&nbsp;variable.</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;&nbsp;*/</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;SE_COPY(&nbsp;UNISTR("MyLib"),UNISTR("Clib"),&nbsp;SE_READONLY&nbsp;)</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;SE_ATTRIB(&nbsp;UNISTR("varname"),&nbsp;SE_READONLY&nbsp;|&nbsp;SE_DONTDELETE&nbsp;)</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;</p>
+<p class=secodelinesindented>SE_END_LIB_TABLE</p>
+<p class=secodelinesindented>&nbsp;</p>
+<p class=senormalpara>As you can see, the table is a list of elements where each element is one of a number of macros such as <span class=secodephrase>SE_FUNCTION</span> or <span class=secodephrase>SE_CLASS</span>. We will list each individual macro and what it does below. Note that the elements are not separated by commas. The whole table is begun with <span class=secodephrase>SE_BEGIN_LIB_TABLE</span> macro and ended with the <span class=secodephrase>SE_END_LIB_TABLE</span> macro.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>First, some overview. Most macros define something and use a name as the first parameter. For instance, the first element defines a number: </p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=secodelinesindented>SE_NUMLITERAL(&nbsp;UNISTR("Identification"),&nbsp;UNISTR(&#147;1.03&#148;),</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;SE_DONTENUM&nbsp;)</p>
+<p class=secodelinesindented>&nbsp;</p>
+<p class=senormalpara>The name parameter follows identical rules for all of the different macros. First, when using string literals, encase them in the <span class=secodephrase>UNISTR()</span> macro to ensure compatibility with all ScriptEase builds. When the table is added, these definitions in the macro table are created in the global object. Recall, members of the global object are the global variables of the script. This line therefore declares a new global variable named <span class=secodephrase>Identification</span>. As the table is parsed, however, certain entries will cause this base object to change from the global object to some other object. This line is such an entry. </p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=secodelinesindented>SE_INOBJECT(&nbsp;UNISTR("Clib"),&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;SE_DONTENUM&nbsp;)</p>
+<p class=secodelinesindented>&nbsp;</p>
+<p class=senormalpara>First, it too has a name <span class=secodephrase>Clib</span>. Like all other names, it follows the same rules, so it refers to the <span class=secodephrase>Clib</span> member of the global object. However, the purpose of the line is to make the named member the new base. Therefore, new names declared after this line are no longer relative to the global object, but rather to the <span class=secodephrase>Clib</span> member of the global object. A few lines later, the <span class=secodephrase>SE_END_OBJECT</span> macro undoes this, reverting back. This scheme allows a more readable table. It is a simple hierarchical scheme that matches well with the way objects and classes are defined.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>There are two conveniences implemented. First, if you specify a name preceeded by <span class=secodephrase>global.</span>, for instance <span class=secodephrase>global.foo</span>, the <span class=secodephrase>global.</span> means that <span class=secodephrase>foo</span> is relative to the global variable and the base is ignored for this entry only. Second, you can use object notation such as <span class=secodephrase>foo.goo</span>. For instance, instead of writing:</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=secodelinesindented>SE_INOBJECT(&nbsp;UNISTR("Clib"),&nbsp;SE_DONTENUM&nbsp;)</p>
+<p class=secodelinesindented>SE_INTEGER(&nbsp;&nbsp;&nbsp;UNISTR("foo"),&nbsp;10,&nbsp;SE_DONTENUM&nbsp;)</p>
+<p class=secodelinesindented>&nbsp;</p>
+<p class=senormalpara>You could instead write:</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=secodelinesindented>SE_INTEGER(&nbsp;UNISTR("Clib.foo"),&nbsp;10,&nbsp;SE_DONTENUM&nbsp;)</p>
+<p class=secodelinesindented>&nbsp;</p>
+<p class=senormalpara>When using this notation, the base for further statements is not changed. The <span class=secodephrase>Clib.</span> part of it applies only to this particular definition. Also, if the object referred to, in this case <span class=secodephrase>Clib</span>, does not already exist or is not an object, it is converted to an object.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>Choose the notation in a particular instance that is clearer. If you are going to define more than one item in an object, it is clearer to move into that object using <span class=secodephrase>SE_INOBJECT</span> while a single item can be clearer to write out a dot-separated name.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<hr noshade size=1>
+<p class=normal><a href="TH_377.htm"><img src="button.png" border=0></a><a href="TH_377.htm" style="text-decoration:none;">WRAPPER MACROS</a></p>
+<p>
+</body>
+</html>

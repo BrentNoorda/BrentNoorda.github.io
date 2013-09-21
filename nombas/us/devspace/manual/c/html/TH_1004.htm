@@ -1,0 +1,79 @@
+<html>
+<head>
+<title>DSP()</title>
+<link rel="stylesheet" href="semanualstyles.css" type="text/css">
+<style type="text/css">
+ p { margin-top: 0; margin-bottom: 0; }
+</style>
+<script language="JavaScript" src="TrueHelp.js"></script>
+</head>
+<body onload="thload()">
+<div id=ienav>
+<ilayer id=nsnav>
+<br>
+<center>
+<p class=normal><a href="seisdkc-toc.htm" target="left">contents</a> &nbsp; <a href="seisdkc-index.htm" target="left">index</a> &nbsp; <a href="TH_1003.htm">previous</a> &nbsp; <a href="TH_1005.htm">next</a></p>
+</center>
+<br>
+<hr noshade size=1>
+</ilayer>
+</div>
+<p class=sereffunclevel4>DSP()</p>
+<table cellpadding=0>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>syntax:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=sesyntax>new&nbsp;DSP(&nbsp;[openFunction[,&nbsp;param1[,&nbsp;...]]])</p></td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>where:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>openFunction - The function to call to initialize the connection.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>paramN - Additional parameters to pass to the open function</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>return:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>object - A new DSP object, or <span class=secodephrase>null</span> on error.  This is the object that will be passed as the first parameter to all for most of the DSP methods (dspReceive, dspSend).  Those methods should use the first passed parameter, and not the "this" variable, for any connection-specific properties or methods--because the dsp object is acting as a proxy to another system to use the "this" variable would instead be acting on the remote system.</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>description:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>This function creates a new DSP object, or returns <span class=secodephrase>null</span> on error.  Note that calling this function itself accomplishes very little unless you build up an appropriate DSP object by adding open, close, and transport functions.  A new DSP object can be created with just <span class=secodephrase>new </span><span class=sepopuptopic><a href="TH_1004.htm" onClick="return thwindow('TH_1004.htm', 'GenPopup')">DSP()</a></span>, but it will be unusable without transport functions.  See the introduction, under <span class=sepopuptopic><a href="TH_1001.htm" onClick="return thwindow('TH_1001.htm', 'GenPopup')">creating a DSP object</a></span>, for more information about setting up a proper DSP object.  The first optional parameter is the open function to use.  Once the object has been created, this function is called with any additional parameters passed to DSP().  The result of this call is set the <span class=secodephrase>dspConnection</span> member of the newly created object, and is only used to pass as the first parameters to the <span class=secodephrase>dspSend</span>,<span class=secodephrase> dspReceive</span>, and <span class=secodephrase>dspCloseConnection</span> methods.  If <span class=secodephrase>openFunction</span> is supplied and returns <span class=secodephrase>null</span>, then it is considered an error and the DSP construction fails.</p>
+<p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>see:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara><span class=secodephrase>#link &lt;sedsp&gt;</span></p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>example:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=secodelines>function&nbsp;fileOpen(&nbsp;filename&nbsp;)</p>
+<p class=secodelines>{</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;return&nbsp;Clib.fopen(&nbsp;filename,&nbsp;"wb"&nbsp;);</p>
+<p class=secodelines>}</p>
+<p class=secodelines>var&nbsp;connection&nbsp;=&nbsp;new&nbsp;DSP(&nbsp;fileOpen,&nbsp;"c:\tempfile.dat"&nbsp;);</p>
+<p class=secodelines>//&nbsp;This&nbsp;will&nbsp;call&nbsp;fileOpen&nbsp;and&nbsp;assign&nbsp;the&nbsp;result&nbsp;to</p>
+<p class=secodelines>//&nbsp;connection.dspConnection.&nbsp;&nbsp;If&nbsp;it&nbsp;was&nbsp;null,</p>
+<p class=secodelines>//&nbsp;then&nbsp;the&nbsp;DSP&nbsp;connection&nbsp;will&nbsp;fail</p></td>
+</tr>
+</table>
+<p class=normal>&nbsp;</p>
+<hr noshade size=1>
+<p class=normal><a href="TH_1005.htm"><img src="button.png" border=0></a><a href="TH_1005.htm" style="text-decoration:none;">DSP dspCloseConnection()</a></p>
+<p>
+</body>
+</html>

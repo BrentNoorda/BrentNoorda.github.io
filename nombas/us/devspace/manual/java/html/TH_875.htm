@@ -1,0 +1,77 @@
+<html>
+<head>
+<title>Unix.fork()</title>
+<link rel="stylesheet" href="semanualstyles.css" type="text/css">
+<style type="text/css">
+ p { margin-top: 0; margin-bottom: 0; }
+</style>
+<script language="JavaScript" src="TrueHelp.js"></script>
+</head>
+<body onload="thload()">
+<div id=ienav>
+<ilayer id=nsnav>
+<br>
+<center>
+<p class=normal><a href="seisdkj-toc.htm" target="left">contents</a> &nbsp; <a href="seisdkj-index.htm" target="left">index</a> &nbsp; <a href="TH_874.htm">previous</a> &nbsp; <a href="TH_876.htm">next</a></p>
+</center>
+<br>
+<hr noshade size=1>
+</ilayer>
+</div>
+<p class=sereffunclevel4>Unix.fork()</p>
+<table cellpadding=0>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>syntax:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=sesyntax>Unix.fork()<span class=truehelp-xe></span></p></td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>return:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>number - 0 or a child process id. 0 is returned to the child process, the id of the child process is returned to the parent.</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>description:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>A call to this function creates two duplicate processes. The processes are exact copies of the currently running process, so both pick up execution from the next statement. Because these processes are duplicates, they share identical all resources the original one had at the time of <span class=secodephrase>fork()</span>ing, but not any allocated later. For instance, any open file handles or sockets are shared. If both processes write to them, the output will be intermixed since each write from either process advances the file pointer for both. <span class=sepopuptopic><a href="TH_880.htm" onClick="return thwindow('TH_880.htm', 'GenPopup')">Unix.wait()</a></span> allows you to wait for completion of a Child. Using <span class=secodephrase>Unix.wait()</span> or <span class=sepopuptopic><a href="TH_881.htm" onClick="return thwindow('TH_881.htm', 'GenPopup')">Unix.waitpid()</a></span> is important to prevent annoying zombie processes from building up.</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>see:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara><span class=sejumptopic><a href="TH_876.htm">Unix.kill()</a></span>, <span class=sejumptopic><a href="TH_880.htm">Unix.wait()</a></span>, <span class=sejumptopic><a href="TH_881.htm">Unix.waitpid()</a></span></p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>example:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=secodelines>//&nbsp;Here&nbsp;is&nbsp;a&nbsp;simple&nbsp;example:</p>
+<p class=secodelines>&nbsp;</p>
+<p class=secodelines>function&nbsp;main()</p>
+<p class=secodelines>{</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;var&nbsp;id&nbsp;=&nbsp;Unix.fork();</p>
+<p class=secodelines>&nbsp;</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;if(&nbsp;id==0&nbsp;)</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;{</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Clib.printf("Child&nbsp;here!\n");</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Clib.exit(0);</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;}</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;else</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;{</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Clib.printf("started&nbsp;child&nbsp;process&nbsp;%d\n",&nbsp;id);</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;}</p>
+<p class=secodelines>}</p></td>
+</tr>
+</table>
+<p class=normal>&nbsp;</p>
+<hr noshade size=1>
+<p class=normal><a href="TH_876.htm"><img src="button.png" border=0></a><a href="TH_876.htm" style="text-decoration:none;">Unix.kill()</a></p>
+<p>
+</body>
+</html>

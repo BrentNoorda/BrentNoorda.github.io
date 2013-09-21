@@ -1,0 +1,311 @@
+<html>
+<head>
+<title>ScriptEase ISDK Newsletter October 6, 2001</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-1754630-10']);
+  _gaq.push(['_trackPageview']);
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+</head>
+
+<body bgcolor="#FFFFFF" TOPMARGIN=0 LEFTMARGIN=0 MARGINWIDTH=0 MARGINHEIGHT=0>
+<table width="640" border="0" cellspacing="0" cellpadding="0">
+  <tr> 
+    <td> 
+      <p><img src="images/newsbanner.jpg" width="640" height="70" border="0"></p>
+      <table width="630" border="0" cellspacing="0" cellpadding="0" align="center">
+        <tr> 
+          <td width="150" valign="top" align="left"> 
+            <p><font color="#0E2595" face="Verdana, Arial, Helvetica, sans-serif"><b>Oct. 
+              6, 2001</b></font></p>
+            <p><b><font color="#990000" size="-2" face="Verdana,Tahoma,Arial,Helvetica">In 
+              This Issue</font></b></p>
+            <table width="150" border="0" cellspacing="0" cellpadding="0">
+              <tr> 
+                <td width="15" valign="top" align="center"> 
+                  <p><img src="images/bullet.gif" width="10" height="10" vspace="2"></p>
+                </td>
+                <td width="135" align="left" valign="top"> 
+                  <p><a href="#article1"><font size="-2" face="Verdana, Arial, Helvetica, sans-serif">SE:ISDK 
+                    upgrades for C and Java, 4.30 and 4.40</font></a><br>
+                    &nbsp; </p>
+                </td>
+              </tr>
+              <tr> 
+                <td width="15" align="center" valign="top"><img src="images/bullet.gif" width="10" height="10" vspace="2"></td>
+                <td width="135" align="left" valign="top"> 
+                  <p><a href="#c430derrata"><font size="-2" face="Verdana, Arial, Helvetica, sans-serif">ISDK/C 
+                    4.30d Errata</font></a><br>
+                    &nbsp; </p>
+                </td>
+              </tr>
+              <tr> 
+                <td width="15" align="center" valign="top"><img src="images/bullet.gif" width="10" height="10" vspace="2"></td>
+                <td width="135" align="left" valign="top"> 
+                  <p><a href="#c440cerrata"><font size="-2" face="Verdana, Arial, Helvetica, sans-serif">ISDK/C 
+                    4.40c Errata</font></a><br>
+                    &nbsp; </p>
+                </td>
+              </tr>
+              <tr> 
+                <td width="15" align="center" valign="top"><img src="images/bullet.gif" width="10" height="10" vspace="2"></td>
+                <td width="135" align="left" valign="top"> 
+                  <p><a href="#errataj430d"><font size="-2" face="Verdana, Arial, Helvetica, sans-serif">ISDK/Java 
+                    4.30d Errata</font></a></p>
+                </td>
+              </tr>
+            </table>
+            <p><font size="-2" face="Verdana, Arial, Helvetica, sans-serif"><a href="../devspace/newsletters/index.htm">Other 
+              Newsletters</a></font></p>
+            <p><font size="-2" color="#990000" face="Verdana, Arial, Helvetica, sans-serif"><b>DevSpace 
+              Developer Support</b></font></p>
+            <p><font size="-2" face="Verdana, Arial, Helvetica, sans-serif">For 
+              more information and resources, <a
+                             href="../devspace/index.htm">visit ScriptEase: 
+              ISDK DevSpace online</a>.</font></p>
+            <p><font size="-2" color="#990000" face="Verdana, Arial, Helvetica, sans-serif"><b>Download 
+              Center</b></font></p>
+            <p></p>
+            <p align=LEFT><font face="Verdana, Arial, Helvetica, sans-serif" size="-2">For 
+              latest updates and extensions, <a href="http://www.nombasxxx.com/us/toolkit/isdkdownload.htm">visit 
+              the ISDK Download Center</a>. </font></p>
+          </td>
+          <td width="4"></td>
+          <td width="1" bgcolor="#CCCCFF"><img src="../devspace/pix/pixel.gif" width="1" height="1" border="0"></td>
+          <td width="5"></td>
+          <td width="470" valign="top" align="left"> 
+            <div align="left"> 
+              <h3><b><a name="article1"></a><img src="images/drscripter.jpg" width="100" height="100" align="right" border="0" vspace="2" hspace="4"></b><font color="#0E2595">Errata/Upgrade 
+                releases now available for SE:ISDK/C&nbsp;4.30e, SE:ISDK/Java&nbsp;4.30e, 
+                and SE:ISDK/C&nbsp;4.40d</font></h3>
+              <h4><font color="#6699FF">Errata release now available for all 4.30 
+                and 4.40 platforms</font></h4>
+              <p align=LEFT>An update is available for all of the current ScriptEase:ISDK 
+                platforms. This release incorporates all of the errata updates 
+                that have been documented at the <a href="../devspace/errata/index.htm">errata 
+                site</a> for previous releases.</p>
+              <h4 align=LEFT><font color="#0E2595">New: Improved internal debugging 
+                </font></h4>
+              <p align=LEFT>You may have noticed that there were a lot of errata 
+                items published soon after the most recent ISDK releases. Many 
+                of these involved circumstances that were very unusual, or rare, 
+                and had never actually shown up in any product released or in-development 
+                with the SE:ISDK.</p>
+              <p align=LEFT>These unusual and unlikely errata items were found 
+                because have enhanced the internal debugging algorithms; in debug 
+                mode this will always check the state of the jsecontext, jsestacks, 
+                jsevariables, and garbage collector, with the assumption that 
+                if anything can go wrong, it will. The result is greater reliability 
+                for development and use.</p>
+              <h4 align=LEFT><font color="#0E2595">The code looks different, is 
+                this just a minor errata release?</font></h4>
+              <p align=LEFT>If you compare the files between this release and 
+                the previous release (e.g. 4.30e vs 4.30d) you'll see a lot more 
+                changes than you'd expect from just the published errata items. 
+                So it Is reasonable to worry that this is a large change, and 
+                not just a plug-it-in minor errata release. (The number of errata 
+                items and code changes should decrease with each minor release, 
+                right?)</p>
+              <p align=LEFT>But if you look at those changes, you will see they 
+                are related to the higher-level of internal debugging that has 
+                been added to the core engine, and nearly all these changes apply 
+                only if NDEBUG is not defined (i.e. they apply only when compiling 
+                in debug mode).</p>
+              <h4 align=LEFT><font color="#0E2595">Should you upgrade?</font></h4>
+              <p align=LEFT>Yes. This higher level of internal ScriptEase debugging 
+                will mean that your own applications are more robust, especially 
+                if you exercise internal debugging by testing your applications 
+                in a debug configuration and check your debug.log files.</p>
+              <p align=LEFT>To receive your upgrades visit <a href="http://support.nombasxxx.com/">http://support.nombasxxx.com/</a> 
+                with information about platforms and version needed.</p>
+              <p align=LEFT><i>Have a question about how to use ScriptEase:ISDK? 
+                Let Dr. Scripter know at </i><a href="http://support.nombasxxx.com/"><i>http://support.nombasxxx.com/</i></a></p>
+            </div>
+            <div align="left"></div>
+          </td>
+        </tr>
+      </table>
+      <hr>
+      <h3>&nbsp;Errata <a name="c430derrata"></a> </h3>
+      <h4>&nbsp;&nbsp;&nbsp;ISDK/C 4.30d </h4>
+      <ul>
+        <li>
+          <p><a href="../devspace/errata/isdk/index430.htm#dfncargdep"><b>function.arguments 
+            deprecated</b></a>: The arguments property of a Function object is 
+            an old leftover from erly javascript, and has been deprecated in current 
+            EcmaScript standards. For most applications function.arguments is 
+            a drawback because it may lock in varaibles longer than is wanted 
+            and may slow overall execution. [<a href="../devspace/errata/isdk/index430.htm#dfncargdep">details</a>]</p>
+        </li>
+      </ul>
+      <ul>
+        <li> 
+          <p><b><a href="../devspace/errata/isdk/index430.htm#cmprhnt">Object 
+            comparisons with wrong hint - Date comparisons fail</a></b>: Object 
+            comparison (<, <=, >, >=) are not correctly following the hint logic 
+            specified in section 11.8.5 (The Abstract Relational Comparison Algorithm) 
+            of the ECMAScript specification. This is most likely to show up as 
+            a problem when comparing instances of the Date object. [<a href="../devspace/errata/isdk/index430.htm#cmprhnt">details</a>]</p>
+        </li>
+      </ul>
+      <ul>
+        <li><b><a href="../devspace/errata/isdk/index430.htm#numpm">ToNumber() 
+          returns incorrect values for "+" and "-"</a></b>: When ToNumber() is 
+          called with either "+" or "-" as its argument, the return value should 
+          be NaN. Instead, ToNumber() is returning Infinity and -Infinity, respectively. 
+          [<a href="../devspace/errata/isdk/index430.htm#numpm">details</a>]</li>
+      </ul>
+      <ul>
+        <li><b><a href="../devspace/errata/objfunc/index.htm#430dgtnvso">Unix 
+          version of SElib.dynamicLink not locating shared object path</a></b>: 
+          On unix systems, when calling SElib.dynamicLink(), that shared object 
+          may not be located via LD_ELF_LIBRARY_PATH or LD_LIBRARY_PATH. [<a href="../devspace/errata/objfunc/index.htm#430dgtnvso">details</a>]</li>
+      </ul>
+      <ul>
+        <li><b><a href="../devspace/errata/objfunc/index.htm#ecglb">global 
+          C variables conflict for multiple threads</a></b>: The Ecma libraries 
+          contain globals which should be initialized only once, but in multiple 
+          threads may be initialized many times, potentially leading to invalid 
+          data or crashes. [<a href="../devspace/errata/objfunc/index.htm#ecglb">details</a>]</li>
+      </ul>
+      <ul>
+        <li><a href="../devspace/errata/link/index.htm#3cmbjglb"><b>COMOBJ 
+          C++ code contains global variables used for debugging</b></a>: The COMOBJ 
+          C++ code contains global variables used for debugging. If run within 
+          multiple threads these globals will conflict. [<a href="../devspace/errata/link/index.htm#3cmbjglb">details</a>]</li>
+      </ul>
+      <hr>
+      <h3>&nbsp;Errata <a name="c440cerrata"></a> </h3>
+      <h4>&nbsp;&nbsp;&nbsp;ISDK/C 4.40c </h4>
+      <ul>
+        <li><b><a href="../devspace/errata/isdk/index440.htm#cmprhnt">Object 
+          comparisons with wrong hint - Date comparisons fail</a></b>: Object 
+          comparison (<, <=, >, >=) are not correctly following the hint logic 
+          specified in section 11.8.5 (The Abstract Relational Comparison Algorithm) 
+          of the ECMAScript specification. This is most likely to show up as a 
+          problem when comparing instances of the Date object. [<a href="../devspace/errata/isdk/index440.htm#cmprhnt">details</a>]</li>
+        </ul><ul><li><b><a href="../devspace/errata/isdk/index440.htm#objwrapnodel">SEObjectWrapper 
+          not deleting createVariable() objects</a></b>: The underlying variable 
+          reference created by SEObjectWrapper::createVariable() is not being 
+          destroyed when the SEObjectWrapper C++ object is deleted. [<a href="../devspace/errata/isdk/index440.htm#objwrapnodel">details</a>]</li>
+      </ul>
+      <ul>
+        <li><b><a href="../devspace/errata/isdk/index440.htm#numpm">ToNumber() 
+          returns incorrect values for "+" and "-"</a></b>: When ToNumber() is 
+          called with either "+" or "-" as its argument, the return value should 
+          be NaN. Instead, ToNumber() is returning Infinity and -Infinity, respectively. 
+          [<a href="../devspace/errata/isdk/index440.htm#numpm">details</a>]</li>
+      </ul>
+      <ul>
+        <li><b><a href="../devspace/errata/isdk/index440.htm#gtmss">error 
+          marking more than MARK_STACK_SIZE objects</a></b>: If there are more 
+          than MARK_STACK_SIZE tied to the call->Global object, then some objects 
+          may never be marked and so may be freed while still in use. [<a href="../devspace/errata/isdk/index440.htm#gtmss">details</a>]</li>
+      </ul>
+      <ul>
+        <li><b><a href="../devspace/errata/objfunc/index.htm#440cgtnvso">Unix 
+          version of SElib.dynamicLink not locating shared object path</a></b>: 
+          On unix systems, when calling SElib.dynamicLink(), that shared object 
+          may not be located via LD_ELF_LIBRARY_PATH or LD_LIBRARY_PATH. [<a href="../devspace/errata/objfunc/index.htm#440cgtnvso">details</a>]</li>
+      </ul>
+      <ul>
+        <li><b><a href="../devspace/errata/objfunc/index.htm#440cztos">toString(radix) 
+          not returing correct value for 0</a></b>: When toString is used with 
+          a radix (e.g.&nbsp;(0).toString(10)) the result is a blank string. [<a href="../devspace/errata/objfunc/index.htm#440cztos">details</a>]</li>
+      </ul>
+      <ul>
+        <li><b><a href="../devspace/errata/isdk/index440.htm#440calterarg">altering 
+          "arguments" causes assertion failure</a></b>: Buffer.prototype.getString() 
+          is not terminating strings at the first null character, as specified 
+          in the documentation. [<a href="../devspace/errata/isdk/index440.htm#440calterarg">details</a>]</li>
+      </ul>
+      <ul>
+        <li><b><a href="../devspace/errata/objfunc/index.htm#dtglb">global 
+          C variable in Date object conflict for multiple threads</a></b>: The 
+          Ecma Date library contains globals which should be initialized only 
+          once, but in multiple threads may be initialized many times, potentially 
+          leading to invalid data or crashes. [<a href="../devspace/errata/objfunc/index.htm#dtglb">details</a>]</li>
+      </ul>
+      <ul>
+        <li><a href="../devspace/errata/link/index.htm#4cmbjglb"><b>COMOBJ 
+          C++ code contains global variables used for debugging</b></a>: The COMOBJ 
+          C++ code contains global variables used for debugging. If run within 
+          multiple threads these globals will conflict. [<a href="../devspace/errata/link/index.htm#4cmbjglb">details</a>]</li>
+      </ul>
+      <hr>
+      <h3>&nbsp;Errata <a name="errataj430d"></a> </h3>
+      <h4>&nbsp;&nbsp;&nbsp;ISDK/Java 4.30d </h4>
+      <ul>
+        <li> 
+          <p><b><a href="../devspace/errata/jisdk/index.htm#430dwronghint">Object 
+            comparisons with wrong hint - Date comparisons fail</a></b>: Object 
+            comparison (<, <=, >, >=) are not correctly following the hint logic 
+            specified in section 11.8.5 (The Abstract Relational Comparison Algorithm) 
+            of the ECMAScript specification. This is most likely to show up as 
+            a problem when comparing instances of the Date object. [<a href="../devspace/errata/jisdk/index.htm#430dwronghint">details</a>]</p>
+        </li>
+      </ul>
+      <ul>
+        <li> 
+          <p><b><a href="../devspace/errata/jisdk/index.htm#430dtonumber">ToNumber() 
+            returns incorrect values for "+" and "-"</a></b>: When ToNumber() 
+            is called with either "+" or "-" as its argument, the return value 
+            should be NaN. Instead, ToNumber() is returning Infinity and -Infinity, 
+            respectively. [<a href="../devspace/errata/jisdk/index.htm#430dtonumber">details</a>]</p>
+        </li>
+      </ul>
+      <ul>
+        <li><b><a href="../devspace/errata/jisdk/index.htm#430dzerotostring">toString(radix) 
+          not returing correct value for 0</a></b>: When toString is used with 
+          a radix (e.g.&nbsp;(0).toString(10)) the result is a blank string. [<a href="../devspace/errata/jisdk/index.htm#430dzerotostring">details</a>]</li>
+      </ul>
+      <ul>
+        <li><b><a href="../devspace/errata/jisdk/index.htm#430dfuncconcat">toString 
+          on functions concatenates some indentifiers</a></b>: When a function 
+          is being converted to a string, a required space may not be displayed 
+          after some variables. [<a href="../devspace/errata/jisdk/index.htm#430dfuncconcat">details</a>]</li>
+      </ul>
+      <ul>
+        <li> 
+          <p><b><a href="../devspace/errata/jisdk/index.htm#430dpropthis">eval 
+            does not propogate the "this" of its caller</a></b>: eval() does not 
+            propogate the 'this' of its caller. [<a href="../devspace/errata/jisdk/index.htm#430dpropthis">details</a>]</p>
+        </li>
+      </ul>
+      <ul>
+        <li> 
+          <p><b><a href="../devspace/errata/jisdk/index.htm#430darrayinit">static 
+            Array initializer is not instanceof Object</a></b>: When an Array 
+            object is initialized with a static Array Initialiser (e.g.&nbsp;var&nbsp;foo&nbsp;=&nbsp;[&nbsp;1,&nbsp;2,&nbsp;3&nbsp;];) 
+            it is recognized as "instanceof Array" but is not recognized as "instanceof 
+            Object". [<a href="../devspace/errata/jisdk/index.htm#430darrayinit">details</a>]</p>
+        </li>
+      </ul>
+      <ul>
+        <li><b><a href="../devspace/errata/jisdk/index.htm#430dobjinit">empty 
+          Object initializer creates an Array object; should be an Object object</a></b>: 
+          When an object is initialized with the empty set (e.g.&nbsp;var&nbsp;foo&nbsp;=&nbsp;{&nbsp;};) 
+          it is initialized as a type Array object, although it should be an Object 
+          object. [<a href="../devspace/errata/jisdk/index.htm#430dobjinit">details</a>]</li>
+      </ul>
+      <ul>
+        <li><b><a href="../devspace/errata/jisdk/index.htm#430dcontinueswitch">"continue" 
+          within "switch" statement jumps to wrong condition</a></b>: When creating 
+          tokens with jseCreateCodeTokenBuffer, floating point numbers are written 
+          incorrectly. [<a href="../devspace/errata/jisdk/index.htm#430dcontinueswitch">details</a>]</li>
+      </ul>
+      <p></p>
+      <p></p>
+      <p></p>
+      <p><a href="../index.htm"><img src="images/footer.jpg" width="640" height="30" border="0" alt="ScriptEase: ISDK is a product of Nombas, Inc. Visit us at ../index.htm"></a></p>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

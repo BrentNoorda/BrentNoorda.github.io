@@ -1,0 +1,384 @@
+<html>
+<head>
+<title>ScriptEase ISDK Newsletter January 11, 2002</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-1754630-10']);
+  _gaq.push(['_trackPageview']);
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+</head>
+
+<body bgcolor="#FFFFFF" TOPMARGIN=0 LEFTMARGIN=0 MARGINWIDTH=0 MARGINHEIGHT=0>
+<table width="640" border="0" cellspacing="0" cellpadding="0">
+  <tr> 
+    <td> 
+      <p><img src="images/newsbanner.jpg" width="640" height="70" border="0" alt="ScriptEase:ISDK Newsletter"></p>
+      <table width="630" border="0" cellspacing="0" cellpadding="0" align="center">
+        <tr> 
+          <td width="150" valign="top" align="left"> 
+            <p><font color="#0E2595" face="Verdana, Arial, Helvetica, sans-serif"><b>Jan. 
+              11, 2002</b></font></p>
+            <p><b><font color="#990000" size="-2" face="Verdana,Tahoma,Arial,Helvetica">In 
+              This Issue</font></b></p>
+            <table width="150" border="0" cellspacing="0" cellpadding="0">
+              <tr> 
+                <td width="15" valign="top" align="center"> 
+                  <p><img src="images/bullet.gif" width="10" height="10" vspace="2" alt="&quot;&quot;"></p>
+                </td>
+                <td width="135" align="left" valign="top"> 
+                  <p><a href="#article1"><font size="-2" face="Verdana, Arial, Helvetica, sans-serif">Introducing 
+                    SE:ISDK Version 5</font></a><br>
+                    &nbsp; </p>
+                </td>
+              </tr>
+              <tr> 
+                <td width="15" align="center" valign="top"><img src="images/bullet.gif" width="10" height="10" vspace="2"></td>
+                <td width="135" align="left" valign="top"> 
+                  <p><a href="#c430eerrata"><font size="-2" face="Verdana, Arial, Helvetica, sans-serif">ISDK/C 
+                    4.30e Errata</font></a><br>
+                    &nbsp; </p>
+                </td>
+              </tr>
+              <tr> 
+                <td width="15" align="center" valign="top"><img src="images/bullet.gif" width="10" height="10" vspace="2"></td>
+                <td width="135" align="left" valign="top"> 
+                  <p><a href="#c440derrata"><font size="-2" face="Verdana, Arial, Helvetica, sans-serif">ISDK/C 
+                    4.40d Errata</font></a><br>
+                    &nbsp; </p>
+                </td>
+              </tr>
+              <tr> 
+                <td width="15" align="center" valign="top"><img src="images/bullet.gif" width="10" height="10" vspace="2"></td>
+                <td width="135" align="left" valign="top"> 
+                  <p><a href="#j430eerrata"><font size="-2" face="Verdana, Arial, Helvetica, sans-serif">ISDK/Java 
+                    4.30e Errata</font></a><br>
+                  </p>
+                </td>
+              </tr>
+            </table>
+            <p><font size="-2" face="Verdana, Arial, Helvetica, sans-serif"><a href="../devspace/newsletters/index.htm">Other 
+              Newsletters</a></font></p>
+            <p><font size="-2" color="#990000" face="Verdana, Arial, Helvetica, sans-serif"><b>DevSpace 
+              Developer Support</b></font></p>
+            <p><font size="-2" face="Verdana, Arial, Helvetica, sans-serif">For 
+              more information and resources, <a
+                             href="../devspace/index.htm">visit ScriptEase: 
+              ISDK DevSpace online</a>.</font></p>
+            <p><font size="-2" color="#990000" face="Verdana, Arial, Helvetica, sans-serif"><b>Download 
+              Center</b></font></p>
+            <p></p>
+            <p align=LEFT><font face="Verdana, Arial, Helvetica, sans-serif" size="-2">For 
+              latest updates and extensions, <a href="http://www.nombasxxx.com/us/toolkit/isdkdownload.htm">visit 
+              the ISDK Download Center</a>. </font></p>
+          </td>
+          <td width="4"></td>
+          <td width="1" bgcolor="#CCCCFF"><img src="../devspace/pix/pixel.gif" width="1" height="1" border="0"></td>
+          <td width="5"></td>
+          <td width="470" valign="top" align="left"> 
+            <div align="left"> 
+              <h3><b><a name="article1"></a><img src="images/drnewyear.jpg" width="150" height="150" align="right" border="0" vspace="2" hspace="4" alt="&quot;&quot;"></b><font color="#0E2595"> 
+                Introducing SE:ISDK Version 5, the next generation in embedding 
+                script development</font></h3>
+              <h4><font color="#6699FF">A brief description of the Version 5 release 
+                of the ScriptEase:Integration SDK: the major changes involved, 
+                when to use Version 5, and how to get started.</font></h4>
+              <p align=LEFT>The new year brings with it the most significant improvement 
+                in script-language integration since Nombas introduced script 
+                development tools nearly a decade ago. Over the past few years 
+                we have reexamined how software developers want to integrate with 
+                a script language engine. We have reviewed the technical support 
+                incidents to learn about bottlenecks and areas of inefficiency. 
+                We have talked many developers through their integration issues.</p>
+              <p align=LEFT><b>We have redesigned, from the ground up, the ScriptEase 
+                API and development tools.</b></p>
+            </div>
+            <ul>
+              <li> 
+                <div align="left"><font size="-1"><a href="#whymess">Why mess 
+                  with a good thing?</a></font></div>
+              </li>
+              <li><font size="-1"><a href="#API">Version 5 API</a></font></li>
+              <li><font size="-1"><a href="#tools">Version 5 Productivity Tools</a></font></li>
+              <li><font size="-1"><a href="#manual">All-new manual</a></font></li>
+              <li><font size="-1"><a href="#outbox">Out-of-box Experience</a></font></li>
+              <li><font size="-1"><a href="#switch">When should I switch to Version 
+                5?</a></font></li>
+              <li><font size="-1"><a href="#get">How do I get SE:ISDK Version 
+                5?</a></font></li>
+            </ul>
+            <div align="left"><font color="#0E2595"><a name="whymess"></a></font> 
+              <hr noshade width="90%" align="center" size="1">
+              <h4 align=LEFT><font color="#0E2595">Why mess with a good thing?</font></h4>
+              <p align=LEFT>SE:ISDK has always been the best way to integrate 
+                scripting into any application--SE:ISDK has always been easier 
+                to work with, and more powerful and flexible, than any internal 
+                or 3rd party alternative. But the basic SE interfaces (API and 
+                tools) have not changed in nearly ten years, even as the script 
+                language itself has matured, the number of target platforms and 
+                users has exploded, and the development platforms have become 
+                much more sophisticated.</p>
+              <p align=LEFT>ScriptEase ISDK Version 5 is the result of our efforts 
+                to outdo ourselves.</p>
+              <font color="#0E2595"><a name="API"></a></font>
+<hr noshade width="90%" align="center" size="1">
+              <h4 align=LEFT><font color="#0E2595">Version 5 API</font></h4>
+              <p align=LEFT></p>
+              <p align=LEFT>The Version 5 API is designed to be both Pure and 
+                Easy. Pure because every interaction with the engine involves 
+                a single simple concept: the object/member pair. Easy because 
+                1) the API maps directly to the behavior of the language itself, 
+                and 2) the API (like the script language itself) is very lenient.</p>
+              <p align=LEFT></p>
+              <h5 align=LEFT><font color="#0E2595">Pure API: Everything is an 
+                object/member pair</font></h5>
+              <h5 align=LEFT></h5>
+              <p align=LEFT>At its heart, the ECMAScript language is designed 
+                to manipulate members of objects. And when ECMAScript is used 
+                to interact with C/C++/Java, its fundamental purpose is to manipulate 
+                members of objects. With these realizations the API becomes a 
+                very pure description for how to read and write members of objects.</p>
+              <p align=LEFT>In Version 5, nearly every API is just a specification 
+                for manipulating an object/member pair. Because this is such a 
+                straightforward concept, and because it maps so directly to the 
+                underlying language, working with this new API quickly becomes 
+                much less complex than with other methods. This object/member 
+                paradigm is extended to nearly every interaction with the interpreter 
+                engine: this includes getting and setting script object members, 
+                of course, but also parameter settings like reading the stack 
+                (members of the stack object) or setting engine options (members 
+                of the interpreter-engine object). This direct approach allows 
+                a developer to get up to speed quickly and to soon become a master 
+                of scripting integration.</p>
+              <h5 align=LEFT><font color="#0E2595">Easy API: script-like forgiveness</font></h5>
+              <p align=LEFT>In other language-integration methods, including the 
+                previous ScriptEase APIs, the C/C++/Java interface is very rigid, 
+                as is expected of a low-level system language. However, the language 
+                being implemented (ECMAScript) is inherently very flexible. We 
+                have learned, from many, many integration projects, that the rigidity 
+                of the API leads to many lines of code and to many hours of development 
+                time--if all possibilities are to be foreseen. And, since all 
+                possibilities are never foreseen, the rigid API contributes to 
+                errors. In summary, the old, rigid APIs lead to code that is bloated 
+                and bug-prone.</p>
+              <p align=LEFT>In contrast, the new Version 5 API is very concise 
+                and lenient. The engine converts data internally and even in the 
+                case of an error always returns valid data. This allows much simpler 
+                code and errors or unexpected situations are automatically handled 
+                by the engine in a JavaScript way. In other words, if there is 
+                an underlying error the Version 5 engine will propagate an exception 
+                at the appropriate time, but your code WILL receive the data type 
+                you request, and your code may manipulate that data without fear 
+                of crashing. Similar lenience applies to writing data.</p>
+              <p align=LEFT>For example, suppose you needed to write a wrapper 
+                function that was supposed to take the &quot;text&quot; member 
+                of whatever object was passed to it, and print that &quot;text&quot; 
+                member to the screen. With the traditional API that would look 
+                something like this:</p>
+            </div>
+            <ol>
+              <li> 
+                <div align="left">if a parameter is not passed, generate an error 
+                  and return</div>
+              </li>
+              <li> 
+                <div align="left">get the first parameter</div>
+              </li>
+              <li>if the parameter is not an object, generate an error and return</li>
+              <li>if the parameter object does not have a &quot;text&quot; member, 
+                generate an error and return</li>
+              <li>if the text member is not a string type, convert it to a string 
+                type</li>
+              <li>if conversion to string fails, generate an error and return</li>
+              <li>get the string</li>
+              <li>call library function to print string to the screen</li>
+            </ol>
+            <p>If any of the verifications or conversions were skipped, the program 
+              may crash. With the new Version V API, the required steps are:</p>
+            <ol>
+              <li>get, as an object, member 0 of the arguments object</li>
+              <li>get, as a string, the &quot;text&quot; member of that object</li>
+              <li>call library function to print string to the screen</li>
+            </ol>
+            <div align="left"> 
+              <p align=LEFT>The working and fully safe C code to perform this 
+                in Version 5 could be:</p>
+              <pre align=LEFT><font face="Courier New, Courier, mono" size="2"> SE_CALLBACK(void) WriteTextMember(secontext se,int argc)
+ {
+    seobject parm0 = seGetObject(se,SE_ARGS,SE_INDEX(0));
+    seconstcharptr str = seGetString(se,parm0,SE_MEM("text"),NULL);
+    puts(str);
+ }</font></pre>
+              <p align=LEFT>With Version 5, you WILL get an object as requested, 
+                and you WILL get a string as requested. If there is any error 
+                along the way then exceptions will be prepared for when you return 
+                to the script--your code can test if there was an error, but that 
+                is not required.</p>
+              <font color="#0E2595"><a name="tools"></a></font>
+<hr noshade width="90%" align="center" size="1">
+              <h4 align=LEFT><font color="#0E2595">Version 5 Productivity Tools</font></h4>
+              <h5 align=LEFT></h5>
+              <p align=LEFT>Version 5 includes these new and improved productivity 
+                tools (which may be previewed in these <a href="../se500_screen_shots/index.htm">screen 
+                shots</a>). All of these tools run on Win32 platforms, and so 
+                are immediately useful for those systems for which most development 
+                takes place on a Win32 machine (Win32, WinCE, PalmOS, Blackberry, 
+                VxWorks, Java). Visual Studio users will become more productive 
+                through the direct integration of these productivity tools with 
+                the Visual Studio environment. For other systems, such as Linux, 
+                Unix, and Macintosh, these tools are useful for getting started 
+                or when using a Win32 platform for co-development.</p>
+              <h5 align=LEFT><font color="#0E2595">Toolbox</font></h5>
+              <p align=LEFT></p>
+              <p align=LEFT>The toolbox is a visual home base for accessing documentation, 
+                samples, support, and the other Version 5 Productivity tools. 
+              </p>
+              <h5 align=LEFT><font color="#0E2595">Selib Assistant</font></h5>
+              <p align=LEFT></p>
+              <p align=LEFT>Selib Assistant makes it very easy to integrate the 
+                ISDK into your application. This tool allows for visual manipulation 
+                of the very many (hundreds of) compile-time options, and then 
+                assists in building and adding these libraries to your development 
+                project.</p>
+              <h5 align=LEFT><font color="#0E2595">Workshop</font></h5>
+              <p align=LEFT></p>
+              <p align=LEFT>The Workshop is a powerful IDE for scripters. It is 
+                fully scriptable, fully customizable, and integrates directly 
+                with the compiler, debugger, and help system. (Note: some customization 
+                and integration parts of Workshop are not complete).</p>
+              <h5 align=LEFT><font color="#0E2595">Debugger</font></h5>
+              <p align=LEFT></p>
+              <p align=LEFT>A state-of-the art debugger, customizable for your 
+                environment, for local and remote script debugging. (Note: the 
+                the Version 5 debugger is not shipping yet--4.00 debugger is included 
+                with this package.)</p>
+              <font color="#0E2595"><a name="manual"></a></font>
+<hr noshade width="90%" align="center" size="1">
+              <h4 align=LEFT><font color="#0E2595">All-new manual</font></h4>
+              <h5 align=LEFT></h5>
+              <p align=LEFT>The manual has been completely rewritten to introduce 
+                the API and tools in a sensible order, starting with step-by-step 
+                instructions for integration. The descriptions are more helpful 
+                and complete. (This manual, and frequent updates to the manual, 
+                is <a href="../devspace/manual/index.htm">available 
+                online</a>)</p>
+              <font color="#0E2595"><a name="outbox"></a></font>
+<hr noshade width="90%" align="center" size="1">
+              <h4 align=LEFT><font color="#0E2595">Out-of-box experience</font></h4>
+              <p align=LEFT>The new API, Productivity Tools, manual, and even 
+                new Installer make for an out-of-box experience that will help 
+                any user get immediately into the nuts and bolts of understanding 
+                and using ScriptEase.</p>
+              <font color="#0E2595"><a name="switch"></a></font>
+<hr noshade width="90%" align="center" size="1">
+              <h4 align=LEFT><font color="#0E2595">When should I switch to Version 
+                5?</font></h4>
+              <h5 align=LEFT></h5>
+              <p align=LEFT>Version 5 is much improved over 4.x, and Version 5 
+                is faster, smaller, and so on; but you may not want to switch 
+                over right away. The Version 5 API is quite different from 4.x, 
+                and so moving to Version 5 is not just a matter of switching in 
+                a new engine.</p>
+              <p align=LEFT>We recommend waiting until there is a break in your 
+                own product-release cycle, so you will have the comfort of a couple 
+                of weeks of time to change code and the extra time to go through 
+                your own QA phase. Switching to Version 5 will also be a good 
+                time to consider your scripting implementation and see if there 
+                are some new capabilities or performance enhancements that your 
+                product can take advantage of.</p>
+              <p align=LEFT>Also, Version 5 is not yet available on as many platforms 
+                as is version 4.x, and we don't have it compiling and testing 
+                in as many configurations. Finishing tests and releases with these 
+                additional compilers, operating systems, and platforms will take 
+                time.</p>
+              <p align=LEFT>Finally, although we have tested this engine with 
+                a larger suite than was used with any previous release, it is 
+                version 5.<b>00a</b>. Not all of the components are complete, 
+                there are still NYIs in the manual, and as we finish ports to 
+                various platforms we are sure to find small adjustments that must 
+                be made. Those changes will be reported in the errata pages and 
+                on this newsletter, along with the inevitable announcement of 
+                5.00b.</p>
+              <p align=LEFT>If you have any questions about when or if your should 
+                switch to Version V (we will continue to support 4.x), then <a href="http://support.nombasxxx.com/">contact 
+                us</a>.</p>
+              <font color="#0E2595"><a name="get"></a></font>
+<hr noshade width="90%" align="center" size="1">
+              <h4 align=LEFT><font color="#0E2595">How do I get SE:ISDK Version 
+                5?</font></h4>
+              <h5 align=LEFT></h5>
+              <p align=LEFT>Evaluation versions for a few systems are now available 
+                on the <a href="http://www.nombasxxx.com/us/toolkit/isdkdownload.htm">ISDK 
+                download page</a>; more versions will be available shortly. For 
+                licensed releases contact <a href="http://support.nombasxxx.com/">Tech Support</a></p>
+            </div>
+            <div align="left"> 
+              <hr noshade width="90%" align="center" size="1">
+              <p align=LEFT><i>Have a question about how to use ScriptEase:ISDK? 
+                Let Dr. Scripter know at </i><a href="http://support.nombasxxx.com/"><i>http://support.nombasxxx.com/</i></a></p>
+            </div>
+          </td>
+        </tr>
+      </table>
+      <hr>
+      <h3>&nbsp;Errata <a name="c430eerrata"></a> </h3>
+      <h4>&nbsp;&nbsp;&nbsp;ISDK/C 4.30e </h4>
+      <ul>
+        <li><b><a href="../devspace/errata/isdk/index430.htm#rgnrg">arguments 
+          object not updating function arguments</a></b>: If changes are made 
+          to a member of the arguments object, those changes are not being reflected 
+          in the argument itself. [<a href="../devspace/errata/isdk/index430.htm#rgnrg">details</a>]</li>
+      </ul>
+      <ul>
+        <li><b><a href="../devspace/errata/isdk/index430.htm#gvnoe">use 
+          of undefined global variables do not always report error</a></b>: When 
+          a variable that has not been declared or initialized is used to pass 
+          to a function, or is automatically assumed to be a function, then no 
+          error message is generated. [<a href="../devspace/errata/isdk/index430.htm#gvnoe">Details</a>]</li>
+      </ul>
+      <hr>
+      <h3>&nbsp;Errata <a name="c440derrata"></a> </h3>
+      <h4>&nbsp;&nbsp;&nbsp;ISDK/C 4.40d </h4>
+      <ul>
+        <li><b><a href="../devspace/errata/isdk/index440.htm#dbgnf">debugger 
+          displays "no filename" for preprocessor directives</a></b>: When debugging 
+          scripts that are using preprocessor directives (e.g., #if __JSE_WIN32__) 
+          the debugger will display that it cannot find "no filename". After that 
+          message, no debugging is possible. [<a href="../devspace/errata/isdk/index440.htm#dbgnf">Details</a>]</li>
+      </ul>
+      <ul>
+        <li><b><a href="../devspace/errata/isdk/index440.htm#gvnoe">use 
+          of undefined global variables do not always report error</a></b>: When 
+          a variable that has not been declared or initialized is used to pass 
+          to a function, or is automatically assumed to be a function, then no 
+          error message is generated. [<a href="../devspace/errata/isdk/index440.htm#gvnoe">Details</a>]</li>
+      </ul>
+      <ul>
+        <li><a href="../devspace/errata/isdk/index440.htm#pcmptmm"><b>loading 
+          pre-compiled scripts may use too much memory, or crash</b></a>: When 
+          loading or interpreting from a precompiled script (i.e., created with 
+          jseCreateCodeTokenBuffer) the script engine may use an enormous amount 
+          of memory to load, or may crash on loading. [<a href="../devspace/errata/isdk/index440.htm#pcmptmm">Details</a>]</li>
+      </ul>
+      <hr>
+      <h3>&nbsp;Errata <a name="j430eerrata"></a> </h3>
+      <h4>&nbsp;&nbsp;&nbsp;ISDK/Java 4.30e </h4>
+      <ul>
+        <li><b><a href="../devspace/errata/jisdk/index.htm#430eprefunction">Pre-compiled 
+          scripts with function calls cause NullPointerException</a></b>: When 
+          interpreting a pre-compiled script that makes functions calls, the engine 
+          throws a NullPointerException. [<a href="../devspace/errata/jisdk/index.htm#430eprefunction">Details</a>]</li>
+      </ul>
+      <p></p>
+      <p></p>
+      <p><a href="../index.htm"><img src="images/footer.jpg" width="640" height="30" border="0" alt="ScriptEase: ISDK is a product of Nombas, Inc. Visit us at ../index.htm"></a></p>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

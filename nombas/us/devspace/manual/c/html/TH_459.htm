@@ -1,0 +1,136 @@
+<html>
+<head>
+<title>Bit operators</title>
+<link rel="stylesheet" href="semanualstyles.css" type="text/css">
+<style type="text/css">
+ p { margin-top: 0; margin-bottom: 0; }
+</style>
+<script language="JavaScript" src="TrueHelp.js"></script>
+</head>
+<body onload="thload()">
+<div id=ienav>
+<ilayer id=nsnav>
+<br>
+<center>
+<p class=normal><a href="seisdkc-toc.htm" target="left">contents</a> &nbsp; <a href="seisdkc-index.htm" target="left">index</a> &nbsp; <a href="TH_458.htm">previous</a> &nbsp; <a href="TH_460.htm">next</a></p>
+</center>
+<br>
+<hr noshade size=1>
+</ilayer>
+</div>
+<p class=heading-3>Bit operators</p>
+<p class=heading-3-p>&nbsp;</p>
+<p class=senormalpara>ScriptEase contains many operators for operating directly on the bits in a byte or an integer. Bit operations require a knowledge of bits, bytes, integers, binary numbers, and hexadecimal numbers. Not every programmer needs to or will choose to use bit operators.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<table cellpadding=0>
+<tr>
+<td valign=top style="width: 1.16875in">
+<p class=normal><span class=secodephrase>&lt;&lt;</span></p></td>
+<td valign=top style="width: 2.46736in">
+<p class=normal>shift left</p></td>
+<td valign=top style="width: 1.43889in">
+<p class=normal><span class=secodephrase>i = i &lt;&lt; 2;</span></p></td>
+</tr>
+<tr>
+<td valign=top style="width: 1.16875in">
+<p class=normal><span class=secodephrase>&lt;&lt;=</span></p></td>
+<td valign=top style="width: 2.46736in">
+<p class=normal>assignment shift left</p></td>
+<td valign=top style="width: 1.43889in">
+<p class=normal><span class=secodephrase>i &lt;&lt;= 2;</span></p></td>
+</tr>
+<tr>
+<td valign=top style="width: 1.16875in">
+<p class=normal><span class=secodephrase>&gt;&gt;</span></p></td>
+<td valign=top style="width: 2.46736in">
+<p class=normal>shift right</p></td>
+<td valign=top style="width: 1.43889in">
+<p class=normal><span class=secodephrase>i = i &gt;&gt; 2;</span></p></td>
+</tr>
+<tr>
+<td valign=top style="width: 1.16875in">
+<p class=normal><span class=secodephrase>&gt;&gt;=</span></p></td>
+<td valign=top style="width: 2.46736in">
+<p class=normal>assignment shift right</p></td>
+<td valign=top style="width: 1.43889in">
+<p class=normal><span class=secodephrase>i &gt;&gt;= 2;</span></p></td>
+</tr>
+<tr>
+<td valign=top style="width: 1.16875in">
+<p class=normal><span class=secodephrase>&gt;&gt;&gt;</span></p></td>
+<td valign=top style="width: 2.46736in">
+<p class=normal>shift left with zeros</p></td>
+<td valign=top style="width: 1.43889in">
+<p class=normal><span class=secodephrase>i = i &gt;&gt;&gt; 2</span></p></td>
+</tr>
+<tr>
+<td valign=top style="width: 1.16875in">
+<p class=normal><span class=secodephrase>&gt;&gt;&gt;=</span></p></td>
+<td valign=top style="width: 2.46736in">
+<p class=normal>assignment shift left with zeros</p></td>
+<td valign=top style="width: 1.43889in">
+<p class=normal><span class=secodephrase>i &gt;&gt;&gt;= 2</span></p></td>
+</tr>
+<tr>
+<td valign=top style="width: 1.16875in">
+<p class=normal><span class=secodephrase>&amp;</span></p></td>
+<td valign=top style="width: 2.46736in">
+<p class=normal>bitwise and</p></td>
+<td valign=top style="width: 1.43889in">
+<p class=normal><span class=secodephrase>i = i &amp; 1</span></p></td>
+</tr>
+<tr>
+<td valign=top style="width: 1.16875in">
+<p class=normal><span class=secodephrase>&amp;=</span></p></td>
+<td valign=top style="width: 2.46736in">
+<p class=normal>assignment bitwise and</p></td>
+<td valign=top style="width: 1.43889in">
+<p class=normal><span class=secodephrase>i &amp;= 1;</span></p></td>
+</tr>
+<tr>
+<td valign=top style="width: 1.16875in">
+<p class=normal><span class=secodephrase>|</span></p></td>
+<td valign=top style="width: 2.46736in">
+<p class=normal>bitwise or</p></td>
+<td valign=top style="width: 1.43889in">
+<p class=normal><span class=secodephrase>i = i | 1</span></p></td>
+</tr>
+<tr>
+<td valign=top style="width: 1.16875in">
+<p class=normal><span class=secodephrase>|=</span></p></td>
+<td valign=top style="width: 2.46736in">
+<p class=normal>assignment bitwise or</p></td>
+<td valign=top style="width: 1.43889in">
+<p class=normal><span class=secodephrase>i |= 1;</span></p></td>
+</tr>
+<tr>
+<td valign=top style="width: 1.16875in">
+<p class=normal><span class=secodephrase>^</span></p></td>
+<td valign=top style="width: 2.46736in">
+<p class=normal>bitwise xor, exclusive or</p></td>
+<td valign=top style="width: 1.43889in">
+<p class=normal><span class=secodephrase>i = i ^ 1</span></p></td>
+</tr>
+<tr>
+<td valign=top style="width: 1.16875in">
+<p class=normal><span class=secodephrase>^=</span></p></td>
+<td valign=top style="width: 2.46736in">
+<p class=normal>assignment bitwise xor, exclusive or</p></td>
+<td valign=top style="width: 1.43889in">
+<p class=normal><span class=secodephrase>i ^= 1</span></p></td>
+</tr>
+<tr>
+<td valign=top style="width: 1.16875in">
+<p class=normal><span class=secodephrase>~</span></p></td>
+<td valign=top style="width: 2.46736in">
+<p class=normal>Bitwise not, complement</p></td>
+<td valign=top style="width: 1.43889in">
+<p class=normal><span class=secodephrase>i = ~i;</span></p></td>
+</tr>
+</table>
+<p class=secodelinesindented>&nbsp;</p>
+<hr noshade size=1>
+<p class=normal><a href="TH_460.htm"><img src="button.png" border=0></a><a href="TH_460.htm" style="text-decoration:none;">Logical operators and conditional expressions</a></p>
+<p>
+</body>
+</html>

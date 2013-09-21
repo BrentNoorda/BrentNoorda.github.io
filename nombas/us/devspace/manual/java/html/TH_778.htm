@@ -1,0 +1,42 @@
+<html>
+<head>
+<title>Regular expression syntax</title>
+<link rel="stylesheet" href="semanualstyles.css" type="text/css">
+<style type="text/css">
+ p { margin-top: 0; margin-bottom: 0; }
+</style>
+<script language="JavaScript" src="TrueHelp.js"></script>
+</head>
+<body onload="thload()">
+<div id=ienav>
+<ilayer id=nsnav>
+<br>
+<center>
+<p class=normal><a href="seisdkj-toc.htm" target="left">contents</a> &nbsp; <a href="seisdkj-index.htm" target="left">index</a> &nbsp; <a href="TH_777.htm">previous</a> &nbsp; <a href="TH_779.htm">next</a></p>
+</center>
+<br>
+<hr noshade size=1>
+</ilayer>
+</div>
+<p class=heading-3>Regular expression syntax</p>
+<p class=heading-3-p>&nbsp;</p>
+<p class=senormalpara>The general form for defining a regular expression pattern<span class=truehelp-xe></span> is:</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=secodelinesindented>/characters/attributes</p>
+<p class=secodelinesindented>&nbsp;</p>
+<p class=senormalpara>Assume that we are searching the string "THEY, the three men, left". The following are valid regular expression patterns followed by a description of what they find:</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=secodelinesindented>/the&nbsp;three/&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//&nbsp;"the&nbsp;three"</p>
+<p class=secodelinesindented>/THE&nbsp;THREE/ig&nbsp;&nbsp;&nbsp;&nbsp;//&nbsp;"the&nbsp;three"</p>
+<p class=secodelinesindented>/th/&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//&nbsp;"th"&nbsp;in&nbsp;"the"</p>
+<p class=secodelinesindented>/th/igm&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//&nbsp;"th"&nbsp;in&nbsp;"THEY",&nbsp;"the",&nbsp;and&nbsp;"three"</p>
+<p class=secodelinesindented>&nbsp;</p>
+<p class=senormalpara>The slashes delimit the characters that define a regular expression. Everything between the <b>slashes</b> is part of a <b>regular expression</b>, just as everything between quotation marks is part of a string. Three letters may occur after the second slash that are not part of the regular expression. Instead, they define <b>attributes</b> of the regular expression. Any one, two, or three of the letters may be used, that is, any one or more of the attributes may be defined. Thus, a regular expression has three elements: literals, characters, and attributes.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<hr noshade size=1>
+<p class=normal><a href="TH_779.htm"><img src="button.png" border=0></a><a href="TH_779.htm" style="text-decoration:none;">Regular expression literals</a></p>
+<p class=normal><a href="TH_780.htm"><img src="button.png" border=0></a><a href="TH_780.htm" style="text-decoration:none;">Regular expression characters</a></p>
+<p class=normal><a href="TH_781.htm"><img src="button.png" border=0></a><a href="TH_781.htm" style="text-decoration:none;">Regular expression attributes</a></p>
+<p>
+</body>
+</html>

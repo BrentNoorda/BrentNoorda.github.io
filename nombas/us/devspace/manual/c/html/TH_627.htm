@@ -1,0 +1,65 @@
+<html>
+<head>
+<title>Clib.fsetpos()</title>
+<link rel="stylesheet" href="semanualstyles.css" type="text/css">
+<style type="text/css">
+ p { margin-top: 0; margin-bottom: 0; }
+</style>
+<script language="JavaScript" src="TrueHelp.js"></script>
+</head>
+<body onload="thload()">
+<div id=ienav>
+<ilayer id=nsnav>
+<br>
+<center>
+<p class=normal><a href="seisdkc-toc.htm" target="left">contents</a> &nbsp; <a href="seisdkc-index.htm" target="left">index</a> &nbsp; <a href="TH_626.htm">previous</a> &nbsp; <a href="TH_628.htm">next</a></p>
+</center>
+<br>
+<hr noshade size=1>
+</ilayer>
+</div>
+<p class=sereffunclevel4>Clib.fsetpos()</p>
+<table cellpadding=0>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>syntax:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=sesyntax>Clib.fsetpos(<span class=truehelp-xe></span>filePointer,&nbsp;pos)</p></td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>where:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>filePointer - pointer to file to use.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>pos - position in file to set.</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>return:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>number - zero on success, otherwise returns non-zero and stores an error value in <span class=secodephrase>Clib.errno</span>.</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>description:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>This method sets the current file stream pointer to the value defined by pos, which must be a value obtained from a previous call to <span class=sepopuptopic><a href="TH_618.htm" onClick="return thwindow('TH_618.htm', 'GenPopup')">Clib.fgetpos()</a></span> on the same open file. Returns zero for success, otherwise returns nonzero and stores an error value in <span class=sepopuptopic><a href="TH_607.htm" onClick="return thwindow('TH_607.htm', 'GenPopup')">Clib.errno</a></span>.</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>see:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara><span class=sejumptopic><a href="TH_626.htm">Clib.fseek()</a></span></p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+</table>
+<p class=normal>&nbsp;</p>
+<hr noshade size=1>
+<p class=normal><a href="TH_628.htm"><img src="button.png" border=0></a><a href="TH_628.htm" style="text-decoration:none;">Clib.ftell()</a></p>
+<p>
+</body>
+</html>

@@ -1,0 +1,502 @@
+<html>
+<head>
+<title>ScriptEase ISDK Newsletter March 11, 2002</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-1754630-10']);
+  _gaq.push(['_trackPageview']);
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+</head>
+
+<body bgcolor="#FFFFFF" TOPMARGIN=0 LEFTMARGIN=0 MARGINWIDTH=0 MARGINHEIGHT=0>
+<table width="640" border="0" cellspacing="0" cellpadding="0">
+  <tr> 
+    <td> 
+      <p><img src="images/newsbanner.jpg" width="640" height="70" border="0" alt="ScriptEase:ISDK Newsletter"></p>
+      <table width="630" border="0" cellspacing="0" cellpadding="0" align="center">
+        <tr> 
+          <td width="150" valign="top" align="left"> 
+            <p><font color="#0E2595" face="Verdana, Arial, Helvetica, sans-serif"><b>Mar. 
+              11, 2002</b></font></p>
+            <p><b><font color="#990000" size="-2" face="Verdana,Tahoma,Arial,Helvetica">In 
+              This Issue</font></b></p>
+            <table width="150" border="0" cellspacing="0" cellpadding="0">
+              <tr> 
+                <td width="15" valign="top" align="center"> 
+                  <p><img src="images/bullet.gif" width="10" height="10" vspace="2" alt="&quot;&quot;"></p>
+                </td>
+                <td width="135" align="left" valign="top"> 
+                  <p><a href="#article1"><font size="-2" face="Verdana, Arial, Helvetica, sans-serif">SE:ISDK 
+                    upgrades for C and Java 4.30, 4.40, and 5.00</font></a><br>
+                    &nbsp; </p>
+                </td>
+              </tr>
+              <tr> 
+                <td width="15" align="center" valign="top"><img src="images/bullet.gif" width="10" height="10" vspace="2"></td>
+                <td width="135" align="left" valign="top"> 
+                  <p><a href="#c500aerrata"><font size="-2" face="Verdana, Arial, Helvetica, sans-serif">ISDK/C 
+                    5.00a Errata</font></a><br>
+                    &nbsp; </p>
+                </td>
+              </tr>
+              <tr> 
+                <td width="15" align="center" valign="top"><img src="images/bullet.gif" width="10" height="10" vspace="2"></td>
+                <td width="135" align="left" valign="top"> 
+                  <p><a href="#c440derrata"><font size="-2" face="Verdana, Arial, Helvetica, sans-serif">ISDK/C 
+                    4.40d Errata</font></a><br>
+                    &nbsp; </p>
+                </td>
+              </tr>
+              <tr> 
+                <td width="15" align="center" valign="top"><img src="images/bullet.gif" width="10" height="10" vspace="2"></td>
+                <td width="135" align="left" valign="top"> 
+                  <p> <a href="#c430eerrata"><font size="-2" face="Verdana, Arial, Helvetica, sans-serif">ISDK/C 
+                    4.30e Errata</font></a><br>
+                    &nbsp; </p>
+                </td>
+              </tr>
+              <tr> 
+                <td width="15" align="center" valign="top"><img src="images/bullet.gif" width="10" height="10" vspace="2"></td>
+                <td width="135" align="left" valign="top"> 
+                  <p><a href="#j430eerrata"><font size="-2" face="Verdana, Arial, Helvetica, sans-serif">ISDK/Java 
+                    4.30e Errata</font></a><br>
+                  </p>
+                </td>
+              </tr>
+            </table>
+            <p><font size="-2" face="Verdana, Arial, Helvetica, sans-serif"><a href="../devspace/newsletters/index.htm">Other 
+              Newsletters</a></font></p>
+            <p><font size="-2" color="#990000" face="Verdana, Arial, Helvetica, sans-serif"><b>DevSpace 
+              Developer Support</b></font></p>
+            <p><font size="-2" face="Verdana, Arial, Helvetica, sans-serif">For 
+              more information and resources, <a
+                             href="../devspace/index.htm">visit ScriptEase: 
+              ISDK DevSpace online</a>.</font></p>
+            <p><font size="-2" color="#990000" face="Verdana, Arial, Helvetica, sans-serif"><b>Download 
+              Center</b></font></p>
+            <p></p>
+            <p align=LEFT><font face="Verdana, Arial, Helvetica, sans-serif" size="-2">For 
+              latest updates and extensions, <a href="http://www.nombasxxx.com/us/toolkit/isdkdownload.htm">visit 
+              the ISDK Download Center</a>. </font></p>
+          </td>
+          <td width="4"></td>
+          <td width="1" bgcolor="#CCCCFF"><img src="../devspace/pix/pixel.gif" width="1" height="1" border="0"></td>
+          <td width="5"></td>
+          <td width="470" valign="top" align="left"> 
+            <div align="left"> 
+              <h3><b><a name="article1"></a><img src="images/drscripter_olys.jpg" width="179" height="150" align="right" border="0" vspace="2" hspace="4" alt="&quot;&quot;"></b><font color="#0E2595"> 
+                Errata/Upgrade releases now available for SE:ISDK version 4.30, 
+                4.40, and 5.00</font></h3>
+              <p align=LEFT>We have been thrilled by the response to the Version 
+                5 release that was announced in the <a href="../newsletters/011102news.htm">January 
+                11 Newsletter</a>. If ISDK APIs were an olympic event, Version 
+                5 would win the gold medal. Thank you, judges.</p>
+              <p align=LEFT>SE:ISDK/C 5.00b is now available, addressing the errata 
+                since the 5.00a release as well as adding new platforms and features. 
+                Also available today are errata releases for the (silver- and 
+                bronze-winning) 4.40e version of SE:ISDK/C and the 4.30f versions 
+                of SE:ISDK/C and SE:ISDK/Java. These releases incorporate all 
+                of the errata updates that have been documented at the <a href="../devspace/errata/index.htm">errata 
+                site</a>. </p>
+              <p align=LEFT> </p>
+            </div>
+            <ul>
+              <li>
+                <div align="left"><font size="-1"><a href="#new5">What's new in 
+                  Version 5?</a></font></div>
+              </li>
+              <li> 
+                <div align="left"><font size="-1"><a href="#next5">What's next 
+                  for Version 5?</a></font></div>
+              </li>
+              <li><font size="-1"><a href="#get">How do I get the new release?</a></font></li>
+            </ul>
+            <div align="left"><font color="#0E2595"><a name="new5"></a></font> 
+              <hr noshade width="90%" align="center" size="1">
+              <h4 align=LEFT><font color="#0E2595">What's new in Version 5?</font></h4>
+              <p align=LEFT>SE:ISDK/C 5.00b now provides direct integration with 
+                Microsoft's Visual Studio .NET and also adds integration with 
+                the Windows CE compiler and platform. 5.00b is now available for 
+                these platforms:</p>
+            </div>
+            <ul>
+              <li> 
+                <div align="left">Win32 (integration with MSVC6 and Visual Studio 
+                  .NET)</div>
+              </li>
+              <li>WinCE</li>
+              <li>Solaris</li>
+              <li>Linux</li>
+              <li>HP-UX</li>
+              <li>Aix</li>
+              <li>Irix</li>
+            </ul>
+            <div align="left"><font color="#0E2595"><a name="next5"></a></font> 
+              <hr noshade width="90%" align="center" size="1">
+              <h4 align=LEFT><font color="#0E2595">What's next for Version 5?</font></h4>
+              <p align=LEFT>We are constantly preparing and testing version 5.00 
+                for new platforms and compiler enviroments. The next releases 
+                will be for Blackberry and Java versions, followed soon by Version 
+                5 for PalmOS. A new debugger, integrated directly into the ScriptEase 
+                Workshop, will also be released this month. The many extension 
+                libraries are also being updated, tested, and released over time.</p>
+              <p align=LEFT>At Nombas we are driven be the needs of our customers. 
+                If we have not yet added support for your platform, or if we have 
+                not updated an extension that you require, let us know at <a target="support" href="http://support.nombasxxx.com/">http://support.nombasxxx.com/</a></p>
+              <p align=LEFT><font color="#0E2595"><a name="get"></a></font></p>
+            </div>
+            <div align="left">
+<hr noshade width="90%" align="center" size="1">
+              <h4 align=LEFT><font color="#0E2595">How do I get the new release?</font></h4>
+              <p align=LEFT>To receive your upgrades contactr <a href="http://support.nombasxxx.com/">http://support.nombasxxx.com/</a> 
+                with information about platforms and version needed.</p>
+              <h5 align=LEFT> </h5>
+            </div>
+            <div align="left">
+              <hr noshade width="90%" align="center" size="1">
+              <p align=LEFT><i>Have a question about how to use ScriptEase:ISDK? 
+                Let Dr. Scripter know at </i><a href="http://support.nombasxxx.com/"><i>http://support.nombasxxx.com/</i></a></p>
+            </div>
+          </td>
+        </tr>
+      </table>
+      <hr>
+      <h3>&nbsp;Errata <a name="c500aerrata"></a> </h3>
+      <h4>&nbsp;&nbsp;&nbsp;ISDK/C 5.00a </h4>
+      <ul>
+        <li><a href="../devspace/errata/isdk/index500.htm#pstincwith"><b>post-increment 
+          operator on local variable is ignoring "with" statement</b></a>: If 
+          a local variable is also a member of the current "with" object, then 
+          post-increment will modify the local variable instead of the variable 
+          in the "with" object. [<a href="../devspace/errata/isdk/index500.htm#pstincwith">Details</a>]</li>
+      </ul>
+      <ul>
+        <li><b><a href="../devspace/errata/isdk/index500.htm#2pstincwith">post-inc/decrement 
+          operator acts like pre-inc/decrement inside a "with" block</a></b>: 
+          If a variable member of an object is altered with the post-increment 
+          or pre-decrement operator, and if that is a member of an object scoped 
+          with "with", then the code will instead act like a pre-increment or 
+          pre-decrement operator. [<a href="../devspace/errata/isdk/index500.htm#2pstincwith">Details</a>]</li>
+      </ul>
+      <ul>
+        <li><b><a href="../devspace/errata/isdk/index500.htm#pargnoenum">properties 
+          of the arguments object should be DontEnum</a></b>: callee, length, 
+          and numbered members of the arguments object are enumerable, should 
+          be DontEnum. [<a href="../devspace/errata/isdk/index500.htm#pargnoenum">Details</a>]</li>
+      </ul>
+      <ul>
+        <li><a href="../devspace/errata/isdk/index500.htm#mthrndneg"><b>Math.round() 
+          returns -0 instead of +0 from -0.5 to -0</b></a>: Math.round(val) should 
+          return -0 for -0.5 <= val <= -0, according to section 15.8.2.15 of the 
+          ECMAScript specification, but is returning +0. [<a href="../devspace/errata/isdk/index500.htm#mthrndneg">Details</a>]</li>
+      </ul>
+      <ul>
+        <li><b><a href="../devspace/errata/isdk/index500.htm#noargv">argv[0] 
+          is missing</a></b>: When building with the JSE_MAIN_ARGC_ARGV option, 
+          argv[0] is supposed to be the script name, but argv[0] is missing. [<a href="../devspace/errata/isdk/index500.htm#noargv">Details</a>]</li>
+      </ul>
+      <ul>
+        <li><b><a href="../devspace/errata/isdk/index500.htm#npff">When 
+          named parameters are disabled, calling a function with seEval() fails</a></b>: 
+          If JSE_NAMED_PARAMS (named paramters) is not enabled in your jseopt.h 
+          file, then calling a function with seEval() will fail. [<a href="../devspace/errata/isdk/index500.htm#npff">Details</a>]</li>
+      </ul>
+      <ul>
+        <li><a href="../devspace/errata/isdk/index500.htm#ngmbd"><b>Invalid 
+          date computation on negative month</b></a>: Date calculations are incorrect, 
+          and can trigger debugger asserts, if month is negative. [<a href="../devspace/errata/isdk/index500.htm#ngmbd">Details</a>]</li>
+      </ul>
+      <ul>
+        <li><a href="../devspace/errata/isdk/index500.htm#nrnan"><b>Number 
+          toString(with_radix) method is not handling NaN, Infinity, and -Infinity</b></a>: 
+          Converting an instance of a Number object toString, using a radix does 
+          not produce correct results if the number is NaN, Infinity, or -Infinity. 
+          [<a href="../devspace/errata/isdk/index500.htm#nrnan">Details</a>]</li>
+      </ul>
+      <ul>
+        <li><b><a href="../devspace/errata/isdk/index500.htm#ltmcrsh">Clib.localtime() 
+          and Clib.gmtime() crash on out-of-range dates</a></b>: Script calls 
+          to Clib.localtime() or Clib.gmtime() crash if the input time is out 
+          of the range of standard C library time routines. [<a href="../devspace/errata/isdk/index500.htm#ltmcrsh">Details</a>]</li>
+      </ul>
+      <ul>
+        <li><b><a href="../devspace/errata/isdk/index500.htm#mthmnnz">Math.min(+0,-0) 
+          wrongly returns +0</a></b>: Math.min() is not returning -0 when comparing 
+          -0 against +0. [<a href="../devspace/errata/isdk/index500.htm#mthmnnz">Details</a>]</li>
+      </ul>
+      <ul>
+        <li><b><a href="../devspace/errata/isdk/index500.htm#rspng">Array 
+          split() error for negative starting point</a></b>: Array split() is 
+          not handling negative start values correctly. [<a href="../devspace/errata/isdk/index500.htm#rspng">Details</a>]</li>
+      </ul>
+      <ul>
+        <li><b><a href="../devspace/errata/isdk/index500.htm#opc">Foo.prototype.constructor 
+          not assigned correctly for all builtin objects</a></b>: For all builtin 
+          objects, this statement should be true: Foo.prototype.constructor==Foo. 
+          For example Boolean.prototype.constructor==Boolean and Number.prototype.constructor==Number. 
+          [<a href="../devspace/errata/isdk/index500.htm#opc">Details</a>]</li>
+      </ul>
+      <ul>
+        <li><a href="../devspace/errata/isdk/index500.htm#bjnmidx"><b>Problems 
+          with array lengths and numeric indices that are large or non-integer</b></a>: 
+          There are many problems with handling array and object members that 
+          are either very large (e.g. obj[2147483650]) or are non-integer numbers 
+          (e.g. obj[3.14159], obj[1e34]). There are also related problems with 
+          setting an array length to a very large number (e.g. array.length=2147483650). 
+          [<a href="../devspace/errata/isdk/index500.htm#bjnmidx">Details</a>]</li>
+      </ul>
+      <ul>
+        <li><b><a href="../devspace/errata/isdk/index500.htm#cdb">rare 
+          crashes on memory overwrites using the dynamicBuffer routines</a></b>: 
+          Code may overwrite one byte beyond allocated memory when using the dynamicbuffer 
+          functions. [<a href="../devspace/errata/isdk/index500.htm#cdb">Details</a>]</li>
+      </ul>
+      <ul>
+        <li><a href="../devspace/errata/isdk/index500.htm#strpsk"><b>String 
+          replace may skip matches if replacement string is null-string (i.e. 
+          "")</b></a>: If the replacement expression in a string replace() method 
+          is the zero-length string, then characters may be skipped in performing 
+          the replacement. [<a href="../devspace/errata/isdk/index500.htm#strpsk">Details</a>]</li>
+      </ul>
+      <hr>
+      <h3></h3>
+      <h3>&nbsp;Errata <a name="c440derrata"></a> </h3>
+      <h4>&nbsp;&nbsp;&nbsp;ISDK/C 4.40d </h4>
+      <ul>
+        <li><a href="../devspace/errata/isdk/index440.htm#pstincwith"><b>post-increment 
+          operator on local variable is ignoring "with" statement</b></a>: If 
+          a local variable is also a member of the current "with" object, then 
+          post-increment will modify the local variable instead of the variable 
+          in the "with" object. [<a href="../devspace/errata/isdk/index440.htm#pstincwith">Details</a>]</li>
+      </ul>
+      <ul>
+        <li><b><a href="../devspace/errata/isdk/index440.htm#2pstincwith">post-inc/decrement 
+          operator acts like pre-inc/decrement inside a "with" block</a></b>: 
+          If a variable member of an object is altered with the post-increment 
+          or pre-decrement operator, and if that is a member of an object scoped 
+          with "with", then the code will instead act like a pre-increment or 
+          pre-decrement operator. [<a href="../devspace/errata/isdk/index440.htm#2pstincwith">Details</a>]</li>
+      </ul>
+      <ul>
+        <li><b><a href="../devspace/errata/isdk/index440.htm#pargnoenum">properties 
+          of the arguments object should be DontEnum</a></b>: callee, length, 
+          and numbered members of the arguments object are enumerable, should 
+          be DontEnum. [<a href="../devspace/errata/isdk/index440.htm#pargnoenum">Details</a>]</li>
+      </ul>
+      <ul>
+        <li><b><a href="../devspace/errata/isdk/index440.htm#arrlendel">Array 
+          .length should not be deletable</a></b>: The .length property of any 
+          instance of an array should have the DontEnum attribute. [<a href="../devspace/errata/isdk/index440.htm#arrlendel">Details</a>]</li>
+      </ul>
+      <ul>
+        <li><a href="../devspace/errata/isdk/index440.htm#cnverrcr"><b>Crash 
+          if reporting invalid data type while generating an error message</b></a>: 
+          If a method is called during error handling, and that method has a data 
+          type or conversion error, then the program will crash. [<a href="../devspace/errata/isdk/index440.htm#cnverrcr">Details</a>]</li>
+      </ul>
+      <ul>
+        <li><a href="../devspace/errata/isdk/index440.htm#mthrndneg"><b>Math.round() 
+          returns -0 instead of +0 from -0.5 to -0</b></a>: Math.round(val) should 
+          return -0 for -0.5 <= val <= -0, according to section 15.8.2.15 of the 
+          ECMAScript specification, but is returning +0. [<a href="../devspace/errata/isdk/index440.htm#mthrndneg">Details</a>]</li>
+      </ul>
+      <ul>
+        <li><a href="../devspace/errata/isdk/index440.htm#ngmbd"><b>Invalid 
+          date computation on negative month</b></a>: Date calculations are incorrect, 
+          and can trigger debugger asserts, if month is negative. [<a href="../devspace/errata/isdk/index440.htm#ngmbd">Details</a>]</li>
+      </ul>
+      <ul>
+        <li><a href="../devspace/errata/isdk/index440.htm#nrnan"><b>Number 
+          toString(with_radix) method is not handling NaN, Infinity, and -Infinity</b></a>: 
+          Converting an instance of a Number object toString, using a radix does 
+          not produce correct results if the number is NaN, Infinity, or -Infinity. 
+          [<a href="../devspace/errata/isdk/index440.htm#nrnan">Details</a>]</li>
+      </ul>
+      <ul>
+        <li><a href="../devspace/errata/isdk/index440.htm#jsinstcmp"><b>compilation 
+          errors if JSE_INSTANCEOF_HELPER defined</b></a>: Compilation errors 
+          for seobjfun.c if JSE_INSTANCEOF_HELPER is defined for using the jseInstanceof() 
+          function. [<a href="../devspace/errata/isdk/index440.htm#jsinstcmp">Details</a>]</li>
+      </ul>
+      <ul>
+        <li><b><a href="../devspace/errata/isdk/index440.htm#ltmcrsh">Clib.localtime() 
+          and Clib.gmtime() crash on out-of-range dates</a></b>: Script calls 
+          to Clib.localtime() or Clib.gmtime() crash if the input time is out 
+          of the range of standard C library time routines. [<a href="../devspace/errata/isdk/index440.htm#ltmcrsh">Details</a>]</li>
+      </ul>
+      <ul>
+        <li><b><a href="../devspace/errata/isdk/index440.htm#mthmnnz">Math.min(+0,-0) 
+          wrongly returns +0</a></b>: Math.min() is not returning -0 when comparing 
+          -0 against +0. [<a href="../devspace/errata/isdk/index440.htm#mthmnnz">Details</a>]</li>
+      </ul>
+      <ul>
+        <li><b><a href="../devspace/errata/isdk/index440.htm#rspng">Array 
+          split() error for negative starting point</a></b>: Array split() is 
+          not handling negative start values correctly. [<a href="../devspace/errata/isdk/index440.htm#rspng">Details</a>]</li>
+      </ul>
+      <ul>
+        <li><b><a href="../devspace/errata/isdk/index440.htm#opc">Foo.prototype.constructor 
+          not assigned correctly for all builtin objects</a></b>: For all builtin 
+          objects, this statement should be true: Foo.prototype.constructor==Foo. 
+          For example Boolean.prototype.constructor==Boolean and Number.prototype.constructor==Number. 
+          [<a href="../devspace/errata/isdk/index440.htm#opc">Details</a>]</li>
+      </ul>
+      <ul>
+        <li><a href="../devspace/errata/isdk/index440.htm#bjnmidx"><b>Problems 
+          with array lengths and numeric indices that are large or non-integer</b></a>: 
+          There are many problems with handling array and object members that 
+          are either very large (e.g. obj[2147483650]) or are non-integer numbers 
+          (e.g. obj[3.14159], obj[1e34]). There are also related problems with 
+          setting an array length to a very large number (e.g. array.length=2147483650). 
+          [<a href="../devspace/errata/isdk/index440.htm#bjnmidx">Details</a>]</li>
+      </ul>
+      <ul>
+        <li><b><a href="../devspace/errata/isdk/index440.htm#cdb">rare 
+          crashes on memory overwrites using the dynamicBuffer routines</a></b>: 
+          Code may overwrite one byte beyond allocated memory when using the dynamicbuffer 
+          functions. [<a href="../devspace/errata/isdk/index440.htm#cdb">Details</a>]</li>
+      </ul>
+      <ul>
+        <li><a href="../devspace/errata/isdk/index440.htm#strpsk"><b>String 
+          replace may skip matches if replacement string is null-string (i.e. 
+          "")</b></a>: If the replacement expression in a string replace() method 
+          is the zero-length string, then characters may be skipped in performing 
+          the replacement. [<a href="../devspace/errata/isdk/index440.htm#strpsk">Details</a>]</li>
+      </ul>
+      <hr>
+      <h3></h3>
+      <h3></h3>
+      <h3>&nbsp;Errata <a name="c430eerrata"></a> </h3>
+      <h4>&nbsp;&nbsp;&nbsp;ISDK/C 4.30e </h4>
+      <ul>
+        <li><b><a href="../devspace/errata/isdk/index430.htm#pargnoenum">properties 
+          of the arguments object should be DontEnum</a></b>: callee, length, 
+          and numbered members of the arguments object are enumerable, should 
+          be DontEnum. [<a href="../devspace/errata/isdk/index430.htm#pargnoenum">Details</a>]</li>
+      </ul>
+      <ul>
+        <li><b><a href="../devspace/errata/isdk/index430.htm#arrlendel">Array 
+          .length should not be deletable</a></b>: The .length property of any 
+          instance of an array should have the DontEnum attribute. [<a href="../devspace/errata/isdk/index430.htm#arrlendel">Details</a>]</li>
+      </ul>
+      <ul>
+        <li><a href="../devspace/errata/isdk/index430.htm#cnverrcr"><b>Crash 
+          if reporting invalid data type while generating an error message</b></a>: 
+          If a method is called during error handling, and that method has a data 
+          type or conversion error, then the program will crash. [<a href="../devspace/errata/isdk/index430.htm#cnverrcr">Details</a>]</li>
+      </ul>
+      <ul>
+        <li><a href="../devspace/errata/isdk/index430.htm#mthrndneg"><b>Math.round() 
+          returns -0 instead of +0 from -0.5 to -0</b></a>: Math.round(val) should 
+          return -0 for -0.5 <= val <= -0, according to section 15.8.2.15 of the 
+          ECMAScript specification, but is returning +0. [<a href="../devspace/errata/isdk/index430.htm#mthrndneg">Details</a>]</li>
+      </ul>
+      <ul>
+        <li><a href="../devspace/errata/isdk/index430.htm#ngmbd"><b>Invalid 
+          date computation on negative month</b></a>: Date calculations are incorrect, 
+          and can trigger debugger asserts, if month is negative. [<a href="../devspace/errata/isdk/index430.htm#ngmbd">Details</a>]</li>
+      </ul>
+      <ul>
+        <li><a href="../devspace/errata/isdk/index430.htm#nrnan"><b>Number 
+          toString(with_radix) method is not handling NaN, Infinity, and -Infinity</b></a>: 
+          Converting an instance of a Number object toString, using a radix does 
+          not produce correct results if the number is NaN, Infinity, or -Infinity. 
+          [<a href="../devspace/errata/isdk/index430.htm#nrnan">Details</a>]</li>
+      </ul>
+      <ul>
+        <li><b><a href="../devspace/errata/isdk/index430.htm#ltmcrsh">Clib.localtime() 
+          and Clib.gmtime() crash on out-of-range dates</a></b>: Script calls 
+          to Clib.localtime() or Clib.gmtime() crash if the input time is out 
+          of the range of standard C library time routines. [<a href="../devspace/errata/isdk/index430.htm#ltmcrsh">Details</a>]</li>
+      </ul>
+      <ul>
+        <li><b><a href="../devspace/errata/isdk/index430.htm#mthmnnz">Math.min(+0,-0) 
+          wrongly returns +0</a></b>: Math.min() is not returning -0 when comparing 
+          -0 against +0. [<a href="../devspace/errata/isdk/index430.htm#mthmnnz">Details</a>]</li>
+      </ul>
+      <ul>
+        <li><b><a href="../devspace/errata/isdk/index430.htm#rspng">Array 
+          split() error for negative starting point</a></b>: Array split() is 
+          not handling negative start values correctly. [<a href="../devspace/errata/isdk/index430.htm#rspng">Details</a>]</li>
+      </ul>
+      <ul>
+        <li><b><a href="../devspace/errata/isdk/index430.htm#opc">Foo.prototype.constructor 
+          not assigned correctly for all builtin objects</a></b>: For all builtin 
+          objects, this statement should be true: Foo.prototype.constructor==Foo. 
+          For example Boolean.prototype.constructor==Boolean and Number.prototype.constructor==Number. 
+          [<a href="../devspace/errata/isdk/index430.htm#opc">Details</a>]</li>
+      </ul>
+      <ul>
+        <li><a href="../devspace/errata/isdk/index430.htm#bjnmidx"><b>Problems 
+          with array lengths and numeric indices that are large or non-integer</b></a>: 
+          There are many problems with handling array and object members that 
+          are either very large (e.g. obj[2147483650]) or are non-integer numbers 
+          (e.g. obj[3.14159], obj[1e34]). There are also related problems with 
+          setting an array length to a very large number (e.g. array.length=2147483650). 
+          [<a href="../devspace/errata/isdk/index430.htm#bjnmidx">Details</a>]</li>
+      </ul>
+      <ul>
+        <li><b><a href="../devspace/errata/isdk/index430.htm#cdb">rare 
+          crashes on memory overwrites using the dynamicBuffer routines</a></b>: 
+          Code may overwrite one byte beyond allocated memory when using the dynamicbuffer 
+          functions. [<a href="../devspace/errata/isdk/index430.htm#cdb">Details</a>]</li>
+      </ul>
+      <ul>
+        <li><a href="../devspace/errata/isdk/index430.htm#strpsk"><b>String 
+          replace may skip matches if replacement string is null-string (i.e. 
+          "")</b></a>: If the replacement expression in a string replace() method 
+          is the zero-length string, then characters may be skipped in performing 
+          the replacement. [<a href="../devspace/errata/isdk/index430.htm#strpsk">Details</a>]</li>
+      </ul>
+      <hr>
+      <h3>&nbsp;Errata <a name="j430eerrata"></a> </h3>
+      <h4>&nbsp;&nbsp;&nbsp;ISDK/Java 4.30e </h4>
+      <ul>
+        <li><b><a href="../devspace/errata/jisdk/index.htm#430eerroroverflow">Stack 
+          overflow if reporting invalid data type while generating an error message</a></b>: 
+          If a method is called during error handling, and that method has a data 
+          type or conversion error, then the program will cause a stack overflow. 
+          [<a href="../devspace/errata/jisdk/index.htm#430eerroroverflow">Details</a>]</li>
+      </ul>
+      <ul>
+        <li><b><a href="../devspace/errata/jisdk/index.htm#430enegmonth">Invalid 
+          date computation on negative month</a></b>: Date calculations are incorrect 
+          if month is negative. [<a href="../devspace/errata/jisdk/index.htm#430enegmonth">Details</a>]</li>
+      </ul>
+      <ul>
+        <li><b><a href="../devspace/errata/jisdk/index.htm#430emathmin">Math.min(+0,-0) 
+          wrongly returns +0</a></b>: Math.min() is not returning -0 when comparing 
+          -0 against +0. [<a href="../devspace/errata/jisdk/index.htm#430emathmin">Details</a>]</li>
+      </ul>
+      <ul>
+        <li><b><a href="../devspace/errata/jisdk/index.htm#430emathround">Math.round() 
+          returns -0 instead of +0 from -0.5 to -0</a></b>: Math.round(val) should 
+          return -0 for -0.5 <= val <= -0, according to section 15.8.2.15 of the 
+          ECMAScript specification, but is returning +0. [<a href="../devspace/errata/jisdk/index.htm#430emathround">Details</a>]</li>
+      </ul>
+      <ul>
+        <li><b><a href="../devspace/errata/jisdk/index.htm#430eparseintzero">parseInt("0") 
+          throws exception</a></b>: Calling parseInt("0") results in the engine 
+          throwing an IndexOutOfBounds exception. [<a href="../devspace/errata/jisdk/index.htm#430eparseintzero">Details</a>]</li>
+      </ul>
+      <ul>
+        <li><a href="../devspace/errata/jisdk/index.htm#430estrrepzero"><b>String 
+          replace may skip matches if replacement string is null-string (i.e. 
+          "")</b></a>: If the replacement expression in a string replace() method 
+          is the zero-length string, then characters may be skipped in performing 
+          the replacement. [<a href="../devspace/errata/jisdk/index.htm#430estrrepzero">Details</a>]</li>
+      </ul>
+      <p></p>
+      <p></p>
+      <p><a href="../index.htm"><img src="images/footer.jpg" width="640" height="30" border="0" alt="ScriptEase: ISDK is a product of Nombas, Inc. Visit us at ../index.htm"></a></p>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

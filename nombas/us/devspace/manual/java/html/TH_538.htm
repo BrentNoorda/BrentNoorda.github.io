@@ -1,0 +1,65 @@
+<html>
+<head>
+<title>Clib.putenv()</title>
+<link rel="stylesheet" href="semanualstyles.css" type="text/css">
+<style type="text/css">
+ p { margin-top: 0; margin-bottom: 0; }
+</style>
+<script language="JavaScript" src="TrueHelp.js"></script>
+</head>
+<body onload="thload()">
+<div id=ienav>
+<ilayer id=nsnav>
+<br>
+<center>
+<p class=normal><a href="seisdkj-toc.htm" target="left">contents</a> &nbsp; <a href="seisdkj-index.htm" target="left">index</a> &nbsp; <a href="TH_537.htm">previous</a> &nbsp; <a href="TH_539.htm">next</a></p>
+</center>
+<br>
+<hr noshade size=1>
+</ilayer>
+</div>
+<p class=sereffunclevel4>Clib.putenv()</p>
+<table cellpadding=0>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>syntax:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=sesyntax>Clib.putenv(<span class=truehelp-xe></span>variableName,&nbsp;stringValue)</p></td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>where:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>variableName - the name of an environment variable.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>stringValue - new value for environment variable variableName.</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>return:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>number - 0 on success, else -1.</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>description:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>This method sets the environment variable variableName to the value of stringValue. If stringValue is <span class=secodephrase>null</span> then variableName is removed from the environment. For those operating systems in which ScriptEase can alter the parent environment (DOS or OS/2 when invoked with <i>SD.bat</i> or <i>SEset.cmd</i>) the variable setting will still be valid when ScriptEase exits; otherwise, the variable change applies only to the ScriptEase code and to child processes of the ScriptEase program. Returns 1 if there is an error, else 0.</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>see:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara><span class=sejumptopic><a href="TH_537.htm">Clib.getenv()</a></span></p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+</table>
+<p class=normal>&nbsp;</p>
+<hr noshade size=1>
+<p class=normal><a href="TH_539.htm"><img src="button.png" border=0></a><a href="TH_539.htm" style="text-decoration:none;">Character classification</a></p>
+<p>
+</body>
+</html>

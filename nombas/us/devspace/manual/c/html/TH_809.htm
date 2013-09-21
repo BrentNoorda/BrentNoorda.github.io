@@ -1,0 +1,88 @@
+<html>
+<head>
+<title>Function call()</title>
+<link rel="stylesheet" href="semanualstyles.css" type="text/css">
+<style type="text/css">
+ p { margin-top: 0; margin-bottom: 0; }
+</style>
+<script language="JavaScript" src="TrueHelp.js"></script>
+</head>
+<body onload="thload()">
+<div id=ienav>
+<ilayer id=nsnav>
+<br>
+<center>
+<p class=normal><a href="seisdkc-toc.htm" target="left">contents</a> &nbsp; <a href="seisdkc-index.htm" target="left">index</a> &nbsp; <a href="TH_808.htm">previous</a> &nbsp; <a href="TH_810.htm">next</a></p>
+</center>
+<br>
+<hr noshade size=1>
+</ilayer>
+</div>
+<p class=sereffunclevel4>Function call()</p>
+<table cellpadding=0>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>syntax:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=sesyntax>function.call(<span class=truehelp-xe></span>[thisObj[,&nbsp;arguments[,&nbsp;...]]])</p></td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>where:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>thisObj - An object that will be used as the "this" variable while calling this function.  If this is not supplied, then the global object is used instead.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>arguments - list of arguments to pass to the function. Note that the similar method <span class=sepopuptopic><a href="TH_808.htm" onClick="return thwindow('TH_808.htm', 'GenPopup')">Function apply()</a></span> can receive the same arguments as an array. Compare the following ways of passing arguments:</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;//&nbsp;Uses&nbsp;an&nbsp;Array&nbsp;object</p>
+<p class=secodelinesindented>function.apply(this,&nbsp;argArray)</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;//&nbsp;Uses&nbsp;brackets</p>
+<p class=secodelinesindented>function.apply(this,[arg1,arg2])</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;//&nbsp;Uses&nbsp;argument&nbsp;list</p>
+<p class=secodelinesindented>function.call(this,arg1,arg2)</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>return:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>variable - the result of calling the function object with the specified "this" variable and arguments.</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>description:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>This method is almost identical to calling the function directly, only the user is able to supply the "this" variable that the function will use.  Otherwise, it is the same.</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>see:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara><span class=sejumptopic><a href="TH_807.htm">Function()</a></span>, <span class=sejumptopic><a href="TH_808.htm">Function.apply()</a></span></p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>example:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=secodelines>//&nbsp;The&nbsp;following&nbsp;code:</p>
+<p class=secodelines>&nbsp;</p>
+<p class=secodelines>var&nbsp;myFunction&nbsp;=&nbsp;new&nbsp;Function("arg",&nbsp;</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"return&nbsp;this.a&nbsp;+&nbsp;arg");</p>
+<p class=secodelines>var&nbsp;obj&nbsp;=&nbsp;{&nbsp;a:4&nbsp;};</p>
+<p class=secodelines>myFunction.call(&nbsp;obj,&nbsp;5&nbsp;);</p>
+<p class=secodelines>&nbsp;</p>
+<p class=secodelines>//&nbsp;This&nbsp;code&nbsp;fragment&nbsp;returns&nbsp;the&nbsp;value&nbsp;9,</p>
+<p class=secodelines>//&nbsp;which&nbsp;is&nbsp;the&nbsp;result&nbsp;of&nbsp;fetching&nbsp;this.a</p>
+<p class=secodelines>//&nbsp;from&nbsp;the&nbsp;current&nbsp;object&nbsp;(which&nbsp;is&nbsp;obj)&nbsp;and</p>
+<p class=secodelines>//&nbsp;adding&nbsp;the&nbsp;first&nbsp;parameter&nbsp;passed,&nbsp;which&nbsp;is&nbsp;5.</p></td>
+</tr>
+</table>
+<p class=normal>&nbsp;</p>
+<hr noshade size=1>
+<p class=normal><a href="TH_810.htm"><img src="button.png" border=0></a><a href="TH_810.htm" style="text-decoration:none;">Function toString()</a></p>
+<p>
+</body>
+</html>

@@ -1,0 +1,105 @@
+<html>
+<head>
+<title>global.ToSource()</title>
+<link rel="stylesheet" href="semanualstyles.css" type="text/css">
+<style type="text/css">
+ p { margin-top: 0; margin-bottom: 0; }
+</style>
+<script language="JavaScript" src="TrueHelp.js"></script>
+</head>
+<body onload="thload()">
+<div id=ienav>
+<ilayer id=nsnav>
+<br>
+<center>
+<p class=normal><a href="seisdkc-toc.htm" target="left">contents</a> &nbsp; <a href="seisdkc-index.htm" target="left">index</a> &nbsp; <a href="TH_834.htm">previous</a> &nbsp; <a href="TH_836.htm">next</a></p>
+</center>
+<br>
+<hr noshade size=1>
+</ilayer>
+</div>
+<p class=sereffunclevel4>global.ToSource()</p>
+<table cellpadding=0>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>syntax:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=sesyntax>ToSource(<span class=truehelp-xe></span>value)</p></td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>where:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>value - a variable or value to convert to a source string that will reproduce <span class=secodephrase>value</span> when the string is evaluated or interpreted.</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>return:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>string - a string representation of <span class=secodephrase>value</span>, which can be evaluated or interpreted.</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>description:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara><span class=truehelp-xe></span>A variable or value may be represented by a string comprised of JavaScript statements which, when evaluated or interpreted, reproduce the variable or value. The source string may be evaluated by <span class=sepopuptopic><a href="TH_818.htm" onClick="return thwindow('TH_818.htm', 'GenPopup')">global.eval()</a></span> or by <span class=sepopuptopic><a href="TH_935.htm" onClick="return thwindow('TH_935.htm', 'GenPopup')">SElib.interpret()</a></span>. It is sometimes convenient or powerful to use source strings, for example, in the Data object the <span class=sepopuptopic><a href="TH_1000.htm" onClick="return thwindow('TH_1000.htm', 'GenPopup')">DSP object</a></span>.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>Though the source string may be read by humans, it is daunting. Remember, <span class=secodephrase>ToSource()</span> is designed for interpretation by the ScriptEase interpreters, not by users.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>The example below compares source strings created by the <span class=secodephrase>global.ToSource()</span> function and the <span class=sepopuptopic><a href="TH_885.htm" onClick="return thwindow('TH_885.htm', 'GenPopup')">Object toSource()</a></span> method. In these examples, the source strings are identical, which is not guaranteed always to be so. But, no matter which one is used, the source strings can be evaluated or interpreted.</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>see:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara><span class=sejumptopic><a href="TH_885.htm">Object toSource()</a></span>, <span class=sejumptopic><a href="TH_818.htm">global.eval()</a></span>, <span class=sejumptopic><a href="TH_935.htm">SElib.interpret()</a></span></p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>example:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=secodelines>//&nbsp;An&nbsp;Array</p>
+<p class=secodelines>var&nbsp;a&nbsp;=&nbsp;[1,&nbsp;'2',&nbsp;3];</p>
+<p class=secodelines>&nbsp;</p>
+<p class=secodelines>Screen.writeln(ToSource(a));</p>
+<p class=secodelines>Screen.writeln();</p>
+<p class=secodelines>Screen.writeln(a.toSource());</p>
+<p class=secodelines>Screen.writeln();</p>
+<p class=secodelines>/********************************</p>
+<p class=secodelines>Displays:</p>
+<p class=secodelines>&nbsp;</p>
+<p class=secodelines>((new&nbsp;Function("var&nbsp;tmp1&nbsp;=&nbsp;[1,\"2\",3];&nbsp;tmp1[\"0\"]&nbsp;=&nbsp;1;</p>
+<p class=secodelines>tmp1[\"1\"]&nbsp;=&nbsp;\"2\";&nbsp;tmp1[\"2\"]&nbsp;=&nbsp;3;&nbsp;return&nbsp;tmp1;"))())</p>
+<p class=secodelines>&nbsp;</p>
+<p class=secodelines>((new&nbsp;Function("var&nbsp;tmp1&nbsp;=&nbsp;[1,\"2\",3];&nbsp;tmp1[\"0\"]&nbsp;=&nbsp;1;</p>
+<p class=secodelines>tmp1[\"1\"]&nbsp;=&nbsp;\"2\";&nbsp;tmp1[\"2\"]&nbsp;=&nbsp;3;&nbsp;return&nbsp;tmp1;"))())</p>
+<p class=secodelines>********************************/</p>
+<p class=secodelines>&nbsp;</p>
+<p class=secodelines>//&nbsp;An&nbsp;Object</p>
+<p class=secodelines>var&nbsp;o&nbsp;=&nbsp;{one:1,&nbsp;two:'2',&nbsp;three:3};</p>
+<p class=secodelines>&nbsp;</p>
+<p class=secodelines>Screen.writeln(ToSource(o));</p>
+<p class=secodelines>Screen.writeln();</p>
+<p class=secodelines>Screen.writeln(o.toSource());</p>
+<p class=secodelines>Screen.writeln();</p>
+<p class=secodelines>/********************************</p>
+<p class=secodelines>Displays:</p>
+<p class=secodelines>&nbsp;</p>
+<p class=secodelines>((new&nbsp;Function("var&nbsp;tmp1&nbsp;=&nbsp;new&nbsp;Object();&nbsp;tmp1[\"three\"]&nbsp;=&nbsp;3;</p>
+<p class=secodelines>tmp1[\"one\"]&nbsp;=&nbsp;1;&nbsp;tmp1[\"two\"]&nbsp;=&nbsp;\"2\";&nbsp;return&nbsp;tmp1;"))())</p>
+<p class=secodelines>&nbsp;</p>
+<p class=secodelines>((new&nbsp;Function("var&nbsp;tmp1&nbsp;=&nbsp;new&nbsp;Object();&nbsp;tmp1[\"three\"]&nbsp;=&nbsp;3;</p>
+<p class=secodelines>tmp1[\"one\"]&nbsp;=&nbsp;1;&nbsp;tmp1[\"two\"]&nbsp;=&nbsp;\"2\";&nbsp;return&nbsp;tmp1;"))())</p>
+<p class=secodelines>********************************/</p></td>
+</tr>
+</table>
+<p class=normal>&nbsp;</p>
+<hr noshade size=1>
+<p class=normal><a href="TH_836.htm"><img src="button.png" border=0></a><a href="TH_836.htm" style="text-decoration:none;">global.ToString()</a></p>
+<p>
+</body>
+</html>

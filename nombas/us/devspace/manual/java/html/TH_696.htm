@@ -1,0 +1,81 @@
+<html>
+<head>
+<title>Function()</title>
+<link rel="stylesheet" href="semanualstyles.css" type="text/css">
+<style type="text/css">
+ p { margin-top: 0; margin-bottom: 0; }
+</style>
+<script language="JavaScript" src="TrueHelp.js"></script>
+</head>
+<body onload="thload()">
+<div id=ienav>
+<ilayer id=nsnav>
+<br>
+<center>
+<p class=normal><a href="seisdkj-toc.htm" target="left">contents</a> &nbsp; <a href="seisdkj-index.htm" target="left">index</a> &nbsp; <a href="TH_695.htm">previous</a> &nbsp; <a href="TH_697.htm">next</a></p>
+</center>
+<br>
+<hr noshade size=1>
+</ilayer>
+</div>
+<p class=sereffunclevel4>Function()</p>
+<table cellpadding=0>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>syntax:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=sesyntax>new&nbsp;Function(params[,&nbsp;...],&nbsp;body)</p></td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>where:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>params - one or a list of parameters for the function.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>&nbsp;</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>body - the body of the function as a string.</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>return:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>object - a new function object with the specified parameters and body that can later be executed just like any other function.</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>description:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>The parameters passed to the function can be in one of two formats. All parameters are strings representing parameter names, although multiple parameter names can be grouped together with commas. These two options can be combined as well. For example, <span class=secodephrase>new Function("a", "b", "c", "return")</span> is the same as <span class=secodephrase>new Function("a, b", "c", "return")</span>. The body of the function is parsed just as any other function would be. If there is an error parsing either the parameter list or the function body, a runtime error is generated. If this function is later called as a constructor, then a new object is created whose internal <span class=secodephrase>_prototype</span> property is equal to the <span class=secodephrase>prototype</span> property of the new function object. Note that this function can also be called directly, without the <i>new</i> operator.</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>example:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=secodelines>//&nbsp;The&nbsp;following&nbsp;will&nbsp;create&nbsp;a&nbsp;new&nbsp;Function&nbsp;object</p>
+<p class=secodelines>//&nbsp;and&nbsp;provide&nbsp;some&nbsp;properties</p>
+<p class=secodelines>//&nbsp;through&nbsp;the&nbsp;prototype&nbsp;&nbsp;property.</p>
+<p class=secodelines>&nbsp;</p>
+<p class=secodelines>var&nbsp;myFunction&nbsp;=&nbsp;new&nbsp;Function("a",&nbsp;"b",</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;&nbsp;"this.value&nbsp;=&nbsp;a&nbsp;+&nbsp;b");</p>
+<p class=secodelines>var&nbsp;printFunction&nbsp;=&nbsp;new&nbsp;Function</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;&nbsp;("Screen.writeln(this.value)");</p>
+<p class=secodelines>myFunction.prototype.print&nbsp;=&nbsp;printFunction;</p>
+<p class=secodelines>&nbsp;</p>
+<p class=secodelines>var&nbsp;foo&nbsp;=&nbsp;new&nbsp;myFunction(&nbsp;4,&nbsp;5&nbsp;);</p>
+<p class=secodelines>foo.print();</p>
+<p class=secodelines>&nbsp;</p>
+<p class=secodelines>//&nbsp;This&nbsp;code&nbsp;will&nbsp;print&nbsp;out&nbsp;the&nbsp;value&nbsp;"9",</p>
+<p class=secodelines>//&nbsp;which&nbsp;was&nbsp;the&nbsp;value&nbsp;stored&nbsp;in&nbsp;foo&nbsp;when&nbsp;it&nbsp;was</p>
+<p class=secodelines>//&nbsp;created&nbsp;with&nbsp;the&nbsp;myFunction&nbsp;constructor.</p></td>
+</tr>
+</table>
+<p class=normal>&nbsp;</p>
+<hr noshade size=1>
+<p class=normal><a href="TH_697.htm"><img src="button.png" border=0></a><a href="TH_697.htm" style="text-decoration:none;">Function apply()</a></p>
+<p>
+</body>
+</html>

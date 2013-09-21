@@ -1,0 +1,2041 @@
+ 
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 FINAL//EN">
+<HTML><!-- #BeginTemplate "/us/Templates/erratapage.dwt" -->
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=ISO-8859-1">
+<!-- #BeginEditable "doctitle" --> 
+<TITLE>ScriptEase ISDK DevSpace</TITLE>
+<!-- #EndEditable --> <!-- begin metaTags --> 
+<META NAME="keywords" CONTENT="javascript,ecmascript,ecma,scriptease,jscript,scripting,nombas,isdk,sedesk,web application development,embedded devices,distributed computing,peer-to-peer,p2p,peer,data mining,javascript.com,cycletraders,integrated sdk,script ease,java,c++,c,simplicity,power,palm,windows ce,integration: sdk,integration:sdk,scriptease:desktop,scriptease: desktop,se:desktop,se:desk,se:isdk, se: isdk,development tools,devtools">
+<META HTTP-EQUIV="DESCRIPTION" CONTENT="Nombas delivers simplicity and power through scripting by providing market-leading development tools and software for JavaScript and ECMAScript.">
+<!-- end metaTags -->
+<!-- begin navbar includes -->
+<SCRIPT language=JavaScript1.2>
+  navbarPath = '../../../'; 
+</SCRIPT>
+<SCRIPT language=JavaScript1.2 SRC="../../../navbarData.js"></SCRIPT>
+<SCRIPT language=JavaScript1.2 SRC="../../../navbarMenu.js"></SCRIPT>
+<SCRIPT language=JavaScript SRC="../../../imgRollover.js"></SCRIPT>
+<!-- end navbar includes -->
+<!-- begin style and icon definition -->
+<LINK REL="SHORTCUT ICON" HREF="../../../nombas.ico">
+<STYLE> 
+A:hover { color:#941810;} 
+</STYLE>
+<!-- end style and icon definition -->
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-1754630-10']);
+  _gaq.push(['_trackPageview']);
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+</HEAD>
+<BODY BGCOLOR="#06086F" LINK="#0000FF" VLINK="#800080" TEXT="#000000" TOPMARGIN=0 LEFTMARGIN=0 MARGINWIDTH=0 MARGINHEIGHT=0>
+<table width="632" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td>
+<TABLE BORDER=0 CELLSPACING=0 CELLPADDING=0 WIDTH=213>
+  <TR VALIGN=TOP ALIGN=LEFT> 
+    <TD WIDTH=28 HEIGHT=4><IMG SRC="../../../clearpixel.gif" WIDTH=28 HEIGHT=1 BORDER=0></TD>
+    <TD></TD>
+  </TR>
+  <TR VALIGN=TOP ALIGN=LEFT> 
+    <TD HEIGHT=60></TD>
+          <TD WIDTH=185 ALIGN=LEFT VALIGN=TOP><A HREF="../../../index.htm"><IMG ID="Picture1" HEIGHT=60 WIDTH=185 SRC="../../../logo.gif" BORDER=0 alt="Nombas Homepage"></A></TD>
+  </TR>
+</TABLE>
+    <div id="nombas-legacy"></div>
+<TABLE BORDER=0 CELLSPACING=0 CELLPADDING=0>
+  <TR VALIGN=TOP ALIGN=LEFT> 
+    <TD WIDTH=30 HEIGHT=10><IMG SRC="../../../clearpixel.gif" WIDTH=30 HEIGHT=1 BORDER=0></TD>
+    <TD></TD>
+  </TR>
+  <TR VALIGN=TOP ALIGN=LEFT> 
+    <TD></TD>
+    <TD WIDTH=582> 
+      <TABLE ID="Table1" BORDER=0 CELLSPACING=0 CELLPADDING=0 WIDTH=582>
+        <TR> 
+          <TD WIDTH=97> 
+                  <P><A HREF="../../../scripting/scripting.htm" 
+                            onmouseover="changeImages('scripting', '../../../htab_scripting.gif'); popUp('elMenu1',event); return true;" 
+onmouseout="changeImages('scripting', '../../../tab_scripting.gif'); popDown('elMenu1'); return true;"
+><IMG
+                             ID="scripting" HEIGHT=21 WIDTH=97 SRC="../../../tab_scripting.gif" VSPACE=0 HSPACE=0 ALIGN="TOP" BORDER=0 name="scripting" alt="Scripting"></A> 
+                </TD>
+          <TD WIDTH=97> 
+                  <P><A HREF="../../../products/products.htm" 
+                            onmouseover="changeImages('products', '../../../htab_products.gif'); popUp('elMenu2',event); return true;" 
+onmouseout="changeImages('products', '../../../tab_products.gif'); popDown('elMenu2'); return true;"><IMG ID="products"
+                             HEIGHT=21 WIDTH=97 SRC="../../../tab_products.gif" VSPACE=0 HSPACE=0 ALIGN="TOP" BORDER=0 name=products alt="Products"></A> 
+                </TD>
+          <TD WIDTH=97> 
+                  <P><A HREF="../../../purchase/purchase.htm" onmouseover="changeImages('purchase', '../../../htab_purchase.gif');return true;" 
+onmouseout="changeImages('purchase', '../../../tab_purchase.gif');return true;"><IMG ID="purchase"
+                             HEIGHT=21 WIDTH=97 SRC="../../../tab_purchase.gif" VSPACE=0 HSPACE=0 ALIGN="TOP" BORDER=0 name=purchase alt="Purchase"></A> 
+                </TD>
+          <TD WIDTH=97> 
+                  <P><A HREF="../../../download/ndownload.htm" onmouseover="changeImages('download', '../../../htab_download.gif');return true;" 
+onmouseout="changeImages('download', '../../../tab_download.gif');return true;"><IMG ID="download"
+                             HEIGHT=21 WIDTH=97 SRC="../../../tab_download.gif" VSPACE=0 HSPACE=0 ALIGN="TOP" BORDER=0 name=download alt="Download"></A> 
+                </TD>
+          <TD WIDTH=97> 
+                  <P><A target="support" HREF="http://support.nombas.com/" onmouseover="changeImages('support', '../../../htab_support.gif'); return true;" 
+onmouseout="changeImages('support', '../../../tab_support.gif'); return true;"><IMG ID="support"
+                             HEIGHT=21 WIDTH=97 SRC="../../../tab_support.gif" VSPACE=0 HSPACE=0 ALIGN="TOP" BORDER=0 name=support alt="Support"></A> 
+                </TD>
+          <TD WIDTH=97> 
+                  <P><A HREF="../../../company/company.htm" 
+                            onmouseover="changeImages('company', '../../../htab_company.gif'); popUp('elMenu6',event); return true;" 
+onmouseout="changeImages('company', '../../../tab_company.gif'); popDown('elMenu6'); return true;"><IMG ID="company"
+                             HEIGHT=21 WIDTH=97 SRC="../../../tab_company.gif" VSPACE=0 HSPACE=0 ALIGN="TOP" BORDER=0 name=company alt="Company"></A> 
+                </TD>
+        </TR>
+      </TABLE>
+    </TD>
+  </TR>
+</TABLE>
+      <TABLE BORDER=0 CELLSPACING=0 CELLPADDING=0 WIDTH=100%>
+        <TR VALIGN=TOP ALIGN=LEFT> 
+    <TD WIDTH=5 HEIGHT=20><IMG SRC="../../../clearpixel.gif" WIDTH=5 HEIGHT=1 BORDER=0></TD>
+          <TD> 
+            <TABLE BORDER=0 CELLSPACING=0 CELLPADDING=0 WIDTH=100% HEIGHT=20 bgcolor="#FFFFFF">
+              <TR ALIGN=LEFT VALIGN=TOP> 
+          <TD> 
+                  <TABLE BORDER=0 CELLSPACING=0 CELLPADDING=0 WIDTH=100%>
+                    <TR VALIGN=TOP ALIGN=LEFT> 
+                <TD WIDTH=20 HEIGHT=20 ALIGN=LEFT VALIGN=TOP><IMG ID="Picture12" HEIGHT=20 WIDTH=20 SRC="../../../curve_topleft.gif" BORDER=0></TD>
+                      <TD><IMG SRC="../../../clearpixel.gif" WIDTH=592 HEIGHT=1 BORDER=0></TD>
+                <TD WIDTH=20 ALIGN=LEFT VALIGN=TOP><IMG ID="Picture10" HEIGHT=20 WIDTH=20 SRC="../../../curve_top.gif" BORDER=0></TD>
+              </TR>
+            </TABLE>
+          </TD>
+        </TR>
+      </TABLE>
+    </TD>
+  </TR>
+</TABLE>
+<TABLE BORDER=0 CELLSPACING=0 CELLPADDING=0 WIDTH=637>
+  <TR VALIGN=TOP ALIGN=LEFT> 
+    <TD HEIGHT=471 width="5"></TD>
+    <TD COLSPAN=2 height="471"> 
+      <TABLE BORDER=0 CELLSPACING=0 CELLPADDING=0 WIDTH=632 HEIGHT=200 bgcolor="#FFFFFF">
+        <TR ALIGN=LEFT VALIGN=TOP> 
+          <TD height="471"> 
+            <TABLE BORDER=0 CELLSPACING=0 CELLPADDING=0 WIDTH=516>
+              <TR VALIGN=TOP ALIGN=LEFT> 
+                <TD WIDTH=14 HEIGHT=1><IMG SRC="../../../clearpixel.gif" WIDTH=13 HEIGHT=1 BORDER=0></TD>
+                <TD WIDTH=502><IMG SRC="../../../clearpixel.gif" WIDTH=316 HEIGHT=1 BORDER=0></TD>
+              </TR>
+              <TR VALIGN=TOP ALIGN=LEFT> 
+                <TD width="14"></TD>
+                <TD WIDTH=502><!-- #BeginEditable "hier" --> 
+                        <P ALIGN=LEFT><A HREF="../../../index.htm"><FONT SIZE="-2" FACE="Verdana,Tahoma,Arial,Helvetica">Nombas</FONT></A><FONT SIZE="-2" FACE="Verdana,Tahoma,Arial,Helvetica"> 
+                          &gt; <a HREF="../../index.htm">SE:ISDK DevSpace</a> 
+                          &gt; <a href="../index.htm">Errata</a> &gt; Integration 
+                          SDK 4.20x Errata</FONT> 
+                        <!-- #EndEditable --></TD>
+              </TR>
+            </TABLE>
+            <TABLE BORDER=0 CELLSPACING=0 CELLPADDING=0 WIDTH=300>
+              <TR VALIGN=TOP ALIGN=LEFT> 
+                <TD WIDTH=15 HEIGHT=5><IMG SRC="../../../clearpixel.gif" WIDTH=15 HEIGHT=1 BORDER=0></TD>
+                <TD></TD>
+              </TR>
+              <TR VALIGN=TOP ALIGN=LEFT> 
+                <TD HEIGHT=80></TD>
+                <TD WIDTH=600 ALIGN=LEFT VALIGN=TOP><IMG ID="Picture14" HEIGHT=80 WIDTH=600 SRC="../../bnr_devspace.gif" BORDER=0></TD>
+              </TR>
+              <TR VALIGN=TOP ALIGN=LEFT> 
+                <TD HEIGHT=368></TD>
+                <TD WIDTH=600 ALIGN=LEFT VALIGN=TOP height="368"> 
+                  <table width="100%" border="0">
+                    <tr> 
+                      <td colspan="4" height="9"><img SRC="../../../clearpixel.gif" width="1" height="1"></td>
+                    </tr>
+                    <tr> 
+                      <td width="1" height="326">&nbsp;</td>
+                            <td valign="top" height="326"><!-- #BeginEditable "main" --> 
+                              <p><font size="4" face="Verdana, Arial, Helvetica, sans-serif"><b>Integration 
+                                SDK 4.20x Errata</b></font><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><br>
+                                <i><b>Fixes Affecting Users of the ScriptEase 
+                                ISDKs</b></i></font> </p>
+                              <ul>
+                                <li><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><a href="#v420d">4.20d 
+                                  API</a> - latest update: March 20, 2003</font> 
+                              </ul>
+                              <ul>
+                                <li><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><a href="#v420c">4.20c 
+                                  API</a> - latest update: March 20, 2000</font> 
+                              </ul>
+                              <font face="Verdana, Arial, Helvetica, sans-serif" size="2">&nbsp&nbsp 
+                              <b>Documentation errata:</b> </font> 
+                              <ul>
+                                <li><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><a href="#420doc">4.20 
+                                  documentation</a> - latest update: January 5 
+                                  , 2000</font> 
+                              </ul>
+                              <hr width="90%" align="left" size="1" noshade>
+                              <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><a name="v420d"></a>API 
+                                Errata, version <b>4.20</b>d (may apply to earlier 
+                                versions) <br>
+                                &nbsp;&nbsp;<b>New</b>, March 20, 2003</font></p>
+                              <ul>
+                                <li><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><a href="#comole">COMOBJ 
+                                  leaks resources</a> </font> 
+                                <li><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><a href="#420dnopshdel">jsePush(...True...) 
+                                  not destroying variable</a> </font> 
+                                <li><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><a href="#420dnogrowstack">JSE_FIXEDSTACK 
+                                  is recommend</a> </font> 
+                                <li><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><a href="#420disthisglobal">locating 
+                                  error variable names takes long if global is 
+                                  aliased</a> </font> 
+                                <li><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><a href="#420ddynadecrement">Error 
+                                  with auto-decrement (--) on dynamic _put</a> 
+                                  </font> 
+                                <li><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><a href="#420dfuncomma">Comma 
+                                  error converting functions to strings</a> </font> 
+                                <li><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><a href="#420dreallocthreadcrash">Reallocation 
+                                  error with JSE_MEM_DEBUG on multi-threaded systems</a> 
+                                  </font> 
+                                <li><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><a href="#420dfpprecision">Precision 
+                                  lost in floating-point values</a> </font> 
+                                <li> <font face="Verdana, Arial, Helvetica, sans-serif" size="2"><a href="#420ddynattr">Error 
+                                  setting variable attributes on a dynamic-write 
+                                  object</a> </font> 
+                              </ul>
+                              <p> <font face="Verdana, Arial, Helvetica, sans-serif" size="2"><a name="v420c"></a><br>
+                                API Errata, version <b>4.20</b>c (may apply to 
+                                earlier versions) <br>
+                                &nbsp;&nbsp;<b>New</b>, March 20, 2000</font></p>
+                              <ul>
+                                <li><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><a href="#420cerrataerrordate">Rounding 
+                                  error on date calculations </a> </font> 
+                                <li><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><a href="#420cerrataconstcrash">constructor 
+                                  crash if constructor is not valid function </a> 
+                                  </font> 
+                                <li><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><a href="#420cerrataargobjbad">"arguments" 
+                                  object incorrectly constructed </a> </font> 
+                                <li><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><a href="#420cerratagcnodest">Garbage 
+                                  Collector won't release inherited destructors 
+                                  </a> </font> 
+                                <li><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><a href="#420cerrata29">Overlapping 
+                                  memory blocks with varChopFromLeft() </a> </font> 
+                                <li><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><a href="#420cerrata28">Unallocated 
+                                  memory read with extensionLinkOnto() </a> </font> 
+                                <li><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><a href="#420cerrata27">Siblings 
+                                  of objects trying to access bad memory</a> </font> 
+                                <li><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><a href="#420cerrata26">Unintentionally 
+                                  freed items </a> </font> 
+                                <li><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><a href="#420cerrata25">A 
+                                  struct seVar and garbage collection </a> </font> 
+                                <li><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><a href="#420cerrata24">Invalid 
+                                  return from jseGetCurrentThisVariable() </a> 
+                                  </font> 
+                                <li><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><a href="#420cerrata23">Wrong 
+                                  variables compared with Strict equality & inequality 
+                                  </a> </font> 
+                                <li><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><a href="#420cerrata22">Calling 
+                                  jseFindVariable() from wrapper with dynamic 
+                                  _hasProperty</a> </font> 
+                              </ul>
+                              <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2">&nbsp;&nbsp;As 
+                                of February 25, 2000 : for <b>4.20</b>c</font> 
+                              </p>
+                              <ul>
+                                <li><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><a href="#420cerrata21">_put 
+                                  function not called with jseEcmaArray attribute</a> 
+                                  </font> 
+                                <li><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><a href="#420cerrata20">PrintErrorFunction 
+                                  not immediately called</a> </font> 
+                                <li><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><a href="#420cerrata19">Incorrect 
+                                  filename/line number reporting</a> </font> 
+                                <li><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><a href="#420cerrata18">Only 
+                                  first error printed with multiple calls</a> 
+                                  </font> 
+                                <li><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><a href="#420cerrata17">no 
+                                  line number on error when interpreting text 
+                                  from source</a> </font> 
+                              </ul>
+                              <font face="Verdana, Arial, Helvetica, sans-serif" size="2">&nbsp;&nbsp;As 
+                              of February 4, 2000 : for <b>4.20b</b> (may apply 
+                              to earlier versions)</font> 
+                              <ul>
+                                <li><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><a href="#420cerrata16">Syntax 
+                                  Error 1521</a> </font> 
+                                <li><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><a href="#420cerrata15">literal 
+                                  strings lost with jseCreateCodeTokenBuffer</a> 
+                                  </font> 
+                                <li><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><a href="#420cerrata14">Problem 
+                                  with error reporting</a> </font> 
+                                <li><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><a href="#420cerrata13">Errors 
+                                  in some MBCS String functions</a> </font> 
+                                <li><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><a href="#420cerrata12">Performance 
+                                  Issue: 4.20b</a> </font> 
+                                <li><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><a href="#420cerrata11">convert_var_to_string</a> 
+                                  and memory problems </font> 
+                                <li> <font face="Verdana, Arial, Helvetica, sans-serif" size="2"><a href="#420cerrata10">Clib.scanf 
+                                  and variables</a> in GUI versions </font> 
+                                <li> <font face="Verdana, Arial, Helvetica, sans-serif" size="2"><a href="#420cerrata9">jseConstructObject</a> 
+                                  </font> 
+                                <li> <font face="Verdana, Arial, Helvetica, sans-serif" size="2"><a href="#420cerrata9">"-0" 
+                                  is parsing as +0</a> in some systems </font> 
+                                <li> <font face="Verdana, Arial, Helvetica, sans-serif" size="2"><a href="#420cerrata7">Blob.get()</a> 
+                                  with negative integers() </font> 
+                                <li> <font face="Verdana, Arial, Helvetica, sans-serif" size="2"><a href="#420cerrata6">Clib.getch(), 
+                                  Clib.getche()</a> receive only from real keyboard 
+                                  </font> 
+                                <li> <font face="Verdana, Arial, Helvetica, sans-serif" size="2"><a href="#420cerrata5">GenericGetDataPtr()</a> 
+                                  </font> 
+                                <li> <font face="Verdana, Arial, Helvetica, sans-serif" size="2"><a href="#420cerrata4">Subtracting 
+                                  strings</a>, non-finite numbers </font> 
+                                <li><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                                  (Unix:) <a href="#420cerrata3">Error with #link</a> 
+                                  for some Unix systems </font> 
+                                <li><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                                  (Unix:) <a href="#420cerrata2">Infinity and 
+                                  -Infinity</a> parsing error </font> 
+                                <li> <font face="Verdana, Arial, Helvetica, sans-serif" size="2"><a href="#420cerrata1">++ 
+                                  not working with Nan</a> for some systems </font> 
+                              </ul>
+                              <hr width="90%" align="left" size="1" noshade>
+                              <p> 
+                              <p> <font face="Verdana, Arial, Helvetica, sans-serif" size="2"><a name="420doc"></a>&nbsp;&nbsp;<br>
+                                <b>Documentation</b> Errata</font> </p>
+                              <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2">&nbsp;&nbsp;<b>version 
+                                4.20</b> :</font></p>
+                              <ul>
+                                <li><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                                  for <a href="#docerrata5">jseMemberWrapperFunction</a> 
+                                  </font> 
+                                  <ul>
+                                    <font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                                    - jseDestroyVariable unnecessary </font> 
+                                  </ul>
+                              </ul>
+                              <ul>
+                                <li><font face="Verdana, Arial, Helvetica, sans-serif" size="2">for 
+                                  <a href="#docerrata4">jseInterpInit() </a> </font> 
+                                  <ul>
+                                    <font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                                    - returns a jseContext </font> 
+                                  </ul>
+                              </ul>
+                              <ul>
+                                <li><font face="Verdana, Arial, Helvetica, sans-serif" size="2">for 
+                                  <a href="#docerrata3">jseInterpTerm() </a> </font> 
+                                  <ul>
+                                    <font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                                    - takes a 2nd parameter </font> 
+                                  </ul>
+                              </ul>
+                              <p>&nbsp; </p>
+                              <hr width="90%" align="left" size="1" noshade>
+                              <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><b><font size="3">The 
+                                Details</font></b> </font></p>
+                              <hr width="90%" align="left" size="1" noshade>
+                              <p><font size="2" face="Verdana, Arial, Helvetica, sans-serif"><b>for 
+                                4.20d --</b></font></p>
+                              <p><a name="comole"></a></p>
+                              <p> 
+                              <ul>
+                                <li><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><b>COMOBJ 
+                                  leaks resources</b><br>
+                                  (for ISDK/C 4.20d)</font></li>
+                              </ul>
+                              <blockquote> 
+                                <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2">Bug: 
+                                  COMOBJ can leaks resources when working with 
+                                  type libraries and pass-by-ref COM objects. 
+                                  Over time total memory use will grow.</font></p>
+                                <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><b>Fix</b>: 
+                                  Replace srclib/comobj/* code with files found 
+                                  at <a href="ftp://ftp.nombas.com/pub/isdkeval/se420/comobj_2003_03_20.zip">ftp://ftp.nombas.com/pub/isdkeval/se420/comobj_2003_03_20.zip</a></font> 
+                                </p>
+                              </blockquote>
+                              <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><a name="420dnopshdel"></a></font></p>
+                              <ul>
+                                <li><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><b>jsePush(...True...) 
+                                  not destroying variable</b><br>
+                                  (for ISDK/C 4.20d)<b> </b> </font> 
+                                  <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                                    Bug: jsePush() is supposed to destroy a variable 
+                                    reference when the stack is destroyed (with 
+                                    jseDestroyStack) when the last parameter (DeleteVariableWhenFinished) 
+                                    is True. But this is only working in debug 
+                                    builds. When NDEBUG is defined the variable 
+                                    is not deleted with the stack but remains 
+                                    until the context is destroyed. </font> 
+                                  <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><b>Fix</b>: 
+                                    In srccore/util.c, replace the function jsePush() 
+                                    with the one found at <a href="ftp://ftp.nombas.com/pub/isdkeval/se430/callremoveapistringentry.c%22%3Eftp://ftp.nombas.com/pub/isdkeval/se420/jsepush.c">ftp://ftp.nombas.com/pub/isdkeval/se420/jsepush.c</a></font></p>
+                              </ul>
+                              <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><a name="420dnogrowstack"></a></font></p>
+                              <ul>
+                                <li><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><b>JSE_FIXEDSTACK 
+                                  is recommended</b><br>
+                                  (for ISDK/C 4.20d)<b> </b> </font> 
+                                  <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                                    Problem: JSE_FIXEDSTACK=0 option is buggy 
+                                    and doesn't provide much savings in memory 
+                                    or performance. </font> 
+                                  <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><b>Fix</b>: 
+                                    We recommend enabling JSE_FIXEDSTACK in all 
+                                    cases. It is already on by default unless 
+                                    JSE_MIN_MEMORY is enabled. To ensable in all 
+                                    cases simply comment out this in srccore/srccore.h</font></p>
+                                  <blockquote> 
+                                    <pre><font face="Verdana, Arial, Helvetica, sans-serif" size="2"># define JSE_FIXEDSTACK 0</font></pre>
+                                  </blockquote>
+                                  <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2">so 
+                                    that it is:</font></p>
+                                  <blockquote> 
+                                    <pre><font face="Verdana, Arial, Helvetica, sans-serif" size="2">/* # define JSE_FIXEDSTACK 0 */</font></pre>
+                                  </blockquote>
+                                  <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2">If 
+                                    you want to save the additional memory for 
+                                    JSE_MIN_MEMORY situations you may choose to 
+                                    reduce the define value for JSE_FIXEDSTACK_DEPTH.</font></p>
+                              </ul>
+                              <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><a name="420disthisglobal"></a></font></p>
+                              <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><b>locating 
+                                error variable names takes long if global is aliased</b><br>
+                                (for ISDK/C 4.20d)<b> </b> </font></p>
+                              <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                                Error: If a name is being generated to describe 
+                                a variable during creation of an error message, 
+                                and if properties of some objects are assigned 
+                                to the global variable (e.g. a._prototype=global) 
+                                then generating that variable name can take a 
+                                long long long time, so long that the process 
+                                may seem hung. </font></p>
+                              <p> <font face="Verdana, Arial, Helvetica, sans-serif" size="2"><b>Fix</b>: 
+                                In VARUTIL.C function IsThisTheVariable() there 
+                                are four four &quot;SEEN&quot; macros (VAR_MARK_SEEN, 
+                                VAR_MARK_NOT_SEEN, &amp; VAR_WAS_SEEN), these 
+                                should all become VAROBJ macros instead. I.E.</font></p>
+                              <pre><font face="Verdana, Arial, Helvetica, sans-serif" size="2">   VAR_MARK_SEEN(me)     -&gt;  VAROBJ_MARK_SEEN(VAR_GET_VAR_OBJ(call,me))
+   VAR_MARK_NOT_SEEN(me) -&gt;  VAROBJ_MARK_NOT_SEEN(VAR_GET_VAR_OBJ(call,me))
+   VAR_WAS_SEEN(me)      -&gt;  VAROBJ_WAS_SEEN(VAR_GET_VAR_OBJ(call,me))</font></pre>
+                              <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><a name="420ddynadecrement"></a></font></p>
+                              <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><b>Error 
+                                with auto-decrement (--) on dynamic _put</b><br>
+                                (for ISDK/C 4.20d)<b> </b> </font></p>
+                              <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                                Bug: If foo is a dynamic object object with a 
+                                _put operator, then a statement such as "foo.a--" 
+                                may act just like "foo.a++". </font></p>
+                              <p> <font face="Verdana, Arial, Helvetica, sans-serif" size="2"><b>Fix</b>: 
+                                In SECODE.C, function secodeInterpret() at about 
+                                line 1345, change this line<br>
+                                &nbsp;<br>
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;do_op_crement(call,1);<br>
+                                &nbsp;<br>
+                                to this:<br>
+                                &nbsp;<br>
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;do_op_crement(call,,(t==opIncrement)?1:-1);</font> 
+                              </p>
+                              <p></p>
+                              <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><a name="420dfuncomma"></a></font></p>
+                              <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><b>Comma 
+                                error converting functions to strings</b><br>
+                                (for ISDK/C 4.20d)<b> </b> </font></p>
+                              <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                                Problem: When converting script functions to strings 
+                                in SE:ISDK/C 4.20, there may be a crash or an 
+                                assert failure on some functions containing commas. 
+                                For example, the following script will crash or 
+                                suffer an assert failure:<br>
+                                &nbsp;<br>
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;function foo()<br>
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{<br>
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;var 
+                                a, b; // the comma on this line will cause a crash<br>
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;var foo_str 
+                                = "" + foo; </font> </p>
+                              <p> <font face="Verdana, Arial, Helvetica, sans-serif" size="2"><b>Fix</b>: 
+                                In FUNCTION.C, function functionTextAsVariable() 
+                                at about line 324 is this statement:<br>
+                                &nbsp;&nbsp;<br>
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;case getParamValue:<br>
+                                &nbsp;&nbsp;<br>
+                                Change that line to this:<br>
+                                &nbsp;<br>
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;case getParamValue: 
+                                case popEval: </font> </p>
+                              <p></p>
+                              <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><a name="420dreallocthreadcrash"></a></font></p>
+                              <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><b>Reallocation 
+                                error with JSE_MEM_DEBUG on multi-threaded systems</b> 
+                                <br>
+                                (for ISDK/C 4.20d)<b> </b> </font></p>
+                              <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                                Problem: When compiling in debug mode (JSE_MEM_DEBUG=1) 
+                                the re-allocation routines are not thread-safe. 
+                                </font></p>
+                              <p> <font face="Verdana, Arial, Helvetica, sans-serif" size="2"><b>Workaround</b>: 
+                                In JSEMEM.C function jseUtilReMalloc() move the 
+                                ExclusiveMallocThreadStop() after the memcpy() 
+                                line. </font></p>
+                              <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><a name="420dfpprecision"></a></font></p>
+                              <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><b>Precision 
+                                lost in floating-point values</b> <br>
+                                (for ISDK/C 4.20d)<b> </b> </font></p>
+                              <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                                Problem: In SE:ISDK/C 4.20d and earlier releases 
+                                data precision is lost in converting floating-point 
+                                values to string. For instance, "" + 1.12345678901234567 
+                                may result in "1.12345678901" </font></p>
+                              <p> <font face="Verdana, Arial, Helvetica, sans-serif" size="2"><b>Workaround</b>: 
+                                You can turn off the rounding algorithm by compiling 
+                                with JSE_NUMTOSTRING_ROUNDING=0, or replace the 
+                                code for SRCMISC\UTILSTR.C function EcmaNumberToString() 
+                                with the function found in <a href="ftp://ftp.nombas.com/pub/isdkeval/se420/bugfix.txt">ftp://ftp.nombas.com/pub/isdkeval/se420/bugfix.txt</a> 
+                                </font></p>
+                              <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><a name="420ddynattr"></a></font></p>
+                              <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><b>Error 
+                                setting variable attributes on a dynamic-write 
+                                object</b> <br>
+                                (for ISDK/C 4.20d)<b> </b> </font></p>
+                              <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                                Problem: In SE:ISDK/C 4.20d assertions are triggered 
+                                when setting the attributes on a variable which 
+                                is a _put waiting to happen. This can be a result 
+                                of jseSetAttributes() or any function that calls 
+                                jseSetAttributes, such as jseMemberWrapperFunction(). 
+                                </font></p>
+                              <p> <font face="Verdana, Arial, Helvetica, sans-serif" size="2"><b>Fix</b>: 
+                                In JSELIB.C function jseSetAttributes() add a 
+                                Var name tmp and change<br>
+                                <br>
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;var = GET_READABLE_TO_STACK(jsecontext,validateVariable(variable));<br>
+                                <br>
+                                to<br>
+                                <br>
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;tmp = validateVariable(variable);<br>
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/* cannot 
+                                set attributes on a dynamic put waiting to happen 
+                                */<br>
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if( tmp->type==VDynamicPut 
+                                || tmp->type==VFakePut )<br>
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return;<br>
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;var = GET_READABLE_TO_STACK(jsecontext,tmp);<br>
+                                <br>
+                                and in VAR.C function getWriteableTo() change<br>
+                                <br>
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;assert( this->type!=VDynamicPut 
+                                && this->type!=VFakePut );<br>
+                                <br>
+                                to<br>
+                                <br>
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if( this->type==VDynamicPut 
+                                || this->type==VFakePut )<br>
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{<br>
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if( 
+                                target!=this )<br>
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;VAR_COPY(target,this);<br>
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return 
+                                target;<br>
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+                                <br>
+                                and in function varAssignEx() change<br>
+                                <br>
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if( var->type==VDynamicPut 
+                                || var->type==VFakePut )<br>
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{<br>
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;....<br>
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if( var->type==VLValue 
+                                )<br>
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;var 
+                                = var->data.lvalue_val;<br>
+                                <br>
+                                to<br>
+                                <br>
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if( var->type==VLValue 
+                                )<br>
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;var 
+                                = var->data.lvalue_val;<br>
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;orig = var;<br>
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if( var->type==VDynamicPut 
+                                || var->type==VFakePut )<br>
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{<br>
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;....<br>
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}</font> </p>
+                              <p>&nbsp;</p>
+                              <p><font size="2" face="Verdana, Arial, Helvetica, sans-serif"><b>for 
+                                4.20c --</b></font></p>
+                              <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><a name="420cerrataerrordate"></a></font></p>
+                              <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><b>Rounding 
+                                error on date calculations</b> <br>
+                                (for ISDK/C 4.20c)<b> </b> </font></p>
+                              <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                                Problem: Rounding errors can cause hours to be 
+                                rounded-down on some years. For example, the result 
+                                of new Date(1997,1,9,5,0); may incorrectly show 
+                                the time "04:00:00" where it will be correct had 
+                                most other years been chosen. </font></p>
+                              <p> <font face="Verdana, Arial, Helvetica, sans-serif" size="2"><b>Workaround</b>: 
+                                in SEDATE.C function HourFromTime() provide an 
+                                extra "hint" for rounding by changing floor(t/msPerHour) 
+                                to floor((t+0.01)/msPerHour) </font></p>
+                              <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><a name="420cerrataconstcrash"></a> 
+                                </font> 
+                              <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><b>constructor 
+                                crash if constructor is not valid function</b> 
+                                <br>
+                                (for ISDK/C 4.20c)<b> </b> </font></p>
+                              <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                                Error: If a constructor function is not really 
+                                a function, but is some other data type, a crash 
+                                is likely. </font></p>
+                              <p> <font face="Verdana, Arial, Helvetica, sans-serif" size="2"><b>Fix</b>: 
+                                In function varCallConstructor() of VARUTIL.C, 
+                                replace this code at the top: </font></p>
+                              <blockquote> 
+                                <blockquote> 
+                                  <pre><font face="Verdana, Arial, Helvetica, sans-serif" size="2">func = varGetConstructor(call,this);</font></pre>
+                                </blockquote>
+                              </blockquote>
+                              <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                                with this:</font></p>
+                              <blockquote> 
+                                <blockquote> 
+                                  <pre><font face="Verdana, Arial, Helvetica, sans-serif" size="2">if( this-&gt;type==VLValue ) this = this-&gt;data.lvalue_val; <br>if ( VObject != this-&gt;type <br>  || NULL == (func = varGetConstructor(call,this)) ) <br>{ <br>   varInitBlankObject(call,new_var); <br>   callError(call,textcoreNOT_FUNCTION_VARIABLE,UNISTR(&quot;&quot;)); <br>   return; <br>}</font></pre>
+                                </blockquote>
+                              </blockquote>
+                              <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><a name="420cerrataargobjbad"></a></font></p>
+                              <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><b>"arguments" 
+                                object incorrectly constructed</b> <br>
+                                (for ISDK/C 4.20c)<b> </b> </font></p>
+                              <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                                Error: The "arguments" object is incorrectly constructed 
+                                when used in a script function. </font></p>
+                              <p> <font face="Verdana, Arial, Helvetica, sans-serif" size="2"><b>Fix</b>: 
+                                In CALL.C, function callLocalFunction(), replace 
+                                the existing loop with: </font></p>
+                              <ul>
+                                <blockquote> 
+                                  <pre><font face="Verdana, Arial, Helvetica, sans-serif" size="2">for( x=0;x&lt;num_args;x++ )
+
+{
+
+   VarName name = NumericStringTableEntry(x);<br>   Var cgVar = callGetVar(call,x);
+
+<br>   if( cgVar-&gt;type==VLValue )<br>   {<br>      /* pass by reference parameter */<br>      VAR_UNREFER(cgVar);<br><br>      varobjCreateMemberAs(call,args-&gt;data.object_val,name,cgVar,0);<br>   }<br>   else<br>   {<br>      /* regular parameter, make copy of the data */<br>      Var tmp =<br>      VAROBJ_CREATE_MEMBER(call,args&gt;data.object_val,name,VUndefined);<br>      VAR_COPY(tmp,cgVar);<br>      /* and have stack var point to that data */<br>      VAR_REFER(call,cgVar,tmp);<br>   }
+
+}</font></pre>
+                                </blockquote>
+                              </ul>
+                              <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><a name="420cerratagcnodest"></a> 
+                                </font> 
+                              <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><b>Garbage 
+                                Collector won't release inherited destructors</b> 
+                                <br>
+                                (for ISDK/C 4.20c)<b> </b> </font></p>
+                              <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                                Bug: Inherited destructors (SomeObj.prototype._delete) 
+                                are not being called after the Garbage Collection 
+                                pass. </font></p>
+                              <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><b>Fix</b>: 
+                                There are a lot of related fixes for this problem. 
+                                Update to release 4.20D</font></p>
+                              <p>&nbsp;</p>
+                              <p> 
+                              <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><a name="420cerrata29"></a></font></p>
+                              <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><b>Overlapping 
+                                memory blocks with varChopFromLeft()</b> <br>
+                                (for ISDK/C 4.20c)<b> </b> </font></p>
+                              <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                                Problem: overlapping memory blocks with varChopFromLeft() 
+                                </font></p>
+                              <p> <font face="Verdana, Arial, Helvetica, sans-serif" size="2"><b>Fix</b>: 
+                                In srccore/garbage.c:837 function varChopFromLeft(): 
+                                HugeMemCpy should be changed to HugeMemMove since 
+                                the blocks of memory may overlap. </font></p>
+                              <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><br>
+                                </font> 
+                              <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><a name="420cerrata28"></a></font></p>
+                              <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><b>Unallocated 
+                                memory read with extensionLinkOnto() </b> <br>
+                                (for ISDK/C 4.20c)<b> </b> </font></p>
+                              <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                                Problem: The existing StrCpyMallocLen in extensionLinkOnto() 
+                                may have read unallocated memory. </font></p>
+                              <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><b>Fix</b>: 
+                                In srccore/extlib.c:374 function extensionLinkOnto(): 
+                                Change the StrCpyMallocLen to the following: </font></p>
+                              <pre><font face="Verdana, Arial, Helvetica, sans-serif" size="2">
+
+    /* allocate memory for file name plus a little just-in-case. 
+
+     * Can use strcpy even in MBCS because it is NULL-terminated. 
+
+     */ 
+
+    FullFileName = jseMustMalloc(jsecharptrdatum, 
+
+                                 (strlen_jsechar(src)+10) 
+
+                                 *sizeof(jsechar)); 
+
+    strcpy_jsechar(FullFileName,src); 
+
+</font></pre>
+                              <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><br>
+                                </font> 
+                              <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><a name="420cerrata27"></a></font></p>
+                              <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><b>Siblings 
+                                of objects trying to access bad memory </b><br>
+                                (for ISDK/C 4.20c)<b> </b> </font></p>
+                              <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                                Problem: With varSibling(), siblings of objects 
+                                may try to access bad memory. </font></p>
+                              <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><b>Fix</b>: 
+                                In srccore/var.c:896 function varSibling(): <br>
+                                (The first few lines and the the last few lines 
+                                remain the same, they are provided so you can 
+                                figure out where to put the stuff that has changed 
+                                in the middle.) </font></p>
+                              <pre><font face="Verdana, Arial, Helvetica, sans-serif" size="2">
+
+#if JSE_ALWAYS_COLLECT==1 
+
+     ASSERT_VALID_VAR( relvar ); 
+
+#endif 
+
+
+
+     if( VAR_ARRAY_POINTER(relvar) ) 
+
+     { 
+
+        if( relvar->data.string_val.data->constant!=0 ) 
+
+           MakeDuplicate(call,relvar); 
+
+
+
+        VAR_COPY(dest,relvar); 
+
+
+
+        dest->data.string_val.loffset += offset; 
+
+     } 
+
+     else 
+
+     { 
+
+        VAR_COPY(dest,relvar); 
+
+     } 
+
+
+
+     /* We only actually validate the index when we go to use 
+
+        it,that is done in varAssign()/varGetNumber().      */ 
+
+</font></pre>
+                              <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><br>
+                                </font> 
+                              <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><a name="420cerrata26"></a></font></p>
+                              <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><b>Unintentionally 
+                                freed items </b><br>
+                                (for ISDK/C 4.20c)<b> </b> </font></p>
+                              <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                                Problem: Undefined memory and possibly having 
+                                the garbage collector's 'already marked' bit on 
+                                leading to items being thought to be free when 
+                                they were in fact in use (thus, they got freed.) 
+                                </font></p>
+                              <p> <font face="Verdana, Arial, Helvetica, sans-serif" size="2"><b>Fix</b>: 
+                                <br>
+                                In call.c:183 function callLocalFunction(): Old 
+                                lines 183 and 184 used VAR_INIT_UNDEFINED, change 
+                                that to: </font></p>
+                              <pre><font face="Verdana, Arial, Helvetica, sans-serif" size="2">
+
+    VAR_MAKE_VALID(&(call->returnval)); 
+
+    VAR_MAKE_VALID(&(call->funcStorage)); 
+
+</font></pre>
+                              <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                                call.c:549 function callWrapperFunction(): Similar 
+                                change, so the line now reads: </font></p>
+                              <pre><font face="Verdana, Arial, Helvetica, sans-serif" size="2">
+
+    VAR_MAKE_VALID(&(call->returnval)); 
+
+</font></pre>
+                              <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                                util.c:717 function callInterpret(): Yet again 
+                                the same king of change: </font></p>
+                              <pre><font face="Verdana, Arial, Helvetica, sans-serif" size="2">
+
+    VAR_MAKE_VALID(&(call->returnval)); 
+
+</font></pre>
+                              <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                                var.h:815 Add a definition for VAR_MAKE_VALID: 
+                                </font></p>
+                              <pre><font face="Verdana, Arial, Helvetica, sans-serif" size="2">
+
+    #define VAR_MAKE_VALID(v) (VAR_INIT_UNDEFINED(v),(v)->flags = 0) 
+
+</font></pre>
+                              <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><br>
+                                </font> 
+                              <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><a name="420cerrata25"></a></font></p>
+                              <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><b>A 
+                                struct seVar and garbage collection </b> <br>
+                                (for ISDK/C 4.20c)<b> </b> </font></p>
+                              <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                                Problem: A struct seVar was allocated as a local 
+                                variable, which is bad because the garbage collector 
+                                has no way to know about it, so anything it points 
+                                to may get collected. </font></p>
+                              <p> <font face="Verdana, Arial, Helvetica, sans-serif" size="2"><b>Fix</b>: 
+                                In call.c:1470 function callPrintError(), change: 
+                                </font></p>
+                              <pre><font face="Verdana, Arial, Helvetica, sans-serif" size="2">
+
+    struct Var loc; 
+
+</font></pre>
+                              <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                                to: </font></p>
+                              <pre><font face="Verdana, Arial, Helvetica, sans-serif" size="2">
+
+    struct Var *loc = stackPush(this); 
+
+</font></pre>
+                              <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                                Add right after the local variable declarations: 
+                                </font></p>
+                              <pre><font face="Verdana, Arial, Helvetica, sans-serif" size="2">
+
+    VAR_INIT_UNDEFINED(loc); 
+
+</font></pre>
+                              <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                                Get rid of the previous initialization of 'loc'. 
+                                All references in the function to '&loc' should 
+                                be changed to just plain 'loc'. </font></p>
+                              <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                                Finally, as the last line of the function, add 
+                                the following: </font></p>
+                              <pre><font face="Verdana, Arial, Helvetica, sans-serif" size="2">
+
+    STACK_DISCARD(this,1); 
+
+</font></pre>
+                              <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><br>
+                                </font> 
+                              <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><a name="420cerrata24"></a></font></p>
+                              <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><b>Invalid 
+                                return from jseGetCurrentThisVariable() </b> <br>
+                                (for ISDK/C 4.20c)<b> </b> </font></p>
+                              <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                                Problem: value returned by jseGetCurrentThisVariable() 
+                                is invalid if there is not a variable assigned 
+                                to "this" </font></p>
+                              <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><b>Fix</b>: 
+                                If there is no explicit "this" variable, the current 
+                                global variable will be assigned as the “this” 
+                                variable.<br>
+                                This can be accomplished with the following code 
+                                changes: </font></p>
+                              <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                                UTIL.C, function callInterpret(), at about line 
+                                724 change </font></p>
+                              <pre><font face="Verdana, Arial, Helvetica, sans-serif" size="2">
+
+          assert( call->old_init==NULL ); 
+
+          return call; 
+
+</font></pre>
+                              <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                                to: </font></p>
+                              <pre><font face="Verdana, Arial, Helvetica, sans-serif" size="2">
+
+          assert( call->old_init==NULL ); 
+
+          call->This = call->GlobalVariable; 
+
+          return call; 
+
+</font></pre>
+                              <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                                UTIL.C, function callInitial(), right before the 
+                                last line of the function (line 884), add: </font></p>
+                              <pre><font face="Verdana, Arial, Helvetica, sans-serif" size="2">
+
+          call->This = call->GlobalVariable; 
+
+</font></pre>
+                              <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><br>
+                                </font> 
+                              <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><a name="420cerrata23"></a></font></p>
+                              <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><b>Wrong 
+                                variables compared with Strict equality & inequality 
+                                </b><br>
+                                (for ISDK/C 4.20c)<b> </b> </font></p>
+                              <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                                Problem: Strict equality (= = =) and inequality 
+                                (!= =) may compare wrong variables. </font></p>
+                              <p> <font face="Verdana, Arial, Helvetica, sans-serif" size="2"><b>Fix</b>: 
+                                at the top of function varCompareStrictEquality() 
+                                in VARUTIL.C, change this code: </font></p>
+                              <pre><font face="Verdana, Arial, Helvetica, sans-serif" size="2">
+
+    VarType vtype = VAR_TYPE(vx); 
+
+</font></pre>
+                              <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                                to this: </font></p>
+                              <pre><font face="Verdana, Arial, Helvetica, sans-serif" size="2">
+
+    VarType vtype; 
+
+    if( vx->type==VLValue ) vx = vx->data.lvalue_val; 
+
+    if( vy->type==VLValue ) vy = vy->data.lvalue_val; 
+
+    vtype = VAR_TYPE(vx); 
+
+</font></pre>
+                              <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><br>
+                                </font> 
+                              <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><a name="420cerrata22"></a></font></p>
+                              <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><b>Calling 
+                                jseFindVariable() from wrapper with dynamic _hasProperty 
+                                </b> <br>
+                                (for ISDK/C 4.20c)<b> </b> </font></p>
+                              <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                                Problem: calling jseFindVariable() from a wrapper 
+                                function when entries in the enclosing script's 
+                                scope chain have a dynamic '_hasProperty' function 
+                                will be using the wrong call (one other than the 
+                                latest) to call those dynamic functions. </font></p>
+                              <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><b>Fix</b>: 
+                                </font></p>
+                              <pre><font face="Verdana, Arial, Helvetica, sans-serif" size="2">
+
+(a) in call.c, line 603 (function FindVariableByName) 
+
+     change the 3 instances of varHasProperty(). In 
+
+     each case, the first parameter is 'this'. Change 
+
+     that to 'callCurrent(this)' 
+
+(b) in util.c, line 1159. Change the definition of 
+
+     callCurrent() to not be static. 
+
+(c) in call.h, line 748, add the declaration for 
+
+     callCurrent(), as 
+
+  
+
+     struct Call * callCurrent(struct Call *this); 
+
+</font></pre>
+                              <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><br>
+                                </font> 
+                              <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><a name="420cerrata21"></a></font></p>
+                              <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><b>_put 
+                                function not called with jseEcmaArray attribute</b> 
+                                <br>
+                                (for ISDK/C 4.20c)<b> </b> </font></p>
+                              <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                                Problem: _put function is not called on variables 
+                                with the jseEcmaArray variable attribute. </font></p>
+                              <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><b>Fix</b>: 
+                                in VARUTIL.C function varPutValue(), varAssign() 
+                                is always called directly if the IS_ARRAY flag 
+                                is set. This block needs to check if there is 
+                                a _put method for this object and fall-through 
+                                to the call-dynamic-method block if there is a 
+                                _put. </font></p>
+                              <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><br>
+                                </font> 
+                              <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><a name="420cerrata20"></a></font></p>
+                              <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><b>PrintErrorFunction 
+                                not immediately called</b> <br>
+                                (for ISDK/C 4.20c)<b> </b> </font></p>
+                              <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                                Problem: sometimes your PrintErrorFunction will 
+                                not be called immediately, even when exceptions 
+                                are not being trapped </font></p>
+                              <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><b>Fix</b>: 
+                                In util.c, callInitialGlobal, right after the 
+                                memset() 6 lines in the function, add, </font></p>
+                              <pre><font face="Verdana, Arial, Helvetica, sans-serif" size="2">   this->mustPrintError = True;
+
+</font></pre>
+                              <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><br>
+                                </font> 
+                              <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><a name="420cerrata19"></a></font></p>
+                              <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><b>Incorrect 
+                                filename/line number reporting</b> <br>
+                                (for ISDK/C 4.20c)<b> </b> </font></p>
+                              <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                                Problem: Error messages, jseLocateSource, and 
+                                the debugger may return incorrect filenames and 
+                                line numbers when reporting on global source-file 
+                                lines of files that have been #include'd. </font></p>
+                              <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><b>Fix</b>: 
+                                In UTIL.C, function secodeSourceLocation(), remove 
+                                the "break;" statement following this line: </font></p>
+                              <pre><font face="Verdana, Arial, Helvetica, sans-serif" size="2">   *name = GetStringTableEntry(call,...);
+
+</font></pre>
+                              <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><br>
+                                </font> 
+                              <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><a name="420cerrata18"></a></font></p>
+                              <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><b>Only 
+                                first error printed with multiple calls</b> <br>
+                                (for ISDK/C 4.20c)<b> </b> </font></p>
+                              <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                                Problem: Only the first error is printed if errors 
+                                occur during multiple calls to execute a function. 
+                                </font></p>
+                              <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><b>Fix</b>: 
+                                In JSELIB.C function jseCallFunctionEx, add this 
+                                as just before the last statement ("return retbool;"); 
+                                </font></p>
+                              <pre><font face="Verdana, Arial, Helvetica, sans-serif" size="2">    jsecontext->errorPrinted = False;
+
+</font></pre>
+                              <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><br>
+                                </font> 
+                              <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><a name="420cerrata17"></a></font></p>
+                              <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><b>no 
+                                line number on error when interpreting text from 
+                                source</b> <br>
+                                (for ISDK/C 4.20c)<b> </b> </font></p>
+                              <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                                Problem: If an error occurs while interpreting 
+                                text for source (i.e., not from a file), the line 
+                                number where the error occurred is not printed 
+                                in the error message. </font></p>
+                              <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><b>Fix</b>: 
+                                In CALL.C function ErrorVPrintf() replace this 
+                                line (at about line 1273) </font></p>
+                              <pre><font face="Verdana, Arial, Helvetica, sans-serif" size="2">      /* If possible find line number information and add that */
+
+    if (secodeSourceLocation(this,&SourceFileName,
+
+        &SourceLineNumber) &&
+
+        SourceFileName!=NULL )
+
+</font></pre>
+                              <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                                with this </font></p>
+                              <pre><font face="Verdana, Arial, Helvetica, sans-serif" size="2">       /* If possible find line number information and add that */
+
+    if (secodeSourceLocation(this,&SourceFileName,
+
+        &SourceLineNumber) )
+
+</font></pre>
+                              <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                                and a few lines later add: </font></p>
+                              <pre><font face="Verdana, Arial, Helvetica, sans-serif" size="2">    SourceFileName = StrCpyMalloc( SourceFileName ? 
+
+                                   SourceFileName
+
+       : textcoreGet(this,textcoreInlineSourceCodePhonyFilename);
+
+</font></pre>
+                              <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                                after the call to jse_sprintf add: </font></p>
+                              <pre><font face="Verdana, Arial, Helvetica, sans-serif" size="2">   jseMustFree((void *)SourceFileName);
+
+</font></pre>
+                              <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><br>
+                                <b>for 4.20b --</b></font> 
+                              <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><a name="420cerrata16"></a></font></p>
+                              <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><b>Syntax 
+                                Error 1521, prototype chains</b> <br>
+                                (for ISDK/C 4.20b)<b> </b> </font></p>
+                              <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2">Error: 
+                                Syntax Error "1521: prototype chains cannot be 
+                                circular" if not using the standard ECMA objects 
+                                found in srclib\ecma\seobject.c </font></p>
+                              <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><b>Fix</b>: 
+                                This can be corrected by adding this line to the 
+                                FunctionProtoList[] in UTIL.C before the prototype._class 
+                                entry. </font></p>
+                              <pre><font face="Verdana, Arial, Helvetica, sans-serif" size="2">
+
+   JSE_VARSTRING( UNISTR("prototype._prototype"),
+
+                         textcorevtype_null,
+
+                         jseDontEnum ),
+
+</font></pre>
+                              <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><br>
+                                </font> 
+                              <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><a name="420cerrata15"></a></font></p>
+                              <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><b>Literal 
+                                strings lost with pre-compiled code </b><br>
+                                (SE:ISDK/C 4.20c)</font> </p>
+                              <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2">Problem: 
+                                While reading in pre-compiled (i.e., jseCreateCodeTokenBuffer) 
+                                code, literal strings may be lost or overwritten. 
+                                </font></p>
+                              <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><b>Fix</b>: 
+                                Fix: in VARUTIL.C, function TokenReadVar(), replace 
+                                this code, </font></p>
+                              <pre><font face="Verdana, Arial, Helvetica, sans-serif" size="2">
+
+   VarRead var = varCreate(call); </font></pre>
+                              <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2">with 
+                                this code: </font></p>
+                              <p>&nbsp; </p>
+                              <pre><font face="Verdana, Arial, Helvetica, sans-serif" size="2">
+
+   VarRead var = varCreate(call); 
+
+   callAddTempVar(call,var); 
+
+   VAR_INIT_UNDEFINED(var); 
+
+</font></pre>
+                              <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2">and 
+                                remove the callAddTempVar(call,var) line from 
+                                the end of this function. </font></p>
+                              <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><br>
+                                </font> 
+                              <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><a name="420cerrata14"></a></font></p>
+                              <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><b>Problem 
+                                with error reporting</b> <br>
+                                (for ISDK/C 4.20b)<br>
+                                </font></p>
+                              <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2">Problem: 
+                                undefined members of global variables may not 
+                                have names printed in error messages. </font></p>
+                              <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2">Example: 
+                                Variable "" is not a function type </font></p>
+                              <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><b>Fix</b>: 
+                                In VARUTIL.C function FindNames (approx. line 
+                                206), change: </font></p>
+                              <pre><font face="Verdana, Arial, Helvetica, sans-serif" size="2">   for( i=0;;i++ )
+
+</font></pre>
+                              <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                                to: </font></p>
+                              <pre><font face="Verdana, Arial, Helvetica, sans-serif" size="2">
+
+   for( i=0;!FoundName;i++ )
+
+</font></pre>
+                              <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><br>
+                                </font> 
+                              <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><a name="420cerrata13"></a></font></p>
+                              <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><b>Errors 
+                                in some MBCS String functions </b> </font></p>
+                              <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2">Problem: 
+                                There are errors in some of the String functions 
+                                for MBCS versions. </font></p>
+                              <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><b>Fix</b>: 
+                                These problems are fixed in 4.20c. Contact Nombas 
+                                if you're working with the MBCS builds and need 
+                                these fixes right away. </font></p>
+                              <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><br>
+                                </font> 
+                              <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><a name="420cerrata12"></a></font></p>
+                              <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><b>Performance 
+                                Issue with 4.20b</b> </font></p>
+                              <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2">Problem: 
+                                Some string functions, particularly adding strings 
+                                and converting a string datum to a string Object, 
+                                are performing more slowly with the 4.20 release, 
+                                usually just a few percent slower. </font></p>
+                              <p> <font face="Verdana, Arial, Helvetica, sans-serif" size="2"><b>Fix</b>: 
+                                These problems will be fixed in 4.20c. Contact 
+                                Nombas if you are having performance degradation 
+                                problems with strings in 4.20b. </font></p>
+                              <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><br>
+                                </font> 
+                              <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><a name="420cerrata11"></a></font></p>
+                              <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><b> 
+                                memory problems with convert_var_to_string </b>(ISDK/C 
+                                4.20b)</font> </p>
+                              <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2">Problem: 
+                                memory may become corrupt when converting a string 
+                                object to a string datum. </font></p>
+                              <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><b>Fix</b>: 
+                                Replace the function convert_var_to_string() in 
+                                file, </font></p>
+                              <pre><font face="Verdana, Arial, Helvetica, sans-serif" size="2">
+
+   SRCCORE\VARUTIL.C
+
+</font></pre>
+                              <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2">with 
+                                the code in - </font></p>
+                              <pre><font face="Verdana, Arial, Helvetica, sans-serif" size="2">
+
+   ftp://ftp.nombas.com/pub/isdkeval/se420/bugfix.txt
+
+</font></pre>
+                              <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><br>
+                                </font> 
+                              <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><a name="420cerrata10"></a></font></p>
+                              <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><b> 
+                                Clib.scanf and variables in GUI versions </b>(ISDK/C 
+                                4.20b)</font> </p>
+                              <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2">Problem: 
+                                Clib.scanf() will not set variables in GUI versions. 
+                                </font></p>
+                              <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><b>Fix</b>: 
+                                In SESTDIO.C function FScanFFamily(), the first 
+                                three instances of - </font></p>
+                              <pre><font face="Verdana, Arial, Helvetica, sans-serif" size="2">
+
+   vfscanf_jsechar(fp,
+
+</font></pre>
+                              <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2">should 
+                                instead be - </font></p>
+                              <pre><font face="Verdana, Arial, Helvetica, sans-serif" size="2">
+
+   vsscanf_jsechar(retbuf,
+
+</font></pre>
+                              <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><br>
+                                </font> 
+                              <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><a name="420cerrata9"></a></font></p>
+                              <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><b> 
+                                jseConstructObject </b> </font></p>
+                              <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2">Problem: 
+                                jseConstructObject() may not call correct constructor 
+                                for objects with no explicit _construct property. 
+                                </font></p>
+                              <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><b>Fix</b>: 
+                                Replace the function jseConstructObject() in file: 
+                                </font></p>
+                              <pre><font face="Verdana, Arial, Helvetica, sans-serif" size="2">
+
+   SRCMISC\SEOBJFUN.C
+
+</font></pre>
+                              <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2">with 
+                                the code in: </font></p>
+                              <pre><font face="Verdana, Arial, Helvetica, sans-serif" size="2">
+
+   ftp://ftp.nombas.com/pub/isdkeval/se420/bugfix.txt
+
+</font></pre>
+                              <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><br>
+                                </font> 
+                              <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><a name="420cerrata8"></a></font></p>
+                              <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><b>"-0" 
+                                is parsing as +0 in some systems </b>(ISDK/C 4.20b)</font> 
+                              </p>
+                              <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2">Problem: 
+                                in some systems "-0" is parsing as +0 and not 
+                                as -0 . </font></p>
+                              <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><b>Test</b>: 
+                                With the test object included ("#link <test.dll>" 
+                                or "#include <setest.jsh>"), this statement will 
+                                fail if your compiler has this problem: </font></p>
+                              <pre><font face="Verdana, Arial, Helvetica, sans-serif" size="2">
+
+   Test.assert( Test.isNegZero( Number("-0") ) );
+
+</font></pre>
+                              <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><b>Workaround</b>: 
+                                in UTIL.C function convertStringToNumber(), after 
+                                the block starting with: </font></p>
+                              <pre><font face="Verdana, Arial, Helvetica, sans-serif" size="2">
+
+   if ( lenParsed != lenStr )
+
+</font></pre>
+                              <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2">add 
+                                this code: </font></p>
+                              <pre><font face="Verdana, Arial, Helvetica, sans-serif" size="2">
+
+   else if ( '-'==JSECHARPTR_GETC(str)  &&  jseIsPosZero(val) )
+
+      val = jseNegZero;
+
+</font></pre>
+                              <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><br>
+                                </font> 
+                              <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><a name="420cerrata7"></a></font></p>
+                              <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><b> 
+                                Blob.get() with negative integers() </b>(ISDK/C 
+                                4.20b)</font> </p>
+                              <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2">Problem: 
+                                Blob.get() may translate sign incorrectly for 
+                                negative integers() . </font></p>
+                              <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2">Depending 
+                                on your compiler, you may falsely get a negative 
+                                statement out of a script such as this: </font></p>
+                              <pre><font face="Verdana, Arial, Helvetica, sans-serif" size="2">
+
+    Blob.put(buf,0x80000000,SWORD32);
+
+    return Blob.get(buf,0,UWORD32);
+
+</font></pre>
+                              <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2">or 
+                                the following may falsely return -1 </font></p>
+                              <pre><font face="Verdana, Arial, Helvetica, sans-serif" size="2">
+
+    Blob.put(buf,-3,SWORD32);
+
+    return Blob.get(buf,0,SWORD32);
+
+</font></pre>
+                              <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><b>Fix</b>: 
+                                in seblob.c, function blobGetByValue(), at about 
+                                line 796, change: </font></p>
+                              <pre><font face="Verdana, Arial, Helvetica, sans-serif" size="2">
+
+     assert(blobUWORD16 == type ||
+
+            blobUWORD24 == type ||
+
+            blobUWORD32 == type );
+
+</font></pre>
+                              <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2">to: 
+                                </font></p>
+                              <pre><font face="Verdana, Arial, Helvetica, sans-serif" size="2">
+
+   {
+
+     assert(blobUWORD16 == type ||
+
+            blobUWORD24 == type ||
+
+            blobUWORD32 == type );
+
+   }
+
+</font></pre>
+                              <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2">and 
+                                a few lines later, change: </font></p>
+                              <pre><font face="Verdana, Arial, Helvetica, sans-serif" size="2">
+
+   jsePutLong(jsecontext,dest,l);
+
+</font></pre>
+                              <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2">to: 
+                                </font></p>
+                              <pre><font face="Verdana, Arial, Helvetica, sans-serif" size="2">
+
+   if ( !((-type) & 1) )
+
+     jsePutLong(jsecontext,dest,l);
+
+   else
+
+     jsePutNumber(jsecontext,dest,(jsenumber)(ulong)l);
+
+</font></pre>
+                              <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><br>
+                                </font> 
+                              <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><a name="420cerrata6"></a></font></p>
+                              <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><b> 
+                                Clib.getch(), Clib.getche() receive only from 
+                                real keyboard </b>(ISDK/C 4.20b)</font> </p>
+                              <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2">Problem: 
+                                If keyboard is redirected via Clib.freopen(), 
+                                Clib.getch() and Clib.getche() are retrieved from 
+                                the file instead of from the real keyboard. These 
+                                functions should always receive from the real 
+                                keyboard. </font></p>
+                              <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><b>Fix</b>: 
+                                in sestdio.c function _sestdio_getch_() delete 
+                                this section of code: </font></p>
+                              <pre>
+
+   <font face="Verdana, Arial, Helvetica, sans-serif" size="2">&& fileSystemIsConsoleFP(jsecontext,stdin)
+
+</font></pre>
+                              <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><br>
+                                </font> 
+                              <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><a name="420cerrata5"></a></font></p>
+                              <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><b> 
+                                GenericGetDataPtr() </b>(ISDK/C 4.20b)</font> 
+                              </p>
+                              <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2">Problem: 
+                                memory may become corrupt when preserving data 
+                                retrieve from a string or buffer datum via dynamic 
+                                _get . </font></p>
+                              <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><b>Fix</b>: 
+                                Replace the function GenericGetDataPtr() in file: 
+                                </font></p>
+                              <pre><font face="Verdana, Arial, Helvetica, sans-serif" size="2">
+
+   SRCCORE\JSELIB.C
+
+</font></pre>
+                              <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2">with 
+                                the code in: </font></p>
+                              <pre><font face="Verdana, Arial, Helvetica, sans-serif" size="2">
+
+   ftp://ftp.nombas.com/pub/isdkeval/se420/bugfix.txt
+
+</font></pre>
+                              <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><br>
+                                </font> 
+                              <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><a name="420cerrata4"></a></font></p>
+                              <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><b> 
+                                Subtracting strings, non-finite numbers </b>(ISDK/C 
+                                4.20b)</font> </p>
+                              <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2">Problem: 
+                                with some compilers, subtracting strings does 
+                                not give correct answers for non-finite numbers 
+                                (e.g., <c> foo = "Infinity" - "NaN"</c> ) </font></p>
+                              <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><b>Fix</b>: 
+                                In OPERATOR.C function do_add_or_subtract() at 
+                                about line 522 change this code: </font></p>
+                              <pre><font face="Verdana, Arial, Helvetica, sans-serif" size="2">
+
+    /* subtraction will treat both sides as numbers */
+
+    lnum = GetNumberForOperator(call,rlvar);
+
+    rnum = GetNumberForOperator(call,rrvar);
+
+    STACK_DISCARD(call,1);
+
+    newVar = STACK_TOP(call);
+
+    VAR_INIT_NUMBER(newVar,lnum - rnum);
+
+</font></pre>
+                              <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2">To 
+                                this: </font></p>
+                              <pre><font face="Verdana, Arial, Helvetica, sans-serif" size="2">
+
+    /* subtraction will treat both sides as numbers */
+
+    lnum = GetNumberForOperator(call,rlvar);
+
+    rnum = GetNumberForOperator(call,rrvar);
+
+    goto QuickAddTwoNumbers;
+
+</font></pre>
+                              <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><br>
+                                </font> 
+                              <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><a name="420cerrata3"></a></font></p>
+                              <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><b> 
+                                Error with #link for some Unix systems </b> </font></p>
+                              <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2">Problem: 
+                                #link library loading problem with Solaris and 
+                                Irix. </font></p>
+                              <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><b>Fixes</b>:<br>
+                                - for Solaris: srccore/extlib.c line 582, add 
+                                right before the case for __JSE_UNUX__: </font></p>
+                              <pre><font face="Verdana, Arial, Helvetica, sans-serif" size="2">
+
+   #elif defined(__sun__)
+
+    temphExtensionLib = dlopen(FullLibraryPath,
+
+                               RTLD_LAZY|RTLD_GROUP);
+
+</font></pre>
+                              <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2">- 
+                                for Irix: </font></p>
+                              <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                                all extlib makefiles changed the definition of 
+                                </font></p>
+                              <pre><font face="Verdana, Arial, Helvetica, sans-serif" size="2">
+
+   EXT_LINK_FLAGS 
+
+</font></pre>
+                              <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                                to: </font></p>
+                              <pre><font face="Verdana, Arial, Helvetica, sans-serif" size="2">
+
+   EXT_LINK_FLAGS  = -shared -Xlinker -B -Xlinker symbolic
+
+</font></pre>
+                              <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><br>
+                                </font> 
+                              <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><a name="420cerrata2"></a></font></p>
+                              <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><b> 
+                                (Unix) Infinity and -Infinity parsing error </b> 
+                                </font></p>
+                              <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2">Problem: 
+                                "Infinity" and "-Infinity" not parsed correctly 
+                                on Solaris and possibly other Unix systems </font></p>
+                              <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><b>Fix</b>: 
+                                In file UTIL.C at about line 1462, just before 
+                                this line: </font></p>
+                              <pre><font face="Verdana, Arial, Helvetica, sans-serif" size="2">
+
+   val = ( 0 == strnicmp_jsechar(str,UNISTR("0x"),2) )
+
+</font></pre>
+                              <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2">insert 
+                                this code: </font></p>
+                              <pre><font face="Verdana, Arial, Helvetica, sans-serif" size="2">
+
+  #  ifdef __JSE_UNIX__
+
+     assert(sizeof_jsechar('-') == sizeof(jsecharptrdatum));
+
+     if(isalpha_jsechar(JSECHARPTR_GETC(str)) ||
+
+       (*str=='-' && isalpha_jsechar(JSECHARPTR_GETC(str+1)))
+
+       parseEnd = str;
+
+     else
+
+  #  endif
+
+</font></pre>
+                              <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><br>
+                                </font> 
+                              <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><a name="420cerrata1"></a></font></p>
+                              <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><b> 
+                                ++ not working with Nan for some systems </b>(ISDK/C 
+                                4.20b)</font> </p>
+                              <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2">Problem: 
+                                ++ , on certain systems (IRIX), won't work with 
+                                NaN correctly. </font></p>
+                              <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><b>Fix</b>: 
+                                In secode.c, line 1355, insert this test: </font></p>
+                              <pre><font face="Verdana, Arial, Helvetica, sans-serif" size="2">
+
+   if( jseIsFinite(lhs->data.lvalue_val->data.num_val) )
+
+</font></pre>
+                              <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2">right 
+                                before the existing: </font></p>
+                              <pre><font face="Verdana, Arial, Helvetica, sans-serif" size="2">
+
+   if( t==opIncrement )
+
+   {
+
+   ...
+
+</font></pre>
+                              <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2">Similarly, 
+                                in operator.c, line 705, insert: </font></p>
+                              <pre><font face="Verdana, Arial, Helvetica, sans-serif" size="2">
+
+   if( jseIsFinite(var->data.num_val) )
+
+</font></pre>
+                              <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2">right 
+                                before: </font></p>
+                              <pre><font face="Verdana, Arial, Helvetica, sans-serif" size="2">
+
+   var->data.num_val += delta;
+
+</font></pre>
+                              <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2">and 
+                                change the else block beginning at 737 to: </font></p>
+                              <pre><font face="Verdana, Arial, Helvetica, sans-serif" size="2">
+
+   else
+
+   {
+
+      double val = GetNumberForOperator(call,var);
+
+      /* It is possible that the conversion to number failed,
+
+       * in which case we don't want to overwrite the old
+
+       * value, since we want to cease execution immediately.
+
+       */
+
+      if( !CALL_QUIT(call)
+
+         if( jseIsFinite(val) )
+
+         {
+
+            VAR_INIT_NUMBER(var,val+delta);
+
+         }
+
+         else
+
+         {
+
+            VAR_INIT_NUMBER(var,val);
+
+         }
+
+   }
+
+</font></pre>
+                              <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2">in 
+                                srclib/ecma/ecmamisc.c, line 164, add: </font></p>
+                              <pre><font face="Verdana, Arial, Helvetica, sans-serif" size="2">
+
+   if( jseIsNaN(result) )
+
+       jseReturnNumber(jsecontext,result);
+
+   else
+
+</font></pre>
+                              <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2">before: 
+                                </font></p>
+                              <pre><font face="Verdana, Arial, Helvetica, sans-serif" size="2">
+
+   jseReturnNumber(jsecontext,result*sign);
+
+</font></pre>
+                              <p>&nbsp;</p>
+                              <hr>
+                              <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><i>(The 
+                                following first published August, 1999, or earlier.)</i></font></p>
+                              <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><a name="410cerrata12"></a> 
+                                </font></p>
+                              <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><b>Deref 
+                                variable not making space for new element </b> 
+                                </font></p>
+                              <p> <font face="Verdana, Arial, Helvetica, sans-serif" size="2"><b>Problem:</b> 
+                                deref variable (i.e., a[1] in cfunction where 
+                                a is string) was not making space for the new 
+                                element being assigned. So a[0] = 1 doesn't grow 
+                                to include a 0th element if it did not already. 
+                                </font></p>
+                              <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><b>Fix:</b> 
+                                in VARWRITE.C function varPutNumber(), after: 
+                                </font></p>
+                              <p> <font face="Verdana, Arial, Helvetica, sans-serif" size="2">&nbsp;&nbsp;if( 
+                                varIsDeref(this) ) </font></p>
+                              <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2">add 
+                                this line: </font></p>
+                              <p> <font face="Verdana, Arial, Helvetica, sans-serif" size="2">&nbsp;&nbsp;varmemValidateIndex(this->varmem,this->offset_or_createType,<br>
+                                &nbsp; &nbsp; &nbsp; 1,False,False);</font></p>
+                              <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><br>
+                                <a name="410cerrata11"></a> </font></p>
+                              <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><b>FindNames 
+                                with protected-memory systems</b></font></p>
+                              <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                                Problem: the FindNames function can crash protected-memory 
+                                systems.<br>
+                                <br>
+                                <b>Fix</b>: The simplest fix is to add this statement 
+                                at the top of -<br>
+                                <br>
+                                GetStringTableEntry() in CALL.C:<br>
+                                <br>
+                                &nbsp;&nbsp;if ( NULL == entry ) return NULL;<br>
+                                </font></p>
+                              <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><br>
+                                <a name="410cerrata10"></a> </font></p>
+                              <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><b>JseCallFunction()and 
+                                MayIContinue</b> </font></p>
+                              <p> <font face="Verdana, Arial, Helvetica, sans-serif" size="2"><b>Problem:</b> 
+                                if calling jseCallFunction() and MayIContinue 
+                                returns<br>
+                                false, then contexts may not be cleaned up.<br>
+                                <br>
+                                <b>Fix</b>: In function.c/functionFullCall(), 
+                                a short loop must be<br>
+                                added to end all sub-functions when MayIContinue() 
+                                returns false.<br>
+                                Contact Nombas for this code if you need to add 
+                                it to 4.10C. </font></p>
+                              <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><br>
+                                <a name="410cerrata9"></a> </font></p>
+                              <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><b>Remote 
+                                debugger hanging under Windows</b></font></p>
+                              <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2">Problem: 
+                                Debugging session hangs when using remote debugger 
+                                on<br>
+                                the Windows platform.<br>
+                                <br>
+                                <b>Fix</b>: in PROXY.C, replace the functions 
+                                DoWaitForReadLoop,<br>
+                                WaitUntilReadyToRecv, and WaitUntilReadyToSend 
+                                with the<br>
+                                following: </font></p>
+                              <ul>
+                                <blockquote> 
+                                  <p> <font face="Verdana, Arial, Helvetica, sans-serif" size="2">static 
+                                    void NEAR_CALL<br>
+                                    DoWaitForReadLoop(struct tcpipInfo *ti)<br>
+                                    {<br>
+                                    #if defined(__JSE_WIN16__) || defined(__JSE_WIN32__)<br>
+                                    &nbsp;&nbsp;MSG msg;<br>
+                                    #endif<br>
+                                    <br>
+                                    &nbsp;&nbsp;while( !ti->GotWmSocketReadReady 
+                                    &&<br>
+                                    &nbsp;&nbsp;&nbsp;&nbsp;!ti->GotWmSocketCloseReady 
+                                    )<br>
+                                    &nbsp;&nbsp;{<br>
+                                    # if defined(__JSE_WIN16__) || defined(__JSE_WIN32__)<br>
+                                    &nbsp;&nbsp;&nbsp;&nbsp;if( !GetMessage(&msg,0,0,0) 
+                                    ) return;<br>
+                                    &nbsp;&nbsp;&nbsp;&nbsp;TranslateMessage(&msg);<br>
+                                    &nbsp;&nbsp;&nbsp;&nbsp;DispatchMessage(&msg);<br>
+                                    # elif defined(USE_MAC_WINSOCK)<br>
+                                    &nbsp;&nbsp;NMIdle();<br>
+                                    # endif<br>
+                                    &nbsp;&nbsp;}<br>
+                                    }<br>
+                                    <br>
+                                    static void NEAR_CALL<br>
+                                    WaitUntilReadyToRecv(struct debugMe *debugme,SOCKET 
+                                    socket)<br>
+                                    {<br>
+                                    &nbsp;&nbsp;struct tcpipInfo *ti = <br>
+                                    &nbsp;&nbsp;&nbsp;&nbsp;(struct tcpipInfo*)jseDbgInfo(debugme);<br>
+                                    <br>
+                                    &nbsp;&nbsp;unsigned long non_blocking = 0;<br>
+                                    <br>
+                                    &nbsp;&nbsp;DoWaitForReadLoop(ti);<br>
+                                    <br>
+                                    &nbsp;&nbsp;ti->GotWmSocketReadReady = False;<br>
+                                    &nbsp;&nbsp;ti->GotWmSocketCloseReady = False;<br>
+                                    <br>
+                                    &nbsp;&nbsp;ioctlsocket(socket,FIONBIO,&non_blocking);<br>
+                                    }<br>
+                                    <br>
+                                    static void NEAR_CALL<br>
+                                    WaitUntilReadyToSend(struct debugMe *debugme,SOCKET 
+                                    <br>
+                                    &nbsp;&nbsp;socket)<br>
+                                    {<br>
+                                    &nbsp;&nbsp;struct tcpipInfo *ti = (struct 
+                                    tcpipInfo*)jseDbgInfo(debugme);<br>
+                                    <br>
+                                    &nbsp;&nbsp;unsigned long non_blocking = 0;<br>
+                                    <br>
+                                    &nbsp;&nbsp;ti->GotWmSocketWriteReady = True;<br>
+                                    &nbsp;&nbsp;ti->GotWmSocketCloseReady = False;<br>
+                                    <br>
+                                    &nbsp;&nbsp;ioctlsocket(socket,FIONBIO,&non_blocking);<br>
+                                    }</font></p>
+                                </blockquote>
+                              </ul>
+                              <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                                The function DoWaitForWriteLoop() may be commented 
+                                out or<br>
+                                removed from the code altogether. </font></p>
+                              <p> <font face="Verdana, Arial, Helvetica, sans-serif" size="2"><br>
+                                <a name="410cerrata8"></a> </font></p>
+                              <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><b>SECode_Stack_Push</b> 
+                                </font></p>
+                              <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                                Problem: SECODE_STACK_PUSH() assumes compiler 
+                                errors:<br>
+                                <br>
+                                In a few cases, the use of the SECODE_STACK_PUSH 
+                                macro makes<br>
+                                invalid assumptions about the C compiler. If your 
+                                compiler has<br>
+                                this problem, then the engine will crash during 
+                                initialization.<br>
+                                <br>
+                                <b>Fix</b>: In function.c at about line 167, this 
+                                code: </font></p>
+                              <ul>
+                                <blockquote> 
+                                  <p> <font face="Verdana, Arial, Helvetica, sans-serif" size="2">SECODE_STACK_PUSH(CallerCall->Global->thestack,<br>
+                                    &nbsp;&nbsp;functionFinishCall(this,CallerCall->pChildCall,<br>
+                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;InputVariableCount,ThisVar));</font></p>
+                                </blockquote>
+                              </ul>
+                              <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                                should become this code: </font></p>
+                              <ul>
+                                <blockquote> 
+                                  <p> <font face="Verdana, Arial, Helvetica, sans-serif" size="2">VarRead 
+                                    *ret;<br>
+                                    ret = functionFinishCall(this,CallerCall->pChildCall,<br>
+                                    &nbsp;&nbsp;&nbsp;&nbsp;InputVariableCount, 
+                                    ThisVar)<br>
+                                    SECODE_STACK_PUSH(CallerCall->Global->thestack,ret); 
+                                    </font></p>
+                                </blockquote>
+                              </ul>
+                              <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                                In secode.c line 2100 this code: </font></p>
+                              <ul>
+                                <blockquote> 
+                                  <p> <font face="Verdana, Arial, Helvetica, sans-serif" size="2">SECODE_STACK_PUSH(stack,do_op_delete(call,tmp));</font> 
+                                  </p>
+                                </blockquote>
+                              </ul>
+                              <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                                should be: </font></p>
+                              <ul>
+                                <blockquote> 
+                                  <p> <font face="Verdana, Arial, Helvetica, sans-serif" size="2">VarRead 
+                                    *tmp2;<br>
+                                    tmp2 = do_op_delete(call,tmp);<br>
+                                    SECODE_STACK_PUSH(stack,tmp2);</font> </p>
+                                </blockquote>
+                              </ul>
+                              <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                                and a few lines below that this code: </font></p>
+                              <ul>
+                                <blockquote> 
+                                  <p> <font face="Verdana, Arial, Helvetica, sans-serif" size="2">SECODE_STACK_PUSH(stack,do_op_typeof(call,tmp));</font> 
+                                  </p>
+                                </blockquote>
+                              </ul>
+                              <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                                should be: </font></p>
+                              <ul>
+                                <blockquote> 
+                                  <p> <font size="2" face="Verdana, Arial, Helvetica, sans-serif">VarRead 
+                                    *tmp2;<br>
+                                    tmp2 = do_op_typeof(call,tmp);<br>
+                                    SECODE_STACK_PUSH(stack,tmp2);</font> </p>
+                                </blockquote>
+                              </ul>
+                              <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><br>
+                                <a name="410cerrata7"></a> </font></p>
+                              <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><b>ToolkitAppPrintError 
+                                - No-unicode</b> </font></p>
+                              <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                                Problem: Our default ToolkitAppPrintError function 
+                                does not<br>
+                                handle Unicode.<br>
+                                <br>
+                                <b>Fix</b>: The single statement in PRINTERR.C 
+                                should become: </font></p>
+                              <ul>
+                                <blockquote> 
+                                  <p> <font face="Verdana, Arial, Helvetica, sans-serif" size="2">fprintf_jsechar(stderr,UNISTR("Error 
+                                    %s\n"),<br>
+                                    ErrorString);</font> </p>
+                                </blockquote>
+                              </ul>
+                              <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><br>
+                                <a name="410cerrata6"></a> </font></p>
+                              <p><font size="2" face="Verdana, Arial, Helvetica, sans-serif"><b>Alert 
+                                about defineXXX() Functions</b></font> </p>
+                              <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2">Alert: 
+                                It is possible that the defineXXX() functions, 
+                                as prototyped in DEFINE.H, will read from memory 
+                                not allocated by the application. This has not 
+                                been found to produce an error in any system.<br>
+                                <br>
+                                </font></p>
+                              <p> <font face="Verdana, Arial, Helvetica, sans-serif" size="2"><b>Fix</b>: 
+                                in DEFINE.C function defineAddLen() the line containing 
+                                "memcmp" should be changed to:</font></p>
+                              <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2">if 
+                                ( 0 == strncmp_jsechar(FindString,(*plink)->Find,FindStringLen) 
+                                </font> </p>
+                              <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><br>
+                                <br>
+                                <a name="410cerrata5"></a> </font></p>
+                              <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><b>Fix 
+                                For Memory Access While Deleting Call Structure</b> 
+                                </font></p>
+                              <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                                Problem: Invalid memory access while deleting 
+                                a call structure.<br>
+                                <br>
+                                <b>Fix</b>: Remove the following lines from the 
+                                end of the callDelete() function in CALL.C<br>
+                                <br>
+                                /* Don't restore a valid quit reason if <br>
+                                * calling a destructor failed -<br>
+                                * that's still a failure<br>
+                                */<br>
+                                if( !callQuitWanted(this) )<br>
+                                callSetReasonToQuit(this,RememberReasonToQuit);</font> 
+                              </p>
+                              <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><br>
+                                <a name="410cerrata4"></a> </font></p>
+                              <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><b>eval() 
+                                function and JSE_MULTIPLE_GLOBAL</b></font></p>
+                              <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                                The eval() function may not recognize the correct 
+                                variables when using the JSE_MULTIPLE_GLOBAL option 
+                                and your code is use jseGetGlobalObject() to modify 
+                                the global variable. The problem is that eval() 
+                                is modifying the global to the original value, 
+                                and not the value of its own context. <br>
+                                <br>
+                                <b>Fix</b>:<br>
+                                In srclib/ecma/ecmamisc.c, the function Ecma_eval. 
+                                Right before the 'if ( !jseInterpret(...' line, 
+                                the following should be added:<br>
+                                <br>
+                                # if 0 != JSE_MULTIPLE_GLOBAL<br>
+                                jseSetGlobalObject(jsecontext,<br>
+                                jseGlobalObject(jsePreviousContext(jsecontext)));<br>
+                                # endif</font> </p>
+                              <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><br>
+                                <a name="410cerrata2"></a> </font></p>
+                              <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><b>Implicitparents 
+                                bug fix</b></font></p>
+                              <p> <font face="Verdana, Arial, Helvetica, sans-serif" size="2">(<b>Note</b>: 
+                                this bug is probably important to only a few users, 
+                                because very few probably use implicitparents 
+                                or implicitthis on assigned methods of an object.)<br>
+                                <br>
+                                Variable attributes may not be retained by methods 
+                                assigned as members of an object. This is most 
+                                likely a problem if you use the jseImplicitThis 
+                                or jseImplicitParents attributes. SCOPE2.JSE in 
+                                the test suite demonstrates this error.<br>
+                                <br>
+                                <b>Fix</b>: Contact us at --<br>
+                                <a href="http://support.nombas.com/">Tech Support</a></font> 
+                                <font face="Verdana, Arial, Helvetica, sans-serif" size="2"><br>
+                                </font></p>
+                              <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><a name="410cerrata1"></a> 
+                                </font> 
+                              <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><b>HTML-style 
+                                comments</b> (<tt>&lt;!--</tt>) are not recognized 
+                                by the core interpreter. This type of comment 
+                                can be added by assigning <tt>JSE_HTML_COMMENT_STYLE=1</tt> 
+                                in your compiler environment, and by adding the 
+                                following code after the <i>IS_WHITESPACE</i> 
+                                statement in the <i>CompileFromText()</i> function 
+                                of CODE.C:<br>
+                                <tt>&nbsp;&nbsp;#if&nbsp;defined(JSE_HTML_COMMENT_STYLE)&nbsp;\</tt><br>
+                                <tt>&nbsp;&nbsp; &amp;&amp;&nbsp;(JSE_HTML_COMMENT_STYLE==1)</tt><br>
+                                <tt>&nbsp;&nbsp;&nbsp;&nbsp;if( src[0]=='&lt;' 
+                                &amp;&amp; src[1]=='!'</tt><br>
+                                <tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&amp;&amp;&nbsp;src[2]=='-'&nbsp;&amp;&amp;&nbsp;src[3]=='-'&nbsp;)</tt><br>
+                                <tt>&nbsp;&nbsp;&nbsp;&nbsp;{</tt><br>
+                                <tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;goto&nbsp;EndOfSourceLine;</tt><br>
+                                <tt>&nbsp;&nbsp;&nbsp;&nbsp;}</tt><br>
+                                <tt>&nbsp;&nbsp;&nbsp;&nbsp;else</tt><br>
+                                <tt>&nbsp;&nbsp;#endif</tt> </font></p>
+                              <hr>
+                              <font face="Verdana, Arial, Helvetica, sans-serif" size="2"><a name="docerrata5"></a> 
+                              </font> 
+                              <p><font size="2" face="Verdana, Arial, Helvetica, sans-serif"><b>Documentation</b> 
+                                errata</font> </p>
+                              <p><font size="2" face="Verdana, Arial, Helvetica, sans-serif"><a href="../../manual/index.htm"><b>4.20 
+                                </b></a><b><a href="../../manual/index.htm">documentation</a></b> 
+                                -- (Jan. 5, 2000)</font></p>
+                              <font face="Verdana, Arial, Helvetica, sans-serif" size="2">&nbsp;&nbsp;The 
+                              following corrections are all for functions documented 
+                              in the API Chapter. </font> 
+                              <p>&nbsp;</p>
+                              <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><b>jseMemberWrapperFunction 
+                                </b><br>
+                                - jseDestroyVariable unnecessary </font></p>
+                              <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2">Problem: 
+                                In the API chapter, the Comments state that jseMemberWrapperFunction 
+                                creates a function variable which must eventually 
+                                be destroyed with jseDestroyVariable(). </font></p>
+                              <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><b>Correction</b>: 
+                                jseMemberWrapperFunction creates an internally-temporary 
+                                variable which you should not destroy with jseDestroyVariable. 
+                                The current edition of the documentation shows 
+                                this correctly. </font></p>
+                              <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><a name="docerrata4"></a></font></p>
+                              <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><b>jseInterpInit()</b> 
+                                <br>
+                                - returns a jseContext. </font></p>
+                              <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2">jseInterpInit() 
+                                returns a jseContext, not jseBool as was shown. 
+                                The current edition of the documentation shows 
+                                this correctly. </font></p>
+                              <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><a name="docerrata3"></a></font></p>
+                              <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><b>for 
+                                jseInterpTerm()</b> - 2nd parameter </font></p>
+                              <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2">jseInterpTerm() 
+                                takes a 2nd parameter, 'jsebool traperrors'.<br>
+                                If it is true, then jseInterpTerm() will return 
+                                an error object if there is an error. <br>
+                                If it is false, it will print an error message 
+                                and return false on errors. </font></p>
+                              <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"></font></p>
+                              <!-- #EndEditable --></td>
+                    </tr>
+                    <tr> 
+                      <td width="1">&nbsp;</td>
+                      <td width="460">&nbsp;</td>
+                    </tr>
+                  </table>
+                  </TD>
+              </TR>
+            </TABLE>
+          </TD>
+        </TR>
+      </TABLE>
+    </TD>
+  </TR>
+  <TR VALIGN=TOP ALIGN=LEFT> 
+    <TD HEIGHT=2 width="5"></TD>
+    <TD COLSPAN=2 height="2"> 
+            <TABLE BORDER=0 CELLSPACING=0 CELLPADDING=0 WIDTH=100% HEIGHT=20 bgcolor="#FFFFFF">
+              <TR ALIGN=LEFT VALIGN=TOP> 
+          <TD> 
+                  <TABLE BORDER=0 CELLSPACING=0 CELLPADDING=0 WIDTH=100%>
+                    <TR VALIGN=TOP ALIGN=LEFT> 
+                <TD WIDTH=20 HEIGHT=2 ALIGN=LEFT VALIGN=TOP><IMG ID="Picture13" HEIGHT=20 WIDTH=20 SRC="../../../curve_botleft.gif" BORDER=0></TD>
+                      <TD height="2"><IMG SRC="../../../clearpixel.gif" WIDTH=592 HEIGHT=1 BORDER=0></TD>
+                <TD WIDTH=20 ALIGN=LEFT VALIGN=TOP height="2"><IMG ID="Picture11" HEIGHT=20 WIDTH=20 SRC="../../../curve_bot.gif" BORDER=0></TD>
+              </TR>
+            </TABLE>
+          </TD>
+        </TR>
+      </TABLE>
+    </TD>
+  </TR>
+  <TR VALIGN=TOP ALIGN=LEFT> 
+    <TD WIDTH=5 HEIGHT=6><IMG SRC="../../../clearpixel.gif" WIDTH=5 HEIGHT=1 BORDER=0></TD>
+    <TD WIDTH=613><IMG SRC="../../../clearpixel.gif" WIDTH=613 HEIGHT=1 BORDER=0></TD>
+    <TD WIDTH=22><IMG SRC="../../../clearpixel.gif" WIDTH=19 HEIGHT=1 BORDER=0></TD>
+  </TR>
+  <TR VALIGN=TOP ALIGN=LEFT> 
+    <TD COLSPAN=2> 
+            <P ALIGN=RIGHT><A HREF="../../../index.htm"><FONT COLOR="#FFFFFF" SIZE="-2" FACE="Verdana,Tahoma,Arial,Helvetica">Home</FONT></A><FONT COLOR="#FFFFFF" SIZE="-2" FACE="Verdana,Tahoma,Arial,Helvetica"> 
+              | </FONT><A
+                 HREF="../../../scripting/scripting.htm"><FONT COLOR="#FFFFFF" SIZE="-2" FACE="Verdana,Tahoma,Arial,Helvetica">Scripting</FONT></A><FONT COLOR="#FFFFFF" SIZE="-2" FACE="Verdana,Tahoma,Arial,Helvetica"> 
+              | </FONT><A
+                 HREF="../../../products/products.htm"><FONT COLOR="#FFFFFF" SIZE="-2" FACE="Verdana,Tahoma,Arial,Helvetica">Products</FONT></A><FONT COLOR="#FFFFFF" SIZE="-2" FACE="Verdana,Tahoma,Arial,Helvetica"> 
+              | </FONT><A
+                 HREF="../../../purchase/purchase.htm"><FONT COLOR="#FFFFFF" SIZE="-2" FACE="Verdana,Tahoma,Arial,Helvetica">Purchase</FONT></A><FONT COLOR="#FFFFFF" SIZE="-2" FACE="Verdana,Tahoma,Arial,Helvetica"> 
+              | </FONT><A
+                 HREF="../../../download/ndownload.htm"><FONT COLOR="#FFFFFF" SIZE="-2" FACE="Verdana,Tahoma,Arial,Helvetica">Download</FONT></A><FONT COLOR="#FFFFFF" SIZE="-2" FACE="Verdana,Tahoma,Arial,Helvetica"> 
+              | </FONT><A
+                 target="support" HREF="http://support.nombas.com/"><FONT COLOR="#FFFFFF" SIZE="-2" FACE="Verdana,Tahoma,Arial,Helvetica">Support</FONT></A><FONT COLOR="#FFFFFF" SIZE="-2" FACE="Verdana,Tahoma,Arial,Helvetica"> 
+              | </FONT><A HREF="../../../company/company.htm"> <FONT COLOR="#FFFFFF" SIZE="-2" FACE="Verdana,Tahoma,Arial,Helvetica">Company</FONT></A><FONT COLOR="#FFFFFF" SIZE="-2" FACE="Verdana,Tahoma,Arial,Helvetica"><BR>
+        <BR>
+        Copyright &#169;2001, Nombas, Inc. All Rights Reserved.<BR>
+        Questions? Visit </FONT><A HREF="http://support.nombas.com/"><FONT COLOR="#FFFFFF" SIZE="-2" FACE="Verdana,Tahoma,Arial,Helvetica">http://support.nombas.com/</FONT></A> 
+    </TD>
+    <TD width="22"></TD>
+  </TR>
+</TABLE>
+</td>
+  </tr>
+</table>
+<SCRIPT language=JavaScript1.2>
+  display_nombas_legacy_message();
+</SCRIPT>
+</BODY>
+<!-- #EndTemplate --></HTML>

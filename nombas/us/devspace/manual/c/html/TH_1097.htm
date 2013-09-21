@@ -1,0 +1,77 @@
+<html>
+<head>
+<title>Database execute()</title>
+<link rel="stylesheet" href="semanualstyles.css" type="text/css">
+<style type="text/css">
+ p { margin-top: 0; margin-bottom: 0; }
+</style>
+<script language="JavaScript" src="TrueHelp.js"></script>
+</head>
+<body onload="thload()">
+<div id=ienav>
+<ilayer id=nsnav>
+<br>
+<center>
+<p class=normal><a href="seisdkc-toc.htm" target="left">contents</a> &nbsp; <a href="seisdkc-index.htm" target="left">index</a> &nbsp; <a href="TH_1096.htm">previous</a> &nbsp; <a href="TH_1098.htm">next</a></p>
+</center>
+<br>
+<hr noshade size=1>
+</ilayer>
+</div>
+<p class=sereffunclevel4>Database execute()</p>
+<table cellpadding=0>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>syntax:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=sesyntax>database.execute(<span class=truehelp-xe></span>sqlstatement)</p></td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>where:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>sqlstatement - string representing the SQL statement to execute.</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>return:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>number - 0 if the call was successful; otherwise, a nonzero status code based on the error message produced by the database.  If the method returns a nonzero status code, use the <span class=secodephrase>majorErrorCode</span> and <span class=secodephrase>majorErrorMessage</span> methods to interpret the meaning of the error.</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>description:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>This method allows execution of any data definition language (DDL) or data manipulation language (DML) SQL statement supported by the database server that does not return a cursor (such as <span class=secodephrase>CREATE</span>, <span class=secodephrase>ALTER</span>, or <span class=secodephrase>DROP</span>). Each database supports a standard core of DDL and DML statements.  In addition, a database may support DDL and DML statements specific to that database vendor.  Use <span class=secodephrase>execute</span> to call any of those statements.  However, a database vendor may provide functions that are not DDL or DML statements.  Do not use <span class=secodephrase>execute</span> to call those functions. For example, do not call the Oracle <span class=secodephrase>describe</span> function or the Informix <span class=secodephrase>load</span> function from the <span class=secodephrase>execute</span> method.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>Although the <span class=secodephrase>execute</span> method can be used to perform data modification (<span class=secodephrase>INSERT</span>, <span class=secodephrase>UPDATE</span>, or <span class=secodephrase>DELETE</span> statements), it is recommended that Cursor objects be used instead to achieve the same functionality.  Using the Cursor object for these sorts of actions allows better database-type independence and also allows the use of binary large object (BLOb) data.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>When using the <span class=secodephrase>execute</span> method, the SQL statement must strictly conform to the syntax requirements of the database server.  For example, some servers require each SQL statement be terminated with a semicolon. See the server documentation for more information. If a transaction has not been started with <span class=secodephrase>beginTransaction</span>, the single statement is automatically immediately committed when <span class=secodephrase>execute</span> is called.</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>see:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara><span class=secodephrase>#link &lt;sedbc&gt;</span>, <span class=sejumptopic><a href="TH_1095.htm">Database cursor()</a></span>, <span class=sejumptopic><a href="TH_1091.htm">Database beginTransaction()</a></span>, <span class=sejumptopic><a href="TH_1092.htm">Database commitTransaction()</a></span>, <span class=sejumptopic><a href="TH_1104.htm">Database rollbackTransaction()</a></span></p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>example:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=secodelines>//&nbsp;This&nbsp;example&nbsp;deletes&nbsp;all&nbsp;records&nbsp;from&nbsp;the&nbsp;database</p>
+<p class=secodelines>//&nbsp;whose&nbsp;ID&nbsp;is&nbsp;'requestedID'.&nbsp;It&nbsp;is&nbsp;recommended,</p>
+<p class=secodelines>//&nbsp;however,&nbsp;that&nbsp;the&nbsp;Cursor&nbsp;object&nbsp;be&nbsp;used</p>
+<p class=secodelines>//&nbsp;to&nbsp;perform&nbsp;this&nbsp;action.</p>
+<p class=secodelines>err&nbsp;=&nbsp;db.execute("delete&nbsp;from&nbsp;customer&nbsp;where&nbsp;customer.ID&nbsp;=&nbsp;"&nbsp;+&nbsp;requestedID&nbsp;);</p></td>
+</tr>
+</table>
+<p class=normal>&nbsp;</p>
+<hr noshade size=1>
+<p class=normal><a href="TH_1098.htm"><img src="button.png" border=0></a><a href="TH_1098.htm" style="text-decoration:none;">Database majorErrorCode()</a></p>
+<p>
+</body>
+</html>

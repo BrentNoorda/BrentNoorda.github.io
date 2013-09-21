@@ -1,0 +1,44 @@
+<html>
+<head>
+<title>TO_INTERPRET, INTERP_TYPE</title>
+<link rel="stylesheet" href="semanualstyles.css" type="text/css">
+<style type="text/css">
+ p { margin-top: 0; margin-bottom: 0; }
+</style>
+<script language="JavaScript" src="TrueHelp.js"></script>
+</head>
+<body onload="thload()">
+<div id=ienav>
+<ilayer id=nsnav>
+<br>
+<center>
+<p class=normal><a href="seisdkc-toc.htm" target="left">contents</a> &nbsp; <a href="seisdkc-index.htm" target="left">index</a> &nbsp; <a href="TH_224.htm">previous</a> &nbsp; <a href="TH_226.htm">next</a></p>
+</center>
+<br>
+<hr noshade size=1>
+</ilayer>
+</div>
+<p class=heading-3>TO_INTERPRET, INTERP_TYPE</p>
+<p class=heading-3-p>&nbsp;</p>
+<p class=senormalpara>The second and third parameters are linked togethor. The third parameter, <span class=secodephrase>interp_type</span>, indicates what the second parameter, <span class=secodephrase>to_interpret, </span>is. Here are the possibilities:</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=secodelines>INTERP_TYPE	TO_INTERPRET</p>
+<p class=secodelines>-------------------------------</p>
+<p class=secodelines>SE_FILE		seconstcharptr</p>
+<p class=secodelines>SE_TEXT		seconstcharptr</p>
+<p class=secodelines>SE_PRECOMP	ubyte&nbsp;*</p>
+<p class=secodelines>SE_FUNC		seobject</p>
+<p class=normal><span class=secodephrase></span></p>
+<p class=senormalpara><span class=secodephrase>SE_FILE</span> indicates a filename, which is read, parsed, and interpreted.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara><span class=secodephrase>SE_TEXT</span>, which we've already seen above, indicates the source code is a text string.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara><span class=secodephrase>SE_PRECOMP</span> allows you to execute a precompiled script. You pass as the parameter the script buffer that was given to you by the <span class=secodephrase>sePrecompile</span> ScriptEase API call.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara><span class=secodephrase>SE_FUNC</span> allows you to execute a function. You pass the function you wish to execute. Remember, in JavaScript, a function is just an object. You can retrieve the function you wish to call via the <span class=sepopuptopic><a href="TH_29.htm" onClick="return thwindow('TH_29.htm', 'GenPopup')">seGetObjectEx</a></span> API call.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<hr noshade size=1>
+<p class=normal><a href="TH_226.htm"><img src="button.png" border=0></a><a href="TH_226.htm" style="text-decoration:none;">TEXT_ARGS, STACK_ARGS</a></p>
+<p>
+</body>
+</html>

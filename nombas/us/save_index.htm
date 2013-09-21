@@ -1,0 +1,224 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><title>Nombas</title>
+
+<meta name="description" content="All about Nombas, the scripting company that no longer exists." />
+<meta name="keywords" content="nombas,cmm,cenvi,scriptease,javascript,ecmascript,brent noorda" />
+<style type="text/css">
+<!--
+body {
+font: 100% Verdana, Arial, Helvetica, sans-serif;
+background: #666666;
+margin: 0; /* it's good practice to zero the margin and padding of the body element to account for differing browser defaults */
+padding: 0;
+text-align: center; /* this centers the container in IE 5* browsers. The text is then set to the left aligned default in the #container selector */
+color: #000000;
+background-color: #000000;
+}
+.oneColElsCtr #container {
+width: 46em;
+background: #FFFFFF;
+margin: 0 auto; /* the auto margins (in conjunction with a width) center the page */
+border: 1px solid #000000;
+text-align: left; /* this overrides the text-align: center on the body element. */
+}
+.oneColElsCtr #mainContent {
+padding: 0 20px; /* remember that padding is the space inside the div box and margin is the space outside the div box */
+}
+.style1 {font-size: xx-small}
+-->
+</style>
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-1754630-10']);
+  _gaq.push(['_trackPageview']);
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+</head>
+<body class="oneColElsCtr">
+<div id="container">
+<div id="mainContent">
+<h1> <img alt="" src="logo.gif" align="right" height="60" width="185" /> Nombas, Un-Incorporated </h1>
+<p>Nombas
+doesn't exist any more. All the good stuff was sold to Openwave, then
+sold to someone else, then sold to someone else, then I lost track.</p>
+<p>Sorry about that.</p>
+<ul>
+<li><a href="#alternative">Modern alternatives for
+Nombas products</a></li>
+<li><a href="#stillusing">Useful links for people
+still using any old Nombas product</a></li>
+<li><a href="#replace">Links for replacements to
+Nombas products</a></li>
+<li><a href="#memory">Walks down memory lane</a></li><li><a href="#morestuff">More stuff</a></li>
+</ul>
+<hr size="2" width="100%" /><a name="alternative"></a>Modern
+alternatives for Nombas products:<br />
+<p>If you're in need of embeddable script engines here's some
+good
+options to consider:</p>
+<ul>
+<li>If it must be embeddable and ecmascript-compliant consider
+the free and open-source <strike>engines from Adobe (they call
+it ActionScript but it's really EcmaScript) or the Mozilla engines. They</strike>
+V8 engine from Google. It may not be as wonderfullly amazingly great as
+the Nombas engine (what could ever be) but will do in a pinch.</li>
+<li>If you need a pure-Java ecmascript engine... um... I'm not
+sure. I think mozilla maintains one as "rhino".</li>
+<li>If
+you want the smallest size and high performance, consider lua. lua is
+very close to matching the original Cmm language Nombas produced.</li>
+</ul>
+If you were a user of CEnvi or ScriptEase Desktop:
+<ul>
+<li>For automating computer tasks involving interacting with
+other
+programs, Windows users have Windows Scripting Host, Macintosh users
+have AppleScript, and xnix users have a number of shell languages. I
+don't know that any push the abilities to manipulate the system quite
+as much as CEnvi/SE:Desk did, but they're still very powerful and there
+are a lot of developers and libraries to help out.</li>
+<li>Python exists on most systems, and certainly has all the
+power, and way way more libraries than CEnvi/SE:Desk ever did.</li>
+<li>The two features CEnvi/SE:Desk had that I wish were in the
+above options are:<br />
+</li>
+<ul>
+<li>ability to create standalone executables, independent of
+any other engine downloads</li>
+<li>ability
+to call *any* DLL or shared library directly from the script language,
+so that extension of any complexity may be made in the language itself</li>
+</ul>
+</ul>
+<p>If you were a user of ScriptEase WebServer Edition:</p>
+<ul>
+<li>So
+you're the guy who bought SE:WSE, huh? I've always wanted to meet you.
+You'll be glad to know that server-side Javascript is making a big
+comeback with node.js and a bunch of related extensions.</li>
+</ul>
+<p>If you were a user of Nombas distributed internet scripting
+(SE:DS):</p>
+<ul>
+<li>For plain transmission of data between two systems, in a
+way easier to implement than XML, <a href="http://json.org">JSON</a>
+is the way to go.</li>
+<li>For
+use within web, interacting in semi-realtime, AJAX is all the rage now.
+Every javascript framework makes AJAX really easy for you.</li>
+<li>For the really fun stuff that SE:DS made easy, such as
+moving logic around between machines as-needed, look at <a href="https://github.com/substack/dnode#readme">dnode
+"freestyle r.p.c."</a>.
+I haven't tried it yet myself, but from the documentation it looks to
+be excellently conceived and appears to match the SE:DS philosophy and
+patterns very closely. The only SE:DS concept I don't see in dnode is
+the security pattern, wherein remote calls can apply a level of
+security to exactly what parts of calls can be handled and what cannot
+(i.e. in dnode is there a way to prevent callers from making
+particularly dangerous calls, or do they have access to everything?).</li>
+</ul>
+<p>If you used these or any lesser-known Nombas products and have
+any
+questions about them, contact <a href="../../index.html">Brent
+Noorda</a>. I'll do what I can to help.</p>
+<hr />
+<p><a name="stillusing"></a>Useful links for
+people still using any old Nombas product:</p>
+<ul>
+<li><a href="devspace/index.htm">ISDK Developer
+Space</a> - Manuals, Errata, Tips, and other stuff useful for
+anyone who is still working with a legacy Nombas ISDK. Apologies for
+links that no longer work.</li>
+<li><a href="../bunchadox.htm">Old User Documents</a>
+- Old&nbsp;documents for many Nombas products. If the product or
+version you're using is not in this list, contact <a href="../../index.html">Brent Noorda</a> and maybe
+he'll be able to locate something for you.</li>
+</ul>
+<hr size="2" width="100%" /><a name="replace"></a>Links
+for replacements to Nombas products:
+<ul>
+<li><a href="http://en.wikipedia.org/wiki/List_of_ECMAScript_engines">List
+of ECMAScript engines</a> - Look to this Wikipedia page for other
+javascript engines, although only a couple have good embeddable
+libraries. ScriptEase isn't there anymore--which makes me
+sad--althought it still gets lots of legacy use.</li>
+<li><a href="http://www.mozilla.org/rhino/">Rhino</a>
+- Javascript engine written in Java. I don't know why it's not in the <a href="http://en.wikipedia.org/wiki/List_of_ECMAScript_engines">List
+of ECMAScript engines</a>.</li>
+<li><a href="http://www.lua.org/">lua.org</a>
+- Not ecmascript, but is guided by a small/fast/embeddable/minimalist
+philosopy similar to the original Cmm.</li>
+<li><a href="http://nodejs.org/">node.js</a>
+- Server-side javascript. It's coming back, baby! I've
+been playing with node.js lately, and quite enjoy it. Imagine the fun
+of turning adding a couple of the old CEnvi features, and turning into
+a cross-platform desktop environment for automation, thin servers, and
+so on, then CEnvi/SE:Desk would be back......</li>
+<li><a href="https://github.com/substack/dnode#readme">dnode
+"freestyle rpc"</a> - I really nice-looking implementation of what we used to call "distributed scripting". </li>
+</ul>
+<hr size="2" width="100%" /><a name="memory"></a>Walks
+down memory lane:
+<ul>
+<li><a href="http://web.archive.org/web/19970521062826/http://www.nombas.com/">Nombas,
+May 21, 1997</a> - The oldest internet archive version of the
+Nombas website. The Wayback Machine is cool! I'm kind of fond of the
+change made by <a href="http://web.archive.org/web/19971210204013/http://www.nombas.com/">December,
+1997</a>, especially the interview with the crotchety old man if
+you're answer to the portal question was <a href="entrsite/crotchet.htm">NO</a>.
+This is about when we were first showing off what we called "DSP", but
+is much mor common these days as "ajax" techniques.</li>
+<li><a href="entrsite/crotchet.htm">The "I Hate
+Scripting" Page</a> - Interview with the Crotchety Old Man who
+hates scripting. Ptooey! Hilarious, if I do say so myself (and i do).</li>
+<li><a href="../Billy_Likes_CEnvi.pdf" target="billy">Billy
+Likes CEnvi</a> - The greatest fan mail ever. Young Billy gives
+CEnvi 1,000,000,000 stars and contributes (in pencil-written form) a
+sound library. &nbsp;I love this. Thanks, Billy.</li>
+<li><a href="scriptaz/index.htm">Scripting A - Z</a>
+- A good-time presentation about the state of scripting in 1997, and
+what I thought the future would bring.</li>
+<li><a href="otherdoc/javamagk.htm">Java, The
+Illusion</a>
+- A 1995 essay I wrote against the marketing of Java (a little bit
+self-serving, but also a little bit true) and a follow-up where I
+cave-in to Java's 2 years of success.</li>
+<li><a href="http://drdobbs.com/cpp/184409368">Dr.
+Dobb's first (1994) CEnvi/Cmm article</a> - Good ol' Al Stevens
+recommended an early version of the standalone interpreter at about the
+time it won a PC Magazine Shareware of the Year award. Good times. I
+was skinny then, too.</li>
+<li><a href="http://books.google.com/books?id=ezoEAAAAMBAJ&amp;pg=PA66&amp;dq=scriptease+web+server+edition+review&amp;hl=en&amp;sa=X&amp;ei=6HpFT-u3OIqjiAKqzuWzDg&amp;ved=0CEsQ6AEwAA#v=onepage&amp;q=scriptease%20web%20server%20edition%20review&amp;f=false">InfoWorld
+1996 ScriptEase WebServer review</a> - This 1996 review was my
+favorite not just because it was glowing, but because it showed up
+while we were at a tough week at Comdex, with stiff competition at
+every turn, and it provided a needed boost in the arm.</li>
+<li><a href="tellme/index.htm">"Tell me about..."</a>
+- Our first attempts to make a web-based pitch for why people should
+use a scripting solution and why to use Nombas to do it.</li>
+<li><a href="techpage/script/script.htm">Nombas
+Technologies</a> - One of the final attempts to define the core
+Nombas Technologies in a few pretty web pages.</li>
+<li><a href="toolkit/index.htm">ISDK/Toolkit promo
+pages</a> - Sales-oriented descriptions of SE:ISDK</li>
+<li><a href="wmlscript/index.htm">WMLScript</a>
+- The cell-phone industry made a subset of EcmaScript because they
+thought javascript was too big. Even thought we disagreed we turned off
+bits of our engine and pumped out a WMLScript solution. Fortunately
+we're all over WMLScript now.</li>
+<li><a href="http://www.youtube.com/playlist?list=PL9DA597D9E7308250">Midas
+Widget Phone</a> - Openwave did a bunch of stuff with Scriptease
+(browser, test environment, and a couple of new platforms). This is the
+only example I preserved (very poorly).</li></ul><hr size="2" width="100%" /><a name="morestuff"></a>More stuff:<ul><li><a href="../xfactor/xfactor.zip">X-Factor</a>
+- The book "XSLT For Dummies" refers to this "X-Factor" windows
+application "to help make the task of learning XSLT easier". It was
+hosted at www.nombas.com but now it's here.</li>
+</ul>
+</div>
+</div>
+</body></html>

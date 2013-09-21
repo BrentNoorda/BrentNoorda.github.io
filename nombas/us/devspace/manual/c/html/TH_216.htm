@@ -1,0 +1,63 @@
+<html>
+<head>
+<title>GET object index</title>
+<link rel="stylesheet" href="semanualstyles.css" type="text/css">
+<style type="text/css">
+ p { margin-top: 0; margin-bottom: 0; }
+</style>
+<script language="JavaScript" src="TrueHelp.js"></script>
+</head>
+<body onload="thload()">
+<div id=ienav>
+<ilayer id=nsnav>
+<br>
+<center>
+<p class=normal><a href="seisdkc-toc.htm" target="left">contents</a> &nbsp; <a href="seisdkc-index.htm" target="left">index</a> &nbsp; <a href="TH_215.htm">previous</a> &nbsp; <a href="TH_217.htm">next</a></p>
+</center>
+<br>
+<hr noshade size=1>
+</ilayer>
+</div>
+<p class=heading-4>GET object index</p>
+<p class=senormalpara>Get any variable on the application. The object can be:</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=secodelinesindented>GLOBAL</p>
+<p class=secodelinesindented>LOCAL</p>
+<p class=secodelinesindented>THIS</p>
+<p class=secodelinesindented>FUNCTION</p>
+<p class=secodelinesindented>EVAL_RESULT</p>
+<p class=secodelinesindented>#object-id</p>
+<p class=secodelinesindented>&nbsp;</p>
+<p class=senormalpara>The object id is returned when getting variables and allows recursing of variables. The index, which does not apply to <span class=secodephrase>EVAL_RESULT</span> and should not be included in this case, indicates which member of the object is being queried. </p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>The values returned for <span class=secodephrase>GLOBAL</span> are the global variables. <span class=secodephrase>LOCAL</span> is the local variables. <span class=secodephrase>THIS</span> is the current <span class=secodephrase>this</span> object. <span class=secodephrase>FUNCTION</span> does not take an index and is the name of the executing function. <span class=secodephrase>EVAL_RESULT</span> also does not take an index and is the result of the last <span class=secodephrase>EVAL</span> command. Errors are also stored here.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>Results from the application include:</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;NO&nbsp;SUCH&nbsp;MEMBER</p>
+<p class=senormalpara>If the index is beyond the number of members</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;NULL</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;UNDEFINED</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;BOOL&nbsp;true&nbsp;or&nbsp;false</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;NUMBER&nbsp;number</p>
+<p class=senormalpara>The given member is of the given type and value.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;STRING&nbsp;LENGTH&nbsp;string-length-in-bytes</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;string&nbsp;data</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;END&nbsp;STRING</p>
+<p class=senormalpara>If the value is a string.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;UNICODE&nbsp;STRING&nbsp;LENGTH&nbsp;string-length-in-bytes</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;string&nbsp;data</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;END&nbsp;STRING</p>
+<p class=senormalpara>To pass a unicode string, length will be twice number of chars. Unicode chars are passed in little endian byte order.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;OBJECT&nbsp;#object-id</p>
+<p class=senormalpara>If the value is another object.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<hr noshade size=1>
+<p class=normal><a href="TH_217.htm"><img src="button.png" border=0></a><a href="TH_217.htm" style="text-decoration:none;">STRING object index</a></p>
+<p>
+</body>
+</html>

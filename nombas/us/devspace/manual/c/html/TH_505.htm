@@ -1,0 +1,58 @@
+<html>
+<head>
+<title>ScriptEase versus C language</title>
+<link rel="stylesheet" href="semanualstyles.css" type="text/css">
+<style type="text/css">
+ p { margin-top: 0; margin-bottom: 0; }
+</style>
+<script language="JavaScript" src="TrueHelp.js"></script>
+</head>
+<body onload="thload()">
+<div id=ienav>
+<ilayer id=nsnav>
+<br>
+<center>
+<p class=normal><a href="seisdkc-toc.htm" target="left">contents</a> &nbsp; <a href="seisdkc-index.htm" target="left">index</a> &nbsp; previous &nbsp; <a href="TH_506.htm">next</a></p>
+</center>
+<br>
+<hr noshade size=1>
+</ilayer>
+</div>
+<p class=heading-1>ScriptEase versus C language</p>
+<p class=heading-1-p>&nbsp;</p>
+<p class=senormalpara>This section is primarily for those who already know how to program in C, though novice programmers can learn more about the Clib and SElib objects and C concepts by reading it. The emphasis is on those elements of ScriptEase that differ from standard C. Most of the pertinent differences involve the <span class=sepopuptopic><a href="TH_577.htm" onClick="return thwindow('TH_577.htm', 'GenPopup')">Clib object</a></span>, <span class=sepopuptopic><a href="TH_923.htm" onClick="return thwindow('TH_923.htm', 'GenPopup')">SElib object</a></span>, and <span class=sepopuptopic><a href="CString_object">CString object</a></span>. Users who are not familiar with C should first read the section on ScriptEase JavaScript.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>The assumption here is that readers of this section already know C. Thus, only those aspects of the C portion of ScriptEase that differ from C are described. If something is not mentioned here, ScriptEase follows standard C behavior. While in this section on the differences from C, the term ScriptEase is used for the portion of ScriptEase that implements the standard C library and ScriptEase additions to that library. Almost all of the implementation of C in ScriptEase involves the use of Clib objects, SElib objects, or CString. Thus, references to ScriptEase as the C portion of ScriptEase usually involve Clib, SElib, or CString.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>Deviations from C result from following several principles: </p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=list-bullet>&#8226;</p><p class=list-bullet-tab1>simplicity</p>
+<p class=list-bullet>&#8226;</p><p class=list-bullet-tab1>power</p>
+<p class=list-bullet>&#8226;</p><p class=list-bullet-tab1>safety</p>
+<p class=normal>&nbsp;</p>
+<p class=senormalpara>The C portion of ScriptEase is different from C where changes make ScriptEase more convenient for scripting, writing small programs, and entering command line code or where unaltered C rules encourage coding that is potentially unsafe. Keep in mind, that most issues involved in this section involve the use of Clib<span class=truehelp-xe></span>, SElib<span class=truehelp-xe></span>, and CString<span class=truehelp-xe></span>.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>The C portion of ScriptEase is C without type declarations and pointers. If you already know C and can forget these two aspects of C while using ScriptEase, then you already know the C portion of ScriptEase. If you were to take C code and delete all the lines, code words, and symbols that either declare data types or explicitly point to data, then you would be left with code that would work with Clib, SElib, and CString. Though you would be altering source code, you would not be removing capabilities. </p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>The most basic idea underlying this section is that the C portion of ScriptEase is C without type declarations and pointers.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<hr noshade size=1>
+<p class=normal><a href="TH_506.htm"><img src="button.png" border=0></a><a href="TH_506.htm" style="text-decoration:none;">Data types in C and SE</a></p>
+<p class=normal><a href="TH_507.htm"><img src="button.png" border=0></a><a href="TH_507.htm" style="text-decoration:none;">Automatic type declaration</a></p>
+<p class=normal><a href="TH_508.htm"><img src="button.png" border=0></a><a href="TH_508.htm" style="text-decoration:none;">Array representation</a></p>
+<p class=normal><a href="TH_509.htm"><img src="button.png" border=0></a><a href="TH_509.htm" style="text-decoration:none;">Automatic array allocation</a></p>
+<p class=normal><a href="TH_510.htm"><img src="button.png" border=0></a><a href="TH_510.htm" style="text-decoration:none;">Automatic and JavaScript Arrays</a></p>
+<p class=normal><a href="TH_511.htm"><img src="button.png" border=0></a><a href="TH_511.htm" style="text-decoration:none;">Literal strings</a></p>
+<p class=normal><a href="TH_517.htm"><img src="button.png" border=0></a><a href="TH_517.htm" style="text-decoration:none;">Structures</a></p>
+<p class=normal><a href="TH_518.htm"><img src="button.png" border=0></a><a href="TH_518.htm" style="text-decoration:none;">Passing variables by reference</a></p>
+<p class=normal><a href="TH_519.htm"><img src="button.png" border=0></a><a href="TH_519.htm" style="text-decoration:none;">Pointer operator * and address operator &</a></p>
+<p class=normal><a href="TH_520.htm"><img src="button.png" border=0></a><a href="TH_520.htm" style="text-decoration:none;">Case statements</a></p>
+<p class=normal><a href="TH_521.htm"><img src="button.png" border=0></a><a href="TH_521.htm" style="text-decoration:none;">Initialization code which is external to functions</a></p>
+<p class=normal><a href="TH_522.htm"><img src="button.png" border=0></a><a href="TH_522.htm" style="text-decoration:none;">Unnecessary tokens</a></p>
+<p class=normal><a href="TH_523.htm"><img src="button.png" border=0></a><a href="TH_523.htm" style="text-decoration:none;">Macros</a></p>
+<p class=normal><a href="TH_524.htm"><img src="button.png" border=0></a><a href="TH_524.htm" style="text-decoration:none;">Token replacement macros</a></p>
+<p class=normal><a href="TH_525.htm"><img src="button.png" border=0></a><a href="TH_525.htm" style="text-decoration:none;">Back quote strings</a></p>
+<p class=normal><a href="TH_526.htm"><img src="button.png" border=0></a><a href="TH_526.htm" style="text-decoration:none;">Converting existing C code to ScriptEase</a></p>
+<p>
+</body>
+</html>

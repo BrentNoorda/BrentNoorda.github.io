@@ -1,0 +1,558 @@
+<html>
+<head>
+<title>ScriptEase ISDK Newsletter April 1, 2004</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-1754630-10']);
+  _gaq.push(['_trackPageview']);
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+</head>
+
+<body bgcolor="#FFFFFF" TOPMARGIN=0 LEFTMARGIN=0 MARGINWIDTH=0 MARGINHEIGHT=0 text="#000000" link="#0033CC" alink="#0033CC" vlink="#0000FF">
+<table width="640" border="0" cellspacing="0" cellpadding="0">
+  <tr> 
+    <td> 
+      <p><img src="images/newsbanner.jpg" width="640" height="70" border="0" alt="ScriptEase:ISDK Newsletter"></p>
+      <table width="630" border="0" cellspacing="0" cellpadding="0" align="center">
+        <tr> 
+          <td width="150" valign="top" align="left"> 
+            <p><font color="#0E2595" face="Verdana, Arial, Helvetica, sans-serif"><b>April 
+              1, 2004</b></font></p>
+            <p><b><font color="#990000" size="-2" face="Verdana,Tahoma,Arial,Helvetica">In 
+              This Issue</font></b></p>
+            <table width="150" border="0" cellspacing="0" cellpadding="0">
+              <tr> 
+                <td width="15" valign="top" align="center"> 
+                  <p><img src="images/bullet.gif" width="10" height="10" vspace="2" alt="&quot;&quot;"></p>
+                </td>
+                <td width="135" align="left" valign="top"> 
+                  <p><a href="#article1"><font size="-2" face="Verdana, Arial, Helvetica, sans-serif">SE:ISDK/C 
+                    5.01b upgrade</font></a><br>
+                    &nbsp; </p>
+                </td>
+              </tr>
+              <tr> 
+                <td width="15" align="center" valign="top"><img src="images/bullet.gif" width="10" height="10" vspace="2"></td>
+                <td width="135" align="left" valign="top"> 
+                  <p><a href="#c501aerrata"><font size="-2" face="Verdana, Arial, Helvetica, sans-serif">ISDK/C 
+                    5.01a Errata</font></a><br>
+                    &nbsp; </p>
+                </td>
+              </tr>
+
+
+              <tr> 
+                <td width="15" align="center" valign="top"><img src="images/bullet.gif" width="10" height="10" vspace="2"></td>
+                <td width="135" align="left" valign="top"> 
+                  <p><a href="#j501aerrata"><font size="-2" face="Verdana, Arial, Helvetica, sans-serif">ISDK/Java 
+                    5.01a Errata</font></a><br>
+                  </p>
+                </td>
+              </tr>
+            </table>
+            <p><font size="-2" face="Verdana, Arial, Helvetica, sans-serif"><a href="../devspace/newsletters/index.htm">Other 
+              Newsletters</a></font></p>
+            <p><font size="-2" color="#990000" face="Verdana, Arial, Helvetica, sans-serif"><b>DevSpace 
+              Developer Support</b></font></p>
+            <p><font size="-2" face="Verdana, Arial, Helvetica, sans-serif">For 
+              more information and resources, <a
+                             href="../devspace/index.htm">visit ScriptEase: 
+              ISDK DevSpace online</a>.</font></p>
+            <p><font size="-2" color="#990000" face="Verdana, Arial, Helvetica, sans-serif"><b>Download 
+              Center</b></font></p>
+            <p></p>
+            <p align=LEFT><font face="Verdana, Arial, Helvetica, sans-serif" size="-2">For 
+              latest updates and extensions, <a href="http://www.nombasxxx.com/us/toolkit/isdkdownload.htm">visit 
+              the ISDK Download Center</a>. </font></p>
+          </td>
+          <td width="4"></td>
+          <td width="1" bgcolor="#CCCCFF"><img src="../devspace/pix/pixel.gif" width="1" height="1" border="0"></td>
+          <td width="5"></td>
+          <td width="470" valign="top" align="left"> 
+            <div align="left"> 
+              <h3><b><img src="images/drbernt.jpg" width="100" height="100" align="right" border="0" vspace="2" hspace="4" alt="&quot;&quot;"></b><font color="#0E2595"> 
+                <a name="article1"></a>
+                SE:ISDK 5.01b upgrade now available</font></h3>
+
+                
+              <p align=LEFT>No folks, this is not an April Fool's joke! As part 
+                of our effort to consantly improve the SE:ISDK, version 5.01b 
+                errata release is now available for C/C++ and Java &amp; J2ME. 
+                In addition to fixing <a
+                href="../devspace/errata/isdk/index501.htm#v501a"
+                target="errata">all known 5.01a errata items</a>, this 5.01b release 
+                includes a number of <a href="#improve">improvements</a>. It's 
+                worth the <a href="#upgrade">upgrade</a>.</p>
+            </div>
+            <h4 align=LEFT><a name="improve"></a><font color="#0E2595">Improvements</font></h4>
+            <ul>
+              <li><b>SE_GF_NOCALLBACKS</b> flag added for <b>seGetXXX</b>/<b>sePutXXX</b> 
+                API calls, which allows for member access without triggering dynamic 
+                callbacks. The <b>SE_GF_NOCALLBACKS</b> flag differs from the 
+                <b>SE_GF_DIRECT</b> flag in that <b>SE_GF_NOCALLBACKS</b> will 
+                still search the object's prototype chain, while <b>SE_GF_DIRECT</b> 
+                will not. </li>
+              <li><b>SE_GF_CALL_HINT</b> flag added for <b>seGetXXX</b> API calls, 
+                which passes a hint to the dynamic get callback indicating that 
+                the retrieved value will be called as a function.</li>
+              <li>New memory allocation support features added. API users now 
+                have the option of specifying an <b>allocator_cookie</b> pointer, 
+                which will be passed to the <b>jseMalloc()</b>, <b>jseReMalloc()</b>, 
+                and <b>jseFree()</b> macros. <b>allocator_cookie</b> allows your 
+                memory routines to apply per-context. Also, the API user can now 
+                register a <b>seMemoryNeeded()</b> callback, in the event that 
+                the engine cannot allocate sufficient memory. This callback allows 
+                your code to execute any reclaim processes it has to free up memory. 
+              </li>
+              <li><b>seGetPointer()</b> and <b>sePutPointer()</b> no longer store 
+                pointers as numbers internally. On some 64-bit systems, the conversion 
+                from pointer to number back to pointer would not yeild the original 
+                value.</li>
+              <li>More internal tests added to support 64-bit handling.</li>
+              <li>New proprietary regular expression library. Our new regular-expression 
+                library natively supports unicode and strings with embedded null 
+                characters, robustly handles either very large expressions or 
+                medium sized expressions in small memory, and is about 2/3 the 
+                size of PCRE (both in image and in runtime). The PCRE library 
+                can still be used by defining <b>SE_PCRE_REGEXP_ENGINE</b> in 
+                jseopt.h.</li>
+              <li><b>SE_RELEASE_BUILD</b> flag added to jseopt.h, which by default 
+                corresponds to the commonly used NDEBUG flag. The <b>SE_RELEASE_BUILD</b> 
+                flag can be set independently of <b>NDEBUG</b>, and allows developers 
+                to build their code with <b>NDEBUG</b>, but keep ScriptEase-specific 
+                debugging code active.</li>
+              <li><b>SE_DEBUGPRINTF</b> flag added to jseopt.h. This flag enables 
+                control over the DebugPrintf() call, which by default writes to 
+                jsedebug.log file. </li>
+              <li><b>JSE_MEMDOUBLE_LIMIT</b> flag added to jseopt.h. The seGCAlloc 
+                function has an <b>SE_ALLOC_FASTSLOPPY</b> flag to turn on an 
+                algorithm that doubles allocated memory each time more memory 
+                is needed. This sets a limit beyond which we stop doubling and 
+                instead just allocate <b>JSE_MEMDOUBLE_LIMIT</b> </li>
+              <li><b>SE_LOCK_PROTOTYPE_CACHE</b> flag added to jseopt.h. The prototypes 
+                for Object, Array, String, and Function are cached to be used 
+                when autoconversion forces a contructor to be called (for example 
+                "string".substr() should act as if the String("string") contructor 
+                was called). It is possible (although unlikely) that one of the 
+                cached prototypes could change, forcing the prototypes to be refreshed. 
+                If you are certain that the Object, Array, String, and Function 
+                prototypes will never change, then set this flag to prevent the 
+                caches from being refreshed. This will improve performance, especially 
+                in applications where the global object is changed often, or the 
+                global object has dynamic callbacks assigned.</li>
+              <li>The <b>SE_FUNCTION_GLOBAL</b> member specifier has been added 
+                for <b>JSE_MULTIPLE_GLOBAL</b> builds. When <b>JSE_MULTIPLE_GLOBAL</b> 
+                is defined all function keep a reference to the global object 
+                that will be used while within that function. <b>SE_FUNCTION_GLOBAL</b> 
+                allows access to a function's global object, so the object can 
+                be changed or set to NULL (i.e. do not change the global) through 
+                the <b>seGetXXX</b>/<b>sePutXXX</b> API calls.</li>
+            </ul>
+            <h4><a name="upgrade"></a><font color="#0E2595">Upgrade Now</font></h4>
+              This is a very robust release. All 5.01a users should upgrade to 
+              5.01b. To receive your SE:ISDK/C 5.01b upgrades contact <a href="http://support.nombasxxx.com/">http://support.nombasxxx.com/</a> 
+              with information about platforms and version needed. 
+            <div align="left"> 
+              <hr noshade width="90%" align="center" size="1">
+              <p align=LEFT><i>Have a question about how to use ScriptEase:ISDK? 
+                Let Dr. Scripter know at </i><a href="http://support.nombasxxx.com/"><i>http://support.nombasxxx.com/</i></a></p>
+            </div>
+          </td>
+        </tr>
+      </table>
+      <hr>
+
+      <h3>&nbsp;Errata <a name="c501aerrata"></a></h3>
+      <h4>&nbsp;&nbsp;&nbsp;ISDK/C 5.01a</h4>
+
+      <ul> <li><a
+         href="../devspace/errata/isdk/index501.htm#gsmb"><b>seGetSourceFunc()
+         callback being called an extra time when script is missing a closing
+         brace </b></a>: When a script that is missing a closing brace ('}') is being
+         compiled by the ScriptEase engine, the seGetSourceFunc() callback of
+         the seContextParams structure gets called by the engine with the
+         seSourceGetLine flag one time too many.[<a
+         href="../devspace/errata/isdk/index501.htm#gsmb">Details</a>]</li>
+      </ul>
+
+      <ul> <li><a
+         href="../devspace/errata/isdk/index501.htm#exrp"><b>seExec()
+         returning prematurely when SE_INFREQUENT_CONT flag used to initialize
+         secontext</b></a>: seExec() returns on any throw statement (caught or
+         uncaught), regardless of the SE_INFREQUENT_CONT flag being used to
+         initialize the context [<a
+         href="../devspace/errata/isdk/index501.htm#exrp">Details</a>]
+</li>
+     </ul>
+     <ul>
+        <li><a
+            href="../devspace/errata/isdk/index501.htm#pxuva"><b>seMustPutXXX()
+            and seMustPutDirectXXX() unsetting most variable attributes</b></a>: The
+            seMustPutXXX() and seMustPutDirectXXX() functions strip variable
+            attributes, such as SE_DONTENUM and SE_READONLY, from the variable
+            on which they are called. [<a
+            href="../devspace/errata/isdk/index501.htm#pxuva">Details</a>]</li>
+
+    </ul>
+    <ul>
+       <li><a
+            href="../devspace/errata/isdk/index501.htm#pwivf"><b>sePutWrapper()
+            ignoring the varFlags (variable attributes) parameters</b></a>: The
+            sePutWrapper() varFlags parameter (used to set variable attributes
+            such as SE_DONTENUM) is being ignored. [<a
+            href="../devspace/errata/isdk/index501.htm#pwivf">Details</a>]
+       </li>
+    </ul>
+    <ul>
+       <li>
+         <a
+         href="../devspace/errata/isdk/index501.htm#sedbcuv"><b>SEDBC
+         library sometimes references uninitialized variables</b></a>: In
+         src/lib/sedbc/jse_rs_s.c, some variables can be referenced before they
+         are initialized due to two continue statements preceeding their
+         initializations. [<a
+         href="../devspace/errata/isdk/index501.htm#sedbcuv">Details</a>]
+      </li>
+    </ul>
+    <ul>
+       <li><a
+       href="../devspace/errata/isdk/index501.htm#sedbcam"><b>SEDBC
+       library allocates unnecessary memory on stack</b></a>: In
+       src/lib/sedbc/jse_db.c, a few buffers were being allocated on the stack
+       instead of on the heap, which caused some embedded platforms to run out
+       of stack space. [<a
+       href="../devspace/errata/isdk/index501.htm#sedbcam">Details</a>]
+       </li>
+    </ul>
+    <ul>
+       <li><a
+       href="../devspace/errata/isdk/index501.htm#mrnvr16"><b>Math.random()
+       is not very random on systems with 16-bit integers</b></a>: On systems
+       compiled with 16-bit integers, Math.random() always generates numbers
+       very close to 0.0 or 1.0 (e.g. 0.0545345 or 0.992322), and not
+       well-spread between 0 and 1. [<a
+       href="../devspace/errata/isdk/index501.htm#mrnvr16">Details</a>]
+
+       </li>
+    </ul>
+    <ul>
+       <li><a
+       href="../devspace/errata/isdk/index501.htm#12amutc"><b>Date
+       parser not recognizing 12 AM or &quot;UTC&quot;</b></a>: When parsing a
+       date/time with "12:00 AM UTC" the date parser is not recognizing this as
+       midnight, but is instead registering that time as noon. Also, although
+       the ECMAScript specification sets "GMT" as the tag for declaring
+       universal time, it has become common to also use "UTC". [<a
+       href="../devspace/errata/isdk/index501.htm#amutc">Details</a>]
+       </li>
+    </ul>
+    <ul>
+       <li><a
+       href="../devspace/errata/isdk/index501.htm#fccs"><b>Function
+       constructor causes swapping for created functions</b></a>: When
+       JSE_MULTIPLE_GLOBAL is defined (the default), any anonymous function
+       created at runtime with the Function constructor will preserve the global
+       from when the Function library was loaded (usually at program
+       initialization). This will cause the global to change to the original
+       global whenever that anonymous function is later called. [<a
+       href="../devspace/errata/isdk/index501.htm#fccs">Details</a>]
+
+       </li>
+    </ul>
+
+    <ul>
+       <li>
+         <a
+         href="../devspace/errata/isdk/index501.htm#smsrn"><b>String
+         match function should return null on no match</b></a>: According to the
+         commonly recognized ECMAScript Edition 3 Errata, string.match should
+         return NULL if there are no items matched. This differs from the
+         ECMAScript document, and from our 5.01a code, which would return a
+         zero-length array. [<a
+         href="../devspace/errata/isdk/index501.htm#smsrn">Details</a>]
+       </li>
+    </ul>
+
+    <ul>
+      <li><a
+      href="../devspace/errata/isdk/index501.htm#segcc2"><b>seGetSourceFunc(...seSourceGetLine...)
+      called twice if first call returns False</b></a>: If
+      seGetSourceFunc(...seSourceGetLine...) (aka
+      seGetSourceFunc(...SE_SOURCE_GETLINE...)) returns False the first time it
+      is called, it will be called again a second time. [<a
+         href="../devspace/errata/isdk/index501.htm#segcc2">Details</a>]
+
+      </li>
+    </ul>
+    <ul>
+       <li><a
+       href="../devspace/errata/isdk/index501.htm#e12e2"><b>SE_GF_NOCALLBACKS
+       errata fix causes SE_GF_DIRECT failure on strings </b></a>: After apply the
+       SE_GF_NOCALLBACKS errata posted below, calls to sePutDirectString() or
+       sePutStringEx(...SE_GF_DIRECT) will cause memory allocation errors. [<a
+         href="../devspace/errata/isdk/index501.htm#e12e2">Details</a>]
+
+       </li>
+    </ul>
+                                  
+    <ul> <li><a
+       href="../devspace/errata/isdk/index501.htm#mlats"><b>memory
+       leak with array.toSource </b></a>: A memory buffer remains unreleased for
+       each call to Array.prototype.toSource. This would happen any time
+       ToSource is applied to an instance of an Array, or to any object
+       containing an instance of an Array. [<a
+         href="../devspace/errata/isdk/index501.htm#mlats">Details</a>] 
+
+       </li>
+    </ul>
+    <ul>
+       <li><a
+       href="../devspace/errata/isdk/index501.htm#ssieo"><b>string.split
+       returns undefined element 0 if no match</b></a>: If
+       String.prototype.split(delimeter) is called, but there is no delimeter
+       matched, then this function should return a 1-element array with the
+       original string as element 0. Instead it is wrongly returning and
+       undefined type as element 0. [<a
+         href="../devspace/errata/isdk/index501.htm#ssieo">Details</a>] 
+       </li>
+    </ul>
+    <ul>
+       <li> <a
+       href="../devspace/errata/isdk/index501.htm#crasc"><b>converting
+       a recursive array to a string can crash </b></a>: In an array contains a
+       recursive element that recursively refers back to the array, and if the
+       array is then converted to a string, then the scriptease engine will
+       crash. The following script demonstrates the problem [<a
+         href="../devspace/errata/isdk/index501.htm#crasc">Details</a>] 
+       </li>
+    </ul>
+    <ul>
+      <li><a
+      href="../devspace/errata/isdk/index501.htm#dcnp"><b>no
+      flag provided to bypass dynamic callbacks, but allow for prototype chain</b>
+      </a>: SE_GF_DIRECT (as used by the seGetDirect and seGetEx calls) bypasses
+      the dynamic callbacks and the prototype chain. SE_GF_NOPROTOTYPE bypasses
+      the prototype chain but not the callbacks. There is no corresponding call
+      to skip dynamic callbacks but still allow access via the prototype
+      chain. [<a
+      href="../devspace/errata/isdk/index501.htm#dcnp">Details</a>]
+      </li>
+    </ul>
+    <ul>
+      <li><a
+      href="../devspace/errata/isdk/index501.htm#cbrftalvr"><b>calling
+      byref function turns all local variables into references </b></a>: If a byref
+      function is called from within another function, all of the local
+      variables in the outer function will be turned into references. [<a
+      href="../devspace/errata/isdk/index501.htm#cbrftalvr">Details</a>]
+      </li>
+    </ul>
+    <ul>
+       <li><a
+       href="../devspace/errata/isdk/index501.htm#tmgcb"><b>too
+       many callbacks for global get and for hasprop returning
+       HP_DIRECTCHECK</b></a>: If the global object has a get callback, then get
+       is called too often while initializing code. Also, if any hasProp
+       callback is returning HP_DIRECTCHECK then the get callback is being
+       called, although it shouldn't. [<a
+       href="../devspace/errata/isdk/index501.htm#tmgcb">Details</a>]
+       </li>
+    </ul>
+    <ul>
+      <li><a
+      href="../devspace/errata/isdk/index501.htm#hugu"><b>hang
+      on assigning to undefined variable if global object is
+      SE_DYNA_UNDEF</b></a>: If the global object is dynamic
+      (i.e. setSetCallbacks has been called on SE_GLOBAL), and if jseopt.h
+      defines JSE_CACHE_GLOBAL_VARS, and if a property of the global is of type
+      undefined, then assigning to that property will result in an assertion
+      being raised (if a debug build) or in the engine haning in an infinite
+      loop. [<a
+      href="../devspace/errata/isdk/index501.htm#hugu">Details</a>]
+
+      </li>
+    </ul>
+    <ul>
+       <li><a
+       href="../devspace/errata/isdk/index501.htm#cafp"><b>Clib.fread()
+       leaves unread parts of buffers uninitialized</b></a>: If
+       Clib.fread(...buffer_size...) reads less than buffer_size bytes, then the
+       buffer size will be created large enough for buffer_size bytes and the
+       parts of the buffer beyond what are read will be uninitialized and may
+       contain random data. Instead, the buffer should not be expanded beyond
+       the number of bytes that are read. [<a
+       href="../devspace/errata/isdk/index501.htm#cafp">Details</a>]
+
+       </li>
+    </ul>
+    <ul>
+        <li><a
+      href="../devspace/errata/isdk/index501.htm#cafp"><b>Alignment 
+          errors with Clib *printf and *scanf floating-point on HP-UX</b></a>: 
+          If a call to the Clib *printf or *scanf methods (e.g. Clib.sprintf) 
+          contains non-floating-point data types following a floating-point type, 
+          data alignment may be incorrect and invalid data or crashes will result. 
+          This problem appears only on HPUX systems. [<a
+      href="../devspace/errata/isdk/index501.htm#cafp">Details</a>] 
+        </li>
+    </ul>
+   
+    <hr>
+    <h3>&nbsp;Errata <a name="j501aerrata"></a> </h3>
+    <h4>&nbsp;&nbsp;&nbsp;ISDK/Java 5.01a </h4>
+
+    <ul>
+       <li><a
+          href="../devspace/errata/jisdk/index501.htm#gsmb"><b>seGetSourceFunc()
+          callback being called an extra time when script is missing a closing
+          brace</b></a>: When a script that is missing a closing brace ('}') is
+          being compiled by the ScriptEase engine, the seGetSourceFunc() method
+          of the SEGetSourceFunc interface gets called by the engine with the
+          SE.SOURCE_GETLINE flag one time too many. [<a
+          href="../devspace/errata/jisdk/index501.htm#gsmb">Details</a>]
+       </li>
+    </ul>
+    <ul>
+       <li><a
+          href="../devspace/errata/jisdk/index501.htm#pxuva"><b>seMustPutXXX()
+          and seMustPutDirectXXX() unsetting most variable attributes</b></a>:
+          The seMustPutXXX() and seMustPutDirectXXX() functions strip variable
+          attributes, such as SE.DONTENUM and SE.READONLY, from the variable on
+          which they are called. [<a
+          href="../devspace/errata/jisdk/index501.htm#pxuva">Details</a>]
+
+       </li>
+    </ul>
+    <ul>
+       <li><a
+          href="../devspace/errata/jisdk/index501.htm#pwivf"><b>sePutWrapper()
+          ignoring the variable attributes</b></a>: The sePutWrapper() variable
+          attributes (such as SE.DONTENUM) are being ignored. [<a
+          href="../devspace/errata/jisdk/index501.htm#pwivf">Details</a>]
+       </li>
+    </ul>
+    <ul>
+       <li><a
+          href="../devspace/errata/jisdk/index501.htm#12amutc"><b>Date
+          parser not recognizing 12 AM or &quot;UTC&quot;</b></a>: When parsing
+          a date/time with "12:00 AM UTC" the date parser is not recognizing
+          this as midnight, but is instead registering that time as noon. Also,
+          although the ECMAScript specification sets "GMT" as the tag for
+          declaring universal time, it has become common to also use "UTC".  [<a
+          href="../devspace/errata/jisdk/index501.htm#12amutc">Details</a>]
+
+       </li>
+    </ul>
+    <ul>
+       <li><a
+       href="../devspace/errata/jisdk/index501.htm#fccs"><b>Function
+       constructor causes swapping for created functions</b></a>: When
+       JSE_MULTIPLE_GLOBAL is defined (the default), any anonymous function
+       created at runtime with the Function constructor will preserve the global
+       from when the Function library was loaded (usually at program
+       initialization). This will cause the global to change to the original
+       global whenever that anonymous function is later called.  [<a
+          href="../devspace/errata/jisdk/index501.htm#fccs">Details</a>]
+
+       </li>
+    </ul>
+
+    <ul>
+       <li><a
+          href="../devspace/errata/jisdk/index501.htm#smsrn"><b>String
+          match function should return null on no match </b></a>: According to the
+          commonly recognized ECMAScript Edition 3 Errata, string.match should
+          return NULL if there are no items matched. This differs from the
+          ECMAScript document, and from our 5.01a code, which would return a
+          zero-length array.  [<a
+          href="../devspace/errata/jisdk/index501.htm#smsrn">Details</a>]
+
+       </li>
+    </ul>
+    <ul>
+       <li><a
+          href="../devspace/errata/jisdk/index501.htm#segcc2"><b>seGetSourceFunc(...seSourceGetLine...)
+          called twice if first call returns False </b></a>: If
+          seGetSourceFunc(...SE.SOURCE_GETLINE...) returns false the first time
+          it is called, it will be called again a second time.  [<a
+          href="../devspace/errata/jisdk/index501.htm#segcc2">Details</a>]
+
+       </li>
+    </ul>
+
+    <ul>
+       <li>
+          <a
+          href="../devspace/errata/jisdk/index501.htm#ssieo"><b>string.split
+          returns undefined element 0 if no match </b></a> : If
+          String.prototype.split(delimeter) is called, but there is no delimeter
+          matched, then this function should return a 1-element array with the
+          original string as element 0. Instead it is wrongly returning and
+          undefined type as element 0. [<a
+          href="../devspace/errata/jisdk/index501.htm#ssieo">Details</a>]
+       </li>
+    </ul>
+
+    <ul>
+      <li><a
+      href="../devspace/errata/jisdk/index501.htm#crasc"><b>a
+      recursive array to a string can crash </b></a>: In an array contains a
+      recursive element that recursively refers back to the array, and if the
+      array is then converted to a string, then the scriptease engine will
+      crash. The following script demonstrates the problem: [<a
+      href="../devspace/errata/jisdk/index501.htm#crasc">Details</a>]
+      </li>
+    </ul>
+    <ul>
+       <li><a
+          href="../devspace/errata/jisdk/index501.htm#dcnp"><b>no
+          flag provided to bypass dynamic callbacks, but allow for prototype
+          chain </b></a>: SE.GF_DIRECT (as used by the seGetDirect and seGetEx
+          calls) bypasses the dynamic callbacks and the prototype
+          chain. SE.GF_NOPROTOTYPE bypasses the prototype chain but not the
+          callbacks. There is no corresponding call to skip dynamic callbacks
+          but still allow access via the prototype chain.  [<a
+          href="../devspace/errata/jisdk/index501.htm#dcnp">Details</a>]
+
+       </li>
+    </ul>
+    <ul>
+       <li><a
+        href="../devspace/errata/jisdk/index501.htm#cbrftalvr"><b>calling
+        byref function turns all local variables into references </b></a>: If a
+        byref function is called from within another function, all of the local
+        variables in the outer function will be turned into references.  [<a
+        href="../devspace/errata/jisdk/index501.htm#cbrftalvr">Details</a>]
+
+       </li>
+    </ul>
+
+    <ul>
+       <li><a
+       href="../devspace/errata/jisdk/index501.htm#tmgcb"><b>too
+       many callbacks for global get and for hasprop returning
+       HP_DIRECTCHECK</b></a>: If the global object has a get callback, then get
+       is called too often while initializing code. Also, if any hasProp
+       callback is returning HP_DIRECTCHECK then the get callback is being
+       called, although it shouldn't. [<a
+        href="../devspace/errata/jisdk/index501.htm#tmgcb">Details</a>]
+
+       </li>
+    </ul>
+    
+    <hr>
+      <p></p> <p></p> <p><a href="../index.htm"><img
+      src="images/footer.jpg" width="640"
+      height="30" border="0" alt="ScriptEase: ISDK is a product of Nombas,
+      Inc. Visit us at ../index.htm"></a></p>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

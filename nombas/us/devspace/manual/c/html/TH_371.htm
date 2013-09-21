@@ -1,0 +1,57 @@
+<html>
+<head>
+<title>SE_RETURN EXPLAINED</title>
+<link rel="stylesheet" href="semanualstyles.css" type="text/css">
+<style type="text/css">
+ p { margin-top: 0; margin-bottom: 0; }
+</style>
+<script language="JavaScript" src="TrueHelp.js"></script>
+</head>
+<body onload="thload()">
+<div id=ienav>
+<ilayer id=nsnav>
+<br>
+<center>
+<p class=normal><a href="seisdkc-toc.htm" target="left">contents</a> &nbsp; <a href="seisdkc-index.htm" target="left">index</a> &nbsp; <a href="TH_370.htm">previous</a> &nbsp; next</p>
+</center>
+<br>
+<hr noshade size=1>
+</ilayer>
+</div>
+<p class=heading-2>SE_RETURN EXPLAINED</p>
+<p class=heading-2-p>&nbsp;</p>
+<p class=senormalpara>The <span class=secodephrase>SE_RETURN</span> object is potentially the most confusing of the objects. However, it does not have to be. The main object,member pair associated with this object is <span class=secodephrase>SE_RETURN,SE_VALUE.</span> This member is where you put the return value for your wrapper function. For instance, if you want to return the number 10, you would write:</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=secodelinesindented>sePutNumber(se,&nbsp;SE_RETURN,SE_VALUE,&nbsp;10);</p>
+<p class=secodelinesindented>&nbsp;</p>
+<p class=senormalpara>That part is easy. However, the <span class=secodephrase>SE_RETURN</span> object has four other boolean members: <span class=secodephrase>SE_ERROR</span>, <span class=secodephrase>SE_EXIT</span>, <span class=secodephrase>SE_YIELD</span>, and <span class=secodephrase>SE_SUSPEND</span>. The last two are used for fibers and are covered in "<span class=sejumptopic><a href="TH_252.htm">Fibers and Threads</a></span>". The first two are discussed next. </p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>After you return a value (not before), you can mark that as an error result by setting the <span class=secodephrase>SE_RETURN,SE_ERROR</span> member to be <span class=secodephrase>TRUE</span>. Consider the JavaScript statement:</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=secodelinesindented>return&nbsp;10;</p>
+<p class=secodelinesindented>&nbsp;</p>
+<p class=senormalpara>versus</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=secodelinesindented>throw&nbsp;10;</p>
+<p class=secodelinesindented>&nbsp;</p>
+<p class=senormalpara>In the first case, the result is 10. In the second case it is also 10, but it is an error result of 10. If you don't understand the <span class=secodephrase>throw</span> statement, you should consult a JavaScript reference. The <span class=secodephrase>return</span> statement is identical to the example we gave above. The <span class=secodephrase>throw</span> statement is done from the ScriptEase API as follows:</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=secodelinesindented>sePutNumber(se,&nbsp;SE_RETURN,SE_VALUE,&nbsp;10);</p>
+<p class=secodelinesindented>sePutBoolean(se,&nbsp;SE_RETURN,SE_ERROR,&nbsp;TRUE);</p>
+<p class=secodelinesindented>&nbsp;</p>
+<p class=senormalpara>Throwing arbitrary values in this way is not common and is usually reserved for complex scripts. Most often, you want to throw an exception. Some error happens, such as illegal parameters to your wrapper function, and you want to generate an error return. That is a common occurance, and ScriptEase provides the <span class=secodephrase>seThrow</span> API call to do so. Explicitly setting <span class=secodephrase>SE_RETURN,SE_ERROR</span> to <span class=secodephrase>TRUE</span> is very uncommon, and you probably won't ever need to do it.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>Similarly, the <span class=secodephrase>SE_EXIT</span> flag indicates that the script should exit with the given value. Consider the C statement: </p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=secodelinesindented>exit(10);</p>
+<p class=secodelinesindented>&nbsp;</p>
+<p class=senormalpara><span class=secodephrase>SE_EXIT</span> is usually used to abort a script when an error occurs. Most of the time, you will use <span class=secodephrase>seThrow</span> to generate an error. <span class=secodephrase>seThrow</span> errors can be trapped using the <span class=secodephrase>try/catch</span> statement allowing the script to recover from errors. However, if something so drastic has happened that the wrapper function decides the script must abort immediately and should not be trapped, you can duplicate the C <span class=secodephrase>exit()</span> call using the <span class=secodephrase>SE_EXIT</span> flag. This code does exactly that:</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=secodelinesindented>sePutNumber(se,&nbsp;SE_RETURN,SE_VALUE,&nbsp;10);</p>
+<p class=secodelinesindented>sePutBoolean(se,&nbsp;SE_RETURN,SE_EXIT,&nbsp;TRUE);</p>
+<p class=secodelinesindented>&nbsp;</p>
+<p class=senormalpara>There is one final thing you should know. Normally, you can keep overwriting <span class=secodephrase>SE_RETURN,SE_VALUE</span>, and the last value returned is the result of the function. However, once any of the four boolean members is turned to <span class=secodephrase>TRUE</span>, <span class=secodephrase>SE_RETURN,SE_VALUE</span> becomes read-only. Any error is locked in this way. This means that if you call functions inside your wrapper function that generate an error, that error will also be the result of your own function, and propagated back to the user. This is usual desired behavior. In this way, you often do not need to check the error results of the ScriptEase functions you call, as those errors take precedence over whatever you try to return. This leads to small, easy-to-understand wrapper functions in most cases. If you have a more complex wrapper function that can recover from errors, you can unlock the error result by setting whichever of the four members that is <span class=secodephrase>TRUE</span> back to <span class=secodephrase>FALSE</span>.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p>
+</body>
+</html>

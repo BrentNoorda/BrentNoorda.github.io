@@ -1,0 +1,71 @@
+<html>
+<head>
+<title>SElib.bound()</title>
+<link rel="stylesheet" href="semanualstyles.css" type="text/css">
+<style type="text/css">
+ p { margin-top: 0; margin-bottom: 0; }
+</style>
+<script language="JavaScript" src="TrueHelp.js"></script>
+</head>
+<body onload="thload()">
+<div id=ienav>
+<ilayer id=nsnav>
+<br>
+<center>
+<p class=normal><a href="seisdkc-toc.htm" target="left">contents</a> &nbsp; <a href="seisdkc-index.htm" target="left">index</a> &nbsp; <a href="TH_925.htm">previous</a> &nbsp; <a href="TH_927.htm">next</a></p>
+</center>
+<br>
+<hr noshade size=1>
+</ilayer>
+</div>
+<p class=sereffunclevel4>SElib.bound()</p>
+<table cellpadding=0>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>syntax:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=sesyntax>SElib.bound()</p></td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>return:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>boolean - true if the currently running script is bound using the /bind command line option, else false.</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>description:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>ScriptEase scripts may be compiled to standalone executable, exe, files using the  bind command line option. Sometimes it is important to know if a script is being interpreted or being run as a standalone executable. Binding a script is a step more than compiling a script to be interpreted by a ScriptEase interpreter. (See <span class=sepopuptopic><a href="TH_928.htm" onClick="return thwindow('TH_928.htm', 'GenPopup')">SElib.compileScript()</a></span>)</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>see:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara><span class=sejumptopic><a href="TH_928.htm">SElib.compileScript()</a></span>, <span class=sejumptopic><a href="TH_949.htm">SElib.version()</a></span>, Using Library Files</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>example:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=secodelines>if&nbsp;(SElib.bound())</p>
+<p class=secodelines>{</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;Screen.writeln('Running&nbsp;a&nbsp;bound&nbsp;script');</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;//&nbsp;Do&nbsp;this</p>
+<p class=secodelines>}</p>
+<p class=secodelines>else</p>
+<p class=secodelines>{</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;Screen.writeln('Running&nbsp;an&nbsp;unbound&nbsp;script');</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;//&nbsp;Do&nbsp;that</p>
+<p class=secodelines>}</p></td>
+</tr>
+</table>
+<p class=normal>&nbsp;</p>
+<hr noshade size=1>
+<p class=normal><a href="TH_927.htm"><img src="button.png" border=0></a><a href="TH_927.htm" style="text-decoration:none;">SElib.breakWindow()</a></p>
+<p>
+</body>
+</html>

@@ -1,0 +1,81 @@
+<html>
+<head>
+<title>Clib.getenv()</title>
+<link rel="stylesheet" href="semanualstyles.css" type="text/css">
+<style type="text/css">
+ p { margin-top: 0; margin-bottom: 0; }
+</style>
+<script language="JavaScript" src="TrueHelp.js"></script>
+</head>
+<body onload="thload()">
+<div id=ienav>
+<ilayer id=nsnav>
+<br>
+<center>
+<p class=normal><a href="seisdkc-toc.htm" target="left">contents</a> &nbsp; <a href="seisdkc-index.htm" target="left">index</a> &nbsp; <a href="TH_647.htm">previous</a> &nbsp; <a href="TH_649.htm">next</a></p>
+</center>
+<br>
+<hr noshade size=1>
+</ilayer>
+</div>
+<p class=sereffunclevel4>Clib.getenv()</p>
+<table cellpadding=0>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>syntax:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=sesyntax>Clib.getenv(<span class=truehelp-xe></span>[variableName])</p></td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>where:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>variableName - the name of an environment variable.</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>return:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>string - a string representation of the value of an environment variable on success. If no variableName is passed, an array of all environment variable names. On failure, returns <span class=secodephrase>null</span>.</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>description:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>If the parameter variableName is supplied, this method returns the value of a similarly named environment variable as a string, if the variable exists, and <span class=secodephrase>null</span> if VariableName does not exist. If no name is supplied. then it returns an array of all environment variable names, ending with a <span class=secodephrase>null</span> element.</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>see:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara><span class=sejumptopic><a href="TH_649.htm">Clib.putenv()</a></span></p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>example:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=secodelines>//&nbsp;Print&nbsp;the&nbsp;existing&nbsp;environment&nbsp;variables,</p>
+<p class=secodelines>//&nbsp;in&nbsp;"EVAR=Value"&nbsp;format,</p>
+<p class=secodelines>//&nbsp;sorted&nbsp;alphabetically.</p>
+<p class=secodelines>&nbsp;</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;//&nbsp;get&nbsp;array&nbsp;of&nbsp;all&nbsp;environment&nbsp;variable&nbsp;names</p>
+<p class=secodelines>var&nbsp;EnvList&nbsp;=&nbsp;Clib.getenv();</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;//&nbsp;sort&nbsp;array&nbsp;alphabetically</p>
+<p class=secodelines>Clib.qsort(EnvList,&nbsp;getArrayLength(EnvList),</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Clib.stricmp);</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;//&nbsp;display&nbsp;each&nbsp;element&nbsp;in&nbsp;ENV=VALUE&nbsp;format</p>
+<p class=secodelines>for&nbsp;(&nbsp;var&nbsp;lIdx&nbsp;=&nbsp;0;&nbsp;EnvList[lIdx];&nbsp;lIdx++&nbsp;)</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;Clib.printf("%s=%s\n",&nbsp;EnvList[lIdx],</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Clib.getenv(EnvList[lIdx]));</p></td>
+</tr>
+</table>
+<p class=normal>&nbsp;</p>
+<hr noshade size=1>
+<p class=normal><a href="TH_649.htm"><img src="button.png" border=0></a><a href="TH_649.htm" style="text-decoration:none;">Clib.putenv()</a></p>
+<p>
+</body>
+</html>

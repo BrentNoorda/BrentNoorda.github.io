@@ -1,0 +1,118 @@
+<html>
+<head>
+<title>Object()</title>
+<link rel="stylesheet" href="semanualstyles.css" type="text/css">
+<style type="text/css">
+ p { margin-top: 0; margin-bottom: 0; }
+</style>
+<script language="JavaScript" src="TrueHelp.js"></script>
+</head>
+<body onload="thload()">
+<div id=ienav>
+<ilayer id=nsnav>
+<br>
+<center>
+<p class=normal><a href="seisdkj-toc.htm" target="left">contents</a> &nbsp; <a href="seisdkj-index.htm" target="left">index</a> &nbsp; <a href="TH_768.htm">previous</a> &nbsp; <a href="TH_770.htm">next</a></p>
+</center>
+<br>
+<hr noshade size=1>
+</ilayer>
+</div>
+<p class=sereffunclevel4>Object()</p>
+<table cellpadding=0>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>syntax:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=sesyntax>new&nbsp;Object([value])</p></td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>where:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>value - a value or variable, usually a primitive, to convert to an object.</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>return:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>object - a new top level object.</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>description:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>Create a new top level object. I a <span class=secodephrase>value</span> is passed, convert the <span class=secodephrase>value</span> to an object, else create a new object. The examples below illustrate several ways to use <span class=secodephrase>Object()</span> and how to accomplish similar things using different strategies.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>If <span class=secodephrase>Object()</span> is invoked as a function instead of as a constructor (that is, without <span class=secodephrase>new</span>), it performs a type conversion<span class=truehelp-xe></span> on <span class=secodephrase>value</span>. That is, it returns <span class=secodephrase>value</span> as data type <span class=secodephrase>Object</span>.</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>see:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara><span class=sejumptopic><a href="TH_730.htm">Internal objects</a></span></p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>example:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=secodelines>/***************************************</p>
+<p class=secodelines>First&nbsp;we&nbsp;create&nbsp;var&nbsp;s&nbsp;as&nbsp;a&nbsp;string&nbsp;data&nbsp;type.</p>
+<p class=secodelines>Then&nbsp;we&nbsp;will&nbsp;convert&nbsp;s&nbsp;to&nbsp;an&nbsp;object&nbsp;data&nbsp;type,&nbsp;</p>
+<p class=secodelines>namely,&nbsp;to&nbsp;a&nbsp;String&nbsp;object.</p>
+<p class=secodelines>***************************************/</p>
+<p class=secodelines>//&nbsp;Create&nbsp;s&nbsp;as&nbsp;data&nbsp;type&nbsp;string</p>
+<p class=secodelines>var&nbsp;s&nbsp;=&nbsp;'my&nbsp;string';</p>
+<p class=secodelines>//&nbsp;Display&nbsp;the&nbsp;data&nbsp;type&nbsp;'string'</p>
+<p class=secodelines>Screen.writeln(typeof&nbsp;s);</p>
+<p class=secodelines>//&nbsp;Display&nbsp;'my&nbsp;string'</p>
+<p class=secodelines>Screen.writeln(s);</p>
+<p class=secodelines>&nbsp;</p>
+<p class=secodelines>//&nbsp;Convert&nbsp;s&nbsp;to&nbsp;data&nbsp;type&nbsp;object&nbsp;(String&nbsp;object)</p>
+<p class=secodelines>var&nbsp;o&nbsp;=&nbsp;new&nbsp;Object(s);</p>
+<p class=secodelines>//&nbsp;Display&nbsp;the&nbsp;data&nbsp;type&nbsp;'object'</p>
+<p class=secodelines>Screen.writeln(typeof&nbsp;o);</p>
+<p class=secodelines>//&nbsp;Display&nbsp;'my&nbsp;string'</p>
+<p class=secodelines>Screen.writeln(o);</p>
+<p class=secodelines>&nbsp;</p>
+<p class=secodelines>/***************************************</p>
+<p class=secodelines>Next&nbsp;we&nbsp;create&nbsp;var&nbsp;so&nbsp;as&nbsp;a&nbsp;String&nbsp;object&nbsp;--</p>
+<p class=secodelines>in&nbsp;one&nbsp;statement.</p>
+<p class=secodelines>***************************************/</p>
+<p class=secodelines>//&nbsp;Create&nbsp;so&nbsp;as&nbsp;a&nbsp;String&nbsp;object&nbsp;in&nbsp;one&nbsp;statement</p>
+<p class=secodelines>var&nbsp;so&nbsp;=&nbsp;new&nbsp;String('my&nbsp;string');</p>
+<p class=secodelines>//&nbsp;Display&nbsp;the&nbsp;data&nbsp;type&nbsp;'object'</p>
+<p class=secodelines>Screen.writeln(typeof&nbsp;so);</p>
+<p class=secodelines>//&nbsp;Display&nbsp;'my&nbsp;string'</p>
+<p class=secodelines>Screen.writeln(so);</p>
+<p class=secodelines>&nbsp;</p>
+<p class=secodelines>/***************************************</p>
+<p class=secodelines>Next&nbsp;we&nbsp;create&nbsp;var&nbsp;o&nbsp;as&nbsp;an&nbsp;Object&nbsp;object&nbsp;data&nbsp;type.</p>
+<p class=secodelines>We&nbsp;add&nbsp;the&nbsp;property&nbsp;o.mystring.</p>
+<p class=secodelines>Note&nbsp;that&nbsp;the&nbsp;property&nbsp;may&nbsp;be&nbsp;accessed&nbsp;as:</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;o.mystring</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;or</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;o['mystring']</p>
+<p class=secodelines>***************************************/</p>
+<p class=secodelines>//&nbsp;Create&nbsp;a&nbsp;new&nbsp;top&nbsp;level&nbsp;object</p>
+<p class=secodelines>var&nbsp;o&nbsp;=&nbsp;new&nbsp;Object();</p>
+<p class=secodelines>//&nbsp;Add&nbsp;the&nbsp;property&nbsp;mystring</p>
+<p class=secodelines>o.mystring&nbsp;=&nbsp;'my&nbsp;string';</p>
+<p class=secodelines>//&nbsp;Display&nbsp;the&nbsp;data&nbsp;type&nbsp;'object'</p>
+<p class=secodelines>Screen.writeln(typeof&nbsp;o);</p>
+<p class=secodelines>//&nbsp;Display&nbsp;'my&nbsp;string'</p>
+<p class=secodelines>Screen.writeln(o.mystring);</p>
+<p class=secodelines>//&nbsp;Display&nbsp;'my&nbsp;string'</p>
+<p class=secodelines>Screen.writeln(o['mystring']);</p></td>
+</tr>
+</table>
+<p class=normal>&nbsp;</p>
+<hr noshade size=1>
+<p class=normal><a href="TH_770.htm"><img src="button.png" border=0></a><a href="TH_770.htm" style="text-decoration:none;">Object hasOwnProperty()</a></p>
+<p>
+</body>
+</html>

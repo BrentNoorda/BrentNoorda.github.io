@@ -1,0 +1,78 @@
+<html>
+<head>
+<title>Blob.size()</title>
+<link rel="stylesheet" href="semanualstyles.css" type="text/css">
+<style type="text/css">
+ p { margin-top: 0; margin-bottom: 0; }
+</style>
+<script language="JavaScript" src="TrueHelp.js"></script>
+</head>
+<body onload="thload()">
+<div id=ienav>
+<ilayer id=nsnav>
+<br>
+<center>
+<p class=normal><a href="seisdkj-toc.htm" target="left">contents</a> &nbsp; <a href="seisdkj-index.htm" target="left">index</a> &nbsp; <a href="TH_437.htm">previous</a> &nbsp; <a href="TH_439.htm">next</a></p>
+</center>
+<br>
+<hr noshade size=1>
+</ilayer>
+</div>
+<p class=sereffunclevel4>Blob.size()</p>
+<table cellpadding=0>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>syntax:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=sesyntax>Blob.size(<span class=truehelp-xe></span>BlobVar[,&nbsp;SetSize])&nbsp;</p>
+<p class=sesyntax>Blob.size(DataType)&nbsp;</p>
+<p class=sesyntax>Blob.size(bufferLen)&nbsp;</p>
+<p class=sesyntax>Blob.size(DataStructureDefinition)</p></td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>where:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>BlobVar - binary large object variable to use.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>SetSize - size to which to set BlobVar.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>DataType - the type of data with which to work.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>bufferLen - the length of data to work with as a buffer or byte array.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>DataStructureDefinition - definition of a structure (object) variable.</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>return:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>number - bytes in a Blob variable. If SetSize is passed, then that value is returned.</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>description:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>This method determines the size of a Binary Large Object, Blob. The parameter BlobVar specifies the Blob to use. If SetSize is provided, then the Blob BlobVar is altered to this size or created with this size.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>If DataType, bufferLen, or DataStructureDefinition are used, <span class=secodephrase>Blob.size()</span> returns the size of a Blob that would contain the type of data item used in by <span class=sepopuptopic><a href="TH_436.htm" onClick="return thwindow('TH_436.htm', 'GenPopup')">Blob.get()</a></span> or <span class=sepopuptopic><a href="TH_437.htm" onClick="return thwindow('TH_437.htm', 'GenPopup')">Blob.put()</a></span>. In these cases, these parameters specify the type to be used for converting ScriptEase data to and from a Blob.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>Blob.size returns the size of a Blob, which is the number of bytes in BlobVar. If SetSize is supplied, then the return is SetSize.</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>see:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara><span class=sejumptopic><a href="TH_436.htm">Blob get()</a></span>, <span class=sejumptopic><a href="TH_437.htm">Blob put()</a></span>, _BigEndianMode, <span class=sejumptopic><a href="TH_445.htm">Buffer object</a></span></p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+</table>
+<p class=normal>&nbsp;</p>
+<hr noshade size=1>
+<p class=normal><a href="TH_439.htm"><img src="button.png" border=0></a><a href="TH_439.htm" style="text-decoration:none;">blobDescriptor object</a></p>
+<p>
+</body>
+</html>

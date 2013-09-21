@@ -1,0 +1,2826 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML EXPERIMENTAL 970324//EN">
+<HTML>
+<HEAD>
+<META NAME="GENERATOR" CONTENT="Adobe FrameMaker 5.5/HTML Export Filter">
+<LINK REL="STYLESHEET" HREF="desk3man.css">
+<TITLE>ScriptEase:Desktop v3 Manual: ScriptEase Standard Library Extensions</TITLE>
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-1754630-10']);
+  _gaq.push(['_trackPageview']);
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+</HEAD>
+<BODY BACKGROUND="desk3pat.gif">
+<TABLE WIDTH="225" BORDER="0" CELLSPACING="0" CELLPADDING="0">
+  <TR>
+    <TD WIDTH="71"><a href="6-stdlib.htm"><IMG SRC="prev.gif" WIDTH="71" height="18" border="0"></a></TD>
+    <TD WIDTH="80"><a href="../index.htm"><IMG SRC="tocidx.gif" WIDTH="80" height="18" border="0"></a></TD>
+    <TD WIDTH="74"><a href="8-prolib.htm"><IMG SRC="next.gif" WIDTH="74" height="18" border="0"></a></TD>
+  </TR>
+</TABLE>
+
+<H1 CLASS="Title">
+ScriptEase Standard Library Extensions</H1>
+<P CLASS="Abstract">
+The functions described in this section are common across all implementations of ScriptEase. They are included internally to the ScriptEase program. All of these routines are available to any program written in ScriptEase.</P>
+<P CLASS="Body">
+The following predefined values are used to know the version of ScriptEase that is running:</P>
+<P CLASS="Body">
+In version &quot;2.10 GA&quot; the following values would be defined</P>
+<TABLE>
+<TR>
+<TD>
+<P CLASS="cb">
+<A NAME="1000482">
+ </A>
+VERSION_MAJOR</P>
+</TD>
+<TD>
+<P CLASS="cb">
+2</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="cb">
+<A NAME="1000483">
+ </A>
+VERSION_MINOR</P>
+</TD>
+<TD>
+<P CLASS="cb">
+10</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="cb">
+<A NAME="1000484">
+ </A>
+VERSION_STRING</P>
+</TD>
+<TD>
+<P CLASS="cb">
+&quot;GA&quot;</P>
+</TD>
+</TR>
+</TABLE>
+<P CLASS="Body">
+Depending on which version of ScriptEase is running, one (and only one) of the following values will be defined:</P>
+<TABLE>
+<TR>
+<TD>
+<P CLASS="cb">
+<A NAME="1000485">
+ </A>
+_DOS_</P>
+</TD>
+<TD>
+<P CLASS="cb">
+1</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="cb">
+<A NAME="1000486">
+ </A>
+_DOS32_</P>
+</TD>
+<TD>
+<P CLASS="cb">
+1</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="cb">
+<A NAME="1000487">
+ </A>
+_OS2_</P>
+</TD>
+<TD>
+<P CLASS="cb">
+1</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="cb">
+<A NAME="1000488">
+ </A>
+_WINDOWS_</P>
+</TD>
+<TD>
+<P CLASS="cb">
+1</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="cb">
+<A NAME="1000491">
+ </A>
+_WIN32_</P>
+</TD>
+<TD>
+<P CLASS="cb">
+1</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="cb">
+<A NAME="1000494">
+ </A>
+_NWNLM_</P>
+</TD>
+<TD>
+<P CLASS="cb">
+1</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="cb">
+<A NAME="1000495">
+ </A>
+_UNIX_</P>
+</TD>
+<TD>
+<P CLASS="cb">
+1</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="cb">
+<A NAME="1000496">
+ </A>
+_MAC_</P>
+</TD>
+<TD>
+<P CLASS="cb">
+1</P>
+</TD>
+</TR>
+</TABLE>
+<P CLASS="Body">
+If ScriptEase is running as a shell, then the following will be defined:</P>
+<TABLE>
+<TR>
+<TD>
+<P CLASS="cb">
+<A NAME="1000497">
+ </A>
+_SHELL_</P>
+</TD>
+<TD>
+<P CLASS="cb">
+1</P>
+</TD>
+</TR>
+</TABLE>
+<P CLASS="Body">
+If _WIN32_ is defined, then one of the following values will be defined as well:</P>
+<TABLE>
+<TR>
+<TD>
+<P CLASS="cb">
+<A NAME="1000581">
+ </A>
+_NTCON_</P>
+</TD>
+<TD>
+<P CLASS="cb">
+1</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="cb">
+<A NAME="1000586">
+ </A>
+_NTWIN_</P>
+</TD>
+<TD>
+<P CLASS="cb">
+1</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="cb">
+<A NAME="1000597">
+ </A>
+_95CON_</P>
+</TD>
+<TD>
+<P CLASS="cb">
+1</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="cb">
+<A NAME="1000592">
+ </A>
+_95WIN_</P>
+</TD>
+<TD>
+<P CLASS="cb">
+1</P>
+</TD>
+</TR>
+</TABLE>
+<P CLASS="Body">
+Depending on whether the processor stores multi-byte Big-Endian or Little_Endian, BIG_ENDIAN will be defined in one of the following ways:</P>
+<TABLE>
+<TR>
+<TD>
+<P CLASS="cb">
+<A NAME="1000498">
+ </A>
+BIG_ENDIAN</P>
+</TD>
+<TD>
+<P CLASS="cb">
+1 (i.e. TRUE) if processor stores high-byte first (e.g. Motorolla)</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="cb">
+<A NAME="1000499">
+ </A>
+BIG_ENDIAN</P>
+</TD>
+<TD>
+<P CLASS="cb">
+0 (i.e. FALSE) if processor stores low-byte in low_memory (e.g. Intel) </P>
+</TD>
+</TR>
+</TABLE>
+<HR><TABLE>
+<TR>
+<TH COLSPAN="2">
+<H6 CLASS="fnam">
+<A NAME="1000500">
+ </A>
+_BigEndianMode</H6>
+</TH>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+DESCRIPTION</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Global variable to specify ScriptEase-data to memory-data conversion.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+SYNTAX</P>
+</TD>
+<TD>
+<P CLASS="cb">
+bool _BigEndianMode;</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+COMMENTS</P>
+</TD>
+<TD>
+<P CLASS="cb">
+This is a global variable set to specify if data read or written by the fread(), fwrite(), BLObGet(), BLObPut(), peek(), poke(), PMpeek(), PMpoke(), or DynamicLink() functions is stored in memory in a Big-Endian or Little-Endian format. This defaults to BIG_ENDIAN.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+SEE ALSO</P>
+</TD>
+<TD>
+<P CLASS="cb">
+BLObGet(), BLObSize(), fread(), fwrite(), peek(), poke(), PMpeek(), PMpoke(), DynamicLink()</P>
+</TD>
+</TR>
+</TABLE>
+<HR><TABLE>
+<TR>
+<TH>
+<H6 CLASS="fnam">
+<A NAME="1000501">
+ </A>
+BLObGet</H6>
+</TH>
+<TH>
+<H6 CLASS="cHead">
+&nbsp;</H6>
+</TH>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+DESCRIPTION</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Read data from specified location of a Binary Large Object (BLOb).</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+SYNTAX</P>
+</TD>
+<TD>
+<P CLASS="Function-Syntax">
+byte BLObGet(blob BLObVar, int offset, int DataType=UWORD8)</P>
+<P CLASS="Function-Syntax">
+int BLObGet(blob BLObVar, int offset, int DataType) </P>
+<P CLASS="Function-Syntax">
+float BLObGet(blob BLObVar, int offset, int DataType) </P>
+<P CLASS="Function-Syntax">
+byte[] BLObGet(blob BLObVar, int offset, int bufferLen) </P>
+<P CLASS="Function-Syntax">
+struct BLObGet(blob BLObVar, int offset, <BR>
+struct DataStructureDefinition)</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+COMMENTS</P>
+</TD>
+<TD>
+<P CLASS="cb">
+This is the companion function to BLObPut(). BLObGet() retrieves data of specified size from a BLOb and returns and appropriate variable. Valid data types are: UWORD8, SWORD8, UWORD16, SWORD16, UWORD24, SWORD24, UWORD32, SWORD32, FLOAT32, FLOAT64, FLOAT80 See fread() in the Standard Library (Chapter 6) for more information on these DataType values.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+RETURNS</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Returns a variable containing the data retrieved.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+SEE ALSO</P>
+</TD>
+<TD>
+<P CLASS="cb">
+BigEndianMode, BLObPut(), BLObSize(), fread()</P>
+</TD>
+</TR>
+</TABLE>
+<HR><TABLE>
+<TR>
+<TH>
+<H6 CLASS="fnam">
+<A NAME="1000502">
+ </A>
+BLObPut</H6>
+</TH>
+<TH>
+<H6 CLASS="cHead">
+&nbsp;</H6>
+</TH>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+DESCRIPTION</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Write data into specified location of a Binary Large Object (BLOb).</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+SYNTAX</P>
+</TD>
+<TD>
+<P CLASS="Function-Syntax">
+int BLObPut(blob BLObVar[, int offset], Var v, int DataType) </P>
+<P CLASS="Function-Syntax">
+int BLObPut(blob BLObVar[, int offset], byte[] buffer, int bufferLen)</P>
+<P CLASS="Function-Syntax">
+int BLObPut(blob BLObVar[, int offset], struct SrcStruct, <BR>
+struct DataStructureDefinition)</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+COMMENTS</P>
+</TD>
+<TD>
+<P CLASS="cb">
+This function, along with BLObGet(), allows for direct access to memory within a variable that may be viewed as a packed structure. Data can be placed at any location within a BLOb. If DataType is not the length of a byte buffer then it must be one of these types:</P>
+<P CLASS="cb-in">
+UWORD8, SWORD8, UWORD16, SWORD16, UWORD24, SWORD24, UWORD32, SWORD32, FLOAT32, FLOAT64, FLOAT80 </P>
+<P CLASS="cb">
+See fread() in the Standard Library (Chapter 6) for more information on these DataType values. </P>
+<P CLASS="cb">
+If offset is not supplied, then the data will be put at the end of the existing blob, or at 0 if the blob is not defined yet. </P>
+<P CLASS="cb">
+The Data in v will be converted to the specified DataType and then copied into those bytes.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+RETURNS</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Returns the byte offset for the next byte following the section where data was just put; in other words, if the data were put at the end of the BLOb, then this returns the sizeof(BLOb).</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+SEE ALSO</P>
+</TD>
+<TD>
+<P CLASS="cb">
+BigEndianMode, BLObGet(), BLObSize(), fread(), fwrite()</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+EXAMPLE</P>
+</TD>
+<TD>
+<P CLASS="cb">
+If you were sending a pointer to data in an external C library, and you knew the library expected the data in a packed DOS structure of the form: </P>
+<P CLASS="ciTable">
+struct foo {</P>
+<P CLASS="ciTable">
+	signed char a;</P>
+<P CLASS="ciTable">
+	unsigned int b;</P>
+<P CLASS="ciTable">
+	double    c;</P>
+<P CLASS="ciTable">
+};</P>
+<P CLASS="cb">
+If you were building this structure from three corresponding variables, then such a building function may look like this: </P>
+<P CLASS="ciTable">
+BuildFooBlob(a,b,c) </P>
+<P CLASS="ciTable">
+{</P>
+<P CLASS="ciTable">
+	offset = BLObPut(foo, 0, a, SWORD8);    </P>
+<P CLASS="ciTable">
+	offset = BLObPut(foo, offset, b, UWORD16);    </P>
+<P CLASS="ciTable">
+	BLObPut(foo, offset, c, FLOAT64);    </P>
+<P CLASS="ciTable">
+	return foo; </P>
+<P CLASS="ciTable">
+} </P>
+<P CLASS="cb">
+ or, because if offset is not supplied then data is put at the end: </P>
+<P CLASS="ciTable">
+BuildFooBlob(a,b,c)</P>
+<P CLASS="ciTable">
+{</P>
+<P CLASS="ciTable">
+	BLObPut(foo, a, SWORD8);    </P>
+<P CLASS="ciTable">
+	BLObPut(foo, b, UWORD16);    </P>
+<P CLASS="ciTable">
+	BLObPut(foo, c, FLOAT64);    </P>
+<P CLASS="ciTable">
+	return foo; </P>
+<P CLASS="ciTable">
+}</P>
+</TD>
+</TR>
+</TABLE>
+<HR><TABLE>
+<TR>
+<TH>
+<H6 CLASS="fnam">
+<A NAME="1000503">
+ </A>
+BLObSize</H6>
+</TH>
+<TH>
+<H6 CLASS="cHead">
+&nbsp;</H6>
+</TH>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+DESCRIPTION</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Determine size of a Binary Large Object (BLOb).</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+SYNTAX</P>
+</TD>
+<TD>
+<P CLASS="Function-Syntax">
+int BLObSize(blob BLObVar[, SetSize]) </P>
+<P CLASS="Function-Syntax">
+int BLObSize(int DataType) </P>
+<P CLASS="Function-Syntax">
+int BLObSize(int bufferLen) </P>
+<P CLASS="Function-Syntax">
+int BLObSize(struct DefinitionStructure)</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+COMMENTS</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Gets the size of a blob. Optionally, can set the size of a BLOb, even create a BLOb, if the <EM CLASS="Variable">
+SetSize</EM>
+ value is supplied. </P>
+<P CLASS="cb">
+If using DataType, bufferLen, or DefinitionStructure this function returns the size of the BLOb that would contain the type of data item used in the BLObGet() or BLObPut() call, where this is the type used for converting ScriptEase data to/from a BLOb.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+MODIFIES</P>
+</TD>
+<TD>
+<P CLASS="cb">
+If SetSize is supplied then alters BLObVar to be SetSize, even creating or making BLObVar if it is not already a BLOb.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+RETURN</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Returns the number of bytes in BLObVar. This is the same value you'd get from &quot;1+GetArraySpan(BLObVar)&quot;. If SetSize is supplied then will return SetSize.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+SEE ALSO</P>
+</TD>
+<TD>
+<P CLASS="cb">
+BLObGet(), BLObPut(), GetArraySpan(), SetArraySpan() </P>
+</TD>
+</TR>
+</TABLE>
+<HR><TABLE>
+<TR>
+<TH>
+<H6 CLASS="fnam">
+<A NAME="1000504">
+ </A>
+Bound</H6>
+</TH>
+<TH>
+<H6 CLASS="cHead">
+&nbsp;</H6>
+</TH>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+DESCRIPTION</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Test if running from a ScriptEase /BIND executable.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+SYNTAX</P>
+</TD>
+<TD>
+<P CLASS="cb">
+bool Bound()</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+RETURN</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Return TRUE if running from ScriptEase /BIND executable, else return FALSE.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+EXAMPLE</P>
+</TD>
+<TD>
+<P CLASS="cb">
+This code in TEST.CMM will print the digit 0 if run as &quot;CEnviTEST.CMM&quot;, but if the same file is run from TEST.EXE after &quot;ScriptEase /BIND=TEST.EXE TEST.CMM&quot; the output is the <BR>
+digit 1:</P>
+<P CLASS="ciTable">
+printf(&quot;Bound() = %d&quot;, Bound());</P>
+</TD>
+</TR>
+</TABLE>
+<HR><TABLE>
+<TR>
+<TH>
+<H6 CLASS="fnam">
+<A NAME="1000505">
+ </A>
+byte</H6>
+</TH>
+<TH>
+<H6 CLASS="cHead">
+&nbsp;</H6>
+</TH>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+DESCRIPTION</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Return numerical value as represented by a byte.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+SYNTAX</P>
+</TD>
+<TD>
+<P CLASS="cb">
+byte byte(var v)</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+RETURN</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Returns v as represented by a byte.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+SEE ALSO</P>
+</TD>
+<TD>
+<P CLASS="cb">
+integer(), float()</P>
+</TD>
+</TR>
+</TABLE>
+<HR><TABLE>
+<TR>
+<TH COLSPAN="2">
+<H6 CLASS="fnam">
+<A NAME="1000506">
+ </A>
+DataDimension</H6>
+</TH>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+DESCRIPTION</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Determine dimension of variable data.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+SYNTAX</P>
+</TD>
+<TD>
+<P CLASS="cb">
+int DataDimension(var)</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+COMMENTS</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Determine the dimensionality of a known data type, where 0 is a datum, 1 is a 1-dimensional array, 2 is a 2-dimensional array, and so on. This function is useful for determining how to treat input parameters for a function that takes multiple parameter types.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+RETURN</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Return integer for dimension of this variable; 0 is datum; 1 is array; etc...</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+SEE ALSO</P>
+</TD>
+<TD>
+<P CLASS="cb">
+DataType(), defined()</P>
+</TD>
+</TR>
+</TABLE>
+<HR><TABLE>
+<TR>
+<TH>
+<H6 CLASS="fnam">
+<A NAME="1000507">
+ </A>
+DataType</H6>
+</TH>
+<TH>
+<H6 CLASS="cHead">
+&nbsp;</H6>
+</TH>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+DESCRIPTION</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Determine data type of a variable.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+SYNTAX</P>
+</TD>
+<TD>
+<P CLASS="cb">
+int DataType(var)</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+COMMENTS</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Determine the type of data for a variable. This function is useful for determining how to treat input parameters for a function that takes multiple parameter types. The data type returned will be on of the following pre-#defined values: </P>
+<P CLASS="fit2">
+<EM CLASS="Element">
+CMM_UNKNOWN</EM>
+	data type has not been determined;</P>
+<P CLASS="fit2">
+<EM CLASS="Element">
+CMM_STRUCT</EM>
+	var is a structure variable </P>
+<P CLASS="fit2">
+<EM CLASS="Element">
+CMM_BYTE</EM>
+	Byte (if 1 == DataDimension() maybe a string) </P>
+<P CLASS="fit2">
+<EM CLASS="Element">
+CMM_INT</EM>
+	integer value </P>
+<P CLASS="fit2">
+<EM CLASS="Element">
+CMM_FLOAT</EM>
+	floating-point value </P>
+<P CLASS="cb">
+Note that the above values are sequential so that the following function would return TRUE if a value is numeric (CMM_BYTE, CMM_INT, or CMM_FLOAT) and FALSE if it is not numeric:</P>
+<P CLASS="ciTable">
+IsItNumeric(value) </P>
+<P CLASS="ciTable">
+{</P>
+<P CLASS="ciTable">
+return(CMM_BYTE &lt;= DataType(value) );</P>
+<P CLASS="ciTable">
+}</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+RETURN</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Data type CMM_UNKNOWN, CMM_STRUCT, CMM_BYTE, CMM_INT, or CMM_FLOAT</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+SEE ALSO</P>
+</TD>
+<TD>
+<P CLASS="cb">
+DataDimension(), defined()</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+EXAMPLE</P>
+</TD>
+<TD>
+<P CLASS="cb">
+The following function, PrintValue(), would print the single value passed to it in a native format, whether it be a byte, integer, float, or string: </P>
+<P CLASS="ciTable">
+PrintValue(value) //printf() value in native format </P>
+<P CLASS="ciTable">
+{</P>
+<P CLASS="ciTable">
+	// default print message if bad value </P>
+<P CLASS="ciTable">
+	FormatString = &quot;INVALID VALUE\a&quot;; </P>
+<P CLASS="ciTable">
+	switch(DataDimension(value) ) {</P>
+<P CLASS="ciTable">
+		case 0: // 0-dimensional array; i.e., datum </P>
+<P CLASS="ciTable">
+			switch(DataType(value) ) {</P>
+<P CLASS="ciTable">
+				case CMM_BYTE: </P>
+<P CLASS="ciTable">
+					FormatString = &quot;%c&quot;; </P>
+<P CLASS="ciTable">
+					break; </P>
+<P CLASS="ciTable">
+				case CMM_INT: </P>
+<P CLASS="ciTable">
+					FormatString = &quot;%d&quot;; </P>
+<P CLASS="ciTable">
+					break; </P>
+<P CLASS="ciTable">
+				case CMM_FLOAT: </P>
+<P CLASS="ciTable">
+					FormatString = &quot;%f&quot;; </P>
+<P CLASS="ciTable">
+					break; </P>
+<P CLASS="ciTable">
+				default: </P>
+<P CLASS="ciTable">
+					// other types not recognized </P>
+<P CLASS="ciTable">
+					// for PrintValue() </P>
+<P CLASS="ciTable">
+					break; </P>
+<P CLASS="ciTable">
+			} </P>
+<P CLASS="ciTable">
+			break; </P>
+<P CLASS="ciTable">
+		case 1:    </P>
+<P CLASS="ciTable">
+			// 1-dimensional array; only recognizes string </P>
+<P CLASS="ciTable">
+			if (CMM_BYTE == DataType(value) ) </P>
+<P CLASS="ciTable">
+				FormatString = &quot;%s&quot;; </P>
+<P CLASS="ciTable">
+		default: // dimensions above 1 are unrecognized </P>
+<P CLASS="ciTable">
+			break; </P>
+<P CLASS="ciTable">
+	} </P>
+<P CLASS="ciTable">
+	printf(FormatString,value); </P>
+<P CLASS="ciTable">
+}</P>
+</TD>
+</TR>
+</TABLE>
+<HR><TABLE>
+<TR>
+<TH>
+<H6 CLASS="fnam">
+<A NAME="1000508">
+ </A>
+defined</H6>
+</TH>
+<TH>
+<H6 CLASS="cHead">
+&nbsp;</H6>
+</TH>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+DESCRIPTION</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Test if variable has been defined.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+SYNTAX</P>
+</TD>
+<TD>
+<P CLASS="cb">
+bool defined(var v)</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+COMMENTS</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Test whether a value has a data definition. This is useful to test if individual elements of a structure are defined.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+RETURN</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Return TRUE if v is defined, else return FALSE.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+SEE ALSO</P>
+</TD>
+<TD>
+<P CLASS="cb">
+DataDimension(), DataType(), undefine() </P>
+</TD>
+</TR>
+</TABLE>
+<HR><TABLE>
+<TR>
+<TH>
+<H6 CLASS="fnam">
+<A NAME="1000509">
+ </A>
+Directory</H6>
+</TH>
+<TH>
+<H6 CLASS="cHead">
+&nbsp;</H6>
+</TH>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+DESCRIPTION</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Search directory listing for a file specification.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+SYNTAX</P>
+</TD>
+<TD>
+<P CLASS="Function-Syntax">
+struct[] Directory([, string SearchSpec[, bool RecurseSubdirectories [, int IncludeAttrib[, int RequiredAttrib]]]])</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+COMMENTS</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Search through the directory file structure to get files matching the <EM CLASS="Variable">
+SearchSpec</EM>
+ path specification, that match the SearchSpec file specification and include all normal files and those files with one of the Attrib attribute bits set. This function returns the number of files found and creates a Found structure array containing data found for each of the file matches. </P>
+<P CLASS="cb">
+<EM CLASS="Element">
+SearchSpec</EM>
+ is any valid file specification, including wildcards and drives and/or paths, that matches the filespec parameters of the operating system. If this parameter is not supplied then it defaults to match all files in the current directory. </P>
+<P CLASS="cb">
+<EM CLASS="Element">
+RecurseSubdirectories</EM>
+ is TRUE if you want to search recursively through subdirectories, and FALSE to only search the directory specified in SearchSpec. If this parameter is not supplied then its default is FALSE.</P>
+<P CLASS="cb">
+<EM CLASS="Element">
+IncludeAttrib</EM>
+ is an OR of flags specifying which files to match based on file flags. If a file has a flag set, and that flag is not specified in Attrib, then that file will not be returned as a match. Flags that do not apply to the operating system are ignored. If 0 is specified here then only matches normal files that have no special attributes set. If this parameter is not specified then it defaults to: (FATTR_RDONLY| FATTR_SUBDIR|FATTR_ARCHIVE). </P>
+<P CLASS="cb">
+The defined flags for Attrib are: </P>
+<P CLASS="fit2">
+<EM CLASS="Element">
+FATTR_RDONLY</EM>
+	Read-only file</P>
+<P CLASS="fit2">
+<EM CLASS="Element">
+FATTR_HIDDEN</EM>
+	Hidden file </P>
+<P CLASS="fit2">
+<EM CLASS="Element">
+FATTR_SYSTEM</EM>
+	System file </P>
+<P CLASS="fit2">
+<EM CLASS="Element">
+FATTR_SUBDIR</EM>
+	Directory </P>
+<P CLASS="fit2">
+<EM CLASS="Element">
+FATTR_ARCHIVE</EM>
+	Archive file</P>
+<P CLASS="cb">
+<EM CLASS="Element">
+RequiredAttrib</EM>
+ is an OR of the same flags as defined under IncludeAttrib. In this case, all files will be excluded from the search that do not have all of the RequiredAttrib flags set. If no flags are supplied it defaults to 0.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+RETURN</P>
+</TD>
+<TD>
+<P CLASS="cb">
+If no files match SearchSpec, then returns NULL, else returns an array of structures containing the following members (date-time numbers are all in the format returned by the time() function--see time library--and those fields that do not apply to this operating system are duplicated from those that do apply): </P>
+<P CLASS="fit3">
+<EM CLASS="Element">
+.name</EM>
+	Full file name, including the SearchSpec path. </P>
+<P CLASS="fit3">
+<EM CLASS="Element">
+.attrib</EM>
+	OR of file flags, as defined above in IncludeAttrib </P>
+<P CLASS="fit3">
+<EM CLASS="Element">
+.size</EM>
+	Size of file, in bytes </P>
+<P CLASS="fit3">
+<EM CLASS="Element">
+.Access</EM>
+	Date and time of last file access </P>
+<P CLASS="fit3">
+<EM CLASS="Element">
+.Write</EM>
+	Date and time of last write to file </P>
+<P CLASS="fit3">
+<EM CLASS="Element">
+.Create</EM>
+	Date and time of file creation</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+SEE ALSO</P>
+</TD>
+<TD>
+<P CLASS="cb">
+FullPath(), SplitFileName()</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+EXAMPLE</P>
+</TD>
+<TD>
+<P CLASS="cb">
+This routine would list all files in the current directory, except for subdirectory entries:</P>
+<P CLASS="ciTable">
+ListDirectory(FileSpec)	// list all files except </P>
+<P CLASS="ciTable">
+ 										// directory entries </P>
+<P CLASS="ciTable">
+{</P>
+<P CLASS="ciTable">
+	FileList = Directory(FileSpec,False,~FATTR_SUBDIR) </P>
+<P CLASS="ciTable">
+	if (NULL == FileList) </P>
+<P CLASS="ciTable">
+		printf(&quot;No files found for search spec \&quot;%s\&quot;.\n&quot;,</P>
+<P CLASS="ciTable">
+						FileSpec); </P>
+<P CLASS="ciTable">
+	else {</P>
+<P CLASS="ciTable">
+	FileCount = 1 + GetArraySpan(FileList); </P>
+<P CLASS="ciTable">
+	for (i = 0; i &lt; FileCount; i++)</P>
+<P CLASS="ciTable">
+		printf(&quot;%s\tsize = %d\tCreate date/time = %s\n&quot;, </P>
+<P CLASS="ciTable">
+					FileList[i].name, FileList[i].size, </P>
+<P CLASS="ciTable">
+					ctime(FileList[i].Create) ) </P>
+<P CLASS="ciTable">
+	}</P>
+<P CLASS="ciTable">
+}</P>
+</TD>
+</TR>
+</TABLE>
+<HR><TABLE>
+<TR>
+<TH>
+<H6 CLASS="fnam">
+<A NAME="1000510">
+ </A>
+float</H6>
+</TH>
+<TH>
+<H6 CLASS="cHead">
+&nbsp;</H6>
+</TH>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+DESCRIPTION</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Return numerical value as represented by a floating-point number.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+SYNTAX</P>
+</TD>
+<TD>
+<P CLASS="Function-Syntax">
+float float(var v)</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+RETURN</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Returns v as represented by a floating-point value.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+SEE ALSO</P>
+</TD>
+<TD>
+<P CLASS="cb">
+byte(), float()</P>
+</TD>
+</TR>
+</TABLE>
+<HR><TABLE>
+<TR>
+<TH>
+<H6 CLASS="fnam">
+<A NAME="1000511">
+ </A>
+FullPath</H6>
+</TH>
+<TH>
+<H6 CLASS="cHead">
+&nbsp;</H6>
+</TH>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+DESCRIPTION</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Convert partial path specification to full path name.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+SYNTAX</P>
+</TD>
+<TD>
+<P CLASS="Function-Syntax">
+string FullPath(string PathSpec)</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+COMMENTS</P>
+</TD>
+<TD>
+<P CLASS="cb">
+This function converts PathSpec, which should be a valid file-system path specification, into an absolute path name. Absolute path will correspond to the operating system's conventions.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+RETURN</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Return string containing the full path specification, or NULL if PathSpec was invalid.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+SEE ALSO</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Directory(), SplitFileName()</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+EXAMPLE</P>
+</TD>
+<TD>
+<P CLASS="cb">
+The following example function returns the full specification of the current directory: </P>
+<P CLASS="cb">
+// return full specification for the current directory </P>
+<P CLASS="ciTable">
+CurDir() </P>
+<P CLASS="ciTable">
+{</P>
+<P CLASS="ciTable">
+	return FullPath(&quot;.&quot;) </P>
+<P CLASS="ciTable">
+} </P>
+<P CLASS="cb">
+This routine works in DOS and OS/2 to test whether a drive letter is valid: </P>
+<P CLASS="ciTable">
+ValidDrive(DriveLetter)			// return TRUE if DriveLetter is</P>
+<P CLASS="ciTable">
+										// valid, else FALSE {</P>
+<P CLASS="ciTable">
+sprintf(CurdirSpec,&quot;%c:.&quot;,DriveLetter) </P>
+<P CLASS="ciTable">
+return (NULL != FullPath(CurdirSpec) ) </P>
+<P CLASS="ciTable">
+}</P>
+</TD>
+</TR>
+</TABLE>
+<HR><TABLE>
+<TR>
+<TH>
+<H6 CLASS="fnam">
+<A NAME="1000512">
+ </A>
+function</H6>
+</TH>
+<TH>
+<H6 CLASS="cHead">
+&nbsp;</H6>
+</TH>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+DESCRIPTION</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Call a function by name.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+SYNTAX</P>
+</TD>
+<TD>
+<P CLASS="Function-Syntax">
+var function(string FunctionName[,...])</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+COMMENTS</P>
+</TD>
+<TD>
+<P CLASS="cb">
+This calls the function named FunctionName with all following arguments, and it returns whatever FunctionName(...) returns.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+RETURN</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Returns whatever FunctionName(...) will return.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+MODIFIES</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Modifies whatever FunctionName(...) will modify.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+EXAMPLE</P>
+</TD>
+<TD>
+<P CLASS="cb">
+The famous &quot;hello world&quot; program line could be written in any of these three ways: </P>
+<P CLASS="ciTable">
+printf(&quot;hello world&quot;); </P>
+<P CLASS="ciTable">
+function(&quot;printf&quot;,&quot;hello world&quot;); </P>
+<P CLASS="ciTable">
+function(&quot;function&quot;,&quot;function&quot;,&quot;printf&quot;,&quot;hello world&quot;);</P>
+</TD>
+</TR>
+</TABLE>
+<HR><TABLE>
+<TR>
+<TH COLSPAN="2">
+<H6 CLASS="fnam">
+<A NAME="1000513">
+ </A>
+GetArraySpan</H6>
+</TH>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+DESCRIPTION</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Determine size of an array.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+SYNTAX</P>
+</TD>
+<TD>
+<P CLASS="Function-Syntax">
+int GetArraySpan(var[] array[  ,int MinIndex])</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+COMMENTS</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Get the maximum and minimum indices for array.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+RETURN</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Return the Maximum index for this array. If MinIndex is passed in then it will be set to the minimum index, which will be zero or less.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+SEE ALSO</P>
+</TD>
+<TD>
+<P CLASS="cb">
+BLObSize(), DataDimension(), SetArraySpan()</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+EXAMPLE</P>
+</TD>
+<TD>
+<P CLASS="cb">
+This script demonstrates GetArraySpan:</P>
+<P CLASS="ciTable">
+string = &quot;I do not like green eggs and ham.&quot;</P>
+<P CLASS="ciTable">
+gas = GetArraySpan(string);</P>
+<P CLASS="ciTable">
+printf(&quot;string = %s\nGetArraySpan(string) = %d\n&quot;</P>
+<P CLASS="ciTable">
+       &quot;string[GetArraySpan(string)] = %d\n&quot;</P>
+<P CLASS="ciTable">
+       &quot;string[GetArraySpan(string)-1] = %c\n&quot;</P>
+<P CLASS="ciTable">
+       &quot;strlen(string) = %d\n&quot;,</P>
+<P CLASS="ciTable">
+        string, gas, string[gas], string[gas-1], strlen(string));</P>
+<P CLASS="ciTable">
+getch();</P>
+<P CLASS="ciTable">
+&nbsp;</P>
+<P CLASS="cb">
+and has the following output:</P>
+<P CLASS="ciTable">
+string = I do not like green eggs and ham.</P>
+<P CLASS="ciTable">
+GetArraySpan(string) = 33</P>
+<P CLASS="ciTable">
+string[GetArraySpan(string)] = 0</P>
+<P CLASS="ciTable">
+string[GetArraySpan(string)-1] = .</P>
+<P CLASS="ciTable">
+strlen(string) = 33</P>
+<P CLASS="ciTable">
+&nbsp;</P>
+<P CLASS="cb">
+GetArraySpan() returns the same value as strlen() does because of the NULL byte that terminates the string. The NULL byte is at string[33]; so GetArraySpan() returns 33, the highest index in the array. Since the string contains 33 elements (at indexes 0-32) strlen also returns 33.</P>
+<P CLASS="cb">
+This function clips off any array value below zero (negative indices) and returns the number of elements in the new array:</P>
+<P CLASS="ciTable">
+// clip off negative indexes in array, and return</P>
+<P CLASS="ciTable">
+ // the number of elements in the truncated array </P>
+<P CLASS="ciTable">
+AbsElementCount(array)</P>
+<P CLASS="ciTable">
+{</P>
+<P CLASS="ciTable">
+SetArraySpan(array,0,GetArraySpan(array)); </P>
+<P CLASS="ciTable">
+return (1 + GetArraySpan(array)); </P>
+<P CLASS="ciTable">
+}</P>
+</TD>
+</TR>
+</TABLE>
+<HR><TABLE>
+<TR>
+<TH COLSPAN="2">
+<H6 CLASS="fnam">
+<A NAME="1000514">
+ </A>
+GetStructureMembers</H6>
+</TH>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+DESCRIPTION</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Get a name list of all the members of a structure.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+SYNTAX</P>
+</TD>
+<TD>
+<P CLASS="Function-Syntax">
+string[] GetStructureMembers(structure StructureVariable,                  [bool IncludeUndefinedMembers])</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+COMMENTS</P>
+</TD>
+<TD>
+<P CLASS="cb">
+This function will return an array of strings containing the name of each member of the structure variable StructureVariable.</P>
+<P CLASS="cb">
+ <EM CLASS="Element">
+IncludedUndefinedMembers</EM>
+ is a boolean TRUE if you want to return members that are not defined. If boolean FALSE then only return members that have defined data types (i.e. defined(member)). If this parameter is not supplied then default to FALSE and only return defined members. </P>
+<P CLASS="cb">
+The final member of the array returned is always NULL. If StructureVariable is not defined, is not a structure of dimension 0, or contains no member to be displayed then this will return only one element in the array, which will be NULL.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+RETURN</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Return array of strings for each member of structure. Final member is NULL.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+EXAMPLE</P>
+</TD>
+<TD>
+<P CLASS="cb">
+The following example code:</P>
+<P CLASS="ciTable">
+Point.row = 5; </P>
+<P CLASS="ciTable">
+Point.col = 8; Point.height; </P>
+<P CLASS="ciTable">
+PrintAllStructureMembers(Point); </P>
+<P CLASS="ciTable">
+PrintAllStructureMembers(StructVar) </P>
+<P CLASS="ciTable">
+{</P>
+<P CLASS="ciTable">
+ 	printf(&quot;Structure Members:\n&quot;); </P>
+<P CLASS="ciTable">
+	MemberList = GetStructureMembers(StructVar);</P>
+<P CLASS="ciTable">
+	for (i = 0; MemberList[i]; i++)</P>
+<P CLASS="ciTable">
+		printf(&quot;  %s\n&quot;,MemberList[i]); </P>
+<P CLASS="ciTable">
+} </P>
+<P CLASS="cb">
+would produce this output: </P>
+<P CLASS="ciTable">
+Structure Members: </P>
+<P CLASS="ciTable">
+	row   </P>
+<P CLASS="ciTable">
+	col</P>
+</TD>
+</TR>
+</TABLE>
+<HR><TABLE>
+<TR>
+<TH>
+<H6 CLASS="fnam">
+<A NAME="1000515">
+ </A>
+integer</H6>
+</TH>
+<TH>
+<H6 CLASS="cHead">
+&nbsp;</H6>
+</TH>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+DESCRIPTION</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Return numerical value as represented by an integer.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+SYNTAX</P>
+</TD>
+<TD>
+<P CLASS="Function-Syntax">
+int integer(var v)</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+RETURN</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Returns v as represented by an integer.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+SEE ALSO</P>
+</TD>
+<TD>
+<P CLASS="cb">
+byte(), integer()</P>
+</TD>
+</TR>
+</TABLE>
+<HR><TABLE>
+<TR>
+<TH>
+<H6 CLASS="fnam">
+<A NAME="1000516">
+ </A>
+Interpret</H6>
+</TH>
+<TH>
+<H6 CLASS="cHead">
+&nbsp;</H6>
+</TH>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+DESCRIPTION</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Interpret ScriptEase code or source file.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+SYNTAX</P>
+</TD>
+<TD>
+<P CLASS="Function-Syntax">
+int Interpret(string Code[, int InterpretFlags[, string ErrorString])</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+COMMENTS</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Code is a string consisting of the script to be interpreted and any parameters it takes. <EM CLASS="Element">
+InterpretFlags</EM>
+ is a bitwise or of the following choices, and 0 (no flags) if not supplied. The flags indicate to the computer how to interpret the <EM CLASS="Element">
+Code</EM>
+ parameter. If they are not supplied, then the computer will parse the string and try to figure out the most appropriate way to interpret it. To avoid misinterpretation, use the following flags to define its behavior:</P>
+<P CLASS="deTable">
+<EM CLASS="Element">
+INTERP_FILE</EM>
+	Code must be name of ScriptEase source file, followed by any arguments </P>
+<P CLASS="deTable">
+<EM CLASS="Element">
+INTERP_TEXT</EM>
+	Code is not a file name, but is straight ScriptEase source; no arguments</P>
+<P CLASS="deTable">
+<EM CLASS="Element">
+INTERP_LOAD</EM>
+	Load code into same function and variable space, i.e. at the same level as, the code that is calling Interpret(). All functions, local and global variables will be supplied to the code being called, which can modify and use them. If the code being called has similarly named functions or variables as the calling code, the functions in the called code will replace those in the calling code.</P>
+<P CLASS="deTable">
+ <EM CLASS="Element">
+INTERP_NOINHERIT_LOCAL</EM>
+	Local variables (variables in the current function from which interpret() is called) will not become inherited as global variables in the interpreted code.</P>
+<P CLASS="deTable">
+ <EM CLASS="Element">
+INTERP_NOINHERIT_GLOBAL</EM>
+	Global variables (variables used externally to any function) will not become inherited as global variables in the interpreted code. </P>
+<P CLASS="cb">
+Note that INTERP_FILE and INTERP_TEXT are mutually exclusive. If neither are supplied then Intepret() examines Code and decides if it looks like a file or like pure code. </P>
+<P CLASS="cb">
+If there is an error handling the Interpret() function, the variable <EM CLASS="Element">
+ErrorString</EM>
+ will be set to a string describing the error (otherwise it will be NULL). </P>
+<P CLASS="cb">
+You cannot use the Interpret function on ScriptEase scripts that have been turned into executable with the /BIND option.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+RETURN</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Return -1 if error, else return the return value of the code being interpreted.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+NOTE</P>
+</TD>
+<TD>
+<P CLASS="cb">
+This function cannot be called from code that has been bound with ScriptEase' /BIND feature.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+EXAMPLE</P>
+</TD>
+<TD>
+<P CLASS="cb">
+The following example code:</P>
+<P CLASS="ciTable">
+ Interpret(`puts(&quot;Hello world!&quot;)`, INTERP_TEXT); </P>
+<P CLASS="cb">
+would produce this output: </P>
+<P CLASS="cb">
+Hello world! </P>
+<P CLASS="cb">
+Similarly, the following code: </P>
+<P CLASS="ciTable">
+Interpret(&quot;CmmEdit C:\autoexec.bat&quot;, INTERP_FILE);</P>
+<P CLASS="cb">
+will open the script CmmEdit (the text editor created in the tutorial pages) with the file autoexec.bat loaded. </P>
+</TD>
+</TR>
+</TABLE>
+<HR><TABLE>
+<TR>
+<TH>
+<H6 CLASS="fnam">
+<A NAME="1000517">
+ </A>
+rsprintf</H6>
+</TH>
+<TH>
+<H6 CLASS="cHead">
+&nbsp;</H6>
+</TH>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+DESCRIPTION</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Return a formatted string.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+SYNTAX</P>
+</TD>
+<TD>
+<P CLASS="Function-Syntax">
+rsprintf(FormatString/*,args*/)</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+COMMENTS</P>
+</TD>
+<TD>
+<P CLASS="cb">
+The rsprintf() function is a form of the printf function. It allows you to insert formatted strings directly into a document. For example, if in a script you had a line: </P>
+<P CLASS="ciTable">
+printf(&quot;%s has seen %s %d times.\n&quot;, name, movie, </P>
+<P CLASS="ciTable">
+        timesSeen); </P>
+<P CLASS="cb">
+and you wanted to pass the resulting string as a parameter to a function, you could do it like this:</P>
+<P CLASS="ciTable">
+ func(rsprintf(&quot;%s has seen %s %d times.\n&quot;, name,</P>
+<P CLASS="ciTable">
+                 movie, timesSeen)); </P>
+<P CLASS="cb">
+The following two lines of code achieve the same result, i.e. create a string named word that contains the string &quot;Who is #1?&quot;: </P>
+<P CLASS="ciTable">
+word = rsprintf(&quot;Who is #%d?&quot;, 3-2); </P>
+<P CLASS="ciTable">
+sprintf(word, &quot;Who is #%d?&quot;, 3-2);</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+RETURNS</P>
+</TD>
+<TD>
+<P CLASS="cb">
+A string formatted according to the parameters passed.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+SEE ALSO</P>
+</TD>
+<TD>
+<P CLASS="cb">
+printf(), sprintf(), rvsprintf()</P>
+</TD>
+</TR>
+</TABLE>
+<HR><TABLE>
+<TR>
+<TD>
+<H6 CLASS="fnam">
+<A NAME="1000518">
+ </A>
+rvsprintf</H6>
+</TD>
+<TD>
+<H6 CLASS="fnam">
+&nbsp;</H6>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+DESCRIPTION</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Return formatted output using arg_list.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+SYNTAX</P>
+</TD>
+<TD>
+<P CLASS="Function-Syntax">
+int vsprintf(string format, blob valist)</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+COMMENTS</P>
+</TD>
+<TD>
+<P CLASS="cb">
+This is similar to sprintf() except that it takes a variable argument list (see va_start()) and returns the string directly, rather than storing it in a string buffer. See sprintf() for more details.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+RETURNS</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Returns the string specified by the format string, or EOF if there was an error.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+SEE ALSO</P>
+</TD>
+<TD>
+<P CLASS="cb">
+sprintf(), va_arg(), va_end(), va_start()</P>
+</TD>
+</TR>
+</TABLE>
+<HR><TABLE>
+<TR>
+<TH COLSPAN="2">
+<H6 CLASS="fnam">
+<A NAME="1000519">
+ </A>
+ScreenClear</H6>
+</TH>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+DESCRIPTION</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Clear screen.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+SYNTAX</P>
+</TD>
+<TD>
+<P CLASS="Function-Syntax">
+void ScreenClear()</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+COMMENTS</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Clears the visible area of the screen.</P>
+</TD>
+</TR>
+</TABLE>
+<HR><TABLE>
+<TR>
+<TH COLSPAN="2">
+<H6 CLASS="fnam">
+<A NAME="1000520">
+ </A>
+ScreenCursor</H6>
+</TH>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+DESCRIPTION</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Get or set cursor position in the visible screen.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+SYNTAX</P>
+</TD>
+<TD>
+<P CLASS="cb">
+struct ScreenCursor([int col[, int row]])</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+COMMENTS</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Sets the column if col is supplied, and the row if row is supplied. Positions begin at zero and go to ScreenSize().col-1 and ScreenSize().row-1.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+RETURNS</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Returns the cursor position after this call in the two structure elements: .col .row</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+EXAMPLE</P>
+</TD>
+<TD>
+<P CLASS="cb">
+This example will draw a simple border of asterisks all around the screen (only draws one above the bottom row because drawing the lower-right corner causes the screen to scroll): </P>
+<P CLASS="ciTable">
+DrawAsteriskBorder() </P>
+<P CLASS="ciTable">
+{</P>
+<P CLASS="ciTable">
+	size = ScreenSize(); </P>
+<P CLASS="ciTable">
+	ScreenClear(); </P>
+<P CLASS="ciTable">
+// draw top border </P>
+<P CLASS="ciTable">
+	ScreenCursor(0,0); </P>
+<P CLASS="ciTable">
+	for (col = 0; col &lt; size.col; col++)</P>
+<P CLASS="ciTable">
+		putchar(`*');</P>
+<P CLASS="ciTable">
+	// draw bottom border </P>
+<P CLASS="ciTable">
+	ScreenCursor(0,size.row-2); </P>
+<P CLASS="ciTable">
+	for (col = 0; col &lt; size.col; col++)</P>
+<P CLASS="ciTable">
+		putchar(`*');</P>
+<P CLASS="ciTable">
+	// draw left and right borders</P>
+<P CLASS="ciTable">
+	for (row = 0; row &lt; size.row - 1; row++) {</P>
+<P CLASS="ciTable">
+		ScreenCursor(0,row);</P>
+<P CLASS="ciTable">
+		putchar(`*');</P>
+<P CLASS="ciTable">
+		ScreenCursor(size.col-1,row);</P>
+<P CLASS="ciTable">
+		putchar(`*');</P>
+<P CLASS="ciTable">
+	} </P>
+<P CLASS="ciTable">
+}</P>
+</TD>
+</TR>
+</TABLE>
+<HR><TABLE>
+<TR>
+<TH>
+<H6 CLASS="fnam">
+<A NAME="1000521">
+ </A>
+ScreenSize</H6>
+</TH>
+<TH>
+<H6 CLASS="cHead">
+&nbsp;</H6>
+</TH>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+DESCRIPTION</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Get the height and width of the screen.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+SYNTAX</P>
+</TD>
+<TD>
+<P CLASS="cb">
+struct ScreenSize()</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+COMMENTS</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Gets the size of the visible screen in rows and columns.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+RETURN</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Returns the screen size as a structure with the two elements: </P>
+<P CLASS="fit3">
+<EM CLASS="Element">
+.col</EM>
+	screen width, in characters </P>
+<P CLASS="fit3">
+<EM CLASS="Element">
+.row</EM>
+	screen height, in characters</P>
+</TD>
+</TR>
+</TABLE>
+<HR><TABLE>
+<TR>
+<TH COLSPAN="2">
+<H6 CLASS="fnam">
+<A NAME="1000522">
+ </A>
+SetArraySpan</H6>
+</TH>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+DESCRIPTION</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Set size of an array.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+SYNTAX</P>
+</TD>
+<TD>
+<P CLASS="cb">
+void SetArraySpan(var[] array[, int MinIndex], int MaxIndex)</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+COMMENTS</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Grow or shrink the array to span from MinIndex to MaxIndex with the constraints: 0 &lt;= MaxIndex, MinIndex &lt;= 0. If MinIndex is not specified then it will be 0.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+RETURN</P>
+</TD>
+<TD>
+<P CLASS="cb">
+None.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+MODIFIES</P>
+</TD>
+<TD>
+<P CLASS="cb">
+array limits are altered.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+SEE ALSO</P>
+</TD>
+<TD>
+<P CLASS="cb">
+BLObSize(), DataDimension(), GetArraySpan()</P>
+</TD>
+</TR>
+</TABLE>
+<HR><TABLE>
+<TR>
+<TH COLSPAN="2">
+<H6 CLASS="fnam">
+ShellFilterCharacter</H6>
+</TH>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+DESCRIPTION</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Add character filter function to ScriptEase shell.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+SYNTAX</P>
+</TD>
+<TD>
+<P CLASS="cb">
+void ShellFilterCharacter(string CharFltrFunction, bool AllKeys)</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+COMMENTS</P>
+</TD>
+<TD>
+<P CLASS="cb">
+When ScriptEase is running as a command shell (i.e., executed with no arguments), this allows you to install a function to be called when keystrokes are pressed. For example, the AUTOLOAD.CMM script that ships with ScriptEase uses this function to implement command-line history and file-name completion. </P>
+<P CLASS="cb">
+<EM CLASS="Element">
+AllKeys</EM>
+ specifies whether the function will be called for every keystroke, or just for keys that are not ordinary printable (isprint()) characters. </P>
+<P CLASS="cb">
+<EM CLASS="Element">
+CharFltrFunction</EM>
+ is the string name of a ScriptEase function of the type: </P>
+<P CLASS="Function-Syntax">
+bool CharFltrFunction(string Command, int Position, int Key, <BR>
+bool Extended, bool AlphaNumeric) </P>
+<P CLASS="cb-in">
+<EM CLASS="Element">
+Command</EM>
+ is the current string on the shell's command line. This is read/write, so you may change the command string during this function call. </P>
+<P CLASS="cb-in">
+<EM CLASS="Element">
+Position</EM>
+ is the current cursor position within the Command string. This may be altered during this function. Key is the key being pressed. This also may be altered. Set to 0 (zero) to ignore key input. </P>
+<P CLASS="cb-in">
+<EM CLASS="Element">
+Extended</EM>
+ is TRUE if this is an extended keyboard character (e.g., function keys, key combinations, etc...) </P>
+<P CLASS="cb-in-final">
+<EM CLASS="Element">
+AlphaNumeric</EM>
+ is TRUE if this is an alphabetic or numeric key (i.e., isalpha()). </P>
+<P CLASS="cb-in">
+CharFltrFunction returns TRUE if the command line must be redrawn, or the cursor position moved, based on the actions in this function.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+RETURN</P>
+</TD>
+<TD>
+<P CLASS="cb">
+None.</P>
+</TD>
+</TR>
+</TABLE>
+<HR><TABLE>
+<TR>
+<TH COLSPAN="2">
+<H6 CLASS="fnam">
+ShellFilterCommand</H6>
+</TH>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+DESCRIPTION</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Add command filter function to ScriptEase shell</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+SYNTAX</P>
+</TD>
+<TD>
+<P CLASS="cb">
+void ShellFilterCommand(string CmdFltrFunction)</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+COMMENTS</P>
+</TD>
+<TD>
+<P CLASS="cb">
+When ScriptEase is running as a command shell (i.e., executed with no arguments), this allows you to install a function to be called when commands have been entered. For example, the AUTOLOAD.CMM script that ships with ScriptEase uses this function to implement some commands, such as CD and TYPE. </P>
+<P CLASS="cb">
+<EM CLASS="Element">
+CmdFltrFunction</EM>
+ is the string name of a ScriptEase function of the type: </P>
+<P CLASS="Function-Syntax">
+void CmdFltrFunction(string Command) </P>
+<P CLASS="cb-in-final">
+<EM CLASS="Element">
+Command</EM>
+ is the current string on the shell's command line. This is read/write, so you may change the command string during this function call. The ScriptEase shell will execute this command after returning from this call. To prevent ScriptEase from executing any command (perhaps your filter handled the command internally) set Command to a zero-length string (e.g., Command[0]='\0', not Command=&quot;&quot;). </P>
+<P CLASS="cb-in-final">
+Before passing the command line to this filter function, ScriptEase will have stripped leading whitespace from the beginning and end of the command. Also, the redirection on a command line will not be seen by this function, because redirection is handled internally by ScriptEase. For example, if the command line string is &quot;dir&gt;dir.txt&quot; then this function will only see the string &quot;dir&quot;.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+RETURN</P>
+</TD>
+<TD>
+<P CLASS="cb">
+None.</P>
+</TD>
+</TR>
+</TABLE>
+<HR><TABLE>
+<TR>
+<TH>
+<H6 CLASS="fnam">
+spawn</H6>
+</TH>
+<TH>
+<H6 CLASS="cHead">
+&nbsp;</H6>
+</TH>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+DESCRIPTION</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Run an external executable.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+SYNTAX</P>
+</TD>
+<TD>
+<P CLASS="Function-Syntax">
+int spawn(int mode, string ExecutionCommandLine) </P>
+<P CLASS="Function-Syntax">
+int spawn(int mode, string ExecutableSpec [, var arg1[, var arg2[,<BR>
+var arg3[,...]]]]) </P>
+<P CLASS="Function-Syntax">
+int spawn(int mode, string ExecutableSpec[, string[] ArgStrings])</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+COMMENTS</P>
+</TD>
+<TD>
+<P CLASS="cb">
+This executes ExecutableSpec as a child process. This is more specific than the general standard library call &quot;system()&quot;. ExecuteableSpec may be the name of a ScriptEase script, in which case the executable is understood to be the same version of ScriptEase as the one you're calling spawn from. ScriptEase scripts may be spawned as well as executables. Execute child program in one of these ways, depending on these pre-defined values of mode:</P>
+<P CLASS="deTable">
+ <EM CLASS="Element">
+P_WAIT</EM>
+	Wait for the child program to complete before continuing.</P>
+<P CLASS="deTable">
+ <EM CLASS="Element">
+P_SWAP</EM>
+	Like P_WAIT, but swap out ScriptEase to create more room for child process. </P>
+<P CLASS="deTable">
+<EM CLASS="Element">
+P_NOWAIT</EM>
+	Continue to run program while child program runs.</P>
+<P CLASS="deTable">
+ <EM CLASS="Element">
+P_OVERLAY</EM>
+	This program exits and child program is executed in its place. In most C libraries this call requires an arg 0 to pass to the child, but in this library the ExecutableSpec is automatically passed as argument 0. Also, most libraries expect strings to be passed as the arguments, but ScriptEase will implicitly convert the arguments into strings before passing them on to the child process. You cannot spawn a script that has been bound with the ScriptEase /BIND function.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+&nbsp;</P>
+</TD>
+<TD>
+<P CLASS="Spawn-OS-List">
+<EM CLASS="Element">
+DOS</EM>
+	<EM CLASS="Element">
+P_WAIT</EM>
+, <EM CLASS="Element">
+P_SWAP</EM>
+, or <EM CLASS="Element">
+P_OVERLAY</EM>
+ Searches for ExecutableSpec in the current directory then in the directories of the PATH environment variable. If there is no extension on ExecutableSpec it will search first for .COM then .EXE files. P_SWAP will free up as much memory as possible by swapping ScriptEase to EMS/XMS/INT15 memory or to disk (in TMP directory, else TEMP, else current directory) before executing the child process (thanks to Ralf Brown for his excellent spawn library).</P>
+<P CLASS="Spawn-OS-List">
+	If a batch file is being spawned, and if the environment variable COMSPEC_ENV_SIZE exists, then the command processor will be provided with this much memory for handling environment variables. If COMSPEC_ENV_SIZE does not exist then the command processor receives only enough memory for existing environment variables.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+&nbsp;</P>
+</TD>
+<TD>
+<P CLASS="Spawn-OS-List">
+<EM CLASS="Element">
+DOS32</EM>
+	<EM CLASS="Element">
+P_WAIT</EM>
+ Searches for ExecutableSpec in the current directory then in the directories of the PATH environment variable. If no extension on ExecutableSpec then will search for .COM then .EXE files. If a batch file is being spawned, and if the environment variable COMSPEC_ENV_SIZE exists, then the command processor will be provided with this much memory for handling environment variables. If COMSPEC_ENV_SIZE does not exist then the command processor receives only enough memory for existing environment variables.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+&nbsp;</P>
+</TD>
+<TD>
+<P CLASS="Spawn-OS-List">
+<EM CLASS="Element">
+OS/2</EM>
+	<EM CLASS="Element">
+P_WAIT</EM>
+, <EM CLASS="Element">
+P_NOWAIT</EM>
+ Searches for ExecutableSpec in the current directory then in the directories of the PATH environment variable. If no extension on ExecutableSpec then will search for .COM then .EXE files.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+&nbsp;</P>
+</TD>
+<TD>
+<P CLASS="Spawn-OS-List">
+<EM CLASS="Element">
+WINDOWS</EM>
+	<EM CLASS="Element">
+P_WAIT</EM>
+, <EM CLASS="Element">
+P_NOWAIT</EM>
+ Successful P_NOWAIT return id is the window handle of the child process.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+RETURN</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Returns -1 for error and sets errno to identify the error. For success returns the exit code of the child process for P_WAIT, does not return for P_OVERLAY, else returns the an identifier of the child process.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+SEE ALSO</P>
+</TD>
+<TD>
+<P CLASS="cb">
+system()</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+EXAMPLES</P>
+</TD>
+<TD>
+<P CLASS="cb">
+This example calls a mortgage program MORTGAGE.EXE which takes three parameters, initial debt, rate, and monthly payment, and returns number of months needed to pay the debt in its exit code:</P>
+<P CLASS="cb">
+ months = spawn(P_WAIT,&quot;MORTGAGE.EXE 300000 10.5 1000&quot;);</P>
+<P CLASS="ciTable">
+ if (months &lt; 0) </P>
+<P CLASS="ciTable">
+	printf(&quot;Error spawning MORTGAGE\n&quot;); </P>
+<P CLASS="ciTable">
+else </P>
+<P CLASS="ciTable">
+	printf(&quot;It takes %d months to pay off the mortgage\n&quot;,</P>
+<P CLASS="ciTable">
+           months); </P>
+<P CLASS="cb">
+The parameters could also be passed to MORTGAGE.EXE as separate variables: </P>
+<P CLASS="ciTable">
+months = spawn(P_WAIT,&quot;MORTGAGE.EXE&quot;,300000,10.5,1000);</P>
+<P CLASS="cb">
+The same arguments could be passed to MORTGAGE.EXE in a variable array, provided that they are all he same data type (in this case strings): </P>
+<P CLASS="ciTable">
+MortgageData[0] = &quot;300000&quot;; </P>
+<P CLASS="ciTable">
+MortgageData[1] = &quot;10.5&quot;; </P>
+<P CLASS="ciTable">
+MortgageData[2] = &quot;1000&quot;;</P>
+<P CLASS="ciTable">
+ths = spawn(P_WAIT,&quot;MORTGAGE.EXE&quot;,MortageData);</P>
+</TD>
+</TR>
+</TABLE>
+<HR><TABLE>
+<TR>
+<TH COLSPAN="2">
+<H6 CLASS="fnam">
+SplitFileName</H6>
+</TH>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+DESCRIPTION</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Determine directory, name, and extension parts of a file specification.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+SYNTAX</P>
+</TD>
+<TD>
+<P CLASS="Function-Syntax">
+structure SplitFileName(string FileSpec)</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+COMMENTS</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Splits the FileSpec into its various components that conform to the conventions of the operating system: dir, name, and ext, where: </P>
+<P CLASS="fit">
+.<EM CLASS="Element">
+dir</EM>
+	name of the directory, including leading and drive separator characters</P>
+<P CLASS="fit">
+.<EM CLASS="Element">
+name</EM>
+	root name of the file</P>
+<P CLASS="fit">
+.<EM CLASS="Element">
+ext</EM>
+	extension name of the file, including preceding dot (.) </P>
+<P CLASS="cb">
+All components are guaranteed to be non-NULL, and FileSpec can be reconstructed with this source statement: </P>
+<P CLASS="ciTable">
+FileSpec = strcat(strcat(dir,name),ext)</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+RETURN</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Returns a structure with the dir, name, and ext member variables set to non-NULL strings.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+SEE ALSO</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Directory(), FullPath()</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+EXAMPLE</P>
+</TD>
+<TD>
+<P CLASS="cb">
+The following two lines show results from sample inputs to SplitFileName() (the second example applies to the file structure for DOS and OS/2):</P>
+<P CLASS="ciTable">
+// sets parts.dir=&quot;&quot;,   parts.name=&quot;foo&quot;, parts.ext=&quot;&quot; </P>
+<P CLASS="ciTable">
+parts = SplitFileName(&quot;foo&quot;) </P>
+<P CLASS="ciTable">
+&nbsp;</P>
+<P CLASS="ciTable">
+ // parts.dir=&quot;..\\&quot;, parts.name=&quot;*&quot;, parts.ext=&quot;.doc&quot; </P>
+<P CLASS="ciTable">
+parts = SplitFileName(&quot;..\\*.doc&quot;)</P>
+</TD>
+</TR>
+</TABLE>
+<HR><TABLE>
+<TR>
+<TH COLSPAN="2">
+<H6 CLASS="fnam">
+StructureMember</H6>
+</TH>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+DESCRIPTION</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Access structure member by name.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+SYNTAX</P>
+</TD>
+<TD>
+<P CLASS="Function-Syntax">
+var StructureMember(structure StructureVariable,                                  string MemberName)</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+COMMENTS</P>
+</TD>
+<TD>
+<P CLASS="cb">
+This function will act on a member of a structure by name. StructureVariable is a structure, and MemberName is the ascii string to represent the member. The variable returned by this function may be used as an lvar.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+RETURN</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Return variable for this structure member. May be used as a lvar.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+EXAMPLE</P>
+</TD>
+<TD>
+<P CLASS="cb">
+The following example code: </P>
+<P CLASS="ciTable">
+Point.row = 5; </P>
+<P CLASS="ciTable">
+Point.col = 8; </P>
+<P CLASS="cb">
+could be replaced by this sample code: </P>
+<P CLASS="ciTable">
+StructureMember(Point,&quot;row&quot;) = 5; </P>
+<P CLASS="ciTable">
+StructureMember(Point,&quot;col&quot;) = 8;</P>
+</TD>
+</TR>
+</TABLE>
+<HR><TABLE>
+<TR>
+<TH>
+<H6 CLASS="fnam">
+Suspend</H6>
+</TH>
+<TH>
+<H6 CLASS="cHead">
+&nbsp;</H6>
+</TH>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+DESCRIPTION</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Suspend program execution for a specified amount of time.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+SYNTAX</P>
+</TD>
+<TD>
+<P CLASS="cb">
+void Suspend(int milliSecondDelay)</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+COMMENTS</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Your program may want to suspend itself for a limited time without abusing system resources, especially in multitasking systems. This function allows your program to use as little resources as possible for the length of this delay. Total millisecond accuracy is not guaranteed, but is only approximated according to the accuracy provided by the underlying operating system.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+EXAMPLE</P>
+</TD>
+<TD>
+<P CLASS="cb">
+To suspend execution of your code for 1/2 second:</P>
+<P CLASS="ciTable">
+Suspend(500);</P>
+</TD>
+</TR>
+</TABLE>
+<HR><TABLE>
+<TR>
+<TH>
+<H6 CLASS="fnam">
+undefine</H6>
+</TH>
+<TH>
+<H6 CLASS="cHead">
+&nbsp;</H6>
+</TH>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+DESCRIPTION</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Make a variable undefined.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+SYNTAX</P>
+</TD>
+<TD>
+<P CLASS="Function-Syntax">
+void undefine(var v)</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+COMMENTS</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Clear this variable data. Further calls to defined(v) will return false. If used on an element of an array, then this only has effect if the element of v is a structure, in which case it undefines all elements of the structure.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+RETURN</P>
+</TD>
+<TD>
+<P CLASS="cb">
+None.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+MODIFIES</P>
+</TD>
+<TD>
+<P CLASS="cb">
+v becomes undefined.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+SEE ALSO</P>
+</TD>
+<TD>
+<P CLASS="cb">
+DataType(), DataDimension(), defined()</P>
+</TD>
+</TR>
+</TABLE>
+</DIV>
+<TABLE WIDTH="225" BORDER="0" CELLSPACING="0" CELLPADDING="0">
+  <TR>
+    <TD WIDTH="71"><a href="6-stdlib.htm"><IMG SRC="prev.gif" WIDTH="71" height="18" border="0"></a></TD>
+    <TD WIDTH="80"><a href="../index.htm"><IMG SRC="tocidx.gif" WIDTH="80" height="18" border="0"></a></TD>
+    <TD WIDTH="74"><a href="8-prolib.htm"><IMG SRC="next.gif" WIDTH="74" height="18" border="0"></a></TD>
+  </TR>
+</TABLE>
+
+</BODY>
+</HTML>

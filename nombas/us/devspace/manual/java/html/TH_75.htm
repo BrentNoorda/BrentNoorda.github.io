@@ -1,0 +1,53 @@
+<html>
+<head>
+<title>interface: SEGetSourceFunction</title>
+<link rel="stylesheet" href="semanualstyles.css" type="text/css">
+<style type="text/css">
+ p { margin-top: 0; margin-bottom: 0; }
+</style>
+<script language="JavaScript" src="TrueHelp.js"></script>
+</head>
+<body onload="thload()">
+<div id=ienav>
+<ilayer id=nsnav>
+<br>
+<center>
+<p class=normal><a href="seisdkj-toc.htm" target="left">contents</a> &nbsp; <a href="seisdkj-index.htm" target="left">index</a> &nbsp; <a href="TH_74.htm">previous</a> &nbsp; <a href="TH_76.htm">next</a></p>
+</center>
+<br>
+<hr noshade size=1>
+</ilayer>
+</div>
+<p class=heading-3>interface: SEGetSourceFunction</p>
+<p class=heading-3-p>&nbsp;</p>
+<p class=secodelinesindented><span class=secodephrase>public&nbsp;boolean&nbsp;seGetSourceFunc(SEContext&nbsp;se,SESourceInfo&nbsp;</span></p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;info,int&nbsp;mode);</p>
+<p class=secodelinesindented>&nbsp;</p>
+<p class=normal>The <span class=secodephrase>seGetSourceFunc</span> callback is used to read script files. If you do not provide the callback, files are read using the normal Java File I/O methods.  By defining this interface and the <span class=secodephrase>SEFileLocation </span>interface above, you can completely virtualize your files. Although you can handle the virtualizing of files in this function alone, error reporting is based on the filename returned from <span class=secodephrase>seFindFileFunc</span> so implementing it is recommended for the user's ease.</p>
+<p class=normal>&nbsp;</p>
+<p class=senormalpara>The <span class=secodephrase>mode</span> parameter tells you what the call is intended to do. It can be one of these values:</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=secodelinesindented>SE.seSourceOpen		&nbsp;&nbsp;&nbsp;open&nbsp;a&nbsp;new&nbsp;file</p>
+<p class=secodelinesindented>SE.seSourceGetLine		get&nbsp;the&nbsp;next&nbsp;line&nbsp;from&nbsp;the&nbsp;file</p>
+<p class=secodelinesindented>SE.seSourceClose		close&nbsp;the&nbsp;file</p>
+<p class=normal>&nbsp;</p>
+<p class=senormalpara>In each case, the <span class=secodephrase>seGetSourceFunc</span> method is called with <span class=secodephrase>seSourceOpen</span>. Returning <span class=secodephrase>false</span> results in an 'unable to open file' error in the script. Next the method is repeatedly called with <span class=secodephrase>seSourceGetLine</span><span class=sejumptopic> </span>to get the individual lines of the source, until you return <span class=secodephrase>false</span> to indicate no more lines. Finally, the method is called with <span class=secodephrase>seSourceClose</span> to close down the file.  The <span class=secodephrase>info</span> parameter points to an object that you use to accomplish these tasks.  Each file will be given its own <span class=secodephrase>SESourceInfo</span> object to work with.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>The <span class=secodephrase>SESourceInfo</span> class defines the following public methods:</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=secodelinesindented><span class=secodephrase>public&nbsp;String&nbsp;getName();</span></p>
+<p class=secodelinesindented>public&nbsp;void&nbsp;setCode(String&nbsp;code);</p>
+<p class=secodelinesindented>public&nbsp;int&nbsp;getLineNumber();</p>
+<p class=secodelinesindented>public&nbsp;void&nbsp;setLineNumber(int&nbsp;lineNumber);</p>
+<p class=secodelinesindented>public&nbsp;void&nbsp;setUserData(Object&nbsp;userData);</p>
+<p class=secodelinesindented>public&nbsp;Object&nbsp;getUserData();</p>
+<p class=secodelinesindented>&nbsp;</p>
+<p class=senormalpara>The <span class=secodephrase>getName</span> method is used to access the name of the file, which is the result of your <span class=secodephrase>seFileFindFunc</span> if you have implemented the <span class=secodephrase>SEFileLocation</span> interface.  The setCode method is where to application puts the successive lines of the file.  The <span class=secodephrase>setLineNumber</span> and <span class=secodephrase>getLineNumber</span> methods are used by the application to update and retrieve the current line number.  Finally, the <span class=secodephrase>setUserData</span> and <span class=secodephrase>getUserData</span> methods are used to store and retrieve whatever information the application needs to process the file.  A simple implementation would use an <span class=secodephrase>InputStream</span> for userdata, but a more complex one might need to point to an object keeping necessary data.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>&nbsp;</p>
+<p class=senormalpara-p>&nbsp;</p>
+<hr noshade size=1>
+<p class=normal><a href="TH_76.htm"><img src="button.png" border=0></a><a href="TH_76.htm" style="text-decoration:none;">interface: SEGetResourceFunction</a></p>
+<p>
+</body>
+</html>

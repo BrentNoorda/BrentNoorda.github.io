@@ -1,0 +1,120 @@
+<html>
+<head>
+<title>global.setArrayLength()</title>
+<link rel="stylesheet" href="semanualstyles.css" type="text/css">
+<style type="text/css">
+ p { margin-top: 0; margin-bottom: 0; }
+</style>
+<script language="JavaScript" src="TrueHelp.js"></script>
+</head>
+<body onload="thload()">
+<div id=ienav>
+<ilayer id=nsnav>
+<br>
+<center>
+<p class=normal><a href="seisdkj-toc.htm" target="left">contents</a> &nbsp; <a href="seisdkj-index.htm" target="left">index</a> &nbsp; <a href="TH_713.htm">previous</a> &nbsp; <a href="TH_715.htm">next</a></p>
+</center>
+<br>
+<hr noshade size=1>
+</ilayer>
+</div>
+<p class=sereffunclevel4>global.setArrayLength()</p>
+<table cellpadding=0>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>syntax:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=sesyntax>setArrayLength(<span class=truehelp-xe></span>array[,&nbsp;minIndex[,&nbsp;length]])</p></td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>where:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>array - may be an array, buffer, or string. Though there are multiple ways to set length on these data types, <span class=secodephrase>setArrayLength()</span> may be used on all three.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>minIndex - the minimum index to use. Default is 0.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>length - the length of the array to set.</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>return:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>void.</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>description:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>This function sets the first index and length of an array. Any elements outside the bounds set by MinIndex and length are lost, that is, become <span class=secodephrase>undefined</span>. If only two arguments are passed to <span class=secodephrase>setArrayLength()</span>, the second argument is length and the minimum index of the newly sized array is 0. If three arguments are passed to <span class=secodephrase>setArrayLength()</span>, the second argument, which must be 0 or less, is the minimum index of the newly sized array, and the third argument is the length.</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>see:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara><span class=sejumptopic><a href="TH_710.htm">global.getArrayLength()</a></span>, <span class=sejumptopic><a href="TH_420.htm">Array length</a></span>, <span class=sejumptopic><a href="TH_438.htm">Blob.size()</a></span></p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>example:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=normal>#include &lt;string.jsh&gt;</p>
+<p class=secodelines>&nbsp;</p>
+<p class=secodelines>var&nbsp;arr&nbsp;=&nbsp;[4,5,6,7];</p>
+<p class=secodelines>Screen.writeln(getArrayLength(arr));</p>
+<p class=secodelines>setArrayLength(arr,&nbsp;5);</p>
+<p class=secodelines>//&nbsp;arr&nbsp;is&nbsp;now&nbsp;[4,5,6,7,,];</p>
+<p class=secodelines>&nbsp;</p>
+<p class=secodelines>/********************************</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;The&nbsp;examples&nbsp;below&nbsp;illustrate&nbsp;using</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;setArrayLength()&nbsp;with:</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;arrays</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;strings</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;buffers</p>
+<p class=secodelines>&nbsp;</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;When&nbsp;appropriate&nbsp;alternatives&nbsp;exist&nbsp;for&nbsp;setting&nbsp;</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;length,&nbsp;they&nbsp;are&nbsp;shown&nbsp;as&nbsp;comments.</p>
+<p class=secodelines>&nbsp;</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;These&nbsp;examples&nbsp;are&nbsp;not&nbsp;100%&nbsp;exhaustive,&nbsp;but&nbsp;show</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;most&nbsp;ways&nbsp;to&nbsp;use&nbsp;setArrayLength().</p>
+<p class=secodelines>********************************/</p>
+<p class=secodelines>&nbsp;</p>
+<p class=secodelines>//&nbsp;Two&nbsp;ways&nbsp;to&nbsp;create&nbsp;an&nbsp;array</p>
+<p class=secodelines>//&nbsp;with&nbsp;5&nbsp;undefined&nbsp;elements</p>
+<p class=secodelines>var&nbsp;a1&nbsp;=&nbsp;new&nbsp;Array();</p>
+<p class=secodelines>setArrayLength(a1,&nbsp;5);</p>
+<p class=secodelines>//a1.length&nbsp;=&nbsp;5&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//&nbsp;Does&nbsp;the&nbsp;same</p>
+<p class=secodelines>&nbsp;</p>
+<p class=secodelines>var&nbsp;a2&nbsp;=&nbsp;[];</p>
+<p class=secodelines>setArrayLength(a2,&nbsp;5);</p>
+<p class=secodelines>//a2.length&nbsp;=&nbsp;5&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//&nbsp;Does&nbsp;the&nbsp;same</p>
+<p class=secodelines>&nbsp;</p>
+<p class=secodelines>//&nbsp;Two&nbsp;ways&nbsp;to&nbsp;create&nbsp;a&nbsp;string</p>
+<p class=secodelines>//&nbsp;of&nbsp;five&nbsp;"\0"&nbsp;characters</p>
+<p class=secodelines>var&nbsp;s1&nbsp;=&nbsp;"\0".repeat(5);</p>
+<p class=secodelines>&nbsp;</p>
+<p class=secodelines>var&nbsp;s2&nbsp;=&nbsp;"";</p>
+<p class=secodelines>setArrayLength(s2,&nbsp;5);</p>
+<p class=secodelines>&nbsp;</p>
+<p class=secodelines>//&nbsp;Three&nbsp;ways&nbsp;to&nbsp;create&nbsp;a&nbsp;buffer</p>
+<p class=secodelines>//&nbsp;of&nbsp;five&nbsp;"\0"&nbsp;characters</p>
+<p class=secodelines>var&nbsp;b1&nbsp;=&nbsp;new&nbsp;Buffer(s1);</p>
+<p class=secodelines>&nbsp;</p>
+<p class=secodelines>var&nbsp;b2&nbsp;=&nbsp;new&nbsp;Buffer(5);</p>
+<p class=secodelines>&nbsp;</p>
+<p class=secodelines>var&nbsp;b3&nbsp;=&nbsp;new&nbsp;Buffer(5);</p>
+<p class=secodelines>setArrayLength(b3,&nbsp;5);</p>
+<p class=secodelines>//Blob.size(b3,&nbsp;5);&nbsp;&nbsp;&nbsp;&nbsp;//&nbsp;Does&nbsp;the&nbsp;same</p>
+<p class=secodelines>//b3.length&nbsp;=&nbsp;5;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//&nbsp;Does&nbsp;the&nbsp;same</p></td>
+</tr>
+</table>
+<p class=normal>&nbsp;</p>
+<hr noshade size=1>
+<p class=normal><a href="TH_715.htm"><img src="button.png" border=0></a><a href="TH_715.htm" style="text-decoration:none;">global.setAttributes()</a></p>
+<p>
+</body>
+</html>

@@ -1,0 +1,63 @@
+<html>
+<head>
+<title>Simulated named parameters</title>
+<link rel="stylesheet" href="semanualstyles.css" type="text/css">
+<style type="text/css">
+ p { margin-top: 0; margin-bottom: 0; }
+</style>
+<script language="JavaScript" src="TrueHelp.js"></script>
+</head>
+<body onload="thload()">
+<div id=ienav>
+<ilayer id=nsnav>
+<br>
+<center>
+<p class=normal><a href="seisdkc-toc.htm" target="left">contents</a> &nbsp; <a href="seisdkc-index.htm" target="left">index</a> &nbsp; <a href="TH_480.htm">previous</a> &nbsp; <a href="TH_482.htm">next</a></p>
+</center>
+<br>
+<hr noshade size=1>
+</ilayer>
+</div>
+<p class=heading-3>Simulated named parameters</p>
+<p class=heading-3-p>&nbsp;</p>
+<p class=senormalpara>The properties of object data types may be used like named parameters. The following line simulates named parameters in a call to a function (note the use of curly braces <span class=secodephrase>{}</span>):</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=secodelinesindented>var&nbsp;area&nbsp;=&nbsp;RectangleArea(<b>{</b>length:4,&nbsp;width:2<b>}</b>);</p>
+<p class=secodelines>&nbsp;</p>
+<p class=senormalpara>The following line uses traditional ordered parameters:</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=secodelinesindented>var&nbsp;area&nbsp;=&nbsp;RectangleArea(4,&nbsp;2);</p>
+<p class=secodelines>&nbsp;</p>
+<p class=senormalpara>The following function definition receives the named and ordered parameters in the lines above. The definition allows for named or ordered parameters to be used.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=secodelinesindented>function&nbsp;RectangleArea(length,&nbsp;width)</p>
+<p class=secodelinesindented>{</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;if&nbsp;(typeof(length)&nbsp;==&nbsp;"object")</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;{</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;width&nbsp;=&nbsp;length.width;</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;length&nbsp;=&nbsp;length.length;</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;}</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;return&nbsp;length&nbsp;*&nbsp;width;</p>
+<p class=secodelinesindented>}&nbsp;//RectangleArea</p>
+<p class=secodelines>&nbsp;</p>
+<p class=senormalpara>The function above could be rewritten as:</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=secodelinesindented>function&nbsp;RectangleArea(length,&nbsp;width)</p>
+<p class=secodelinesindented>{</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;if&nbsp;(typeof(arguments[0])&nbsp;==&nbsp;"object")</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;{</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;width&nbsp;=&nbsp;arguments[0].width;</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;length&nbsp;=&nbsp;arguments[0].length;</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;}</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;return&nbsp;length&nbsp;*&nbsp;width;</p>
+<p class=secodelinesindented>}&nbsp;//RectangleArea</p>
+<p class=secodelines>&nbsp;</p>
+<p class=senormalpara>Either function definition works the same. The choice of one over the other is a matter of personal preference.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>Though JavaScript allows many variations in how objects may be used, this straightforward example illustrates the essence of simulating named parameters in JavaScript. See the section "Named parameters in JavaScript" in the <i>ScriptEase Tutorial</i> for a detailed discussion about simulating named parameters in JavaScript.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<hr noshade size=1>
+<p class=normal><a href="TH_482.htm"><img src="button.png" border=0></a><a href="TH_482.htm" style="text-decoration:none;">Function property arguments[]</a></p>
+<p>
+</body>
+</html>

@@ -1,0 +1,90 @@
+<html>
+<head>
+<title>Clib.flock()</title>
+<link rel="stylesheet" href="semanualstyles.css" type="text/css">
+<style type="text/css">
+ p { margin-top: 0; margin-bottom: 0; }
+</style>
+<script language="JavaScript" src="TrueHelp.js"></script>
+</head>
+<body onload="thload()">
+<div id=ienav>
+<ilayer id=nsnav>
+<br>
+<center>
+<p class=normal><a href="seisdkj-toc.htm" target="left">contents</a> &nbsp; <a href="seisdkj-index.htm" target="left">index</a> &nbsp; <a href="TH_529.htm">previous</a> &nbsp; <a href="TH_531.htm">next</a></p>
+</center>
+<br>
+<hr noshade size=1>
+</ilayer>
+</div>
+<p class=sereffunclevel4>Clib.flock()</p>
+<table cellpadding=0>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>syntax:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=sesyntax>Clib.flock(<span class=truehelp-xe></span>filePointer,&nbsp;lockFlag)</p></td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>where:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>filePointer - pointer to file to use.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>lockFlag - determines which locking operation to perform on a file. The flags are:</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=list-bullet>&#8226;</p><p class=list-bullet-tab1><span class=secodephrase>LOCK_EX</span><br>
+File lock exclusive (equivalent to <span class=secodephrase>LOCK_SH</span> in Windows)</p>
+<p class=list-bullet>&#8226;</p><p class=list-bullet-tab1><span class=secodephrase>LOCK_SH</span><br>
+File lock share (equivalent to <span class=secodephrase>LOCK_EX</span> in Windows)</p>
+<p class=list-bullet>&#8226;</p><p class=list-bullet-tab1><span class=secodephrase>LOCK_NB</span><br>
+File lock non-blocking (bitwise or with <span class=secodephrase>LOCK_EX</span> or <span class=secodephrase>LOCK_SH</span>)</p>
+<p class=list-bullet>&#8226;</p><p class=list-bullet-tab1><span class=secodephrase>LOCK_UN</span><br>
+File unlock</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>return:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>number - 0 on success, else -1 on failure.</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>description:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>This method allows a file to be locked or unlocked, which is a capability that is often important in a multi-tasking operating system. </p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>The ability to lock and unlock access to a file varies among operating systems. For normal usage on most systems, the operating system handles all necessary locking and administration of sharing privileges for files. However, if a scripter needs extra control over files, ScriptEase provides the ability. For example, a script might use files to hold data while it is running but does not need to keep the files open during all phases of script execution. By locking and unlocking such files, a scripter ensures that these files are not altered while a script is running.</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>see:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara><span class=sejumptopic><a href="TH_502.htm">Clib.fopen()</a></span>, <span class=sejumptopic><a href="TH_503.htm">Clib.fclose()</a></span></p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>example:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=secodelines>//&nbsp;The&nbsp;following&nbsp;fragment&nbsp;opens&nbsp;a&nbsp;file&nbsp;and</p>
+<p class=secodelines>//&nbsp;then&nbsp;locks&nbsp;it&nbsp;for&nbsp;exclusive&nbsp;use&nbsp;without&nbsp;blocking</p>
+<p class=secodelines>//&nbsp;further&nbsp;execution&nbsp;of&nbsp;the&nbsp;script.</p>
+<p class=secodelines>&nbsp;</p>
+<p class=secodelines>var&nbsp;fp&nbsp;=&nbsp;Clib.fopen("myfile",&nbsp;"r");</p>
+<p class=secodelines>Clib.flock(fp,&nbsp;LOCK_EX&nbsp;|&nbsp;LOCK_NB);</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;//&nbsp;Use&nbsp;the&nbsp;file</p>
+<p class=secodelines>Clib.flock(fp,&nbsp;LOCK_UN);</p>
+<p class=secodelines>Clib.fclose(fp);</p></td>
+</tr>
+</table>
+<p class=normal>&nbsp;</p>
+<hr noshade size=1>
+<p class=normal><a href="TH_531.htm"><img src="button.png" border=0></a><a href="TH_531.htm" style="text-decoration:none;">Clib.mkdir()</a></p>
+<p>
+</body>
+</html>

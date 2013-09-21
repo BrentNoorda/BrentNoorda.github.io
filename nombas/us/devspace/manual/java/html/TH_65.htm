@@ -1,0 +1,74 @@
+<html>
+<head>
+<title>sePrecompile</title>
+<link rel="stylesheet" href="semanualstyles.css" type="text/css">
+<style type="text/css">
+ p { margin-top: 0; margin-bottom: 0; }
+</style>
+<script language="JavaScript" src="TrueHelp.js"></script>
+</head>
+<body onload="thload()">
+<div id=ienav>
+<ilayer id=nsnav>
+<br>
+<center>
+<p class=normal><a href="seisdkj-toc.htm" target="left">contents</a> &nbsp; <a href="seisdkj-index.htm" target="left">index</a> &nbsp; <a href="TH_64.htm">previous</a> &nbsp; <a href="TH_66.htm">next</a></p>
+</center>
+<br>
+<hr noshade size=1>
+</ilayer>
+</div>
+<p class=sereffunclevel3>sePrecompile</p>
+<p class=sereffunclevel3-p>&nbsp;</p>
+<table cellpadding=0>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>syntax:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=sesyntax>&nbsp;&nbsp;&nbsp;byte[]</p>
+<p class=sesyntax>SEContext.sePrecompile(String&nbsp;to_interpret,</p>
+<p class=sesyntax>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;int&nbsp;interp_type,</p>
+<p class=sesyntax>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;SEEvalParams&nbsp;params);&nbsp;</p></td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>where:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara><span class=secodephrase>to_interpret</span> the text of the script or the filename to compile</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara><span class=secodephrase>interp_type</span> how to interpret <span class=secodephrase>to_interpret</span>, either <span class=secodephrase>SE.TEXT</span> or <span class=secodephrase>SE.FILE</span></p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara><span class=secodephrase>params</span> used to get the virtual file and line number only.</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>return:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>The bytecodes</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>description:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>This routine compiles a script into the corresponding bytecodes. The file to precompile is specified exactly like <span class=secodephrase>seEval</span> and must be either <span class=secodephrase>SE.TEXT</span> or <span class=secodephrase>SE.FILE</span>. The given file is precompiled and the resulting bytecodes are returned. Usually, these bytecodes are then written to disk for use later. </p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>The bytecodes can be passed as the item to evaluate in a later <span class=secodephrase>seEval</span> call with <span class=secodephrase>SE.PRECOMP</span> as the type. The bytecodes must be freed using <span class=secodephrase>seFreeBytecodes</span>. Although the script is precompiled, it is not added to the context or run. The context will be unchanged as a result of this call.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>You can provide the optional <span class=secodephrase>params</span> object. Only the <span class=secodephrase>xxxLineNum</span> and <span class=secodephrase>xxxFileName</span> methods of the object are used.</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>see:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara><span class=sepopuptopic><a href="TH_66.htm" onClick="return thwindow('TH_66.htm', 'GenPopup')">seFreeBytecodes</a></span></p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+</table>
+<hr noshade size=1>
+<p class=normal><a href="TH_66.htm"><img src="button.png" border=0></a><a href="TH_66.htm" style="text-decoration:none;">seFreeBytecodes</a></p>
+<p>
+</body>
+</html>

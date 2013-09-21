@@ -1,0 +1,93 @@
+<html>
+<head>
+<title>Lifetimes</title>
+<link rel="stylesheet" href="semanualstyles.css" type="text/css">
+<style type="text/css">
+ p { margin-top: 0; margin-bottom: 0; }
+</style>
+<script language="JavaScript" src="TrueHelp.js"></script>
+</head>
+<body onload="thload()">
+<div id=ienav>
+<ilayer id=nsnav>
+<br>
+<center>
+<p class=normal><a href="seisdkc-toc.htm" target="left">contents</a> &nbsp; <a href="seisdkc-index.htm" target="left">index</a> &nbsp; previous &nbsp; next</p>
+</center>
+<br>
+<hr noshade size=1>
+</ilayer>
+</div>
+<p class=heading-1>Lifetimes</p>
+<p class=heading-1-p>&nbsp;</p>
+<p class=senormalpara>&nbsp;</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>Many ScriptEase API calls such as <span class=secodephrase>seGetString</span>, <span class=secodephrase>seGetBuffer</span>, <span class=secodephrase>seGetObject</span>, and <span class=secodephrase>seMakeObject</span> return handles to a ScriptEase items. These handles remain valid for a specific amount of time, the handle&#8217;s lifetime. In the API manual chapter in the descriptions of these functions, they are said to follow the standard ScriptEase lifetime model. That model is what is described in this chapter. We will use an <span class=secodephrase>seobject</span> handle as an example for this chapter, but the other handles follow the same rules.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>The critical concept to understand is the difference between the object itself and the handle to the object. The handle is what is returned to you when you call the API functions that follow the ScriptEase lifetime model. A handle is simply a way to refer to the underlying object. There are several API functions that control the lifetime of the handle. These functions allow you to control how long the handle will be valid. As long as the handle is valid, you can use it to refer to the object it represents in the many ScriptEase API calls that take an object as a parameter. This chapter describes the rules about how long a handle is valid and the API functions that determine this length.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>The point to remember is that a handle is not the object itself but a way to refer to the object. When the handle becomes invalid, you may no longer use that handle to refer to the object. However, that does not mean the object itself will be deleted. The object is completely under the control of the ScriptEase runtime system which will delete the object when it determines that the object is no longer needed. It is quite possible that any particular object you have a handle to is also being used by some other part of the runtime system. When you delete your handle to the object, do not assume that the object will then be immediately freed. It may be but more likely the object will be retained because it is still being used elsewhere. There is no way to force any actual object on the system to be deleted.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>The handles to objects and other items follow a simple set of lifetime rules. As long as the handle is valid, you may use it in any ScriptEase API call that requires an object. All handles are by default valid from the time they are returned to you from a ScriptEase API call until the current callback function you are in returns. All callback functions in ScriptEase are easily identified by having their return value enclosed in <span class=secodephrase>SE_CALLBACK</span>. Common callback functions include those in the <span class=secodephrase>seContextParams</span> structure, wrapper functions, and dynamic object functions.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>This rule facilitates simple callback functions. Since the handle is automatically freed when the callback function returns, you do not have to explicitly free the handle. It is analogous to a C local variable to your callback function. Here is a valid sample wrapper function that uses an object handle:</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;SE_CALLBACK(&nbsp;void&nbsp;)</p>
+<p class=secodelinesindented>foo(secontext&nbsp;se,sememcount&nbsp;argc)</p>
+<p class=secodelinesindented>{</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;seobject&nbsp;myobj&nbsp;=&nbsp;seMakeObject(se);</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;sePutObject(se,&nbsp;SE_RETURN,SE_VALUE,&nbsp;myobj);</p>
+<p class=secodelinesindented>}</p>
+<p class=secodelinesindented>&nbsp;</p>
+<p class=senormalpara>The purpose of this wrapper should be obvious, it creates and returns a new blank object. Here is an example of an invalid wrapper function:</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=secodelinesindented>static&nbsp;seobject&nbsp;myobj&nbsp;=&nbsp;NULL;</p>
+<p class=secodelinesindented>&nbsp;</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;SE_CALLBACK(&nbsp;void&nbsp;)</p>
+<p class=secodelinesindented>foo(secontext&nbsp;se,sememcount&nbsp;argc)</p>
+<p class=secodelinesindented>{</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;if(&nbsp;myobj==NULL&nbsp;)</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;{</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;myobj&nbsp;=&nbsp;seMakeObject(se);</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;}</p>
+<p class=secodelinesindented>&nbsp;</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;sePutObject(se,&nbsp;SE_RETURN,SE_VALUE,&nbsp;myobj);</p>
+<p class=secodelinesindented>}</p>
+<p class=secodelinesindented>&nbsp;</p>
+<p class=senormalpara>The intent is clear, to create a new object and return it then keep returning that same object for any further calls to the function. But, the handle returned by <span class=secodephrase>seMakeObject</span> is only valid until the end of the wrapper function so when the wrapper function returns the first time, <span class=secodephrase>myobj</span> comes invalid. Trying to use that handle in later invocations will use it after it has become invalid and obviously not work. We will see how to make this example work as intended shortly.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>The careful reader will be wondering what happens if you get a handle when not inside a callback function. Keeping with the C analogy, handles retrieved in a callback function are local variables and handles retrieved not in a callback function are global variables. Just as global variables last the life of a program so to do handles retrieved while not in a callback function. The handle is permanent and lasts until the <span class=secodephrase>secontext</span> is destroyed and all variables and objects in it are freed.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>While you may sometimes want to use a handle for your entire program, often you want to manipulate an object for a few lines of code and then be done with it. Eventually, when everyone else is done using the object, you'd like it to be freed. If you allow the handle to stay valid, you keep the object locked and it can never be freed. It will continue to use up memory until your program is done. For this reason, you may use the <span class=secodephrase>seFreeXXX</span> API routines, <span class=secodephrase>seFreeObject</span> in this case because we have been using <span class=secodephrase>seobject</span>s in our discussion. <span class=secodephrase>seFreeObject</span> tells ScriptEase that you are done using the object at that point and that your handle is to be freed then. Remember, this does not destroy the object. It only tells ScriptEase that you are no longer using the handle. As was emphasized before, ScriptEase will actually destroy the object some time in the future when it determines it is safe to do so.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>To summarize the rules so far, a handle retrieved inside a callback function lasts until the handle is explicitely freed or the callback function returns, whichever comes first. A handle retrieved outside a callback function lasts until the handle is explicitly freed or the ScriptEase context is destroyed, whichever comes first.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>An issue related to object lifetimes was brought up in the second wrapper function described above. How do we keep an object handle past the wrapper function it was created in? Using the C analogy, we want to turn a local variable into a global variable in the same way that the C keyword <span class=secodephrase>static</span> does. The answer is that you use the <span class=secodephrase>seLockXXX</span> API calls, in this case <span class=secodephrase>seLockObject</span>. This call indicates that the given object handle is to be valid for the life of the program. Once you pass an <span class=secodephrase>seobject</span> to this routine, it will be treated exactly like a handle returned outside of a callback function: it lasts until the handle is explicitely freed or the ScriptEase context is destroyed, whichever comes first. If a handle already is a global handle, <span class=secodephrase>seLockObject</span> has no additional effect.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>So, the second wrapper function written correctly is:</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=secodelinesindented>static&nbsp;seobject&nbsp;myobj&nbsp;=&nbsp;NULL;</p>
+<p class=secodelinesindented>&nbsp;</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;SE_CALLBACK(&nbsp;void&nbsp;)</p>
+<p class=secodelinesindented>foo(secontext&nbsp;se,sememcount&nbsp;argc)</p>
+<p class=secodelinesindented>{</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;if(&nbsp;myobj==NULL&nbsp;)</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;{</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;myobj&nbsp;=&nbsp;seMakeObject(se);</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;seLockObject(se,myobj);</p>
+<p class=secodelinesindented>&nbsp;</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/*&nbsp;make&nbsp;the&nbsp;lock&nbsp;permanent</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;so&nbsp;we&nbsp;can&nbsp;keep&nbsp;using&nbsp;it</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;in&nbsp;every&nbsp;call&nbsp;to&nbsp;this</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;wrapper&nbsp;function.</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*/</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;}</p>
+<p class=secodelinesindented>&nbsp;</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;sePutObject(se,&nbsp;SE_RETURN,SE_VALUE,&nbsp;myobj);</p>
+<p class=secodelinesindented>}</p>
+<p class=secodelinesindented>&nbsp;</p>
+<p class=senormalpara>You will notice the <span class=secodephrase>seCloneXXX</span> API calls such as <span class=secodephrase>seCloneObject</span>. These calls take a handle, which follows the rules just described, and makes a second handle identical to the first. If the first handle was to be freed at the end of the current callback function, the clone will be freed then as well. Once created, you have two independent handles with different pointer values although they both refer to the same ScriptEase object. They both follow the lifetime rules given above independently. For instance, you might clone a regular local handle and pass it to a utility routine. You continue to use the original handle until it goes away at the end of the wrapper function. The utility routine may call <span class=secodephrase>seLockObject</span> on the cloned handle and use it for a while. That is perfectly valid, both handle are independent.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p>
+</body>
+</html>

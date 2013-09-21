@@ -1,0 +1,584 @@
+                       CEnvi Demo Manual, Chapter 4:
+                             Function Library
+
+                           CEnvi version 2.11
+                            20 February 1996
+
+                 Copyright 1993, Nombas, All Rights Reserved.
+          Published by Nombas, 64 Salem Street, MEDFORD MA 02155 USA
+          
+             VOICE (617) 391-6595     EMAIL: nombas@nombas.com
+             BBS   (617) 391-3718     WWW: http://www.nombas.com
+             FAX   (617) 391-3842
+
+         Thank you for trying this shareware version of CEnvi from Nombas.
+
+                          _______
+                     ____|__     |                (R)
+                  --|       |    |-------------------
+                    |   ____|__  |  Association of
+                    |  |       |_|  Shareware
+                    |__|   o   |    Professionals
+                  -----|   |   |---------------------
+                       |___|___|    MEMBER
+
+
+
+4.  CEnvi Internal Function Library
+
+          CEnvi includes a large library of internal functions that are
+          available for use in your CEnvi code.  (External function
+          libraries, and a developer toolkit for creating external
+          libraries, will be available in an upcoming incremental release.)
+          The routines listed here in brief are fully explained in the CEnvi 
+          registered users manual.
+
+
+4.1.  Standard Library
+
+          The C language has long had a standard set of libraries that
+          contain routines included with nearly all C implementations.
+          Most of this standard library, as defined by ANSI and ISO, is
+          included internally to CEnvi, so all of these routines are
+          available to any Cmm program executed by CEnvi.
+
+          Minimal modifications have been added to the standard library to
+          support the differences between the Cmm and the C languages.  In
+          most cases, these modifications involve the redefinition of
+          variable pointers to become variables-passed-by-reference.
+          Usually, though, the Cmm call to one of these functions looks
+          identical to the C call.  The experienced C programmer should
+          feel right at home.
+
+          A few functions have been dropped in this version, mostly those
+          dealing with locales.  A few functions have also been added
+          beyond those in the ANSI and ISO standards when those functions
+          seem to be common across most existing implementations of C
+          libraries.
+
+            CLOCKS_PER_SEC: defined for system clock rate
+            FALSE: #define'd 0
+            TRUE: #define'd 1
+            NULL: #define'd 0
+            EXIT_FAILURE: failure program exit value
+            EXIT_SUCCESS: good program exit value
+            RAND_MAX: maximum number returned by rand()
+
+            abort: Terminate program; probably due to error.
+              void abort()
+            abs: Return the absolute value of an integer.
+              int abs(int x)
+            acos: Calculate the arc cosine.
+              float acos(float x)
+            asctime: Convert data and time to an ASCII string.
+              string asctime(struct tm)
+            asin: Calculate the arc sine.
+              float asin(float x)
+            assert: Test a condition and abort if it is FALSE.
+              void assert(bool test)
+            atan: Calculate the arc tangent.
+              float atan(float x)
+            atan2: Calculate the arc tangent of a fraction.
+              float atan2(float y,float x)
+            atexit: Register function to be called at program exit.
+              void atexit(string functionName)
+            atof: Convert ascii string to a floating-point number
+              float atof(string str)
+            atoi: Convert ascii string to an integer.
+              int atoi(string str)
+            atol: Convert ascii string to an integer.
+              int atol(string str)
+            bsearch: Binary search for member of a sorted array.
+              var[] bsearch(var key,var[] SortedArray,[int
+              ElementCount,]string CompareFunction)
+            ceil: Ceiling; round up.
+              float ceil(float x)
+            clearerr: Clear end-of-file and error status for a file.
+              void clearerr(FILE stream)
+            clock: Get processor time.
+              int clock()
+            cos: Calculate the cosine.
+              float cos(float x)
+            cosh: Calculate the hyperbolic cosine.
+              float cosh(float x)
+            ctime: Convert date-time to an ascii string.
+              string ctime(int time)
+            difftime: Compute difference between two times.
+              float difftime(int time1,int time0)
+            div: Integer division, returning quotient and remainder.
+              struct div(int numerator,int denominator)
+            errno: Value of error condition
+              int errno
+            exit: Normal program termination.
+              void exit(int status)
+            exp: Compute the exponential function.
+              float exp(float x)
+            fabs: Absolute value.
+              float fabs(float x)
+            fclose: Close an open file.
+              int fclose(FILE stream)
+            feof: Test if at end of file stream.
+              bool feof(FILE stream)
+            ferror: Test for error on a file stream.
+              int ferror(FILE stream)
+            fflush: Flush stream for open file(s).
+              int fflush(FILE stream)
+            fgetc: Get a character from file stream.
+              int fgetc(FILE stream)
+            fgetpos: Get current position of a file stream.
+              int fgetpos(FILE stream,Var pos)
+            fgets: Get a string from an input stream.
+              string fgets([string buf[,int buflen],]FILE stream)
+            floor: Round down.
+              float floor(float x)
+            fmod: Modulus; calculate remainder.
+              float fmod(float x,float y)
+            fopen: Open a file.
+              FILE fopen(string filename,string mode)
+            fprintf: Formatted output to a file stream.
+              int fprintf(FILE stream,string format,...)
+            fputc: Write a character to a file stream.
+              int fputc(int c,FILE stream)
+            fputs: Write a string to a file stream.
+              int fputs(string s,FILE stream)
+            fread: Read data from a file.
+              int fread(byte[] DestBuffer,bufferLen,stream)
+              int fread(Var DestVar,int DataTypeInFile,stream)
+            freopen: Assign a new file specification to a file handle.
+              FILE freopen(string filename,string mode,FILE OldFP)
+            frexp: Break into a mantissa and an exponential power of 2.
+              float frexp(float x,int exponent)
+            fscanf: Formatted input from a file stream.
+              int fscanf(FILE stream,string format,...)
+            fseek: Set the file position for an opened file stream.
+              int fseek(stream,offset[,mode])
+            fsetpos: Set position of a file stream.
+              int fsetpos(stream,Var pos)
+            ftell: Get the current value of the file position.
+              int ftell(FILE stream)
+            fwrite: Write data to a file.
+              int fwrite(byte[] SourceBuffer,bufferLen,stream)
+              int fwrite(Var SourceVar,int DataTypeInFile,stream)
+            getc: Get a character from file stream.
+              int getc(FILE stream)
+            getch: Get a character from the keyboard; without echo.
+              int getch()
+            getchar: Get a character from standard input (keyboard).
+              int getchar()
+            getche: Get a character from the keyboard; with echo.
+              int getch()
+            getenv: Get an environment string.
+              string getenv(string VariableName)
+            gets: Read a string from standard input (keyboard).
+              string gets([string buf])
+            gmtime: Convert data and time to Greeenwich mean time (GMT).
+              struct gmtime(int t)
+            isalnum: Test for alphanumeric character.
+              bool isalnum(int c)
+            isalpha: Test for alphabetic character.
+              bool isalpha(int c)
+            isascii: Test for ASCII coded character.
+              bool isascii(int c)
+            iscntrl: Test for any control character.
+              bool iscntrl(int c)
+            isdigit: Test for any decimal-digit character.
+              bool isdigit(int c)
+            isgraph: Test for any printing character except for space.
+              bool isgraph(int c)
+            islower: Test for lower-case alphabetic letter.
+              bool islower(int c)
+            isprint: Test for any printing character including space.
+              bool isprint(int c)
+            ispunct: Test for punctuation character.
+              bool ispunct(int c)
+            isspace: Test for white-space character.
+              bool isspace(int c)
+            isupper: Test for upper-case alphabetic character.
+              bool isupper(int c)
+            isxdigit: Test for hexadecimal-digit character.
+              bool isxdigit(int c)
+            kbhit: Check if a keyboard keystroke is available.
+              bool kbhit()
+            labs: Return the absolute value of an integer (non-negative).
+              int labs(int x)
+            ldexp: Calculate mantissa * 2 ^ exp; inverse of frexp().
+              float ldexp(float mantissa,int exponent)
+            localtime: Convert data and time to borken-down structure.
+              struct localtime(int t)
+            ldiv: Integer division, returning quotient and remainder.
+              struct ldiv(int numerator,int denominator)
+            log: Calculate the natural logarithm.
+              float log(float x)
+            log10: Calculate the base-ten logarithm.
+              float log10(float x)
+            max: Return the largest of one or more values.
+              var max(var v1[,var v2[,var v3[,...]]])
+            memchr: Search a byte array, or blob, for a character.
+              byte[] memchr(byte[] array,byte c[,int size])
+            memcmp: Compare two byte arrays.
+              int memcmp(byte[] array1,byte[] array2[,int len])
+            memcpy: Copy bytes from one array to another.
+              byte[] memcpy(byte[] dest,byte[] src[,int len])
+            memicmp: Case-insensitive compare two byte arrays.
+              int memicmp(byte[] array1,byte[] array2[,int len])
+            memmove: Copy bytes from one array to another.
+              byte[] memmove(byte[] dest,byte[] src[,int len])
+            memset: Set values in a byte array to specific character.
+              byte[] memset(byte[] buf,int c[,int len])
+            min: Return the minimum of one or more values.
+              var min(var v1[,var v2[,var v3[,...]]])
+            mktime: Convert time structure into calendar time.
+              int mktime(struct TimeStruct)
+            modf: Split a value into integer and fractional parts.
+              float modf(float x,float i)
+            perror: Prints an message describing error in errno.
+              void perror(string s)
+            pow: Calculates x to the power of y.
+              float pow(float x,float y)
+            printf: Formatted output to the standard output (screen).
+              int printf(FILE stream,string format,...)
+            putc: Write a character to a file stream.
+              int putc(int c,FILE stream)
+            putchar: Write a character to stadnard output (screen).
+              int putchar(int c)
+            putenv: Set an environment string.
+              int putenv(string VariableName,string Value)
+            puts: Write a string to the the standard output (screen).
+              int puts(string s)
+            qsort: Sort an array using specified comparison function.
+              int qsort(var[] array,[int ElementCount,]string CmpFunction)
+            rand: Generate a random number.
+              int rand()
+            remove: Delete a file.
+              int remove(string filename)
+            rename: Rename a file.
+              int rename(string OldFilename,string NewFilename)
+            rewind: Reset file position to beginning of file.
+              void rewind(FILE stream)
+            scanf: Formatted input from the standard input (keyboard).
+              int scanf(string format,...)
+            sin: Calculate the sine.
+              float sin(float x)
+            sinh: Calculate the hyperbolic sine.
+              float sinh(float x)
+            sprintf: Formatted output to a string.
+              int sprintf(string buffer,FILE stream,string format,...)
+            sqrt: Calculate the square root.
+              float sqrt(float x)
+            srand: Initialize random number generator
+              void srand([int seed])
+            sscanf: Formatted input from a string.
+              int sscanf(string buffer,string format,...)
+            strcat: Append one string onto the end of another.
+              string strcat(string dest,string src)
+            strchr: Search a string for a character.
+              string strchr(string s,byte c)
+            strcmp: Compare two strings.
+              int strcmp(string s1,string s2)
+            strcmpi: Case-insensitive compare two strings.
+              int strcmpi(string s1,string s2)
+            strcpy: Copy from one string into another.
+              string strcpy(string dest,string src)
+            strcspn: Search string for first from a set of characters.
+              int strcspn(string Str,string CharSet)
+            strerror: Get a string describing an error number.
+              string (int err)
+            strftime: Formatted write of date and/or time into a string.
+              int strftime(string buf,[int Size,]string Format, struct tm)
+            stricmp: Case-insensitive compare two strings.
+              int stricmp(string s1,string s2)
+            strlen: Length of a string.
+              int strlen(string s)
+            strlwr: Converts string to lower-case characters.
+              string strlwr(string s);
+            strncat: Append up to len bytes of one string onto another.
+              string strncat(string dest,string src,int MaxLen)
+            strncmp: Compare part of two strings.
+              int strncmp(string s1,string s2,int MaxLen)
+            strncmpi: Case-insensitive compare part of two strings.
+              int strncmpi(string s1,string s2,int MaxLen)
+            strncpy: Copy given len bytes from one string into another.
+              string strncpy(string dest,string src,int MaxLen)
+            strnicmp: Case-insensitive compare part of two strings.
+              int strnicmp(string s1,string s2,int MaxLen)
+            strpbrk: Search string for byte from another string.
+              string strpbrk(string Str,string CharSet)
+            strrchr: Find last character occurrence in a string
+              string strrchr(string s,byte c)
+            strspn: Search string for first character not in a set.
+              int strspn(string Str,string CharSet)
+            strstr: Search string for a substring.
+              string strstr(string Str,string SubStr)
+            strtod: Convert a string to a floating-point value.
+              float strtod(string Str[,string End])
+            strtok: Search a string for delimited tokens.
+              string strtok(string Source,string Delimiters)
+            strtol: Convert a string to an integer value.
+              int strtol(string Str)
+              int strtol(string Str,string End)
+              int strtol(string Str,string End,string Radix)
+            strupr: Converts string to upper-case characters.
+              string strupr(string s)
+            system: Pass a command to the command processor.
+              int system(string Command)
+              int system(string CommandFormat,var arg1,...)
+              int system(P_SWAP,string Command) // DOS
+              int system(P_SWAP,string CommandFormat,var arg1,...) // DOS
+            tan: Calculate the tangent.
+              float tan(float x)
+            tanh: Calculate the hyperbolic tangent.
+              float tanh(float x)
+            time: Get current time.
+              int time([t])
+            tmpfile: Create a temporary binary file.
+              FILE tmpfile()
+            tmpnam: Get a temporary file name.
+              string tmpname([string filename])
+            toascii: Translate character to ASCII (7-bit) format.
+              int toascii(int c)
+            tolower: Translate character to lower-case if it is upper-case.
+              int tolower(int c)
+            toupper: Translate character to upper-case if it is lower-case.
+              int toupper(int c)
+            ungetc: Push character back to input stream.
+              int ungetc(int c,FILE stream)
+            va_arg: Retrieve variable from variable argument list.
+              var va_arg(blob valist[,int offset])
+              var va_arg(int offset)
+              int va_arg()
+            va_end: Terminate variable argument list.
+              void va_end(blob valist)
+            va_start: Initialize variable argument list.
+              int va_start(blob va_list[,var InputVar])
+            vfprintf: Formatted output to a file stream using arg_list.
+              int vfprintf(FILE stream,string format,blob valist)
+            vfscanf: Formatted input from a file stream using arg_list.
+              int vfscanf(FILE stream,string format,blob valist)
+            vprintf: Formatted output to screen using arg_list.
+              int vfprintf(FILE stream,blob valist)
+            vscanf: Formatted input from keyboard using arg_list.
+              int vscanf(string format,blob valist)
+            vsprintf: Formatted output to a string using arg_list.
+              int vsprintf(string buffer,FILE stream,string format,
+                           blob valist)
+            vsscanf: Formatted input from a string.
+              int vsscanf(string buffer,string format,blob valist)
+
+4.2.  CEnvi Cross-platform Library Additions
+
+          CEnvi with Cmm adds some additional function calls to the
+          standard C library.  Some of these functions are ones we wish
+          were in the standard library, and others are functions that are
+          particularly useful in the types of scripting and command-line
+          environments where CEnvi is most likely to be used.
+
+            #define VERSION_MAJOR // 1 in version "1.0 shareware" release
+            #define VERSION_MINOR // 0 in version "1.0 shareware" release
+            #define VERSION_STRING // "shareware" for "1.0 shareware"
+
+          Depending on which version of CEnvi is running, one of the
+          following values will be defined:
+
+            #define _DOS_         1
+              or
+            #define _OS2_         1
+              or
+            #define _WINDOWS_     1
+              or
+            #define _NTWIN_       1
+              or
+            #define _NTCON_       1
+
+            BLObGet: Get datum from a Binary Large Object (BLOb).
+              byte BLObGet(blob BLObVar,int offset,int DataType=UWORD8)
+              int BLObGet(blob BLObVar,int offset,int DataType)
+              float BLObGet(blob BLObVar,int offset,int DataType)
+              byte[] BLObGet(blob BLObVar,int offset,int bufferLen)
+            BLObPut: Put datum into a Binary Large Object (BLOb).
+              int BLObPut(blob BLObVar[,int offset,]Var v,int DataType)
+              int BLObPut(blob BLObVar[,int offset,]byte[] buffer,
+                          int bufferLen)
+            BLObSize: Determine size of a Binary Large Object (BLOb).
+              int BLObSize(blob BLObVar[,int SetSize])
+            byte: Return numerical value as represented by a byte.
+              byte byte(var v)
+            DataDimension: Determine dimension of variable data.
+              int DataDimension(var)
+            DataType: Determine data type of a variable.
+              int DataType(var)
+            defined: Test if variable has been defined.
+              bool defined(var v)
+            Directory: Search directory listing for a file specification.
+              struct[] Directory([,string SearchSpec
+                   [,bool RecurseSubdirectories
+                   [,int IncludeAttrib
+                   [,int RequiredAttrib]]]])
+            float: Return numerical value as a floating-point number.
+              float float(var v)
+            FullPath: Convert partial path specification to full path name.
+              string FullPath(string PathSpec)
+            function: Call a function by name.
+              var function(string FunctionName[,...])
+            GetArraySpan: Determine size of an array.
+              int GetArraySpan(var[] array[,int MinIndex])
+            integer: Return numerical value as represented by an integer.
+              int integer(var v)
+            peek: Read data from memory location.
+              byte peek(int address)
+              byte peek(int address,int DataType=UWORD8)
+              int peek(int address,int DataType)
+              float peek(int address,int DataType)
+              byte[] peek(int address,int bufferLen)
+            pointer: Get address of variable array or variable datum.
+              int pointer(var)
+            poke: Write data to memory location.
+              int poke(int address,byte b)
+              int poke(int address,Var v,int DataType)
+              int poke(int address,byte[] buffer,int bufferLen)
+            ScreenClear: Clear screen.
+              void ScreenClear()
+            ScreenCursor: Get or set cursor position in the visible screen.
+              struct ScreenCursor([int col[,int row]])
+            ScreenSize: Get the height and width of the screen.
+              struct ScreenSize()
+            SetArraySpan: Set size of an array.
+              void SetArraySpan(var[] array[,int MinIndex],int MaxIndex)
+            spawn: Run an external executable. Mode can be P_WAIT, P_SWAP,
+              P_NOWAIT, or P_OVERLAY, depending on the operating system.
+              int spawn(int mode,string ExecutionCommandLine)
+              int spawn(int mode,string ExecutableSpec[,var arg1
+                        [,var arg2[,var arg3[,...]]]])
+              int spawn(int mode,string ExecutableSpec
+                        [,string[] ArgStrings])
+            SplitFileName: Determine file directory, name, and extension.
+              structure SplitFileName(string FileSpec)
+            Suspend: Suspend program execution for a while.
+              void Suspend(int milliSecondDelay)
+            undefine: Make a variable undefined.
+              void undefine(var v)
+
+4.3.  CEnvi DOS Library (also for Windows)
+
+          The routines in this section are specific to the DOS (MS-DOS,
+          PC-DOS, DR-DOS) version of CEnvi.  They are included internally
+          to the CEnvi program, and so all of these routines are available
+          to any Cmm program executed by CEnvi under DOS (or Windows).
+
+          Most of these routines allow the programmer to have more power
+          than is generally acknowledged as safe under Cmm's guidelines,
+          and so you'd better know what you're doing when you use these
+          commands, for they provide plenty of rope with which to hang
+          yourself.
+
+          Windows is built atop DOS, and so the functions in this library
+          are also available in the Windows version of CEnvi.
+
+            Address: Convert segment:offset pointer into memory address.
+              int Address(int segment,int offset)
+            asm: Execute imbedded assembled code.
+              int asm(byte[] buf[,int ax[,int bx[,int cx[,int dx]]]])
+            inport: Read byte from a hardware port.
+              byte inport(int portid)
+            inportw: Read word from a hardware port.
+              int inportw(int portid)
+            interrupt: Execute an 8086 interrupt.
+              bool interrupt(int Interrupt,RegIn[,RegOut])
+            offset: Break far pointer into segment:offset components.
+              int offset(byte[] buf)
+              int offset(int address)
+            outport: Write byte to a hardware port.
+              void outport(int portid,byte value)
+            outportw: Write word to a hardware port.
+              void outport(int portid,int value)
+            segment: Break far pointer into segment:offset components.
+              int segment(byte[] buf)
+              int segment(int address)
+
+4.4.  CEnvi OS/2 2.x Library
+
+          The routines in this section are specific to the OS/2 version of
+          CEnvi.  They are included internally to the CEnvi program, and so
+          all of these routines are available to any Cmm program executed
+          by CEnvi under OS/2 2.x.
+
+          Most of these routines allow the programmer to have more power
+          than is generally acknowledged as safe under Cmm's guidelines,
+          and so you'd better know what you're doing when you use these
+          commands, for they provide plenty of rope with which to hang
+          yourself.
+
+            asm: Execute imbedded assembled code.
+              int asm(byte[] buf[,int eax[,int ebx[,int ecx[,int edx]]]])
+            DynamicLink: Call a function in a Dynamic Link Library (DLL).
+              int DynamicLink(string ModuleName,string ProcedureName,
+                              int BitSize,int CallingConvention,...)
+              int DynamicLink(string ModuleName,int Ordinal,
+                              int BitBize,int CallingConvention,...)
+              int DynamicLink(int CallGate,
+                              int BitSize,int CallingConvention,...)
+            ESet: Write new environment variables settings into a file.
+              bool ESet(string FileSpec)
+            Info(): Return following structure elements for this CEnvi
+              instance: Process, Session, WinHandle, SwitchHandle, hab
+            inport: Read byte from a hardware port.
+              byte inport(int portid)
+            inportw: Read word from a hardware port.
+              int inportw(int portid)
+            outport: Write byte to a hardware port.
+              void outport(int portid,byte value)
+            outportw: Write word to a hardware port.
+              void outport(int portid,int value)
+            PMDynamicLink(): Version of DynamicLink for functions that MUST
+              be made from a queued PM process; calls made transparently
+              through the CEnvi2PM.exe gateway program
+            PMInfo(): Version of Info() for the CEnvi2PM gateway process
+            PMpeek(): Version of Peek for memory accessible only to the the
+              PM gateway program
+            PMpoke(): Version of Poke for memory accessible only to the the
+              PM gateway program
+            ProcessList: Get list of all running processes.
+              struct[] ProcessList([bool IncludeThreadInfo])
+            somMethod: Call a SOM (system object model) method.
+              int somMethod(int somObject,int MethodOffset,...)
+
+4.5.  CEnvi Windows 3.x Library
+
+          The routines in this section are specific to the Windows 3.x
+          version of CEnvi.  They are included internally to the CEnvi
+          program, and so all of these routines are available to any Cmm
+          program executed by CEnvi under Windows.
+
+          Most of these routines allow the programmer to have more power
+          than is generally acknowledged as safe under Cmm's guidelines,
+          and so you'd better know what you're doing when you use these
+          commands, for they provide plenty of rope with which to hang
+          yourself.
+
+          Windows is built atop DOS, and so the functions in the DOS
+          library are also available in the Windows version of CEnvi.
+
+            BreakWindow: Destroy windows created with MakeWindow()
+              bool BreakWindow([int WindowHandle])
+            DoWindows: Process windows messages.
+              bool DoWindows([bool Peek = False])
+            DynamicLink: Call a function in a Dynamic Link Library (DLL).
+              int DynamicLink(string LibraryName,string ProcedureName,
+                              int ReturnType,int CallingConvention,...)
+              int DynamicLink(string LibraryName,int ProcedureOrdinal,
+                              int ReturnType,int CallingConvention,...)
+            Instance: Get CEnvi instance for this session.
+              int Instance()
+            MakeWindow: Define and create a window
+              int MakeWindow(int Parent,struct Class OR string Class,
+                             string WindowFunction,string Text,int Style,
+                             int Column,int Row,int Width,int Height,
+                             BLOb CreateParm[,var UtilityVar])
+            MultiTask: Turn Windows multitasking on or off.
+              void MultiTask(bool)
+            ScreenHandle: Get Windows' handle for the CEnvi text screen.
+              int ScreenHandle()
+            ScreenSize: Get or set the height and width of the screen.
+              struct ScreenSize()
+              struct ScreenSize(int col, int row[,int RowsRemembered])
+            WindowList: Retrieve list of window handles.
+              int[] WindowList([int WinHandle])

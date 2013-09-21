@@ -1,0 +1,40 @@
+<html>
+<head>
+<title>THE SCRIPTEASE DEBUGGER PROTOCOL VERSION 1.0</title>
+<link rel="stylesheet" href="semanualstyles.css" type="text/css">
+<style type="text/css">
+ p { margin-top: 0; margin-bottom: 0; }
+</style>
+<script language="JavaScript" src="TrueHelp.js"></script>
+</head>
+<body onload="thload()">
+<div id=ienav>
+<ilayer id=nsnav>
+<br>
+<center>
+<p class=normal><a href="seisdkc-toc.htm" target="left">contents</a> &nbsp; <a href="seisdkc-index.htm" target="left">index</a> &nbsp; <a href="TH_202.htm">previous</a> &nbsp; <a href="TH_204.htm">next</a></p>
+</center>
+<br>
+<hr noshade size=1>
+</ilayer>
+</div>
+<p class=heading-2>THE SCRIPTEASE DEBUGGER PROTOCOL VERSION 1.0</p>
+<p class=heading-2-p>&nbsp;</p>
+<p class=senormalpara>It is possible to replace the ScriptEase debugger with a custom debugger. This section describes the protocol that the debugger is expected to understand.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>Debugging occurs on TCP-IP sockets. The debugger must provide a port to receive debug requests on. If the debugger starts up an application to execute a script, it will give the host and port it is monitoring to the application via the command-line switch <span class=secodephrase>/debug=HOST:PORT</span>. Applications can also run their scripts under a debugger at any time if they know a host and port combination a debugger is currently monitoring. This is especially useful to debug applications remotely. The ScriptEase debugger uses the port <span class=secodephrase>0xdead</span> so that all applications can find it. Custom debuggers can use whatever port they like or can mimic the standard debugger's port.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>Each socket connection will be an application wishing to debug a script. It is up to the debugger writer if the debugger will allow multiple debug sessions simultaneously. If it does not, it should still accept the connection and use the <span class=secodephrase>DENIED</span> response, described below, to refuse the debugging indicating that a debug session is currently processing.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>Once a connection is established, the protocol consists of text messages sent back and forth between the debugger and the application as described below. The description of these messages specify the text in uppercase. This is done for clarity, as the commands are case-insensitive. However, on some systems filenames are case-sensitive so the debugger must preserve the case on all filenames. In the following description, parameters to the command are written in lowercase. The lowercase text is meant to describe the purpose of the parameter. The parameter is to be replaced by the appropriate value.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>All text send by the application and the debugger to each other using this protocol is in ascii except for the specific exceptions mentioned below. All command lines are in ascii. Unicode can appear in only a specific few places. Two of the commands can optionally return unicode strings. When they do, they have a different response to indicate their return is unicode. The last place unicode can appear is in filenames. The filenames will be ascii strings, but unicode characters can be indicated by escaping them. In this case, the sequence <span class=secodephrase>\uXXXX</span> is used where <span class=secodephrase>XXXX</span> are exactly four hex characters indicating the value of the unicode character.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>All command lines in this protocol are terminated by a <span class=secodephrase>\r\n\r\n</span> marker. Data lines are always exactly what the data is, so they may have some combination of <span class=secodephrase>\r</span> and <span class=secodephrase>\n</span> in them. Data is always identified to be of a certain length by a preceeding header line before it is sent. That length is always exactly the number of bytes the data encompasses.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<hr noshade size=1>
+<p class=normal><a href="TH_204.htm"><img src="button.png" border=0></a><a href="TH_204.htm" style="text-decoration:none;">INITIALIZATION</a></p>
+<p class=normal><a href="TH_205.htm"><img src="button.png" border=0></a><a href="TH_205.htm" style="text-decoration:none;">MAIN DEBUG MODE</a></p>
+<p>
+</body>
+</html>

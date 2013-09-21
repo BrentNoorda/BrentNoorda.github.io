@@ -1,0 +1,490 @@
+<html>
+<head>
+<title>Regular expression summary</title>
+<link rel="stylesheet" href="semanualstyles.css" type="text/css">
+<style type="text/css">
+ p { margin-top: 0; margin-bottom: 0; }
+</style>
+<script language="JavaScript" src="TrueHelp.js"></script>
+</head>
+<body onload="thload()">
+<div id=ienav>
+<ilayer id=nsnav>
+<br>
+<center>
+<p class=normal><a href="seisdkc-toc.htm" target="left">contents</a> &nbsp; <a href="seisdkc-index.htm" target="left">index</a> &nbsp; <a href="TH_893.htm">previous</a> &nbsp; <a href="TH_895.htm">next</a></p>
+</center>
+<br>
+<hr noshade size=1>
+</ilayer>
+</div>
+<p class=heading-4>Regular expression summary</p>
+<p class=normal>Search pattern</p>
+<table cellpadding=0>
+<tr>
+<td valign=top style="width: 0.492361in">
+<p class=normal><span class=secodephrase>?</span></p></td>
+<td valign=top style="width: 3.51528in">
+<p class=normal>zero or one of previous, <span class=secodephrase>{0,1}</span></p></td>
+<td valign=top style="width: 1.06736in">
+<p class=normal><span class=secodephrase>be?t</span></p></td>
+</tr>
+<tr>
+<td valign=top style="width: 0.492361in">
+<p class=normal><span class=secodephrase>*</span></p></td>
+<td valign=top style="width: 3.51528in">
+<p class=normal>zero or more of previous, maximal, <span class=secodephrase>{0,}</span></p></td>
+<td valign=top style="width: 1.06736in">
+<p class=normal><span class=secodephrase>b.*t</span></p></td>
+</tr>
+<tr>
+<td valign=top style="width: 0.492361in">
+<p class=normal><span class=secodephrase>*?</span></p></td>
+<td valign=top style="width: 3.51528in">
+<p class=normal>zero or more of previous, minimal, <span class=secodephrase>{0,}?</span></p></td>
+<td valign=top style="width: 1.06736in">
+<p class=normal><span class=secodephrase>b.*?t</span></p></td>
+</tr>
+<tr>
+<td valign=top style="width: 0.492361in">
+<p class=normal><span class=secodephrase>+</span></p></td>
+<td valign=top style="width: 3.51528in">
+<p class=normal>one or more of previous, maximal, <span class=secodephrase>{1,}</span></p></td>
+<td valign=top style="width: 1.06736in">
+<p class=normal><span class=secodephrase>b.+t</span></p></td>
+</tr>
+<tr>
+<td valign=top style="width: 0.492361in">
+<p class=normal><span class=secodephrase>+?</span></p></td>
+<td valign=top style="width: 3.51528in">
+<p class=normal>one or more of previous, minimal, <span class=secodephrase>{1,}?</span></p></td>
+<td valign=top style="width: 1.06736in">
+<p class=normal><span class=secodephrase>b.+?t</span></p></td>
+</tr>
+<tr>
+<td valign=top style="width: 0.492361in">
+<p class=normal><span class=secodephrase>{n}</span></p></td>
+<td valign=top style="width: 3.51528in">
+<p class=normal>n times of previous</p></td>
+<td valign=top style="width: 1.06736in">
+<p class=normal><span class=secodephrase>be{n}t</span></p></td>
+</tr>
+<tr>
+<td valign=top style="width: 0.492361in">
+<p class=normal><span class=secodephrase>{n,}</span></p></td>
+<td valign=top style="width: 3.51528in">
+<p class=normal>n or more times of previous, maximal</p></td>
+<td valign=top style="width: 1.06736in">
+<p class=normal><span class=secodephrase>b.{n,}t</span></p></td>
+</tr>
+<tr>
+<td valign=top style="width: 0.492361in">
+<p class=normal><span class=secodephrase>{n,}?</span></p></td>
+<td valign=top style="width: 3.51528in">
+<p class=normal>n or more times of previous, minimal</p></td>
+<td valign=top style="width: 1.06736in">
+<p class=normal><span class=secodephrase>b.{n,}?t</span></p></td>
+</tr>
+<tr>
+<td valign=top style="width: 0.492361in">
+<p class=normal><span class=secodephrase>{n,m}</span></p></td>
+<td valign=top style="width: 3.51528in">
+<p class=normal>n to m times of previous</p></td>
+<td valign=top style="width: 1.06736in">
+<p class=normal><span class=secodephrase>be{1,2}t</span></p></td>
+</tr>
+<tr>
+<td valign=top style="width: 0.492361in">
+<p class=normal><span class=secodephrase>.</span></p></td>
+<td valign=top style="width: 3.51528in">
+<p class=normal>any character</p></td>
+<td valign=top style="width: 1.06736in">
+<p class=normal><span class=secodephrase>b.t</span></p></td>
+</tr>
+<tr>
+<td valign=top style="width: 0.492361in">
+<p class=normal><span class=secodephrase>[]</span></p></td>
+<td valign=top style="width: 3.51528in">
+<p class=normal>any one character in a class</p></td>
+<td valign=top style="width: 1.06736in">
+<p class=normal><span class=secodephrase>[a-m]</span></p></td>
+</tr>
+<tr>
+<td valign=top style="width: 0.492361in">
+<p class=normal><span class=secodephrase>[^]</span></p></td>
+<td valign=top style="width: 3.51528in">
+<p class=normal>any one not in a character class</p></td>
+<td valign=top style="width: 1.06736in">
+<p class=normal><span class=secodephrase>[^a-m]</span></p></td>
+</tr>
+<tr>
+<td valign=top style="width: 0.492361in">
+<p class=normal><span class=secodephrase>[\b]</span><span class=truehelp-xe></span></p></td>
+<td valign=top style="width: 3.51528in">
+<p class=normal>one backspace character</p></td>
+<td valign=top style="width: 1.06736in">
+<p class=normal><span class=secodephrase>my[\b]word</span></p></td>
+</tr>
+<tr>
+<td valign=top style="width: 0.492361in">
+<p class=normal><span class=secodephrase>\d</span></p></td>
+<td valign=top style="width: 3.51528in">
+<p class=normal>any one digit, <span class=secodephrase>[0-9]</span></p></td>
+<td valign=top style="width: 1.06736in">
+<p class=normal><span class=secodephrase>file\d</span></p></td>
+</tr>
+<tr>
+<td valign=top style="width: 0.492361in">
+<p class=normal><span class=secodephrase>\D</span></p></td>
+<td valign=top style="width: 3.51528in">
+<p class=normal>any one not digit, <span class=secodephrase>[^0-9]</span></p></td>
+<td valign=top style="width: 1.06736in">
+<p class=normal><span class=secodephrase>file\D</span></p></td>
+</tr>
+<tr>
+<td valign=top style="width: 0.492361in">
+<p class=normal><span class=secodephrase>\s</span><span class=truehelp-xe></span></p></td>
+<td valign=top style="width: 3.51528in">
+<p class=normal>any one white space character, <span class=secodephrase>[ \t\n\r\f\v]</span></p></td>
+<td valign=top style="width: 1.06736in">
+<p class=normal>my\sword</p></td>
+</tr>
+<tr>
+<td valign=top style="width: 0.492361in">
+<p class=normal><span class=secodephrase>\S</span><span class=truehelp-xe></span></p></td>
+<td valign=top style="width: 3.51528in">
+<p class=normal>any one not white space character, <span class=secodephrase>[^ \t\n\r\f\v]</span></p></td>
+<td valign=top style="width: 1.06736in">
+<p class=normal>my \sord</p></td>
+</tr>
+<tr>
+<td valign=top style="width: 0.492361in">
+<p class=normal><span class=secodephrase>\w</span></p></td>
+<td valign=top style="width: 3.51528in">
+<p class=normal>any one word character, <span class=secodephrase>[a-zA-Z0-9_]</span></p></td>
+<td valign=top style="width: 1.06736in">
+<p class=normal><span class=secodephrase>my big\w</span></p></td>
+</tr>
+<tr>
+<td valign=top style="width: 0.492361in">
+<p class=normal><span class=secodephrase>\W</span></p></td>
+<td valign=top style="width: 3.51528in">
+<p class=normal>any one not word character, <span class=secodephrase>[^a-zA-Z0-9_]</span></p></td>
+<td valign=top style="width: 1.06736in">
+<p class=normal><span class=secodephrase>my\Wbig</span></p></td>
+</tr>
+<tr>
+<td valign=top style="width: 0.492361in">
+<p class=normal><span class=secodephrase>^</span></p></td>
+<td valign=top style="width: 3.51528in">
+<p class=normal>anchor to start of string</p></td>
+<td valign=top style="width: 1.06736in">
+<p class=normal><span class=secodephrase>^string</span></p></td>
+</tr>
+<tr>
+<td valign=top style="width: 0.492361in">
+<p class=normal><span class=secodephrase>$</span></p></td>
+<td valign=top style="width: 3.51528in">
+<p class=normal>anchor to end of string</p></td>
+<td valign=top style="width: 1.06736in">
+<p class=normal><span class=secodephrase>string$</span></p></td>
+</tr>
+<tr>
+<td valign=top style="width: 0.492361in">
+<p class=normal><span class=secodephrase>\b</span></p></td>
+<td valign=top style="width: 3.51528in">
+<p class=normal>anchor to word boundary</p></td>
+<td valign=top style="width: 1.06736in">
+<p class=normal><span class=secodephrase>\bbig</span></p></td>
+</tr>
+<tr>
+<td valign=top style="width: 0.492361in">
+<p class=normal><span class=secodephrase>\B</span></p></td>
+<td valign=top style="width: 3.51528in">
+<p class=normal>anchor to not word boundary</p></td>
+<td valign=top style="width: 1.06736in">
+<p class=normal><span class=secodephrase>\Bbig</span></p></td>
+</tr>
+<tr>
+<td valign=top style="width: 0.492361in">
+<p class=normal><span class=secodephrase>|</span></p></td>
+<td valign=top style="width: 3.51528in">
+<p class=normal>or</p></td>
+<td valign=top style="width: 1.06736in">
+<p class=normal><span class=secodephrase>(bat)|(bet)</span></p></td>
+</tr>
+<tr>
+<td valign=top style="width: 0.492361in">
+<p class=normal><span class=secodephrase>\n</span></p></td>
+<td valign=top style="width: 3.51528in">
+<p class=normal>group n</p></td>
+<td valign=top style="width: 1.06736in">
+<p class=normal><span class=secodephrase>(bat)a\1</span></p></td>
+</tr>
+<tr>
+<td valign=top style="width: 0.492361in">
+<p class=normal><span class=secodephrase>()</span></p></td>
+<td valign=top style="width: 3.51528in">
+<p class=normal>group</p></td>
+<td valign=top style="width: 1.06736in">
+<p class=normal><span class=secodephrase>my(.?)fil</span></p></td>
+</tr>
+<tr>
+<td valign=top style="width: 0.492361in">
+<p class=normal><span class=secodephrase>(?:)</span></p></td>
+<td valign=top style="width: 3.51528in">
+<p class=normal>group without capture</p></td>
+<td valign=top style="width: 1.06736in">
+<p class=normal><span class=secodephrase>my(?:.?)fil</span></p></td>
+</tr>
+<tr>
+<td valign=top style="width: 0.492361in">
+<p class=normal><span class=secodephrase>(?=)</span></p></td>
+<td valign=top style="width: 3.51528in">
+<p class=normal>group without capture with positive look ahead</p></td>
+<td valign=top style="width: 1.06736in">
+<p class=normal><span class=secodephrase>my(?=.?)fil</span></p></td>
+</tr>
+<tr>
+<td valign=top style="width: 0.492361in">
+<p class=normal><span class=secodephrase>(?!)</span></p></td>
+<td valign=top style="width: 3.51528in">
+<p class=normal>group without capture with negative look ahead</p></td>
+<td valign=top style="width: 1.06736in">
+<p class=normal><span class=secodephrase>my(?!.?)fil</span></p></td>
+</tr>
+<tr>
+<td valign=top style="width: 0.492361in">
+<p class=normal><span class=secodephrase>\f</span></p></td>
+<td valign=top style="width: 3.51528in">
+<p class=normal>form feed character</p></td>
+<td valign=top style="width: 1.06736in">
+<p class=normal><span class=secodephrase>string\f</span></p></td>
+</tr>
+<tr>
+<td valign=top style="width: 0.492361in">
+<p class=normal><span class=secodephrase>\n</span></p></td>
+<td valign=top style="width: 3.51528in">
+<p class=normal>newline</p></td>
+<td valign=top style="width: 1.06736in">
+<p class=normal><span class=secodephrase>string\n</span></p></td>
+</tr>
+<tr>
+<td valign=top style="width: 0.492361in">
+<p class=normal><span class=secodephrase>\r</span></p></td>
+<td valign=top style="width: 3.51528in">
+<p class=normal>carriage return character</p></td>
+<td valign=top style="width: 1.06736in">
+<p class=normal><span class=secodephrase>string\r</span></p></td>
+</tr>
+<tr>
+<td valign=top style="width: 0.492361in">
+<p class=normal><span class=secodephrase>\t</span></p></td>
+<td valign=top style="width: 3.51528in">
+<p class=normal>horizontal tab character</p></td>
+<td valign=top style="width: 1.06736in">
+<p class=normal><span class=secodephrase>one\tfour</span></p></td>
+</tr>
+<tr>
+<td valign=top style="width: 0.492361in">
+<p class=normal><span class=secodephrase>\v</span></p></td>
+<td valign=top style="width: 3.51528in">
+<p class=normal>vertical tab character</p></td>
+<td valign=top style="width: 1.06736in">
+<p class=normal><span class=secodephrase>one\vtwo</span></p></td>
+</tr>
+<tr>
+<td valign=top style="width: 0.492361in">
+<p class=normal><span class=secodephrase>\/</span></p></td>
+<td valign=top style="width: 3.51528in">
+<p class=normal>/ character</p></td>
+<td valign=top style="width: 1.06736in">
+<p class=normal><span class=secodephrase>\/fil</span></p></td>
+</tr>
+<tr>
+<td valign=top style="width: 0.492361in">
+<p class=normal><span class=secodephrase>\\</span></p></td>
+<td valign=top style="width: 3.51528in">
+<p class=normal>\ character</p></td>
+<td valign=top style="width: 1.06736in">
+<p class=normal><span class=secodephrase>\\fil</span></p></td>
+</tr>
+<tr>
+<td valign=top style="width: 0.492361in">
+<p class=normal><span class=secodephrase>\.</span></p></td>
+<td valign=top style="width: 3.51528in">
+<p class=normal>. character</p></td>
+<td valign=top style="width: 1.06736in">
+<p class=normal><span class=secodephrase>fil\.bak</span></p></td>
+</tr>
+<tr>
+<td valign=top style="width: 0.492361in">
+<p class=normal><span class=secodephrase>\*</span></p></td>
+<td valign=top style="width: 3.51528in">
+<p class=normal>* character</p></td>
+<td valign=top style="width: 1.06736in">
+<p class=normal><span class=secodephrase>one\*two</span></p></td>
+</tr>
+<tr>
+<td valign=top style="width: 0.492361in">
+<p class=normal><span class=secodephrase>\+</span></p></td>
+<td valign=top style="width: 3.51528in">
+<p class=normal>+ character</p></td>
+<td valign=top style="width: 1.06736in">
+<p class=normal><span class=secodephrase>\+fil</span></p></td>
+</tr>
+<tr>
+<td valign=top style="width: 0.492361in">
+<p class=normal><span class=secodephrase>\?</span></p></td>
+<td valign=top style="width: 3.51528in">
+<p class=normal>? character</p></td>
+<td valign=top style="width: 1.06736in">
+<p class=normal><span class=secodephrase>when\?</span></p></td>
+</tr>
+<tr>
+<td valign=top style="width: 0.492361in">
+<p class=normal><span class=secodephrase>\|</span></p></td>
+<td valign=top style="width: 3.51528in">
+<p class=normal>| character</p></td>
+<td valign=top style="width: 1.06736in">
+<p class=normal><span class=secodephrase>one\|two</span></p></td>
+</tr>
+<tr>
+<td valign=top style="width: 0.492361in">
+<p class=normal><span class=secodephrase>\(</span></p></td>
+<td valign=top style="width: 3.51528in">
+<p class=normal>( character</p></td>
+<td valign=top style="width: 1.06736in">
+<p class=normal><span class=secodephrase>\(fil\)</span></p></td>
+</tr>
+<tr>
+<td valign=top style="width: 0.492361in">
+<p class=normal><span class=secodephrase>\)</span></p></td>
+<td valign=top style="width: 3.51528in">
+<p class=normal>) character</p></td>
+<td valign=top style="width: 1.06736in">
+<p class=normal><span class=secodephrase>\(fil\)</span></p></td>
+</tr>
+<tr>
+<td valign=top style="width: 0.492361in">
+<p class=normal><span class=secodephrase>\[</span></p></td>
+<td valign=top style="width: 3.51528in">
+<p class=normal>[ character</p></td>
+<td valign=top style="width: 1.06736in">
+<p class=normal><span class=secodephrase>\[fil\]</span></p></td>
+</tr>
+<tr>
+<td valign=top style="width: 0.492361in">
+<p class=normal><span class=secodephrase>\]</span></p></td>
+<td valign=top style="width: 3.51528in">
+<p class=normal>] character</p></td>
+<td valign=top style="width: 1.06736in">
+<p class=normal><span class=secodephrase>\[fil\]</span></p></td>
+</tr>
+<tr>
+<td valign=top style="width: 0.492361in">
+<p class=normal><span class=secodephrase>\{</span></p></td>
+<td valign=top style="width: 3.51528in">
+<p class=normal>{ character</p></td>
+<td valign=top style="width: 1.06736in">
+<p class=normal><span class=secodephrase>\{fil\}</span></p></td>
+</tr>
+<tr>
+<td valign=top style="width: 0.492361in">
+<p class=normal><span class=secodephrase>\}</span></p></td>
+<td valign=top style="width: 3.51528in">
+<p class=normal>} character</p></td>
+<td valign=top style="width: 1.06736in">
+<p class=normal><span class=secodephrase>\{fil\}</span></p></td>
+</tr>
+<tr>
+<td valign=top style="width: 0.492361in">
+<p class=normal><span class=secodephrase>\C</span></p></td>
+<td valign=top style="width: 3.51528in">
+<p class=normal>a character itself. Seldom used.</p></td>
+<td valign=top style="width: 1.06736in">
+<p class=normal><span class=secodephrase>b\at</span></p></td>
+</tr>
+<tr>
+<td valign=top style="width: 0.492361in">
+<p class=normal><span class=secodephrase>\cC</span></p></td>
+<td valign=top style="width: 3.51528in">
+<p class=normal>a control character</p></td>
+<td valign=top style="width: 1.06736in">
+<p class=normal><span class=secodephrase>one\cIfour</span></p></td>
+</tr>
+<tr>
+<td valign=top style="width: 0.492361in">
+<p class=normal><span class=secodephrase>\x##</span></p></td>
+<td valign=top style="width: 3.51528in">
+<p class=normal>character by hexadecimal code</p></td>
+<td valign=top style="width: 1.06736in">
+<p class=normal><span class=secodephrase>\x41</span></p></td>
+</tr>
+<tr>
+<td valign=top style="width: 0.492361in">
+<p class=normal><span class=secodephrase>\###</span></p></td>
+<td valign=top style="width: 3.51528in">
+<p class=normal>character by octal code</p></td>
+<td valign=top style="width: 1.06736in">
+<p class=normal><span class=secodephrase>\101</span></p></td>
+</tr>
+</table>
+<p class=normal>&nbsp;</p>
+<p class=normal>Replace pattern</p>
+<table cellpadding=0>
+<tr>
+<td valign=top style="width: 0.519444in">
+<p class=normal><span class=secodephrase>$n</span></p></td>
+<td valign=top style="width: 3.50625in">
+<p class=normal>group n in search pattern, <span class=secodephrase>$1, $2, . . . $9</span></p></td>
+<td valign=top style="width: 1.04931in">
+<p class=normal><span class=secodephrase>big$1</span></p></td>
+</tr>
+<tr>
+<td valign=top style="width: 0.519444in">
+<p class=normal><span class=secodephrase>$+</span></p></td>
+<td valign=top style="width: 3.50625in">
+<p class=normal>last group in search pattern</p></td>
+<td valign=top style="width: 1.04931in">
+<p class=normal><span class=secodephrase>big$+</span></p></td>
+</tr>
+<tr>
+<td valign=top style="width: 0.519444in">
+<p class=normal><span class=secodephrase>$`</span></p></td>
+<td valign=top style="width: 3.50625in">
+<p class=normal>text before matched pattern</p></td>
+<td valign=top style="width: 1.04931in">
+<p class=normal><span class=secodephrase>big$`</span></p></td>
+</tr>
+<tr>
+<td valign=top style="width: 0.519444in">
+<p class=normal><span class=secodephrase>$'</span></p></td>
+<td valign=top style="width: 3.50625in">
+<p class=normal>text after matched pattern</p></td>
+<td valign=top style="width: 1.04931in">
+<p class=normal><span class=secodephrase>big$'</span></p></td>
+</tr>
+<tr>
+<td valign=top style="width: 0.519444in">
+<p class=normal><span class=secodephrase>$&amp;</span></p></td>
+<td valign=top style="width: 3.50625in">
+<p class=normal>text of matched pattern</p></td>
+<td valign=top style="width: 1.04931in">
+<p class=normal><span class=secodephrase>big$&amp;</span></p></td>
+</tr>
+<tr>
+<td valign=top style="width: 0.519444in">
+<p class=normal><span class=secodephrase>\$</span></p></td>
+<td valign=top style="width: 3.50625in">
+<p class=normal>$ character</p></td>
+<td valign=top style="width: 1.04931in">
+<p class=normal><span class=secodephrase>big\$</span></p></td>
+</tr>
+</table>
+<p class=normal>&nbsp;</p>
+<hr noshade size=1>
+<p class=normal><a href="TH_895.htm"><img src="button.png" border=0></a><a href="TH_895.htm" style="text-decoration:none;">Regular expression repetition characters</a></p>
+<p>
+</body>
+</html>

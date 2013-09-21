@@ -1,0 +1,97 @@
+<html>
+<head>
+<title>String concat()</title>
+<link rel="stylesheet" href="semanualstyles.css" type="text/css">
+<style type="text/css">
+ p { margin-top: 0; margin-bottom: 0; }
+</style>
+<script language="JavaScript" src="TrueHelp.js"></script>
+</head>
+<body onload="thload()">
+<div id=ienav>
+<ilayer id=nsnav>
+<br>
+<center>
+<p class=normal><a href="seisdkc-toc.htm" target="left">contents</a> &nbsp; <a href="seisdkc-index.htm" target="left">index</a> &nbsp; <a href="TH_966.htm">previous</a> &nbsp; <a href="TH_968.htm">next</a></p>
+</center>
+<br>
+<hr noshade size=1>
+</ilayer>
+</div>
+<p class=sereffunclevel4>String concat()</p>
+<table cellpadding=0>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>syntax:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=sesyntax>string.concat(<span class=truehelp-xe></span>[string1,&nbsp;...])</p></td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>where:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>stringN - A list of strings to append to the end of the current object.</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>return:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>This method returns a string value (not a string object) consisting of the current object and any subsequent arguments appended to it.</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>description:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>This method creates a new string whose contents are equal to the current object.  Each argument is then converted to a string using <span class=sepopuptopic><a href="TH_836.htm" onClick="return thwindow('TH_836.htm', 'GenPopup')">global.ToString()</a></span> and appended to the newly created string.  This value is then returned.  Note that the original object remains unaltered.  The '+' operator performs the same function.</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>see:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara><span class=sejumptopic><a href="TH_534.htm">Array concat()</a></span></p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>example:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=secodelines>//&nbsp;The&nbsp;following&nbsp;line:</p>
+<p class=secodelines>&nbsp;</p>
+<p class=secodelines>var&nbsp;proverb&nbsp;=&nbsp;"A&nbsp;rolling&nbsp;stone&nbsp;"&nbsp;+&nbsp;"gathers&nbsp;no&nbsp;moss."</p>
+<p class=secodelines>&nbsp;</p>
+<p class=secodelines>//&nbsp;creates&nbsp;the&nbsp;variable&nbsp;proverb&nbsp;and</p>
+<p class=secodelines>//&nbsp;assigns&nbsp;it&nbsp;the&nbsp;string</p>
+<p class=secodelines>//&nbsp;"A&nbsp;rolling&nbsp;stone&nbsp;gathers&nbsp;no&nbsp;moss."</p>
+<p class=secodelines>//&nbsp;If&nbsp;you&nbsp;try&nbsp;to&nbsp;concatenate&nbsp;a&nbsp;string&nbsp;with&nbsp;a&nbsp;number,</p>
+<p class=secodelines>//&nbsp;the&nbsp;number&nbsp;is&nbsp;converted&nbsp;to&nbsp;a&nbsp;string.</p>
+<p class=secodelines>&nbsp;</p>
+<p class=secodelines>&nbsp;var&nbsp;newstring&nbsp;=&nbsp;4&nbsp;+&nbsp;"get&nbsp;it";</p>
+<p class=secodelines>&nbsp;</p>
+<p class=secodelines>//&nbsp;This&nbsp;bit&nbsp;of&nbsp;code&nbsp;creates&nbsp;newstring&nbsp;as&nbsp;a&nbsp;string</p>
+<p class=secodelines>//&nbsp;variable&nbsp;and&nbsp;assigns&nbsp;it&nbsp;the&nbsp;string</p>
+<p class=secodelines>//&nbsp;"4get&nbsp;it".</p>
+<p class=secodelines>&nbsp;</p>
+<p class=secodelines>//&nbsp;The&nbsp;use&nbsp;of&nbsp;the&nbsp;+&nbsp;operator&nbsp;is&nbsp;the&nbsp;standard&nbsp;way&nbsp;of&nbsp;//&nbsp;creating&nbsp;long&nbsp;strings&nbsp;in&nbsp;JavaScript.</p>
+<p class=secodelines>//&nbsp;In&nbsp;ScriptEase,&nbsp;the&nbsp;+&nbsp;operator&nbsp;is&nbsp;optional.</p>
+<p class=secodelines>//&nbsp;For&nbsp;example,&nbsp;the&nbsp;following:</p>
+<p class=secodelines>&nbsp;</p>
+<p class=secodelines>var&nbsp;badJoke&nbsp;=&nbsp;"I&nbsp;was&nbsp;in&nbsp;front&nbsp;of&nbsp;an&nbsp;Italian&nbsp;"</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;&nbsp;"restaurant&nbsp;waiting&nbsp;to&nbsp;get&nbsp;in&nbsp;when&nbsp;this&nbsp;guy&nbsp;"</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;&nbsp;"came&nbsp;up&nbsp;and&nbsp;asked&nbsp;me,&nbsp;\"Why&nbsp;did&nbsp;the&nbsp;"</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;&nbsp;"Italians&nbsp;lose&nbsp;the&nbsp;war?\"&nbsp;I&nbsp;told&nbsp;him&nbsp;I&nbsp;had&nbsp;"</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;&nbsp;"no&nbsp;idea.&nbsp;\"Because&nbsp;they&nbsp;ordered&nbsp;ziti"&nbsp;</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;&nbsp;"instead&nbsp;of&nbsp;shells,\"&nbsp;he&nbsp;replied."</p>
+<p class=secodelines>&nbsp;</p>
+<p class=secodelines>//&nbsp;creates&nbsp;a&nbsp;long&nbsp;string&nbsp;containing</p>
+<p class=secodelines>//&nbsp;the&nbsp;entire&nbsp;bad&nbsp;joke.</p></td>
+</tr>
+</table>
+<p class=normal>&nbsp;</p>
+<hr noshade size=1>
+<p class=normal><a href="TH_968.htm"><img src="button.png" border=0></a><a href="TH_968.htm" style="text-decoration:none;">String indexOf()</a></p>
+<p>
+</body>
+</html>

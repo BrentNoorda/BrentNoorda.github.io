@@ -1,0 +1,65 @@
+<html>
+<head>
+<title>Cursor filter</title>
+<link rel="stylesheet" href="semanualstyles.css" type="text/css">
+<style type="text/css">
+ p { margin-top: 0; margin-bottom: 0; }
+</style>
+<script language="JavaScript" src="TrueHelp.js"></script>
+</head>
+<body onload="thload()">
+<div id=ienav>
+<ilayer id=nsnav>
+<br>
+<center>
+<p class=normal><a href="seisdkc-toc.htm" target="left">contents</a> &nbsp; <a href="seisdkc-index.htm" target="left">index</a> &nbsp; <a href="TH_1074.htm">previous</a> &nbsp; <a href="TH_1076.htm">next</a></p>
+</center>
+<br>
+<hr noshade size=1>
+</ilayer>
+</div>
+<p class=sereffunclevel4>Cursor filter</p>
+<table cellpadding=0>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>syntax:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=sesyntax>cursor.filter<span class=truehelp-xe></span></p></td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>description:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>A property containing a conditional expression that determines which subset of rows is retrieved by a cursor.  This expression is a string containing the WHERE clause of an SQL statement describing the rows to be included.  The string does not include the reserved word WHERE, however.  Initially, the filter property value is set to the empty string, indicating that all of the Cursor rows are to be retrieved.  Call <span class=secodephrase>reload</span> after changing the filter to update the contents of the Cursor.</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>see:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara><span class=secodephrase>#link &lt;sedbc&gt;</span>, <span class=sejumptopic><a href="TH_1087.htm">Cursor reload()</a></span></p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>example:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=secodelines>//&nbsp;assume&nbsp;'database'&nbsp;is&nbsp;a&nbsp;valid&nbsp;Database&nbsp;object</p>
+<p class=secodelines>var&nbsp;curs&nbsp;=&nbsp;database.table("customer")</p>
+<p class=secodelines>&nbsp;</p>
+<p class=secodelines>//&nbsp;Set&nbsp;cursor&nbsp;filter&nbsp;so&nbsp;that&nbsp;the&nbsp;Cursor</p>
+<p class=secodelines>//&nbsp;only&nbsp;retrieves&nbsp;objects</p>
+<p class=secodelines>//&nbsp;whose&nbsp;'City'&nbsp;field&nbsp;is&nbsp;set&nbsp;to&nbsp;'Berlin'</p>
+<p class=secodelines>curs.filter&nbsp;=&nbsp;"City&nbsp;=&nbsp;'Berlin'";</p>
+<p class=secodelines>&nbsp;</p>
+<p class=secodelines>//&nbsp;Reload&nbsp;the&nbsp;cursor</p>
+<p class=secodelines>err&nbsp;=&nbsp;curs.reload();</p></td>
+</tr>
+</table>
+<p class=senormalpara>&nbsp;</p>
+<p class=senormalpara-p>&nbsp;</p>
+<hr noshade size=1>
+<p class=normal><a href="TH_1076.htm"><img src="button.png" border=0></a><a href="TH_1076.htm" style="text-decoration:none;">Cursor sort</a></p>
+<p>
+</body>
+</html>

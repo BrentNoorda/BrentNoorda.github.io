@@ -1,0 +1,80 @@
+<html>
+<head>
+<title>Clib.strrchr()</title>
+<link rel="stylesheet" href="semanualstyles.css" type="text/css">
+<style type="text/css">
+ p { margin-top: 0; margin-bottom: 0; }
+</style>
+<script language="JavaScript" src="TrueHelp.js"></script>
+</head>
+<body onload="thload()">
+<div id=ienav>
+<ilayer id=nsnav>
+<br>
+<center>
+<p class=normal><a href="seisdkc-toc.htm" target="left">contents</a> &nbsp; <a href="seisdkc-index.htm" target="left">index</a> &nbsp; <a href="TH_682.htm">previous</a> &nbsp; <a href="TH_684.htm">next</a></p>
+</center>
+<br>
+<hr noshade size=1>
+</ilayer>
+</div>
+<p class=sereffunclevel4>Clib.strrchr()</p>
+<table cellpadding=0>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>syntax:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=sesyntax>Clib.strrchr(<span class=truehelp-xe></span>str,&nbsp;chr)</p></td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>where:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>str - string to search.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>chr - character to search for.</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>return:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>string - beginning with the first character found from the right, else <span class=secodephrase>null</span>.</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>description:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>This method searches a string for the last occurrence of chr. The search is in the reverse direction, from the right, for chr in a string. The method returns a variable indicating the last occurrence of chr in a string, else it returns <span class=secodephrase>null</span> if chr is not found in str.</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>see:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara><span class=sejumptopic><a href="TH_669.htm">Clib.strchr()</a></span></p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>example:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=secodelines>//&nbsp;The&nbsp;following&nbsp;code:</p>
+<p class=secodelines>&nbsp;</p>
+<p class=secodelines>var&nbsp;str&nbsp;=&nbsp;"I&nbsp;can't&nbsp;stand&nbsp;soggy&nbsp;cereal."&nbsp;</p>
+<p class=secodelines>var&nbsp;substr&nbsp;=&nbsp;Clib.strrchr(str,&nbsp;'s');&nbsp;</p>
+<p class=secodelines>Clib.printf("str&nbsp;=&nbsp;%s\n",&nbsp;str);&nbsp;</p>
+<p class=secodelines>Screen.writeln("substr&nbsp;=&nbsp;"&nbsp;+&nbsp;substr);</p>
+<p class=secodelines>&nbsp;</p>
+<p class=secodelines>//&nbsp;Results&nbsp;in&nbsp;the&nbsp;following&nbsp;output.</p>
+<p class=secodelines>//&nbsp;&nbsp;str&nbsp;=&nbsp;I&nbsp;can't&nbsp;stand&nbsp;soggy&nbsp;cereal.</p>
+<p class=secodelines>//&nbsp;&nbsp;substr&nbsp;=&nbsp;soggy&nbsp;cereal.</p></td>
+</tr>
+</table>
+<p class=normal>&nbsp;</p>
+<hr noshade size=1>
+<p class=normal><a href="TH_684.htm"><img src="button.png" border=0></a><a href="TH_684.htm" style="text-decoration:none;">Clib.strspn()</a></p>
+<p>
+</body>
+</html>

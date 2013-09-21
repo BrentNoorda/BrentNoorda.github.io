@@ -1,0 +1,46 @@
+<html>
+<head>
+<title>do {...} while</title>
+<link rel="stylesheet" href="semanualstyles.css" type="text/css">
+<style type="text/css">
+ p { margin-top: 0; margin-bottom: 0; }
+</style>
+<script language="JavaScript" src="TrueHelp.js"></script>
+</head>
+<body onload="thload()">
+<div id=ienav>
+<ilayer id=nsnav>
+<br>
+<center>
+<p class=normal><a href="seisdkj-toc.htm" target="left">contents</a> &nbsp; <a href="seisdkj-index.htm" target="left">index</a> &nbsp; <a href="TH_358.htm">previous</a> &nbsp; <a href="TH_360.htm">next</a></p>
+</center>
+<br>
+<hr noshade size=1>
+</ilayer>
+</div>
+<p class=heading-3>do {...} while</p>
+<p class=heading-3-p>&nbsp;</p>
+<p class=senormalpara>The <span class=secodephrase>do</span> statement is different from the <span class=sepopuptopic><a href="TH_358.htm" onClick="return thwindow('TH_358.htm', 'GenPopup')">while</a></span> statement in that the code block is executed at least once, before the test condition is checked.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=secodelinesindented>var&nbsp;value&nbsp;=&nbsp;0;</p>
+<p class=secodelinesindented>do&nbsp;</p>
+<p class=secodelinesindented>{</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;value++;</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;ProcessData(value);</p>
+<p class=secodelinesindented>}&nbsp;while(&nbsp;value&nbsp;&lt;&nbsp;100&nbsp;);</p>
+<p class=secodelinesindented>&nbsp;</p>
+<p class=senormalpara>The code used to demonstrate the <span class=secodephrase>while</span> statement could also be written as the following fragment.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=secodelinesindented>do&nbsp;</p>
+<p class=secodelinesindented>{</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;var&nbsp;name&nbsp;=&nbsp;GetNameFromTheList();</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;SendEmail(name)</p>
+<p class=secodelinesindented>}&nbsp;while&nbsp;(name&nbsp;!=&nbsp;TheLastNameOnTheList());</p>
+<p class=secodelinesindented>&nbsp;</p>
+<p class=senormalpara>Of course, if there are no names on the list, the script will run into problems!</p>
+<p class=senormalpara-p>&nbsp;</p>
+<hr noshade size=1>
+<p class=normal><a href="TH_360.htm"><img src="button.png" border=0></a><a href="TH_360.htm" style="text-decoration:none;">for</a></p>
+<p>
+</body>
+</html>

@@ -1,0 +1,86 @@
+<html>
+<head>
+<title>Clib.strstr()</title>
+<link rel="stylesheet" href="semanualstyles.css" type="text/css">
+<style type="text/css">
+ p { margin-top: 0; margin-bottom: 0; }
+</style>
+<script language="JavaScript" src="TrueHelp.js"></script>
+</head>
+<body onload="thload()">
+<div id=ienav>
+<ilayer id=nsnav>
+<br>
+<center>
+<p class=normal><a href="seisdkc-toc.htm" target="left">contents</a> &nbsp; <a href="seisdkc-index.htm" target="left">index</a> &nbsp; <a href="TH_684.htm">previous</a> &nbsp; <a href="TH_686.htm">next</a></p>
+</center>
+<br>
+<hr noshade size=1>
+</ilayer>
+</div>
+<p class=sereffunclevel4>Clib.strstr()</p>
+<table cellpadding=0>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>syntax:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=sesyntax>Clib.strstr(<span class=truehelp-xe></span>srcStr,&nbsp;findStr)</p></td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>where:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>srcStr - a string to search.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>findStr - a string to find.</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>return:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>string - beginning in srcStr with the first character in findStr that was found, else <span class=secodephrase>null</span>.</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>description:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>This method searches srcStr, starting at srcStr[0], for the first occurrence of findStr. The search is case-sensitive. The method returns a variable indicating the beginning of the first occurrence of findStr in srcStr, else it returns <span class=secodephrase>null</span> if findStr is not found in srcStr.</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>see:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara><span class=sejumptopic><a href="TH_669.htm">Clib.strchr()</a></span>, <span class=sejumptopic><a href="TH_686.htm">Clib.strstri()</a></span></p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>example:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=secodelines>//&nbsp;The&nbsp;following&nbsp;code&nbsp;fragment:</p>
+<p class=secodelines>&nbsp;</p>
+<p class=secodelines>function&nbsp;main()</p>
+<p class=secodelines>{</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;var&nbsp;Phrase&nbsp;=&nbsp;CString("To&nbsp;be&nbsp;or&nbsp;not&nbsp;to&nbsp;be?&nbsp;beep!";</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;do</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;{</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Screen.writeln(Phrase);</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Phrase&nbsp;=&nbsp;Clib.strstr(Phrase&nbsp;+&nbsp;1,&nbsp;"be");&nbsp;</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;}&nbsp;while&nbsp;(Phrase&nbsp;!=&nbsp;null);</p>
+<p class=secodelines>}</p>
+<p class=secodelines>//&nbsp;results&nbsp;in&nbsp;the&nbsp;following&nbsp;output.</p>
+<p class=secodelines>//&nbsp;&nbsp;To&nbsp;be&nbsp;or&nbsp;not&nbsp;to&nbsp;be?&nbsp;beep!</p>
+<p class=secodelines>//&nbsp;&nbsp;be&nbsp;or&nbsp;not&nbsp;to&nbsp;be?&nbsp;beep!</p>
+<p class=secodelines>//&nbsp;&nbsp;be?&nbsp;beep!</p>
+<p class=secodelines>//&nbsp;&nbsp;beep!</p></td>
+</tr>
+</table>
+<p class=normal>&nbsp;</p>
+<hr noshade size=1>
+<p class=normal><a href="TH_686.htm"><img src="button.png" border=0></a><a href="TH_686.htm" style="text-decoration:none;">Clib.strstri()</a></p>
+<p>
+</body>
+</html>

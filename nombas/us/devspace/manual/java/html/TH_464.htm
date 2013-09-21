@@ -1,0 +1,72 @@
+<html>
+<head>
+<title>Buffer.equal ()</title>
+<link rel="stylesheet" href="semanualstyles.css" type="text/css">
+<style type="text/css">
+ p { margin-top: 0; margin-bottom: 0; }
+</style>
+<script language="JavaScript" src="TrueHelp.js"></script>
+</head>
+<body onload="thload()">
+<div id=ienav>
+<ilayer id=nsnav>
+<br>
+<center>
+<p class=normal><a href="seisdkj-toc.htm" target="left">contents</a> &nbsp; <a href="seisdkj-index.htm" target="left">index</a> &nbsp; <a href="TH_463.htm">previous</a> &nbsp; <a href="TH_465.htm">next</a></p>
+</center>
+<br>
+<hr noshade size=1>
+</ilayer>
+</div>
+<p class=sereffunclevel4>Buffer.equal ()</p>
+<table cellpadding=0>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>syntax:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=sesyntax>Buffer.equal(<span class=truehelp-xe></span>buffer1,buffer2)</p></td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>where:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>buffer1,buffer2 - Two buffer objects to be compared.</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>return:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>true if two buffers are equal, else false</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>description:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>There is no insensitive compare, Buffer equali(), since buffers are not strings. To compare buffers as strings, use the toString() or valueOf() methods and make string comparisons. By using these methods, ASCII and Unicode buffers, holding string data, may be compared.</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>see:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara><span class=sejumptopic><a href="TH_453.htm">Buffer()</a></span>, <span class=sejumptopic><a href="TH_456.htm">Buffer equal()</a></span>, <span class=sejumptopic><a href="TH_463.htm">Buffer.compare ()</a></span>, <span class=sejumptopic><a href="TH_455.htm">Buffer compare()</a></span></p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>example:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=secodelines>//&nbsp;The&nbsp;following&nbsp;code:</p>
+<p class=secodelines>var&nbsp;bufa&nbsp;=&nbsp;Buffer("ab");</p>
+<p class=secodelines>var&nbsp;bufb&nbsp;=&nbsp;new&nbsp;Buffer("ab\0");</p>
+<p class=secodelines>var&nbsp;cmp&nbsp;=&nbsp;Buffer.equal(bufa,bufb)</p>
+<p class=secodelines>//&nbsp;will&nbsp;set&nbsp;the&nbsp;variable&nbsp;cmp&nbsp;to&nbsp;be&nbsp;false</p></td>
+</tr>
+</table>
+<hr noshade size=1>
+<p class=normal><a href="TH_465.htm"><img src="button.png" border=0></a><a href="TH_465.htm" style="text-decoration:none;">internal_bufferobject-1</a></p>
+<p>
+</body>
+</html>

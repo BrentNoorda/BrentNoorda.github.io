@@ -1,0 +1,118 @@
+<html>
+<head>
+<title>SElib.dynamicLink() - for Win32</title>
+<link rel="stylesheet" href="semanualstyles.css" type="text/css">
+<style type="text/css">
+ p { margin-top: 0; margin-bottom: 0; }
+</style>
+<script language="JavaScript" src="TrueHelp.js"></script>
+</head>
+<body onload="thload()">
+<div id=ienav>
+<ilayer id=nsnav>
+<br>
+<center>
+<p class=normal><a href="seisdkc-toc.htm" target="left">contents</a> &nbsp; <a href="seisdkc-index.htm" target="left">index</a> &nbsp; <a href="TH_951.htm">previous</a> &nbsp; <a href="TH_953.htm">next</a></p>
+</center>
+<br>
+<hr noshade size=1>
+</ilayer>
+</div>
+<p class=sereffunclevel5>SElib.dynamicLink() - for Win32</p>
+<table cellpadding=0>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>syntax:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=sesyntax>SElib.dynamicLink(library,&nbsp;procedure,</p>
+<p class=sesyntax>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;convention[,&nbsp;[desc,]&nbsp;param&nbsp;&#133;])</p></td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>where:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>library - a string, the name of the dynamic link library, DLL, being used, the one having the procedure being called.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>procedure - a string or number, the name or ordinal number of a routine in a dynamic link library to be used.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>convention - the calling convention to use when invoking or using the procedure being called.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=secodelinesindented>CDECL&nbsp;&nbsp;&nbsp;&nbsp;Push&nbsp;right&nbsp;parameter&nbsp;first.</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Caller&nbsp;pops&nbsp;parameters.</p>
+<p class=secodelinesindented>STDCALL&nbsp;&nbsp;Push&nbsp;right&nbsp;parameter&nbsp;first.</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Caller&nbsp;pops&nbsp;parameters.</p>
+<p class=secodelinesindented>PASCAL&nbsp;&nbsp;&nbsp;Push&nbsp;left&nbsp;parameter&nbsp;first.</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Callee&nbsp;pops&nbsp;parameters.</p>
+<p class=secodelines>&nbsp;</p>
+<p class=senormalpara>desc - a blobDescriptor that describes the following param if param is a structure. (See <span class=sepopuptopic><a href="TH_551.htm" onClick="return thwindow('TH_551.htm', 'GenPopup')">blobDescriptor example</a></span>.) A blobDescriptor is only used in front of params that are structures and is required for such params. A Blob (Binary Large Object) and a Buffer are very similar in ScriptEase. The Blob is the type that was used, in the early days of ScriptEase, to work with data in sections of memory. The Buffer is the newer type. Structure types may be created in Blobs or Buffers and blobDescriptors may be used to describe the data in either type. So, in ScriptEase, you will sometimes see blobDescriptor before a param of type Blob or a param of type buffer. In either case, the blobDescriptor is describing how data is stored in the param, even if the data is a string.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>param - a variable for a section of memory that holds data in the form of a structure of elements or a buffer a string.</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>return:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>value - the value returned by the procedure being called, else void if the procedure does not return a value.</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>description:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>For Win32</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>Calls a routine in a dynamic link library, DLL. The most common use is to use various functions in the Windows API.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>All values are passed as 32-bit values. If a parameter is <span class=secodephrase>undefined</span> when dynamicLink() is called, then it is assumed that the parameter is a 32-bit value to be filled in, that is, the address of a 32-bit data element is passed to the function, and that function will set the value.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>If a parameter is a structure, then it must be a structure that defines the binary data types in memory to represent the following variable. Before calling the DLL function, the structure is copied to a binary buffer as described in <span class=sepopuptopic><a href="TH_548.htm" onClick="return thwindow('TH_548.htm', 'GenPopup')">Blob.put()</a></span> and <span class=sepopuptopic><a href="TH_629.htm" onClick="return thwindow('TH_629.htm', 'GenPopup')">Clib.fwrite()</a></span>. When calling the DLL function, a descriptor argument must precede the structured parameter, and this descriptor argument is in addition to the parameter list for the procedure being called. After calling the DLL function, the binary data will be converted back into the data structure according to the rules defined in <span class=sepopuptopic><a href="TH_547.htm" onClick="return thwindow('TH_547.htm', 'GenPopup')">Blob.get()</a></span> and <span class=sepopuptopic><a href="TH_623.htm" onClick="return thwindow('TH_623.htm', 'GenPopup')">Clib.fread()</a></span>. Data conversion is performed according to the current _BigEndianMode setting.</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>see:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara><span class=sejumptopic><a href="TH_545.htm">Blob object</a></span>, <span class=sejumptopic><a href="TH_551.htm">blobDescriptor example</a></span>, Win32 structure definitions, <span class=sejumptopic><a href="TH_623.htm">Clib.fread()</a></span></p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>example:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=secodelines>&nbsp;&nbsp;&nbsp;//&nbsp;The&nbsp;following&nbsp;calls</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;//&nbsp;the&nbsp;Windows&nbsp;MessageBeep()&nbsp;function:</p>
+<p class=secodelines>#define&nbsp;&nbsp;MESSAGE_BEEP_ORDINAL&nbsp;104</p>
+<p class=secodelines>SElib.dynamicLink("USER.EXE",&nbsp;MESSAGE_BEEP_ORDINAL,</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;SWORD16,&nbsp;PASCAL,0);</p>
+<p class=secodelines>&nbsp;</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;//&nbsp;The&nbsp;following&nbsp;displays&nbsp;a&nbsp;simple&nbsp;message&nbsp;box</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;//&nbsp;and&nbsp;waits&nbsp;for&nbsp;user&nbsp;to&nbsp;press&nbsp;&lt;Enter&gt;.</p>
+<p class=secodelines>#define&nbsp;MESSAGE_BOX_ORDINAL&nbsp;1</p>
+<p class=secodelines>#define&nbsp;MB_OK&nbsp;&nbsp;0x0000</p>
+<p class=secodelines>//&nbsp;Message&nbsp;box&nbsp;contains&nbsp;one&nbsp;push&nbsp;button:&nbsp;OK.</p>
+<p class=secodelines>#define&nbsp;MB_TASKMODAL&nbsp;0x2000</p>
+<p class=secodelines>//&nbsp;Must&nbsp;respond&nbsp;to&nbsp;this&nbsp;message</p>
+<p class=secodelines>SElib.dynamicLink("USER.EXE",&nbsp;MESSAGE_BOX_ORDINAL,</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;SWORD16,&nbsp;PASCAL,&nbsp;null,</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;"This&nbsp;is&nbsp;a&nbsp;simple&nbsp;message&nbsp;box",</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;"Title&nbsp;of&nbsp;box",&nbsp;MB_OK&nbsp;|&nbsp;MB_TASKMODAL);</p>
+<p class=secodelines>&nbsp;</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;//&nbsp;The&nbsp;following&nbsp;accomplishes</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;//&nbsp;the&nbsp;same&nbsp;thing&nbsp;as&nbsp;above.</p>
+<p class=secodelines>#define&nbsp;MB_OK&nbsp;0x0000</p>
+<p class=secodelines>//&nbsp;Message&nbsp;box&nbsp;contains&nbsp;one&nbsp;push&nbsp;button:&nbsp;OK.</p>
+<p class=secodelines>#define&nbsp;MB_TASKMODAL&nbsp;&nbsp;0x2000</p>
+<p class=secodelines>//&nbsp;Must&nbsp;respond&nbsp;to&nbsp;message</p>
+<p class=secodelines>SElib.dynamicLink("USER",&nbsp;"MESSAGEBOX",&nbsp;SWORD16,</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;PASCAL,&nbsp;null,</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;"This&nbsp;is&nbsp;a&nbsp;simple&nbsp;message&nbsp;box",</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;"Title&nbsp;of&nbsp;box",&nbsp;MB_OK&nbsp;|&nbsp;MB_TASKMODAL);</p></td>
+</tr>
+</table>
+<p class=normal>&nbsp;</p>
+<hr noshade size=1>
+<p class=normal><a href="TH_953.htm"><img src="button.png" border=0></a><a href="TH_953.htm" style="text-decoration:none;">SElib.dynamicLink() - for Win16</a></p>
+<p>
+</body>
+</html>

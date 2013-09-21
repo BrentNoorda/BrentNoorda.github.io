@@ -1,0 +1,100 @@
+<html>
+<head>
+<title>global.setAttributes()</title>
+<link rel="stylesheet" href="semanualstyles.css" type="text/css">
+<style type="text/css">
+ p { margin-top: 0; margin-bottom: 0; }
+</style>
+<script language="JavaScript" src="TrueHelp.js"></script>
+</head>
+<body onload="thload()">
+<div id=ienav>
+<ilayer id=nsnav>
+<br>
+<center>
+<p class=normal><a href="seisdkc-toc.htm" target="left">contents</a> &nbsp; <a href="seisdkc-index.htm" target="left">index</a> &nbsp; <a href="TH_825.htm">previous</a> &nbsp; <a href="TH_827.htm">next</a></p>
+</center>
+<br>
+<hr noshade size=1>
+</ilayer>
+</div>
+<p class=sereffunclevel4>global.setAttributes()</p>
+<table cellpadding=0>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>syntax:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=sesyntax>setAttributes(<span class=truehelp-xe></span>variable,&nbsp;attributes)</p></td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>where:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>variable - a variable identifier, name.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>attributes - the attribute or attributes to be set for a variable. If more than one attribute is being set, use the or operator, "<span class=secodephrase>|</span>", to combine them.</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>return:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>void.</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>description:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>This function sets the variable attributes for the parameter variable using the parameter attributes. Variables in ScriptEase may have various attributes set that affect the behavior of variables. This function has no return.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>The following list describes the attributes that may be set for variables. Multiple attributes may be set for variables by combining them with the or operator. For example, the flag setting <span class=secodephrase>READ_ONLY | DONT_ENUM</span> sets both of these attributes for one variable.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=list-bullet>&#8226;</p><p class=list-bullet-tab1><span class=secodephrase>DONT_DELETE</span><br>
+This variable may not be deleted. If the delete operator is used with a variable, nothing is done.</p>
+<p class=list-bullet>&#8226;</p><p class=list-bullet-tab1><span class=secodephrase>DONT_ENUM</span><br>
+This variable is not enumerated when using a for/in loop.</p>
+<p class=list-bullet>&#8226;</p><p class=list-bullet-tab1><span class=secodephrase>IMPLICIT_PARENTS</span><br>
+This attribute applies only to local functions and allows a scope chain to be altered based on the __parent__ property of the "this" variable. If this flag is set, if the __parent__ property is present, and if a variable is not found in the local variable context, activation object, of a function, then the parents of the "this" variable are searched backwards before searching the global object. The example below illustrates the effect of this flag. </p>
+<p class=list-bullet>&#8226;</p><p class=list-bullet-tab1><span class=secodephrase>IMPLICIT_THIS</span><br>
+This attribute applies only to local functions. If this flag is set, then the "this" variable is inserted into a scope chain before the activation object. For example, if variable TestVar is not found in a local variable context, activation object, the interpreter searches the current "this" variable of a function.</p>
+<p class=list-bullet>&#8226;</p><p class=list-bullet-tab1><span class=secodephrase>READ_ONLY</span><br>
+This variable is read-only. Any attempt to write to or change this variable fails.</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>see:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara><span class=sejumptopic><a href="TH_822.htm">global.getAttributes()</a></span></p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>example:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=secodelines>//&nbsp;The&nbsp;following&nbsp;fragment&nbsp;illustrates&nbsp;the&nbsp;use</p>
+<p class=secodelines>//&nbsp;of&nbsp;setAttributes()&nbsp;and&nbsp;the&nbsp;behavior&nbsp;affected</p>
+<p class=secodelines>//&nbsp;by&nbsp;the&nbsp;IMPLICIT_PARENTS&nbsp;flag.</p>
+<p class=secodelines>function&nbsp;foo()</p>
+<p class=secodelines>{</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;value&nbsp;=&nbsp;5;</p>
+<p class=secodelines>}</p>
+<p class=secodelines>setAttributes(foo,&nbsp;IMPLICIT_PARENTS)</p>
+<p class=secodelines>&nbsp;</p>
+<p class=secodelines>var&nbsp;a;</p>
+<p class=secodelines>a.value&nbsp;=&nbsp;4;</p>
+<p class=secodelines>var&nbsp;b;</p>
+<p class=secodelines>b.__parent__&nbsp;=&nbsp;a;</p>
+<p class=secodelines>b.foo&nbsp;=&nbsp;foo;</p>
+<p class=secodelines>b.foo();</p>
+<p class=secodelines>&nbsp;</p>
+<p class=secodelines>//&nbsp;After&nbsp;this&nbsp;code&nbsp;is&nbsp;run,&nbsp;a.value&nbsp;is&nbsp;set&nbsp;to&nbsp;5.</p></td>
+</tr>
+</table>
+<p class=normal>&nbsp;</p>
+<hr noshade size=1>
+<p class=normal><a href="TH_827.htm"><img src="button.png" border=0></a><a href="TH_827.htm" style="text-decoration:none;">global.ToBoolean()</a></p>
+<p>
+</body>
+</html>

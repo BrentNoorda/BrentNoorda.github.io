@@ -1,0 +1,95 @@
+<html>
+<head>
+<title>RegExp Object</title>
+<link rel="stylesheet" href="semanualstyles.css" type="text/css">
+<style type="text/css">
+ p { margin-top: 0; margin-bottom: 0; }
+</style>
+<script language="JavaScript" src="TrueHelp.js"></script>
+</head>
+<body onload="thload()">
+<div id=ienav>
+<ilayer id=nsnav>
+<br>
+<center>
+<p class=normal><a href="seisdkc-toc.htm" target="left">contents</a> &nbsp; <a href="seisdkc-index.htm" target="left">index</a> &nbsp; previous &nbsp; <a href="TH_889.htm">next</a></p>
+</center>
+<br>
+<hr noshade size=1>
+</ilayer>
+</div>
+<p class=heading-2>RegExp Object</p>
+<p class=heading-2-p>&nbsp;</p>
+<p class=senormalpara>Regular expressions do not seem very regular to average people. Regular expressions<span class=truehelp-xe></span> are used to search text and strings, searches that are very powerful if a person makes the effort to learn how to use them. Simple searches may be done like the following:</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=secodelinesindented>var&nbsp;str&nbsp;=&nbsp;"one&nbsp;two&nbsp;three";</p>
+<p class=secodelinesindented>str.indexOf("two");&nbsp;&nbsp;&nbsp;//&nbsp;==&nbsp;4</p>
+<p class=secodelinesindented>&nbsp;</p>
+<p class=senormalpara>The  <span class=sepopuptopic><a href="TH_968.htm" onClick="return thwindow('TH_968.htm', 'GenPopup')">String indexOf()</a></span> method searches <span class=secodephrase>str</span> for "two" and returns the beginning position of "two", which is 4. What if you wanted to find "t" and "o" with or without any characters in between, an "o" only at the beginning of a string, or an "e" only at the end of a string? Before answering, lets consider wildcards.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>Most computer users are familiar with wildcards in searching, especially since they may be used in finding files. For example, the DOS command:</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=secodelinesindented>dir&nbsp;t*o.bat</p>
+<p class=secodelinesindented>&nbsp;</p>
+<p class=senormalpara>will list all files that begin with "t" and end "o" in the filename and that have an extension of "bat". JavaScript does not use wildcards to extend search capability. Instead, ECMAScript, the standard for JavaScript, has implemented regular expression searches that do everything that wildcards do and much, much more. Regular expressions follow the PERL<span class=truehelp-xe></span> standard, though the syntax has been made easier to read. Anyone who can use regular expressions in PERL already knows how to use JavaScript regular expressions. For advanced information on regular expressions, there are many books in the PERL community, in addition to JavaScript books, that explain regular expressions.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>Now lets answer the question about how to find the three cases mentioned above.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=secodelinesindented>var&nbsp;str&nbsp;=&nbsp;"one&nbsp;two&nbsp;three";</p>
+<p class=secodelinesindented>var&nbsp;pat&nbsp;=&nbsp;/t.*o/;</p>
+<p class=secodelinesindented>str.search(pat);&nbsp;&nbsp;&nbsp;//&nbsp;==&nbsp;4</p>
+<p class=secodelinesindented>&nbsp;</p>
+<p class=senormalpara>This fragment illustrates one way to use regular expressions to find "t" followed by "o" with any number of characters between them. Two things are different. One the variable <span class=secodephrase>pat</span> which is assigned <span class=secodephrase>/t.*o/</span>. The slashes indicate the beginning and end of a regular expression pattern, similar to how quotation marks indicate a string. The <span class=sepopuptopic><a href="TH_973.htm" onClick="return thwindow('TH_973.htm', 'GenPopup')">String search()</a></span> method is a method of the String object that uses a regular expression pattern to search a string, similar to the String <span class=secodephrase>indexOf()</span> method. In fact, they both return 4, the start position of "two", in these examples.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>The <span class=sepopuptopic><a href="TH_955.htm" onClick="return thwindow('TH_955.htm', 'GenPopup')">String object</a></span> has three methods for searching using regular expression patterns. The three methods are:</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=secodelinesindented><span class=sejumptopic><a href="TH_971.htm">String match()</a></span></p>
+<p class=secodelinesindented><span class=sejumptopic><a href="TH_972.htm">String replace()</a></span></p>
+<p class=secodelinesindented><span class=sejumptopic><a href="TH_973.htm">String search()</a></span></p>
+<p class=secodelinesindented>&nbsp;</p>
+<p class=senormalpara>The methods in the RegExp object, for using regular expressions, are explained below in this section. Before we move on to the cases of an "o" at the start or an "e" at the end of a string, consider the current example a little further. What do the slashes "/&#160;.&#160;.&#160;.&#160;/"  do? First, they define a regular expression pattern. Second, they create a RegExp object. In our example, the quotes cause <span class=secodephrase>str</span> to be a String object, and the slashes cause <span class=secodephrase>pat</span> to be a RegExp object. Thus, <span class=secodephrase>pat</span> may be used with RegExp methods and with the three String methods that use regular expression patterns.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=secodelinesindented>var&nbsp;str&nbsp;=&nbsp;"one&nbsp;two&nbsp;three";</p>
+<p class=secodelinesindented>var&nbsp;pat&nbsp;=&nbsp;/t.*o/;</p>
+<p class=secodelinesindented>pat.test(str);&nbsp;&nbsp;&nbsp;//&nbsp;==&nbsp;true</p>
+<p class=secodelinesindented>&nbsp;</p>
+<p class=senormalpara>By using a method, such as <span class=secodephrase>test()</span>, of the RegExp object, the string to be searched becomes the argument rather than the pattern to search for, as with the string methods. The <span class=sepopuptopic><a href="TH_915.htm" onClick="return thwindow('TH_915.htm', 'GenPopup')">RegExp test()</a></span> method simply returns <span class=secodephrase>true</span> or <span class=secodephrase>false</span> indicating whether the pattern is found in the string.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=secodelinesindented>var&nbsp;str&nbsp;=&nbsp;"one&nbsp;two&nbsp;three";</p>
+<p class=secodelinesindented>var&nbsp;pat&nbsp;=&nbsp;/t.*o/;</p>
+<p class=secodelinesindented>str.match(pat);&nbsp;&nbsp;&nbsp;//&nbsp;==&nbsp;an&nbsp;Array&nbsp;with&nbsp;pertinent&nbsp;info</p>
+<p class=secodelinesindented>pat.exec(str);&nbsp;&nbsp;&nbsp;&nbsp;//&nbsp;==&nbsp;an&nbsp;Array&nbsp;with&nbsp;pertinent&nbsp;info</p>
+<p class=secodelinesindented>&nbsp;</p>
+<p class=senormalpara>The <span class=sepopuptopic><a href="TH_971.htm" onClick="return thwindow('TH_971.htm', 'GenPopup')">String match()</a></span> and <span class=sepopuptopic><a href="TH_914.htm" onClick="return thwindow('TH_914.htm', 'GenPopup')">RegExp exec()</a></span> methods return very similar, often the same, results in an Array. The return may vary depending on exactly which attributes, discussed later, are set for a regular expression.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>To find an "o" only at the start of a string, use something like:</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=secodelinesindented>var&nbsp;str&nbsp;=&nbsp;"one&nbsp;two&nbsp;three";</p>
+<p class=secodelinesindented>var&nbsp;pat&nbsp;=&nbsp;/^o/;</p>
+<p class=secodelinesindented>str.search(pat);&nbsp;&nbsp;&nbsp;//&nbsp;==&nbsp;0</p>
+<p class=secodelinesindented>&nbsp;</p>
+<p class=senormalpara>The caret "<span class=secodephrase>^</span>" has a special meaning, namely, the start of a string or line. It anchors the characters that follow to the start of a string or line and is one of the special anchor characters.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>To find an "e" only at the end of a string, use something like:</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=secodelinesindented>var&nbsp;str&nbsp;=&nbsp;"one&nbsp;two&nbsp;three";</p>
+<p class=secodelinesindented>var&nbsp;pat&nbsp;=&nbsp;/e$/;</p>
+<p class=secodelinesindented>str.search(pat);&nbsp;&nbsp;&nbsp;//&nbsp;==&nbsp;12</p>
+<p class=secodelinesindented>&nbsp;</p>
+<p class=senormalpara>The dollar sign "<span class=secodephrase>$</span>" has a special meaning, namely, the end of a string or line. It anchors the characters that follow to the end of a string or line and is one of the special anchor characters.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>Note that there is a very important distinction between searching for pattern matches using the String methods and using the RegExp methods. The RegExp methods execute much faster, but the String methods are often quicker to program. So, if you need to do intensive searching in which a single regular expression pattern is used many times in a loop, use the RegExp methods. If you just need to do a few searches, use the String methods. Every time a RegExp object is constructed using <span class=secodephrase>new</span>, the pattern is compiled into a form that can be executed very quickly. Every time a new pattern is compiled using the <span class=sepopuptopic><a href="TH_913.htm" onClick="return thwindow('TH_913.htm', 'GenPopup')">RegExp compile()</a></span> method, a pattern executes much faster. Other than the difference in speed and script writing time, the choice of which methods to use depends on personal preferences and the particular tasks at hand.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>In general, the RegExp object allows the use of regular expression patterns in searches of strings or text. The syntax follows the ECMAScript standard, which may be thought of as a large and powerful subset of PERL regular expressions.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<hr noshade size=1>
+<p class=normal><a href="TH_889.htm"><img src="button.png" border=0></a><a href="TH_889.htm" style="text-decoration:none;">Regular expression syntax</a></p>
+<p class=normal><a href="TH_893.htm"><img src="button.png" border=0></a><a href="TH_893.htm" style="text-decoration:none;">Regular expression special characters</a></p>
+<p class=normal><a href="TH_901.htm"><img src="button.png" border=0></a><a href="TH_901.htm" style="text-decoration:none;">Regular expression precedence</a></p>
+<p class=normal><a href="TH_902.htm"><img src="button.png" border=0></a><a href="TH_902.htm" style="text-decoration:none;">RegExp object instance properties</a></p>
+<p class=normal><a href="TH_908.htm"><img src="button.png" border=0></a><a href="TH_908.htm" style="text-decoration:none;">RegExp returned array properties</a></p>
+<p class=normal><a href="TH_911.htm"><img src="button.png" border=0></a><a href="TH_911.htm" style="text-decoration:none;">RegExp object instance methods</a></p>
+<p class=normal><a href="TH_916.htm"><img src="button.png" border=0></a><a href="TH_916.htm" style="text-decoration:none;">RegExp object static properties</a></p>
+<p>
+</body>
+</html>

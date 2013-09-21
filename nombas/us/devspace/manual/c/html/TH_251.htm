@@ -1,0 +1,63 @@
+<html>
+<head>
+<title>BUILDING AN EXTLIB</title>
+<link rel="stylesheet" href="semanualstyles.css" type="text/css">
+<style type="text/css">
+ p { margin-top: 0; margin-bottom: 0; }
+</style>
+<script language="JavaScript" src="TrueHelp.js"></script>
+</head>
+<body onload="thload()">
+<div id=ienav>
+<ilayer id=nsnav>
+<br>
+<center>
+<p class=normal><a href="seisdkc-toc.htm" target="left">contents</a> &nbsp; <a href="seisdkc-index.htm" target="left">index</a> &nbsp; <a href="TH_250.htm">previous</a> &nbsp; next</p>
+</center>
+<br>
+<hr noshade size=1>
+</ilayer>
+</div>
+<p class=heading-4>BUILDING AN EXTLIB</p>
+<p class=senormalpara>To build an extlib for your system, you should set up your compiler to build a new dll or shared object. The extlibs shipped with the ScriptEase ISDK have their appropriate makefiles/projects for you to look at if you have any questions. Include the base directory of the ScriptEase distribution as an include path in addition to any include paths needed for your extlib&#8217;s source files. Finally, link with the extlib library found in <span class=secodephrase>lib/extlibs/&lt;system&gt;/libsee501ar.a</span>. The format of this file and its name is consistent with the format and name for the <span class=secodephrase>core</span> and <span class=secodephrase>library</span> versions described in the chapter on "<span class=sejumptopic><a href="TH_259.htm">Integration Into Your C/C++ Application</a></span>".</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>The source code for the extlib itself is not an application. Instead you implement a few functions needed by the extlib framework provided in <span class=secodephrase>src\lib\common\selink.c</span>. These functions allow your extlib to initialize itself on load. Usually, you will use the load as an opportunity to add new wrapper function tables to the context corresponding to the functionality of the extlib you are implementing. Therefore, in addition to the stock routines to be described next, you will have a number of wrapper functions implemented in the normal way as described in the chapter on "<span class=sejumptopic><a href="TH_372.htm">Wrapper functions</a></span>".</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>For most operating systems, you need only define a single function in your extlib implementation. That function is defined as follows:</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;SE_CALLBACK(&nbsp;sebool&nbsp;)</p>
+<p class=secodelinesindented>seExtensionLoadFunc(secontext&nbsp;se);</p>
+<p class=secodelinesindented>&nbsp;</p>
+<p class=senormalpara>The function adds its function libraries to the context using <span class=sepopuptopic><a href="TH_11.htm" onClick="return thwindow('TH_11.htm', 'GenPopup')">seAddLibTable()</a></span> and does any other initialization. It return <span class=secodephrase>TRUE</span> to indicate success. A <span class=secodephrase>FALSE </span>return will cause the extension library load to fail.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>The exception is Netware. Because of the way Netware works, it must define two additional functions. The following code gives an example of these functions for the <span class=secodephrase>sesock</span> extlib:</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=secodelinesindented>#if&nbsp;defined(__JSE_NWNLM__)</p>
+<p class=secodelinesindented>&nbsp;</p>
+<p class=secodelinesindented>#ifdef&nbsp;_cplusplus</p>
+<p class=secodelinesindented>extern&nbsp;"C"&nbsp;{</p>
+<p class=secodelinesindented>#endif</p>
+<p class=secodelinesindented>&nbsp;</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;JSEEXTNSN_EXPORT(long)</p>
+<p class=secodelinesindented>sesockjseExtensionVer(secontext&nbsp;se)</p>
+<p class=secodelinesindented>{</p>
+<p class=secodelinesindented>&nbsp;&nbsp;return&nbsp;seExtensionVer(se);</p>
+<p class=secodelinesindented>}</p>
+<p class=secodelinesindented>&nbsp;</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;JSEEXTNSN_EXPORT(sebool)</p>
+<p class=secodelinesindented>sesockjseLoadExtension(secontext&nbsp;se)</p>
+<p class=secodelinesindented>{</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;return&nbsp;seLoadExtension(se);</p>
+<p class=secodelinesindented>}</p>
+<p class=secodelinesindented>&nbsp;</p>
+<p class=secodelinesindented>#ifdef&nbsp;_cplusplus</p>
+<p class=secodelinesindented>}</p>
+<p class=secodelinesindented>#endif</p>
+<p class=secodelinesindented>	</p>
+<p class=secodelinesindented>#endif</p>
+<p class=secodelinesindented>&nbsp;</p>
+<p class=senormalpara>The only change you must make is in the name of the two routines. <span class=secodephrase>sesock</span> must be replaced with the name of your extlib. It must correspond exactly to the <span class=secodephrase>.nlm</span> executable to which the extlib is built; you cannot rename NLM extlibs. If the name of the <span class=secodephrase>.nlm</span> does not correspond to the name of these two routines, the extlib will fail to load.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p>
+</body>
+</html>

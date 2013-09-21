@@ -1,0 +1,38 @@
+<html>
+<head>
+<title>Writing a Security Manager</title>
+<link rel="stylesheet" href="semanualstyles.css" type="text/css">
+<style type="text/css">
+ p { margin-top: 0; margin-bottom: 0; }
+</style>
+<script language="JavaScript" src="TrueHelp.js"></script>
+</head>
+<body onload="thload()">
+<div id=ienav>
+<ilayer id=nsnav>
+<br>
+<center>
+<p class=normal><a href="seisdkj-toc.htm" target="left">contents</a> &nbsp; <a href="seisdkj-index.htm" target="left">index</a> &nbsp; <a href="TH_385.htm">previous</a> &nbsp; <a href="TH_387.htm">next</a></p>
+</center>
+<br>
+<hr noshade size=1>
+</ilayer>
+</div>
+<p class=heading-2>Writing a Security Manager</p>
+<p class=heading-2-p>&nbsp;</p>
+<p class=senormalpara>Whenever you wish to interpret a script, via the API using <span class=secodephrase>jseInterpret()</span> or in a script using <span class=secodephrase>SElib.interpret()</span>, you can attach a security manager to the child script that you are running. As long as that child script calls other functions only within that script, it is allowed to do so. If it tries to call an insecure function, your security gets called. Obviously, insecure wrapper functions are always checked. </p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>In the case of a script using <span class=secodephrase>SElib.interpret()</span> to interpret a child script, that child may be able to try to call functions in the parent. Since the security you added only applies to the child script, the functions in your original script are also considered insecure to the child. The child must get permission to call them exactly like it would need to get permission to call an insecure wrapper function directly. </p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>You can think of your security manager as a big wall with a heavily guarded door. As long as the script stays on its side of the wall, it is fine. The parent script and all wrapper functions are on the other side of the wall. If the child script wants to get access to them, it must convince the guards to let it through. </p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>Let's look at the pieces that make up these security guards. </p>
+<p class=senormalpara-p>&nbsp;</p>
+<hr noshade size=1>
+<p class=normal><a href="TH_387.htm"><img src="button.png" border=0></a><a href="TH_387.htm" style="text-decoration:none;">jseSecurityInit</a></p>
+<p class=normal><a href="TH_388.htm"><img src="button.png" border=0></a><a href="TH_388.htm" style="text-decoration:none;">jseSecurityTerm</a></p>
+<p class=normal><a href="TH_389.htm"><img src="button.png" border=0></a><a href="TH_389.htm" style="text-decoration:none;">jseSecurityGuard</a></p>
+<p class=normal><a href="TH_390.htm"><img src="button.png" border=0></a><a href="TH_390.htm" style="text-decoration:none;">securityVariable</a></p>
+<p>
+</body>
+</html>

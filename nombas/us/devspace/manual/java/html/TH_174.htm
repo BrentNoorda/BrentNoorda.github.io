@@ -1,0 +1,33 @@
+<html>
+<head>
+<title>Unpacking ScriptEase:ISDK/Java</title>
+<link rel="stylesheet" href="semanualstyles.css" type="text/css">
+<style type="text/css">
+ p { margin-top: 0; margin-bottom: 0; }
+</style>
+<script language="JavaScript" src="TrueHelp.js"></script>
+</head>
+<body onload="thload()">
+<div id=ienav>
+<ilayer id=nsnav>
+<br>
+<center>
+<p class=normal><a href="seisdkj-toc.htm" target="left">contents</a> &nbsp; <a href="seisdkj-index.htm" target="left">index</a> &nbsp; <a href="TH_173.htm">previous</a> &nbsp; <a href="TH_175.htm">next</a></p>
+</center>
+<br>
+<hr noshade size=1>
+</ilayer>
+</div>
+<p class=heading-2>Unpacking ScriptEase:ISDK/Java</p>
+<p class=heading-2-p>&nbsp;</p>
+<p class=senormalpara>The distribution you received should first be installed on your system. The distribution consists of a zip file that can be unpacked anywhere on your system.  Unpacking the distribution will produce a single directory tree containing the ScriptEase ISDK installation. This tree contains all of the files you will need to integrate the ScriptEase ISDK into your application. It also contains a number of sample ISDK applications. In this manual, we will often refer to filenames and directories. Those should be understood to be relative to the directory you installed ScriptEase into. For instance, if you install ScriptEase in the directory <span class=secodeterm>c:\se501</span> and we refer to the filename <span class=secodeterm>Samples\Sample\Sample0.java</span>, then you should understand that to be referring to the file <span class=secodeterm>c:\se501\Samples\Sample/Sample0.java</span> on your system.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>The distribution contains several logical parts. In the <span class=secodephrase>Seisdk </span>directory can be found the interpreter core jar (<span class=secodephrase>NombasJS.jar</span>), the ScriptEase standard library jar (<span class=secodephrase>NombasLib.jar</span>), and the ScriptEase regular expression jar (<span class=secodephrase>SERegexp.jar</span>)  The interpreter jar contains the code to execute scripts along with the ScriptEase API used to integrate the scripting engine into your Java application.  The standard library jar contains the code for the standard ECMA function libraries, such as Math or RegExp.  The regular expression jar contains classes which are needed by the libraries jar.  The NombasLib.jar also contains the SELibraryManager class, which is used to make the standard libraries available to your scripts (The SELibraryManager class is discussed in detail in the Wrapper Functions chapter).</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>The next major part is the source code for the interpreter and the libraries.  The source for the class files contained in the <span class=secodephrase>NombasJS.jar</span> are located in the <span class=secodephrase>COM\Nombas\jse\Isdk</span> and <span class=secodephrase>COM\Nombas\jse\utilities </span><span class=secodephrase>directories</span>, while the source for the <span class=secodephrase>NombasLib.jar</span> is located in the <span class=secodephrase>COM\Nombas\jse\libraries</span> directory.  If you are using an evaluation version of the ScriptEase ISDK, source code for the interpreter is not included; you use the pre built core jar we provide. (The source for the libraries is provided, however.)  The source files found in these directories are not .java files, but instead are .jsrc files.  The .jsrc files need to be translated into the corresponding .java files by the included Nombas preprocessor.  More information regarding the preprocessor can be found in the following sections.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<hr noshade size=1>
+<p class=normal><a href="TH_175.htm"><img src="button.png" border=0></a><a href="TH_175.htm" style="text-decoration:none;">Sample applications</a></p>
+<p>
+</body>
+</html>

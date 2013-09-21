@@ -1,0 +1,31 @@
+<html>
+<head>
+<title>SE_OBJ_POOL_SIZE (1024, 128 if JSE_MIN_MEMORY is on)</title>
+<link rel="stylesheet" href="semanualstyles.css" type="text/css">
+<style type="text/css">
+ p { margin-top: 0; margin-bottom: 0; }
+</style>
+<script language="JavaScript" src="TrueHelp.js"></script>
+</head>
+<body onload="thload()">
+<div id=ienav>
+<ilayer id=nsnav>
+<br>
+<center>
+<p class=normal><a href="seisdkj-toc.htm" target="left">contents</a> &nbsp; <a href="seisdkj-index.htm" target="left">index</a> &nbsp; <a href="TH_92.htm">previous</a> &nbsp; <a href="TH_94.htm">next</a></p>
+</center>
+<br>
+<hr noshade size=1>
+</ilayer>
+</div>
+<p class=heading-3>SE_OBJ_POOL_SIZE (1024, 128 if JSE_MIN_MEMORY is on)</p>
+<p class=heading-3-p>&nbsp;</p>
+<p class=senormalpara>ScriptEase maintains a pool of objects for its needs so that it doesn't need to allocate and free objects to the system as often. The bigger the pool, the less system allocation is required at the expense of more memory used by the pool. Also, the emptying of the pool triggers garbage collection, so the bigger the pool, the longer ScriptEase can go between garbage collections.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>Because emptying a pool triggers garbage collection, reducing the pool sizes below the value for a <span class=secodephrase>JSE_MIN_MEMORY</span> build will cause ScriptEase's execution speed to slow drastically due to constant collection while freeing up very little memory. It is advised that you treat 128 as the minimum for this define.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<hr noshade size=1>
+<p class=normal><a href="TH_94.htm"><img src="button.png" border=0></a><a href="TH_94.htm" style="text-decoration:none;">SE_MEM_POOL_SIZE (1024, 128 if JSE_MIN_MEMORY is on)</a></p>
+<p>
+</body>
+</html>

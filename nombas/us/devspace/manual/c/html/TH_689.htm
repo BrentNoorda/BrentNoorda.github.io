@@ -1,0 +1,84 @@
+<html>
+<head>
+<title>Clib.strtol()</title>
+<link rel="stylesheet" href="semanualstyles.css" type="text/css">
+<style type="text/css">
+ p { margin-top: 0; margin-bottom: 0; }
+</style>
+<script language="JavaScript" src="TrueHelp.js"></script>
+</head>
+<body onload="thload()">
+<div id=ienav>
+<ilayer id=nsnav>
+<br>
+<center>
+<p class=normal><a href="seisdkc-toc.htm" target="left">contents</a> &nbsp; <a href="seisdkc-index.htm" target="left">index</a> &nbsp; <a href="TH_688.htm">previous</a> &nbsp; <a href="TH_690.htm">next</a></p>
+</center>
+<br>
+<hr noshade size=1>
+</ilayer>
+</div>
+<p class=sereffunclevel4>Clib.strtol()</p>
+<table cellpadding=0>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>syntax:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=sesyntax>Clib.strtol(<span class=truehelp-xe></span>str[,&nbsp;endStr[,&nbsp;radix]])</p></td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>where:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>str - string to be converted to a number.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>endStr - the part of str after the characters that were actually parsed.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>radix - the number base for the conversion.</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>return:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>number - the first part of str converted to a long integer number.</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>description:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>This method converts the string str into a number and optionally returns a string starting beyond the characters parsed in the method. White space characters are skipped at the start of str, and the string characters are converted to an integer as long as they match the following format.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>	[sign][0][x][digits]</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>The parameter endStr is not compared against <span class=secodephrase>null</span>, as it is in standard C implementations and is optional. The parameter radix specifies the base for conversion. For example, base 10 would use decimal digits zero through nine, 0 - 9, and base 16 would use hexadecimal digits zero through nine, 0 - 9, uppercase letters "A" through "F", A - F, or lowercase letters "a" through "f", a - f. If radix is zero or is not supplied, then the radix is automatically determined based on the first characters of str.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>If the parameter endStr is supplied, then endStr is set to a string beginning at the first character that was not used in converting. The return is the first part of str, converted to a floating-point number.</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>see:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara><span class=sejumptopic><a href="TH_687.htm">Clib.strtod()</a></span></p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>example:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=secodelines>//&nbsp;As&nbsp;examples,&nbsp;the&nbsp;following&nbsp;strings//</p>
+<p class=secodelines>/&nbsp;can&nbsp;be&nbsp;converted.</p>
+<p class=secodelines>//&nbsp;&nbsp;"1"</p>
+<p class=secodelines>//&nbsp;&nbsp;"12"</p>
+<p class=secodelines>//&nbsp;&nbsp;"-400"</p>
+<p class=secodelines>//&nbsp;&nbsp;"0xFACE"</p></td>
+</tr>
+</table>
+<p class=normal>&nbsp;</p>
+<hr noshade size=1>
+<p class=normal><a href="TH_690.htm"><img src="button.png" border=0></a><a href="TH_690.htm" style="text-decoration:none;">Clib.strupr()</a></p>
+<p>
+</body>
+</html>

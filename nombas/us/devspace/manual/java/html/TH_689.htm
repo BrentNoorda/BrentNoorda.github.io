@@ -1,0 +1,77 @@
+<html>
+<head>
+<title>Dos.interrupt()</title>
+<link rel="stylesheet" href="semanualstyles.css" type="text/css">
+<style type="text/css">
+ p { margin-top: 0; margin-bottom: 0; }
+</style>
+<script language="JavaScript" src="TrueHelp.js"></script>
+</head>
+<body onload="thload()">
+<div id=ienav>
+<ilayer id=nsnav>
+<br>
+<center>
+<p class=normal><a href="seisdkj-toc.htm" target="left">contents</a> &nbsp; <a href="seisdkj-index.htm" target="left">index</a> &nbsp; <a href="TH_688.htm">previous</a> &nbsp; <a href="TH_690.htm">next</a></p>
+</center>
+<br>
+<hr noshade size=1>
+</ilayer>
+</div>
+<p class=sereffunclevel4>Dos.interrupt()</p>
+<table cellpadding=0>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>syntax:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=sesyntax>Dos.interrupt(<span class=truehelp-xe></span>interrupt,&nbsp;regIn[,&nbsp;regOut])</p></td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>where:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>interrupt - DOS interrupt number.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>regIn - an object/structure with properties/elements that correspond to the registers of an 8086 processor. The registers will be set to these values when the method is called.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>regOut - an object/structure with properties/elements that will be set to the corresponding registers of the processor when the function is exited.</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>return:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>boolean - since many interrupts set the carry flag for error, this function returns <span class=secodephrase>false</span> if the carry flag is set, else <span class=secodephrase>true</span>.</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>description:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>Executes an 8086 interrupt. Set registers, call 8086 interrupt function, and then get the return values of the registers. The parameters regIn and regOut are structures containing the elements corresponding to the registers on an 8086. On input, those structure members that are defined will be set, and those that are not defined will be set to zero, with the exception of the segment registers (es and ds) which retain their current values if not explicitly specified. The possible defined input values are ax, ah, al, bx, bh, bl, cx, ch, cl, dx, dh, dl, bp, si, di, ds, and es. All Fields of the output reg structure are the same, with the addition of the <span class=secodeterm>FLAGS</span> member, and all are set before returning. If regOut is not supplied, then the return registers and <span class=secodeterm>FLAGS</span> register will be set for regIn on return from the interrupt call.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>The parameter regOut is set to the register values upon return from Interrupt. If regOut is not supplied then regIn is set to contain the register values upon return from Interrupt.</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>example:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=secodelines>//&nbsp;The&nbsp;following&nbsp;example&nbsp;calls&nbsp;the&nbsp;DOS&nbsp;interrupt</p>
+<p class=secodelines>//&nbsp;service&nbsp;0x2C&nbsp;to&nbsp;read&nbsp;the&nbsp;clock:</p>
+<p class=secodelines>&nbsp;</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;//&nbsp;display&nbsp;DOS&nbsp;time&nbsp;as&nbsp;accurately&nbsp;as&nbsp;it&nbsp;is&nbsp;read</p>
+<p class=secodelines>PrintDOStime()</p>
+<p class=secodelines>{</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;reg.ah&nbsp;=&nbsp;0x2C;</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;interrupt(0x21,reg);</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;printf("%2d:%02d:%02d",reg.ch,reg.cl,reg.dh);</p>
+<p class=secodelines>}</p></td>
+</tr>
+</table>
+<p class=normal>&nbsp;</p>
+<hr noshade size=1>
+<p class=normal><a href="TH_690.htm"><img src="button.png" border=0></a><a href="TH_690.htm" style="text-decoration:none;">Dos.offset()</a></p>
+<p>
+</body>
+</html>

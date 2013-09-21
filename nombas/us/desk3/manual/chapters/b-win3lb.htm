@@ -1,0 +1,1400 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML EXPERIMENTAL 970324//EN">
+<HTML>
+<HEAD>
+<META NAME="GENERATOR" CONTENT="Adobe FrameMaker 5.5/HTML Export Filter">
+<LINK REL="STYLESHEET" HREF="desk3man.css">
+<TITLE>ScriptEase:Desktop v3 Manual: Windows 3.x Library</TITLE>
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-1754630-10']);
+  _gaq.push(['_trackPageview']);
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+</HEAD>
+<BODY BACKGROUND="desk3pat.gif">
+<TABLE WIDTH="225" BORDER="0" CELLSPACING="0" CELLPADDING="0">
+  <TR>
+    <TD WIDTH="71"><a href="a-os2lib.htm"><IMG SRC="prev.gif" WIDTH="71" height="18" border="0"></a></TD>
+    <TD WIDTH="80"><a href="../index.htm"><IMG SRC="tocidx.gif" WIDTH="80" height="18" border="0"></a></TD>
+    <TD WIDTH="74"><a href="c-nt95lb.htm"><IMG SRC="next.gif" WIDTH="74" height="18" border="0"></a></TD>
+  </TR>
+</TABLE>
+
+<H1 CLASS="Title">
+Windows 3.x Library</H1>
+<P CLASS="Abstract">
+The routines in this section are specific to the Windows 3.x version of ScriptEase. They are included internally to the ScriptEase program, and are available to any ScriptEase program executed by ScriptEase under Windows.</P>
+<P CLASS="Body">
+Most of these routines allow the programmer to have more power than is generally acknowledged as safe under ScriptEase' guidelines. So be careful when you use these commands, they provide plenty of rope with which to hang yourself.</P>
+<P CLASS="Body">
+Windows is built on top of DOS, so the functions in the DOS library are also available in the Windows version of ScriptEase.</P>
+<HR><TABLE>
+<TR>
+<TH COLSPAN="2">
+<H6 CLASS="fnam">
+<A NAME="998947">
+ </A>
+BaseWindowFunction</H6>
+</TH>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+DESCRIPTION</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Call base procedure of ScriptEase-made or subclassed window.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+SYNTAX</P>
+</TD>
+<TD>
+<P CLASS="Function-Syntax">
+int BaseWindowFunction(int Handle, int Message, int Param1,<BR>
+int Param2)</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+COMMENTS</P>
+</TD>
+<TD>
+<P CLASS="cb">
+This calls the base procedure of a window created with a WindowFunction in MakeWindow() or subclassed with SubclassWindow(). This function would normally be used within your ScriptEase window function to pass the window parameter to the base procedure before handling it in your own code. Remember that if your window function returns no value, ScriptEase will call the base procedure automatically. This is the preferred method. </P>
+<P CLASS="fit">
+<EM CLASS="Element">
+Handle</EM>
+: Window handle for window receiving this message. This must be the window handle of a window created with MakeWindow() or subclassed with SubclassWindow(). </P>
+<P CLASS="fit">
+<EM CLASS="Element">
+Message</EM>
+: The message ID </P>
+<P CLASS="fit">
+<EM CLASS="Element">
+Param1</EM>
+: First parameter for this Message ID </P>
+<P CLASS="fit">
+<EM CLASS="Element">
+Param2</EM>
+: Second parameter for this Message ID </P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+RETURN</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Returns the value returned by the base window function. If Handle is not a window with a WindowFunction created with MakeWindow() or is not window subclassed with SubclassWindow() then returns 0.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+SEE ALSO</P>
+</TD>
+<TD>
+<P CLASS="cb">
+BreakWindow(), DoWindows(), MakeWindow(), SubclassWindow()</P>
+</TD>
+</TR>
+</TABLE>
+<HR><TABLE>
+<TR>
+<TH COLSPAN="2">
+<H6 CLASS="fnam">
+<A NAME="998977">
+ </A>
+BreakWindow</H6>
+</TH>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+DESCRIPTION</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Destroy a window created with MakeWindow(), or remove SubClass.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+SYNTAX</P>
+</TD>
+<TD>
+<P CLASS="cb">
+bool BreakWindow([int WindowHandle])</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+COMMENTS</P>
+</TD>
+<TD>
+<P CLASS="cb">
+If WindowHandle is a window created with MakeWindow(), then this destroys the window, calling all appropriate Windows' internal DestroyWindow() functions. Any child windows of WindowHandle, as created by earlier calls to MakeWindow() with WindowHandle as the parent, will be automatically destroyed with BreakWindow() before WindowHandle is destroyed. If WindowHandle is a window controlled by SubclassWindow() then this will remove the WindowFunction from the message function loop.</P>
+<P CLASS="cb">
+ <EM CLASS="Element">
+WindowHandle</EM>
+ is a handle of a window created with a previous call to MakeWindow(). It is not an error for WindowHandle to be no-longer-valid. If WindowHandle is not supplied, then all windows created with MakeWindow() will be removed. Child windows are always removed before the parent.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+RETURN</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Returns True if the window was destroyed or un-subclassed, else False. If WindowHandle is not specified then returns True if all windows created with MakeWindow() were destroyed, else False. If WindowHandle is specified and WindowHandle window does not exist, then returns True.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+NOTE</P>
+</TD>
+<TD>
+<P CLASS="cb">
+If this is a window controlled by ScriptEase using the SubclassWindow() function, and if that window was in turn subclassed by some other program (i.e, subclasses after this ScriptEase subclassed it) then this function cannot remove the window function and BreakWindow() will not succeed.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+EXAMPLE</P>
+</TD>
+<TD>
+<P CLASS="cb">
+See DoWindows() for an example.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+SEE ALSO</P>
+</TD>
+<TD>
+<P CLASS="cb">
+BaseWindowFunction(), DoWindows(), MakeWindow(), SubclassWindow()</P>
+</TD>
+</TR>
+</TABLE>
+<HR><TABLE>
+<TR>
+<TH>
+<H6 CLASS="fnam">
+<A NAME="999012">
+ </A>
+DoWindows</H6>
+</TH>
+<TH>
+<H6 CLASS="cHead">
+&nbsp;</H6>
+</TH>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+DESCRIPTION</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Process windows messages.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+SYNTAX</P>
+</TD>
+<TD>
+<P CLASS="cb">
+bool DoWindows([bool Peek = False])</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+COMMENTS</P>
+</TD>
+<TD>
+<P CLASS="cb">
+This function processes windows messages for this application and also allows multitasking to other applications. If Peek is non-zero (default is FALSE) then this returns immediately whether there were messages for this application or not. </P>
+<P CLASS="cb">
+If Peek is not supplied or is False, then this function yields control to other applications until a message has been processed (subject to filtering by the MessageFilter() messages) for this application or for any window SubClassed by this application.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+NOTE</P>
+</TD>
+<TD>
+<P CLASS="cb">
+This function should not be called recursively. That is, you should not call DoWindows() while within a message function processed during a previous call to DoWindows().</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+RETURN</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Returns TRUE if any of the windows created with MakeWindow() are still open (i.e., have not received WM_NCDESTROY), else returns FALSE if no windows are still valid.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+EXAMPLE</P>
+</TD>
+<TD>
+<P CLASS="cb">
+The following sample ScriptEase program will display a standard Windows window. All messages sent to that window will be logged to the ScriptEase text window. When that window is closed, through any standard Windows closing method, then this program will terminate.</P>
+<P CLASS="ciTable">
+#define WS_OVERLAPPEDWINDOW  0x00CF0000 </P>
+<P CLASS="ciTable">
+#define WS_VISIBLE   0x10000000  </P>
+<P CLASS="ciTable">
+#define CW_USEDEFAULT  0x8000  </P>
+<P CLASS="ciTable">
+if ( MakeWindow(NULL,NULL,&quot;WindowFunction&quot;,</P>
+<P CLASS="ciTable">
+						&quot;Display Windows' mesages&quot;, </P>
+<P CLASS="ciTable">
+						WS_OVERLAPPEDWINDOW | WS_VISIBLE,</P>
+<P CLASS="ciTable">
+						CW_USEDEFAULT, CW_USEDEFAULT, </P>
+<P CLASS="ciTable">
+						CW_USEDEFAULT,CW_USEDEFAULT, NULL,0) )  { </P>
+<P CLASS="ciTable">
+	while ( DoWindows() ) ;</P>
+<P CLASS="ciTable">
+} </P>
+<P CLASS="ciTable">
+&nbsp;</P>
+<P CLASS="ciTable">
+WindowFunction(hwnd,msg,wparm,lparm,counter) </P>
+<P CLASS="ciTable">
+{ </P>
+<P CLASS="ciTable">
+	printf(&quot;\nMessage: hwnd = %04X, msg = %04X, </P>
+<P CLASS="ciTable">
+	wparm =%04X, lparm = %08X&quot;, hwnd, msg, wparm, lparm);</P>
+<P CLASS="ciTable">
+}</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+SEE ALSO</P>
+</TD>
+<TD>
+<P CLASS="cb">
+BaseWindowFunction(), MakeWindow(), MessageFilter(), SubclassWindow()</P>
+</TD>
+</TR>
+</TABLE>
+<HR><TABLE>
+<TR>
+<TH COLSPAN="2">
+<H6 CLASS="fnam">
+<A NAME="999063">
+ </A>
+DynamicLink</H6>
+</TH>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+DESCRIPTION</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Call a function in a Dynamic Link Library (DLL).</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+SYNTAX</P>
+</TD>
+<TD>
+<P CLASS="cb">
+int DynamicLink(string LibraryName, string ProcedureName, </P>
+<P CLASS="cb">
+                              int ReturnType, int CallingConvention,...) </P>
+<P CLASS="cb">
+int DynamicLink(string LibraryName, int ProcedureOrdinal,</P>
+<P CLASS="cb">
+                               int ReturnType, int CallingConvention,...)</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+COMMENTS</P>
+</TD>
+<TD>
+<P CLASS="cb">
+There are three versions of DynamicLink(): one for OS/2, one for Windows 3.x, and one for Windows `95 or NT. These three versions differ slightly in the way they are called, so if you wish to use the function in a script that will be run on different platforms you must create an operating system filter with the preprocessor directives #if, #ifdef, #elif, #else, and #endif.</P>
+<P CLASS="cb">
+DynamicLink() is a flexible method for making calls to dynamic link libraries (DLLs). If an operating-system function is needed but is not provided explicitly by ScriptEase. If you know the proper conventions for the call, then you can wrap a ScriptEase routine around a call to DynamicLink, and the call becomes available. </P>
+<P CLASS="cb">
+<EM CLASS="Element">
+LibraryName</EM>
+ is the name of the dynamic link library that the procedure is located in. </P>
+<P CLASS="cb">
+<EM CLASS="Element">
+ProcedureName</EM>
+ is the name of the procedure in the ModuleName dynamic link library, if this procedure can be referenced by name. </P>
+<P CLASS="cb">
+<EM CLASS="Element">
+ProcedureOrdinal</EM>
+ is the ordinal number of this procedure in the ModuleName dynamic link library. </P>
+<P CLASS="cb">
+<EM CLASS="Element">
+ReturnType</EM>
+ tells ScriptEase what type of value the procedure returns, so that it can be properly converted into an int. The Return Types (such as SWORD16, UWORD32, etc...) are defined in the fread() function in the ScriptEase standard library. </P>
+<P CLASS="cb">
+<EM CLASS="Element">
+CallingConvention</EM>
+ may be any of the following: </P>
+<P CLASS="deTable-indent">
+<EM CLASS="Element">
+CDECL</EM>
+	Push right parameter first; Caller pops parameters. </P>
+<P CLASS="deTable-indent">
+<EM CLASS="Element">
+PASCAL</EM>
+	Push left parameter first; Callee pops parameters. This is the most common type. </P>
+<P CLASS="cb">
+All parameters following CallingConvention will be passed to the dynamically-linked function. If the parameter is a blob or a byte-array or an undefined value, it will be passed as a far pointer. Otherwise, all numeric values will be passed as 16-bit values. If 32-bits are needed the parameter will have to be passed in parts, with the low word first and the high word second for CDECL calls, and the high word first and low word second for PASCAL calls.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+COMMENTS</P>
+</TD>
+<TD>
+<P CLASS="cb">
+If a parameter is undefined when DynamicLink() is called, then it is assumed that the parameter is a far pointer that will be filled in (i.e., the far address of a data element is passed to the function, and that function will set the value). If any parameter is a structure, then it must be a structure that defines the binary data types in memory to represent the following variable. Before calling the DLL function, the structure will be copied to a binary buffer as described in BLObPut() and fwrite(). After calling the DLL function, the binary data will be converted back into the data structure according to the rules defined in BLObGet() and fread(). Data conversion will be performed according to the current _BigEndianMode setting (see fread()).</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+RETURN</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Any of these calls return the value returned by the dynamically-linked function as interpreted according to ReturnType.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+EXAMPLE</P>
+</TD>
+<TD>
+<P CLASS="cb">
+This example function would call the Windows MessageBeep() function: </P>
+<P CLASS="ciTable">
+#define  MESSAGE_BEEP_ORDINAL 104 DynamicLink(&quot;USER.EXE&quot;,MESSAGE_BEEP_ORDINAL,SWORD16,</P>
+<P CLASS="ciTable">
+             PASCAL,0); </P>
+<P CLASS="cb">
+This example displays a simple message box, and waits for user to press Enter: </P>
+<P CLASS="ciTable">
+#define MESSAGE_BOX_ORDINAL 1 </P>
+<P CLASS="ciTable">
+#define MB_OK  0x0000 </P>
+<P CLASS="ciTable">
+// Message box contains one push button: OK.</P>
+<P CLASS="ciTable">
+#define MB_TASKMODAL 0x2000 </P>
+<P CLASS="ciTable">
+// Must respond to this message </P>
+<P CLASS="ciTable">
+DynamicLink(&quot;USER.EXE&quot;,MESSAGE_BOX_ORDINAL,SWORD16,</P>
+<P CLASS="ciTable">
+             PASCAL, NULL,&quot;This is a simple message box&quot;,</P>
+<P CLASS="ciTable">
+            &quot;Title of box&quot;, MB_OK | MB_TASKMODAL); </P>
+<P CLASS="cb">
+This accomplishes the same thing: </P>
+<P CLASS="ciTable">
+#define MB_OK 0x0000 </P>
+<P CLASS="ciTable">
+// Message box contains one push button: OK. #define MB_TASKMODAL  0x2000   </P>
+<P CLASS="ciTable">
+// Must respond to message  </P>
+<P CLASS="ciTable">
+DynamicLink(&quot;USER&quot;,&quot;MESSAGEBOX&quot;,SWORD16,PASCAL,</P>
+<P CLASS="ciTable">
+             NULL,&quot;This is a simple message box&quot;,</P>
+<P CLASS="ciTable">
+            &quot;Title of box&quot;, MB_OK | MB_TASKMODAL);</P>
+</TD>
+</TR>
+</TABLE>
+<HR><TABLE>
+<TR>
+<TH>
+<H6 CLASS="fnam">
+<A NAME="999123">
+ </A>
+Instance</H6>
+</TH>
+<TH>
+<H6 CLASS="cHead">
+&nbsp;</H6>
+</TH>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+DESCRIPTION</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Get ScriptEase instance for this session.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+SYNTAX</P>
+</TD>
+<TD>
+<P CLASS="cb">
+int Instance()</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+RETURN</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Returns instance for this ScriptEase session.</P>
+</TD>
+</TR>
+</TABLE>
+<HR><TABLE>
+<TR>
+<TH COLSPAN="2">
+<H6 CLASS="fnam">
+<A NAME="999141">
+ </A>
+MakeWindow</H6>
+</TH>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+DESCRIPTION</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Define and create a window.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+SYNTAX</P>
+</TD>
+<TD>
+<P CLASS="cb">
+int MakeWindow(int Parent, struct Class OR string Class,<BR>
+	string WindowFunction, string Text, <BR>
+	int Style, int Column, int Row, int Width,<BR>
+	 int Height, BLOb CreateParm[,var UtilityVar])</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+&nbsp;</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Make a window for processing during later calls to DoWindows(). The WindowClass is registered if it is an unknown class, and the WindowFunction is called by Windows for every Windows message. This is a complex function and forms the basis for all that you generally see in a Windows program. </P>
+<P CLASS="fit">
+<EM CLASS="Element">
+Parent</EM>
+ is the window handle of the parent for this new window. It is NULL to make the Window not have a parent (the desktop is the parent). </P>
+<P CLASS="fit">
+<EM CLASS="Element">
+Class</EM>
+ identifies the behavior of this window. If Class is a string then it must be the name of a pre-existing Windows class, such as &quot;edit&quot; or &quot;button&quot;. If class is a structure then the window behavior is taken from the fields you choose to set in the structure. Any structure members that you don't set or are undefined get the default value as described below. If struct Class is undefined or is NULL then all structure elements get default values. </P>
+<P CLASS="cb">
+The member elements of struct Class are: </P>
+<P CLASS="Flag-Subtabel">
+<EM CLASS="Element">
+.style	Windows</EM>
+ class style; default CS_HREDRAW | CS_VREDRAW </P>
+<P CLASS="Flag-Subtabel">
+<EM CLASS="Element">
+.icon</EM>
+	Icon to appear when window is minimized; default NULL for no bitmap icon </P>
+<P CLASS="Flag-Subtabel">
+<EM CLASS="Element">
+.cursor	Cursor</EM>
+ to appear when over this window; default is LoadCursor(NULL,IDC_ARROW) </P>
+<P CLASS="Flag-Subtabel">
+<EM CLASS="Element">
+.background</EM>
+		Background color of this window; default is GetStockObject(WHITE_BRUSH) </P>
+<P CLASS="fit">
+<EM CLASS="Element">
+WindowFunction</EM>
+ is the name of a ScriptEase function that will be called every time Windows sends a message to this new window. If WindowFunction is NULL then no ScriptEase function is called. The Windows default functions will be called. </P>
+<P CLASS="cb">
+Your defined WindowFunction should return an integer or return nothing, and must have this format:</P>
+<P CLASS="ciTable">
+int WindowFunction(Handle, Message, Param1, Param2,</P>
+<P CLASS="ciTable">
+								UtilityVar) </P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+COMMENTS</P>
+</TD>
+<TD>
+<P CLASS="Flag-Subtabel">
+<EM CLASS="Element">
+Handle</EM>
+: Window handle for window receiving this message </P>
+<P CLASS="Flag-Subtabel">
+<EM CLASS="Element">
+Message</EM>
+: The message ID </P>
+<P CLASS="Flag-Subtabel">
+<EM CLASS="Element">
+Param1</EM>
+: First parameter for this Message ID </P>
+<P CLASS="Flag-Subtabel">
+<EM CLASS="Element">
+Param2</EM>
+: Second parameter for this Message ID </P>
+<P CLASS="Flag-Subtabel">
+<EM CLASS="Element">
+UtilityVar</EM>
+: This is the variable optionally supplied to the MakeWindow() function for this window. Any structure member defined there is available here. If UtilityVar was undefined, NULL, or not given to MakeWindow() then this will be an undefined variable. </P>
+<P CLASS="cb">
+You can handle Windows messages however you wish. Act upon them or ignore them. You can also use or alter UtilityVar. If your function returns a value, then the default Windows function is not called. If your WindowFunction DOES NOT return a value, then the default Window function or the string Class default function is called. WindowFunction is always called before the default function, except when the String Class is used. When the String Class is used, WM_CREATE messages (and other messages sent during Windows' calls to the CreateWindow() function) are not received by your function. </P>
+<P CLASS="cb">
+Note that MultiTask is OFF when this function is called; no other window will get processor time until your routine is done. </P>
+<P CLASS="fit">
+<EM CLASS="Element">
+Text</EM>
+ is the window caption or text. This may be set to NULL. </P>
+<P CLASS="fit">
+<EM CLASS="Element">
+Style</EM>
+ is the window style, as defined by the WS_xxxx values in Windows.lib. </P>
+<P CLASS="fit">
+<EM CLASS="Element">
+Col</EM>
+ and <EM CLASS="Element">
+Row</EM>
+ describe the upper-left corner for the window when it is created. Use CW_USEDEFAULT to let Windows choose the position. </P>
+<P CLASS="fit">
+<EM CLASS="Element">
+Width</EM>
+ and <EM CLASS="Element">
+Height</EM>
+ describe the window size. Use CW_USEDEFAULT to let Windows choose the position. </P>
+<P CLASS="fit">
+<EM CLASS="Element">
+CreateParm</EM>
+ is an integer or a BLOb to data to pass with the WM_CREATE message. It is usually NULL. </P>
+<P CLASS="fit">
+<EM CLASS="Element">
+UtilityVar</EM>
+ is any variable that you choose to make available to the WindowFunction. This may be any kind of variable, including a structure if you want to pass many values to the WindowFunction. WindowFunction may also alter UtilityVar. If this parameter is not supplied, then no such function will be available to the WindowFunction(). </P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+&nbsp;</P>
+</TD>
+<TD>
+<P CLASS="cb">
+ExtendedAttributes is one or more of the following, joined with a bitwise or (|): </P>
+<P CLASS="fit">
+<EM CLASS="Element">
+WS_EX_DLGMODALFRAME</EM>
+	0x00000001L</P>
+<P CLASS="fit">
+<EM CLASS="Element">
+WS_EX_NOPARENTNOTIFY</EM>
+	 0x000000004L</P>
+<P CLASS="fit">
+<EM CLASS="Element">
+WS_EX_TOPMOST		</EM>
+0x000008L </P>
+<P CLASS="fit">
+<EM CLASS="Element">
+WS_EX_ACCEPTFILE</EM>
+	              0x000000010L</P>
+<P CLASS="fit">
+<EM CLASS="Element">
+WS_EX_TRANSPARENT</EM>
+		0x000000020L</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+MODIFY</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Your WindowFunction() may modify UtilityVar.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+RETURN</P>
+</TD>
+<TD>
+<P CLASS="cb">
+On success, returns WindowHandle of the created window. Returns NULL for failure.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+EXAMPLE</P>
+</TD>
+<TD>
+<P CLASS="cb">
+See DoWindows() for an example.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+SEE ALSO</P>
+</TD>
+<TD>
+<P CLASS="cb">
+DoWindows(), BaseWindowFunction(), MessageFilter(), SubclassWindow()</P>
+</TD>
+</TR>
+</TABLE>
+<HR><TABLE>
+<TR>
+<TH COLSPAN="2">
+<H6 CLASS="fnam">
+MessageFilter</H6>
+</TH>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+DESCRIPTION</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Restrict message handled by ScriptEase window functions.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+SYNTAX</P>
+</TD>
+<TD>
+<P CLASS="Function-Syntax">
+int[] MessageFilter(int WinHandle ,int MessageID1<BR>
+[, int MessageID2 [, int MessageID3[,...]]]) </P>
+<P CLASS="Function-Syntax">
+int[] MessageFilter(int WinHandle, int[] MessageIDs)</P>
+<P CLASS="Function-Syntax">
+int[] MessageFilter(int WinHandle)         // remove all message filters</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+COMMENTS</P>
+</TD>
+<TD>
+<P CLASS="cb">
+This function restricts the messages handled by ScriptEase for a window created with MakeWindow() or subclassed with SubclassWindow(). When Windows sends lots of messages, but you're only interested in handling a few of them within ScriptEase code, you can increase performance by specifying only those messages you want to handle in MessageFilter(). Any messages that have not been specified to MessageFilter() will not be handle by your WindowFunction and might not cause DoWindows() to return immediately (if Peek==False). Initially, there are no message filters so all messages are processed by ScriptEase. </P>
+<P CLASS="cb">
+To remove all message filters, so that all messages are passed through to the ScriptEase handler, use the third form of MessageFilter(). </P>
+<P CLASS="fit">
+<EM CLASS="Element">
+WinHandle</EM>
+ is handle for a windows created with MakeWindow() or subclassed with SubclassWindow(). </P>
+<P CLASS="fit">
+<EM CLASS="Element">
+MessageID1</EM>
+, <EM CLASS="Element">
+MessageID2</EM>
+,... are messages to be added to those being filtered. </P>
+<P CLASS="fit">
+<EM CLASS="Element">
+MessageIDs</EM>
+ is an array of messages to be added to those being filtered.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+RETURN</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Returns an array of messages begin filtered prior to taking this call. Returns NULL if no messages are in the filter (i.e., all messages are passed through to ScriptEase functions) or if WinHandle is not a handle from a MakeWindow() or SubclassWindow() window.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+SEE ALSO</P>
+</TD>
+<TD>
+<P CLASS="cb">
+DoWindows(), BaseWindowFunction(), MakeWindow(), SubclassWindow()</P>
+</TD>
+</TR>
+</TABLE>
+<HR><TABLE>
+<TR>
+<TH>
+<H6 CLASS="fnam">
+MultiTask</H6>
+</TH>
+<TH>
+<H6 CLASS="cHead">
+&nbsp;</H6>
+</TH>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+DESCRIPTION</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Turn Windows multitasking on or off</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+SYNTAX</P>
+</TD>
+<TD>
+<P CLASS="cb">
+void MultiTask(bool)</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+COMMENTS</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Normally, multitasking is enabled. You should only turn multitasking off for very brief, critical sections of code. No messages are received by this program or any other program while multitasking is off.</P>
+<P CLASS="cb">
+MultiTask() is additive, meaning that if you call MultiTask(FALSE) twice, then you must call MultiTask(TRUE) twice before multitasking is resumed.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+EXAMPLE</P>
+</TD>
+<TD>
+<P CLASS="cb">
+The following section of code empties the clipboard. Multitasking is turned off during this brief interval to ensure that no other program tries to open the clipboard while this program is accessing it. </P>
+<P CLASS="ciTable">
+MultiTask(FALSE); </P>
+<P CLASS="ciTable">
+DynamicLink(&quot;USER&quot;,&quot;OPENCLIPBOARD&quot;,SWORD16,</P>
+<P CLASS="ciTable">
+					PASCAL,ScreenHandle());</P>
+<P CLASS="ciTable">
+DynamicLink(&quot;USER&quot;,&quot;EMPTYCLIPBOARD&quot;,SWORD16,PASCAL); </P>
+<P CLASS="ciTable">
+DynamicLink(&quot;USER&quot;,&quot;CLOSECLIPBOARD&quot;,SWORD16,PASCAL); </P>
+<P CLASS="ciTable">
+MultiTask(TRUE);</P>
+</TD>
+</TR>
+</TABLE>
+<HR><TABLE>
+<TR>
+<TH COLSPAN="2">
+<H6 CLASS="fnam">
+ScreenHandle</H6>
+</TH>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+DESCRIPTION</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Get Windows' handle for the ScriptEase text screen.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+SYNTAX</P>
+</TD>
+<TD>
+<P CLASS="cb">
+int ScreenHandle()</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+RETURN</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Returns handle the for ScriptEase text window corresponding to stdout.</P>
+</TD>
+</TR>
+</TABLE>
+<HR><TABLE>
+<TR>
+<TH>
+<H6 CLASS="fnam">
+<A NAME="999282">
+ </A>
+ScreenSize</H6>
+</TH>
+<TH>
+<H6 CLASS="cHead">
+&nbsp;</H6>
+</TH>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+DESCRIPTION</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Get or set the height and width of the screen.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+SYNTAX</P>
+</TD>
+<TD>
+<P CLASS="cb">
+struct ScreenSize()	 // this version is the same as the one in the <BR>
+ 	 // ScriptEase extended library </P>
+<P CLASS="cb">
+struct ScreenSize(int col, int row [, int RowsRemembered])</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+COMMENTS</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Gets or set the size of the visible screen in rows and columns. If no parameters are supplied, this simply gets the screen size, else sets screen size to column width and row height. RowsRemembered specifies how many rows the user can scroll to above the visible screen. If RowsRemembered is not supplied, then this parameter does not change from earlier calls. When ScriptEase initializes, this value defaults to 100.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+RETURN</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Returns the screen size as a structure with the two elements: </P>
+<P CLASS="deTable-indent">
+<EM CLASS="Element">
+.col	</EM>
+screen width, in characters </P>
+<P CLASS="deTable-indent">
+<EM CLASS="Element">
+.row</EM>
+	screen height, in characters</P>
+</TD>
+</TR>
+</TABLE>
+<HR><TABLE>
+<TR>
+<TD COLSPAN="2">
+<H6 CLASS="fnam">
+SubClassWindow</H6>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+DESCRIPTION</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Hook into Window function for any window.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+SYNTAX</P>
+</TD>
+<TD>
+<P CLASS="Function-Syntax">
+bool SubclassWindow(int WindowHandle, <BR>
+string WindowFunction[,var UtilityVar])</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+COMMENT</P>
+</TD>
+<TD>
+<P CLASS="cb">
+This function will hook the specified WindowFunction() into the message loop for this window such that your function is called before the window's default or previously-defined function. WindowHandle is the window handle of the existing window to subclass.</P>
+<P CLASS="cb">
+<EM CLASS="Element">
+WindowFunction</EM>
+ is the same as in the MakeWindow() function. See MakeWindow(). Note that, as in the MakeWindow()function, if this function returns a value, then the default or subclassed function is not called. If this function returns no value then call is passed on to the previous function. This function may be used to subclass any Window that is not already being managed by a WindowFunction for this ScriptEase instance. If the windows was created with MakeWindow() or is already SubClassed then this function will fail.</P>
+<P CLASS="cb">
+Note that this function may be used (but only once) with the window handle returned by ScreenHandle(). If you want to SubClass the main ScriptEase window, it is best to open another instance of ScriptEase and SubClass that rather than to subclass the instance that is powering your script. (Although it is possible to subclass that window, if you try to do anything with it you'll most likely get caught up in an infinite loop and hang). To undo the window subclassing, or remove WindowFunction from the message loop, then use BreakWindow().</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+MODIFY</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Your WindowFunction() may modify UtilityVar.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+WARNING</P>
+</TD>
+<TD>
+<P CLASS="cb">
+In your function that handles messages for another process, certain limits are set as to what you can do with system resources. For example, an open file handle will be invalid while processing another program's message, because Windows will map any file handles into a table for that other program. To work around this problem, you may want to send a message to one of your ScriptEase windows to handle the processing; this will switch Windows' tables to your program while handling that SendMessage() to yourself.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+RETURN</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Returns boolean False if WindowHandle is invalid, was created with MakeWindow(), or is already Subclassed with this function; else return boolean True.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+SEE ALSO</P>
+</TD>
+<TD>
+<P CLASS="cb">
+DoWindows(), BaseWindowFunction(), BreakWindow(), MakeWindow(), MessageFilter()</P>
+</TD>
+</TR>
+</TABLE>
+<HR><TABLE>
+<TR>
+<TH>
+<H6 CLASS="fnam">
+<A NAME="999345">
+ </A>
+WindowList</H6>
+</TH>
+<TH>
+<H6 CLASS="cHead">
+&nbsp;</H6>
+</TH>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+DESCRIPTION</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Retrieve list of window handles.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+SYNTAX</P>
+</TD>
+<TD>
+<P CLASS="cb">
+int[] WindowList([int WinHandle])</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+COMMENTS</P>
+</TD>
+<TD>
+<P CLASS="cb">
+This function returns a list of parent window handles if WinHandle is not supplied or if WinHandle is NULL, else it returns an array of all child windows of WinHandle.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+RETURN</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Returns NULL if no window handles, else returns array of handles.</P>
+</TD>
+</TR>
+</TABLE>
+<HR><DIV>
+<H3 CLASS="SubTopic">
+Useful 16-bit Windows Libraries</H3>
+<P CLASS="Body">
+For Windows 3.X, there is a set of useful ScriptEase libraries that include wrappers for most of the common Windows DLL's. The following is a brief summary of the functionality provided. These libraries are text files, and a more detailed explanation of the functions contained in each library appears at the beginning of each. The supplied ScriptEase sample scripts provide examples of how these functions are to be used. Additional libraries (and sample scripts) are available for download from Nombas' Website at:</P>
+<P CLASS="Body">
+http://www.nombas.com/download</P>
+<TABLE>
+<TR>
+<TD>
+<P CLASS="cb">
+BMP.hmm</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Library of routines for working with bitmaps (.BMP files).</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="cb">
+Comm.hmm</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Library of routines for accessing COM ports.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="cb">
+Clipbrd.hmm</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Routines for working with the Clipboard.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="cb">
+DDE.hmm</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Library of common routines and definitions for Dynamic Data Exchange (DDE).</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="cb">
+DDEcli.hmm</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Library of routines for a DDE client.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="cb">
+DDEsrv.hmm</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Library of routines for a DDE server.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="cb">
+Dlgctrl.hmm</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Library of functions for controlling dialog boxes via child windows (buttons etc.).</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="cb">
+DOSintr.hmm</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Functions to provide access to low-level DOS calls.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="cb">
+DOS_BOSS.hmm</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Functions for controlling a windowed or full-screen DOS session.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="cb">
+GDI.hmm</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Routines for working with some of Window's graphics routines.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="cb">
+GloblMem.hmm</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Functions to work with Windows' global memory resources.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="cb">
+HotKey.hmm</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Library of functions to simplify the creation of keyboard shortcuts.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="cb">
+Icon.hmm</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Routines useful for working with icons.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="cb">
+Inputbox.hmm</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Routines to allow the creation of simple input and information boxes (windows).</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="cb">
+KeyPush.hmm</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Routines to control or mimic the pushing of keys on the keyboard. The functions in this library work by sending virtual keystrokes to the active window.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="cb">
+MenuCtrl.hmm</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Functions for creating and controlling window menus.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="cb">
+Message.hmm</P>
+</TD>
+<TD>
+<P CLASS="cb">
+ScriptEase code wrapper for the SendMessage() and PostMessage() Windows functions. With these routines, any message can be sent or posted to any window.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="cb">
+Msgbox.hmm</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Library to provide the Windows MessageBox() function, to allow creation of simple message boxes.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="cb">
+PickFile.hmm</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Routines for the GetOpenFileName() function in the Windows Common Dialog DLL.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="cb">
+Profile.hmm	</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Routines to interface with Windows' Profile (i.e. *.INI) files.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="cb">
+Progman.hmm</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Library for interacting with Program Manager through DDE.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="cb">
+Realmem.hmm</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Functions for ScriptEase for Windows to allow access to memory that is specified as DOS-like real memory addresses, instead of Windows-like protected memory.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="cb">
+Shellexe.hmm</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Cmm code wrapper for the ShellExecute function.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="cb">
+Window.hmm	</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Defines used with the MakeWindow, BreakWindow, and DoWindows functions.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="cb">
+WindowID.hmm</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Routine to find a sub-window within a larger window based on window ID.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="cb">
+Winexec.hmm</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Cmm code wrapper for the WinExec function.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="cb">
+WinTools.hmm</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Functions for setting the state of Windows.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="cb">
+WinUtil.hmm</P>
+</TD>
+<TD>
+<P CLASS="cb">
+A small selection of utilities that may be #included in ScriptEase code to get simple access to Windows DLL functions.</P>
+</TD>
+</TR>
+</TABLE>
+<P CLASS="Body">
+&nbsp;</P>
+</DIV>
+</DIV>
+<TABLE WIDTH="225" BORDER="0" CELLSPACING="0" CELLPADDING="0">
+  <TR>
+    <TD WIDTH="71"><a href="a-os2lib.htm"><IMG SRC="prev.gif" WIDTH="71" height="18" border="0"></a></TD>
+    <TD WIDTH="80"><a href="../index.htm"><IMG SRC="tocidx.gif" WIDTH="80" height="18" border="0"></a></TD>
+    <TD WIDTH="74"><a href="c-nt95lb.htm"><IMG SRC="next.gif" WIDTH="74" height="18" border="0"></a></TD>
+  </TR>
+</TABLE>
+
+</BODY>
+</HTML>

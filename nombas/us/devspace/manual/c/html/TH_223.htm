@@ -1,0 +1,53 @@
+<html>
+<head>
+<title>Using seEval</title>
+<link rel="stylesheet" href="semanualstyles.css" type="text/css">
+<style type="text/css">
+ p { margin-top: 0; margin-bottom: 0; }
+</style>
+<script language="JavaScript" src="TrueHelp.js"></script>
+</head>
+<body onload="thload()">
+<div id=ienav>
+<ilayer id=nsnav>
+<br>
+<center>
+<p class=normal><a href="seisdkc-toc.htm" target="left">contents</a> &nbsp; <a href="seisdkc-index.htm" target="left">index</a> &nbsp; <a href="TH_222.htm">previous</a> &nbsp; <a href="TH_224.htm">next</a></p>
+</center>
+<br>
+<hr noshade size=1>
+</ilayer>
+</div>
+<p class=heading-2>Using seEval</p>
+<p class=heading-2-p>&nbsp;</p>
+<p class=senormalpara>Having created an <span class=secodephrase>secontext</span>, you use this context to execute scripts via the ScriptEase API. The ScriptEase ISDK function to execute script code is <span class=secodephrase>seEval</span>. This function has a large number of parameters to control its behavior and the behavior of executed code. This chapter is devoted to explaining <span class=secodephrase>seEval</span>. Let's start with a simple example that uses default values for most of the parameters:</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=secodelinesindented>seEval(se,UNISTR("var&nbsp;a&nbsp;=&nbsp;10;"),SE_TEXT,</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;NULL,NULL,SE_DEFAULT,NULL);</p>
+<p class=secodelinesindented>&nbsp;</p>
+<p class=senormalpara>All of the <span class=secodephrase>NULL</span> values indicate a parameter that we are not interested in providing, using the default value instead. This call as it is written will evaluate the simple script <span class=secodephrase>var a = 10;</span>. The full prototype of <span class=secodephrase>seEval</span> is as follows: </p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;sebool</p>
+<p class=secodelinesindented>seEval(secontext&nbsp;se,void&nbsp;*to_interpret,int&nbsp;interp_type,</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;seconstcharptr&nbsp;text_args,</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;seobject&nbsp;stack_args,</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;uword32&nbsp;flags,</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;struct&nbsp;seEvalParams&nbsp;*params);</p>
+<p class=normal>&nbsp;</p>
+<p class=senormalpara>The function returns a boolean indicating whether or not the evaluation succeeded. It would not if the script to evaluate contains an error. In addition to indicating success or failure, the script returns a value using the <span class=secodephrase>return</span> statement. This value returned from the script being called is stored in the <span class=secodephrase>SE_RETURN</span> object. This means that if you invoke <span class=secodephrase>seEval</span> in a wrapper function then immediately return from the wrapper function, the result of the evaluation is passed along as the result of your wrapper function. This is a useful technique which is used, for instance, to implement the ECMAScript <span class=secodephrase>eval</span> function.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>An important concept of an evaluation is that of the global object. All global variables in the script, as well as functions, are put into the global object. When the script completes, all variables and functions are still part of the global object. This means that additional calls to <span class=secodephrase>seEval</span> will find the variables and functions from past calls. You can specify a particular global object in the <span class=secodephrase>params</span> parameter to put these variables and functions in that object as is described below.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>As was mentioned when describing error returns, once a context has an error as its return, any attempts to change the return value are ignored. Likewise, any calls to <span class=secodephrase>seEval</span> are ignored for the same reason. It is the most reasonable course of action when some previous API call generated an error. You must first erase the error as was described if you want to use <span class=secodephrase>seEval</span>.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>Let's look at the parameters and explain their use.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<hr noshade size=1>
+<p class=normal><a href="TH_224.htm"><img src="button.png" border=0></a><a href="TH_224.htm" style="text-decoration:none;">se</a></p>
+<p class=normal><a href="TH_225.htm"><img src="button.png" border=0></a><a href="TH_225.htm" style="text-decoration:none;">TO_INTERPRET, INTERP_TYPE</a></p>
+<p class=normal><a href="TH_226.htm"><img src="button.png" border=0></a><a href="TH_226.htm" style="text-decoration:none;">TEXT_ARGS, STACK_ARGS</a></p>
+<p class=normal><a href="TH_227.htm"><img src="button.png" border=0></a><a href="TH_227.htm" style="text-decoration:none;">FLAGS</a></p>
+<p class=normal><a href="TH_244.htm"><img src="button.png" border=0></a><a href="TH_244.htm" style="text-decoration:none;">PARAMS</a></p>
+<p>
+</body>
+</html>

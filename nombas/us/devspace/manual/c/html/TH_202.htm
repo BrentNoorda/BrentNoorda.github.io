@@ -1,0 +1,81 @@
+<html>
+<head>
+<title>INVOKING THE DEBUGGER ON AN ERROR</title>
+<link rel="stylesheet" href="semanualstyles.css" type="text/css">
+<style type="text/css">
+ p { margin-top: 0; margin-bottom: 0; }
+</style>
+<script language="JavaScript" src="TrueHelp.js"></script>
+</head>
+<body onload="thload()">
+<div id=ienav>
+<ilayer id=nsnav>
+<br>
+<center>
+<p class=normal><a href="seisdkc-toc.htm" target="left">contents</a> &nbsp; <a href="seisdkc-index.htm" target="left">index</a> &nbsp; <a href="TH_201.htm">previous</a> &nbsp; <a href="TH_203.htm">next</a></p>
+</center>
+<br>
+<hr noshade size=1>
+</ilayer>
+</div>
+<p class=heading-3>INVOKING THE DEBUGGER ON AN ERROR</p>
+<p class=heading-3-p>&nbsp;</p>
+<p class=senormalpara>It is often desirable to invoke the debugger only if an error occurs in the script so that the user can debug it. You can do this by initializing the debugger connection not when the script starts but rather only when the error occurs. This is done in the <span class=secodephrase>seAtErrorFunc</span> callback in the context parameters. You don&#8217;t do this in the <span class=secodephrase>sePrintErrorFunc</span> found in the same parameters structure. The first callback is called when the error occurs. The script is still executing at the point of the error with the correct variables and call stack for the error. The second function isn&#8217;t called until the script terminates with the error, by which time the context of the error is lost.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>In addition, the other steps of the debugger integration mentioned above must still be completed. The only difference is that you do not call <span class=secodephrase>seDbgConnect</span> before executing any scripts but rather only in response to an error. Here is an example <span class=secodephrase>seAtErrorFunc</span> taken from ScriptEase Desktop Win32 which demonstrates invoking the debugger at the point of the error:</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=secodelinesindented>/*&nbsp;This&nbsp;at-error&nbsp;function&nbsp;will,&nbsp;if&nbsp;debugger&nbsp;support&nbsp;is&nbsp;enabled,</p>
+<p class=secodelinesindented>&nbsp;*&nbsp;give&nbsp;the&nbsp;user&nbsp;the&nbsp;option&nbsp;to&nbsp;connect&nbsp;to&nbsp;the&nbsp;debugger&nbsp;to</p>
+<p class=secodelinesindented>&nbsp;*&nbsp;debug&nbsp;the&nbsp;script&nbsp;from&nbsp;the&nbsp;point&nbsp;of&nbsp;the&nbsp;error.</p>
+<p class=secodelinesindented>&nbsp;*/</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;static&nbsp;SE_CALLBACK(&nbsp;void&nbsp;)</p>
+<p class=secodelinesindented>SeAtErrorFunc(secontext&nbsp;se,struct&nbsp;seAtErrorInfo&nbsp;*info)</p>
+<p class=secodelinesindented>{</p>
+<p class=secodelinesindented>#if&nbsp;SE_DEBUGGER_SUPPORT==1&nbsp;&amp;&amp;&nbsp;defined(__JSE_WIN32__)</p>
+<p class=secodelinesindented>&nbsp;</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;/*&nbsp;If&nbsp;this&nbsp;is&nbsp;an&nbsp;untrapped&nbsp;error,&nbsp;debug&nbsp;it&nbsp;at&nbsp;the&nbsp;point</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;of&nbsp;error.&nbsp;Untrapped&nbsp;errors&nbsp;are&nbsp;the&nbsp;ones&nbsp;that&nbsp;will</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;eventually&nbsp;be&nbsp;printed&nbsp;to&nbsp;the&nbsp;screen.&nbsp;We&nbsp;don't</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;debug&nbsp;trapped&nbsp;errors&nbsp;because&nbsp;those&nbsp;are&nbsp;usually</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;used&nbsp;for&nbsp;program&nbsp;flow&nbsp;control&nbsp;with&nbsp;throw/catch.</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;&nbsp;*/</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;if(&nbsp;!seDbgConnected(se)&nbsp;&amp;&amp;</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;!info-&gt;trapped&nbsp;&amp;&amp;</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;MessageBox(0,seGetString(se,SE_RETURN,SE_VALUE,NULL),</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"Would&nbsp;you&nbsp;like&nbsp;to&nbsp;debug&nbsp;this&nbsp;error?",</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;MB_YESNO)==IDYES</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;)</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;{</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;struct&nbsp;seContextParams&nbsp;*params;</p>
+<p class=secodelinesindented>&nbsp;</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;params&nbsp;=&nbsp;seGetContextParams(se);</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;params-&gt;seOptions&nbsp;|=&nbsp;SE_OPT_DEBUGGER;</p>
+<p class=secodelinesindented>&nbsp;</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if(&nbsp;!seDbgConnect(se,"localhost",SEDBG_STANDARD_PORT,</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"Scriptease&nbsp;Desktop&nbsp;Win32",NULL)&nbsp;)</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;sememcount&nbsp;i;</p>
+<p class=secodelinesindented>&nbsp;</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;system("start&nbsp;workshop.exe");</p>
+<p class=secodelinesindented>&nbsp;</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/*&nbsp;Wait&nbsp;10&nbsp;seconds&nbsp;checking&nbsp;every&nbsp;1/10th&nbsp;if</p>
+<p class=secodelinesindented>*&nbsp;debugger&nbsp;is&nbsp;ready</p>
+<p class=secodelinesindented>*/</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;for(&nbsp;i=0;i&lt;100;i++&nbsp;)</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Sleep(100);</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if(&nbsp;seDbgConnect(se,"localhost",SEDBG_STANDARD_PORT,</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"Scriptease&nbsp;Desktop&nbsp;Win32",NULL)&nbsp;)</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;break;</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;}</p>
+<p class=secodelinesindented>&nbsp;</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;seDbgAtError(se);</p>
+<p class=secodelinesindented>#endif</p>
+<p class=secodelinesindented>}</p>
+<hr noshade size=1>
+<p class=normal><a href="TH_203.htm"><img src="button.png" border=0></a><a href="TH_203.htm" style="text-decoration:none;">THE SCRIPTEASE DEBUGGER PROTOCOL VERSION 1.0</a></p>
+<p>
+</body>
+</html>

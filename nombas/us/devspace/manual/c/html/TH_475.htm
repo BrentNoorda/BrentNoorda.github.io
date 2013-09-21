@@ -1,0 +1,42 @@
+<html>
+<head>
+<title>goto and labels</title>
+<link rel="stylesheet" href="semanualstyles.css" type="text/css">
+<style type="text/css">
+ p { margin-top: 0; margin-bottom: 0; }
+</style>
+<script language="JavaScript" src="TrueHelp.js"></script>
+</head>
+<body onload="thload()">
+<div id=ienav>
+<ilayer id=nsnav>
+<br>
+<center>
+<p class=normal><a href="seisdkc-toc.htm" target="left">contents</a> &nbsp; <a href="seisdkc-index.htm" target="left">index</a> &nbsp; <a href="TH_474.htm">previous</a> &nbsp; <a href="TH_476.htm">next</a></p>
+</center>
+<br>
+<hr noshade size=1>
+</ilayer>
+</div>
+<p class=heading-3>goto and labels</p>
+<p class=heading-3-p>&nbsp;</p>
+<p class=senormalpara>You may jump to any location within a function block by using the <span class=secodephrase>goto</span> statement. The syntax is:</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=secodelinesindented>goto&nbsp;LABEL;</p>
+<p class=secodelinesindented>&nbsp;</p>
+<p class=senormalpara>where <span class=secodephrase>label</span> is an identifier followed by a colon (:). The following code fragment continuously prompts for a number until a number less than 2 is entered.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=secodelinesindented>beginning:</p>
+<p class=secodelinesindented>Screen.write("Enter&nbsp;a&nbsp;number&nbsp;less&nbsp;than&nbsp;2:")</p>
+<p class=secodelinesindented>var&nbsp;x&nbsp;=&nbsp;getche();&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//get&nbsp;a&nbsp;value&nbsp;for&nbsp;x</p>
+<p class=secodelinesindented>if&nbsp;(a&nbsp;&gt;=&nbsp;2)</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;goto&nbsp;beginning;</p>
+<p class=secodelinesindented>Screen.write(a);</p>
+<p class=secodelinesindented>&nbsp;</p>
+<p class=senormalpara>As a rule, <span class=secodephrase>goto</span> statements should be used sparingly, since they make it difficult to track program flow.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<hr noshade size=1>
+<p class=normal><a href="TH_476.htm"><img src="button.png" border=0></a><a href="TH_476.htm" style="text-decoration:none;">Conditional operator</a></p>
+<p>
+</body>
+</html>

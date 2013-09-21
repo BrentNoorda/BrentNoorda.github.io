@@ -1,0 +1,30 @@
+<html>
+<head>
+<title>Link with the ScriptEase libraries</title>
+<link rel="stylesheet" href="semanualstyles.css" type="text/css">
+<style type="text/css">
+ p { margin-top: 0; margin-bottom: 0; }
+</style>
+<script language="JavaScript" src="TrueHelp.js"></script>
+</head>
+<body onload="thload()">
+<div id=ienav>
+<ilayer id=nsnav>
+<br>
+<center>
+<p class=normal><a href="seisdkc-toc.htm" target="left">contents</a> &nbsp; <a href="seisdkc-index.htm" target="left">index</a> &nbsp; <a href="TH_271.htm">previous</a> &nbsp; <a href="TH_273.htm">next</a></p>
+</center>
+<br>
+<hr noshade size=1>
+</ilayer>
+</div>
+<p class=heading-4>Link with the ScriptEase libraries</p>
+<p class=senormalpara>The final step for integrating your application with ScriptEase is to link the ScriptEase object module libraries with your application. There are two object module libraries to link. These libraries are found within the <span class=secodephrase>lib/core</span> and <span class=secodephrase>lib/library</span> directory trees. The particular directory is identical to the text string associated with your operating system, as described above. Within those directories are <span class=secodephrase>user</span> subdirectories, where your version of the ScriptEase libraries was placed when built in an earlier step. The libraries are named <span class=secodephrase>libsec501ar.a</span> and <span class=secodephrase>libsel501ar.a</span> respectively. For instance, if your system is Aix, then you would link with the object module libraries named <span class=secodephrase>lib/core/aix/user/libsec501ar.a</span> and <span class=secodephrase>lib/library/aix/user/libsel501ar.a</span>.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>In addition to the release versions of the libraries, debugging versions are produced with the full version of ScriptEase. The library names end with an <span class=secodephrase>r</span> for a release version and a <span class=secodephrase>d</span> for a debug version. The Aix debug libraries are named<span class=secodephrase> lib/core/aix/user/libsec501ad.a</span> and <span class=secodephrase>lib/library/aix/user/libsel501ad.a</span>.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<hr noshade size=1>
+<p class=normal><a href="TH_273.htm"><img src="button.png" border=0></a><a href="TH_273.htm" style="text-decoration:none;">Using an alternate jseopt.h</a></p>
+<p>
+</body>
+</html>

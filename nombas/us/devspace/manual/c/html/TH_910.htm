@@ -1,0 +1,62 @@
+<html>
+<head>
+<title>input (RegExp)</title>
+<link rel="stylesheet" href="semanualstyles.css" type="text/css">
+<style type="text/css">
+ p { margin-top: 0; margin-bottom: 0; }
+</style>
+<script language="JavaScript" src="TrueHelp.js"></script>
+</head>
+<body onload="thload()">
+<div id=ienav>
+<ilayer id=nsnav>
+<br>
+<center>
+<p class=normal><a href="seisdkc-toc.htm" target="left">contents</a> &nbsp; <a href="seisdkc-index.htm" target="left">index</a> &nbsp; <a href="TH_909.htm">previous</a> &nbsp; <a href="TH_911.htm">next</a></p>
+</center>
+<br>
+<hr noshade size=1>
+</ilayer>
+</div>
+<p class=sereffunclevel4>input (RegExp)</p>
+<table cellpadding=0>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>syntax:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=sesyntax>returnedArray.input</p></td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>description:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>When <span class=sepopuptopic><a href="TH_971.htm" onClick="return thwindow('TH_971.htm', 'GenPopup')">String match()</a></span>is called and the "<span class=secodephrase>g</span>" is not used in the regular expression, String <span class=secodephrase>match()</span> returns an array with two extra properties, <span class=secodephrase>index</span> and <span class=secodephrase>input</span>. The property <span class=secodephrase>input</span> has a copy of the target string.</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>see:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara><span class=sejumptopic><a href="TH_909.htm">index (RegExp)</a></span>, <span class=sejumptopic><a href="TH_914.htm">RegExp exec()</a></span>, <span class=sejumptopic><a href="TH_971.htm">String match()</a></span></p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>example:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=secodelines>var&nbsp;str&nbsp;=&nbsp;"one&nbsp;two&nbsp;three&nbsp;two&nbsp;one";</p>
+<p class=secodelines>var&nbsp;pat&nbsp;=&nbsp;/(t.o)\s(t.r)/g;</p>
+<p class=secodelines>var&nbsp;rtn&nbsp;=&nbsp;pat.exec(str);</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;//&nbsp;rtn[0]&nbsp;==&nbsp;"two&nbsp;thr"</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;//&nbsp;rtn[1]&nbsp;==&nbsp;"two"</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;//&nbsp;rtn[2]&nbsp;==&nbsp;"thr"</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;//&nbsp;rtn.index&nbsp;==&nbsp;4</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;//&nbsp;rtn.input&nbsp;==&nbsp;"one&nbsp;two&nbsp;three&nbsp;two&nbsp;one"</p></td>
+</tr>
+</table>
+<p class=normal>&nbsp;</p>
+<hr noshade size=1>
+<p class=normal><a href="TH_911.htm"><img src="button.png" border=0></a><a href="TH_911.htm" style="text-decoration:none;">RegExp object instance methods</a></p>
+<p>
+</body>
+</html>

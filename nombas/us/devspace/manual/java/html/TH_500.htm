@@ -1,0 +1,83 @@
+<html>
+<head>
+<title>Clib.strerror()</title>
+<link rel="stylesheet" href="semanualstyles.css" type="text/css">
+<style type="text/css">
+ p { margin-top: 0; margin-bottom: 0; }
+</style>
+<script language="JavaScript" src="TrueHelp.js"></script>
+</head>
+<body onload="thload()">
+<div id=ienav>
+<ilayer id=nsnav>
+<br>
+<center>
+<p class=normal><a href="seisdkj-toc.htm" target="left">contents</a> &nbsp; <a href="seisdkj-index.htm" target="left">index</a> &nbsp; <a href="TH_499.htm">previous</a> &nbsp; <a href="TH_501.htm">next</a></p>
+</center>
+<br>
+<hr noshade size=1>
+</ilayer>
+</div>
+<p class=sereffunclevel4>Clib.strerror()</p>
+<table cellpadding=0>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>syntax:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=sesyntax>Clib.strerror(<span class=truehelp-xe></span>errno)</p></td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>where:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>errno - an error number to convert to a descriptive string.</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>return:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>string - an error number converted to a descriptive string.</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>description:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>When some functions fail to execute properly, they store a number in the .errno property. The number corresponds to the type of error encountered. This method converts the error number to a descriptive string and returns it.</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>see:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara><span class=sejumptopic><a href="TH_499.htm">Clib.perror()</a></span></p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>example:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=secodelines>//&nbsp;Opens&nbsp;a&nbsp;file&nbsp;for&nbsp;reading,&nbsp;and&nbsp;if&nbsp;it&nbsp;cannot</p>
+<p class=secodelines>//&nbsp;open&nbsp;the&nbsp;file&nbsp;then&nbsp;it&nbsp;prints&nbsp;a&nbsp;descriptive</p>
+<p class=secodelines>//&nbsp;message&nbsp;and&nbsp;exits&nbsp;the&nbsp;program.</p>
+<p class=secodelines>&nbsp;</p>
+<p class=secodelines>function&nbsp;MustOpen(filename)&nbsp;</p>
+<p class=secodelines>{&nbsp;</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;var&nbsp;fh&nbsp;=&nbsp;fopen(filename,&nbsp;"r");&nbsp;</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;if&nbsp;(&nbsp;fh&nbsp;==&nbsp;null&nbsp;)&nbsp;</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;{&nbsp;</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Clib.printf("Error:%s\n",</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Clib.strerror(errno));&nbsp;</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Clib.exit(EXIT_FAILURE);&nbsp;</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;}</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;return(fh);&nbsp;</p>
+<p class=secodelines>}</p></td>
+</tr>
+</table>
+<p class=normal>&nbsp;</p>
+<hr noshade size=1>
+<p class=normal><a href="TH_501.htm"><img src="button.png" border=0></a><a href="TH_501.htm" style="text-decoration:none;">File I/O</a></p>
+<p>
+</body>
+</html>

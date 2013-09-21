@@ -1,0 +1,45 @@
+<html>
+<head>
+<title>Creating arrays</title>
+<link rel="stylesheet" href="semanualstyles.css" type="text/css">
+<style type="text/css">
+ p { margin-top: 0; margin-bottom: 0; }
+</style>
+<script language="JavaScript" src="TrueHelp.js"></script>
+</head>
+<body onload="thload()">
+<div id=ienav>
+<ilayer id=nsnav>
+<br>
+<center>
+<p class=normal><a href="seisdkj-toc.htm" target="left">contents</a> &nbsp; <a href="seisdkj-index.htm" target="left">index</a> &nbsp; <a href="TH_416.htm">previous</a> &nbsp; <a href="TH_418.htm">next</a></p>
+</center>
+<br>
+<hr noshade size=1>
+</ilayer>
+</div>
+<p class=heading-3>Creating arrays</p>
+<p class=heading-3-p>&nbsp;</p>
+<p class=senormalpara>Like other objects, arrays are created using the <span class=secodephrase>new</span> operator and the Array constructor function. There are three possible ways to use this function to create an array. The simplest is to call the function with no parameters:</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=secodelinesindented>var&nbsp;a&nbsp;=&nbsp;new&nbsp;Array();</p>
+<p class=secodelinesindented>&nbsp;</p>
+<p class=senormalpara>This line initializes variable a as an array with no elements. The parentheses are optional when creating a new array, if there are no arguments. If you wish to create an array of a predefined size, pass variable a the size as a parameter of the <span class=sepopuptopic><a href="TH_422.htm" onClick="return thwindow('TH_422.htm', 'GenPopup')">Array()</a></span> function. The following line creates an array with a length of the size passed.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=secodelinesindented>var&nbsp;b&nbsp;=&nbsp;new&nbsp;Array(31);</p>
+<p class=secodelinesindented>&nbsp;</p>
+<p class=senormalpara>In this case, an array with length 31 is created.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>Finally, you can pass a list of elements to the <span class=secodephrase>Array()</span>function, which creates an array containing all of the parameters passed. For example:</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=secodelinesindented>var&nbsp;c&nbsp;=&nbsp;new&nbsp;Array(5,&nbsp;4,&nbsp;3,&nbsp;2,&nbsp;1,&nbsp;"blast&nbsp;off");</p>
+<p class=secodelinesindented>&nbsp;</p>
+<p class=senormalpara>creates an array with a length of 6. c[0] is set to 5, c[1] is set to 4, and so on up to c[5], which is set to the string "blast off". Note that the first element of the array is array[0], not array[1].</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>Arrays may also be created dynamically. By referring to a variable with an index in brackets<span class=truehelp-xe></span>, a variable is created as or converted to an array. The array that is created is an automatic or dynamic array which is different than an instance of an <span class=sepopuptopic><a href="TH_416.htm" onClick="return thwindow('TH_416.htm', 'GenPopup')">Array object</a></span> created as described in this section. Automatic arrays, created as described in this paragraph, are unable to use the methods and properties described below, so it is recommended that you use, in most circumstances, the <span class=secodephrase>new Array()</span> constructor function to create arrays.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<hr noshade size=1>
+<p class=normal><a href="TH_418.htm"><img src="button.png" border=0></a><a href="TH_418.htm" style="text-decoration:none;">Initializers for arrays and objects</a></p>
+<p>
+</body>
+</html>

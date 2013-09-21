@@ -1,0 +1,175 @@
+<html>
+<head>
+<title>ScriptEase ISDK Newsletter August 30, 2001</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-1754630-10']);
+  _gaq.push(['_trackPageview']);
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+</head>
+
+<body bgcolor="#FFFFFF" TOPMARGIN=0 LEFTMARGIN=0 MARGINWIDTH=0 MARGINHEIGHT=0>
+<table width="640" border="0" cellspacing="0" cellpadding="0">
+  <tr> 
+    <td> 
+      <p><img src="images/newsbanner.jpg" width="640" height="70" border="0"></p>
+      <table width="630" border="0" cellspacing="0" cellpadding="0" align="center">
+        <tr> 
+          <td width="150" valign="top" align="left"> 
+            <p><font face="Arial, Helvetica, sans-serif" color="#0E2595" size="4"><b>August 
+              30, 2001</b></font></p>
+            <p><b><font color="#990000" size="-2" face="Verdana,Tahoma,Arial,Helvetica">In 
+              This Issue</font></b></p>
+            <table width="150" border="0" cellspacing="0" cellpadding="0">
+              <tr> 
+                <td width="15" valign="top" align="center"> 
+                  <p><a href="#article1"></a><img src="images/bullet.gif" width="10" height="10" vspace="2"></p>
+                </td>
+                <td width="135" align="left" valign="top"> 
+                  <p><a href="#article1"><font size="-2" face="Verdana,Tahoma,Arial,Helvetica">SE:ISDK/C 
+                    4.40 general release</font></a><br>
+                    &nbsp; </p>
+                </td>
+              </tr>
+              <tr> 
+                <td width="15" align="center" valign="top"><img src="images/bullet.gif" width="10" height="10" vspace="2"></td>
+                <td width="135" align="left" valign="top"><a href="#errata430d"><font size="-2" face="Verdana,Tahoma,Arial,Helvetica">Errata 
+                  for 4.30d release</font></a><br>
+                  &nbsp; </td>
+              </tr>
+            </table>
+            <p><font size="-2" face="Verdana,Tahoma,Arial,Helvetica"><a href="../devspace/newsletters/index.htm">Other 
+              Newsletters</a></font></p>
+            <p><b><font color="#990000" size="-2" face="Verdana,Tahoma,Arial,Helvetica">DevSpace 
+              Developer Support<br>
+              <br>
+              </font></b><font size="-2" face="Verdana,Tahoma,Arial,Helvetica">For 
+              more information and resources, </font><a
+                             href="../devspace/index.htm"><font size="-2" face="Verdana,Tahoma,Arial,Helvetica">visit 
+              ScriptEase: ISDK DevSpace online.</font></a> </p>
+            <p align=LEFT><b><font color="#990000" size="-2"
+                             face="Verdana,Tahoma,Arial,Helvetica">Download Center<br>
+              <br>
+              </font></b><font size="-2" face="Verdana,Tahoma,Arial,Helvetica">For 
+              latest updates and extensions, </font><a href="http://www.nombasxxx.com/us/toolkit/isdkdownload.htm"><font size="-2" face="Verdana,Tahoma,Arial,Helvetica">visit 
+              the ISDK Download Center</font></a><font size="-2"
+                             face="Verdana,Tahoma,Arial,Helvetica">.</font> 
+          </td>
+          <td width="10">&nbsp;</td>
+          <td width="470" valign="top" align="left"> 
+            <div align="left"> 
+              <p><font face="Arial, Helvetica, sans-serif" color="#0E2595" size="4"><b><a name="article1"></a><img src="images/drscripter.jpg" width="100" height="100" align="right" border="0" vspace="2" hspace="4">SE:ISDK/C 
+                version 4.40 now available</b></font><br>
+                <font size="2" color="#6699FF" face="Arial, Helvetica, sans-serif"><i>ScriptEase 
+                SE:ISDK/C 4.40 available, but so is 4.30</i></font></p>
+              <p align=LEFT><font color="#000000">Version 4.40 is now available. 
+                As discussed in <a href="082001/082001news.htm">the previous 
+                newsletter</a>, version 4.40 may be the best choice for you, or 
+                you can stick with 4.30. We will continue to update 4.30, with 
+                a 4.30e errata release coming soon.</font></p>
+              <p align=LEFT><b><font color="#0e2595">What is new in 4.40</font><font color="#0E2595">?</font></b> 
+              </p>
+              <p align=LEFT><font color="#000000">The <a href="082001/082001news.htm">August 
+                20 Newsletter</a> describes the greatest differences between 4.30 
+                and 4.40, and discusses whether you should switch now. Here is 
+                a brief listing of those and other changes:</font></p>
+              <p align=LEFT><font color="#000000"><b>Improved Memory Use</b>: 
+                Structures and code have been tweaked to use les memory, sometimes 
+                much less memory.</font></p>
+              <p align=LEFT><b>Extended Memory Options</b>: External memory systems 
+                (i.e. memory outside the standard malloc-like allocation heap) 
+                can be used to handle larger scripts and objects on smaller devices.</p>
+              <p align=LEFT><b>Fibers</b>: Multiple fibers can share most of the 
+                script context, saving memory and providing enhanced performance 
+                for servers supporting many near-simultaneous events.</p>
+              <p align=LEFT><b>Named Arguments</b>: foo(parm1:value) is now optionally 
+                supported in scripts.</p>
+              <p align=LEFT><b>Enumerate members option</b>: jseGetNextMember() 
+                has a new option that will not create tempVars.</p>
+              <p align=LEFT><b>Performance enhancements</b>: In our speed tests 
+                version 4.40 can run about 20% faster than 4.30.</p>
+              <p align=LEFT><b>More QA</b>: More of our internal debugging tools,and 
+                more tests, have been added to improve QA for ourselves and for 
+                you.</p>
+              <p align=LEFT><b>New platforms</b>: We've added more devices to 
+                our supported platforms: PalmOS, PocketPC, and RIM BlackBerry.</p>
+              <p align=LEFT><b>jsecontexts are consistent</b>: The jseContext 
+                returned from initialization can now be used anywhere. jseCurrentContext() 
+                is no longer necessary.</p>
+              <p align=LEFT><b>Control over implicit flags in jseInterpret</b>: 
+                More build and run-time flags have been added to control implicit-this 
+                and implicit-parents for the global or for all functions when 
+                calling jseInterpret().</p>
+              <p align=LEFT><b>C++ object wrapper</b>: srcapp/jseobject is available 
+                to provide easier wrapping of C++ objects as ECMAScript objects.</p>
+              <p align=LEFT></p>
+              <p align=LEFT><b><font color="#0e2595">What is not new in 4.40</font><font color="#0E2595">?</font></b> 
+              </p>
+              <p align=LEFT><font color="#000000">The API, with the exception 
+                of what is mentioned above, and supporting tools have not changed. 
+                The manual is still at 4.30 and will not be modified for this 
+                release.</font></p>
+              <p align=LEFT><b><font color="#0E2595">Should I switch from 4.30 
+                to 4.40? </font></b> </p>
+              <p align=LEFT><font color="#000000">If you need a feature that is 
+                in 4.40, then switch. If 4.30 has all you need and you've been 
+                using it for a while then stay with 4.30 (4.30e errata release 
+                will be available soon). Also, see the <a href="082001/082001news.htm#switch">August 
+                20 Newsletter</a> for more discussion on this topic. If you are 
+                unsure then contact <a href="http://support.nombasxxx.com/">http://support.nombasxxx.com/</a> 
+                with your questions.</font></p>
+              <p align=LEFT><b><font color="#0E2595">How do I get version 4.40? 
+                </font></b> </p>
+              <p align=LEFT>Send a message to the <a target="support" href="http://support.nombasxxx.com/">Nombas 
+                Support Site</a> requesting a 4.40c release and the platforms 
+                needed.</p>
+              <p align=LEFT><i><font
+                             size="-1" face="Verdana,Tahoma,Arial,Helvetica">Have 
+                a question about how to use ScriptEase:ISDK? Let Dr. Scripter 
+                know at </font></i><a href="http://support.nombasxxx.com/"><i><font size="-1"
+                             face="Verdana,Tahoma,Arial,Helvetica">http://support.nombasxxx.com/</font></i></a></p>
+            </div>
+          </td>
+        </tr>
+      </table>
+      <hr>
+      <font face="Arial, Helvetica, sans-serif" color="#0E2595" size="4"><b><font size="5"><a name="errata430d"></a>&nbsp;Errata</font></b></font> 
+      <p><b><font color="#0E2595" size="-1" face="Verdana,Tahoma,Arial,Helvetica">&nbsp;&nbsp;4.30d 
+        and earlier versions </font></b> </p>
+      <ul>
+        <li><font color="#000000"><b>jseCallStackInfo() crash</b>: jseCallStackInfo() 
+          can crash using Variable object. This bug and a fix are at <a href="../devspace/errata/isdk/index430.htm#430dcsivo">jseCallStackInfo() 
+          crash</a> on the errata web site.</font></li>
+      </ul>
+      <ul>
+        <li><b>seuni.h C++ compilation errors</b>: SEUNI.H causes compilation 
+          errors for some C++ compilers. <font color="#000000">This bug and a 
+          fix are at <a href="../devspace/errata/isdk/index430.htm#430dseunicpp">seuni.h 
+          C++ errors</a> on the errata web site.</font></li>
+      </ul>
+      <ul>
+        <li><b>New COMOBJ</b>: COMOBJ has been rewritten to be more robust and 
+          faster. See <a href="../devspace/errata/link/index.htm#newcomobj">New 
+          ComObj</a> for more information.</li>
+      </ul>
+      <ul>
+        <li><b>Altering &quot;arguments&quot; triggers assertion</b>: In debug 
+          builds, assigning to or otherwise altering &quot;arguments&quot; tiggers 
+          an assertion. <font color="#000000">This bug and a fix are at <a href="../devspace/errata/isdk/index430.htm#430dalterarg">&quot;arguments&quot; 
+          assertion</a> on the errata web site.</font></li>
+      </ul>
+      <p></p>
+      <p></p>
+      <p></p>
+      <p><a href="../index.htm"><img src="images/footer.jpg" width="640" height="30" border="0" alt="ScriptEase: ISDK is a product of Nombas, Inc. Visit us at ../index.htm"></a></p>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

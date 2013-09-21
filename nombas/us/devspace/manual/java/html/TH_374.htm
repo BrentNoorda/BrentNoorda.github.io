@@ -1,0 +1,37 @@
+<html>
+<head>
+<title>main() function</title>
+<link rel="stylesheet" href="semanualstyles.css" type="text/css">
+<style type="text/css">
+ p { margin-top: 0; margin-bottom: 0; }
+</style>
+<script language="JavaScript" src="TrueHelp.js"></script>
+</head>
+<body onload="thload()">
+<div id=ienav>
+<ilayer id=nsnav>
+<br>
+<center>
+<p class=normal><a href="seisdkj-toc.htm" target="left">contents</a> &nbsp; <a href="seisdkj-index.htm" target="left">index</a> &nbsp; <a href="TH_373.htm">previous</a> &nbsp; <a href="TH_375.htm">next</a></p>
+</center>
+<br>
+<hr noshade size=1>
+</ilayer>
+</div>
+<p class=heading-3>main() function</p>
+<p class=heading-3-p>&nbsp;</p>
+<p class=senormalpara>If a script has a function called <span class=secodephrase>main()</span>, it is the first function executed. (For more information on what takes place when a script is run, see the section on running a script.) Other than the fact that <span class=secodephrase>main()</span> is the first function executed, it is like other functions. If the <span class=secodephrase>main()</span> function returns a value, that value is returned to the operating system or whatever process called the script.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>The <span class=secodephrase>main()</span> function automatically receives two parameters, which, by convention, are called argc and argv. The parameter argc, argument count, is the number of parameters passed to the script and the parameter argv is an array of strings, with each element being one of the parameters. The first element, <span class=secodephrase>argv[0]</span>, of this array is always the name of the script, thus if <span class=secodephrase>argc == 1</span>, then no variables were passed to a script.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>Arguments are passed to a script as parameters when it is called from a command line as illustrated in the following line.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=secodelinesindented>sewin32.exe&nbsp;jseedit.jse&nbsp;document.txt</p>
+<p class=secodelinesindented>&nbsp;</p>
+<p class=senormalpara>In the example above, <span class=secodephrase>argc == 2</span>, <span class=secodephrase>argv[0] == "jseedit.jse"</span> and <span class=secodephrase>argv[1] == "document.txt"</span>.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<hr noshade size=1>
+<p class=normal><a href="TH_375.htm"><img src="button.png" border=0></a><a href="TH_375.htm" style="text-decoration:none;">Objects</a></p>
+<p>
+</body>
+</html>

@@ -1,0 +1,42 @@
+<html>
+<head>
+<title>The SEToLocaleHandler interface</title>
+<link rel="stylesheet" href="semanualstyles.css" type="text/css">
+<style type="text/css">
+ p { margin-top: 0; margin-bottom: 0; }
+</style>
+<script language="JavaScript" src="TrueHelp.js"></script>
+</head>
+<body onload="thload()">
+<div id=ienav>
+<ilayer id=nsnav>
+<br>
+<center>
+<p class=normal><a href="seisdkj-toc.htm" target="left">contents</a> &nbsp; <a href="seisdkj-index.htm" target="left">index</a> &nbsp; <a href="TH_265.htm">previous</a> &nbsp; next</p>
+</center>
+<br>
+<hr noshade size=1>
+</ilayer>
+</div>
+<p class=heading-3>The SEToLocaleHandler interface</p>
+<p class=heading-3-p>&nbsp;</p>
+<p class=senormalpara>When using the <span class=secodephrase>SELibraryManager</span> to add the ECMA_DATE library to your context, you can specify a <span class=secodephrase>SEToLocaleHandler </span>object for that library.  When the <span class=secodephrase>toLocaleString</span> method of the Date object is invoked from your script, the library will check for the presence of a <span class=secodephrase>SEToLocaleHandler</span> object.  If you have specified one, that object&#8217;s <span class=secodephrase>toLocale</span> method will be used to determine the locale string.  </p>
+<p class=senormalpara>The <span class=secodephrase>SEToLocaleHandler</span> interface defines a single method:</p>
+<p class=secodelinesindented>public&nbsp;boolean&nbsp;toLocale(SEContext&nbsp;se,&nbsp;</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;StringBuffer&nbsp;buffer,&nbsp;</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;char&nbsp;type,</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;double&nbsp;milli_since_1970);</p>
+<p class=senormalpara>This method is expected to be able to take the milliseconds since Jan 1, 1970 and convert it to locale time.  The <span class=secodephrase>type</span> parameter determines whether the locale time should be determined for just the date (&#8216;d&#8217;), just the time (&#8216;t&#8217;), or both (&#8216;b&#8217;).  The converted locale time should then be placed into the provided <span class=secodephrase>buffer</span>.  If this method returns false, then the contents of the buffer will be ignored and the result of the <span class=secodephrase>toLocaleString</span> function will be &#147;bad date&#148;.</p>
+<p class=senormalpara>Once you have an object that implements the SEToLocaleHanlder interface, you can specify it when you add the Date library using the SELibraryManager:</p>
+<p class=secodelinesindented>SELibraryManager.addStandardLibraries(se,&nbsp;SELibraryManager.ECMA_DATE,&nbsp;myToLocaleHandler);</p>
+<p class=senormalpara>or:</p>
+<p class=secodelinesindented>SELibraryManager.addStandardLibraries(se,&nbsp;SELibraryManager.ECMA_ALL,&nbsp;myToLocaleHandler);</p>
+<p class=senormalpara>&nbsp;</p>
+<p class=senormalpara>If you specify a <span class=secodephrase>SEToLocaleHandler</span> object when adding one of the other libraries (like the ECMA Math library), the <span class=secodephrase>SEToLocaleHandler</span> will be ignored.</p>
+<p class=senormalpara>&nbsp;</p>
+<p class=senormalpara>&nbsp;</p>
+<p class=senormalpara>&nbsp;</p>
+<p class=senormalpara>&nbsp;</p>
+<p>
+</body>
+</html>

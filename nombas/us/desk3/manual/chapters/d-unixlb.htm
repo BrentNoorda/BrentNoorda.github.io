@@ -1,0 +1,406 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML EXPERIMENTAL 970324//EN">
+<HTML>
+<HEAD>
+<META NAME="GENERATOR" CONTENT="Adobe FrameMaker 5.5/HTML Export Filter">
+<LINK REL="STYLESHEET" HREF="desk3man.css">
+<TITLE>ScriptEase:Desktop v3 Manual: UNIX Library</TITLE>
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-1754630-10']);
+  _gaq.push(['_trackPageview']);
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+</HEAD>
+<BODY BACKGROUND="desk3pat.gif">
+<TABLE WIDTH="225" BORDER="0" CELLSPACING="0" CELLPADDING="0">
+  <TR>
+    <TD WIDTH="71"><a href="c-nt95lb.htm"><IMG SRC="prev.gif" WIDTH="71" height="18" border="0"></a></TD>
+    <TD WIDTH="80"><a href="../index.htm"><IMG SRC="tocidx.gif" WIDTH="80" height="18" border="0"></a></TD>
+    <TD WIDTH="74"><a href="e-fncgrp.htm"><IMG SRC="next.gif" WIDTH="74" height="18" border="0"></a></TD>
+  </TR>
+</TABLE>
+
+<H1 CLASS="Title">
+UNIX Library</H1>
+<P CLASS="Abstract">
+The routines in this section are specific to the UNIX version of ScriptEase. They are included internally to the ScriptEase program, and are available to any ScriptEase program executed by ScriptEase under UNIX.</P>
+<P CLASS="Body">
+Most of these routines allow the programmer to have more power than is generally acknowledged as safe under ScriptEase' guidelines. So be careful when you use these commands, they provide plenty of rope with which to hang yourself.</P>
+<HR><TABLE>
+<TR>
+<TH>
+<H6 CLASS="fnam">
+dlcall </H6>
+</TH>
+<TH>
+<H6 CLASS="cHead">
+&nbsp;</H6>
+</TH>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+DESCRIPTION</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Call a routine in a shared object under Linux, Sun OS, Solaris, FreeBSD, or AIX (all Unix versions currently supported).</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+SYNTAX</P>
+</TD>
+<TD>
+<P CLASS="cb">
+int dlcall(string shared_object, string routine,...)</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+COMMENTS</P>
+</TD>
+<TD>
+<P CLASS="cb">
+dlcall() allows you to call routines in shared objects directly. The first parameter is the name of the shared object; the second is the name of the routine being called.</P>
+<P CLASS="cb">
+If a parameter is undefined when dlcall() is called, then it is assumed that parameter will be a 32-bit value that will be filled in (i.e., the address of a 32-bit data element is passed to the function, and that function will set the value). </P>
+<P CLASS="cb">
+If any parameter is a structure then it must be a structure that defines the binary data types in memory to represent the following variable. Before calling the DLL function, the structure will be copied to a binary buffer as described in BLObPut() and fwrite(). After calling the DLL function the binary data will be converted back into the data structure according to the rules defined in BLObGet() and fread(). Data conversion will be performed according to the current _BigEndianMode setting (see fread()). </P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+RETURN</P>
+</TD>
+<TD>
+<P CLASS="cb">
+This function returns the result of the called function converted to integer form. If the given function does not exists, a run-time error is generated.</P>
+</TD>
+</TR>
+</TABLE>
+<HR><TABLE>
+<TR>
+<TH>
+<H6 CLASS="fnam">
+<A NAME="997476">
+ </A>
+fork</H6>
+</TH>
+<TH>
+<H6 CLASS="cHead">
+&nbsp;</H6>
+</TH>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+DESCRIPTION</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Create a duplicate of the current process.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+SYNTAX</P>
+</TD>
+<TD>
+<P CLASS="cb">
+int fork()</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+COMMENTS</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Two copies of the process now exist. Both pick up execution on return from the fork() call. See the return value below.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+RETURN</P>
+</TD>
+<TD>
+<P CLASS="cb">
+The PID of the child is returned to the parent. A value of 0 is returned to the child.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+SEE ALSO</P>
+</TD>
+<TD>
+<P CLASS="cb">
+waitpid</P>
+</TD>
+</TR>
+</TABLE>
+<HR><TABLE>
+<TR>
+<TH COLSPAN="2">
+<P CLASS="cb">
+<A NAME="997740">
+ </A>
+getcwd</P>
+</TH>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+DESCRIPTION</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Get the current working directory.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+SYNTAX</P>
+</TD>
+<TD>
+<P CLASS="cb">
+string getcwd(string buffer);</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+COMMENT</P>
+</TD>
+<TD>
+<P CLASS="cb">
+The full pathname of the current directory is copied to the given buffer.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+RETURN</P>
+</TD>
+<TD>
+<P CLASS="cb">
+The function returns the value of its argument.</P>
+</TD>
+</TR>
+</TABLE>
+<HR><TABLE>
+<TR>
+<TH>
+<H6 CLASS="fnam">
+<A NAME="997531">
+ </A>
+setsid</H6>
+</TH>
+<TH>
+<H6 CLASS="cHead">
+&nbsp;</H6>
+</TH>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+DESCRIPTION</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Create a new session with no terminal.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+SYNTAX</P>
+</TD>
+<TD>
+<P CLASS="cb">
+void setsid()</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+COMMENTS</P>
+</TD>
+<TD>
+<P CLASS="cb">
+This function allows your program to disattach itself from the terminal and continue to run. You call this, then fork(). If fork() returns non-zero, exit(0). The child will therefore continue to run, the parent closes leaving the terminal free.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+EXAMPLE</P>
+</TD>
+<TD>
+<P CLASS="cb">
+setsid();  if( fork() ) exit(0);</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+SEE ALSO</P>
+</TD>
+<TD>
+<P CLASS="cb">
+fork()</P>
+</TD>
+</TR>
+</TABLE>
+<HR><TABLE>
+<TR>
+<TH>
+<H6 CLASS="fnam">
+<A NAME="997559">
+ </A>
+setuid</H6>
+</TH>
+<TH>
+<H6 CLASS="cHead">
+&nbsp;</H6>
+</TH>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+DESCRIPTION</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Change a process' user ID.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+SYNTAX</P>
+</TD>
+<TD>
+<P CLASS="cb">
+int setuid(int uid)</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+COMMENTS</P>
+</TD>
+<TD>
+<P CLASS="cb">
+The user id of the running process is changed to the given id, if the user has priviledges to change to that id.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+RETURN</P>
+</TD>
+<TD>
+<P CLASS="cb">
+0 is returned on success, -1 on failure.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+SEE ALSO</P>
+</TD>
+<TD>
+<P CLASS="cb">
+getuid()</P>
+</TD>
+</TR>
+</TABLE>
+<HR><TABLE>
+<TR>
+<TH>
+<H6 CLASS="fnam">
+<A NAME="997587">
+ </A>
+waitpid</H6>
+</TH>
+<TH>
+<H6 CLASS="cHead">
+&nbsp;</H6>
+</TH>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+DESCRIPTION</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Wait for a child to exit and then clean it up.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+SYNTAX</P>
+</TD>
+<TD>
+<P CLASS="cb">
+int waitpid(int pid,int status,int flags)</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+COMMENTS</P>
+</TD>
+<TD>
+<P CLASS="cb">
+See unix man page for information on this function. It is used most often to clean up child processes that you created with fork() to avoid zombie processes hanging around.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+RETURN</P>
+</TD>
+<TD>
+<P CLASS="cb">
+The process id of the child that exited, -1 if error, 0 if WNOHANG is used and no child is available.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+SEE ALSO</P>
+</TD>
+<TD>
+<P CLASS="cb">
+setuid()</P>
+</TD>
+</TR>
+</TABLE>
+</DIV>
+</DIV>
+<TABLE WIDTH="225" BORDER="0" CELLSPACING="0" CELLPADDING="0">
+  <TR>
+    <TD WIDTH="71"><a href="c-nt95lb.htm"><IMG SRC="prev.gif" WIDTH="71" height="18" border="0"></a></TD>
+    <TD WIDTH="80"><a href="../index.htm"><IMG SRC="tocidx.gif" WIDTH="80" height="18" border="0"></a></TD>
+    <TD WIDTH="74"><a href="e-fncgrp.htm"><IMG SRC="next.gif" WIDTH="74" height="18" border="0"></a></TD>
+  </TR>
+</TABLE>
+
+</BODY>
+</HTML>

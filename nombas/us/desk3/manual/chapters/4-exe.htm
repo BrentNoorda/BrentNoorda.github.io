@@ -1,0 +1,419 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML EXPERIMENTAL 970324//EN">
+<HTML>
+<HEAD>
+<META NAME="GENERATOR" CONTENT="Adobe FrameMaker 5.5/HTML Export Filter">
+<LINK REL="STYLESHEET" HREF="desk3man.css">
+<TITLE>ScriptEase:Desktop v3 Manual: The ScriptEase Processor</TITLE>
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-1754630-10']);
+  _gaq.push(['_trackPageview']);
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+</HEAD>
+<BODY BACKGROUND="desk3pat.gif">
+<TABLE WIDTH="225" BORDER="0" CELLSPACING="0" CELLPADDING="0">
+  <TR>
+    <TD WIDTH="71"><a href="3-tutor.htm"><IMG SRC="prev.gif" WIDTH="71" height="18" border="0"></a></TD>
+    <TD WIDTH="80"><a href="../index.htm"><IMG SRC="tocidx.gif" WIDTH="80" height="18" border="0"></a></TD>
+    <TD WIDTH="74"><a href="5-debug.htm"><IMG SRC="next.gif" WIDTH="74" height="18" border="0"></a></TD>
+  </TR>
+</TABLE>
+
+<H1 CLASS="Title">
+The ScriptEase Processor</H1>
+<P CLASS="Abstract">
+This chapter describes the ScriptEase program, how it interprets ScriptEase code, and the various methods for using ScriptEase to launch scripts.</P>
+<P CLASS="Body">
+The <A NAME="997195">
+ </A>
+ScriptEase processor is the engine that reads, interprets, and executes a ScriptEase script. There is a different version of the processor for each operating system that ScriptEase supports. Each version interprets ScriptEase code in a manner appropriate to its operating system; for example, the Directory() function parses a DOS directory slightly differently that a UNIX directory because of the differences in the operating systems involved; however, the end result to the user is the same.</P>
+<P CLASS="Body">
+The ScriptEase processor contains the defined values and  functions listed in this manual. You do not need to #include any files to use these functions. Each version of the ScriptEase processor has four internal libraries: the standard, extended and professional ScriptEase libraries are common to all versions of ScriptEase; and an operating system specific library that is different for each version. For a full list of the available functions, consult the chapter on The Standard ScriptEase Library.</P>
+<P CLASS="Body">
+ScriptEase is the generic term for the different versions of ScriptEase. For DOS, the ScriptEase executable is SEDOS.EXE or SEDOS32.EXE. For Windows it is SEWIN16.EXE, OS/2 is SEOS2.EXE, the Windows `95 and NT Console version is SECon32.exe, and the Windows `95 and NT GUI version is CEnviW32.exe. Although most of the examples in this chapter would work in any version of ScriptEase, SEDOS.EXE will be often be used in examples. For a different operating system substitute the ScriptEase executable name for that operating system (e.g., SEOS2.EXE, SEWIN16.EXE, etc...).</P>
+<DIV>
+<H2 CLASS="Topic">
+The <A NAME="997196">
+ </A>
+CMMPATH</H2>
+<P CLASS="Body">
+This environment variable affects where ScriptEase looks for .cmm source files and library files. When looking for files, ScriptEase uses the following rule. First look in the current directory, then the directory that contains the ScriptEase executable, followed by the directories specified by the CMMPATH variable, and finally the directories specified by the PATH environment variable. The CMMPATH variable is like the PATH variable. The CMMPATH is used exclusively by ScriptEase and lists the directories where ScriptEase scripts and libraries are stored. This keeps your PATH variable shorter and more manageable. The only exception to this rule is in ScriptEase for Windows. The CMMPATH profile value in win.ini (in Windows 3.x) or the Registry key for ScriptEase (in Windows 95 and NT) is checked after the current directory in the above scheme. </P>
+</DIV>
+<DIV>
+<H2 CLASS="Topic">
+<A NAME="997197">
+ </A>
+Environment variables</H2>
+<P CLASS="Body">
+Operating systems that do not allow ScriptEase to directly modify environment variables (such as Windows `95 and `NT, and OS/2) have an additional environment variable, CENVI_ESET, that is used to store the name of a file for writing information for changing the system's environment variables indirectly.</P>
+<TABLE>
+<TR>
+<TD>
+<P CLASS="cb">
+<EM CLASS="Element">
+CMMPATH</EM>
+: </P>
+</TD>
+<TD>
+<P CLASS="cb">
+This environment variable specifies a search path specific to ScriptEase.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="cb">
+<EM CLASS="Element">
+PATH</EM>
+:     </P>
+</TD>
+<TD>
+<P CLASS="cb">
+This environment variable is used by ScriptEase, and other application to search for files that are not in the current directory.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="cb">
+<EM CLASS="Element">
+CENVI_ESET</EM>
+: </P>
+</TD>
+<TD>
+<P CLASS="cb">
+This environment variable points to the file ScriptEase will use to write the strings necessary for the command interpreter to set environment variables as altered by your ScriptEase code. See the description of ESet() for more information about this command.</P>
+</TD>
+</TR>
+</TABLE>
+</DIV>
+<DIV>
+<H2 CLASS="Topic">
+The <A NAME="997198">
+ </A>
+ScriptEase Shell</H2>
+<P CLASS="Body">
+When any version of ScriptEase is run without command line arguments, the user is placed in a ScriptEase shell. The exception to this rule is ScriptEase for UNIX (see below). In the shell, ScriptEase scripts can be run as command line utilities. As an added bonus, other applications can be launched from the ScriptEase shell. For the Windows version this gives you a Windows command-line that looks similar to a DOS box, but also lets you launch Windows applications. </P>
+<P CLASS="Body">
+To exit the ScriptEase Shell, type EXIT at the shell command line. For windowed interfaces, you can exit by using the pulldown system menu.</P>
+<P CLASS="Body">
+The Windows and Windows NT versions of the ScriptEase Shell allow their look and feel to be customized. To control the color, font, and size of the ScriptEase Shell, use the pulldown system menu.</P>
+<P CLASS="Body">
+In UNIX there is no ScriptEase shell; if ScriptEase is run without command line arguments, the processor will read and execute lines from stdin until an end-of-file is reached.</P>
+<DIV>
+<H3 CLASS="SubTopic">
+<A NAME="997199">
+ </A>
+Shell File Redirections (&lt;, &gt;, &gt;&gt;, and |)</H3>
+<P CLASS="Body">
+The input and output of commands executed from the ScriptEase Shell may be redirected from or to a file with the redirection operators.</P>
+<TABLE>
+<TR>
+<TD>
+<P CLASS="cb">
+<EM CLASS="Element">
+&lt;</EM>
+</P>
+</TD>
+<TD>
+<P CLASS="cb">
+To redirect standard input from a file, instead of taking input from the keyboard, use the &quot;&lt;&quot; redirection operator, as in</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="cb">
+&nbsp;</P>
+</TD>
+<TD>
+<P CLASS="cmd">
+sort &lt; C:\LIST.TXT</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="cb">
+<EM CLASS="Element">
+&gt;</EM>
+</P>
+</TD>
+<TD>
+<P CLASS="cb">
+To redirect output to a file, instead of to the screen, use the &quot;&gt;&quot; redirection operator, as in</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="cb">
+&nbsp;</P>
+</TD>
+<TD>
+<P CLASS="cmd">
+DIR &gt; C:\DIR.LST</P>
+</TD>
+</TR>
+</TABLE>
+<P CLASS="Body">
+Any data that is in C:\DIR.LST will be overwritten with this command. If you want to add data to the end of the file while keeping the file contents intact, use the `&gt;&gt;' operator (described below).</P>
+<P CLASS="Body">
+Input and output redirection may be combined in the same command. You can redirect output to a file that does not exist; in such a case, the file will be created. The following example would make the SORT program (whether SORT.EXE or SORT.CMM) take input from the C:\LIST.TXT file and send its output to C:\DIRSORT.LST:</P>
+<P CLASS="cmd">
+SORT &lt; C:\LIST.TXT &gt; C:\DIRSORT.LST</P>
+<P CLASS="Body">
+To redirect output and append that output to a file, instead of to the screen, use the &quot;&gt;&gt;&quot; redirection operator.  This operator is similar to the &quot;&gt;&quot; redirection operator except that it will append the output to the specified file if that file already exists.  Example:</P>
+<P CLASS="cmd">
+DIR &gt;&gt; C:\DIR.LST</P>
+<P CLASS="Body">
+To use the standard output of one program as the standard input of another program, use the &quot;|&quot; pipe redirection operator (this is often the shifted character above the backslash key &quot;\&quot;).  In the following example, the output of the DIR command will be used as the input of the SORT command, which will then be redirected into the C:\DIRSORT.LST file:</P>
+<P CLASS="cmd">
+DIR | SORT &gt; C:\DIRSORT.LST</P>
+</DIV>
+</DIV>
+<DIV>
+<H2 CLASS="Topic">
+<A NAME="997200">
+ </A>
+AUTOLOAD.CMM</H2>
+<P CLASS="Body">
+When the ScriptEase shell starts, it loads the AUTOLOAD.CMM, AUTOEXEC.CMM, and SHELLCHR.CMM (if found).  These files modify and extend to the ScriptEase shell. Extensions are implemented through the ShellFilterCommand() and ShellFilterCharacter() hooks (see the chapter on ScriptEase standard library extensions for descriptions of these two functions).</P>
+<P CLASS="Body">
+Here are some of the features implemented via the AUTOLOAD.CMM that is shipping with ScriptEase. To see a complete list of the shell commands, type &quot;help&quot; at the command prompt. For an explanation of a command, type &quot;help command&quot; where command is the name of the command you want help on.</P>
+<P CLASS="deBody">
+<EM CLASS="Element">
+HISTORY</EM>
+<A NAME="997452">
+ </A>
+: Using the up and down arrows, you can scroll through the history of commands that have already been entered in that ScriptEase shell</P>
+<P CLASS="deBody">
+<EM CLASS="Element">
+CD, CHDIR, TYPE, CLS</EM>
+: These familiar commands are implemented within AUTOLOAD.CMM (in some operating systems these commands are passed to the default command processor)</P>
+<P CLASS="deBody">
+<EM CLASS="Element">
+TAB</EM>
+<A NAME="997453">
+ </A>
+: You can use the tab key to complete directory names while in the ScriptEase shell. For example, if you are at the CD prompt, and you have a directory called &quot;documents&quot;, you can type CD D and then hit the tab key. ScriptEase will search the directory for a subdirectory beginning with the letters you typed and complete the name for you.  Note that if you also had a directory called &quot;dinosaurs&quot; you would be shown that instead, since `dinosaurs' comes alphabetically before `documents.' You could avoid this problem by entering CD DO before hitting the tab key, or by hitting the tab key twice to get to the second subdirectory beginning with `D'.</P>
+<P CLASS="deBody">
+<EM CLASS="Element">
+!</EM>
+: The exclamation point can be used with commands the same way the tab key can be used with directories.  If you enter &quot;!h&quot;, the processor will execute the last command given it that begins with `h'.  </P>
+<P CLASS="deBody">
+<EM CLASS="Element">
+!!</EM>
+: This will repeat the last command you entered.</P>
+<P CLASS="deBody">
+<EM CLASS="Element">
+START</EM>
+: In operating systems that support multitasking, START is used run another program and return immediately to the ScriptEase shell before waiting for the other program to complete execution.  To launch an application and then return to the ScriptEase shell immediately, enter the START command in front of the application name. For example, to start the Windows notepad as a separate process from the ScriptEase shell, type the following:</P>
+<P CLASS="cmd">
+	START NOTEPAD.EXE</P>
+<P CLASS="deBody">
+Separate processes can only be started in operating systems that support multitasking such as Windows (all flavors) and OS/2. Another form of the START command is to put an ampersand after the call to the process:</P>
+<P CLASS="cmd">
+	NOTEPAD.EXE &amp;</P>
+<P CLASS="deBody">
+<EM CLASS="Element">
+IMPLICIT CD</EM>
+: if you enter the name of a subdirectory or a path to a subdirectory on the ScriptEase shell prompt, ScriptEase will automatically change to that directory. The change directory command (CD) is optional; however, you must have a valid path for the directory to change to.</P>
+</DIV>
+<DIV>
+<H2 CLASS="Topic">
+<A NAME="997201">
+ </A>
+Running a ScriptEase script</H2>
+<P CLASS="Body">
+There are three basic ways to execute a ScriptEase script: from a command line (either the operating system's or the ScriptEase shell's), by double clicking on a script's icon, or from within a batch file. The one you use will depend on your operating system, the task you're trying to accomplish, and your personal work habits.  </P>
+<DIV>
+<H3 CLASS="SubTopic">
+<A NAME="997202">
+ </A>
+Running a script from a command line </H3>
+<P CLASS="Body">
+You can run a script directly from the command line, either from your operating system's command line or from the command line of the ScriptEase shell. For example, to run the script &quot;scriptx22.cmm&quot; from the DOS prompt, enter </P>
+<P CLASS="cmd">
+SEDOS.exe scriptx22.cmm</P>
+<P CLASS="Body">
+followed by any parameters you are passing it. If you are working in the ScriptEase shell, you do not need to put the executable name, or include the .cmm extension.  These are assumed, and all you need to run a script from the ScriptEase shell's prompt is the name of the script and the parameters being passed it.</P>
+<P CLASS="Body">
+Programs and Cmm scripts launched from the ScriptEase Shell are known as child processes. The ScriptEase Shell becomes inactive until the launched program is done executing. At that point, control returns to the ScriptEase Shell.</P>
+<P CLASS="Body">
+Very brief bits of ScriptEase code can be launched directly from a command line without being saved as a .cmm file first. The code must be enclosed in quotes. For example, the phrase &quot;Hello, world!&quot; can be printed with the following command:</P>
+<P CLASS="cmd">
+SEDOS.exe &quot;printf(\&quot;Hello, world!\&quot;)&quot;</P>
+<P CLASS="Body">
+This command will print &quot;Hello, world!&quot; ten times:</P>
+<P CLASS="cmd">
+SEDOS.exe &quot;for (i=0;i&lt;10;i++) printf(`Hello, world!`);&quot;</P>
+<P CLASS="Body">
+All statements in the code that appear surrounded by quotation marks must either use back-ticks or escape the quotation marks (by preceeding them with a `\' symbol) so the processor can distinguish interior quotes from exterior ones.</P>
+<P CLASS="Body">
+Remember that in DOS `%' has a special meaning for the batch file processor, so if you call the ScriptEase engine directly from a DOS batch file, you must escape any `%' symbols.  For example, the following line:</P>
+<P CLASS="cmd">
+SEDOS.exe &quot;for (i=0;i&lt;10;i++) printf(\&quot;%d\n\&quot;, i)&quot;</P>
+<P CLASS="Body">
+must be written</P>
+<P CLASS="cmd">
+SEDOS.exe &quot;for (i=0;i&lt;10;i++) printf(\&quot;%%d\n\&quot;, i)&quot;</P>
+<P CLASS="Body">
+to prevent the batch processor from misinterpreting the `%' symbol.</P>
+</DIV>
+<DIV>
+<H3 CLASS="SubTopic">
+<A NAME="997203">
+ </A>
+Running a script by double-clicking its icon </H3>
+<P CLASS="Body">
+You can launch a ScriptEase script by double clicking on its icon in operating systems that use this method. When you install a version of ScriptEase for such an operating system, the installer will create the association between .cmm files and ScriptEase.  You cannot pass parameters to scripts with this method.</P>
+</DIV>
+<DIV>
+<H3 CLASS="SubTopic">
+<A NAME="997204">
+ </A>
+Running a script from a batch file </H3>
+<P CLASS="Body">
+ScriptEase can be incorporated into batch files, REXX files, and .cmd files by including commands to tell the operating system that the script (or just certain sections of it) are to be handled by the ScriptEase processor instead of the operating system.</P>
+<P CLASS="Body">
+To run code from within a batch file, put the label &quot;:GOTO SE_EXIT&quot; where you want the processor to take over running the script, and &quot;:SE_EXIT&quot; where you want the operating system to resume control. The following example will print a table of printable characters and their ASCII key code:</P>
+<P CLASS="ciBody">
+:GOTO SE_EXIT</P>
+<P CLASS="ciBody">
+#define  ROW_COUNT      20</P>
+<P CLASS="ciBody">
+#define  COL_COUNT      13</P>
+<P CLASS="ciBody">
+Unprintables = &quot;\a\b\t\r\n\032\033&quot;</P>
+<P CLASS="ciBody">
+for ( row = 0; row &lt; ROW_COUNT; row++ ) {</P>
+<P CLASS="ciBody">
+   for ( col = 0; col &lt; COL_COUNT; col++ ) {</P>
+<P CLASS="ciBody">
+      c = ROW_COUNT*col + row</P>
+<P CLASS="ciBody">
+      if c &lt; 256</P>
+<P CLASS="ciBody">
+         printf(&quot;%c-%-3d &quot;,(NULL==strchr(Unprintables,c))?c:'.',c)</P>
+<P CLASS="ciBody">
+   }</P>
+<P CLASS="ciBody">
+   printf(&quot;\n&quot;)</P>
+<P CLASS="ciBody">
+}</P>
+<P CLASS="ciBody">
+&nbsp;</P>
+<P CLASS="ciBody">
+:SE_EXIT</P>
+<P CLASS="Body">
+These two lines serve as labels, identifying where the ScriptEase processor is meant to take over and where it is to return control to the batch processor.</P>
+</DIV>
+<DIV>
+<H3 CLASS="SubTopic">
+<A NAME="997205">
+ </A>
+#! (for UNIX)</H3>
+<P CLASS="Body">
+The ScriptEase processor for UNIX allows you to direct an external processor to handle execution of a batch file.  The command `#!', followed by the full path and name of the processor, directs the computer to let the processor handle all subsequent code.</P>
+<P CLASS="Body">
+#! /usr/local/bin/se</P>
+<P CLASS="Body">
+printf(&quot;Hello, world!&quot;);</P>
+</DIV>
+<DIV>
+<H3 CLASS="SubTopic">
+<A NAME="997206">
+ </A>
+EXTPROC: *.CMD source file (for OS/2)</H3>
+<P CLASS="Body">
+Under the OS/2 ScriptEase processor you can define an external processor to process a batch (*.cmd) file if the first statement is EXTPROC.  EXTPROC is followed by one-and-only-one space and then the name of the processor, which in this case will be &quot;SEOS2&quot;.  This is an example file, ARGS.CMD, of a program to display all input parameters:</P>
+<P CLASS="ciBody">
+EXTPROC SEOS2</P>
+<P CLASS="ciBody">
+&nbsp;</P>
+<P CLASS="ciBody">
+main(argc,argv)</P>
+<P CLASS="ciBody">
+{</P>
+<P CLASS="ciBody">
+  r ( i = 0; i &lt; argc; i++ )</P>
+<P CLASS="ciBody">
+  intf(&quot;Input argument %d = \%s\n&quot;,i,argv[i]);</P>
+<P CLASS="ciBody">
+}</P>
+</DIV>
+<DIV>
+<H3 CLASS="SubTopic">
+<A NAME="997207">
+ </A>
+Running a script from a REXX-File (For OS/2)</H3>
+<P CLASS="Body">
+Similar to running ScriptEase from a batch file described above, if the first argument to ScriptEase is the name of a REXX source file, then ScriptEase automatically executes the code between &quot;SIGNALSE_EXIT&quot; and &quot;SE_EXIT:&quot;.  This REXX file for OS/2 behaves the same as the previous batch program example (CEnviSet.cmd is an OS/2 batch file that helps run Cmm files if environment variables need to be altered--see ESet in the OS2Lib appendix):</P>
+<P CLASS="ciBody">
+/***************************************************************</P>
+<P CLASS="ciBody">
+ ** SUM.CMD - Use ScriptEase to sum lots of numbers together, **</P>
+<P CLASS="ciBody">
+ **           setting the SUM environment variable to the     **</P>
+<P CLASS="ciBody">
+ **           value of the final sum.                         **</P>
+<P CLASS="ciBody">
+****************************************************************/</P>
+<P CLASS="ciBody">
+		`call SESet %0.cmd %1 %2 %3 %4 %5 %6 %7 %8 %9'</P>
+<P CLASS="ciBody">
+		SIGNAL SE_EXIT</P>
+<P CLASS="ciBody">
+		</P>
+<P CLASS="ciBody">
+		main(argc,argv)</P>
+<P CLASS="ciBody">
+		{</P>
+<P CLASS="ciBody">
+			SUM = 0;</P>
+<P CLASS="ciBody">
+			for ( i = 1; i &lt; argc; i++ )</P>
+<P CLASS="ciBody">
+				SUM += atoi(argv[i])</P>
+<P CLASS="ciBody">
+		}</P>
+<P CLASS="ciBody">
+		</P>
+<P CLASS="ciBody">
+		SE_EXIT:</P>
+</DIV>
+</DIV>
+<DIV>
+<H2 CLASS="Topic">
+<A NAME="997208">
+ </A>
+/BIND = Create Stand-Alone Cmm Executables</H2>
+<P CLASS="Body">
+The ScriptEase /BIND option lets you create stand-alone executables from ScriptEase code.  The result of /BIND is a binary executable file that operates the same as if ScriptEase were invoked as an interpreter.  ScriptEase.exe is not needed to execute the bound file, because ScriptEase.exe and your Cmm code are bound together in the created executable. For information on distribution of bound Cmm scripts contact Nombas.</P>
+<P CLASS="Body">
+The following line creates an executable named HELLOW.EXE that would print &quot;Hello world!&quot;.</P>
+<P CLASS="cmd">
+SEDOS /BIND=HELLOW printf(&quot;Hello world!&quot;);</P>
+<P CLASS="Body">
+As another example, you could create a stand-alone editor, which we'll call CMMEDIT.EXE, from the result of the ScriptEase tutorial with the following command:</P>
+<P CLASS="cmd">
+SEDOS /BIND=CMMEDIT.EXE CMMEDIT.CMM</P>
+<P CLASS="Body">
+Now running &quot;CMMEDIT.EXE C:\AUTOEXEC.BAT&quot; from the command line would be identical to executing &quot;SEDOS.EXE CMMEDIT.CMM C:\AUTOEXEC.BAT.&quot;</P>
+<DIV>
+<H3 CLASS="SubTopic">
+/BIND for OS/2 and SEOS2PM.EXE</H3>
+<P CLASS="Body">
+When you /BIND Cmm source code that contains calls to PMDynamicLink(), or other PMxxx() calls that invoke SEOS2PM.exe, the resulting executable will still require SEOS2PM.exe.  Users running the bound executable will still need SEOS2PM.exe in a directory in their search path.  SEOS2PM.exe may be distributed royalty-free.</P>
+</DIV>
+<TABLE WIDTH="225" BORDER="0" CELLSPACING="0" CELLPADDING="0">
+  <TR>
+    <TD WIDTH="71"><a href="3-tutor.htm"><IMG SRC="prev.gif" WIDTH="71" height="18" border="0"></a></TD>
+    <TD WIDTH="80"><a href="../index.htm"><IMG SRC="tocidx.gif" WIDTH="80" height="18" border="0"></a></TD>
+    <TD WIDTH="74"><a href="5-debug.htm"><IMG SRC="next.gif" WIDTH="74" height="18" border="0"></a></TD>
+  </TR>
+</TABLE>
+
+</BODY>
+</HTML>

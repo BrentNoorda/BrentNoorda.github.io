@@ -1,0 +1,33 @@
+<html>
+<head>
+<title>SE_FUNCTION_GLOBAL</title>
+<link rel="stylesheet" href="semanualstyles.css" type="text/css">
+<style type="text/css">
+ p { margin-top: 0; margin-bottom: 0; }
+</style>
+<script language="JavaScript" src="TrueHelp.js"></script>
+</head>
+<body onload="thload()">
+<div id=ienav>
+<ilayer id=nsnav>
+<br>
+<center>
+<p class=normal><a href="seisdkc-toc.htm" target="left">contents</a> &nbsp; <a href="seisdkc-index.htm" target="left">index</a> &nbsp; <a href="TH_332.htm">previous</a> &nbsp; <a href="TH_334.htm">next</a></p>
+</center>
+<br>
+<hr noshade size=1>
+</ilayer>
+</div>
+<p class=heading-4>SE_FUNCTION_GLOBAL</p>
+<p class=senormalpara>If <span class=secodephrase>JSE_MULTIPLE_GLOBAL</span> is defined, then this flag can be used with functions to retrieve or assign the global object that will be associated with that function.  <span class=secodephrase>SE_NOWHERE</span> will be used if the function object should not set the global on entry/exit.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>For example, to disable global variable switching on a function named "anonymous":</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;seobject&nbsp;anon;</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;anon&nbsp;=&nbsp;seGetObject(se,SE_GLOBAL,SE_MEM("anonymous"));</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;sePutObject(se,anon,SE_FUNCTION_GLOBAL,SE_NOWHERE);</p>
+<hr noshade size=1>
+<p class=normal><a href="TH_334.htm"><img src="button.png" border=0></a><a href="TH_334.htm" style="text-decoration:none;">SE_LIBRARY_DATA</a></p>
+<p>
+</body>
+</html>

@@ -1,0 +1,151 @@
+<html>
+<head>
+<title>Basic arithmetic</title>
+<link rel="stylesheet" href="semanualstyles.css" type="text/css">
+<style type="text/css">
+ p { margin-top: 0; margin-bottom: 0; }
+</style>
+<script language="JavaScript" src="TrueHelp.js"></script>
+</head>
+<body onload="thload()">
+<div id=ienav>
+<ilayer id=nsnav>
+<br>
+<center>
+<p class=normal><a href="seisdkc-toc.htm" target="left">contents</a> &nbsp; <a href="seisdkc-index.htm" target="left">index</a> &nbsp; <a href="TH_455.htm">previous</a> &nbsp; <a href="TH_457.htm">next</a></p>
+</center>
+<br>
+<hr noshade size=1>
+</ilayer>
+</div>
+<p class=heading-4>Basic arithmetic</p>
+<p class=senormalpara>The arithmetic operators in ScriptEase are pretty standard.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<table cellpadding=0>
+<tr>
+<td valign=top style="width: 1.16875in">
+<p class=normal><span class=secodephrase>=</span></p></td>
+<td valign=top style="width: 1.68819in">
+<p class=normal>assignment</p></td>
+<td valign=top style="width: 2.21806in">
+<p class=normal>assigns a value to a variable</p></td>
+</tr>
+<tr>
+<td valign=top style="width: 1.16875in">
+<p class=normal><span class=secodephrase>+</span></p></td>
+<td valign=top style="width: 1.68819in">
+<p class=normal>addition</p></td>
+<td valign=top style="width: 2.21806in">
+<p class=normal>adds two numbers</p></td>
+</tr>
+<tr>
+<td valign=top style="width: 1.16875in">
+<p class=normal><span class=secodephrase>-</span></p></td>
+<td valign=top style="width: 1.68819in">
+<p class=normal>subtraction</p></td>
+<td valign=top style="width: 2.21806in">
+<p class=normal>subtracts a number from another</p></td>
+</tr>
+<tr>
+<td valign=top style="width: 1.16875in">
+<p class=normal><span class=secodephrase>*</span></p></td>
+<td valign=top style="width: 1.68819in">
+<p class=normal>multiplication</p></td>
+<td valign=top style="width: 2.21806in">
+<p class=normal>multiplies two numbers</p></td>
+</tr>
+<tr>
+<td valign=top style="width: 1.16875in">
+<p class=normal><span class=secodephrase>/</span></p></td>
+<td valign=top style="width: 1.68819in">
+<p class=normal>division</p></td>
+<td valign=top style="width: 2.21806in">
+<p class=normal>divides a number by another</p></td>
+</tr>
+<tr>
+<td valign=top style="width: 1.16875in">
+<p class=normal><span class=secodephrase>%</span></p></td>
+<td valign=top style="width: 1.68819in">
+<p class=normal>modulo</p></td>
+<td valign=top style="width: 2.21806in">
+<p class=normal>returns a remainder after division</p></td>
+</tr>
+</table>
+<p class=normal>&nbsp;</p>
+<p class=senormalpara>The following are examples using variables and arithmetic operators.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<table cellpadding=0>
+<tr>
+<td valign=top style="width: 2.20764in">
+<p class=normal><span class=secodephrase>var i;</span></p></td>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 2.20764in">
+<p class=normal><span class=secodephrase>i = 2;</span></p></td>
+<td valign=top style="width: 2.86736in">
+<p class=normal>i is now  2</p></td>
+</tr>
+<tr>
+<td valign=top style="width: 2.20764in">
+<p class=normal><span class=secodephrase>i = i + 3;</span></p></td>
+<td valign=top style="width: 2.86736in">
+<p class=normal>i is now  5, (2+3)</p></td>
+</tr>
+<tr>
+<td valign=top style="width: 2.20764in">
+<p class=normal><span class=secodephrase>i = i - 3;</span></p></td>
+<td valign=top style="width: 2.86736in">
+<p class=normal>i is now  2, (53)</p></td>
+</tr>
+<tr>
+<td valign=top style="width: 2.20764in">
+<p class=normal><span class=secodephrase>i = i * 5;</span></p></td>
+<td valign=top style="width: 2.86736in">
+<p class=normal>i is now 10, (2*5)</p></td>
+</tr>
+<tr>
+<td valign=top style="width: 2.20764in">
+<p class=normal><span class=secodephrase>i = i / 3;</span></p></td>
+<td valign=top style="width: 2.86736in">
+<p class=normal>i is now  3, (10/3) (remainder is ignored)</p></td>
+</tr>
+<tr>
+<td valign=top style="width: 2.20764in">
+<p class=normal><span class=secodephrase>i = 10;</span></p></td>
+<td valign=top style="width: 2.86736in">
+<p class=normal>i is now 10</p></td>
+</tr>
+<tr>
+<td valign=top style="width: 2.20764in">
+<p class=normal><span class=secodephrase>i = i % 3;</span></p></td>
+<td valign=top style="width: 2.86736in">
+<p class=normal>i is now  1, (10%3)</p></td>
+</tr>
+</table>
+<p class=secodelinesindented>&nbsp;</p>
+<p class=senormalpara>Expressions may be grouped to affect the sequence of processing. All multiplications and divisions are calculated for an expression before additions and subtractions unless parentheses are used to override the normal order. Expressions inside parentheses are processed first, before other calculations. In the following examples, the information inside square brackets, "[]," are summaries of calculations provided with these examples and not part of the calculations.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>Notice that:</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=secodelinesindented>4&nbsp;*&nbsp;7&nbsp;<span class=secodephrase>-</span>&nbsp;5&nbsp;*&nbsp;3;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[28&nbsp;<span class=secodephrase>-</span>&nbsp;15&nbsp;=&nbsp;13]</p>
+<p class=secodelinesindented>&nbsp;</p>
+<p class=senormalpara>has the same meaning, due to the order of precedence, as: </p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=secodelinesindented>(4&nbsp;*&nbsp;7)&nbsp;<span class=secodephrase>-</span>&nbsp;(5&nbsp;*&nbsp;3);&nbsp;[28&nbsp;<span class=secodephrase>-</span>&nbsp;15&nbsp;=&nbsp;13]</p>
+<p class=secodelinesindented>&nbsp;</p>
+<p class=senormalpara>but has a different meaning than: </p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=secodelinesindented>4&nbsp;*&nbsp;(7&nbsp;<span class=secodephrase>-</span>&nbsp;5)&nbsp;*&nbsp;3;&nbsp;&nbsp;&nbsp;[4&nbsp;*&nbsp;2&nbsp;*&nbsp;3&nbsp;=&nbsp;24]</p>
+<p class=secodelinesindented>&nbsp;</p>
+<p class=senormalpara>which is still different from: </p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=secodelinesindented>4&nbsp;*&nbsp;(7&nbsp;<span class=secodephrase>-</span>&nbsp;(5&nbsp;*&nbsp;3));&nbsp;[4&nbsp;*&nbsp;(<span class=secodephrase>-</span>8)&nbsp;=&nbsp;32]</p>
+<p class=secodelinesindented>&nbsp;</p>
+<p class=senormalpara>The use of parentheses is recommended in all cases where there may be confusion about how the expression is to be evaluated, even when they are not necessary.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<hr noshade size=1>
+<p class=normal><a href="TH_457.htm"><img src="button.png" border=0></a><a href="TH_457.htm" style="text-decoration:none;">Assignment arithmetic</a></p>
+<p>
+</body>
+</html>

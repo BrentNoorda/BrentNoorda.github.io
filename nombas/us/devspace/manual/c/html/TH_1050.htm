@@ -1,0 +1,80 @@
+<html>
+<head>
+<title>GD polygon()</title>
+<link rel="stylesheet" href="semanualstyles.css" type="text/css">
+<style type="text/css">
+ p { margin-top: 0; margin-bottom: 0; }
+</style>
+<script language="JavaScript" src="TrueHelp.js"></script>
+</head>
+<body onload="thload()">
+<div id=ienav>
+<ilayer id=nsnav>
+<br>
+<center>
+<p class=normal><a href="seisdkc-toc.htm" target="left">contents</a> &nbsp; <a href="seisdkc-index.htm" target="left">index</a> &nbsp; <a href="TH_1049.htm">previous</a> &nbsp; <a href="TH_1051.htm">next</a></p>
+</center>
+<br>
+<hr noshade size=1>
+</ilayer>
+</div>
+<p class=sereffunclevel4>GD polygon()</p>
+<table cellpadding=0>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>syntax:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=sesyntax>gd.polygon(<span class=truehelp-xe></span>point1[,&nbsp;x2,&nbsp;y2,&nbsp;...],&nbsp;&nbsp;color)</p></td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>where:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>pointN - Point specification for Nth point</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>xN - x coordinate of Nth point</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>yN - y coordinate of Nth point</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>color - color index or style to use for line</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>return:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>void.</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>description:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>This method draws a polygon by connecting sequential points with lines. The parameters are either a pair of parameters indicating the two coordinates of the point, or a point specification type.  A point type can either be an array with two elements, element 0 being the x coordinate and element 1 being the y coordinate, or an object with members 'x' and 'y', representing the x and y coordinates.</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>see:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara><span class=secodephrase>#link &lt;gd&gt;</span>, <span class=sejumptopic><a href="TH_1040.htm">GD filledPolygon()</a></span></p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>example:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=secodelines>//&nbsp;Draw&nbsp;a&nbsp;rectangle</p>
+<p class=secodelines>function&nbsp;myRectangle(gd,x1,y1,x2,y2,color)</p>
+<p class=secodelines>{</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;gd.polygon([x1,y1],&nbsp;x1,&nbsp;y2,&nbsp;{x:x2,y:y2},&nbsp;[x2,y1],</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[x1,y1],&nbsp;color);</p>
+<p class=secodelines>}</p></td>
+</tr>
+</table>
+<p class=normal>&nbsp;</p>
+<hr noshade size=1>
+<p class=normal><a href="TH_1051.htm"><img src="button.png" border=0></a><a href="TH_1051.htm" style="text-decoration:none;">GD rectangle()</a></p>
+<p>
+</body>
+</html>

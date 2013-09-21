@@ -1,0 +1,77 @@
+<html>
+<head>
+<title>Regular expression reference characters</title>
+<link rel="stylesheet" href="semanualstyles.css" type="text/css">
+<style type="text/css">
+ p { margin-top: 0; margin-bottom: 0; }
+</style>
+<script language="JavaScript" src="TrueHelp.js"></script>
+</head>
+<body onload="thload()">
+<div id=ienav>
+<ilayer id=nsnav>
+<br>
+<center>
+<p class=normal><a href="seisdkj-toc.htm" target="left">contents</a> &nbsp; <a href="seisdkj-index.htm" target="left">index</a> &nbsp; <a href="TH_786.htm">previous</a> &nbsp; <a href="TH_788.htm">next</a></p>
+</center>
+<br>
+<hr noshade size=1>
+</ilayer>
+</div>
+<p class=heading-4>Regular expression reference characters</p>
+<table cellpadding=0>
+<tr>
+<td valign=top style="width: 0.779167in">
+<p class=normal><b>Character</p></b></td>
+<td valign=top style="width: 4.29583in">
+<p class=senormalpara><b>Meaning</p><p class=senormalpara-p>&nbsp;</p>
+</b></td>
+</tr>
+<tr>
+<td valign=top style="width: 0.779167in">
+<p class=normal><span class=secodephrase>|</span><span class=truehelp-xe></span></p></td>
+<td valign=top style="width: 4.29583in">
+<p class=senormalpara>Or. Match the character or sub pattern on the left <b>or</b> the character or sub pattern on the right.</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.779167in">
+<p class=normal><span class=secodephrase>\n</span><span class=truehelp-xe></span></p></td>
+<td valign=top style="width: 4.29583in">
+<p class=senormalpara>Reference to group. Match the same characters, not the regular expression itself, matched by group <span class=secodephrase>n</span>. Groups<span class=truehelp-xe></span> are sub patterns that are contained in parentheses. Groups may be nested. Groups are numbered according to the order in which the left parenthesis of a group appears in a regular expression.</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.779167in">
+<p class=normal><span class=secodephrase>(...)</span><span class=truehelp-xe></span></p></td>
+<td valign=top style="width: 4.29583in">
+<p class=senormalpara>Group with capture<span class=truehelp-xe></span>. Characters inside of parentheses are handled as a single unit or sub pattern in specified ways, such as with the first two explanations, <span class=secodephrase>|</span> and <span class=secodephrase>\n</span>, in this table. The characters that are actually matched are captured and may be used later in an expression (as with <span class=secodephrase>\n</span>) or in a replacement expression (as with <span class=secodephrase>$n</span>). For example, if the string "one two three two one" and the pattern <span class=secodephrase>/(o.e).+(w.+?e)/</span> are used,  then the back references <span class=secodephrase>$1</span> or <span class=secodephrase>\1</span> use the text "one".</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.779167in">
+<p class=normal><span class=secodephrase>(?:...)</span><span class=truehelp-xe></span></p></td>
+<td valign=top style="width: 4.29583in">
+<p class=senormalpara>Group without capture<span class=truehelp-xe></span>. Matches the same text as <span class=secodephrase>(...)</span>, but the text matched is not captured or saved and is not available for later use using <span class=secodephrase>\n</span> or <span class=secodephrase>$n</span>. The overhead of not capturing matched text becomes important in faster execution time for searches involving loops and many iterations. Also, some expressions and replacements can be easier to read and use with fewer numbered back references with which to keep up.  For example, if the string "one two three two one" and the pattern <span class=secodephrase>/(?:o.e).+(w.+?e)/</span> are used,  then the back references <span class=secodephrase>$1</span> or <span class=secodephrase>\1</span> use the text "wo thre".</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.779167in">
+<p class=normal><span class=secodephrase>(?=...)</span><span class=truehelp-xe></span></p></td>
+<td valign=top style="width: 4.29583in">
+<p class=senormalpara>Positive look ahead<span class=truehelp-xe></span> group<span class=truehelp-xe></span> without capture. The position of the match is at the beginning of the text that matches the sub pattern. For example, <span class=secodephrase>/ScriptEase (?=Desktop|ISDK)/</span> matches "ScriptEase " in "ScriptEase Desktop" or "ScriptEase ISDK", but not "ScriptEase " in "ScriptEase Web Server". When a search continues, it begins after "ScriptEase ", not after "Desktop" or "ISDK". That is, the search continues after the last text matched, not after the text that matches the look ahead sub pattern.</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.779167in">
+<p class=normal><span class=secodephrase>(?!...)</span><span class=truehelp-xe></span></p></td>
+<td valign=top style="width: 4.29583in">
+<p class=senormalpara>Negative look ahead group<span class=truehelp-xe></span> without capture. The position of the match is at the beginning of the text not matching the sub pattern.  For example, <span class=secodephrase>/ScriptEase (?!Desktop|ISDK)/</span> matches "ScriptEase " in "ScriptEase Web Server", but not "ScriptEase " in "ScriptEase Desktop" or "ScriptEase ISDK". When a search continues, it begins after "ScriptEase ", not after "Desktop" or "ISDK". That is, the search continues after the last text matched, not after the text that matches the look ahead sub pattern.</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+</table>
+<hr noshade size=1>
+<p class=normal><a href="TH_788.htm"><img src="button.png" border=0></a><a href="TH_788.htm" style="text-decoration:none;">Regular expression escape sequences</a></p>
+<p>
+</body>
+</html>

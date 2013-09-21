@@ -1,0 +1,2687 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML EXPERIMENTAL 970324//EN">
+<HTML>
+<HEAD>
+<META NAME="GENERATOR" CONTENT="Adobe FrameMaker 5.5/HTML Export Filter">
+<LINK REL="STYLESHEET" HREF="desk3man.css">
+<TITLE>ScriptEase:Desktop v3 Manual: Appendix A - Grouped Functions</TITLE>
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-1754630-10']);
+  _gaq.push(['_trackPageview']);
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+</HEAD>
+<BODY BACKGROUND="desk3pat.gif">
+<TABLE WIDTH="225" BORDER="0" CELLSPACING="0" CELLPADDING="0">
+  <TR>
+    <TD WIDTH="71"><a href="d-unixlb.htm"><IMG SRC="prev.gif" WIDTH="71" height="18" border="0"></a></TD>
+    <TD WIDTH="80"><a href="../index.htm"><IMG SRC="tocidx.gif" WIDTH="80" height="18" border="0"></a></TD>
+    <TD WIDTH="74"><a href="../index.htm"><IMG SRC="next.gif" WIDTH="74" height="18" border="0"></a></TD>
+  </TR>
+</TABLE>
+<H1 CLASS="Title">
+Appendix A - Grouped Functions</H1>
+<P CLASS="Body">
+This chapter groups the ScriptEase internal library functions by category for cross-reference.  It applies to all versions of ScriptEase, but some functions are only applicable to certain ScriptEase versions; for example, the Window() function will not apply to ScriptEase for DOS.</P>
+<HR><H3>Character Classification</H3><P CLASS="Body">
+<TABLE>
+<TR>
+<TD>
+<P CLASS="cb">
+isalnum</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Test for alphanumeric character.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="cb">
+isalpha</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Test for alphabetic character.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="cb">
+isascii</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Test for ASCII coded character.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="cb">
+iscntrl</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Test for any control character.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="cb">
+isdigit</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Test for any decimal-digit character.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="cb">
+isgraph</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Test for any printing character except for space.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="cb">
+islower</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Test for lower-case alphabetic letter.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="cb">
+isprint</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Test for any printing character including space.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="cb">
+ispunct</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Test for punctuation character.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="cb">
+isspace</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Test for white-space character.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="cb">
+isupper</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Test for upper-case alphabetic character.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="cb">
+isxdigit</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Test for hexadecimal-digit character.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="cb">
+toascii</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Translate character to ASCII (7-bit) format.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="cb">
+tolower</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Translate character to lower-case if it is upper-case.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="cb">
+toupper</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Translate character to upper-case if it is lower-case.</P>
+</TD>
+</TR>
+</TABLE>
+<HR><H3>Console I/O</H3><P CLASS="Body">
+<TABLE>
+<TR>
+<TD>
+<P CLASS="cb">
+kbhit</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Check if a keyboard keystroke is available.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="cb">
+getch</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Get a character from the keyboard; without echo.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="cb">
+getchar</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Get a character from standard input (keyboard).</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="cb">
+getche</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Get a character from the keyboard; with echo.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="cb">
+gets</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Read a string from standard input (keyboard).</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="cb">
+perror</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Prints a message describing error in errno.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="cb">
+printf</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Formatted output to the standard output stream (screen).</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="cb">
+putchar</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Write a character to the standard output stream (console).</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="cb">
+puts</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Write a string to the standard output stream (console).</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="cb">
+scanf</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Formatted input from the standard input stream (keyboard).</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="cb">
+ScreenClear</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Clear screen.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="cb">
+ScreenCursor</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Get or set cursor position in the visible screen.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="cb">
+ScreenSize</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Get the height and width of the screen.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="cb">
+vprintf</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Formatted output to the standard output stream (screen) using arg_list.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="cb">
+vscanf</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Formatted input from standard input stream (keyboard) using arg_list.</P>
+</TD>
+</TR>
+</TABLE>
+<HR><H3>Data</H3><P CLASS="Body">
+<TABLE>
+<TR>
+<TD>
+<P CLASS="cb">
+_BigEndianMode</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Global variable to specify Cmm-data to memory-data conversion</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="cb">
+BLObGet</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Read data from specified location of a Binary Large Object (BLOb).</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="cb">
+BLObPut</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Write data into specified location of a Binary Large Object (BLOb).</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="cb">
+BLObSize</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Determine size of a Binary Large Object (BLOb).</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="cb">
+byte</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Return numerical value as represented by a byte.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="cb">
+DataDimension</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Determine dimension of variable data.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="cb">
+DataType</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Determine data type of a variable.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="cb">
+defined</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Test if variable has been defined.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="cb">
+float</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Return numerical value as represented by a floating-point number.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="cb">
+GetArraySpan</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Determine size of an array.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="cb">
+GetStructure Members</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Get a name list of all the members of a structure</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="cb">
+integer</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Return numerical value as represented by an integer.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="cb">
+SetArraySpan</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Set size of an array.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="cb">
+StructureMember</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Access structure member by name</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="cb">
+undefine</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Make a variable undefine.</P>
+</TD>
+</TR>
+</TABLE>
+<HR><H3>Diagnostic/Error</H3><P CLASS="Body">
+<TABLE>
+<TR>
+<TD>
+<P CLASS="cb">
+abort</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Terminate program; probably due to error.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="cb">
+assert</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Test a condition and abort if it is FALSE.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="cb">
+clearerr</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Clear end-of-file and error status for a file.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="cb">
+errno</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Value of error condition</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="cb">
+ferror</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Test for error on a file stream.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="cb">
+perror</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Prints an message describing error in errno.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="cb">
+strerror</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Get a string describing an error number.</P>
+</TD>
+</TR>
+</TABLE>
+<HR><H3>DOS (&amp; Windows 3.x)</H3><P CLASS="Body">
+<TABLE>
+<TR>
+<TD>
+<P CLASS="cb">
+Address</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Convert segment:offset pointer into memory address.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="cb">
+asm</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Execute imbedded assembled code.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="cb">
+inport</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Read byte from a hardware port.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="cb">
+inportw</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Read word from a hardware port.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="cb">
+interrupt</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Execute an 8086 interrupt.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="cb">
+offset</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Break far pointer into segment:offset components.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="cb">
+outport</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Write byte to a hardware port.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="cb">
+outportw</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Write word to a hardware port.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="cb">
+segment</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Break far pointer into segment:offset components.</P>
+</TD>
+</TR>
+</TABLE>
+<HR><H3>Execution Control</H3><P CLASS="Body">
+<TABLE>
+<TR>
+<TD>
+<P CLASS="cb">
+abort</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Terminate program; probably due to error.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="cb">
+assert</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Test a condition and abort if it is FALSE.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="cb">
+atexit</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Register function to be called at program exit.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="cb">
+exit</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Normal program termination.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="cb">
+function</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Call a function by name.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="cb">
+Interpret</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Interpret Cmm code or source file.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="cb">
+spawn</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Run an external executable.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="cb">
+Suspend</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Suspend program execution for a while.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="cb">
+system</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Pass a command to the command processor.</P>
+</TD>
+</TR>
+</TABLE>
+<HR><H3>File (and stream) I/O</H3><P CLASS="Body">
+<TABLE>
+<TR>
+<TD>
+<P CLASS="cb">
+clearerr</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Clear end-of-file and error status for a file.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="cb">
+fclose</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Close an open file.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="cb">
+feof</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Test if at end of file stream.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="cb">
+ferror</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Test for error on a file stream.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="cb">
+fflush</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Flush stream for open file(s).</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="cb">
+fgetc</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Get a character from file stream.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="cb">
+fgetpos</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Get current position of a file stream.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="cb">
+fgets</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Get a string from an input stream.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="cb">
+fopen</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Open a file.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="cb">
+fprintf</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Formatted output to a file stream.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="cb">
+fputc</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Write a character to a file stream.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="cb">
+fputs</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Write a string to a file stream.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="cb">
+fscanf</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Formatted input from a file stream.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="cb">
+fread</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Read data from a file.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="cb">
+freopen</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Assign a new file specification to a file handle.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="cb">
+fseek</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Set the file position for an opened file stream.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="cb">
+fsetpos</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Set position of a file stream.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="cb">
+ftell</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Get the current value of the file position.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="cb">
+fwrite</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Write data to a file.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="cb">
+getc</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Get a character from file stream.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="cb">
+getchar</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Get a character from standard input (keyboard).</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="cb">
+gets</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Read a string from standard input (keyboard).</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="cb">
+printf</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Formatted output to the standard output stream (screen).</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="cb">
+putc</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Write a character to a file stream.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="cb">
+putchar</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Write a character to the standard output stream (console).</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="cb">
+puts</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Write a string to the standard output stream (console).</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="cb">
+remove</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Delete a file.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="cb">
+rename</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Rename a file.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="cb">
+rewind</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Reset file position to beginning of file.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="cb">
+scanf</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Formatted input from the standard input stream (keyboard).</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="cb">
+tmpfile</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Create a temporary binary file.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="cb">
+tmpnam</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Get a temporary file name.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="cb">
+ungetc</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Push character back to input stream.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="cb">
+vfprintf</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Formatted output to a file stream using arg_list.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="cb">
+vfscanf</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Formatted input from a file stream using arg_list.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="cb">
+vprintf</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Formatted output to the standard output stream (screen) using arg_list.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="cb">
+vscanf</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Formatted input from the standard input stream (keyboard) using arg_list.</P>
+</TD>
+</TR>
+</TABLE>
+<HR><H3>File Directory</H3><P CLASS="Body">
+<TABLE>
+<TR>
+<TD>
+<P CLASS="cb">
+Directory</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Search directory listing for a file specification.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="cb">
+FullPath</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Convert partial path specification to full path name.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="cb">
+SplitFileName</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Determine directory, name, and extension parts of a file specification.</P>
+</TD>
+</TR>
+</TABLE>
+<HR><H3>Math</H3><P CLASS="Body">
+<TABLE>
+<TR>
+<TD>
+<P CLASS="cb">
+abs</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Return the absolute value of an integer (non-negative).</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="cb">
+asin</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Calculate the arc sine.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="cb">
+acos</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Calculate the arc cosine.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="cb">
+atan</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Calculate the arc tangent.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="cb">
+atan2</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Calculate the arc tangent of a fraction.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="cb">
+atof</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Convert ascii string to a floating-point number</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="cb">
+atoi</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Convert ascii string to an integer.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="cb">
+atol</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Convert ascii string to an integer.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="cb">
+ceil</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Ceiling; round up.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="cb">
+cos</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Calculate the cosine.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="cb">
+cosh</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Calculate the hyperbolic cosine.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="cb">
+div</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Integer division, returning quotient and remainder.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="cb">
+exp</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Compute the exponential function.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="cb">
+fabs</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Absolute value.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="cb">
+fmod</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Modulus; calculate remainder.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="cb">
+floor</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Round down.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="cb">
+frexp</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Break into a mantissa and an exponential power of 2.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="cb">
+labs</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Return the absolute value of an integer (non-negative).</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="cb">
+ldexp</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Calculate mantissa * 2 ^ exp; inverse of frexp().</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="cb">
+ldiv</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Integer division, returning quotient and remainder.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="cb">
+log</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Calculate the natural logarithm.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="cb">
+log10</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Calculate the base-ten logarithm.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="cb">
+max</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Return the largest of one or more values.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="cb">
+min</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Return the minimum of one or more values.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="cb">
+modf</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Split a value into integer and fractional parts.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="cb">
+pow</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Calculates x to the power of y.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="cb">
+rand</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Generate a random number.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="cb">
+sin</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Calculate the sine.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="cb">
+sinh</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Calculate the hyperbolic sine.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="cb">
+sqrt</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Calculate the square root.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="cb">
+srand</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Initialize random number generator</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="cb">
+tan</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Calculate the tangent.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="cb">
+tanh</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Calculate the hyperbolic tangent.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="cb">
+strtod</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Convert a string to a floating-point value.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="cb">
+strtol</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Convert a string to an integer value.</P>
+</TD>
+</TR>
+</TABLE>
+<HR><H3>Memory (computer memory)</H3><P CLASS="Body">
+<TABLE>
+<TR>
+<TD>
+<P CLASS="cb">
+peek</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Read data from memory location.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="cb">
+pointer</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Get address of variable array or variable datum.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="cb">
+poke</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Write data to memory location.</P>
+</TD>
+</TR>
+</TABLE>
+<HR><H3>Miscellaneous</H3><P CLASS="Body">
+<TABLE>
+<TR>
+<TD>
+<P CLASS="cb">
+bsearch</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Binary search for member of a sorted array.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="cb">
+function</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Call a function by name.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="cb">
+getenv</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Get an environment string.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="cb">
+putenv</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Set an environment string.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="cb">
+qsort</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Sort an array using specified comparison function. </P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="cb">
+rand</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Generate a random number.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="cb">
+ShellFilter Character</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Add character filter function to ScriptEase shell</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="cb">
+ShellFilter Command</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Add command filter function to ScriptEase shell</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="cb">
+srand</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Initialize random number generator</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="cb">
+suspend</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Suspend program execution for a while.</P>
+</TD>
+</TR>
+</TABLE>
+<HR><H3>OS/2 2.x</H3><P CLASS="Body">
+<TABLE>
+<TR>
+<TD>
+<P CLASS="cb">
+asm</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Execute imbedded assembled code.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="cb">
+DynamicLink</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Call a function in a Dynamic Link Library (DLL).</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="cb">
+ESet</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Write new environment variables settings into a file.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="cb">
+Info</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Retrieve information about this ScriptEase process.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="cb">
+inport</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Read byte from a hardware port.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="cb">
+inportw</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Read word from a hardware port.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="cb">
+outport</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Write byte to a hardware port.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="cb">
+outportw</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Write word to a hardware port.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="cb">
+PMDynamicLink</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Call a function in a Dynamic Link Library (DLL).</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="cb">
+PMInfo</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Retrieve information about the ScriptEase 2PM process.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="cb">
+PMpeek</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Read data from memory location via ScriptEase 2PM.exe</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="cb">
+PMpoke</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Write data to memory location via ScriptEase 2PM.exe.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="cb">
+ProcessList</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Get list of all running processes.</P>
+</TD>
+</TR>
+</TABLE>
+<HR><H3>Strings (and byte arrays)</H3><P CLASS="Body">
+<TABLE>
+<TR>
+<TD>
+<P CLASS="cb">
+atof</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Convert ascii string to a floating-point number</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="cb">
+atoi</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Convert ascii string to an integer.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="cb">
+atol</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Convert ascii string to an integer.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="cb">
+memchr</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Search a byte array, or blob, for a character.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="cb">
+memcmp</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Compare two byte arrays.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="cb">
+memcpy</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Copy bytes from one array to another.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="cb">
+memicmp</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Case-insensitive compare two byte arrays.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="cb">
+memmove</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Copy bytes from one array to another.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="cb">
+memset</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Set values in a byte array to specific character.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="cb">
+rsprintf</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Return formatted string.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="cb">
+sprintf</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Formatted output to a string.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="cb">
+sscanf</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Formatted input from a string.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="cb">
+strcat</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Append (concatenate) one string onto the end of another.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="cb">
+strchr</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Search a string for a character.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="cb">
+strcmp</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Compare two strings.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="cb">
+strcmpi</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Case-insensitive compare two strings.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="cb">
+strcpy</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Copy from one string into another.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="cb">
+strcspn</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Search string for first character from a set of characters.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="cb">
+strerror</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Get a string describing an error number.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="cb">
+strftime</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Formatted write of date and/or time into a string.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="cb">
+stricmp</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Case-insensitive compare two strings.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="cb">
+strlen</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Length of a string.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="cb">
+strlwr</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Converts string to lower-case characters.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="cb">
+strncat</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Concatenate up to len bytes of one string to the end of another.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="cb">
+strncmp</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Compare part of two strings.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="cb">
+strncmpi</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Case-insensitive compare part of two strings.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="cb">
+strncpy</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Copy given number of bytes from one string into another.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="cb">
+strnicmp</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Case-insensitive compare part of two strings.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="cb">
+strpbrk</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Search string for first character from a set of characters.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="cb">
+strrchr</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Search a string for the last occurrence of a character.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="cb">
+strspn</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Search string for first character not in a set of characters.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="cb">
+strstr</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Search string for a substring.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="cb">
+strstri</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Case insensitive version on strstr.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="cb">
+strtod</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Convert a string to a floating-point value.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="cb">
+strtok</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Search a string for delimited tokens.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="cb">
+strtol</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Convert a string to an integer value.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="cb">
+strupr</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Converts string to upper-case characters.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="cb">
+vsprintf</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Formatted output to a string using arg_list.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="cb">
+vsscanf</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Formatted input from a string.</P>
+</TD>
+</TR>
+</TABLE>
+<HR><H3>Time and Date</H3><P CLASS="Body">
+<TABLE>
+<TR>
+<TD>
+<P CLASS="cb">
+asctime</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Convert data and time to an ASCII string.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="cb">
+clock</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Get processor time.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="cb">
+ctime</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Convert date-time to an ascii string.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="cb">
+difftime</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Compute difference between two times.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="cb">
+gmtime</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Convert data and time to Greeenwich mean time (GMT).</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="cb">
+localtime</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Convert data and time to broken-down structure.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="cb">
+mktime</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Convert time structure into calendar time.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="cb">
+time</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Get current time.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="cb">
+strftime</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Formatted write of date and/or time into a string.</P>
+</TD>
+</TR>
+</TABLE>
+<HR><H3>UNIX</H3><P CLASS="Body">
+<TABLE>
+<TR>
+<TD>
+<P CLASS="cb">
+dlcall</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Call a routine in a shared object under Linux, Sun OS, Solaris, FreeBSD, or AIX (all Unix versions currently supported).</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="cb">
+fork</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Create a duplicate of the current process.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="cb">
+getcwd</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Get the current working directory.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="cb">
+setsid</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Create a new session with no terminal.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="cb">
+setuid</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Change a process' user ID.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="cb">
+waitpid</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Wait for a child to exit and then clean it up.</P>
+</TD>
+</TR>
+</TABLE>
+<HR><H3>Variable Argument Lists</H3><P CLASS="Body">
+<TABLE>
+<TR>
+<TD>
+<P CLASS="cb">
+rvsprintf</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Return formatted string using arg_list.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="cb">
+va_arg</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Retrieve variable from variable argument list.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="cb">
+va_end</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Terminate variable argument list.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="cb">
+va_start</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Initialize variable argument list.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="cb">
+vfprintf</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Formatted output to a file stream using arg_list.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="cb">
+vfscanf</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Formatted input from a file stream using arg_list.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="cb">
+vprintf</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Formatted output to the standard output stream (screen) using arg_list.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="cb">
+vscanf</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Formatted input from the standard input stream  using arg_list.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="cb">
+vsprintf</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Formatted output to a string using arg_list.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="cb">
+vsscanf</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Formatted input from a string.</P>
+</TD>
+</TR>
+</TABLE>
+<HR><H3>Windows 3.x</H3><P CLASS="Body">
+<TABLE>
+<TR>
+<TD>
+<P CLASS="cb">
+BreakWindow</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Destroy a Window or windows created with MakeWindow().</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="cb">
+BaseWindow Function</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Call base procedure of a subclassed window</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="cb">
+DoWindows</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Process windows messages.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="cb">
+DynamicLink</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Call a function in a Dynamic Link Library (DLL).</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="cb">
+Instance</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Get ScriptEase instance for this session.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="cb">
+MakeWindow</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Define and create a window.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="cb">
+MessageFilter</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Restrict message handled by ScriptEase window functions</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="cb">
+MultiTask</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Turn Windows multitasking on or off.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="cb">
+ScreenHandle</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Get Windows' handle for the ScriptEase text screen.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="cb">
+ScreenSize</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Get or set the height and width of the screen.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="cb">
+SubclassWindow</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Hook into Window  function for any function</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="cb">
+WindowList</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Retrieve list of window handles.</P>
+</TD>
+</TR>
+</TABLE>
+<HR><H3>Windows NT/95/98 (Console and GUI)</H3><P CLASS="Body">
+<TABLE>
+<TR>
+<TD>
+<P CLASS="cb">
+BaseWindow Function</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Call base procedure of a subclassed window</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="cb">
+BreakWindow</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Destroy a Window or windows created with MakeWindow().</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="cb">
+DoWindows</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Process windows messages.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="cb">
+DynamicLink</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Call a function in a Dynamic Link Library (DLL).</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="cb">
+ESet</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Write new environment variables settings into a file.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="cb">
+Instance</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Get ScriptEase instance for this session.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="cb">
+MakeWindow</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Define and create a window.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="cb">
+MessageFilter</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Restrict message handled by ScriptEase window <BR>
+functions</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="cb">
+ScreenHandle</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Get Windows' handle for the ScriptEase text screen.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="cb">
+ScreenSize</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Get or set the height and width of the screen.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="cb">
+SubclassWindow</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Hook into Window  function for any function</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="cb">
+WindowList</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Retrieve list of window handles.</P>
+</TD>
+</TR>
+</TABLE>
+<P CLASS="Body">
+&nbsp;</P>
+</DIV>
+</DIV>
+<TABLE WIDTH="225" BORDER="0" CELLSPACING="0" CELLPADDING="0">
+  <TR>
+    <TD WIDTH="71"><a href="d-unixlb.htm"><IMG SRC="prev.gif" WIDTH="71" height="18" border="0"></a></TD>
+    <TD WIDTH="80"><a href="../index.htm"><IMG SRC="tocidx.gif" WIDTH="80" height="18" border="0"></a></TD>
+    <TD WIDTH="74"><a href="../index.htm"><IMG SRC="next.gif" WIDTH="74" height="18" border="0"></a></TD>
+  </TR>
+</TABLE>
+</BODY>
+</HTML>

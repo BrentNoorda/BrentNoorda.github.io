@@ -1,0 +1,109 @@
+<html>
+<head>
+<title>seConvert</title>
+<link rel="stylesheet" href="semanualstyles.css" type="text/css">
+<style type="text/css">
+ p { margin-top: 0; margin-bottom: 0; }
+</style>
+<script language="JavaScript" src="TrueHelp.js"></script>
+</head>
+<body onload="thload()">
+<div id=ienav>
+<ilayer id=nsnav>
+<br>
+<center>
+<p class=normal><a href="seisdkc-toc.htm" target="left">contents</a> &nbsp; <a href="seisdkc-index.htm" target="left">index</a> &nbsp; <a href="TH_65.htm">previous</a> &nbsp; <a href="TH_67.htm">next</a></p>
+</center>
+<br>
+<hr noshade size=1>
+</ilayer>
+</div>
+<p class=sereffunclevel3>seConvert</p>
+<p class=sereffunclevel3-p>&nbsp;</p>
+<table cellpadding=0>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>syntax:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=sesyntax>&nbsp;&nbsp;&nbsp;void</p>
+<p class=sesyntax>seConvert(secontext&nbsp;se,</p>
+<p class=sesyntax>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;seobject&nbsp;obj,</p>
+<p class=sesyntax>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;semember&nbsp;mem,</p>
+<p class=sesyntax>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;seConversionTarget&nbsp;type);&nbsp;</p></td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>where:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara><span class=secodephrase>se</span> the context containing the variable</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara><span class=secodephrase>obj</span> the object half of an Object,Member pair</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara><span class=secodephrase>mem</span> the member half of an Object,Member pair</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara><span class=secodephrase>type</span> the type to convert to.</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>return:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>None</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>description:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>This routine retrieves the value using a get from the Object,Member pair, converts it, and puts it back to the same location. The possible conversions are:</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara><span class=secodephrase>SE_TOPRIMITIVE</span></p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>Convert to a primitive value. A primitive value is a non-object value.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara><span class=secodephrase>SE_TOBOOLEAN</span></p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>Converts to a boolean</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara><span class=secodephrase>SE_TONUMBER</span></p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>Converts to a number</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara><span class=secodephrase>SE_TOINTEGER</span></p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>Converts to an integer. It is system-dependent the range of an integer, but it corresponds to the <span class=secodephrase>int</span> type on the system.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara><span class=secodephrase>SE_TOINT32</span></p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>Converts to a signed 32-bit integer</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara><span class=secodephrase>SE_TOUINT32</span></p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>Converts to an unsigned 32-bit integer</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara><span class=secodephrase>SE_TOUINT16</span></p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>Converts to an unsigned 16-bit integer</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara><span class=secodephrase>SE_TOSTRING</span></p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>Converts to a string</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara><span class=secodephrase>SE_TOOBJECT</span></p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>Converts to an object.</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>see:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>None</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+</table>
+<hr noshade size=1>
+<p class=normal><a href="TH_67.htm"><img src="button.png" border=0></a><a href="TH_67.htm" style="text-decoration:none;">seSetAttribs</a></p>
+<p>
+</body>
+</html>

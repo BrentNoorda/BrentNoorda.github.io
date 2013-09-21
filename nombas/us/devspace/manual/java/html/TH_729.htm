@@ -1,0 +1,86 @@
+<html>
+<head>
+<title>global.undefine()</title>
+<link rel="stylesheet" href="semanualstyles.css" type="text/css">
+<style type="text/css">
+ p { margin-top: 0; margin-bottom: 0; }
+</style>
+<script language="JavaScript" src="TrueHelp.js"></script>
+</head>
+<body onload="thload()">
+<div id=ienav>
+<ilayer id=nsnav>
+<br>
+<center>
+<p class=normal><a href="seisdkj-toc.htm" target="left">contents</a> &nbsp; <a href="seisdkj-index.htm" target="left">index</a> &nbsp; <a href="TH_728.htm">previous</a> &nbsp; next</p>
+</center>
+<br>
+<hr noshade size=1>
+</ilayer>
+</div>
+<p class=sereffunclevel4>global.undefine()</p>
+<table cellpadding=0>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>syntax:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=sesyntax>undefine(<span class=truehelp-xe></span>value)</p></td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>where:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>value - value, variable, or property to be <span class=secodephrase>undefined</span>.</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>return:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>void.</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>description:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>This function undefines a variable, Object property, or value. If a value was previously defined so that its use with the function <span class=sepopuptopic><a href="TH_705.htm" onClick="return thwindow('TH_705.htm', 'GenPopup')">global.defined()</a></span> returns <span class=secodephrase>true</span>, then after using <span class=secodephrase>undefine()</span> with the value, <span class=secodephrase>defined()</span> returns <span class=secodephrase>false</span>. Undefining a value is different than setting a value to <span class=secodephrase>null</span>.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>The <span class=sepopuptopic><a href="TH_351.htm" onClick="return thwindow('TH_351.htm', 'GenPopup')">delete operator</a></span><span class=truehelp-xe></span> may be used only with properties of objects and elements of arrays and is more complete than <span class=secodephrase>undefine()</span>. Two other techniques, using <span class=sepopuptopic><a href="TH_334.htm" onClick="return thwindow('TH_334.htm', 'GenPopup')">undefined</a></span><span class=truehelp-xe></span> and <span class=secodephrase>void</span><span class=truehelp-xe></span>, are equivalent to <span class=secodephrase>undefine()</span>. The following three techniques for undefining <span class=secodephrase>test</span> are equivalent:</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=secodelinesindented>var&nbsp;test&nbsp;=&nbsp;111;</p>
+<p class=secodelinesindented>&nbsp;</p>
+<p class=secodelinesindented>undefine(test);</p>
+<p class=secodelinesindented>test&nbsp;=&nbsp;undefined;</p>
+<p class=secodelinesindented>test&nbsp;=&nbsp;void&nbsp;test;</p></td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>see:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara><span class=sejumptopic><a href="TH_705.htm">global.defined()</a></span>, <span class=sejumptopic><a href="TH_351.htm">delete operator</a></span>, <span class=sejumptopic><a href="TH_334.htm">undefined</a></span></p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>example:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=secodelines>//&nbsp;In&nbsp;the&nbsp;following&nbsp;fragment,&nbsp;the&nbsp;variable&nbsp;n</p>
+<p class=secodelines>//&nbsp;is&nbsp;defined&nbsp;with&nbsp;the&nbsp;number&nbsp;value&nbsp;of&nbsp;2&nbsp;and</p>
+<p class=secodelines>//&nbsp;then&nbsp;undefined.</p>
+<p class=secodelines>var&nbsp;n&nbsp;=&nbsp;2;</p>
+<p class=secodelines>undefine(n);</p>
+<p class=secodelines>&nbsp;</p>
+<p class=secodelines>//&nbsp;In&nbsp;the&nbsp;following&nbsp;fragment&nbsp;an&nbsp;object&nbsp;o</p>
+<p class=secodelines>//&nbsp;is&nbsp;created&nbsp;and&nbsp;a&nbsp;property&nbsp;o.one&nbsp;is&nbsp;defined.</p>
+<p class=secodelines>//&nbsp;The&nbsp;property&nbsp;is&nbsp;then&nbsp;undefined&nbsp;but</p>
+<p class=secodelines>//&nbsp;the&nbsp;object&nbsp;o&nbsp;remains&nbsp;defined.</p>
+<p class=secodelines>var&nbsp;o&nbsp;=&nbsp;new&nbsp;Object;</p>
+<p class=secodelines>o.one&nbsp;=&nbsp;1;</p>
+<p class=secodelines>undefine(o.one);</p></td>
+</tr>
+</table>
+<p class=normal>&nbsp;</p>
+<p>
+</body>
+</html>

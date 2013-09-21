@@ -1,0 +1,66 @@
+<html>
+<head>
+<title>DSP dspService()</title>
+<link rel="stylesheet" href="semanualstyles.css" type="text/css">
+<style type="text/css">
+ p { margin-top: 0; margin-bottom: 0; }
+</style>
+<script language="JavaScript" src="TrueHelp.js"></script>
+</head>
+<body onload="thload()">
+<div id=ienav>
+<ilayer id=nsnav>
+<br>
+<center>
+<p class=normal><a href="seisdkc-toc.htm" target="left">contents</a> &nbsp; <a href="seisdkc-index.htm" target="left">index</a> &nbsp; <a href="TH_1008.htm">previous</a> &nbsp; <a href="TH_1010.htm">next</a></p>
+</center>
+<br>
+<hr noshade size=1>
+</ilayer>
+</div>
+<p class=sereffunclevel4>DSP dspService()</p>
+<table cellpadding=0>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>syntax:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=sesyntax>dsp.dspService()<span class=truehelp-xe></span></p></td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>return:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>boolean - A value indicating whether the connection is still open.</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>description:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>This is the main server-side function.  Although it can be used by any DSP object, it is intended to be the server side of the client-server model.  When called, it will wait until an incoming packet is received and then service that packet appropriately.  The method will return <span class=secodephrase>false</span> if the packet received was a close command, in which case the connection has been closed, and an explicit call to <span class=secodephrase>dspClose</span> is not necessary.  It is designed to be called repeatedly until the connection is closed.</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>see:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara><span class=secodephrase>#link &lt;sedsp&gt;</span></p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>example:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=secodelines>//&nbsp;Assume&nbsp;'connection'&nbsp;is&nbsp;a&nbsp;valid&nbsp;connection</p>
+<p class=secodelines>while(&nbsp;connection.dspService()&nbsp;)</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;;</p>
+<p class=secodelines>//&nbsp;At&nbsp;this&nbsp;point,&nbsp;the&nbsp;connection&nbsp;has&nbsp;been</p>
+<p class=secodelines>//&nbsp;successfully&nbsp;closed</p></td>
+</tr>
+</table>
+<p class=normal>&nbsp;</p>
+<hr noshade size=1>
+<p class=normal><a href="TH_1010.htm"><img src="button.png" border=0></a><a href="TH_1010.htm" style="text-decoration:none;">DSP dspClose()</a></p>
+<p>
+</body>
+</html>

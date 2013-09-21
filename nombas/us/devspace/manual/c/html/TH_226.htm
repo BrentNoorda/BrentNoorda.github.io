@@ -1,0 +1,33 @@
+<html>
+<head>
+<title>TEXT_ARGS, STACK_ARGS</title>
+<link rel="stylesheet" href="semanualstyles.css" type="text/css">
+<style type="text/css">
+ p { margin-top: 0; margin-bottom: 0; }
+</style>
+<script language="JavaScript" src="TrueHelp.js"></script>
+</head>
+<body onload="thload()">
+<div id=ienav>
+<ilayer id=nsnav>
+<br>
+<center>
+<p class=normal><a href="seisdkc-toc.htm" target="left">contents</a> &nbsp; <a href="seisdkc-index.htm" target="left">index</a> &nbsp; <a href="TH_225.htm">previous</a> &nbsp; <a href="TH_227.htm">next</a></p>
+</center>
+<br>
+<hr noshade size=1>
+</ilayer>
+</div>
+<p class=heading-3>TEXT_ARGS, STACK_ARGS</p>
+<p class=heading-3-p>&nbsp;</p>
+<p class=senormalpara>The next two parameters are likewise related. You can pass arguments to your script or function via one of them. <span class=secodephrase>stack_args</span> takes precedence so if you use them both the <span class=secodephrase>text_args</span> are ignored. In either case, the arguments are extracted and passed to the called script or function. For a function, these are just standard arguments. Script arguments are treated like <span class=secodephrase>argc</span> and <span class=secodephrase>argv</span> for the main function in a C program. They are stored for the script in the global variables <span class=secodephrase>_argc</span> and <span class=secodephrase>_argv</span>.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>For text arguments, specify the arguments in a text string, i.e. <span class=secodephrase>UNISTR("-v foo")</span>. This is parsed in exactly the same way as a command line; white space is used to separate the arguments, and each is turned into a string in the <span class=secodephrase>_argv</span> array. For <span class=secodephrase>stack_args</span>, you pass in a ScriptEase stack object created via the <span class=secodephrase>seMakeStack</span> ScriptEase API call. The arguments are defined by setting members of this object numerically using the <span class=secodephrase>SE_INDEX()</span> member format. In other words <span class=secodephrase>SE_INDEX(0)</span> is the first argument, <span class=secodephrase>SE_INDEX(1)</span> is the second, and so forth. This form of parameter passing is more commonly used for functions. Most scripts that handle arguments expect all of their arguments to be text strings. If you pass a script arguments that are not text strings, such as numbers or objects, you will probably confuse it. </p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>When you call a function that passes any parameters by reference, the arguments in the stack object will be updated appropriately so you can check their final value before destroying the stack object after the function returns.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<hr noshade size=1>
+<p class=normal><a href="TH_227.htm"><img src="button.png" border=0></a><a href="TH_227.htm" style="text-decoration:none;">FLAGS</a></p>
+<p>
+</body>
+</html>

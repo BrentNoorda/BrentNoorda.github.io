@@ -1,0 +1,46 @@
+<html>
+<head>
+<title>Working with Variables</title>
+<link rel="stylesheet" href="semanualstyles.css" type="text/css">
+<style type="text/css">
+ p { margin-top: 0; margin-bottom: 0; }
+</style>
+<script language="JavaScript" src="TrueHelp.js"></script>
+</head>
+<body onload="thload()">
+<div id=ienav>
+<ilayer id=nsnav>
+<br>
+<center>
+<p class=normal><a href="seisdkc-toc.htm" target="left">contents</a> &nbsp; <a href="seisdkc-index.htm" target="left">index</a> &nbsp; previous &nbsp; <a href="TH_318.htm">next</a></p>
+</center>
+<br>
+<hr noshade size=1>
+</ilayer>
+</div>
+<p class=heading-1>Working with Variables</p>
+<p class=heading-1-p>&nbsp;</p>
+<p class=senormalpara>The ScriptEase engine keeps track of all variables used by the scripts you execute. The ScriptEase API provides functions to examine and modify these variables. The most common place you will use these functions is in the body of wrapper functions which are described in the next chapter. However, that is not the only place you might want to examine variables. For instance, the ScriptEase debugger executes scripts one statement at a time and lets the user examine the variables as it is doing so. The debugger uses the ScriptEase API to do this.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>The most important concept to remember is that every variable is a member of some object. There are only a few top-level objects that store all variables and values used by ScriptEase. For instance, if a script says:</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=secodelinesindented>var&nbsp;a&nbsp;=&nbsp;4;</p>
+<p class=secodelinesindented>&nbsp;</p>
+<p class=senormalpara>That global variable <span class=secodephrase>a</span> is a member of an object, the global object, which is one of these top-level objects. All global variables are members of this same object. Similarly, functions can have local variables and parameters, such as in this function, which are also part of an object:</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=secodelinesindented>function&nbsp;foo(b)</p>
+<p class=secodelinesindented>{</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;var&nbsp;c&nbsp;=&nbsp;10;</p>
+<p class=secodelinesindented>}</p>
+<p class=secodelinesindented>&nbsp;</p>
+<p class=senormalpara>This function has two variables, the parameter <span class=secodephrase>b</span> and the local variable <span class=secodephrase>c</span>. Both are part of an object called the activation object. Each time a function is called, a new activation object is created for it. There is one global object but there can be many activation objects. Activation objects are created for a function when it starts executing and destroyed when the function finishes. The ScriptEase API lets you access all activation objects, so you can examine or modify all local variables for functions currently being run.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<hr noshade size=1>
+<p class=normal><a href="TH_318.htm"><img src="button.png" border=0></a><a href="TH_318.htm" style="text-decoration:none;">IDENTIFYING A VARIABLE</a></p>
+<p class=normal><a href="TH_368.htm"><img src="button.png" border=0></a><a href="TH_368.htm" style="text-decoration:none;">EXAMINING VARIABLES</a></p>
+<p class=normal><a href="TH_369.htm"><img src="button.png" border=0></a><a href="TH_369.htm" style="text-decoration:none;">MODIFYING VARIABLES</a></p>
+<p class=normal><a href="TH_370.htm"><img src="button.png" border=0></a><a href="TH_370.htm" style="text-decoration:none;">USING SE_TEMP AND SE_WRAPPER_TEMP</a></p>
+<p class=normal><a href="TH_371.htm"><img src="button.png" border=0></a><a href="TH_371.htm" style="text-decoration:none;">SE_RETURN EXPLAINED</a></p>
+<p>
+</body>
+</html>

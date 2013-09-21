@@ -1,0 +1,30 @@
+<html>
+<head>
+<title>SE.NOWHERE</title>
+<link rel="stylesheet" href="semanualstyles.css" type="text/css">
+<style type="text/css">
+ p { margin-top: 0; margin-bottom: 0; }
+</style>
+<script language="JavaScript" src="TrueHelp.js"></script>
+</head>
+<body onload="thload()">
+<div id=ienav>
+<ilayer id=nsnav>
+<br>
+<center>
+<p class=normal><a href="seisdkj-toc.htm" target="left">contents</a> &nbsp; <a href="seisdkj-index.htm" target="left">index</a> &nbsp; <a href="TH_229.htm">previous</a> &nbsp; <a href="TH_231.htm">next</a></p>
+</center>
+<br>
+<hr noshade size=1>
+</ilayer>
+</div>
+<p class=heading-4>SE.NOWHERE</p>
+<p class=senormalpara>This is a garbage sink object. Any write to any member of this object is ignored, as are attempts to create new members. Any read of a member returns the undefined value. It is intended for one particular use, namely as a return from functions that return an object/member pair when there is an error. If the programmer doesn't check the error return and just tries to use the returned object/member in this case, a <span class=secodephrase>SE.NOWHERE</span> member is returned so the access does nothing and doesn't crash.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>If you compile the core with the <span class=secodephrase>SE.TRAP_NOWHERE</span> option on, accesses to this object will trigger assert failures. This is intended to facilitate debugging, so you can find where you have not properly checked your returns from ScriptEase API calls.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<hr noshade size=1>
+<p class=normal><a href="TH_231.htm"><img src="button.png" border=0></a><a href="TH_231.htm" style="text-decoration:none;">SE.DEFINES</a></p>
+<p>
+</body>
+</html>

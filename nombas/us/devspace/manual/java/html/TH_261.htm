@@ -1,0 +1,31 @@
+<html>
+<head>
+<title>THE RETURN</title>
+<link rel="stylesheet" href="semanualstyles.css" type="text/css">
+<style type="text/css">
+ p { margin-top: 0; margin-bottom: 0; }
+</style>
+<script language="JavaScript" src="TrueHelp.js"></script>
+</head>
+<body onload="thload()">
+<div id=ienav>
+<ilayer id=nsnav>
+<br>
+<center>
+<p class=normal><a href="seisdkj-toc.htm" target="left">contents</a> &nbsp; <a href="seisdkj-index.htm" target="left">index</a> &nbsp; <a href="TH_260.htm">previous</a> &nbsp; <a href="TH_262.htm">next</a></p>
+</center>
+<br>
+<hr noshade size=1>
+</ilayer>
+</div>
+<p class=sereffunclevel2>THE RETURN</p>
+<p class=sereffunclevel2-p>&nbsp;</p>
+<p class=senormalpara>You return a value by using the standard ScriptEase API calls <span class=secodephrase>sePutNumber</span>, <span class=secodephrase>sePutString</span>, and so forth. The object/member pair to put to is <span class=secodephrase>SE.RETURN,SE.VALUE</span>. See Chapter V for a thorough discussion of using <span class=secodephrase>SE.RETURN</span>. For the simple case, you just put a value to <span class=secodephrase>SE.RETURN,SE.VALUE</span>. For instance, your wrapper function could return the number 10 via:</p>
+<p class=secodelinesindented>se.sePutNumber(SE.RETURN,SE.VALUE,&nbsp;10);</p>
+<p class=secodelinesindented>&nbsp;</p>
+<p class=senormalpara>If you return nothing, by default the undefined value is returned. For constructor functions, the pre-constructed object is returned in this case.</p>
+<hr noshade size=1>
+<p class=normal><a href="TH_262.htm"><img src="button.png" border=0></a><a href="TH_262.htm" style="text-decoration:none;">WRAPPER TABLES</a></p>
+<p>
+</body>
+</html>

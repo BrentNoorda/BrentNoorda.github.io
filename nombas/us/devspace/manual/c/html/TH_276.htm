@@ -1,0 +1,40 @@
+<html>
+<head>
+<title>Memory Tracking</title>
+<link rel="stylesheet" href="semanualstyles.css" type="text/css">
+<style type="text/css">
+ p { margin-top: 0; margin-bottom: 0; }
+</style>
+<script language="JavaScript" src="TrueHelp.js"></script>
+</head>
+<body onload="thload()">
+<div id=ienav>
+<ilayer id=nsnav>
+<br>
+<center>
+<p class=normal><a href="seisdkc-toc.htm" target="left">contents</a> &nbsp; <a href="seisdkc-index.htm" target="left">index</a> &nbsp; <a href="TH_275.htm">previous</a> &nbsp; <a href="TH_277.htm">next</a></p>
+</center>
+<br>
+<hr noshade size=1>
+</ilayer>
+</div>
+<p class=heading-3>Memory Tracking</p>
+<p class=heading-3-p>&nbsp;</p>
+<p class=senormalpara>The second main benefit of the ScriptEase ISDK debug code is that it internally tracks all memory allocated. When memory is allocated or freed, it is filled with garbage values so memory that is freed but later accessed will contain garbage and thus be likely to cause an immediate problem. If your program crashes, look at the data structure involved. If it is working with a dynamically-allocated memory and has the hex value <span class=secodephrase>0xEE</span> (for instance, the pointer <span class=secodephrase>0xEEEEEEEE</span>), it is likely an uninitialized value, since all allocated memory is filled with this value. If you instead find <span class=secodephrase>0xBD</span> (or <span class=secodephrase>0xBDBDBDBD</span> as a pointer), you are using memory that has since been freed. Of course, you'll then need to track down why you are using bad memory, but at least you know that you are.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>Second, on exit, all memory is examined, and if some memory was not freed, it will be reported (in the <span class=secodephrase>jsedebug.log</span> file, described above.) Special markers are written before and after each memory block, so if you have gone outside the bounds of the allocated memory, this too will be caught. These reports tell you the file name and line number that the memory was allocated on.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>Occassionally, there will be a crash in these routines themselves. If the function crashing is in <span class=secodephrase>src/misc/jsemem.c</span>, this is such a case. This happens when the internal lists have become corrupted. The most common cause is writing past the bounds of an allocation. While we buffer allocations with a few bytes on either end, sometimes a runaway program will write well beyond these safety margins and lead to this problem.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>You can have memory allocated by your program included in this memory tracking code by using the ScriptEase memory allocation routines. Here are the prototypes for these functions. They function similarly to their C standard library counterparts except each takes an <span class=secodephrase>secontext</span> as a parameter and will perform garbage collection if not enough memory is available. Each returns <span class=secodephrase>NULL</span> if the requested memory could not be allocated even after collecting. In this case, a memory allocation failure error object is also set as the <span class=secodephrase>SE_RETURN,SE_VALUE</span> member pair and the error flag is turned on. If you are in a wrapper function when this happens, you can immediately return from it and have the memory failure error be the return of your wrapper function.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=secodelinesindented>void&nbsp;*seGCMalloc(secontext&nbsp;se,size_t&nbsp;size);</p>
+<p class=secodelinesindented>void&nbsp;*seGCRealloc(secontext&nbsp;se,void&nbsp;*orig,size_t&nbsp;newsize);</p>
+<p class=secodelinesindented>secharptr&nbsp;seGCStrdup(secontext&nbsp;se,seconstcharptr&nbsp;orig);</p>
+<p class=secodelinesindented>secharptr&nbsp;seGCStrndup(secontext&nbsp;se,seconstcharptr&nbsp;orig,size_t&nbsp;len);</p>
+<p class=secodelinesindented>void&nbsp;seGCFree(secontext&nbsp;se,void&nbsp;*item);</p>
+<hr noshade size=1>
+<p class=normal><a href="TH_277.htm"><img src="button.png" border=0></a><a href="TH_277.htm" style="text-decoration:none;">Jsememreport</a></p>
+<p>
+</body>
+</html>

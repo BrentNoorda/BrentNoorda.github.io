@@ -1,0 +1,77 @@
+<html>
+<head>
+<title>GD boundsSafe(</title>
+<link rel="stylesheet" href="semanualstyles.css" type="text/css">
+<style type="text/css">
+ p { margin-top: 0; margin-bottom: 0; }
+</style>
+<script language="JavaScript" src="TrueHelp.js"></script>
+</head>
+<body onload="thload()">
+<div id=ienav>
+<ilayer id=nsnav>
+<br>
+<center>
+<p class=normal><a href="seisdkc-toc.htm" target="left">contents</a> &nbsp; <a href="seisdkc-index.htm" target="left">index</a> &nbsp; <a href="TH_1025.htm">previous</a> &nbsp; <a href="TH_1027.htm">next</a></p>
+</center>
+<br>
+<hr noshade size=1>
+</ilayer>
+</div>
+<p class=sereffunclevel4>GD boundsSafe(</p>
+<table cellpadding=0>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>syntax:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=sesyntax>gd.boundsSafe(<span class=truehelp-xe></span>x,&nbsp;y)</p>
+<p class=sesyntax>gd.boundsSafe(point)</p></td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>where:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>x - horizontal pixel location.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>y - vertical pixel location.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>point - Point specification. See <span class=sepopuptopic><a href="TH_1044.htm" onClick="return thwindow('TH_1044.htm', 'GenPopup')">GD getPixel()</a></span> for a description.</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>return:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>boolean - whether the specified coordinates are within bounds.</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>description:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>This method sees if the specified pixel location is within the bounds of the image.  If so, then <span class=secodephrase>true</span> is returned, <span class=secodephrase>false</span> otherwise.</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>see:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara><span class=secodephrase>#link &lt;gd&gt;</span></p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>example:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=secodelines>var&nbsp;gd&nbsp;=&nbsp;new&nbsp;GD(5,5);</p>
+<p class=secodelines>gd.boundsSafe(&nbsp;4,&nbsp;3&nbsp;);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//&nbsp;True</p>
+<p class=secodelines>gd.boundsSafe(&nbsp;[4,5]&nbsp;);&nbsp;&nbsp;&nbsp;&nbsp;//&nbsp;False</p>
+<p class=secodelines>gd.boundsSafe(&nbsp;{x:6,y:2}&nbsp;)&nbsp;//&nbsp;False</p></td>
+</tr>
+</table>
+<p class=normal>&nbsp;</p>
+<hr noshade size=1>
+<p class=normal><a href="TH_1027.htm"><img src="button.png" border=0></a><a href="TH_1027.htm" style="text-decoration:none;">GD drawChar()</a></p>
+<p>
+</body>
+</html>

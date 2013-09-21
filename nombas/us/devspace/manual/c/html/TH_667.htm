@@ -1,0 +1,87 @@
+<html>
+<head>
+<title>Clib.sprintf()</title>
+<link rel="stylesheet" href="semanualstyles.css" type="text/css">
+<style type="text/css">
+ p { margin-top: 0; margin-bottom: 0; }
+</style>
+<script language="JavaScript" src="TrueHelp.js"></script>
+</head>
+<body onload="thload()">
+<div id=ienav>
+<ilayer id=nsnav>
+<br>
+<center>
+<p class=normal><a href="seisdkc-toc.htm" target="left">contents</a> &nbsp; <a href="seisdkc-index.htm" target="left">index</a> &nbsp; <a href="TH_666.htm">previous</a> &nbsp; <a href="TH_668.htm">next</a></p>
+</center>
+<br>
+<hr noshade size=1>
+</ilayer>
+</div>
+<p class=sereffunclevel4>Clib.sprintf()</p>
+<table cellpadding=0>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>syntax:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=sesyntax>Clib.sprintf(<span class=truehelp-xe></span>str,&nbsp;formatString[,&nbsp;variables&nbsp;...])</p></td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>where:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>str - to hold the formatted output.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>formatString - string that specifies the final format.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>variables - values to be converted to and formatted as a string.</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>return:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>number - characters written to string on success, else <span class=secodephrase>EOF</span> on failure.</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>description:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>This method writes output to the string variable specified by str according to formatString, and returns the number of characters written or <span class=secodephrase>EOF</span> if there was an error. The parameter formatString may contain character combinations indicating how following parameters are to be written. The parameter str need not be previously defined. It will be created large enough to hold the result.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>The format string may contain character combinations indicating how following parameters are to be treated. Characters are handled normally until a percent character, <span class=secodephrase>%</span>, is reached. The percent <span class=secodephrase>%</span> indicates that a value is to be written from the variables following the format string. See <span class=sepopuptopic><a href="TH_579.htm" onClick="return thwindow('TH_579.htm', 'GenPopup')">Clib.printf()</a></span> for a complete description of formatString.</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>see:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara><span class=sejumptopic><a href="TH_579.htm">Clib.printf()</a></span></p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>example:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=secodelines>//&nbsp;Each&nbsp;of&nbsp;the&nbsp;following&nbsp;lines&nbsp;shows</p>
+<p class=secodelines>//&nbsp;a&nbsp;sprintf&nbsp;example&nbsp;followed</p>
+<p class=secodelines>//&nbsp;by&nbsp;the&nbsp;resulting&nbsp;string.</p>
+<p class=secodelines>&nbsp;</p>
+<p class=secodelines>Clib.sprintf(testString,&nbsp;"I&nbsp;count:&nbsp;%d&nbsp;%d&nbsp;%d.",1,2,3)</p>
+<p class=secodelines>&nbsp;</p>
+<p class=secodelines>//&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"I&nbsp;count:&nbsp;1&nbsp;2&nbsp;3"</p>
+<p class=secodelines>&nbsp;</p>
+<p class=secodelines>var&nbsp;a&nbsp;=&nbsp;1;</p>
+<p class=secodelines>var&nbsp;b&nbsp;=&nbsp;2;</p>
+<p class=secodelines>Clib.sprintf(testString,&nbsp;"%d&nbsp;%d&nbsp;%d",&nbsp;a,&nbsp;b,&nbsp;a+b)</p>
+<p class=secodelines>&nbsp;</p>
+<p class=secodelines>//&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"1&nbsp;2&nbsp;3"</p></td>
+</tr>
+</table>
+<p class=normal>&nbsp;</p>
+<hr noshade size=1>
+<p class=normal><a href="TH_668.htm"><img src="button.png" border=0></a><a href="TH_668.htm" style="text-decoration:none;">Clib.strcat()</a></p>
+<p>
+</body>
+</html>

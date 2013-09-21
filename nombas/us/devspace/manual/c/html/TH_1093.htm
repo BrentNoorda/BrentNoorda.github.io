@@ -1,0 +1,83 @@
+<html>
+<head>
+<title>Database connect()</title>
+<link rel="stylesheet" href="semanualstyles.css" type="text/css">
+<style type="text/css">
+ p { margin-top: 0; margin-bottom: 0; }
+</style>
+<script language="JavaScript" src="TrueHelp.js"></script>
+</head>
+<body onload="thload()">
+<div id=ienav>
+<ilayer id=nsnav>
+<br>
+<center>
+<p class=normal><a href="seisdkc-toc.htm" target="left">contents</a> &nbsp; <a href="seisdkc-index.htm" target="left">index</a> &nbsp; <a href="TH_1092.htm">previous</a> &nbsp; <a href="TH_1094.htm">next</a></p>
+</center>
+<br>
+<hr noshade size=1>
+</ilayer>
+</div>
+<p class=sereffunclevel4>Database connect()</p>
+<table cellpadding=0>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>syntax:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=sesyntax>database.connect(<span class=truehelp-xe></span>dbtype,&nbsp;server,&nbsp;username,</p>
+<p class=sesyntax>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;password)</p></td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>where:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>dbtype - A string representing the database type.  Currently only "ODBC" is supported.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>server - Data source name.  On Windows systems using ODBC, this is specified in the ODBC Administrator Control Panel; on UNIX, in the .odbc.ini file.  See your database or system administrator for more information.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>username - Name of the user to connect to the database.  Some relational database management systems (RDBMS) require that this be the same as your operating system login name; others maintain their own collections of valid user names.  If in doubt, see your system administrator.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>password - User's password.  If the database does not require a password, use an empty string.</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>return:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>number - 0 if the call was successful; otherwise, a nonzero status code based on the error message produced by the database.  If the method returns a nonzero status code, use the <span class=secodephrase>majorErrorCode</span> and <span class=secodephrase>majorErrorMessage</span> methods to interpret the meaning of the error.</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>description:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>Creates and caches a database connection to the specified database of the given type, using the username and password passed-in.  When the connection goes out of scope, any pending transactions are rolled back.  If any database connections are open when <span class=secodephrase>connect</span> is called, they are closed and released before the new connection is opened.</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>see:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara><span class=secodephrase>#link &lt;sedbc&gt;</span>, <span class=sejumptopic><a href="TH_1096.htm">Database disconnect()</a></span>, <span class=sejumptopic><a href="TH_1094.htm">Database connected()</a></span></p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>example:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=secodelines>//&nbsp;This&nbsp;example&nbsp;creates&nbsp;a&nbsp;new&nbsp;database&nbsp;and</p>
+<p class=secodelines>//&nbsp;then&nbsp;connects&nbsp;it&nbsp;to</p>
+<p class=secodelines>//&nbsp;the&nbsp;database&nbsp;named&nbsp;"CLIENTS"&nbsp;using</p>
+<p class=secodelines>//&nbsp;the&nbsp;username&nbsp;"ADMIN"&nbsp;and</p>
+<p class=secodelines>//&nbsp;the&nbsp;password&nbsp;"admin-password"</p>
+<p class=secodelines>var&nbsp;db&nbsp;=&nbsp;new&nbsp;database();</p>
+<p class=secodelines>var&nbsp;err&nbsp;=&nbsp;db.connect("ODBC",&nbsp;"CLIENTS",&nbsp;"ADMIN",</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"admin-passwd");</p></td>
+</tr>
+</table>
+<p class=normal>&nbsp;</p>
+<hr noshade size=1>
+<p class=normal><a href="TH_1094.htm"><img src="button.png" border=0></a><a href="TH_1094.htm" style="text-decoration:none;">Database connected()</a></p>
+<p>
+</body>
+</html>

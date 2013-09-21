@@ -1,0 +1,67 @@
+<html>
+<head>
+<title>INITIALIZATION</title>
+<link rel="stylesheet" href="semanualstyles.css" type="text/css">
+<style type="text/css">
+ p { margin-top: 0; margin-bottom: 0; }
+</style>
+<script language="JavaScript" src="TrueHelp.js"></script>
+</head>
+<body onload="thload()">
+<div id=ienav>
+<ilayer id=nsnav>
+<br>
+<center>
+<p class=normal><a href="seisdkc-toc.htm" target="left">contents</a> &nbsp; <a href="seisdkc-index.htm" target="left">index</a> &nbsp; <a href="TH_203.htm">previous</a> &nbsp; <a href="TH_205.htm">next</a></p>
+</center>
+<br>
+<hr noshade size=1>
+</ilayer>
+</div>
+<p class=heading-3>INITIALIZATION</p>
+<p class=heading-3-p>&nbsp;</p>
+<p class=senormalpara>When the debugger accepts a connection, the first task is to initialize the debug session. Both sides communicate their application name and which ScriptEase debug version they expect. If the application is password-protected, the debugger provides the password. Either side, the debugger or the application, has opportunities to terminate the connection for a number of reasons.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>The application begins by identifying itself:</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=secodelinesindented>SCRIPTEASE&nbsp;DEBUG&nbsp;version&nbsp;application-identifier</p>
+<p class=secodelinesindented>&nbsp;</p>
+<p class=senormalpara>For instance:</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=secodelinesindented>SCRIPTEASE&nbsp;DEBUG&nbsp;1.0&nbsp;Sewse</p>
+<p class=secodelinesindented>&nbsp;</p>
+<p class=senormalpara>The version cannot have spaces in it. Whatever text is provided is split by the first whitespace character into the version and the application identifier. Also note that TCP-IP provides the IP address of the connecting application. The application already knows the IP address of the debugger else it would not have been able to establish the connection in the first place. IP addresses are important as they allow both sides to know if a remote debugging session is taking place. The debugger should generally allow all local debugging sessions to take place but will probably want to query its user if a remote debugging session should be allowed.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>In the case of a local debugging session, filenames sent by the application will be the same filenames the debugger should display. However, for remote applications the filenames will not match. In a remote debugging session, it is erronous to display files of the given names even if they exist with the given name on the local machine: the contents of those files may be different on the remote machine. For each new filename, the debugger should use the <span class=secodephrase>SEND FILE</span> command (described below) to get the contents of the file and make a local copy of that file. The local copy will be stored in a temporary location to be deleted when the session is complete. The debugger will translate filename references to the local copies. In the case of local files that the debugger cannot locate, the same mechanism should still be applied.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>The debugger's response to the application is a line of the same format as the application's, with the debugger's identifier string in place of the application's. The version must match exactly, to verify the debugger understands the version. However, if the debugger does not accept the debug session, it instead denies the debug session with the following command:</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=secodelinesindented>DENIED&nbsp;text&nbsp;message&nbsp;indicating&nbsp;reason&nbsp;for&nbsp;denial</p>
+<p class=secodelinesindented>&nbsp;</p>
+<p class=senormalpara>Some examples include:</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=secodelinesindented>DENIED&nbsp;Too&nbsp;many&nbsp;active&nbsp;debug&nbsp;sessions&nbsp;currently.</p>
+<p class=secodelinesindented>DENIED&nbsp;Version&nbsp;1.0&nbsp;is&nbsp;not&nbsp;understood.</p>
+<p class=secodelinesindented>DENIED&nbsp;200.0.1.6&nbsp;is&nbsp;a&nbsp;known&nbsp;hacker&nbsp;site.</p>
+<p class=secodelinesindented>DENIED&nbsp;This&nbsp;debugger&nbsp;is&nbsp;JoeBob's&nbsp;Super&nbsp;App-specific.</p>
+<p class=secodelinesindented>DENIED&nbsp;User&nbsp;denied&nbsp;this&nbsp;request.</p>
+<p class=secodelinesindented>&nbsp;</p>
+<p class=senormalpara>The application has three possible responses to an accepted connection by the server. It can deny the connection itself in the same way the server can. It can accept the connection by:</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=secodelinesindented>DEBUG&nbsp;BEGUN</p>
+<p class=secodelinesindented>&nbsp;</p>
+<p class=senormalpara>In this case, the debug connection goes into the main debug mode described below. Finally, the application can ask the server for a password:</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=secodelinesindented>SEND&nbsp;PASSWORD</p>
+<p class=secodelinesindented>&nbsp;</p>
+<p class=senormalpara>The debugger responds with:</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=secodelinesindented>PASSWORD&nbsp;password</p>
+<p class=secodelinesindented>&nbsp;</p>
+<p class=senormalpara>The application can respond with another <span class=secodephrase>PASSWORD</span> message if the password was incorrect. If the password is missed three times, the application will give a <span class=secodephrase>DENIED</span>. Once the password is accepted, the application uses <span class=secodephrase>DEBUG BEGUN</span> to enter the main debug mode.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<hr noshade size=1>
+<p class=normal><a href="TH_205.htm"><img src="button.png" border=0></a><a href="TH_205.htm" style="text-decoration:none;">MAIN DEBUG MODE</a></p>
+<p>
+</body>
+</html>

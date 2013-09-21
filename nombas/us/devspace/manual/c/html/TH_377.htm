@@ -1,0 +1,341 @@
+<html>
+<head>
+<title>WRAPPER MACROS</title>
+<link rel="stylesheet" href="semanualstyles.css" type="text/css">
+<style type="text/css">
+ p { margin-top: 0; margin-bottom: 0; }
+</style>
+<script language="JavaScript" src="TrueHelp.js"></script>
+</head>
+<body onload="thload()">
+<div id=ienav>
+<ilayer id=nsnav>
+<br>
+<center>
+<p class=normal><a href="seisdkc-toc.htm" target="left">contents</a> &nbsp; <a href="seisdkc-index.htm" target="left">index</a> &nbsp; <a href="TH_376.htm">previous</a> &nbsp; next</p>
+</center>
+<br>
+<hr noshade size=1>
+</ilayer>
+</div>
+<p class=sereffunclevel2>WRAPPER MACROS</p>
+<p class=sereffunclevel2-p>&nbsp;</p>
+<p class=senormalpara>What follows is a description of each macro you can use in a wrapper table and what each does.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<table cellpadding=0>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>syntax:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=sesyntax>SE_BEGIN_LIB_TABLE(name)</p></td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>description:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>All wrapper tables are started with this macro. It specifies the name of the table. Use the table name in your call to <span class=secodephrase>seAddLibTable</span> to add the wrapper table to your context.</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+</table>
+<p class=normal>&nbsp;</p>
+<table cellpadding=0>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>syntax:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=sesyntax>SE_INITFUNC(func)</p></td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>description:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>Specify a function to be called whenever the table is initialized. The function's type must be:</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=secodelines>typedef&nbsp;SE_CALLBACK(void&nbsp;*)&nbsp;(*seLibraryInitFunc)(secontext&nbsp;se,void&nbsp;*userdata);</p>
+<p class=senormalpara>&nbsp;</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>The initial data you pass in to <span class=secodephrase>seAddLibTable</span> (as its final parameter) is passed to the initialization function. That initialization function in turn returns the userdata for the particular instance of the library table. It could just return the userdata to use the same data for all instances. If there is no initialization function, the supplied data is used directly in all instances of the library. </p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>Note that the library can be initialized more than once, and you must be prepared to handle that case. The first time the library is initialized is when you call <span class=secodephrase>seAddLibTable</span>, but the library will be reinitialized in certain circumstances.</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+</table>
+<p class=normal>&nbsp;</p>
+<table cellpadding=0>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>syntax:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=sesyntax>SE_TERMFUNC(func)</p></td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>description:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>The companion to the initialization function, the term function looks like:</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=secodelines>typedef&nbsp;SE_CALLBACK(void)</p>
+<p class=secodelines>*seLibraryTermFunc)(secontext&nbsp;se,void&nbsp;*userdata);</p>
+<p class=senormalpara>&nbsp;</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>When the library terminates, it passes its instance (not the original instance) of the userdata, the value returned from the initialization function. For each call to the initialization function, there will be one call to the termination function.</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+</table>
+<p class=normal>&nbsp;</p>
+<table cellpadding=0>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>syntax:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=sesyntax>SE_NUMLITERAL(name,string,vflags)</p></td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>description:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>Create a variable in the current base object with the given name and the given value. The string passed must be parsable as a floating point number. The flags of the variable are set to the <span class=secodephrase>vflags</span> value. The allowable flags are:</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara><span class=secodephrase>SE_DEFAULT</span> No special attributes</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara><span class=secodephrase>SE_READONLY</span> The member is read-only and cannot be modified.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara><span class=secodephrase>SE_DONTENUM</span> The member should not be enumerated when a script uses <span class=secodephrase>for..in</span>.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara><span class=secodephrase>SE_DONTDELETE</span> The member cannot be deleted using the JavaScript <span class=secodephrase>delete</span> operator.</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+</table>
+<p class=normal>&nbsp;</p>
+<table cellpadding=0>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>syntax:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=sesyntax>SE_INTEGER(name,number,vflags)</p></td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>description:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>Create a variable in the current base object with the given name and the given value. Identical to <span class=secodephrase>SE_NUMLITERAL</span>, except an integer value is given.</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+</table>
+<p class=sereffunc>&nbsp;</p>
+<table cellpadding=0>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>syntax:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=sesyntax>SE_STRING(name,string,vflags)</p></td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>description:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>Very similar to <span class=secodephrase>SE_NUMLITERAL</span>, except the variable is set to a string value.</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+</table>
+<p class=sereffunc>&nbsp;</p>
+<table cellpadding=0>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>syntax:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=sesyntax>SE_INOBJECT(name,vflags)</p></td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>description:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>The given name is treated as an object, and if the name is not currently an object, it is turned into one. The object has its flags set to the <span class=secodephrase>vflags</span> value. Finally, that object is the new base for all names until an <span class=secodephrase>SE_END_OBJECT</span> is found.</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+</table>
+<p class=sereffunc>&nbsp;</p>
+<table cellpadding=0>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>syntax:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=sesyntax>SE_END_OBJECT</p></td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>description:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>Undoes the <span class=secodephrase>SE_INOBJECT</span> above so all names are derived from the base before the <span class=secodephrase>SE_INOBJECT</span> took effect.</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+</table>
+<p class=sereffunc>&nbsp;</p>
+<table cellpadding=0>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>syntax:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=sesyntax>SE_FUNCTION(name,func,min_args,max_args,</p>
+<p class=sesyntax>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;func_flags,var_flags)</p></td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>description:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>Declares a wrapper function. The parameters are the function's name, the function itself (a wrapper function), the minimum and maximum number of arguments, the function flags, and the variable flags.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>The maximum number of arguments can be <span class=secodephrase>-1</span> to specify no limit.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>The function flags are one or more from the following:</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara><span class=secodephrase>SE_DEFAULT</span> No special flags.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara><span class=secodephrase>SE_DYNAUNDEF</span> The object's dynamic callbacks are only called if the object does not already have the member in its internal storage, or if that member is SE_TYPE_UNDEFINED. (See "<span class=sejumptopic><a href="TH_282.htm">DYNAMIC OBJECTS</a></span>" for a complete description of callbacks.)</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara><span class=secodephrase>SE_BYREF</span> Parameters passed to this function are passed by reference, so that any changes to them are reflected in the variables passed as the parameters.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara><span class=secodephrase>SE_SECURE</span> The function is secure. Only mark a wrapper function as secure if it can not perform any dangerous task. When in doubt, do not make it secure. The general rule is that any access to the system, such as reading a file or calling a system function, makes a function insecure.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara><span class=secodephrase>SE_KEEP_GLOBAL</span> Normally when a function is executed, the global object in effect when the function was created is used as the global object when the function is executed. With this flag, the current global object is retained whenever the function is executed. </p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+</table>
+<p class=sereffunc>&nbsp;</p>
+<table cellpadding=0>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>syntax:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=sesyntax>SE_METHOD(name,func,min_args,max_args,</p>
+<p class=sesyntax>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;func_flags,var_flags)</p></td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>description:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>This is a synonym for <span class=secodephrase>SE_FUNCTION</span>.</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+</table>
+<p class=sereffunc>&nbsp;</p>
+<table cellpadding=0>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>syntax:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=sesyntax>SE_CLASS(name,func,min_args,max_args,</p>
+<p class=sesyntax>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;func_flags,var_flags)</p></td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>description:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>This works similarly to <span class=secodephrase>SE_FUNCTION</span> in that it adds the given entry as a function. However, as a class, such a function is expected to be used as a constructor. Several additional items are therefore created to facilitate this. First, the function is given a <span class=secodephrase>prototype</span> which has the attributes <span class=secodephrase>SE_STOCK_ATTRIBS</span>. Second, the prototype is given an <span class=secodephrase>_class</span> member with a name equal to the name of the class. Finally, the prototype also gets a <span class=secodephrase>constructor</span> member which points back to the class. All of these items are standard for ECMA classes.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>After this table entry is finished, the base is moved to the class object so you can add members or use <span class=secodephrase>SE_PROTO</span> to add prototype members. This works in the same way <span class=secodephrase>SE_INOBJECT</span> works. Use <span class=secodephrase>SE_END_CLASS</span> to move back out of the object.</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+</table>
+<p class=sereffunc>&nbsp;</p>
+<table cellpadding=0>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>syntax:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=sesyntax>SE_END_CLASS</p></td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>description:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>Changes the base to its value before the <span class=secodephrase>SE_CLASS</span> entry.</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+</table>
+<p class=sereffunc>&nbsp;</p>
+<table cellpadding=0>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>syntax:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=sesyntax>SE_PROTO</p></td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>description:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>Changes the base to the <span class=secodephrase>prototype</span> of the current object. This is used to define the methods available to members of the current class. It is identical to:</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara> <span class=secodephrase>SE_INOBJECT(UNISTR(&#147;prototype&#148;))</span>.</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+</table>
+<p class=sereffunc>&nbsp;</p>
+<table cellpadding=0>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>syntax:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=sesyntax>SE_END_PROTO</p></td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>description:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>Changes the base to its value before the <span class=secodephrase>SE_PROTO</span> entry.</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+</table>
+<p class=sereffunc>&nbsp;</p>
+<table cellpadding=0>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>syntax:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=sesyntax>SE_COPY(name,source,var_flags)</p></td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>description:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>Acts as an assignment, copying the source value to the given name. It sets the destination flags as well.</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+</table>
+<p class=sereffunc>&nbsp;</p>
+<table cellpadding=0>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>syntax:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=sesyntax>SE_ATTRIB(name,var_flags)</p></td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>description:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>Sets the variable flags on a given name, changing nothing else about it.</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+</table>
+<p class=sereffunc>&nbsp;</p>
+<table cellpadding=0>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>syntax:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=sesyntax>SE_END_LIB_TABLE</p></td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>description:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>This must be the last entry in a wrapper table.</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+</table>
+<p class=sereffunc>&nbsp;</p>
+<p>
+</body>
+</html>

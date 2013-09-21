@@ -1,0 +1,564 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML EXPERIMENTAL 970324//EN">
+<HTML>
+<HEAD>
+<META NAME="GENERATOR" CONTENT="Adobe FrameMaker 5.5/HTML Export Filter">
+<LINK REL="STYLESHEET" HREF="desk3man.css">
+<TITLE>ScriptEase:Desktop v3 Manual: DOS (and Windows) Library</TITLE>
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-1754630-10']);
+  _gaq.push(['_trackPageview']);
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+</HEAD>
+<BODY BACKGROUND="desk3pat.gif">
+<TABLE WIDTH="225" BORDER="0" CELLSPACING="0" CELLPADDING="0">
+  <TR>
+    <TD WIDTH="71"><a href="8-prolib.htm"><IMG SRC="prev.gif" WIDTH="71" height="18" border="0"></a></TD>
+    <TD WIDTH="80"><a href="../index.htm"><IMG SRC="tocidx.gif" WIDTH="80" height="18" border="0"></a></TD>
+    <TD WIDTH="74"><a href="a-os2lib.htm"><IMG SRC="next.gif" WIDTH="74" height="18" border="0"></a></TD>
+  </TR>
+</TABLE>
+
+<H1 CLASS="Title">
+DOS (and Windows) Library</H1>
+<P CLASS="Abstract">
+The routines in this section are specific to the DOS (MSDOS, PCDOS, DRDOS) version of ScriptEase. They are included internally to the ScriptEase program. All of these routines are available to any ScriptEase program executed by ScriptEase under DOS (or Windows).</P>
+<P CLASS="Body">
+Most of these routines allow the programmer to have more power than is generally acknowledged as safe under ScriptEase' guidelines. Be cautious when you use these commands, they provide plenty of rope with which to hang yourself.</P>
+<P CLASS="Body">
+Windows is built on top of DOS, so the functions in this library are also available in the Windows version of ScriptEase.</P>
+<HR><TABLE>
+<TR>
+<TH>
+<H6 CLASS="fnam">
+<A NAME="997392">
+ </A>
+address</H6>
+</TH>
+<TH>
+<H6 CLASS="cHead">
+&nbsp;</H6>
+</TH>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+DESCRIPTION</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Convert segment:offset pointer into memory address.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+SYNTAX</P>
+</TD>
+<TD>
+<P CLASS="cb">
+int Address(int segment, int offset)</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+COMMENTS</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Address() converts the segment and offset into a single segment:offset address.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+RETURN</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Return a segment:offset address suitable for use in calls such as peek() and poke().</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+SEE ALSO</P>
+</TD>
+<TD>
+<P CLASS="cb">
+offset(), pointer(), segment()</P>
+</TD>
+</TR>
+</TABLE>
+<HR><TABLE>
+<TR>
+<TH>
+<H6 CLASS="fnam">
+<A NAME="997393">
+ </A>
+asm</H6>
+</TH>
+<TH>
+<H6 CLASS="cHead">
+&nbsp;</H6>
+</TH>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+DESCRIPTION</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Execute imbedded assembled code.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+SYNTAX</P>
+</TD>
+<TD>
+<P CLASS="Function-Syntax">
+int asm(byte[] buf[, int ax, int bx[, int cx, int dx[, int si[, int di[,<BR>
+int ds[, int es]]]]]]]])</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+COMMENTS</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Make a far call to the routine that you have coded into buf. ax, bx, cx, dx, si, di, ds, and es are optional; if some or all are supplied, then the ax, bx, cx, etc... will be set to these values when the code at buf is called. The code in buf will be executed with a far call to that address, and is responsible for returning via retf or other means. The ScriptEase calling code will restore ALL registers except ss, sp, ax, bx, cx, and dx. If es or ds are supplied, then they must be valid values or 0, if 0 then the current value will be used.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+RETURN</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Returns a long value for whatever is in DX:AX when buf returns.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+EXAMPLE</P>
+</TD>
+<TD>
+<P CLASS="cb">
+The following example uses 80x86 assembly code to rotate memory bits: </P>
+<P CLASS="ciTable">
+RotateByteRight(byte b, int count)</P>
+<P CLASS="ciTable">
+// return value of byte b rotate count byte</P>
+<P CLASS="ciTable">
+{ </P>
+<P CLASS="ciTable">
+	assert( 0 &lt;= b  &amp;&amp;  b &lt;= 0xFF ); </P>
+<P CLASS="ciTable">
+	assert( 0 &lt;= count  &amp;&amp;  count &lt;= 8 ) </P>
+<P CLASS="ciTable">
+	// assembly code for would look as follows: </P>
+<P CLASS="ciTable">
+	// ror al, cl D2C8 </P>
+<P CLASS="ciTable">
+	// retf    CB </P>
+<P CLASS="ciTable">
+	return asm(`\xD2\xC8\xCB',b,0,count,0);</P>
+<P CLASS="ciTable">
+}</P>
+</TD>
+</TR>
+</TABLE>
+<HR><TABLE>
+<TR>
+<TH>
+<H6 CLASS="fnam">
+<A NAME="997394">
+ </A>
+inport</H6>
+</TH>
+<TH>
+<H6 CLASS="cHead">
+&nbsp;</H6>
+</TH>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+DESCRIPTION</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Read byte from a hardware port.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+SYNTAX</P>
+</TD>
+<TD>
+<P CLASS="cb">
+byte inport(int portid)</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+COMMENTS</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Read a byte from hardware port: portid.</P>
+</TD>
+</TR>
+</TABLE>
+<HR><TABLE>
+<TR>
+<TH>
+<H6 CLASS="fnam">
+<A NAME="997395">
+ </A>
+inportw</H6>
+</TH>
+<TH>
+<H6 CLASS="cHead">
+&nbsp;</H6>
+</TH>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+DESCRIPTION</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Read word from a hardware port.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+SYNTAX</P>
+</TD>
+<TD>
+<P CLASS="cb">
+int inportw(int portid)</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+COMMENTS</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Read a word (16 bit) from hardware port: portid. Value read is unsigned (not negative).</P>
+</TD>
+</TR>
+</TABLE>
+<HR><TABLE>
+<TR>
+<TH>
+<H6 CLASS="fnam">
+<A NAME="997396">
+ </A>
+interrupt</H6>
+</TH>
+<TH>
+<H6 CLASS="cHead">
+&nbsp;</H6>
+</TH>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+DESCRIPTION</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Execute an 8086 interrupt.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+SYNTAX</P>
+</TD>
+<TD>
+<P CLASS="cb">
+bool interrupt(int Interrupt, RegIn[, RegOut])</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+COMMENTS</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Set registers, call 8086 interrupt function, and then get the return values of the registers. RegIn and RegOut are structures containing the elements corresponding to the registers on an 8086. On input, those structure members that are defined will be set, and those that are not defined will be set to zero, with the exception of the segment registers (ES &amp; DS) which retain their current values if not explicitly specified. The possible defined input values are AX, AH, AL, BX, BH, BL, CX, CH, CL, DX, DH, DL, BP, SI, DI, DS, ES. All Fields of the Output reg structure are the same, with the addition of the FLAGS member, and all are set before returning. If RegOut is not supplied, then the return registers and FLAGS register will be set for RegIn on return from the interrupt call.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+RETURN</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Since many interrupts set the carry flag for error, this function will return False if the carry flag is set, else returns True.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+MODIFIES</P>
+</TD>
+<TD>
+<P CLASS="cb">
+RegOut is set to the register values upon return from Interrupt. If RegOut is not supplied then RegIn is set to contain the register values upon return from Interrupt.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+EXAMPLE</P>
+</TD>
+<TD>
+<P CLASS="cb">
+The following example calls the DOS interrupt service 0x2C to read the clock: </P>
+<P CLASS="ciTable">
+PrintDOStime() </P>
+<P CLASS="ciTable">
+// display DOS time as accurately as it is read </P>
+<P CLASS="ciTable">
+{</P>
+<P CLASS="ciTable">
+	reg.ah = 0x2C;</P>
+<P CLASS="ciTable">
+	interrupt(0x21,reg); </P>
+<P CLASS="ciTable">
+	printf(&quot;%2d:%02d:%02d&quot;,reg.ch,reg.cl,reg.dh);</P>
+<P CLASS="ciTable">
+}</P>
+</TD>
+</TR>
+</TABLE>
+<HR><TABLE>
+<TR>
+<TH COLSPAN="2">
+<H6 CLASS="fnam">
+<A NAME="997397">
+ </A>
+offset, <A NAME="997398">
+ </A>
+segment</H6>
+</TH>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+DESCRIPTION</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Break far pointer into segment:offset components.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+COMMENTS</P>
+</TD>
+<TD>
+<P CLASS="cb">
+See &quot;segment, offset&quot;.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+SEE ALSO</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Address(), pointer()</P>
+</TD>
+</TR>
+</TABLE>
+<HR><TABLE>
+<TR>
+<TH>
+<H6 CLASS="fnam">
+<A NAME="997399">
+ </A>
+outport</H6>
+</TH>
+<TH>
+<H6 CLASS="cHead">
+&nbsp;</H6>
+</TH>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+DESCRIPTION</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Write byte to a hardware port.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+SYNTAX</P>
+</TD>
+<TD>
+<P CLASS="cb">
+void outport(int portid, byte value)</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+COMMENTS</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Write byte value to hardware port portid.</P>
+</TD>
+</TR>
+</TABLE>
+<HR><TABLE>
+<TR>
+<TH>
+<H6 CLASS="fnam">
+<A NAME="997400">
+ </A>
+outportw</H6>
+</TH>
+<TH>
+<H6 CLASS="cHead">
+&nbsp;</H6>
+</TH>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+DESCRIPTION</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Write word to a hardware port.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+SYNTAX</P>
+</TD>
+<TD>
+<P CLASS="cb">
+void outportw(int portid, int value)</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+COMMENTS</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Write word (16 bit) value to hardware port portid.</P>
+</TD>
+</TR>
+</TABLE>
+<HR><TABLE>
+<TR>
+<TH COLSPAN="2">
+<H6 CLASS="fnam">
+<A NAME="997401">
+ </A>
+segment, <A NAME="997402">
+ </A>
+offset</H6>
+</TH>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+DESCRIPTION</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Break far pointer into segment:offset components.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+SYNTAX</P>
+</TD>
+<TD>
+<P CLASS="cb">
+int segment(byte[] buf), int offset(byte[] buf) int segment(int address), int segment(address)</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+COMMENTS</P>
+</TD>
+<TD>
+<P CLASS="cb">
+These functions return the segment and offset of the data at index 0 of buf, which must be a byte array. The buffer must be already big enough for whatever purpose it is used, and no changes must be made to the size of buf after these values are determined because changing the size of buf might change its absolute address. If the address versions are used, then address is assumed to be a far pointer to data, and segment will be the high word while address will be the low word. See Address() for converting segment and offset into a single address.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+RETURN</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Return segment or offset of buffer such that 8086 would recognize the address segment::buffer as pointing to the first byte of buf.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+SEE ALSO</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Address(),pointer()</P>
+</TD>
+</TR>
+</TABLE>
+<P CLASS="Body">
+&nbsp;</P>
+</DIV>
+<TABLE WIDTH="225" BORDER="0" CELLSPACING="0" CELLPADDING="0">
+  <TR>
+    <TD WIDTH="71"><a href="8-prolib.htm"><IMG SRC="prev.gif" WIDTH="71" height="18" border="0"></a></TD>
+    <TD WIDTH="80"><a href="../index.htm"><IMG SRC="tocidx.gif" WIDTH="80" height="18" border="0"></a></TD>
+    <TD WIDTH="74"><a href="a-os2lib.htm"><IMG SRC="next.gif" WIDTH="74" height="18" border="0"></a></TD>
+  </TR>
+</TABLE>
+
+</BODY>
+</HTML>

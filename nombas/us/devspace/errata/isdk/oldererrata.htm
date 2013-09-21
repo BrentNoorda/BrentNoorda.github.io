@@ -1,0 +1,773 @@
+ 
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 FINAL//EN">
+<HTML><!-- #BeginTemplate "/us/Templates/erratapage.dwt" -->
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=ISO-8859-1">
+<!-- #BeginEditable "doctitle" --> 
+<TITLE>ScriptEase ISDK DevSpace</TITLE>
+<!-- #EndEditable --> <!-- begin metaTags --> 
+<META NAME="keywords" CONTENT="javascript,ecmascript,ecma,scriptease,jscript,scripting,nombas,isdk,sedesk,web application development,embedded devices,distributed computing,peer-to-peer,p2p,peer,data mining,javascript.com,cycletraders,integrated sdk,script ease,java,c++,c,simplicity,power,palm,windows ce,integration: sdk,integration:sdk,scriptease:desktop,scriptease: desktop,se:desktop,se:desk,se:isdk, se: isdk,development tools,devtools">
+<META HTTP-EQUIV="DESCRIPTION" CONTENT="Nombas delivers simplicity and power through scripting by providing market-leading development tools and software for JavaScript and ECMAScript.">
+<!-- end metaTags -->
+<!-- begin navbar includes -->
+<SCRIPT language=JavaScript1.2>
+  navbarPath = '../../../'; 
+</SCRIPT>
+<SCRIPT language=JavaScript1.2 SRC="../../../navbarData.js"></SCRIPT>
+<SCRIPT language=JavaScript1.2 SRC="../../../navbarMenu.js"></SCRIPT>
+<SCRIPT language=JavaScript SRC="../../../imgRollover.js"></SCRIPT>
+<!-- end navbar includes -->
+<!-- begin style and icon definition -->
+<LINK REL="SHORTCUT ICON" HREF="../../../nombas.ico">
+<STYLE> 
+A:hover { color:#941810;} 
+</STYLE>
+<!-- end style and icon definition -->
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-1754630-10']);
+  _gaq.push(['_trackPageview']);
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+</HEAD>
+<BODY BGCOLOR="#06086F" LINK="#0000FF" VLINK="#800080" TEXT="#000000" TOPMARGIN=0 LEFTMARGIN=0 MARGINWIDTH=0 MARGINHEIGHT=0>
+<table width="632" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td>
+<TABLE BORDER=0 CELLSPACING=0 CELLPADDING=0 WIDTH=213>
+  <TR VALIGN=TOP ALIGN=LEFT> 
+    <TD WIDTH=28 HEIGHT=4><IMG SRC="../../../clearpixel.gif" WIDTH=28 HEIGHT=1 BORDER=0></TD>
+    <TD></TD>
+  </TR>
+  <TR VALIGN=TOP ALIGN=LEFT> 
+    <TD HEIGHT=60></TD>
+          <TD WIDTH=185 ALIGN=LEFT VALIGN=TOP><A HREF="../../../index.htm"><IMG ID="Picture1" HEIGHT=60 WIDTH=185 SRC="../../../logo.gif" BORDER=0 alt="Nombas Homepage"></A></TD>
+  </TR>
+</TABLE>
+    <div id="nombas-legacy"></div>
+<TABLE BORDER=0 CELLSPACING=0 CELLPADDING=0>
+  <TR VALIGN=TOP ALIGN=LEFT> 
+    <TD WIDTH=30 HEIGHT=10><IMG SRC="../../../clearpixel.gif" WIDTH=30 HEIGHT=1 BORDER=0></TD>
+    <TD></TD>
+  </TR>
+  <TR VALIGN=TOP ALIGN=LEFT> 
+    <TD></TD>
+    <TD WIDTH=582> 
+      <TABLE ID="Table1" BORDER=0 CELLSPACING=0 CELLPADDING=0 WIDTH=582>
+        <TR> 
+          <TD WIDTH=97> 
+                  <P><A HREF="../../../scripting/scripting.htm" 
+                            onmouseover="changeImages('scripting', '../../../htab_scripting.gif'); popUp('elMenu1',event); return true;" 
+onmouseout="changeImages('scripting', '../../../tab_scripting.gif'); popDown('elMenu1'); return true;"
+><IMG
+                             ID="scripting" HEIGHT=21 WIDTH=97 SRC="../../../tab_scripting.gif" VSPACE=0 HSPACE=0 ALIGN="TOP" BORDER=0 name="scripting" alt="Scripting"></A> 
+                </TD>
+          <TD WIDTH=97> 
+                  <P><A HREF="../../../products/products.htm" 
+                            onmouseover="changeImages('products', '../../../htab_products.gif'); popUp('elMenu2',event); return true;" 
+onmouseout="changeImages('products', '../../../tab_products.gif'); popDown('elMenu2'); return true;"><IMG ID="products"
+                             HEIGHT=21 WIDTH=97 SRC="../../../tab_products.gif" VSPACE=0 HSPACE=0 ALIGN="TOP" BORDER=0 name=products alt="Products"></A> 
+                </TD>
+          <TD WIDTH=97> 
+                  <P><A HREF="../../../purchase/purchase.htm" onmouseover="changeImages('purchase', '../../../htab_purchase.gif');return true;" 
+onmouseout="changeImages('purchase', '../../../tab_purchase.gif');return true;"><IMG ID="purchase"
+                             HEIGHT=21 WIDTH=97 SRC="../../../tab_purchase.gif" VSPACE=0 HSPACE=0 ALIGN="TOP" BORDER=0 name=purchase alt="Purchase"></A> 
+                </TD>
+          <TD WIDTH=97> 
+                  <P><A HREF="../../../download/ndownload.htm" onmouseover="changeImages('download', '../../../htab_download.gif');return true;" 
+onmouseout="changeImages('download', '../../../tab_download.gif');return true;"><IMG ID="download"
+                             HEIGHT=21 WIDTH=97 SRC="../../../tab_download.gif" VSPACE=0 HSPACE=0 ALIGN="TOP" BORDER=0 name=download alt="Download"></A> 
+                </TD>
+          <TD WIDTH=97> 
+                  <P><A target="support" HREF="http://support.nombas.com/" onmouseover="changeImages('support', '../../../htab_support.gif'); return true;" 
+onmouseout="changeImages('support', '../../../tab_support.gif'); return true;"><IMG ID="support"
+                             HEIGHT=21 WIDTH=97 SRC="../../../tab_support.gif" VSPACE=0 HSPACE=0 ALIGN="TOP" BORDER=0 name=support alt="Support"></A> 
+                </TD>
+          <TD WIDTH=97> 
+                  <P><A HREF="../../../company/company.htm" 
+                            onmouseover="changeImages('company', '../../../htab_company.gif'); popUp('elMenu6',event); return true;" 
+onmouseout="changeImages('company', '../../../tab_company.gif'); popDown('elMenu6'); return true;"><IMG ID="company"
+                             HEIGHT=21 WIDTH=97 SRC="../../../tab_company.gif" VSPACE=0 HSPACE=0 ALIGN="TOP" BORDER=0 name=company alt="Company"></A> 
+                </TD>
+        </TR>
+      </TABLE>
+    </TD>
+  </TR>
+</TABLE>
+      <TABLE BORDER=0 CELLSPACING=0 CELLPADDING=0 WIDTH=100%>
+        <TR VALIGN=TOP ALIGN=LEFT> 
+    <TD WIDTH=5 HEIGHT=20><IMG SRC="../../../clearpixel.gif" WIDTH=5 HEIGHT=1 BORDER=0></TD>
+          <TD> 
+            <TABLE BORDER=0 CELLSPACING=0 CELLPADDING=0 WIDTH=100% HEIGHT=20 bgcolor="#FFFFFF">
+              <TR ALIGN=LEFT VALIGN=TOP> 
+          <TD> 
+                  <TABLE BORDER=0 CELLSPACING=0 CELLPADDING=0 WIDTH=100%>
+                    <TR VALIGN=TOP ALIGN=LEFT> 
+                <TD WIDTH=20 HEIGHT=20 ALIGN=LEFT VALIGN=TOP><IMG ID="Picture12" HEIGHT=20 WIDTH=20 SRC="../../../curve_topleft.gif" BORDER=0></TD>
+                      <TD><IMG SRC="../../../clearpixel.gif" WIDTH=592 HEIGHT=1 BORDER=0></TD>
+                <TD WIDTH=20 ALIGN=LEFT VALIGN=TOP><IMG ID="Picture10" HEIGHT=20 WIDTH=20 SRC="../../../curve_top.gif" BORDER=0></TD>
+              </TR>
+            </TABLE>
+          </TD>
+        </TR>
+      </TABLE>
+    </TD>
+  </TR>
+</TABLE>
+<TABLE BORDER=0 CELLSPACING=0 CELLPADDING=0 WIDTH=637>
+  <TR VALIGN=TOP ALIGN=LEFT> 
+    <TD HEIGHT=471 width="5"></TD>
+    <TD COLSPAN=2 height="471"> 
+      <TABLE BORDER=0 CELLSPACING=0 CELLPADDING=0 WIDTH=632 HEIGHT=200 bgcolor="#FFFFFF">
+        <TR ALIGN=LEFT VALIGN=TOP> 
+          <TD height="471"> 
+            <TABLE BORDER=0 CELLSPACING=0 CELLPADDING=0 WIDTH=516>
+              <TR VALIGN=TOP ALIGN=LEFT> 
+                <TD WIDTH=14 HEIGHT=1><IMG SRC="../../../clearpixel.gif" WIDTH=13 HEIGHT=1 BORDER=0></TD>
+                <TD WIDTH=502><IMG SRC="../../../clearpixel.gif" WIDTH=316 HEIGHT=1 BORDER=0></TD>
+              </TR>
+              <TR VALIGN=TOP ALIGN=LEFT> 
+                <TD width="14"></TD>
+                <TD WIDTH=502><!-- #BeginEditable "hier" --> 
+                        <P ALIGN=LEFT><A HREF="../../../index.htm"><FONT SIZE="-2" FACE="Verdana,Tahoma,Arial,Helvetica">Nombas</FONT></A><FONT SIZE="-2" FACE="Verdana,Tahoma,Arial,Helvetica"> 
+                          &gt; <a HREF="../../index.htm">SE:ISDK DevSpace</a> 
+                          &gt; <a href="../index.htm">Errata</a> &gt; Title</FONT> 
+                        <!-- #EndEditable --></TD>
+              </TR>
+            </TABLE>
+            <TABLE BORDER=0 CELLSPACING=0 CELLPADDING=0 WIDTH=300>
+              <TR VALIGN=TOP ALIGN=LEFT> 
+                <TD WIDTH=15 HEIGHT=5><IMG SRC="../../../clearpixel.gif" WIDTH=15 HEIGHT=1 BORDER=0></TD>
+                <TD></TD>
+              </TR>
+              <TR VALIGN=TOP ALIGN=LEFT> 
+                <TD HEIGHT=80></TD>
+                <TD WIDTH=600 ALIGN=LEFT VALIGN=TOP><IMG ID="Picture14" HEIGHT=80 WIDTH=600 SRC="../../bnr_devspace.gif" BORDER=0></TD>
+              </TR>
+              <TR VALIGN=TOP ALIGN=LEFT> 
+                <TD HEIGHT=368></TD>
+                <TD WIDTH=600 ALIGN=LEFT VALIGN=TOP height="368"> 
+                  <table width="100%" border="0">
+                    <tr> 
+                      <td colspan="4" height="9"><img SRC="../../../clearpixel.gif" width="1" height="1"></td>
+                    </tr>
+                    <tr> 
+                      <td width="1" height="326">&nbsp;</td>
+                      <td valign="top" height="326"><!-- #BeginEditable "main" --> 
+                        <p><font size="4" face="Verdana, Arial, Helvetica, sans-serif"><b>Integration 
+                          SDK Errata (Earlier Versions)</b></font><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><br>
+                          <i><b>Errata for pre-4.10c Versions </b></i></font></p>
+                        <ul>
+                          <li> <font face="Verdana, Arial, Helvetica, sans-serif" size="2"><a href="#v410b">4.10b 
+                            API</a> - latest update: July 9, '99</font> 
+                          <li> <font face="Verdana, Arial, Helvetica, sans-serif" size="2"><a href="#v410a">4.10a 
+                            API</a> </font>
+                          <li> <font face="Verdana, Arial, Helvetica, sans-serif" size="2"><a href="#v403c">4.03c 
+                            API</a> </font>
+                          <li> <font face="Verdana, Arial, Helvetica, sans-serif" size="2"><a href="#v403b">4.03b 
+                            API</a> </font>
+                          <li> <font face="Verdana, Arial, Helvetica, sans-serif" size="2"><a href="#v403a">4.03a 
+                            API</a> </font>
+                          <li> <font face="Verdana, Arial, Helvetica, sans-serif" size="2"><a href="#v402a">4.02a 
+                            API</a> </font>
+                          <li> <font face="Verdana, Arial, Helvetica, sans-serif" size="2"><a href="#d401">4.01 
+                            Documentation</a> </font>
+                          <li> <font face="Verdana, Arial, Helvetica, sans-serif" size="2"><a href="#d402">4.02 
+                            Documentation</a> </font> 
+                        </ul>
+                        <hr>
+                        <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><b><a name="v410b"></a>&nbsp;&nbsp;Version 
+                          4.10b API errata (may apply to earlier versions)</b></font></p>
+                        <p> 
+                        <ul>
+                          <li><font face="Verdana, Arial, Helvetica, sans-serif" size="2">Comparison 
+                            between Buffers and Strings was not working correctly. 
+                            This has already been fixed in 4.10c. Contact Nombas 
+                            if you need the fix in older versions. </font>
+                          <li><font face="Verdana, Arial, Helvetica, sans-serif" size="2">Assigning 
+                            a short buffer variable to a longer buffer variable 
+                            will retain the longer variable's length. The fix 
+                            in VARWRITE.C function <i>varPutData()</i> is to change 
+                            the last parameter in the last call to <i>varmemValidateIndex()</i> 
+                            from <tt>VString==vType</tt> to <tt>True</tt>. </font>
+                          <li><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                            A literal non-string value in script source followed 
+                            immediately by a literal string value can result in 
+                            an unreleased variable. The fix in the <i>CompileStringToken()</i> 
+                            function of CODEPRT2.C is to move the statement <tt>VAR_REMOVE_USER(PreviousVar,call);</tt> 
+                            at about line 131 outside of the <tt>if</tt> block 
+                            it is in. </font>
+                          <li> <font face="Verdana, Arial, Helvetica, sans-serif" size="2"><i>jseInterpret()</i> 
+                            may return <i>True</i> if the script compiles but 
+                            there is a run-time error. It should return <i>False</i> 
+                            in this case. The fix is to check the error flag on 
+                            the <i>Call</i> structure before clearing it. </font>
+                          <li><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                            Object created by <i>new</i> operator inherits, by 
+                            default, from <i>Function.prototype</i>, but should 
+                            instead inherit from <i>Object.prototype</i>. The 
+                            fix is in <i>callFunction()</i> in SECODE.C, to change:<br>
+                            <tt>&nbsp;&nbsp;&amp;&amp;&nbsp;prop&nbsp;!=&nbsp;call-&gt;Global-&gt;FunctionPrototype&nbsp;/*&nbsp;default&nbsp;*/</tt><br>
+                            to<br>
+                            <tt>&nbsp;&nbsp;&amp;&amp;&nbsp;prop&nbsp;!=&nbsp;call-&gt;Global-&gt;ObjectPrototype&nbsp;/*&nbsp;default&nbsp;*/</tt> 
+                            </font>
+                          <li><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><i>jseSetGlobalObject()</i> 
+                            does not ensure that the new global variable is a 
+                            true readable variable (i.e. not a dynamic-get or 
+                            -put waiting to happen). There is no fix for this 
+                            &quot;problem&quot;, because too much code relies 
+                            on constancy of the global variable. For 4.10C we 
+                            will be adding JSE_API_ASSERT statements in the <i>jseSetGlobalObject()</i> 
+                            function in UTIL.C to warn of invalid variables being 
+                            used as the global. </font>
+                          <li><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                            Extra VAR_REMOVE_USER when freeing dynamic-write (i.e. 
+                            ._put()) variables. Fixed in 4.10C. This is very unlikely 
+                            to show up as a bug because the use of macros will 
+                            hide any real loss of variables in this case. The 
+                            fix is to remove the first call to <i>VAR_REMOVE_USER()</i> 
+                            in the function <i>varReallyRemoveUser()</i> of VAR.C. 
+                            </font>
+                          <li><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                            Conversion of numeric-named object properties may 
+                            be inconsistent in 16-bit environments. This has shown 
+                            up in the <i>.arguments</i> property of a function. 
+                            Fixed in 4.10C. The fix is to cast <tt>number</tt> 
+                            as <tt>(JSE_POINTER_SINT)number</tt> in the <i>EnterNumberIntoStringTable()</i> 
+                            macro of CALL.H. </font>
+                          <li><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                            Library initialization using the JSE_VARSTRING() macro 
+                            will crash if the interpreter is built without the 
+                            JSE_COMPILER portion defined. Fixed in 4.10C. Contact 
+                            Nombas if you need to code to workaround this problem. 
+                            </font>
+                          <li><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                            Functions registered with <i>jseCallAtExit()</i> that 
+                            reference global variables will not flush the global 
+                            variable cache on exit. This is fixed in 4.10C. The 
+                            fix is in <i>secodeEndFunction()</i> in SECODE.C, 
+                            to execute the global flushing even if <i>no_clean</i> 
+                            flag is not set. </font>
+                          <li><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                            Functions with more than one identically-named input 
+                            parameter (e.g.&nbsp;<tt>function foo(ho,he,ha,ho)</tt>) 
+                            will use the wrong parameter. This is fixed in 4.10C. 
+                            The fix is about 15 lines into the <i>localExecute()</i> 
+                            funcion in LOCLFUNC.C, reversing the <i>for</i> loop 
+                            as follows:<br>
+                            <tt>&nbsp;&nbsp;for(&nbsp;count=0;</tt><br>
+                            <tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;count&lt;(int)this-&gt;InputParameterCount;</tt><br>
+                            <tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;count++&nbsp;)</tt> 
+                            </font>
+                          <li><font face="Verdana, Arial, Helvetica, sans-serif" size="2">Modulo 
+                            operator truncates numbers that cannot be represented 
+                            by a long integer. Fixed in 4.10C. The fix is in the 
+                            <i>Modulo</i> case in <i>do_twonumbers()</i>, to use 
+                            <i>fmod()</i> instead of C's <i>%</i> operator. </font>
+                          <li><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                            Passing more than 127 parameters to a script method 
+                            may result in a run-time error message about a negative 
+                            number of parameters. This error did not appear in 
+                            earlier releases. Fixed in 4.10C. The fix is to change 
+                            the first line in <i>libfuncExecute()</i> of LIBRARY.C 
+                            from <tt>sword8&nbsp;VarCount&nbsp;=&nbsp;(sword8)callParameterCount(call);</tt> 
+                            to <tt>uint&nbsp;VarCount&nbsp;=&nbsp;callParameterCount(call);</tt> 
+                            </font>
+                          <li><font face="Verdana, Arial, Helvetica, sans-serif" size="2">C++ 
+                            application link errors due to C-type headers. This 
+                            is fixed in 4.10C. The fix is to use an <i>extern&nbsp;&quot;C&quot;</i> 
+                            block around the prototypes in SEAPPSRV.H and SEOBJFUN.H. 
+                            </font>
+                          <li> <font face="Verdana, Arial, Helvetica, sans-serif" size="2"><i>_put</i> 
+                            functions inherited through <i>_prototype</i> are 
+                            not being called. This is fixed in 4.10C. The fix 
+                            is to change <i>varGetDirectMember()</i> to <i>varMemberGet()</i> 
+                            near the end of <i>varPutValue()</i> in VAR.C. </font>
+                          <li><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                            When your <i>jseMayIContinueFunc</i> function returns 
+                            false, not all variables in the currently-executing 
+                            function are cleaned up. This is fixed in 4.10C. The 
+                            fix is to replace <i>callDelete()</i> with <i>secodeEndFunction(tmpcall)</i> 
+                            in the <i>while()</i> loop within the <i>interpretTerm()</i> 
+                            function in INTERPRT.C. </font>
+                          <li><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                            Parsing error in global code or main() script function 
+                            causes crash. Fixed in 4.10C. The fix in CODEPRT2.C 
+                            function <i>functionparmsDelete()</i> is to not call 
+                            <i>VAR_REMOVE_USER()</i> if the function name is <i>init_function_entry</i> 
+                            or <i>main_entry</i>. </font>
+                          <li><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                            Potential comparison when compiling with JSE_INLINES=0 
+                            (usually only set for low-memory situations). Fixed 
+                            in 4.10C. The fix in VARUTIL.C is add parentheses 
+                            around the second half of the conditional macro for 
+                            <i>VarTypeConvertToPrimitive()</i>; i.e., at about 
+                            line 1055 change this pseudocode:<br>
+                            <tt>&nbsp;&nbsp;&nbsp;((VObject&nbsp;==&nbsp;VAR_TYPE(*var))&nbsp;?&nbsp;ExprA&nbsp;:&nbsp;ExprB,&nbsp;ExprC</tt><br>
+                            to<br>
+                            <tt>&nbsp;&nbsp;&nbsp;((VObject&nbsp;==&nbsp;VAR_TYPE(*var))&nbsp;?&nbsp;ExprA&nbsp;:&nbsp;(ExprB,&nbsp;ExprC)</tt> 
+                            </font>
+                          <li><font face="Verdana, Arial, Helvetica, sans-serif" size="2">Warning:VAR_REMOVE_USER 
+                            and VAR_THOROUGH_REMOVE_USER are macros containing 
+                            an <i>if</i> statement and so are vulnerable to invalid 
+                            <i>else</i> clauses. Although there are no such errors 
+                            in the shipping code, the potential for adding errors 
+                            is there if you're modifying the code in the SRCCORE 
+                            directory. We've changed these in 4.10C to use a safe 
+                            macros. </font>
+                          <li><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                            String table can become corrupt if your hash-size 
+                            entry is very small. This is fixed in 4.10C. The workaround 
+                            is to keep the hash-size at the default. If you need 
+                            a smaller hash size contact Nombas for the code fix. 
+                            </font>
+                          <li> <font face="Verdana, Arial, Helvetica, sans-serif" size="2"><i>jsePutString()</i>, 
+                            <i>jsePutStringLength()</i>, and <i>jsePutBuffer()</i> 
+                            may put invalid data in the modified variable if the 
+                            data pointer comes from that variable itself and if 
+                            putting this data causes the variable size to grow. 
+                            This situation is rare. Fixed in 4.10C. </font>
+                          <li><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                            Variable attributes are stored in <i>varmem</i> structure, 
+                            so that two variables sharing a <i>varmem</i> also 
+                            share the same attributes; attributes should be stored 
+                            in the <i>var</i> structure. This is fixed in 4.10C. 
+                            The fix is to move the attributes value from the <i>varmem</i> 
+                            structure to the <i>var</i> structure in VAR.H--compile-time 
+                            errors will then bring attention to the few lines 
+                            that need to be modified. </font>
+                        </ul>
+                        <p> <font face="Verdana, Arial, Helvetica, sans-serif" size="2"><b><a name="v410a"></a>&nbsp;&nbsp;Version 
+                          4.10A API errata (may apply to earlier versions)</b></font></p>
+                        <p> 
+                        <ul>
+                          <li><font face="Verdana, Arial, Helvetica, sans-serif" size="2">Strings 
+                            with embedded NULL characters or not ending in a NULL 
+                            character are being incorrectly entered into the string 
+                            table. This is only known to effect the tokenize/compile 
+                            functions. This is fixed in 4.10B. The fix is to change 
+                            the name-length assignment in the <i>EnterIntoStringTable</i>() 
+                            function in CALL.C to assign to <i>length</i> and 
+                            not to strlen_jsechar(). Related: correction of this 
+                            problem allows <i>GetDotNamedVar</i>() to be optimized 
+                            and no longer require an extra allocation. </font>
+                          <li><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                            Characters with values greater than 127 may appear 
+                            as negative values on ISDK applications that are not 
+                            using unicode and that define <i>char</i> as as signed 
+                            value. This is fixed in 4.10B. The fix is to typedef 
+                            &quot;jsechar&quot; as &quot;unsigned char&quot; in 
+                            JSETYPES.H </font>
+                          <li> <font face="Verdana, Arial, Helvetica, sans-serif" size="2"><i>jseCreateCodeTokenBuffer</i>() 
+                            is skipping local functions with dots in their names 
+                            (e.g. <i>function foo.prototype.getArea</i>()). This 
+                            is fixed in 4.10B. The workaround in 4.10A is to avoid 
+                            using this syntax in scripts that will be tokenized. 
+                            </font>
+                          <li><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                            Incorrect precision, and truncated exponent, in converting 
+                            numbers to string. This is fixed in 4.10B. The simplest 
+                            workaround in 4.10A is to use &quot;%.21g&quot; as 
+                            the format string for conversion in both SEOBJECT.C 
+                            and VARUTIL.C, and also to remove the subsequent portion 
+                            in SEOBJECT.C that removes terminating zeroes. </font>
+                          <li><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                            Conversion to primitive data type will report an error 
+                            if <i>toString</i> or <i>valueOf</i> (whichever is 
+                            called first) not return a primitive data type. This 
+                            is fixed in 4.10B. The fix is to modify the <i>varDefaultValue()</i> 
+                            function in VARREAD.C to try both methods if the first 
+                            does not return a primitive. </font>
+                        </ul>
+                        <p> <font face="Verdana, Arial, Helvetica, sans-serif" size="2"><a name="v403c"></a>&nbsp;&nbsp;Version 
+                          4.03C API errata (may apply to earlier versions)</font></p>
+                        <p> 
+                        <ul>
+                          <li><font face="Verdana, Arial, Helvetica, sans-serif" size="2">New 
+                            macros (<i>jseCompareLess()</i> and <i>jseCompareEquality()</i>) 
+                            have been added to give the API user exact control 
+                            over comparisons. </font>
+                          <li><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                            An extra null is incorrectly added to the end of buffers 
+                            when converting them using <i>convert_var_ToBuffer</i>, 
+                            which is called by <i>jseCreateConvertedVariable()</i>. 
+                            This will alter the length of the buffer, and could 
+                            introduce other problems. This will be fixed in 4.10. 
+                            The fix is to the <i>convert_var_ToBuffer()</i> function 
+                            in <i>VARUTIL.C</i>, as follows:<br>
+                            </font> 
+                            <ul>
+                              <font face="Verdana, Arial, Helvetica, sans-serif" size="2"><tt>line 
+                              530: change length+1 to length</tt><br>
+                              <tt>line 538: delete line</tt><br>
+                              <tt>line 539: change length+1 to length</tt><br>
+                              </font> 
+                            </ul>
+                          <li><font face="Verdana, Arial, Helvetica, sans-serif" size="2">Special 
+                            strings are incorrectly identified as numbers, causing 
+                            errors whenever some types of names are entered into 
+                            the string table. The string &quot;-&quot; would incorrectly 
+                            be converted into the number 0, and strings with leading 
+                            zeros, i.e. &quot;00004&quot; would be converted to 
+                            the number 4. For example, after this:<br>
+                            </font> 
+                            <ul>
+                              <font face="Verdana, Arial, Helvetica, sans-serif" size="2"><tt>foo[&quot;-&quot;] 
+                              = 1;</tt><br>
+                              <tt>foo[0] = 2;</tt><br>
+                              <tt>foo[&quot;0000&quot;] = 3;</tt><br>
+                              </font> 
+                            </ul>
+                            <font face="Verdana, Arial, Helvetica, sans-serif" size="2"><i>foo[0]</i> 
+                            would equal 3, and <i>foo[&quot;-&quot;]</i> and <i>foo[&quot;0000&quot;]</i> 
+                            would be undefined. This will be fixied in 4.10. If 
+                            you need the updated code for 4.03 contact <a href="http://support.nombas.com/">http://support.nombas.com/</a>. 
+                            </font>
+                          <li><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                            String representations of numeric indices may be overwritten 
+                            if occurring simultaneously in multiple threads. For 
+                            example, if two separate threads are each getting 
+                            the name of a numeric member of an object (e.g., &quot;14&quot; 
+                            in <i>foo[14]</i>), perhaps in a dynamic function 
+                            callback or error message, they are both using the 
+                            same static buffer for number-to-string conversion. 
+                            This is fixed in 4.10. The fix is to use a per-Call-&gt;Global 
+                            buffer in<i> GetStringTableEntry()</i> function of 
+                            <i>CALL.C</i>. </font>
+                          <li><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                            Buf in null-length string concatenation: Cancatenating 
+                            two empty strings (e.g.&nbsp;<tt>&quot;&quot;&nbsp;+&nbsp;&quot;&quot;</tt>) 
+                            can result in a system crash, or at least a debug 
+                            error, depending on your compiler. This is fixed in 
+                            4.10. The workaround is to change the <i>HugeMalloc</i> 
+                            call in the <i>ConcatenateStrings()</i> function of 
+                            VARUTIL.C to allocate an extra byte, for example:<br>
+                            </font> 
+                            <ul>
+                              <font face="Verdana, Arial, Helvetica, sans-serif" size="2"><tt>ConcatMem&nbsp;=&nbsp;(jsechar&nbsp;_HUGE_&nbsp;*)HugeMalloc(len1+len2+1);</tt> 
+                              </font> 
+                            </ul>
+                        </ul>
+                        <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><b><a name="v403b"></a>&nbsp;&nbsp;Version 
+                          4.03B API errata (may apply to earlier versions)</b></font></p>
+                        <p> 
+                        <ul>
+                          <li><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><i>enum</i> 
+                            conversion errors in the source. For those who have 
+                            licensed the SRCCORE files and are recompiling for 
+                            different platforms, beware of two known conversion 
+                            problems involving <i>enum</i>s compared with negative 
+                            constants. The first problem is in parsing source-file 
+                            keywords, such as <i>true</i>, <i>null</i>, and <i>false</i>. 
+                            The second problem is if debugging is turned on and 
+                            pre-compiled tokens are being played back, you may 
+                            wrongly receive a report that the compiled code is 
+                            invalid. These conversion problems will be fixed and 
+                            tested before the next release. Workarounds: if you 
+                            are compiling the core files into a separate library, 
+                            then use the option available with most compilers 
+                            to treat enums as signed; or contact <a href="http://support.nombas.com/">http://support.nombas.com/</a> 
+                            request more workaround information. This problem 
+                            will be correct with release 4.10. </font>
+                          <li> <font face="Verdana, Arial, Helvetica, sans-serif" size="2"><i>jseFindNames()</i> 
+                            function is missing. This function has been mysteriously 
+                            dropped from the current API, and it's loss was caught 
+                            late because it was not tested in our test suites. 
+                            This API function will be restored in version 4.10. 
+                            Source-code licensees will see that this is a simple 
+                            wrapper around the <i>FindNames()</i> function in 
+                            <i>varutil.c</i>. </font>
+                          <li><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                            Our memory allocation wrappers, when built with debugging 
+                            tools enabled, is not testing for size-zero memory 
+                            allocation and reallocations. This will be fixed in 
+                            4.03C. The only known location where this could produce 
+                            an error is when compiling/decompiling scripts containing 
+                            zero-length strings. </font>
+                          <li><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                            Depending on your compiler, processor, and compile-time 
+                            options, executing scripts can generate floating-point 
+                            exceptions (such as overflow or underflow) that are 
+                            not caught within the ISDK code. We are currently 
+                            investigating all of the issues involving this problem 
+                            and portable solutions, and will implement the best 
+                            solutions in version 4.10. Contact <a href="http://support.nombas.com/">http://support.nombas.com/</a> 
+                            for more information about this issue if it is a problem 
+                            on your system.. </font>
+                          <li><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                            String comparisons results may be incorrect. For example 
+                            (<tt>&quot;8&quot;&lt;=&quot;9&quot;</tt>) would correctly 
+                            be true, but (<tt>&quot;7&quot;&lt;=&quot;9&quot;</tt>) 
+                            would be incorrectly be false. This is corrected in 
+                            4.03C. To fix this problem in the <i>do_op_compare()</i> 
+                            function of COMPARE.C, change the comparison <tt>(result&nbsp;==&nbsp;-1</tt>) 
+                            to (<tt>result&nbsp;&lt;&nbsp;0</tt>) and change (<tt>result&nbsp;==&nbsp;1</tt>) 
+                            to (<tt>result&nbsp;&gt;&nbsp;0</tt>). </font>
+                        </ul>
+                        <p> <font face="Verdana, Arial, Helvetica, sans-serif" size="2"><b><a name="v403a"></a>&nbsp;&nbsp;Version 
+                          4.03A API errata (may apply to earlier versions)</b></font></p>
+                        <p> 
+                        <ul>
+                          <li><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><i>jseDestroyVariable()</i> 
+                            will report that the variable is invalid if the variable 
+                            was created with one of the <i>jse...Member...Ex()</i> 
+                            calls using the <i>jseCreateVar</i> flag. Memory associated 
+                            with this variable reference will not be freed. This 
+                            will be corrected in release 4.03B. If you have a 
+                            source-code license, remove the large section checking 
+                            that <i>varGetTheMember(variable)!=NULL</i> </font>
+                          <li> <font face="Verdana, Arial, Helvetica, sans-serif" size="2"><i>jseLibSetExitFlag()</i> 
+                            will cause the interpreter to act as if an error were 
+                            encountered, and will cause the <i>jseInterpret()</i> 
+                            function to return False. This will be corrected in 
+                            release 4.03B. The workaround is to ignore the error, 
+                            and if the exit variable information is needed then 
+                            store that information in some other location. </font>
+                          <li> <font face="Verdana, Arial, Helvetica, sans-serif" size="2"><i>jseActivationObject()</i> 
+                            will always return the global object if called from 
+                            within a wrapper function, instead of returning NULL 
+                            to indicate that it is in a local function. This will 
+                            be corrected in 4.03B. The workaround is to repeatedly 
+                            call <i>jsePreviousContext()</i> and then <i>jseActivationObject()</i> 
+                            until the value return is not the same as <i>jseGlobalObject()</i>. 
+                            </font>
+                          <li><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                            If two threads call <i>jseInitializeEngine()</i> and 
+                            then one thread calls <i>jseTerminateEngine()</i> 
+                            and then the other thread calls <i>jseTerminateEngine()</i>, 
+                            then <i>jseApiOK</i> and <i>jseGetLastApiError()</i> 
+                            will both report an error on the second call to <i>jseTerminateEngine()</i>. 
+                            This will be corrected in 4.03B. The workaround is 
+                            to ignore this error message. </font>
+                          <li><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                            jseInterpret() may have playback errors interpreting 
+                            scripts created with jseCreateCodeTokenBuffer() if 
+                            any local functions in the script use input parameters. 
+                            This will be corrected in 4.03B. </font>
+                          <li> <font face="Verdana, Arial, Helvetica, sans-serif" size="2"><i>#ifdef</i> 
+                            and <i>#ifndef</i> processing rely on the <i>defined()</i> 
+                            function having been added as a global function. This 
+                            will be corrected in 4.03B so that no function need 
+                            to be defined before using <i>#ifdef</i> or<i> #ifndef</i>. 
+                            The simplest workaround is just to add the <i>defined()</i>&nbsp;wrapper 
+                            function, as found in /SECLIB/SELIB.C. If adding that 
+                            function is impractical, then alter the source in 
+                            SRCCORE/SOURCE.C for the sourceEvaluateConditionalCompilation() 
+                            function as follows<br>
+                            <tt>&nbsp;&nbsp;/* create wrapper around statement 
+                            to interpret */</tt><br>
+                            <tt>&nbsp;&nbsp;jse_sprintf_2(&nbsp;command_buf, &quot;%s 
+                            %s&quot;,</tt><br>
+                            <tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;AutomaticDefineFunc</tt><br>
+                            <tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;?&nbsp;&quot;\&quot;undefined\&quot; 
+                            != typeof&quot;</tt><br>
+                            <tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: 
+                            &quot;&quot;, SourceStatement );</tt> </font>
+                          <li><font face="Verdana, Arial, Helvetica, sans-serif" size="2">Pre-compile 
+                            code (i.e. the code create by <i>jseCreateCodeTokenBuffer()</i> 
+                            and played back via <i>jseInterpret()</i>) has some 
+                            small differences between targets and compile options. 
+                            For instance, code compiled from a system supporting 
+                            the <i>#link</i>&nbsp;option would not play back from 
+                            a system that did not support <i>#link</i>, but there 
+                            were other problems as well. This will be corrected 
+                            with version 4.03B. </font>
+                          <li><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                            The conversion bits in <i>jseFuncVarNeed()</i> (i.e. 
+                            those bits defined by the macro <i>JSE_VN_CONVERT()</i>) 
+                            are ignored in 16-bit Borland and Microsoft builds. 
+                            This will be corrected in 4.03B. </font>
+                        </ul>
+                        <p> <font face="Verdana, Arial, Helvetica, sans-serif" size="2"><b><a name="v402a"></a>&nbsp;&nbsp;4.02a 
+                          API errata (may apply to earlier versions)</b></font></p>
+                        <p> 
+                        <ul>
+                          <li><font face="Verdana, Arial, Helvetica, sans-serif" size="2">Problem: 
+                            in string.split(separator) method, if the length of 
+                            the separator is greater than or equal to string, 
+                            it returns wrong value. Correction: fixed in file 
+                            srclib\ecma\seobject.c </font> 
+                            <p> 
+                          <li><font face="Verdana, Arial, Helvetica, sans-serif" size="2">jseGetFunction 
+                            will crash if the function does not exist.&nbsp; As 
+                            a work around call jseGetMember and jseIsFunction 
+                            as shown here: </font> 
+                            <p></p>
+                            <p> <font face="Verdana, Arial, Helvetica, sans-serif" size="2"><tt>&nbsp;&nbsp;jseVariable 
+                              m;</tt><br>
+                              <tt>&nbsp;&nbsp;</tt><br>
+                              <tt>&nbsp;&nbsp;m = jseGetMember(jsecontext, NULL, 
+                              &quot;PrintFloat&quot;);</tt><br>
+                              <tt>&nbsp;&nbsp;if(m)</tt><br>
+                              <tt>&nbsp;&nbsp;{</tt><br>
+                              <tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;jsebool b;</tt><br>
+                              <tt>&nbsp;&nbsp;</tt><br>
+                              <tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;b = jseIsFunction(jsecontext,m);</tt><br>
+                              <tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if(b)</tt><br>
+                              <tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{</tt><br>
+                              <tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/* 
+                              it's safe to call the function now */</tt><br>
+                              <tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;jseCallFunction(jsecontext, 
+                              m, stack, NULL, NULL)</tt><br>
+                              <tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}</tt><br>
+                              <tt>&nbsp;&nbsp;}</tt><br>
+                              <tt>&nbsp;&nbsp;</tt> </font>
+                          <li><font face="Verdana, Arial, Helvetica, sans-serif" size="2">&quot;delete 
+                            z (where z is undefined variable) bug&quot;. Workaround: 
+                            Verify that the object exists (check its type) before 
+                            calling delete. </font>
+                          <li><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                            The <i>jseInterpret()</i> API call now returns a variable 
+                            rather than a numeric return code. Similarly, the<i> 
+                            eval()</i> function now correctly returns whatever 
+                            value was 'return'ed or the value of the last executed 
+                            expression if none. </font>
+                        </ul>
+                        <p> <font face="Verdana, Arial, Helvetica, sans-serif" size="2"><b><a name="d402"></a>&nbsp;&nbsp;Version 
+                          4.02 documentation errors (may apply to earlier versions)</b></font></p>
+                        <p> 
+                        <ul>
+                          <li><font face="Verdana, Arial, Helvetica, sans-serif" size="2">jseCallFunction 
+                            () *returnVar will never be NULL. The manual (and 
+                            previous versions of SE:ISDK) state that *returnVar 
+                            may be set to NULL to indicate that the function did 
+                            not return anything. This is no longer true with ECMA-262. 
+                            All functions now return a value. If they do not explicitly 
+                            return a value then they implicitly return an jseTypeUndefined 
+                            variable. Starting with version 4.02, if you want 
+                            to check that a function did not return a variable 
+                            then check jseTypeUndefined!=*retVar. (BTW, this case 
+                            is indisitinguishable from explicitly returning an 
+                            undefined variable.) </font> 
+                            <p></p>
+                        </ul>
+                        <p> <font face="Verdana, Arial, Helvetica, sans-serif" size="2"><b><a name="d401"></a>&nbsp;&nbsp;Version 
+                          4.01 Documention changes (may apply to earlier versions)</b></font></p>
+                        <p> 
+                        <ul>
+                          <li><font face="Verdana, Arial, Helvetica, sans-serif" size="2">jseCompare 
+                            (page 40) incorrect syntax for the third parameter, 
+                            the correct syntax is: jseCompare(jseVariable variable1, 
+                            jseVariable variable2, slong * compareResult); </font>
+                          <li><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                            jseEvaluateBoolean (page 53) the syntax included sn 
+                            extra comma.&nbsp; the correct sytax is: jseEvaluateBoolean(jseContext 
+                            jsecontext,jseVariable variable); </font>
+                          <li><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                            jseGetIndexMember (page 61) The comment states &quot;If 
+                            the member does not exist it will be created with 
+                            an undefined value.&quot;&nbsp; This is incorrect.&nbsp; 
+                            The the return value is stated,it will return NULL 
+                            if the mamber does not exist.&nbsp;&nbsp; The last 
+                            paramter is incorrect.&nbsp; The correct syntax is: 
+                            jseGetIndexMember(jseContext jsecontext,jseVariable 
+                            objectVariable,slong index); </font>
+                          <li><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                            jseInitializeExternalLink (page 68) The syntax was 
+                            changed to include a token buffer parameter.&nbsp; 
+                            The new syntax is: jseInitializeExternalLink(void 
+                            _FAR_ *LinkData,struct jseExternalLinkParameters *LinkParms, 
+                            const char _FAR_ * globalVarName,const char _FAR_ 
+                            * AccessKey); </font>
+                          <li><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                            jseInterpret (page 71) jseInterpret now return a jseVariableas 
+                            the script return code.&nbsp; the new syntax is: jseInterpret(jseContext 
+                            jsecontext,JSE_CPP_CONST char _FAR_ * SourceFile,JSE_CPP_CONST 
+                            char _FAR_ * SourceText,JSE_CPP_CONST void _FAR_ * 
+                            PreTokenizedSource,JSE_CPP_CONST jseSourceFilters 
+                            _FAR_ SrcFilters, jseNewContextSettings NewContextSettings, 
+                            int howToInterpret,jseContext localVariableContext,jseVariable 
+                            _FAR_ *returnVar); </font>
+                          <li><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                            jseInterpret (page 72) The howToInterpret flags are 
+                            incorrectly stated to begin with 'CMM_',&nbsp; The 
+                            correct prefix is 'JSE_'. </font>
+                          <li><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                            jseLibSetExitFlag (page 75) The call now takes a jseVariable 
+                            as the exitCode paramter.&nbsp; the new syntax is: 
+                            jseLibSetExitFlag(jseContext jsecontext,jseVariable 
+                            variable); </font>
+                          <li><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                            jseLoadTokenBuffer (page 76).&nbsp; this call longer 
+                            exists.&nbsp; In place if it you should use the new 
+                            parameter to jseInterpret(). </font>
+                          <li><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                            jseQuitFlagged (page 85) The return macros incorrectly 
+                            state the prefix as 'CMM_' the correct prefix is 'JSE_'. 
+                            </font>
+                          <li><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+                            jseSetArraySpan (page 89) is incorrectly named.&nbsp; 
+                            The correct name is jseSetArrayLength.<!--BEGIN_FOOTER--></font>
+                        </ul>
+                        <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"></font></p>
+                        <!-- #EndEditable --></td>
+                    </tr>
+                    <tr> 
+                      <td width="1">&nbsp;</td>
+                      <td width="460">&nbsp;</td>
+                    </tr>
+                  </table>
+                  </TD>
+              </TR>
+            </TABLE>
+          </TD>
+        </TR>
+      </TABLE>
+    </TD>
+  </TR>
+  <TR VALIGN=TOP ALIGN=LEFT> 
+    <TD HEIGHT=2 width="5"></TD>
+    <TD COLSPAN=2 height="2"> 
+            <TABLE BORDER=0 CELLSPACING=0 CELLPADDING=0 WIDTH=100% HEIGHT=20 bgcolor="#FFFFFF">
+              <TR ALIGN=LEFT VALIGN=TOP> 
+          <TD> 
+                  <TABLE BORDER=0 CELLSPACING=0 CELLPADDING=0 WIDTH=100%>
+                    <TR VALIGN=TOP ALIGN=LEFT> 
+                <TD WIDTH=20 HEIGHT=2 ALIGN=LEFT VALIGN=TOP><IMG ID="Picture13" HEIGHT=20 WIDTH=20 SRC="../../../curve_botleft.gif" BORDER=0></TD>
+                      <TD height="2"><IMG SRC="../../../clearpixel.gif" WIDTH=592 HEIGHT=1 BORDER=0></TD>
+                <TD WIDTH=20 ALIGN=LEFT VALIGN=TOP height="2"><IMG ID="Picture11" HEIGHT=20 WIDTH=20 SRC="../../../curve_bot.gif" BORDER=0></TD>
+              </TR>
+            </TABLE>
+          </TD>
+        </TR>
+      </TABLE>
+    </TD>
+  </TR>
+  <TR VALIGN=TOP ALIGN=LEFT> 
+    <TD WIDTH=5 HEIGHT=6><IMG SRC="../../../clearpixel.gif" WIDTH=5 HEIGHT=1 BORDER=0></TD>
+    <TD WIDTH=613><IMG SRC="../../../clearpixel.gif" WIDTH=613 HEIGHT=1 BORDER=0></TD>
+    <TD WIDTH=22><IMG SRC="../../../clearpixel.gif" WIDTH=19 HEIGHT=1 BORDER=0></TD>
+  </TR>
+  <TR VALIGN=TOP ALIGN=LEFT> 
+    <TD COLSPAN=2> 
+            <P ALIGN=RIGHT><A HREF="../../../index.htm"><FONT COLOR="#FFFFFF" SIZE="-2" FACE="Verdana,Tahoma,Arial,Helvetica">Home</FONT></A><FONT COLOR="#FFFFFF" SIZE="-2" FACE="Verdana,Tahoma,Arial,Helvetica"> 
+              | </FONT><A
+                 HREF="../../../scripting/scripting.htm"><FONT COLOR="#FFFFFF" SIZE="-2" FACE="Verdana,Tahoma,Arial,Helvetica">Scripting</FONT></A><FONT COLOR="#FFFFFF" SIZE="-2" FACE="Verdana,Tahoma,Arial,Helvetica"> 
+              | </FONT><A
+                 HREF="../../../products/products.htm"><FONT COLOR="#FFFFFF" SIZE="-2" FACE="Verdana,Tahoma,Arial,Helvetica">Products</FONT></A><FONT COLOR="#FFFFFF" SIZE="-2" FACE="Verdana,Tahoma,Arial,Helvetica"> 
+              | </FONT><A
+                 HREF="../../../purchase/purchase.htm"><FONT COLOR="#FFFFFF" SIZE="-2" FACE="Verdana,Tahoma,Arial,Helvetica">Purchase</FONT></A><FONT COLOR="#FFFFFF" SIZE="-2" FACE="Verdana,Tahoma,Arial,Helvetica"> 
+              | </FONT><A
+                 HREF="../../../download/ndownload.htm"><FONT COLOR="#FFFFFF" SIZE="-2" FACE="Verdana,Tahoma,Arial,Helvetica">Download</FONT></A><FONT COLOR="#FFFFFF" SIZE="-2" FACE="Verdana,Tahoma,Arial,Helvetica"> 
+              | </FONT><A
+                 target="support" HREF="http://support.nombas.com/"><FONT COLOR="#FFFFFF" SIZE="-2" FACE="Verdana,Tahoma,Arial,Helvetica">Support</FONT></A><FONT COLOR="#FFFFFF" SIZE="-2" FACE="Verdana,Tahoma,Arial,Helvetica"> 
+              | </FONT><A HREF="../../../company/company.htm"> <FONT COLOR="#FFFFFF" SIZE="-2" FACE="Verdana,Tahoma,Arial,Helvetica">Company</FONT></A><FONT COLOR="#FFFFFF" SIZE="-2" FACE="Verdana,Tahoma,Arial,Helvetica"><BR>
+        <BR>
+        Copyright &#169;2001, Nombas, Inc. All Rights Reserved.<BR>
+        Questions? Visit </FONT><A HREF="http://support.nombas.com/"><FONT COLOR="#FFFFFF" SIZE="-2" FACE="Verdana,Tahoma,Arial,Helvetica">http://support.nombas.com/</FONT></A> 
+    </TD>
+    <TD width="22"></TD>
+  </TR>
+</TABLE>
+</td>
+  </tr>
+</table>
+<SCRIPT language=JavaScript1.2>
+  display_nombas_legacy_message();
+</SCRIPT>
+</BODY>
+<!-- #EndTemplate --></HTML>

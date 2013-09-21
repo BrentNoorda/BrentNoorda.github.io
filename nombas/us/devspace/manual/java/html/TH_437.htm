@@ -1,0 +1,131 @@
+<html>
+<head>
+<title>Blob.put()</title>
+<link rel="stylesheet" href="semanualstyles.css" type="text/css">
+<style type="text/css">
+ p { margin-top: 0; margin-bottom: 0; }
+</style>
+<script language="JavaScript" src="TrueHelp.js"></script>
+</head>
+<body onload="thload()">
+<div id=ienav>
+<ilayer id=nsnav>
+<br>
+<center>
+<p class=normal><a href="seisdkj-toc.htm" target="left">contents</a> &nbsp; <a href="seisdkj-index.htm" target="left">index</a> &nbsp; <a href="TH_436.htm">previous</a> &nbsp; <a href="TH_438.htm">next</a></p>
+</center>
+<br>
+<hr noshade size=1>
+</ilayer>
+</div>
+<p class=sereffunclevel4>Blob.put()</p>
+<table cellpadding=0>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>syntax:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=sesyntax>Blob.put(<span class=truehelp-xe></span>BlobVar[,&nbsp;offset],&nbsp;variable,&nbsp;DataType)&nbsp;</p>
+<p class=sesyntax>Blob.put(BlobVar[,&nbsp;offset],&nbsp;buffer,&nbsp;bufferLen)</p>
+<p class=sesyntax>Blob.put(BlobVar[,&nbsp;offset],&nbsp;SrcStruct,&nbsp;DataStructureDefinition)</p></td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>where:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>BlobVar - binary large object variable to use.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>offset - the offset or position in the Blob from which to work.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>variable - variable with data to put into a Blob.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>buffer - buffer with data to put into a Blob.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>SrcStruct - structure (object) with data to put into a Blob.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>DataType - the type of data with which to work.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>bufferLen - the length of data to work with as a buffer or byte array.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>DataStructureDefinition - definition of an object (structure) variable.</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>return:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>number - the byte offset to the next byte following the data that was just inserted into a Blob. If at the end of a Blob, then return the value that equals <span class=secodephrase>Blob.size(Blob)</span>.</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>description:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>This method puts data into a specified location of a Binary Large Object, Blob and, along with <span class=sepopuptopic><a href="TH_436.htm" onClick="return thwindow('TH_436.htm', 'GenPopup')">Blob.get()</a></span>, allows for direct access to memory within a variable. The contents of such a variable may be viewed as a packed structure. Data can be placed at any location within a Blob. The parameter BlobVar specifies the Blob to use. The parameter offset specifies where, in the Blob, to write data. The third parameter is the data to write. The last parameter specifies the format of the data in the Blob.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara><span class=secodephrase>Blob.put()</span> returns the byte offset for the next byte following the section where data was just put. If the data is put at the end of the Blob, then the return is equivalent to the size of the Blob.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>If offset is not supplied, then the data is put at the end of the Blob, or at offset 0 if the Blob is not yet defined.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>The data in v is converted to the specified DataType and then copied into the bytes specified by offset.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>If DataType is not the length of a byte buffer, then it must be one of these types:</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=secodelines>UWORD8,&nbsp;&nbsp;SWORD8,&nbsp;&nbsp;UWORD16,&nbsp;SWORD16,&nbsp;UWORD24,&nbsp;SWORD24,</p>
+<p class=secodelines>UWORD32,&nbsp;SWORD32,&nbsp;FLOAT32,&nbsp;FLOAT64,&nbsp;FLOAT80</p>
+<p class=secodelinesindented>&nbsp;</p>
+<p class=senormalpara>See <span class=sepopuptopic><a href="TH_512.htm" onClick="return thwindow('TH_512.htm', 'GenPopup')">Clib.fread()</a></span> or <span class=sepopuptopic><a href="TH_439.htm" onClick="return thwindow('TH_439.htm', 'GenPopup')">blobDescriptor object</a></span>, below, for more information on these DataType values.</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>see:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara><span class=sejumptopic><a href="TH_436.htm">Blob get()</a></span>, <span class=sejumptopic><a href="TH_438.htm">Blob size()</a></span>, _BigEndianMode, <span class=sejumptopic><a href="TH_445.htm">Buffer object</a></span></p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>example:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=secodelines>//&nbsp;If&nbsp;you&nbsp;were&nbsp;sending&nbsp;a&nbsp;pointer&nbsp;to&nbsp;data</p>
+<p class=secodelines>//&nbsp;in&nbsp;an&nbsp;external&nbsp;C&nbsp;library&nbsp;and&nbsp;knew</p>
+<p class=secodelines>//&nbsp;that&nbsp;the&nbsp;library&nbsp;expected&nbsp;the&nbsp;data</p>
+<p class=secodelines>//&nbsp;in&nbsp;a&nbsp;packed&nbsp;DOS&nbsp;structure&nbsp;of&nbsp;the&nbsp;form:&nbsp;</p>
+<p class=secodelines>&nbsp;</p>
+<p class=secodelines>struct&nbsp;foo&nbsp;</p>
+<p class=secodelines>{</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;signed&nbsp;char&nbsp;a;</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;unsigned&nbsp;int&nbsp;b;</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;double&nbsp;&nbsp;&nbsp;&nbsp;c;</p>
+<p class=secodelines>};</p>
+<p class=secodelines>&nbsp;</p>
+<p class=secodelines>//&nbsp;and&nbsp;if&nbsp;you&nbsp;were&nbsp;building&nbsp;this&nbsp;structure</p>
+<p class=secodelines>//&nbsp;from&nbsp;three&nbsp;corresponding&nbsp;variables,</p>
+<p class=secodelines>//&nbsp;then&nbsp;such&nbsp;a&nbsp;building&nbsp;function&nbsp;might&nbsp;look</p>
+<p class=secodelines>//&nbsp;like&nbsp;the&nbsp;following:&nbsp;</p>
+<p class=secodelines>&nbsp;</p>
+<p class=secodelines>function&nbsp;BuildFooBlob(a,&nbsp;b,&nbsp;c)&nbsp;</p>
+<p class=secodelines>{</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;var&nbsp;offset&nbsp;=&nbsp;Blob.put(foo,&nbsp;0,&nbsp;a,&nbsp;SWORD8);&nbsp;&nbsp;&nbsp;&nbsp;</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;offset&nbsp;=&nbsp;Blob.put(foo,&nbsp;offset,&nbsp;b,&nbsp;UWORD16);&nbsp;&nbsp;&nbsp;&nbsp;</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;Blob.put(foo,&nbsp;offset,&nbsp;c,&nbsp;FLOAT64);&nbsp;&nbsp;&nbsp;&nbsp;</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;return&nbsp;foo;&nbsp;</p>
+<p class=secodelines>}&nbsp;</p>
+<p class=secodelines>&nbsp;</p>
+<p class=secodelines>//&nbsp;or,&nbsp;if&nbsp;an&nbsp;offset&nbsp;were&nbsp;not&nbsp;supplied:</p>
+<p class=secodelines>&nbsp;</p>
+<p class=secodelines>BuildFooBlob(a,&nbsp;b,&nbsp;c)</p>
+<p class=secodelines>{</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;Blob.put(foo,&nbsp;a,&nbsp;SWORD8);&nbsp;&nbsp;&nbsp;&nbsp;</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;Blob.put(foo,&nbsp;b,&nbsp;UWORD16);&nbsp;&nbsp;&nbsp;&nbsp;</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;Blob.put(foo,&nbsp;c,&nbsp;FLOAT64);&nbsp;&nbsp;&nbsp;&nbsp;</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;return&nbsp;foo;&nbsp;</p>
+<p class=secodelines>}</p></td>
+</tr>
+</table>
+<p class=normal>&nbsp;</p>
+<hr noshade size=1>
+<p class=normal><a href="TH_438.htm"><img src="button.png" border=0></a><a href="TH_438.htm" style="text-decoration:none;">Blob.size()</a></p>
+<p>
+</body>
+</html>

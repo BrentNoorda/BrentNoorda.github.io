@@ -1,0 +1,86 @@
+<html>
+<head>
+<title>Unix.kill()</title>
+<link rel="stylesheet" href="semanualstyles.css" type="text/css">
+<style type="text/css">
+ p { margin-top: 0; margin-bottom: 0; }
+</style>
+<script language="JavaScript" src="TrueHelp.js"></script>
+</head>
+<body onload="thload()">
+<div id=ienav>
+<ilayer id=nsnav>
+<br>
+<center>
+<p class=normal><a href="seisdkc-toc.htm" target="left">contents</a> &nbsp; <a href="seisdkc-index.htm" target="left">index</a> &nbsp; <a href="TH_986.htm">previous</a> &nbsp; <a href="TH_988.htm">next</a></p>
+</center>
+<br>
+<hr noshade size=1>
+</ilayer>
+</div>
+<p class=sereffunclevel4>Unix.kill()</p>
+<table cellpadding=0>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>syntax:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=sesyntax>Unix.kill(<span class=truehelp-xe></span>pid,&nbsp;signal)</p></td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>where:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>pid - process to kill.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>signal - the signal to send the process.</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>return:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>number - 0 for success, -1 for error.</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>description:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>This is simply a direct wrapper for the Unix kill command. To get documentation on it for your particular Unix system, just type 'man 2 kill'</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>see:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara><span class=sejumptopic><a href="TH_986.htm">Unix.fork()</a></span></p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>example:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=secodelines>//&nbsp;Typically&nbsp;you&nbsp;would&nbsp;use&nbsp;this&nbsp;to&nbsp;kill&nbsp;a&nbsp;child,</p>
+<p class=secodelines>//&nbsp;for&nbsp;instance:</p>
+<p class=secodelines>&nbsp;</p>
+<p class=secodelines>if(&nbsp;var&nbsp;id&nbsp;=&nbsp;Unix.fork()&nbsp;)</p>
+<p class=secodelines>{</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;while(1)</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Clib.printf("I&nbsp;am&nbsp;an&nbsp;annoying&nbsp;child.\n");</p>
+<p class=secodelines>}</p>
+<p class=secodelines>else</p>
+<p class=secodelines>{</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//&nbsp;child&nbsp;would&nbsp;be&nbsp;too&nbsp;annoying,&nbsp;so&nbsp;kill&nbsp;it</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;Unix.kill(id,9);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//9&nbsp;is&nbsp;SIGKILL</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;Unix.wait(var&nbsp;status);&nbsp;//wait&nbsp;until&nbsp;child&nbsp;is&nbsp;dead</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;Clib.printf(</p>
+<p class=secodelines>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"I&nbsp;hope&nbsp;DSS&nbsp;doesn't&nbsp;here&nbsp;about&nbsp;this...\n");</p>
+<p class=secodelines>}</p></td>
+</tr>
+</table>
+<p class=normal>&nbsp;</p>
+<hr noshade size=1>
+<p class=normal><a href="TH_988.htm"><img src="button.png" border=0></a><a href="TH_988.htm" style="text-decoration:none;">Unix.setgid()</a></p>
+<p>
+</body>
+</html>

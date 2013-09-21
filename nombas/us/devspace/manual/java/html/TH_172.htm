@@ -1,0 +1,29 @@
+<html>
+<head>
+<title>OTHER CONSIDERATIONS</title>
+<link rel="stylesheet" href="semanualstyles.css" type="text/css">
+<style type="text/css">
+ p { margin-top: 0; margin-bottom: 0; }
+</style>
+<script language="JavaScript" src="TrueHelp.js"></script>
+</head>
+<body onload="thload()">
+<div id=ienav>
+<ilayer id=nsnav>
+<br>
+<center>
+<p class=normal><a href="seisdkj-toc.htm" target="left">contents</a> &nbsp; <a href="seisdkj-index.htm" target="left">index</a> &nbsp; <a href="TH_171.htm">previous</a> &nbsp; next</p>
+</center>
+<br>
+<hr noshade size=1>
+</ilayer>
+</div>
+<p class=sereffunclevel2>OTHER CONSIDERATIONS</p>
+<p class=sereffunclevel2-p>&nbsp;</p>
+<p class=senormalpara>It is important to understand that values returned from the ScriptEase API that follow the usual ScriptEase lifetime rules, such as <span class=secodephrase>SEObject</span>s, are tied to the context they were created in. Any ScriptEase call that is passed that parameter must be passed the same context used to initially get that item. You cannot use an <span class=secodephrase>SEObject</span> created in one context with another, for instance.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>Fibers are the exception. Fibers are designed to allow several contexts to share the same variables. All fibers in the same fiber group can share these items and use them in any context of the same fiber group. Items created in this way still must not be used with a context that is not part of the fiber group, however.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p>
+</body>
+</html>

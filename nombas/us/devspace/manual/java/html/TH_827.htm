@@ -1,0 +1,69 @@
+<html>
+<head>
+<title>SElib.messageFilter()</title>
+<link rel="stylesheet" href="semanualstyles.css" type="text/css">
+<style type="text/css">
+ p { margin-top: 0; margin-bottom: 0; }
+</style>
+<script language="JavaScript" src="TrueHelp.js"></script>
+</head>
+<body onload="thload()">
+<div id=ienav>
+<ilayer id=nsnav>
+<br>
+<center>
+<p class=normal><a href="seisdkj-toc.htm" target="left">contents</a> &nbsp; <a href="seisdkj-index.htm" target="left">index</a> &nbsp; <a href="TH_826.htm">previous</a> &nbsp; <a href="TH_828.htm">next</a></p>
+</center>
+<br>
+<hr noshade size=1>
+</ilayer>
+</div>
+<p class=sereffunclevel4>SElib.messageFilter()</p>
+<table cellpadding=0>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>syntax:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=sesyntax>SElib.messageFilter(hWnd[,&nbsp;message[,&nbsp;...]])</p></td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>where:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>hWnd - a number, the handle of a window created by <span class=secodephrase>SElib.makeWindow()</span> or subclassed with <span class=secodephrase>SElib.subclassWindow()</span>.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>message - one or more messages to be processed by the window to which hWnd points. </p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>return:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>object - an array of messages being filtered prior to this call to <span class=secodephrase>SElib.messageFilter()</span>. Returns <span class=secodephrase>null</span> if no messages are in the filter, that is, all messages are passed through to ScriptEase functions or if hWnd is not a handle for a window processed by <span class=sepopuptopic><a href="TH_826.htm" onClick="return thwindow('TH_826.htm', 'GenPopup')">SElib.makeWindow()</a></span> or <span class=sepopuptopic><a href="TH_836.htm" onClick="return thwindow('TH_836.htm', 'GenPopup')">SElib.subclassWindow()</a></span>. </p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>description:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>For Win32 and Win16</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>Restricts the messages being processed by windows created with <span class=secodephrase>SElib.makeWindow()</span> or subclassed with <span class=secodephrase>SElib.subclassWindow()</span>. Scripts run much faster if windows only process the messages that they act on, that is, just the messages that they need. Initially, there are no message filters so all messages are processed.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>Calling this method with no parameters removes all message filtering. </p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>see:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara><span class=sejumptopic><a href="TH_826.htm">SElib.makeWindow()</a></span>, <span class=sejumptopic><a href="TH_836.htm">SElib.subclassWindow()</a></span></p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+</table>
+<p class=normal>&nbsp;</p>
+<hr noshade size=1>
+<p class=normal><a href="TH_828.htm"><img src="button.png" border=0></a><a href="TH_828.htm" style="text-decoration:none;">SElib.multiTask()</a></p>
+<p>
+</body>
+</html>

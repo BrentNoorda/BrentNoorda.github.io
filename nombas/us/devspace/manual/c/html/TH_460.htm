@@ -1,0 +1,146 @@
+<html>
+<head>
+<title>Logical operators and conditional expressions</title>
+<link rel="stylesheet" href="semanualstyles.css" type="text/css">
+<style type="text/css">
+ p { margin-top: 0; margin-bottom: 0; }
+</style>
+<script language="JavaScript" src="TrueHelp.js"></script>
+</head>
+<body onload="thload()">
+<div id=ienav>
+<ilayer id=nsnav>
+<br>
+<center>
+<p class=normal><a href="seisdkc-toc.htm" target="left">contents</a> &nbsp; <a href="seisdkc-index.htm" target="left">index</a> &nbsp; <a href="TH_459.htm">previous</a> &nbsp; <a href="TH_461.htm">next</a></p>
+</center>
+<br>
+<hr noshade size=1>
+</ilayer>
+</div>
+<p class=heading-3>Logical operators and conditional expressions</p>
+<p class=heading-3-p>&nbsp;</p>
+<p class=senormalpara>Logical operators compare two values and evaluate whether the resulting expression is <span class=secodephrase>false</span> or <span class=secodephrase>true</span>. The value <span class=secodephrase>false</span> is zero, and <span class=secodephrase>true</span> is not <span class=secodephrase>false</span>, that is, anything not zero. A variable or any other expression may be <span class=secodephrase>false</span> or <span class=secodephrase>true</span>, that is, zero or non-zero. An expression that does a comparison is called a conditional expression.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>Many values are evaluated as <span class=secodephrase>true</span>, in fact, everything except 0. It is often safer to make comparisons based on <span class=secodephrase>false</span>, which is only one value, rather than to <span class=secodephrase>true</span>, which can be many. Expressions can be combined with logic operators to make complex <span class=secodephrase>true</span>/<span class=secodephrase>false</span> decisions.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>Logical operators are used to make decisions about which statements in a script will be executed, based on how a conditional expression evaluates. As an example, suppose that you are designing a simple guessing game. The computer thinks of a number between 1 and 100, and you guess what it is. The computer tells you if you are right or not and whether your guess is higher or lower than the target number. This procedure uses the if statement, which is introduced in the next section. Basically, if the conditional expression in the parenthesis following an if statement is <span class=secodephrase>true</span>, the statement block following the if statement is executed. If <span class=secodephrase>false</span>, the statement block is ignored, and the computer continues executing the script at the next statement after the ignored block. The script might have a structure similar to the one below in which GetTheGuess() is a function that gets your guess.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=secodelinesindented>var&nbsp;guess&nbsp;=&nbsp;GetTheGuess();&nbsp;//get&nbsp;the&nbsp;user&nbsp;input</p>
+<p class=secodelinesindented>if&nbsp;(guess&nbsp;&gt;&nbsp;target_number)</p>
+<p class=secodelinesindented>{</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;...guess&nbsp;is&nbsp;too&nbsp;high...</p>
+<p class=secodelinesindented>}</p>
+<p class=secodelinesindented>&nbsp;</p>
+<p class=secodelinesindented>if&nbsp;(guess&nbsp;&lt;&nbsp;target_number)</p>
+<p class=secodelinesindented>{</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;...guess&nbsp;is&nbsp;too&nbsp;low...</p>
+<p class=secodelinesindented>}</p>
+<p class=secodelinesindented>&nbsp;</p>
+<p class=secodelinesindented>if&nbsp;(guess&nbsp;==&nbsp;target_number)</p>
+<p class=secodelinesindented>{</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;...you&nbsp;guessed&nbsp;the&nbsp;number!...</p>
+<p class=secodelinesindented>}</p>
+<p class=secodelinesindented>&nbsp;</p>
+<p class=senormalpara>This example is simple, but it illustrates how logical operators can be used to make decisions in ScriptEase.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>The logical operators are:</p>
+<p class=senormalpara-p>&nbsp;</p>
+<table cellpadding=0>
+<tr>
+<td valign=top style="width: 0.519444in">
+<p class=normal><span class=secodephrase>!</span></p></td>
+<td valign=top style="width: 1.55833in">
+<p class=normal>not</p></td>
+<td valign=top style="width: 2.99722in">
+<p class=normal>reverses an expression. If (a+b) is <span class=secodephrase>true</span>, then !(a+b) is <span class=secodephrase>false</span>.</p></td>
+</tr>
+<tr>
+<td valign=top style="width: 0.519444in">
+<p class=normal><span class=secodephrase>&amp;&amp;</span></p></td>
+<td valign=top style="width: 1.55833in">
+<p class=normal>and</p></td>
+<td valign=top style="width: 2.99722in">
+<p class=normal><span class=secodephrase>true</span> if, and only if, both expressions are <span class=secodephrase>true</span>. Since both expressions must be <span class=secodephrase>true</span> for the statement as a whole to be <span class=secodephrase>true</span>, if the first expression is <span class=secodephrase>false</span>, there is no need to evaluate the second expression, since the whole expression is <span class=secodephrase>false</span>.</p></td>
+</tr>
+<tr>
+<td valign=top style="width: 0.519444in">
+<p class=normal><span class=secodephrase>||</span></p></td>
+<td valign=top style="width: 1.55833in">
+<p class=normal>or</p></td>
+<td valign=top style="width: 2.99722in">
+<p class=normal><span class=secodephrase>true</span> if either expression is <span class=secodephrase>true</span>. Since only one of the expressions in the or statement needs to be <span class=secodephrase>true</span> for the expression to evaluate as <span class=secodephrase>true</span>, if the first expression evaluates as <span class=secodephrase>true</span>, the interpreter returns <span class=secodephrase>true</span> and does not bother with evaluating the second.</p></td>
+</tr>
+<tr>
+<td valign=top style="width: 0.519444in">
+<p class=normal><span class=secodephrase>==</span></p></td>
+<td valign=top style="width: 1.55833in">
+<p class=normal>equality</p></td>
+<td valign=top style="width: 2.99722in">
+<p class=normal><span class=secodephrase>true</span> if the values are equal, else <span class=secodephrase>false</span>. Do not confuse the equality operator, ==, with the assignment operator, =.</p></td>
+</tr>
+<tr>
+<td valign=top style="width: 0.519444in">
+<p class=normal><span class=secodephrase>!=</span></p></td>
+<td valign=top style="width: 1.55833in">
+<p class=normal>inequality</p></td>
+<td valign=top style="width: 2.99722in">
+<p class=normal><span class=secodephrase>true</span> if the values are not equal, else <span class=secodephrase>false</span>.</p></td>
+</tr>
+<tr>
+<td valign=top style="width: 0.519444in">
+<p class=normal><span class=secodephrase>===</span></p></td>
+<td valign=top style="width: 1.55833in">
+<p class=normal>identity</p></td>
+<td valign=top style="width: 2.99722in">
+<p class=normal><span class=secodephrase>true</span> if the values are identical or strictly equal, else <span class=secodephrase>false</span>. No type conversions are performed as with the equality operator.</p></td>
+</tr>
+<tr>
+<td valign=top style="width: 0.519444in">
+<p class=normal><span class=secodephrase>!==</span></p></td>
+<td valign=top style="width: 1.55833in">
+<p class=normal>non-identity</p></td>
+<td valign=top style="width: 2.99722in">
+<p class=normal><span class=secodephrase>true</span> if the values are not identical or not strictly equal, else <span class=secodephrase>false</span>. No type conversions are performed as with the inequality operator.</p></td>
+</tr>
+<tr>
+<td valign=top style="width: 0.519444in">
+<p class=normal><span class=secodephrase>&lt;</span></p></td>
+<td valign=top style="width: 1.55833in">
+<p class=normal>less than</p></td>
+<td valign=top style="width: 2.99722in">
+<p class=normal>a &lt; b is <span class=secodephrase>true</span> if a is less than b.</p></td>
+</tr>
+<tr>
+<td valign=top style="width: 0.519444in">
+<p class=normal><span class=secodephrase>&gt;</span></p></td>
+<td valign=top style="width: 1.55833in">
+<p class=normal>greater than</p></td>
+<td valign=top style="width: 2.99722in">
+<p class=normal>a &gt; b is <span class=secodephrase>true</span> if a is greater than b.</p></td>
+</tr>
+<tr>
+<td valign=top style="width: 0.519444in">
+<p class=normal><span class=secodephrase>&lt;=</span></p></td>
+<td valign=top style="width: 1.55833in">
+<p class=normal>less than or equal to</p></td>
+<td valign=top style="width: 2.99722in">
+<p class=normal>a &lt;= b is <span class=secodephrase>true</span> if a is less than or equal to b.</p></td>
+</tr>
+<tr>
+<td valign=top style="width: 0.519444in">
+<p class=normal><span class=secodephrase>&gt;=</span></p></td>
+<td valign=top style="width: 1.55833in">
+<p class=normal>greater than or equal to</p></td>
+<td valign=top style="width: 2.99722in">
+<p class=normal>a &gt;= b is <span class=secodephrase>true</span> if a is greater than b.</p></td>
+</tr>
+</table>
+<p class=secodelines>&nbsp;</p>
+<p class=senormalpara>Remember, the assignment operator, =, is different than the equality operator, ==. If you use one equal sign when you intend two, your script will not function the way you want it to. This is a common pitfall, even among experienced programmers. The two meanings of equal signs must be kept separate, since there are times when you have to use them both in the same statement, and there is no way the computer can differentiate them by context.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<hr noshade size=1>
+<p class=normal><a href="TH_461.htm"><img src="button.png" border=0></a><a href="TH_461.htm" style="text-decoration:none;">Concatenation operator</a></p>
+<p>
+</body>
+</html>

@@ -1,0 +1,156 @@
+<html>
+<head>
+<title>blobDescriptor example</title>
+<link rel="stylesheet" href="semanualstyles.css" type="text/css">
+<style type="text/css">
+ p { margin-top: 0; margin-bottom: 0; }
+</style>
+<script language="JavaScript" src="TrueHelp.js"></script>
+</head>
+<body onload="thload()">
+<div id=ienav>
+<ilayer id=nsnav>
+<br>
+<center>
+<p class=normal><a href="seisdkj-toc.htm" target="left">contents</a> &nbsp; <a href="seisdkj-index.htm" target="left">index</a> &nbsp; <a href="TH_439.htm">previous</a> &nbsp; next</p>
+</center>
+<br>
+<hr noshade size=1>
+</ilayer>
+</div>
+<p class=heading-4>blobDescriptor example</p>
+<p class=senormalpara>The Win32 API function <span class=secodeterm>GetOpenFileName</span> is being used for this example. The syntax, in the Win32 API<span class=truehelp-xe></span> documentation, for this function is:</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=secodelinesindented><span class=secodeterm>BOOL&nbsp;GetOpenFileName(LPOPENFILENAME&nbsp;lpofn);</span></p>
+<p class=secodelines>&nbsp;</p>
+<p class=senormalpara>The ScriptEase syntax for calling the Win32 API is:</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=secodelinesindented>SElib.dynamicLink<span class=truehelp-xe>dynamicLink</span><span class=truehelp-xe>&#160;</span><span class=truehelp-xe>SElib.dynamicLink</span><span class=truehelp-xe>&#160;</span>(library,&nbsp;procedure,&nbsp;convention</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[,&nbsp;[desc,]&nbsp;param&nbsp;&#133;])</p>
+<p class=secodelines>&nbsp;</p>
+<p class=senormalpara>The first three parameters in the ScriptEase syntax are standard for all calls to the Win32 API and are not discussed here. See <span class=sepopuptopic><a href="TH_841.htm" onClick="return thwindow('TH_841.htm', 'GenPopup')">SElib.dynamicLink() - for Win32</a></span> for a complete discussion. In the current section, we are only dealing a structure parameter since the lpofn parameter in the <span class=secodeterm>GetOpenFileName</span> API function is a pointer to a structure. Other parameters, not discussed here, such as, integers and double words, are handled in a straightforward way.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>An actual call to the <span class=secodeterm>GetOpenFileName</span> function might look like the following:</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=secodelinesindented>var&nbsp;rtn;</p>
+<p class=secodelinesindented>rtn&nbsp;=&nbsp;SElib.dynamicLink("COMDLG32",&nbsp;"GetOpenFileNameA",&nbsp;STDCALL,</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ofnDesc,&nbsp;ofn);</p>
+<p class=secodelines>&nbsp;</p>
+<p class=senormalpara>We are concerned with the parameters: <span class=secodephrase>ofnDesc</span> and <span class=secodephrase>ofn</span>. The original function only required one parameter, <span class=secodeterm>lpofn</span>, but we are passing two parameters. (Remember that the first three parameters: <span class=secodephrase>library</span>, <span class=secodephrase>procedure</span>, and <span class=secodephrase>convention</span>, are parameters for <span class=secodephrase>SElib.dynamicLink</span> and that the parameters to API functions begin after the first three.) Why two parameters? Because <span class=secodephrase>ofn</span> is a structure and ScriptEase requires a description of the structure. Hence, <span class=secodephrase>ofnDesc</span> is a <span class=sepopuptopic><a href="TH_439.htm" onClick="return thwindow('TH_439.htm', 'GenPopup')">blobDescriptor object</a></span> and <span class=secodephrase>ofn</span> is a structure, and, in ScriptEase, a structure is considered a binary large object.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>Lets look at the <span class=secodeterm>OpenFileName</span> structure that is defined in the Win32 API and required by the <span class=secodeterm>GetOpenFileName</span> function. The structure is defined as:</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=secodelinesindented><span class=secodeterm>typedef&nbsp;struct&nbsp;tagOFN&nbsp;{//&nbsp;ofn&nbsp;&nbsp;</span></p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;&nbsp;DWORD&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;lStructSize;&nbsp;</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;&nbsp;HWND&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;hwndOwner;&nbsp;</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;&nbsp;HINSTANCE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;hInstance;&nbsp;</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;&nbsp;LPCTSTR&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;lpstrFilter;&nbsp;</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;&nbsp;LPTSTR&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;lpstrCustomFilter;&nbsp;</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;&nbsp;DWORD&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;nMaxCustFilter;&nbsp;</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;&nbsp;DWORD&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;nFilterIndex;&nbsp;</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;&nbsp;LPTSTR&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;lpstrFile;&nbsp;</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;&nbsp;DWORD&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;nMaxFile;&nbsp;</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;&nbsp;LPTSTR&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;lpstrFileTitle;&nbsp;</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;&nbsp;DWORD&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;nMaxFileTitle;&nbsp;</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;&nbsp;LPCTSTR&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;lpstrInitialDir;&nbsp;</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;&nbsp;LPCTSTR&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;lpstrTitle;&nbsp;</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;&nbsp;DWORD&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Flags;&nbsp;</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;&nbsp;WORD&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;nFileOffset;&nbsp;</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;&nbsp;WORD&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;nFileExtension;&nbsp;</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;&nbsp;LPCTSTR&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;lpstrDefExt;&nbsp;</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;&nbsp;DWORD&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;lCustData;&nbsp;</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;&nbsp;LPOFNHOOKPROC&nbsp;lpfnHook;&nbsp;</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;&nbsp;LPCTSTR&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;lpTemplateName;&nbsp;</p>
+<p class=secodelinesindented>}&nbsp;OPENFILENAME;</p>
+<p class=secodelines>&nbsp;</p>
+<p class=senormalpara>In ScriptEase, the <span class=secodephrase>blobDescriptor</span> for the <span class=secodeterm>OpenFileName</span> structure above could look like the following:</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=secodelinesindented>var&nbsp;ofnDesc&nbsp;=&nbsp;new&nbsp;blobDescriptor();</p>
+<p class=secodelinesindented>&nbsp;</p>
+<p class=secodelinesindented>ofnDesc.lStructSize&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;UWORD32;</p>
+<p class=secodelinesindented>ofnDesc.hwndOwner&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;UWORD32;</p>
+<p class=secodelinesindented>ofnDesc.hInstance&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;UWORD32;</p>
+<p class=secodelinesindented>ofnDesc.lpstrFilter&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;UWORD32;</p>
+<p class=secodelinesindented>ofnDesc.lpstrCustomFilter&nbsp;=&nbsp;UWORD32;</p>
+<p class=secodelinesindented>ofnDesc.nMaxCustFilter&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;UWORD32;</p>
+<p class=secodelinesindented>ofnDesc.nFilterIndex&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;UWORD32;</p>
+<p class=secodelinesindented>ofnDesc.lpstrFile&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;UWORD32;</p>
+<p class=secodelinesindented>ofnDesc.nMaxFile&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;UWORD32;</p>
+<p class=secodelinesindented>ofnDesc.lpstrFileTitle&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;UWORD32;</p>
+<p class=secodelinesindented>ofnDesc.nMaxFileTitle&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;UWORD32;</p>
+<p class=secodelinesindented>ofnDesc.lpstrInitialDir&nbsp;&nbsp;&nbsp;=&nbsp;UWORD32;</p>
+<p class=secodelinesindented>ofnDesc.lpstrTitle&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;UWORD32;</p>
+<p class=secodelinesindented>ofnDesc.Flags&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;UWORD32;</p>
+<p class=secodelinesindented>ofnDesc.nFileOffset&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;UWORD16;</p>
+<p class=secodelinesindented>ofnDesc.nFileExtension&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;UWORD16;</p>
+<p class=secodelinesindented>ofnDesc.lpstrDefExt&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;UWORD32;</p>
+<p class=secodelinesindented>ofnDesc.lCustData&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;UWORD32;</p>
+<p class=secodelinesindented>ofnDesc.lpfnHook&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;UWORD32;</p>
+<p class=secodelinesindented>ofnDesc.lpTemplateName&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;UWORD32;</p>
+<p class=secodelines>&nbsp;</p>
+<p class=senormalpara>As you can see, the ScriptEase <span class=secodephrase>blobDescriptor</span> functions like a structure definition in another language and, specifically, like <span class=secodeterm>struct</span> in C. The <span class=secodeterm>OpenFileName</span> shown above is used with <span class=truehelp-xe></span><span class=secodeterm>typedef</span> for a <span class=secodeterm>struct</span>, which might be a more useful comparison than just a structure definition. In any case, the similarity between structures and blobDescriptors is evident. Each property of the <span class=secodephrase>blobDescriptor</span> object describes or determines how much memory is used by an element of a structure. For example, the first element of the Win32 API <span class=secodeterm>OpenFileName</span> structure is <span class=secodeterm>lStructSize</span> of type <span class=secodeterm>DWORD</span>. In ScriptEase, the corresponding first property in <span class=secodephrase>ofnDesc</span> is <span class=secodephrase>lStructSize</span> and is defined as <span class=secodephrase>UWORD32</span>. Both <span class=secodeterm>DWORD</span> in the Win32 API and <span class=secodephrase>UWORD32</span> in ScriptEase designate 32 bits of memory to hold data. Thus, the memory requirements, for a structure, in the Win32 API and in ScriptEase are coordinated.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>Notice that the original structure element name is <span class=secodeterm>lStructSize</span> and the object property name <span class=secodephrase>lStructSize</span> are the same. They did not need to be. The property names in a <span class=secodephrase>blobDescriptor</span> object can be any names of your choosing. It is the size designations, such as, <span class=secodephrase>UWORD32</span>, that are important. This <span class=secodephrase>blobDescriptor</span> is the parameter <span class=secodephrase>desc</span> in the syntax statement for <span class=secodephrase>SElib.dynamicLink()</span>.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>Now we need to define the parameter <span class=secodephrase>param</span> that is described. (Remember, <span class=secodephrase>desc</span> is required only if the following <span class=secodephrase>param</span> is a structure.) In our current example, <span class=secodephrase>ofn</span> is the structure that is passed as <span class=secodephrase>param</span> following the <span class=secodephrase>ofnDesc</span> which is passed as <span class=secodephrase>desc</span>. How might <span class=secodephrase>ofn</span> be built since ScriptEase no longer has structure data types<span class=truehelp-xe></span>? Objects may be used as structures with object properties being equivalent to structure elements. So the following lines of code could be used:</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=secodelinesindented>#include&nbsp;"comdlg32.jsh"</p>
+<p class=secodelinesindented>#define&nbsp;MAXFILESIZE&nbsp;65</p>
+<p class=secodelinesindented>&nbsp;</p>
+<p class=secodelinesindented>var&nbsp;ofn&nbsp;=&nbsp;new&nbsp;Object();</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;//&nbsp;Size&nbsp;of&nbsp;the&nbsp;ofn&nbsp;structure</p>
+<p class=secodelinesindented>ofn.lStructSize&nbsp;=&nbsp;Blob.size(ofnDesc);</p>
+<p class=secodelinesindented>&nbsp;</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;//&nbsp;Handle&nbsp;of&nbsp;owner,&nbsp;a&nbsp;ScriptEase&nbsp;screen&nbsp;in&nbsp;this&nbsp;example</p>
+<p class=secodelinesindented>ofn.hwndOwner&nbsp;=&nbsp;Screen.handle();</p>
+<p class=secodelinesindented>&nbsp;</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;//&nbsp;Set&nbsp;a&nbsp;buffer&nbsp;to&nbsp;pass&nbsp;and&nbsp;receive&nbsp;a&nbsp;filespec</p>
+<p class=secodelinesindented>var&nbsp;fileSpec;</p>
+<p class=secodelinesindented>fileSpec&nbsp;=&nbsp;new&nbsp;Buffer(MAXFILESIZE);</p>
+<p class=secodelinesindented>fileSpec.putString(`c:\bat\*.bat`);</p>
+<p class=secodelinesindented>fileSpec&nbsp;=&nbsp;fileSpec.toString();</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;//&nbsp;Actually&nbsp;pass&nbsp;a&nbsp;pointer&nbsp;to&nbsp;this&nbsp;buffer</p>
+<p class=secodelinesindented>ofn.lpstrFile&nbsp;=&nbsp;SElib.pointer(fileSpec);</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;//&nbsp;Set&nbsp;the&nbsp;maxsize&nbsp;for&nbsp;a&nbsp;filespec&nbsp;to&nbsp;pass&nbsp;and&nbsp;received</p>
+<p class=secodelinesindented>ofn.nMaxFile&nbsp;=&nbsp;MAXFILESIZE&nbsp;-&nbsp;1;</p>
+<p class=secodelinesindented>&nbsp;</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;//&nbsp;Do&nbsp;the&nbsp;API&nbsp;call&nbsp;and&nbsp;get&nbsp;the&nbsp;function&nbsp;return</p>
+<p class=secodelinesindented>var&nbsp;rtn;</p>
+<p class=secodelinesindented>rtn&nbsp;=&nbsp;&nbsp;SElib.dynamicLink("COMDLG32",&nbsp;"GetOpenFileNameA",&nbsp;STDCALL,</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ofnDesc,&nbsp;ofn);</p>
+<p class=secodelines>&nbsp;</p>
+<p class=senormalpara>This code fragment would create a common open file dialog in a directory <span class=secodephrase>c:\bat</span> and would show files with extensions of <span class=secodephrase>bat</span>. The last statement is the <span class=secodephrase>SElib.dynamicLink()</span> call. The object/structure <span class=secodephrase>ofn</span> is passed, corresponding to the <span class=secodeterm>lpofn</span> parameter in the original Win32 API syntax. The <span class=secodephrase>ofnDesc</span> <span class=secodephrase>blobDescriptor</span> is passed to describe ofn to ScriptEase so that ScriptEase may communicate properly with the Win32 API.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>Notice two things about the <span class=secodephrase>ofn</span> object/structure.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=list-bullet>&#8226;</p><p class=list-bullet-tab1>The property names match the properties in the blobDescriptor <span class=secodephrase>ofnDesc</span> that describes the <span class=secodephrase>ofn</span> object/structure.</p>
+<p class=list-bullet>&#8226;</p><p class=list-bullet-tab1>Not all of the properties of the ofn object/structure needed to be initialized to values. We created a simple open dialog that did not need any data except the properties/elements that we defined. Often, it is not necessary to define data elements that are passed to an API function, if the data is not used. Be careful though. If you are not sure about whether or not to initialize all elements, it is a safe practice to initialize them to default values specified by API documentation.</p>
+<p class=secodelines>&nbsp;</p>
+<p class=senormalpara>Another thing of interest in this code fragment is how it handles string data. The <span class=secodephrase>lpstrFile</span> property/element is used to pass a string to and receive a string from the <span class=secodeterm>GetOpenFileNameA</span> API function. The method shown here is one way, among other techniques to handle string data. The API <span class=secodeterm>OpenFileName</span> structure requires a point to a string buffer, not the string itself. Therefore, this fragment creates a buffer <span class=secodephrase>filespec</span> of the proper size. It then puts the string with a file specification into the buffer and then converts the buffer to a string. ScriptEase strings may contain "<span class=secodephrase>\0</span>" characters. The <span class=sepopuptopic><a href="TH_461.htm" onClick="return thwindow('TH_461.htm', 'GenPopup')">Buffer toString()</a></span> method creates a string of the same length as the buffer and includes all of the "<span class=secodephrase>\0</span>" characters after the string <span class=secodephrase>`c:\bat\*.bat`</span>. Then the element <span class=secodephrase>lpstrFile</span> is assigned a pointer to the string <span class=secodephrase>filespec</span>, which started its existence as a Buffer object. The file name selected in the open dialog will be returned in the <span class=secodephrase>filespec</span> string/buffer. We have been discussing the following lines:</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=secodelinesindented>var&nbsp;fileSpec;</p>
+<p class=secodelinesindented>fileSpec&nbsp;=&nbsp;new&nbsp;Buffer(MAXFILESIZE);</p>
+<p class=secodelinesindented>fileSpec.putString(`c:\bat\*.bat`);</p>
+<p class=secodelinesindented>fileSpec&nbsp;=&nbsp;fileSpec.toString();</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;//&nbsp;Actually&nbsp;pass&nbsp;a&nbsp;pointer&nbsp;to&nbsp;this&nbsp;buffer</p>
+<p class=secodelinesindented>ofn.lpstrFile&nbsp;=&nbsp;SElib.pointer(fileSpec);</p>
+<p class=secodelines>&nbsp;</p>
+<p class=senormalpara>We could have accomplished the task of passing and receiving string data<span class=truehelp-xe></span> with the following lines (which are similar to the ones above):</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=secodelinesindented>var&nbsp;fileSpec;</p>
+<p class=secodelinesindented>fileSpec&nbsp;=&nbsp;new&nbsp;Buffer(MAXFILESIZE);</p>
+<p class=secodelinesindented>fileSpec.putString(`c:\bat\*.bat`);</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;//&nbsp;Actually&nbsp;pass&nbsp;a&nbsp;pointer&nbsp;to&nbsp;this&nbsp;buffer</p>
+<p class=secodelinesindented>ofn.lpstrFile&nbsp;=&nbsp;SElib.pointer(fileSpec.data);</p>
+<p class=secodelines>&nbsp;</p>
+<p class=senormalpara>The main difference is that the string data<span class=truehelp-xe></span> is in a buffer when passed and returned. To work with the returned string data, the buffer must be converted to a string if you want to use string methods and functions with it.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>&nbsp;</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>&nbsp;</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>&nbsp;</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p>
+</body>
+</html>

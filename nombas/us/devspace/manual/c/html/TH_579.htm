@@ -1,0 +1,152 @@
+<html>
+<head>
+<title>Clib.printf()</title>
+<link rel="stylesheet" href="semanualstyles.css" type="text/css">
+<style type="text/css">
+ p { margin-top: 0; margin-bottom: 0; }
+</style>
+<script language="JavaScript" src="TrueHelp.js"></script>
+</head>
+<body onload="thload()">
+<div id=ienav>
+<ilayer id=nsnav>
+<br>
+<center>
+<p class=normal><a href="seisdkc-toc.htm" target="left">contents</a> &nbsp; <a href="seisdkc-index.htm" target="left">index</a> &nbsp; <a href="TH_578.htm">previous</a> &nbsp; <a href="TH_580.htm">next</a></p>
+</center>
+<br>
+<hr noshade size=1>
+</ilayer>
+</div>
+<p class=sereffunclevel4>Clib.printf()</p>
+<table cellpadding=0>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>syntax:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=sesyntax>Clib.printf(<span class=truehelp-xe></span>formatString[,&nbsp;variables&nbsp;...])</p></td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>where:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>formatString - string that specifies the final format.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>variables - values to be converted to and formatted as a string.</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>return:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>number - characters written, or a negative number if there is an error.</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>description:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara>This method writes output to the standard output device according to the format string and returns a number equal to the number of characters written, or a negative number if there is an error. The format string can contain character combinations indicating how following parameters are to be treated. Characters are printed as read to standard output until a percent character, %, is reached. % indicates that a value is to be printed from the parameters following the format string. Each subsequent parameter specification takes from the next parameter in the list following format. A parameter specification has the following form in which square brackets indicate optional fields and angled brackets indicate required fields:</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=normal><span class=secodephrase>%</span>[flags][width][.precision]&lt;type&gt;</p>
+<p class=secodelines>&nbsp;</p>
+<p class=senormalpara>flags may be:</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=list-bullet>&#8226;</p><p class=list-bullet-tab1><span class=secodephrase>-</span><br>
+Left justification in the field with blank padding; else right justifies with zero or blank padding</p>
+<p class=list-bullet>&#8226;</p><p class=list-bullet-tab1><span class=secodephrase>+</span><br>
+Force numbers to begin with a plus (+) or minus ()</p>
+<p class=list-bullet>&#8226;</p><p class=list-bullet-tab1><span class=secodephrase>blank</span><br>
+Negative values begin with a minus (); positive values begin with a blank</p>
+<p class=list-bullet>&#8226;</p><p class=list-bullet-tab1><span class=secodephrase>#</span><br>
+Convert using the following alternate form, depending on output data type:</p>
+<p class=list-bullet>&#8226;</p><p class=list-bullet-tab1><span class=secodephrase>c, s, d, i, u</span><br>
+No effect</p>
+<p class=list-bullet>&#8226;</p><p class=list-bullet-tab1><span class=secodephrase>o</span><br>
+0 (zero) is prepended to nonzero output</p>
+<p class=list-bullet>&#8226;</p><p class=list-bullet-tab1><span class=secodephrase>x, X</span><br>
+0x, or 0X, are prepended to output</p>
+<p class=list-bullet>&#8226;</p><p class=list-bullet-tab1><span class=secodephrase>f, e, E</span><br>
+Output includes decimal even if no digits follow decimal</p>
+<p class=list-bullet>&#8226;</p><p class=list-bullet-tab1><span class=secodephrase>g, G</span><br>
+Same as e or E but trailing zeros are not removed</p>
+<p class=secodelines>&nbsp;</p>
+<p class=senormalpara>width may be:</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=list-bullet>&#8226;</p><p class=list-bullet-tab1><span class=secodephrase>n</span><br>
+(n is a number e.g., 14) At least n characters are output, padded with blanks</p>
+<p class=list-bullet>&#8226;</p><p class=list-bullet-tab1><span class=secodephrase>0n</span><br>
+At least n characters are output, padded on the left with zeros</p>
+<p class=list-bullet>&#8226;</p><p class=list-bullet-tab1><span class=secodephrase>*</span><br>
+The next value in the argument list is an integer specifying the output width</p>
+<p class=list-bullet>&#8226;</p><p class=list-bullet-tab1><span class=secodephrase>.precision</span><br>
+If precision is specified, then it must begin with a period (.), and may be as follows:</p>
+<p class=secodelines>&nbsp;</p>
+<p class=list-bullet>&#8226;</p><p class=list-bullet-tab1><span class=secodephrase>0</span><br>
+For floating point type, no decimal point is output</p>
+<p class=list-bullet>&#8226;</p><p class=list-bullet-tab1><span class=secodephrase>n</span><br>
+n characters or n decimal places (floating point) are output</p>
+<p class=list-bullet>&#8226;</p><p class=list-bullet-tab1><span class=secodephrase>*</span><br>
+The next value in the argument list is an integer specifying the precision width</p>
+<p class=secodelines>&nbsp;</p>
+<p class=senormalpara>type may be:</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=list-bullet>&#8226;</p><p class=list-bullet-tab1><span class=secodephrase>d, i</span><br>
+signed integer</p>
+<p class=list-bullet>&#8226;</p><p class=list-bullet-tab1><span class=secodephrase>u</span><br>
+unsigned integer</p>
+<p class=list-bullet>&#8226;</p><p class=list-bullet-tab1><span class=secodephrase>o</span><br>
+octal integer x</p>
+<p class=list-bullet>&#8226;</p><p class=list-bullet-tab1><span class=secodephrase>x</span><br>
+hexadecimal integer with 09 and a, b, c, d, e, f</p>
+<p class=list-bullet>&#8226;</p><p class=list-bullet-tab1><span class=secodephrase>X</span><br>
+hexadecimal integer with 09 and A, B, C, D, E, F</p>
+<p class=list-bullet>&#8226;</p><p class=list-bullet-tab1><span class=secodephrase>f</span><br>
+floating point of the form []dddd.dddd</p>
+<p class=list-bullet>&#8226;</p><p class=list-bullet-tab1><span class=secodephrase>e</span><br>
+floating point of the form []d.ddde+dd or []d.dddedd</p>
+<p class=list-bullet>&#8226;</p><p class=list-bullet-tab1><span class=secodephrase>E</span><br>
+floating point of the form []d.dddE+dd or []d.dddEdd</p>
+<p class=list-bullet>&#8226;</p><p class=list-bullet-tab1><span class=secodephrase>g</span><br>
+floating point of f or e type, depending on precision</p>
+<p class=list-bullet>&#8226;</p><p class=list-bullet-tab1><span class=secodephrase>G</span><br>
+floating point of For E type, depending on precision</p>
+<p class=list-bullet>&#8226;</p><p class=list-bullet-tab1><span class=secodephrase>c</span><br>
+character (e.g. 'a', 'b', '8')</p>
+<p class=list-bullet>&#8226;</p><p class=list-bullet-tab1><span class=secodephrase>s</span><br>
+string</p>
+<p class=secodelines>&nbsp;</p>
+<p class=senormalpara>To include the <span class=secodephrase>%</span> character as a character in the format string, you must use two <span class=secodephrase>%</span> characters together, <span class=secodephrase>%%</span>, to prevent the computer from trying to interpret it as one of the above forms.</p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>see:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=senormalpara><span class=sejumptopic><a href="TH_667.htm">Clib.sprintf()</a></span></p><p class=senormalpara-p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign=top style="width: 0.922222in">
+<p class=serefkey>example:</p></td>
+<td valign=top style="width: 4.15278in">
+<p class=secodelines>//Each&nbsp;of&nbsp;the&nbsp;following&nbsp;lines&nbsp;shows</p>
+<p class=secodelines>//&nbsp;a&nbsp;printf&nbsp;example&nbsp;followed&nbsp;by&nbsp;what&nbsp;would&nbsp;show</p>
+<p class=secodelines>//&nbsp;on&nbsp;the&nbsp;output&nbsp;in&nbsp;boldface:</p>
+<p class=secodelines>&nbsp;</p>
+<p class=secodelines>Clib.printf("Hello&nbsp;world!")</p>
+<p class=secodelines>//&nbsp;Hello&nbsp;world!&nbsp;</p>
+<p class=secodelines>Clib.printf("I&nbsp;count:&nbsp;%d&nbsp;%d&nbsp;%d.",1,2,3)</p>
+<p class=secodelines>//&nbsp;I&nbsp;count:&nbsp;1&nbsp;2&nbsp;3&nbsp;</p>
+<p class=secodelines>var&nbsp;a&nbsp;=&nbsp;1;</p>
+<p class=secodelines>var&nbsp;b&nbsp;=&nbsp;2;</p>
+<p class=secodelines>Clib.printf("%d&nbsp;%d&nbsp;%d",&nbsp;a,&nbsp;b,&nbsp;a&nbsp;+b)</p>
+<p class=secodelines>//&nbsp;1&nbsp;2&nbsp;3&nbsp;</p></td>
+</tr>
+</table>
+<p class=normal>&nbsp;</p>
+<hr noshade size=1>
+<p class=normal><a href="TH_580.htm"><img src="button.png" border=0></a><a href="TH_580.htm" style="text-decoration:none;">Clib.getch()</a></p>
+<p>
+</body>
+</html>

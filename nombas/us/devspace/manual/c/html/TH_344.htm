@@ -1,0 +1,34 @@
+<html>
+<head>
+<title>SE_DEFINES</title>
+<link rel="stylesheet" href="semanualstyles.css" type="text/css">
+<style type="text/css">
+ p { margin-top: 0; margin-bottom: 0; }
+</style>
+<script language="JavaScript" src="TrueHelp.js"></script>
+</head>
+<body onload="thload()">
+<div id=ienav>
+<ilayer id=nsnav>
+<br>
+<center>
+<p class=normal><a href="seisdkc-toc.htm" target="left">contents</a> &nbsp; <a href="seisdkc-index.htm" target="left">index</a> &nbsp; <a href="TH_343.htm">previous</a> &nbsp; <a href="TH_345.htm">next</a></p>
+</center>
+<br>
+<hr noshade size=1>
+</ilayer>
+</div>
+<p class=heading-4>SE_DEFINES</p>
+<p class=senormalpara>The <span class=secodephrase>#define</span> statement defines a macro, an identifier mapped to be a different value. Note that ScriptEase does not support parameterized macros. This object's members are the defined macros, the value of the members are strings that are what the macro is defined to be. In other words, if you have this statement:</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=secodelinesindented>#define&nbsp;FOO&nbsp;goo</p>
+<p class=secodelinesindented>&nbsp;</p>
+<p class=senormalpara>Then one of the members of the <span class=secodephrase>SE_DEFINES</span> object will be <span class=secodephrase>FOO</span> and its value will be the string <span class=secodephrase>"goo"</span>. You can examine and modify the defines as well as add new ones by creating new members. Note that these defines will only affect scripts that are executed after you make the change.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=senormalpara>You may not write to the <span class=secodephrase>SE_DEFINES</span> object itself.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<hr noshade size=1>
+<p class=normal><a href="TH_345.htm"><img src="button.png" border=0></a><a href="TH_345.htm" style="text-decoration:none;">SE_RETURN</a></p>
+<p>
+</body>
+</html>

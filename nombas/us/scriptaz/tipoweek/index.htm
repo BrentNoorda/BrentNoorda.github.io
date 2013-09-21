@@ -1,0 +1,73 @@
+<HTML>
+<HEAD>
+<TITLE>JavaScript Tip of the Week for December 30, 1996: Netscape 4.0 Preview: Layers</TITLE>
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-1754630-10']);
+  _gaq.push(['_trackPageview']);
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+</HEAD>
+<!--SEARCH_OFF-->
+<BODY TEXT="#000000" BGCOLOR="#FFFFFF" LINK="#B8860B" VLINK="#B8860B" ALINK="#8B0000">
+<IMG HEIGHT = 137 WIDTH = 172 SRC = "tipo.gif" ALT = "JavaScript Tip of the Week">
+<IMG HEIGHT = 137 WIDTH = 172 SRC = "week.gif" ALT = "JavaScript Tip of the Week">
+<BLOCKQUOTE>
+<FONT SIZE=4>for December 30, 1996: Netscape 4.0 Preview: Layers</FONT><P>
+<SCRIPT LANGUAGE = "JavaScript">
+<!--
+
+document.write('<TABLE BGCOLOR = "#EDEDED" BORDER = 0 CELLPADDING = 2 CELLSPACING = 0><TR><TD>');
+    if (navigator.appVersion.substring(0,1) == '4') document.write('<STRONG>See The Demo:</STRONG> Since you have Netscape Communicator, you can see the Layers <STRONG><A HREF = "indext.htm">demo</A></STRONG> right now.');
+    else document.write('<STRONG>See The Demo:</STRONG> Sorry, you need to <A HREF = "http://home.netscape.com/comprod/mirror/client_download.html">download</A> Netscape Communicator to view Layers demo.');
+document.write('</TD></TR></TABLE>');
+
+//-->
+</SCRIPT>
+<P>
+Did that remind you of Pointcast or what? That little intro just begins to show off the capabilities of a new Netscape technology: Layers. Not only can you specify exactly where you want your images (or text) to be placed, you can also move your images anywhere on the page. Just specify the offset or the absolute coordinates and the rest will be done for you. After experimenting with layers for a small amount of time, I found that they are very much like the layers you deal with in Photoshop. A layer of a higher z-order is always displayed on top of a layer that has a lower z-order. You can specify that a layer be "transparent" or have a solid background image or color. There are many other options that you can control, but first let's get to the fundamentals: how to create a layer. Very simple:
+<FONT COLOR = "#0000DF">
+<PRE>
+    &lt;LAYER NAME = "myLayer" HEIGHT = 50 WIDTH = 89 LEFT = 93 TOP = 91 VISIBILITY = HIDE&gt;
+    <FONT COLOR = "#009000">the content</FONT>
+    &lt;/LAYER&gt;
+</PRE> 
+</FONT>
+Everything inside the LAYER tags is part of that layer. The LEFT and TOP parameters determine how far (in pixels) over from the left and from the top the layer will be placed on the page. The HEIGHT and WIDTH parameters are optional, and can be in percent or in pixels. The VISIBILITY tag allows a layer to be visible or invisible on the page. To make a layer visible, set it's VISIBILITY parameter to "SHOW". To hide a layer, simply tell it to "HIDE". To control a layer through JavaScript start by defining it. For example, to define "myLayer":
+<FONT COLOR = "#0000DF">
+<PRE>
+    var myLayer = document.layers["<FONT COLOR = "#009000">myLayer</FONT>"];
+</PRE> 
+</FONT>
+As you can see, this is done so that you don't have to refer to <I>document.layers["myLayer"]</I> every time you want to access the layer named "myLayer". Now that you have control of the layer in JavaScript, try moving it with the <I>offset()</I> Method:
+<FONT COLOR = "#0000DF">
+<PRE>
+    myLayer.offset(<FONT COLOR = "#009000">10</FONT>, <FONT COLOR = "#009000">5</FONT>);
+</PRE> 
+</FONT>
+The <I>offset()</I> method uses x,y coordinates to control the placement of a layer. The above line will move the layer (and all of its contents) to the right 10 pixels and down 5 pixels. Making those numbers negative will move the layer to the left 10 and up 5. Keep in mind, the <I>offset()</I> method doesn't say exactly where the layer is on the page, just how much it should be moved relative to where it currently resides. To control its absolute placement on the page, us the layer's <I>left</I> and <I>top</I> properties.
+<FONT COLOR = "#0000DF">
+<PRE>
+    myLayer.left = <FONT COLOR = "#009000">100</FONT>;
+    myLayer.top = <FONT COLOR = "#009000">100</FONT>;
+</PRE> 
+</FONT>
+This will place "myLayer" exactly 100 pixels <EM>from</EM> the left side of the page and 100 pixels <EM>from</EM> the top of the page. Think of it this way: everything is in relation to the top left corner of the page. Note that most of the properties in the Layer tag itself can be accessed through JavaScript. In fact, when I was fooling around with layers for the first time, I didn't even use the documentation. I just took the parameters in the tags and guessed that they would work the same way in JavaScript... and they did. For instance, to make the layer invisible (or hide it), simple set the <I>visibility</I> property of the layer to "HIDE":
+<FONT COLOR = "#0000DF">
+<PRE>
+    myLayer.visibility = <FONT COLOR = "#009000">"HIDE"</FONT>;
+</PRE> 
+</FONT>
+The layer will then disappear. To make it reappear set <I>visibility</I> back to "SHOW". Using this property, you can create something similar to dynamic image menus, but with text and other media. The possibilities are endless.
+<P> 
+Now you may ask, "How did you did you slide those graphics across the page?" Well, I combined the <I>offset()</I> method with <I>setTimeout()</I>. Each time <I>setTimeout()</I> was run, it moved the layers a given distance across the page. Repeat this process a given number of times and the layers will end up in the correct places and eventually form a JTotW title image. I'm not going to go in detail on how it was done this week: just poke around in the source and you'll figure it out. After all, you now know how to control layers, the rest is just creativity.
+<P>
+For those of you who want to learn more about Layers: Netscape has already released some <A HREF = "http://home.netscape.com/comprod/products/communicator/layers/layers_glossary.html"><STRONG>docs</STRONG></A> on it. I assume they will eventually become part of the upcoming Navigator 4.0 JavaScript Authoring Guide.
+<P>
+</BLOCKQUOTE>
+</BODY>
+</HTML>

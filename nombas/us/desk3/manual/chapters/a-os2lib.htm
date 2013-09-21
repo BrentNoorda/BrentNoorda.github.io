@@ -1,0 +1,1112 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML EXPERIMENTAL 970324//EN">
+<HTML>
+<HEAD>
+<META NAME="GENERATOR" CONTENT="Adobe FrameMaker 5.5/HTML Export Filter">
+<LINK REL="STYLESHEET" HREF="desk3man.css">
+<TITLE>ScriptEase:Desktop v3 Manual: OS/2 Library</TITLE>
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-1754630-10']);
+  _gaq.push(['_trackPageview']);
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+</HEAD>
+<BODY BACKGROUND="desk3pat.gif">
+<TABLE WIDTH="225" BORDER="0" CELLSPACING="0" CELLPADDING="0">
+  <TR>
+    <TD WIDTH="71"><a href="9-doswin.htm"><IMG SRC="prev.gif" WIDTH="71" height="18" border="0"></a></TD>
+    <TD WIDTH="80"><a href="../index.htm"><IMG SRC="tocidx.gif" WIDTH="80" height="18" border="0"></a></TD>
+    <TD WIDTH="74"><a href="b-win3lb.htm"><IMG SRC="next.gif" WIDTH="74" height="18" border="0"></a></TD>
+  </TR>
+</TABLE>
+<H1 CLASS="Title">
+OS/2 Library</H1>
+<P CLASS="Abstract">
+The routines in this section are specific to the OS/2 version of ScriptEase.  They are included internally to the ScriptEase program, and  are available to any ScriptEase program executed by ScriptEase under OS/2 2.x and above.</P>
+<P CLASS="Body">
+Most of these routines allow the programmer to have more power than is generally acknowledged as safe under ScriptEase' guidelines, so you'd better know what you're doing when you use these commands. They provide plenty of rope with which to hang yourself.</P>
+<HR><TABLE>
+<TR>
+<TH>
+<H6 CLASS="fnam">
+<A NAME="999291">
+ </A>
+asm</H6>
+</TH>
+<TH>
+<H6 CLASS="cHead">
+&nbsp;</H6>
+</TH>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+DESCRIPTION</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Execute imbedded assembled code.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+SYNTAX</P>
+</TD>
+<TD>
+<P CLASS="cb">
+int asm(byte[] buf[, int eax[, int ebx[, int ecx[, int edx[, int esi[, int edi]]]]]])</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+COMMENTS</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Make a call to the routine that you have coded into buf. eax, ebx, ecx, and edx are optional; if some or all are supplied, then the eax, ebx, ecx, and edx will be set to these values when the code at buf is called. The code in buf will be executed with a far call to that address, and is responsible for returning via retf or other means. The ScriptEase calling code will restore ALL registers except ss, sp, eax, ebx, ecx, and edx.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+RETURN</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Returns a long value for whatever is in EAX when buf returns.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+EXAMPLE</P>
+</TD>
+<TD>
+<P CLASS="cb">
+The following example uses 80x6 assembly code to rotate memory bits: </P>
+<P CLASS="ciTable">
+RotateByteRight(/*byte*/b,/*int*/count)</P>
+<P CLASS="ciTable">
+// return value of byte b rotate count byte </P>
+<P CLASS="ciTable">
+{ </P>
+<P CLASS="ciTable">
+	assert( 0 &lt;= b  &amp;&amp;  b &lt;= 0xFF ); </P>
+<P CLASS="ciTable">
+	assert( 0 &lt;= count  &amp;&amp;  count &lt;= 8 ) </P>
+<P CLASS="ciTable">
+	// assembly code for would look as follows: </P>
+<P CLASS="ciTable">
+	// ror al, cl D2C8 </P>
+<P CLASS="ciTable">
+	// ret    </P>
+<P CLASS="ciTable">
+	C3 return asm(`\xD2\xC8\xC3',b,0,count,0); </P>
+<P CLASS="ciTable">
+}</P>
+</TD>
+</TR>
+</TABLE>
+<HR><TABLE>
+<TR>
+<TH COLSPAN="2">
+<H6 CLASS="fnam">
+<A NAME="999292">
+ </A>
+DynamicLink</H6>
+</TH>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+DESCRIPTION</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Call a function in a Dynamic Link Library (DLL).</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+SYNTAX</P>
+</TD>
+<TD>
+<P CLASS="cb">
+int DynamicLink(string ModuleName,string ProcedureName,</P>
+<P CLASS="cb">
+                              int BitSize, int CallingConvention,...) </P>
+<P CLASS="cb">
+int DynamicLink(string ModuleName,int Ordinal,int BitSize,       </P>
+<P CLASS="cb">
+                              int CallingConvention,...) </P>
+<P CLASS="cb">
+int DynamicLink(int CallGate,int BitSize,int CallingConvention,...)</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+COMMENTS</P>
+</TD>
+<TD>
+<P CLASS="cb">
+DynamicLink() is a flexible method for making calls to the operating system or to dynamic link libraries (DLLs).  If an operating-system function is needed but is not provided explicitly by ScriptEase, this call will provide it.  If you know the proper conventions for the call, then you can wrap a ScriptEase routine around a call to DynamicLink, and the call becomes available. </P>
+<P CLASS="cb">
+There are three versions of DynamicLink(): one for OS/2, one for Windows 3.x, and one for Windows `95 or NT. These three versions differ slightly in the way they are called, so if you wish to use the function in a script that will be run on different platforms you must create an operating system filter with the preprocessor directives #if, #ifdef, #elif, #else, and #endif. </P>
+<P CLASS="cb-in">
+<EM CLASS="Element">
+ModuleName</EM>
+ is the name of the dynamic link that the procedure is located in. </P>
+<P CLASS="cb-in">
+<EM CLASS="Element">
+ProcedureName</EM>
+ is the name of the procedure in the ModuleName dynamic link library, if this procedure can be referenced by name.</P>
+<P CLASS="cb-in">
+<EM CLASS="Element">
+Ordinal</EM>
+ is the ordinal number of this procedure in the ModuleName dynamic link library. </P>
+<P CLASS="cb-in">
+<EM CLASS="Element">
+CallGate</EM>
+ is the gate selector for a routine that is referenced through a call gate. </P>
+<P CLASS="cb-in">
+<EM CLASS="Element">
+CallingConvention</EM>
+ may be any of the following:   </P>
+<P CLASS="deTable-indent">
+<EM CLASS="Element">
+CDECL</EM>
+	Push right parameter first; Caller pops parameters.    </P>
+<P CLASS="deTable-indent">
+<EM CLASS="Element">
+STDCALL</EM>
+	Push right parameter first; Callee pops parameters.</P>
+<P CLASS="deTable-indent">
+<EM CLASS="Element">
+PASCAL</EM>
+	Push left parameter first; Callee pops parameters. </P>
+<P CLASS="cb">
+<EM CLASS="Element">
+BitSize</EM>
+ defines whether this is a 16-bit or a 32-bit call.  It may be either one of the pre-defined values: BIT16 or BIT32. </P>
+<P CLASS="cb">
+&nbsp;</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+COMMENTS</P>
+</TD>
+<TD>
+<P CLASS="cb">
+The final parameters will be passed to the dynamically-linked function.  For 32-bit functions, all values will be passed as 32-bit values.  For 16-bit functions, if the parameter is a blob or a byte-array or an undefined value, then it will be passed  as a 16:16 segment:offset pointer, otherwise all numeric values will be passed as 16-bit values, so if 32-bits is needed it will have to be passed in parts, with the low word first and the high word second. </P>
+<P CLASS="cb">
+If a parameter is undefined when DynamicLink() is called, then it is assumed that parameter will be a 32-bit value that will be filled in (i.e., the address of a 32-bit data element is passed to the function, and that function will set the value). If any parameter is a structure then it must be a structure that defines the binary data types in memory to represent the following variable.  Before calling the DLL function, the structure will be copied to a binary buffer as described in BLObPut() and fwrite().  After calling the DLL function the binary data will be converted back into the data structure according to the rules defined in BLObGet() and fread().  Data conversion will be performed according to the current _BigEndianMode setting (see fread()).</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+RETURN</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Any of these calls return the value returned by the dynamically-linked function.  32-bits are returned.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+SEE ALSO</P>
+</TD>
+<TD>
+<P CLASS="cb">
+fread() for the definition of passing of structures.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+EXAMPLE</P>
+</TD>
+<TD>
+<P CLASS="cb">
+This example function is a wrapper for the 32-bit DosBeep: </P>
+<P CLASS="ciTable">
+DosBeep(Frequency,Duration)</P>
+<P CLASS="ciTable">
+// Frequency in Hz, Duration in milliseconds </P>
+<P CLASS="ciTable">
+{</P>
+<P CLASS="ciTable">
+	#define DOS32BEEP_ORD 286 </P>
+<P CLASS="ciTable">
+	rc = DynamicLink(&quot;doscalls&quot;,DOS32BEEP_ORD,BIT32,</P>
+<P CLASS="ciTable">
+                    CDECL,Frequency,Duration); </P>
+<P CLASS="ciTable">
+	return(rc); </P>
+<P CLASS="ciTable">
+} </P>
+<P CLASS="cb">
+This next example is a wrapper for the 16-bit (old) version of the DosBeep call, which uses a call gate: </P>
+<P CLASS="ciTable">
+DosBeep(Frequency,Duration)</P>
+<P CLASS="ciTable">
+// Frequency in Hz, Duration in milliseconds </P>
+<P CLASS="ciTable">
+{</P>
+<P CLASS="ciTable">
+#define DOS16BEEP_GATE 0x1692 </P>
+<P CLASS="ciTable">
+	rc = DynamicLink(DOS16BEEP_GATE,BIT16,PASCAL,</P>
+<P CLASS="ciTable">
+                   Frequency,Duration);</P>
+<P CLASS="ciTable">
+	return(rc &amp; 0xFFFF);</P>
+<P CLASS="ciTable">
+}</P>
+</TD>
+</TR>
+</TABLE>
+<HR><TABLE>
+<TR>
+<TH>
+<H6 CLASS="fnam">
+<A NAME="999293">
+ </A>
+ESet</H6>
+</TH>
+<TH>
+<H6 CLASS="cHead">
+&nbsp;</H6>
+</TH>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+DESCRIPTION</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Write new environment variables settings into a file.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+SYNTAX</P>
+</TD>
+<TD>
+<P CLASS="cb">
+bool ESet(string FileSpec)</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+COMMENTS</P>
+</TD>
+<TD>
+<P CLASS="cb">
+This is a function for altering environment variables in the calling routine, since ScriptEase for OS/2  is unable to alter caller environment variables directly due to the limits of OS/2.  It creates a file, named FileSpec, and inserts as at least as many statements of the form &quot;SET VAR=Value&quot; as necessary so that if these commands are executed, the environment variables will be updated as ScriptEase has used them. Note that this operation is unnecessary if the SE_ESET environment variable is set. In this case, the call ESet(%SE_ESET%) is automatically generated as the last statement before a smooth exit of ScriptEase.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+RETURN</P>
+</TD>
+<TD>
+<P CLASS="cb">
+TRUE if successful, else FALSE if unable to open and write to FileSpec.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+EXAMPLE</P>
+</TD>
+<TD>
+<P CLASS="cb">
+This line could be executed at the command line to add  the directory C:\UTL to the PATH environment variable: C:&gt; SEOS2 strcat(PATH,&quot;;C:\\UTL&quot;); ESet(&quot;TempSet.cmd&quot;);      &amp; TempSet &amp; del TempSet.cmd The following example sets the command prompt to include the date using the SESET.CMD sample batch file (see the OS/2 Appendix in this manual):  C:&gt; SEOS2 &quot;sprintf(PROMPT,'%.10s %s',ctime(time()),'$P$G');&quot;</P>
+</TD>
+</TR>
+</TABLE>
+<HR><TABLE>
+<TR>
+<TH>
+<H6 CLASS="fnam">
+<A NAME="999296">
+ </A>
+info</H6>
+</TH>
+<TH>
+<H6 CLASS="cHead">
+&nbsp;</H6>
+</TH>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+DESCRIPTION</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Retrieve information about this ScriptEase process.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+SYNTAX</P>
+</TD>
+<TD>
+<P CLASS="cb">
+struct Info()</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+COMMENTS</P>
+</TD>
+<TD>
+<P CLASS="cb">
+This function retrieves information about the current ScriptEase process.  All of these values can be determined through calls to DynamicLink(), but it is convenient to keep them here.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+RETURN</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Returns structure with the following members: </P>
+<P CLASS="deTable">
+.<EM CLASS="Element">
+Process</EM>
+	ID of this ScriptEase process </P>
+<P CLASS="deTable">
+.<EM CLASS="Element">
+Thread</EM>
+	ID of the calling thread</P>
+<P CLASS="deTable">
+.<EM CLASS="Element">
+Session</EM>
+	ID of the session ScriptEase is running in </P>
+<P CLASS="deTable">
+.<EM CLASS="Element">
+WinHandle</EM>
+	Handle for Window ScriptEase is running in </P>
+<P CLASS="deTable">
+.<EM CLASS="Element">
+SwitchHandle</EM>
+	Switch handle for Win Switch functions </P>
+<P CLASS="deTable">
+.<EM CLASS="Element">
+hab</EM>
+	Handle Anchor Block  for this thread for access to some PM Win functions</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+SEE ALSO</P>
+</TD>
+<TD>
+<P CLASS="cb">
+PMInfo(), ProcessList()</P>
+</TD>
+</TR>
+</TABLE>
+<HR><TABLE>
+<TR>
+<TH>
+<H6 CLASS="fnam">
+<A NAME="999297">
+ </A>
+inport</H6>
+</TH>
+<TH>
+<H6 CLASS="cHead">
+&nbsp;</H6>
+</TH>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+DESCRIPTION</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Read byte from a hardware port.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+SYNTAX</P>
+</TD>
+<TD>
+<P CLASS="cb">
+byte inport(int portid)</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+COMMENTS</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Read a byte from hardware port: portid.</P>
+</TD>
+</TR>
+</TABLE>
+<HR><TABLE>
+<TR>
+<TH>
+<H6 CLASS="fnam">
+<A NAME="999298">
+ </A>
+inportw</H6>
+</TH>
+<TH>
+<H6 CLASS="cHead">
+&nbsp;</H6>
+</TH>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+DESCRIPTION</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Read word from a hardware port.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+SYNTAX</P>
+</TD>
+<TD>
+<P CLASS="cb">
+int inportw(int portid)</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+COMMENTS</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Read a word (16 bit) from hardware port: portid.  Value read is unsigned (not negative).</P>
+</TD>
+</TR>
+</TABLE>
+<HR><TABLE>
+<TR>
+<TH>
+<H6 CLASS="fnam">
+<A NAME="999299">
+ </A>
+outport</H6>
+</TH>
+<TH>
+<H6 CLASS="cHead">
+&nbsp;</H6>
+</TH>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+DESCRIPTION</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Write byte to a hardware port.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+SYNTAX</P>
+</TD>
+<TD>
+<P CLASS="cb">
+void outport(int portid,byte value)</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+COMMENTS</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Write byte value to hardware port portid.</P>
+</TD>
+</TR>
+</TABLE>
+<HR><TABLE>
+<TR>
+<TH>
+<H6 CLASS="fnam">
+<A NAME="999300">
+ </A>
+outportw</H6>
+</TH>
+<TH>
+<H6 CLASS="cHead">
+&nbsp;</H6>
+</TH>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+DESCRIPTION</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Write word to a hardware port.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+SYNTAX</P>
+</TD>
+<TD>
+<P CLASS="cb">
+void outportw(int portid,int value)</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+COMMENTS</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Write word (16 bit) value to hardware port portid.</P>
+</TD>
+</TR>
+</TABLE>
+<HR><TABLE>
+<TR>
+<TH COLSPAN="2">
+<H6 CLASS="fnam">
+<A NAME="999301">
+ </A>
+PMDynamicLink</H6>
+</TH>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+DESCRIPTION</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Call a function in a PM Dynamic Link Library (DLL).</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+COMMENTS </P>
+</TD>
+<TD>
+<P CLASS="cb">
+See DynamicLink() in this chapter.  PMDynamicLink() is the same as DynamicLink() except that PMDynamicLink() passes DLL calls through the SEOS2PM.exe gateway program.  Some PM functions require that they be made from a PM program.  SEOS2.exe is not a PM program but SEOS2PM.exe is, so SEOS2PM can make these calls for SEOS2.exe. Addresses and buffers are automatically transferred and shared between SEOS2.exe and SEOS2PM.exe, so in most cases your code does not need to concern itself with memory protection.  The exception to this is if one of the arguments to PMDynamicLink() contains a pointer or will receive a pointer.  In these cases you will need to put or get that data explicitly by using PMpeek() and PMpoke() instead of the usual peek() and poke() routines.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+SEE ALSO</P>
+</TD>
+<TD>
+<P CLASS="cb">
+DynamicLink(), PMInfo(), PMpeek(), Pmpoke() </P>
+</TD>
+</TR>
+</TABLE>
+<HR><TABLE>
+<TR>
+<TH>
+<H6 CLASS="fnam">
+<A NAME="999302">
+ </A>
+PMInfo</H6>
+</TH>
+<TH>
+<H6 CLASS="cHead">
+&nbsp;</H6>
+</TH>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+DESCRIPTION</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Retrieve information about the SEOS2PM process.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+COMMENTS</P>
+</TD>
+<TD>
+<P CLASS="cb">
+See Info() in this chapter.  PMInfo() works just the same as Info() but retrieves the same information for the SEOS2PM.exe gateway function.  PMDynamicLink() functions often will want these values instead of those from Info().</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+SEE ALSO</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Info(), PMDynamicLink(), PMpeek(), PMpoke()</P>
+</TD>
+</TR>
+</TABLE>
+<HR><TABLE>
+<TR>
+<TH>
+<H6 CLASS="fnam">
+<A NAME="999303">
+ </A>
+PMPeek</H6>
+</TH>
+<TH>
+<H6 CLASS="cHead">
+&nbsp;</H6>
+</TH>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+DESCRIPTION</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Read data from memory location via SEOS2PM.exe</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+COMMENTS</P>
+</TD>
+<TD>
+<P CLASS="cb">
+See peek() in chapter 8.  PMpeek() is the same as peek() but it will access memory that is given to SEOS2PM.exe or may only be accessible from a PM program.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+SEE ALSO</P>
+</TD>
+<TD>
+<P CLASS="cb">
+BigEndianMode, peek(), PMDynamicLink()</P>
+</TD>
+</TR>
+</TABLE>
+<HR><TABLE>
+<TR>
+<TH>
+<H6 CLASS="fnam">
+PMP<A NAME="999306">
+ </A>
+oke</H6>
+</TH>
+<TH>
+<H6 CLASS="cHead">
+&nbsp;</H6>
+</TH>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+DESCRIPTION</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Write data to memory location via SEOS2PM.exe.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+COMMENTS</P>
+</TD>
+<TD>
+<P CLASS="cb">
+See poke() in chapter 8. PMpoke() is the same as poke() but it will access memory that is given to SEOS2PM .exe or may only be accessible from a PM program.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+SEE ALSO</P>
+</TD>
+<TD>
+<P CLASS="cb">
+BigEndianMode, poke(), PMDynamicLink()</P>
+</TD>
+</TR>
+</TABLE>
+<HR><TABLE>
+<TR>
+<TH>
+<H6 CLASS="fnam">
+<A NAME="999307">
+ </A>
+ProcessList</H6>
+</TH>
+<TH>
+<H6 CLASS="cHead">
+&nbsp;</H6>
+</TH>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+DESCRIPTION</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Get list of all running processes.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+SYNTAX</P>
+</TD>
+<TD>
+<P CLASS="cb">
+struct[] ProcessList([bool IncludeThreadInfo])</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+COMMENTS</P>
+</TD>
+<TD>
+<P CLASS="cb">
+This function builds an array of structures containing data for every running process in the system.  If IncludeThreadInfo is TRUE, then information is also added for each thread in each process.  If IncludeThreadInfo is not supplied then FALSE is assumed, so only Process data is returned.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+RETURN</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Returns NULL if error in getting ThreadInfo  else returns an array of structures containing the following structure elements: </P>
+<P CLASS="deTable">
+.<EM CLASS="Element">
+id</EM>
+	ProcessID for this process </P>
+<P CLASS="deTable">
+.<EM CLASS="Element">
+parent</EM>
+	ProcessID for the parent of this process </P>
+<P CLASS="deTable">
+.<EM CLASS="Element">
+name</EM>
+	ProcessID for the parent of this process </P>
+<P CLASS="deTable">
+.<EM CLASS="Element">
+name</EM>
+	String containing the full name of this process </P>
+<P CLASS="deTable">
+.<EM CLASS="Element">
+threads</EM>
+	Array of structures describing each thread of this process; this structure element will not be returned unless IncludeThreadInfo is set to equal TRUE, in which case  .threads is an array of structures for each thread in the process, where the thread structure contains these structure elements: </P>
+<P CLASS="deTable-indent">
+.<EM CLASS="Element">
+ProcID</EM>
+	ID of this thread within the process </P>
+<P CLASS="deTable-indent">
+.<EM CLASS="Element">
+SysID</EM>
+	ID of this thread within the system</P>
+<P CLASS="deTable-indent">
+.<EM CLASS="Element">
+Priority</EM>
+	Running priority of this thread </P>
+<P CLASS="deTable-indent">
+.<EM CLASS="Element">
+Status</EM>
+	Current running state of this thread</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="lkey">
+ SEE ALSO</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Info(), PMInfo()</P>
+</TD>
+</TR>
+</TABLE>
+<DIV>
+<HR>
+<H3 CLASS="SubTopic">
+Useful OS/2 Libraries</H3>
+<P CLASS="Body">
+The following is a brief summary of the OS/2 function libraries that ship with ScriptEase. These libraries are text files, and a more detailed explanation of the functions contained in each library appears at the beginning of each. The supplied ScriptEase sample scripts provide examples of how these functions are to be used. Additional libraries (and sample scripts) are available for download from Nombas' Website at:</P>
+<P CLASS="Body">
+http://www.nombas.com/download</P>
+<TABLE>
+<TR>
+<TD>
+<P CLASS="cb">
+Clipbrd.hmm</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Routines for working with the Clipboard.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="cb">
+Comm.hmm</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Library of routines for accessing COM ports.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="cb">
+Devioctl.hmm</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Interface to the DosDevIOCtl call.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="cb">
+Dlgctrl.hmm</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Library of functions for controling dialog boxes via child windows (ie, buttons etc.).</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="cb">
+DOScalls.hmm</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Library of wrapper functions and defines for making calls to the DosCalls dll</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="cb">
+FileIO.hmm</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Low-Level file-access calls.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="cb">
+FileDlg.hmm</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Routines for an implementation of the WinFileDlg() function found in PM.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="cb">
+GiveMem.hmm</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Allocate more memory to an application.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="cb">
+KeyPush.hmm</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Routines to control or mimic the pushing of keys on the keyboard. The functions in this library work by sending virtual keystrokes to the active window.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="cb">
+MenuCtrl.hmm</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Functions for controlling PM menus.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="cb">
+Msgbox.hmm</P>
+</TD>
+<TD>
+<P CLASS="cb">
+ScriptEase code wrapper for the WinMessageBox function.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="cb">
+NamePipe.hmm</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Some interfaces to named pipes.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="cb">
+PMdll.hmm</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Functions and definitions for calls into the Presentation Manager DLLs.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="cb">
+PortIO.hmm</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Library for calling port routines.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="cb">
+Profile.hmm</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Routines for dealing with PM's Prifile functions (/INI files).</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="cb">
+ScanCode.hmm</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Return the keyboard scan code for a character.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="cb">
+Textboss.hmm</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Functions for controlling a windowed DOS or windowed OS/2 session</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="cb">
+WinMsg.hmm</P>
+</TD>
+<TD>
+<P CLASS="cb">
+WinPostMsg(), WinSendMsg() and related functions.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="cb">
+WinSpawn.hmm</P>
+</TD>
+<TD>
+<P CLASS="cb">
+WinSpawn() routine to execute the spawn function in a Windows session.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="cb">
+WinTools.hmm</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Functions for setting the state of of PM windows.</P>
+</TD>
+</TR>
+<TR>
+<TD>
+<P CLASS="cb">
+Win_Boss.hmm</P>
+</TD>
+<TD>
+<P CLASS="cb">
+Functions for controlling a Windows session. This library works hand-in-hand with a session running ServeOS2.cmm via SEOS2 for Windows.</P>
+</TD>
+</TR>
+</TABLE>
+<P CLASS="Body">
+&nbsp;</P>
+</DIV>
+</DIV>
+<TABLE WIDTH="225" BORDER="0" CELLSPACING="0" CELLPADDING="0">
+  <TR>
+    <TD WIDTH="71"><a href="9-doswin.htm"><IMG SRC="prev.gif" WIDTH="71" height="18" border="0"></a></TD>
+    <TD WIDTH="80"><a href="../index.htm"><IMG SRC="tocidx.gif" WIDTH="80" height="18" border="0"></a></TD>
+    <TD WIDTH="74"><a href="b-win3lb.htm"><IMG SRC="next.gif" WIDTH="74" height="18" border="0"></a></TD>
+  </TR>
+</TABLE>
+</BODY>
+</HTML>

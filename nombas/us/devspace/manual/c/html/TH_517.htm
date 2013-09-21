@@ -1,0 +1,88 @@
+<html>
+<head>
+<title>Structures</title>
+<link rel="stylesheet" href="semanualstyles.css" type="text/css">
+<style type="text/css">
+ p { margin-top: 0; margin-bottom: 0; }
+</style>
+<script language="JavaScript" src="TrueHelp.js"></script>
+</head>
+<body onload="thload()">
+<div id=ienav>
+<ilayer id=nsnav>
+<br>
+<center>
+<p class=normal><a href="seisdkc-toc.htm" target="left">contents</a> &nbsp; <a href="seisdkc-index.htm" target="left">index</a> &nbsp; <a href="TH_516.htm">previous</a> &nbsp; <a href="TH_518.htm">next</a></p>
+</center>
+<br>
+<hr noshade size=1>
+</ilayer>
+</div>
+<p class=heading-2>Structures</p>
+<p class=heading-2-p>&nbsp;</p>
+<p class=senormalpara>Structures are created dynamically, and their elements are not necessarily contiguous in memory. When ScriptEase encounters a statement such as:</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=secodelinesindented>foo.animal&nbsp;=&nbsp;"dog"</p>
+<p class=secodelinesindented>&nbsp;</p>
+<p class=senormalpara>it creates a structure element of foo that is referenced by "animal" and that is an array of characters. The "animal" variable becomes an element of the "foo" variable. Though foo, in this example, may be thought of and used as a structure and animal as an element, in actuality, foo is a JavaScript object and animal is a property. The resulting code looks like regular C code, except that there is no separate structure definition anywhere. The following C code:</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=secodelinesindented>struct&nbsp;Point&nbsp;</p>
+<p class=secodelinesindented>{</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;int&nbsp;Row;</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;int&nbsp;Column;</p>
+<p class=secodelinesindented>}</p>
+<p class=secodelinesindented>&nbsp;</p>
+<p class=secodelinesindented>struct&nbsp;Square&nbsp;</p>
+<p class=secodelinesindented>{</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;struct&nbsp;Point&nbsp;BottomLeft;</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;struct&nbsp;Point&nbsp;TopRight;</p>
+<p class=secodelinesindented>}</p>
+<p class=secodelinesindented>&nbsp;</p>
+<p class=secodelinesindented>void&nbsp;main()</p>
+<p class=secodelinesindented>{</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;struct&nbsp;Square&nbsp;sq;</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;int&nbsp;Area;</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;sq.BottomLeft.Row&nbsp;=&nbsp;1;</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;sq.BottomLeft.Column&nbsp;=&nbsp;15;</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;sq.TopRight.Row&nbsp;=&nbsp;82;</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;sq.TopRight.Column&nbsp;=&nbsp;120;</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;Area&nbsp;=&nbsp;AreaOfASquare(sq);</p>
+<p class=secodelinesindented>}</p>
+<p class=secodelinesindented>&nbsp;</p>
+<p class=secodelinesindented>int&nbsp;AreaOfASquare(struct&nbsp;Square&nbsp;s)</p>
+<p class=secodelinesindented>{</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;int&nbsp;width,&nbsp;height;</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;width&nbsp;=&nbsp;s.TopRight.Column&nbsp;&nbsp;s.BottomLeft.Column&nbsp;+&nbsp;1;</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;height&nbsp;=&nbsp;s.TopRight.Row&nbsp;&nbsp;s.BottomLeft.Row&nbsp;+&nbsp;1;</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;return(&nbsp;width&nbsp;*&nbsp;height&nbsp;);</p>
+<p class=secodelinesindented>}</p>
+<p class=secodelinesindented>&nbsp;</p>
+<p class=senormalpara>can be easily converted into ScriptEase code as shown in the following.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=secodelinesindented>function&nbsp;main()</p>
+<p class=secodelinesindented>{</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;var&nbsp;sq.BottomLeft.Row&nbsp;=&nbsp;1;</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;sq.BottomLeft.Column&nbsp;=&nbsp;15;</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;sq.TopRight.Row&nbsp;=&nbsp;82;</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;sq.TopRight.Column&nbsp;=&nbsp;120;</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;var&nbsp;Area&nbsp;=&nbsp;AreaOfASquare(sq);</p>
+<p class=secodelinesindented>}</p>
+<p class=secodelinesindented>&nbsp;</p>
+<p class=secodelinesindented>function&nbsp;AreaOfASquare(s)</p>
+<p class=secodelinesindented>{</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;var&nbsp;width&nbsp;=&nbsp;s.TopRight.Column&nbsp;&nbsp;s.BottomLeft.Column&nbsp;+&nbsp;1;</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;var&nbsp;height&nbsp;=&nbsp;s.TopRight.Row&nbsp;&nbsp;s.BottomLeft.Row&nbsp;+&nbsp;1;</p>
+<p class=secodelinesindented>&nbsp;&nbsp;&nbsp;return(&nbsp;width&nbsp;*&nbsp;height&nbsp;);</p>
+<p class=secodelinesindented>}</p>
+<p class=secodelinesindented>&nbsp;</p>
+<p class=senormalpara>Structures can be passed, returned, and modified just as any other variable. Of course, structures and arrays are different and independent, which allows a statement like the following.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<p class=secodelinesindented>foo[8].animal.forge[3]&nbsp;=&nbsp;bil.bo</p>
+<p class=secodelinesindented>&nbsp;</p>
+<p class=senormalpara>Some operations, such as addition, are not defined for structures.</p>
+<p class=senormalpara-p>&nbsp;</p>
+<hr noshade size=1>
+<p class=normal><a href="TH_518.htm"><img src="button.png" border=0></a><a href="TH_518.htm" style="text-decoration:none;">Passing variables by reference</a></p>
+<p>
+</body>
+</html>
