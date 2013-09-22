@@ -167,7 +167,7 @@ making a software startup.</li>
 <p style="margin-bottom: 2px;">Got a question? Send
 email to <a href="mailto:brent.noorda@gmail.com">brent.noorda@gmail.com</a>.</p>
 <p style="margin-top: 2px;margin-bottom: 2px;">Owe me money? <a href="https://pay-brent-noorda.herokuapp.com/">Pay Me!</a></p>
-<p style="margin-top: 2px;">Need work done? See <a href="https://docs.google.com/document/pub?id=1w7beTFGm8NZ8NP3td5A7Bi7icEgVJ9qwJ-EIOTQ-SZE">my
+<p style="margin-top: 2px;">Need work done? See <a href="https://docs.google.com/document/d/1w7beTFGm8NZ8NP3td5A7Bi7icEgVJ9qwJ-EIOTQ-SZE/pub">my
 resume</a>.</p>
 <center><img alt="" src="http://3.bp.blogspot.com/_JppPN0IqmH8/SBNhSjsXtkI/AAAAAAAAAbI/WX2LhIYxdaM/s1600/debonair.JPG" border="0" height="264" width="198"></center>
 </td>
@@ -204,23 +204,18 @@ information on this site, copyright Brent Noorda<br>
 // load jquery library for ajax, json, and simple stuff
 google.load("jquery", "1.7.1");
 google.setOnLoadCallback(function() {
-$(document).ready(function() {
-window.answer = function(which)
-{
-$('#before_answer' + which).hide();
-$('#after_answer' + which).show('slow',function(){
-setTimeout(function(){
-$('#joke' + (which+1)).show('slow');
-},1500);
-});
-}
-});
+    $(document).ready(function() {
+        window.answer = function(which)
+        {
+            $('#before_answer' + which).hide();
+            $('#after_answer' + which).show('slow',function(){
+                setTimeout(function(){
+                    $('#joke' + (which+1)).show('slow');
+                    },1500);
+            });
+        }
+    });
 });
 createLoadBar(240, 20, 1, "#000000", "#cccccc", "#999999", "MS Sans serif,Arial,Helvetica", 1, "Loading ants, please wait...");
-</script>
-<script src="http://www.google-analytics.com/urchin.js" type="text/javascript"></script>
-<script type="text/javascript">
-_uacct = "UA-1754630-1";
-urchinTracker();
 </script>
 </body></html>
