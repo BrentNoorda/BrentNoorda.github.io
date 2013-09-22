@@ -1,6 +1,6 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
-<html><head><!-- $MVD$:app("MicroVision WebExpress") -->
-
+<html><head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" >
 <title>Brent Noorda Brick Wall</title><meta name="description" content="The web home of Brent Noorda.">
 <meta name="keywords" content="radioweave,yiqyaq,nombas,brent noorda">
 <meta name="msvalidate.01" content="FE1110A0DAFEC33AF73DD33FB6BCD8AF">
@@ -43,7 +43,7 @@ ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www')
 var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
 })();
 </script></head>
-<body onload="init()" link="#003399" alink="#003399" background="img/dskbrick.gif" bgcolor="#ffffff" text="#000000" vlink="#003399">
+<body link="#003399" alink="#003399" background="img/dskbrick.gif" bgcolor="#ffffff" text="#000000" vlink="#003399">
 <p align="center"> </p>
 <center>
 <table border="0" cellpadding="0" cellspacing="0" width="630">
@@ -63,7 +63,7 @@ var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga
 </td>
 </tr>
 <tr>
-<td background="img/dsklp.gif" height="36" valign="CENTER" width="77">
+<td height="36" valign="middle" width="77" style="background-image:url(img/dsklp.gif);">
 <p>&nbsp; </p>
 </td>
 <td bgcolor="#ffffff" height="36" valign="top" width="476">
@@ -79,7 +79,7 @@ here for greatest punchline of 2011</i></a></span></p>
 <p style="margin-left: 2em; margin-bottom: 0pt;"><b>Question</b>:
 What do you call it when you eat a taco and then get diarrhea?</p>
 <p style="margin-left: 2em; margin-top: 3px;"><b>Answer</b>:
-<span id="after_answer2" style="display: none;">taquería</span><span id="before_answer2"><a href="javascript:void 0" onclick="answer(2)" style="text-decoration: none;"><i>click
+<span id="after_answer2" style="display: none;">taquerÃŒa</span><span id="before_answer2"><a href="javascript:void 0" onclick="answer(2)" style="text-decoration: none;"><i>click
 here for worst punchline of 2011</i></a></span></p>
 </div>
 <div id="joke3" style="display: none;">
@@ -171,7 +171,7 @@ email to <a href="mailto:brent.noorda@gmail.com">brent.noorda@gmail.com</a>.</p>
 resume</a>.</p>
 <center><img alt="" src="http://3.bp.blogspot.com/_JppPN0IqmH8/SBNhSjsXtkI/AAAAAAAAAbI/WX2LhIYxdaM/s1600/debonair.JPG" border="0" height="264" width="198"></center>
 </td>
-<td background="img/dskrp.gif" height="36" valign="CENTER" width="77">
+<td height="36" valign="middle" width="77" style="background-image:url(img/dskrp.gif);">
 <p>&nbsp; </p>
 </td>
 </tr>
@@ -213,7 +213,8 @@ google.setOnLoadCallback(function() {
                     $('#joke' + (which+1)).show('slow');
                     },1500);
             });
-        }
+        };
+        init_ants_js();
     });
 });
 createLoadBar(240, 20, 1, "#000000", "#cccccc", "#999999", "MS Sans serif,Arial,Helvetica", 1, "Loading ants, please wait...");

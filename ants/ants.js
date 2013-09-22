@@ -304,7 +304,7 @@ if (isMinNS4)
    document.captureEvents(Event.MOUSEMOVE);
 document.onmousemove = getMousePosition;
 
-function init()
+function init_ants_js()
 {
    startLoadBar(images);
 }
