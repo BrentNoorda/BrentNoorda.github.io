@@ -11,7 +11,8 @@ iframe {
 }
 
 #contents {
-    margin: 6px;
+    max-width: 606px;
+    margin: 6px auto 6px auto;
 }
 
 .dash {
