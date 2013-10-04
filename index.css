@@ -1,0 +1,16 @@
+* {
+    font-family: Verdana, Arial, Helvetica, sans-serif;
+}
+a:hover {
+    text-decoration: none;
+    background-color : #000066;
+    font-style : normal; color:#FF0000
+}
+.ant {
+    visibility: hidden;
+    width: 16px;
+    position: absolute;
+    height: 16px;
+    left: 100px;
+    top: 40px;
+}
