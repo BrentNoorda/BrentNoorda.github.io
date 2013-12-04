@@ -14,3 +14,7 @@ a:hover {
     left: 100px;
     top: 40px;
 }
+
+li {
+    margin-bottom: 0.5em;
+}
