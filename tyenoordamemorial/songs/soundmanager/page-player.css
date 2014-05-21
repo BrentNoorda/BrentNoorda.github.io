@@ -56,26 +56,29 @@ ul.playlist li {
  position:relative;
  display:block;
  width:auto;
- font-size:2em;
- color:#666;
- padding:0.25em 0.5em 0.25em 0.5em;
+ /*font-size:2em;
+ color:#666;*/
+ /* padding:0.25em 0.5em 0.25em 0.5em; */
  border:none;
- letter-spacing:-1px; /* ZOMG WEB X.0. ;) */
- background-color:#f9f9f9;
+ /* letter-spacing:-1px; *//* ZOMG WEB X.0. ;) */
+ /*background-color:#f9f9f9;*/
  -webkit-transition-property: hover;
  -webkit-transition: background-color 0.15s ease-in-out;
  -moz-transition: background-color 0.15s linear 0s; /* firefox 4 */
   -o-transition-property: background-color; /* opera 10.5 */
   -o-transition-duration: 0.15s;
 
+  /* stuff added */
+  margin: 1px 0 1px 1em;
+  padding: 2px 2px 2px 2px;
 }
 
 ul.playlist li a {
  display:block;
  text-decoration:none;
- font-weight:normal;
- color:#000;
- font-size:120%;
+ /* font-weight:normal; */
+ /* color:#000; */
+ /* font-size:120%; */
  outline:none;
  position:relative;
  z-index:2;
@@ -215,7 +218,7 @@ ul.playlist li .timing {
  display:none;
  text-align:right;
  right:1em;
- top:1em;
+ /*top:1em;*/
  width:auto;
  height:1em;
  padding:3px 5px;
@@ -226,6 +229,8 @@ ul.playlist li .timing {
  font:44% monaco,"VT-100","lucida console",courier,system;
  line-height:1em;
  vertical-align:middle;
+
+ top: 0.5em;
 }
 
 ul.playlist.use-peak li .timing {
