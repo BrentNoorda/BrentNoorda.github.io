@@ -6,14 +6,6 @@
   <meta name="keywords" content="tye noorda,lewena noorda,tye noorda memorial,lewena noorda memorial">
   <meta http-equiv="description" content="tye noorda lewena noorda tye noorda memorial lewena noorda memorial">
   <title>Tye Noorda Memorial</title>
-  <style media="screen" type="text/css">
-   li {
-     margin-top: 0.3em;
-   }
-   h3 {
-     margin-top: -0.8em;
-   }
-  </style>
   <script type="text/javascript">
     var _gaq = _gaq || [];
     _gaq.push(['_setAccount', 'UA-1754630-10']);
@@ -24,10 +16,39 @@
       var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
     })();
   </script>
+
+  <!-- soundmanager2 stuff -->
+  <link rel="stylesheet" type="text/css" href="songs/soundmanager/page-player.css" />
+  <link rel="stylesheet" type="text/css" href="songs/soundmanager/flashblock.css" />
+  <script type="text/javascript" src="songs/soundmanager/soundmanager2-nodebug-jsmin.js"></script>
+  <script type="text/javascript" src="songs/soundmanager/page-player.js"></script>
+  <script type="text/javascript">
+    soundManager.setup({
+      // path to directory containing SM2 SWF
+      url: 'songs/soundmanager/',
+      debugMode: false,
+      debugFlash: false
+    });
+  </script>
+
+  <style media="screen" type="text/css">
+   li {
+     margin-top: 0.3em;
+   }
+   h3 {
+     margin-top: -0.8em;
+   }
+   ul.playlist li {
+      font-size: 0.86em;
+   }
+  </style>
 </head>
 <body>
 <h1>Tye Noorda Memorial</h1>
 <h3>Lewena &quot;Tye&quot; Noorda (1923 - 2014)</h3>
+ <div id="sm2-container">
+  <!-- SM2 flash movie goes here -->
+ </div>
 <p style="margin-top:-0.8em;">Some called her <i>Mom</i>, some called her <i>Tye</i>, some called her <i>Sister Noorda</i>.
 Nobody called her <i>Lewena</i>.</p>
 <ul>
@@ -59,28 +80,31 @@ Nobody called her <i>Lewena</i>.</p>
 <li>Guest Books (<a href="http://www.legacy.com/guestbooks/saltlaketribune/lewena-noorda-tye-condolences/170506266?cid=full">1</a>,
     <a href="http://www.sundbergolpinmortuary.com/fh/obituaries/tributes.cfm?o_id=2471053&fh_id=12339">2</a>) - share memories or condolences</li>
 <li>Sampling of Tye's songs, recorded by BYU students:
-  <ul>
-    <li><a href="songs/byucd/A%20-%20Tye%20Noorda%20-%20Do%20Duddle.mp3" target="tyesong">Do Duddle</a></li>
-    <li><a href="songs/byucd/A%20-%20Tye%20Noorda%20-%20Smiling.mp3" target="tyesong">Smiling</a></li>
-    <li><a href="songs/byucd/A%20-%20Tye%20Noorda%20-%20A%20Living%20God.mp3" target="tyesong">A Living God</a></li>
-    <li><a href="songs/byucd/A%20-%20Tye%20Noorda%20-%20Forgive%20Them.mp3" target="tyesong">Forgive Them</a></li>
-    <li><a href="songs/byucd/A%20-%20Tye%20Noorda%20-%20I%20Will%20Go%20and%20Do.mp3" target="tyesong">I Will Go and Do</a></li>
-    <li><a href="songs/byucd/A%20-%20Tye%20Noorda%20-%20Loving%20Caring%2C%20and%20Sharing.mp3" target="tyesong">Loving, Caring, and Sharing</a></li>
-    <li><a href="songs/byucd/A%20-%20Tye%20Noorda%20-%20My%20Little%20Brother.mp3" target="tyesong">My Little Brother</a></li>
-    <li><a href="songs/byucd/A%20-%20Tye%20Noorda%20-%20My%20Mirror.mp3" target="tyesong">My Mirror</a></li>
-    <li><a href="songs/byucd/A%20-%20Tye%20Noorda%20-%20Search%20The%20Scriptures.mp3" target="tyesong">Search The Scriptures</a></li>
-    <li><a href="songs/byucd/A%20-%20Tye%20Noorda%20-%20Spiritual%20Robes.mp3" target="tyesong">Spiritual Robes</a></li>
-    <li><a href="songs/byucd/A%20-%20Tye%20Noorda%20-%20They%27ll%20Never%20Know.mp3" target="tyesong">They'll Never Know</a></li>
-    <li><a href="songs/byucd/A%20-%20Tye%20Noorda%20-%20Time%20and%20Season.mp3" target="tyesong">Time and Season</a></li>
-    <li><a href="songs/byucd/A%20-%20Tye%20Noorda%20-%20What%20is%20a%20Friend.mp3" target="tyesong">What is a Friend</a></li>
-    <li><a href="songs/byucd/A%20-%20Tye%20Noorda%20-%20What%20Would%20Jesus%20Do.mp3" target="tyesong">What Would Jesus Do</a></li>
-    <li><a href="songs/byucd/A%20-%20Tye%20Noorda%20-%20Who%20Are%20You.mp3" target="tyesong">Who Are You</a></li>
-    <li><a href="songs/byucd/A%20-%20Tye%20Noorda%20-%20Work%2CWork%2CWork.mp3" target="tyesong">Work, Work, Work</a></li>
-    <li><a href="songs/byucd/A%20-%20Tye%20Noorda%20-%20Come%20Unto%20Me.mp3" target="tyesong">Come Unto Me</a>
-    - <a href="songs/byucd/Come%20Unto%20Me%20from%20Tye%20Noorda%20Book.pdf" target="sheetmusic"><font size="1-">sheet music</font></a></li>
+  <ul class="playlist">
+    <li><a href="songs/byucd/A%20-%20Tye%20Noorda%20-%20Do%20Duddle.mp3">Do Duddle</a></li>
+    <li><a href="songs/byucd/A%20-%20Tye%20Noorda%20-%20Smiling.mp3">Smiling</a></li>
+    <li><a href="songs/byucd/A%20-%20Tye%20Noorda%20-%20A%20Living%20God.mp3">A Living God</a></li>
+    <li><a href="songs/byucd/A%20-%20Tye%20Noorda%20-%20Forgive%20Them.mp3">Forgive Them</a></li>
+    <li><a href="songs/byucd/A%20-%20Tye%20Noorda%20-%20I%20Will%20Go%20and%20Do.mp3">I Will Go and Do</a></li>
+    <li><a href="songs/byucd/A%20-%20Tye%20Noorda%20-%20Loving%20Caring%2C%20and%20Sharing.mp3">Loving, Caring, and Sharing</a></li>
+    <li><a href="songs/byucd/A%20-%20Tye%20Noorda%20-%20My%20Little%20Brother.mp3">My Little Brother</a></li>
+    <li><a href="songs/byucd/A%20-%20Tye%20Noorda%20-%20My%20Mirror.mp3">My Mirror</a></li>
+    <li><a href="songs/byucd/A%20-%20Tye%20Noorda%20-%20Search%20The%20Scriptures.mp3">Search The Scriptures</a></li>
+    <li><a href="songs/byucd/A%20-%20Tye%20Noorda%20-%20Spiritual%20Robes.mp3">Spiritual Robes</a></li>
+    <li><a href="songs/byucd/A%20-%20Tye%20Noorda%20-%20They%27ll%20Never%20Know.mp3">They'll Never Know</a></li>
+    <li><a href="songs/byucd/A%20-%20Tye%20Noorda%20-%20Time%20and%20Season.mp3">Time and Season</a></li>
+    <li><a href="songs/byucd/A%20-%20Tye%20Noorda%20-%20What%20is%20a%20Friend.mp3">What is a Friend</a></li>
+    <li><a href="songs/byucd/A%20-%20Tye%20Noorda%20-%20What%20Would%20Jesus%20Do.mp3">What Would Jesus Do</a></li>
+    <li><a href="songs/byucd/A%20-%20Tye%20Noorda%20-%20Who%20Are%20You.mp3">Who Are You</a></li>
+    <li><a href="songs/byucd/A%20-%20Tye%20Noorda%20-%20Work%2CWork%2CWork.mp3">Work, Work, Work</a></li>
+    <li><a href="songs/byucd/A%20-%20Tye%20Noorda%20-%20Come%20Unto%20Me.mp3">Come Unto Me</a></li>
   </ul>
 </li>
-<li><a href="songs/Valentines.mp3" target="tyesong">Valentines.mp3</a> - Written by Tye Noorda, Performed by Jeff and Courtney Pew</li>
+<li>More recorded songs
+  <ul class="playlist">
+    <li><a href="songs/Valentines.mp3">Valentines.mp3 - Written by Tye Noorda, Performed by Jeff and Courtney Pew</a></li>
+  </ul>
+</li>
 <li>A few videos:
   <ul>
     <li>Singing &quot;Smiling&quot; around the home piano
