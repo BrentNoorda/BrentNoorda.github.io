@@ -45,7 +45,8 @@ var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga
     <h1 class="title">Upward-Only Brownian Motion</h1>
 
     <ul>
-      <li><a href="http://brent-noorda.blogspot.com/2014/06/half-brownian-theory-of-flight.html" class="btn-index">back to blog post</a></li>
+      <li><a id="nav-toggle" href="#details" class="btn-details" data-offcanvas="toggle">show comments</a></li>
+      <li><a href="http://brent-noorda.blogspot.com/2014/06/half-brownian-theory-of-flight.html" class="btn-index" style="margin-left:1.5em;">back to blog post</a></li>
     </ul>
   </div>
 
@@ -72,18 +73,9 @@ download a snapshot if your particles draw you something inspiring.</p>
 <p>Note: There is a lot of physics going on here... if it seems sluggish,
 try it on a desktop browser with <a href="https://www.google.com/intl/en/chrome/browser/">Google's Chrome browser</a>.</p>
 
-
   </div>
 
-
-  <aside class="comments">
-
-    <div id="disqus_thread"></div>
-
-  </aside>
-
 </div>
-
 
       <div id="viewport" role="main">
 
@@ -132,21 +124,13 @@ try it on a desktop browser with <a href="https://www.google.com/intl/en/chrome/
   </div>
   <![endif]-->
 
-  <script src="http://labs.minutelabs.io/assets/labs-nav.js"></script>
+  <script src="assets/labs-nav.js"></script>
 
 
   <script type="text/javascript">
-      var disqus_shortname = 'minutelabsio';
-      var load_disqus = function() {
-          var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-          dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-          (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-      };
-
       (function(){
         var el = document.getElementById('nav-toggle');
         function cb(){
-          load_disqus();
           el.removeEventListener('click', cb);
           el.removeEventListener('touchstart', cb);
         }
