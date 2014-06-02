@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<!--[if lte IE 8]>     <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" itemscope itemtype="http://schema.org/Article" lang="en"> <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Brownian Motion | MinuteLabs.io</title>
+  <meta name="description" content="Play with the majestic motion of Brownian particles">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+
+  <!-- Google+ snippet. -->
+  <meta itemprop="name" content="Brownian Motion | MinuteLabs.io">
+  <meta itemprop="description" content="Play with the majestic motion of Brownian particles">
+  <meta itemprop="image" content="thumb.gif">
+
+  <!-- css -->
+  <link rel="stylesheet" href="http://labs.minutelabs.io/library/styles/lab.css" />
+  <link rel="stylesheet" href="library-build/styles/site.css?v=0.0.1" />
+
+  <!-- js includes -->
+  <script src="library-build/js/vendor/modernizr.js"></script>
+  <script>
+    var Lab = { title: 'Brownian Motion', id: '' };
+    var require = { urlArgs: 'v=0.0.1' };
+  </script>
+  <script src="library-build/js/vendor/raf.js"></script>
+  <script src="http://labs.minutelabs.io/library/js/vendor/require.js" data-main="library-build/js/page-boilerplate"></script>
+</head>
+<body>
+
+  <div id="wrap-outer">
+    <div data-offcanvas="wrap">
+      <nav id="nav-widget" role="navigation" class="">
+
+  <a href="http://minutelabs.io" class="logo"><img width="40" src="http://labs.minutelabs.io/assets/images/logos/logo-minutelabs-no-text-40x40.jpg" alt="MinuteLabs.io"></a>
+
+  <div class="top">
+    <h1 class="title">Brownian Motion</h1>
+
+    <ul>
+      <li><a href="http://minutelabs.io" class="btn-index">back to labs</a></li>
+      <li><a href="http://minutelabs.io" id="lab-nav-prev" class="btn-prev" title="previous Lab">prev</a></li>
+      <li><a href="http://minutelabs.io" id="lab-nav-next" class="btn-next" title="next Lab">next</a></li>
+      <li><a href="http://minutelabs.io/subscribe" class="btn-subscribe">subscribe!</a></li>
+    </ul>
+  </div>
+
+  <div class="bottom">
+    <a id="nav-toggle" href="#details" class="btn-details" data-offcanvas="toggle">show comments</a>
+  </div>
+
+</nav>
+
+<div id="details" data-offcanvas="offcanvas">
+  <header>
+    <h1 class="title">Brownian Motion</h1>
+    <h2 class="title-by"><a href="http://minutelabs.io"><span>by</span> MinuteLabs<span>.io</span></a></h2>
+  </header>
+
+  <div class="desc">
+
+    <p>An interactive physics simulation of Brownian Motion!
+Brownian Motion is the random motion of particles that are suspended in
+a gas or a liquid. Drag the first slider to see what's going on behind
+the scenes and play around with the physical parameters. You can also
+download a snapshot if your particles draw you something inspiring.</p>
+
+<p>Watch the introductory video: <a href="https://www.youtube.com/watch?v=wDfQqbWTP58">Brownian Motion Video</a>.</p>
+
+<p>Watch the MinutePhysics on Brownian Motion: <a href="http://youtu.be/nrUBPO6zZ40">Albert Einstein: The Size and Existence of Atoms</a>.</p>
+
+<p>Note: There is a lot of physics going on here... if it seems sluggish,
+try it on a desktop browser with <a href="https://www.google.com/intl/en/chrome/browser/">Google's Chrome browser</a>.</p>
+
+
+  </div>
+
+
+  <aside class="comments">
+
+    <div id="disqus_thread"></div>
+
+  </aside>
+
+</div>
+
+
+      <div id="viewport" role="main">
+
+        <div id="sim">
+    <canvas id="physics"></canvas>
+</div>
+
+<div id="video-msg">
+    <a href="#" class="ctrl-close">&times;</a>
+    <p>There is also a <a href="http://www.youtube.com/watch?v=nrUBPO6zZ40&amp;list=PLED25F943F8D6081C" target="_blank">MinutePhysics video about Brownian Motion</a> that you can watch.</p>
+</div>
+
+<div id="controls">
+    <label>Drag to see what's actually going on</label>
+    <div id="ctrl-opacity"></div>
+
+    <div class="labels">
+        <label>Energy:</label>
+        <div class="ctrl">
+            <div id="ctrl-energy"></div>
+        </div>
+        <label>Size Ratio:</label>
+        <div class="ctrl">
+            <div id="ctrl-ratio"></div>
+        </div>
+        <label>Mass Ratio:</label>
+        <div class="ctrl">
+            <div id="ctrl-mass-ratio"></div>
+        </div>
+    </div>
+    <div class="btns">
+        <button id="ctrl-draw-paths" class="pop toggle on">Trace Paths</button>
+        <a href="#" id="ctrl-download" class="btn">Get Image</a>
+    </div>
+    <label id="ctrl-move">move</label>
+</div>
+
+      </div>
+    </div>
+  </div>
+
+  <!--[if lte IE 8]>
+  <div id="bad-browser">
+    <p>We are truly sorry. But your web browser is very outdated. MinuteLabs will just <strong>not work</strong> with your browser.</p>
+    <p>Please visit <a href="http://browsehappy.com">browsehappy</a> to learn how to fix this.</p>
+  </div>
+  <![endif]-->
+
+  <script src="http://labs.minutelabs.io/assets/labs-nav.js"></script>
+
+
+  <script type="text/javascript">
+      var disqus_shortname = 'minutelabsio';
+      var load_disqus = function() {
+          var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+          dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+          (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+      };
+
+      (function(){
+        var el = document.getElementById('nav-toggle');
+        function cb(){
+          load_disqus();
+          el.removeEventListener('click', cb);
+          el.removeEventListener('touchstart', cb);
+        }
+        if ( el ){
+          el.addEventListener('click', cb);
+          el.addEventListener('touchstart', cb);
+        }
+      })();
+  </script>
+
+
+</body>
+</html>
