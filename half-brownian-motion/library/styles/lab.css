@@ -3030,7 +3030,7 @@ input {
 #nav-widget .bottom {
   float: left;
   position: relative;
-  margin-left: 60px;
+  margin-left: 0px;
   background: #1a1a1a;
   font-family: "latin-modern-mono-light", Courier, monospace;
   font-size: 14px;
@@ -3191,7 +3191,7 @@ input {
 #nav-widget.light .bottom {
   float: left;
   position: relative;
-  margin-left: 60px;
+  margin-left: 0px;
   background: white;
   font-family: "latin-modern-mono", Courier, monospace;
   font-size: 14px;
