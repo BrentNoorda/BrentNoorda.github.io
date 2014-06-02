@@ -10515,7 +10515,15 @@ function (e, t) {
                         r = n.scratchpad(),
                         i = r.vector(),
                         s, o, u, a;
-                    for (var f = 0, l = t.length; f < l; ++f) s = t[f], i.clone(s.bodyB.state.pos).vsub(s.bodyA.state.pos), o = i.normSq() || Math.random() * 1e-4, u = e * s.stiffness * (o - s.targetLengthSq) / o, i.mult(u), a = s.bodyA.treatment !== "dynamic" || s.bodyB.treatment !== "dynamic" ? 1 : s.bodyB.mass / (s.bodyA.mass + s.bodyB.mass), s.bodyA.treatment === "dynamic" && (s.bodyB.treatment === "dynamic" && i.mult(a), s.bodyA.state.pos.vadd(i), s.bodyB.treatment === "dynamic" && i.mult(1 / a)), s.bodyB.treatment === "dynamic" && (s.bodyA.treatment === "dynamic" && i.mult(1 - a), s.bodyB.state.pos.vsub(i));
+                    for (var f = 0, l = t.length; f < l; ++f) {
+                        s = t[f];
+                        i.clone(s.bodyB.state.pos).vsub(s.bodyA.state.pos);
+                        o = i.normSq() || Math.random() * 1e-4;
+                        u = e * s.stiffness * (o - s.targetLengthSq) / o, i.mult(u);
+                        a = s.bodyA.treatment !== "dynamic" || s.bodyB.treatment !== "dynamic" ? 1 : s.bodyB.mass / (s.bodyA.mass + s.bodyB.mass);
+                        s.bodyA.treatment === "dynamic" && (s.bodyB.treatment === "dynamic" && i.mult(a), s.bodyA.state.pos.vadd(i), s.bodyB.treatment === "dynamic" && i.mult(1 / a));
+                        s.bodyB.treatment === "dynamic" && (s.bodyA.treatment === "dynamic" && i.mult(1 - a), s.bodyB.state.pos.vsub(i));
+                    }
                     r.done()
                 },
                 shuffleConstraints: function () {
@@ -12281,7 +12289,7 @@ function (e, t) {
     };
     var u = ["rgb(18, 84, 151)", "rgb(167, 42, 34)", "rgb(159, 80, 31)", "rgb(64, 128, 0)", "rgb(139, 129, 23)", "#542437", "#53777A", "#ECD078", "#D95B43", "#C02942"],
         f = function (t, n) {
-            var r = 2 * (Math.random() + Math.random() + Math.random()) - 3;
+            var r = 2 * (Math.random() + Math.random() + Math.random()) - 3; /* qqq speed of air molecules */
             return r * n + t
         };
     r.behavior("position-tracker", function (e) {
@@ -12464,13 +12472,13 @@ function (e, t) {
                     p.state.pos.set(n.left, n.top)
                 });
                 for (a = 0, f = Math.min(this.maxParticles, parseInt(this.tinyDensity * i * s / (this.ratio * this.largeSize))); a < f; ++a) this.addTinyParticle({
-                    x: Math.random() * i,
-                    y: Math.random() * s,
+                    x: Math.random() * i, /* qqq this where the air molecules start on the screen, x-axis */
+                    y: Math.random() * s, /* qqq this where the air molecules start on the screen, y-axis */
                     radius: 5
                 });
                 for (a = 0, f = Math.max(3, parseInt(this.largeDensity * i * s / this.largeSize)); a < f; ++a) this.addLargeParticle({
-                    x: Math.random() * i,
-                    y: Math.random() * s,
+                    x: Math.random() * i, /* qqq this where the large particles start on the screen, x-axis */
+                    y: Math.random() * s, /* qqq this where the large particles start on the screen, y-axis */
                     color: u[a % u.length]
                 });
                 o.addLayer("tiny").addToStack(t.find({
