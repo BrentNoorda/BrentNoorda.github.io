@@ -1,3 +1,5 @@
+var LARGE_SIZE_DOT = ( this.largeSize = window.Modernizr.touch ? 50 : 35 );
+
 /*!
  * jQuery JavaScript Library v1.10.2
  * http://jquery.com/
@@ -9920,7 +9922,7 @@ function (e, t) {
                     a.done()
                 }
             }
-        }), n.behavior("body-collision-detection", function (e) {
+        }), n.behavior("body-collision-detection", function (e) { /* all non-edge-of-screen collisions */
             var t = function (t, r) {
                     var i;
                     return i = function (e) {
@@ -9961,21 +9963,55 @@ function (e, t) {
                     }
                     return s.done(), c
                 },
-                i = function (t, r) {
+                i = function (t, r) { /* qqq collision of the air molecules and big balls - true if they collide */
                     var i = n.scratchpad(),
                         s = i.vector(),
                         o = i.vector(),
-                        u, a = !1;
-                    return s.clone(r.state.pos).vsub(t.state.pos), u = s.norm() - (t.geometry.radius + r.geometry.radius), s.equals(n.vector.zero) && s.set(1, 0), u <= 0 && (a = {
-                        bodyA: t,
-                        bodyB: r,
-                        norm: s.normalize().values(),
-                        mtv: s.mult(-u).values(),
-                        pos: s.normalize().mult(t.geometry.radius).values(),
-                        overlap: -u
-                    }), i.done(), a
+                        u, collision = !1;
+                    s.clone(r.state.pos).vsub(t.state.pos);
+                    u = s.norm() - (t.geometry.radius + r.geometry.radius);
+                    s.equals(n.vector.zero) && s.set(1, 0);
+                    if ( u <= 0 ) {
+                        /* qqq
+                            for r and t
+                                r.type == "body"
+                                r.radius = LARGE_SIZE_DOT if one of the big balls, else smaller
+                                r.state.vel._[0] has something to do with X velocity
+                                r.state.vel._[1] has something to do with Y velocity
+                         */
+
+                        /* qqq
+
+                           If this involves the collision of a small ball with a large one, and if the small
+                           ball is going down, then it is not a collision
+                         */
+                        var acceptThisCollision = true;
+                        if ( ((r.radius === LARGE_SIZE_DOT) || (t.radius === LARGE_SIZE_DOT))
+                          && (r.radius != t.radius) ) {
+                            // one of these is big and one is small
+                            var small = (r.radius === LARGE_SIZE_DOT) ? t : r ;
+                            if ( small.state.vel._[1] > 0 ) {
+                                // ignore collision of small particles going down
+                                acceptThisCollision = false;
+                            }
+                        }
+
+
+                        if ( acceptThisCollision ) {
+                            collision = {   /* qqq, if this is set, then it's a collision */
+                                bodyA: t,
+                                bodyB: r,
+                                norm: s.normalize().values(),
+                                mtv: s.mult(-u).values(),
+                                pos: s.normalize().mult(t.geometry.radius).values(),
+                                overlap: -u
+                            }
+                        }
+                    }
+                    i.done();
+                    return collision;
                 },
-                s = function (t, n) {
+                s = function (t, n) { /* qqq if this returns true there was a collision, else false */
                     return t.treatment !== "static" && t.treatment !== "kinematic" || n.treatment !== "static" && n.treatment !== "kinematic" ? t.geometry.name === "circle" && n.geometry.name === "circle" ? i(t, n) : r(t, n) : !1
                 },
                 o = {
@@ -9999,10 +10035,12 @@ function (e, t) {
                         u;
                     for (var a = 0, f = t.length; a < f; ++a) {
                         r = t[a];
-                        if (i === this._world._bodies || n.util.indexOf(i, r.bodyA) > -1 && n.util.indexOf(i, r.bodyB) > -1) u = s(r.bodyA, r.bodyB), u && o.push(u)
+                        if (i === this._world._bodies || n.util.indexOf(i, r.bodyA) > -1 && n.util.indexOf(i, r.bodyB) > -1) {
+                            u = s(r.bodyA, r.bodyB), u && o.push(u)
+                        }
                     }
                     o.length && this._world.emit(this.options.channel, {
-                        collisions: o
+                        collisions: o  /* qqq whatever is set here is a collision */
                     })
                 },
                 checkAll: function (e) {
@@ -10096,7 +10134,7 @@ function (e, t) {
                     for (var n = 0, r = t.length; n < r; ++n) t[n].accelerate(this._acc)
                 }
             }
-        }), n.behavior("edge-collision-detection", function (e) {
+        }), n.behavior("edge-collision-detection", function (e) { /* qqq collisions with the top/bottom/left/right edges of the screen */
             var t = function (t, r, i) {
                     var s, o = t.aabb(),
                         u = n.scratchpad(),
@@ -10300,7 +10338,13 @@ function (e, t) {
                         l, c;
                     for (var h = 0, p = t.length; h < p; h++) {
                         r = t[h];
-                        for (var d = h + 1; d < p; d++) i = t[d], f.clone(i.state.pos), f.vsub(r.state.pos), l = f.normSq(), l > o && l < u && (c = s / l, r.accelerate(f.normalize().mult(c * i.mass)), i.accelerate(f.mult(r.mass / i.mass).negate()))
+                        for (var d = h + 1; d < p; d++) {
+                            i = t[d];
+                            f.clone(i.state.pos);
+                            f.vsub(r.state.pos);
+                            l = f.normSq();
+                            l > o && l < u && (c = s / l, r.accelerate(f.normalize().mult(c * i.mass)), i.accelerate(f.mult(r.mass / i.mass).negate()));
+                        }
                     }
                     a.done()
                 }
@@ -12320,7 +12364,7 @@ function (e, t) {
         c = n({
             constructor: function () {
                 var t = this;
-                t.energyScale = 1, this.velSigma = .1, this.tinyDensity = .003, this.largeDensity = 2e-4, this.largeSize = window.Modernizr.touch ? 50 : 35, this.ratio = .15, this.massRatio = .06, this.maxParticles = window.Modernizr.touch ? 100 : 500, this.tinyParticles = [], this.largeParticles = [], t.initEvents(), e(function () {
+                t.energyScale = 1, this.velSigma = .1, this.tinyDensity = .003, this.largeDensity = 2e-4, this.largeSize = LARGE_SIZE_DOT/*window.Modernizr.touch ? 50 : 35*/, this.ratio = .15, this.massRatio = .06, this.maxParticles = window.Modernizr.touch ? 100 : 500, this.tinyParticles = [], this.largeParticles = [], t.initEvents(), e(function () {
                     t.resolve("domready")
                 }), t.after("domready").then(function () {
                     t.onDomReady()
@@ -12476,11 +12520,13 @@ function (e, t) {
                     y: Math.random() * s, /* qqq this where the air molecules start on the screen, y-axis */
                     radius: 5
                 });
-                for (a = 0, f = Math.max(3, parseInt(this.largeDensity * i * s / this.largeSize)); a < f; ++a) this.addLargeParticle({
-                    x: Math.random() * i, /* qqq this where the large particles start on the screen, x-axis */
-                    y: Math.random() * s, /* qqq this where the large particles start on the screen, y-axis */
-                    color: u[a % u.length]
-                });
+                for (a = 0, f = Math.max(3, parseInt(this.largeDensity * i * s / this.largeSize)); a < f; ++a) {
+                    this.addLargeParticle({
+                        x: Math.random() * i, /* qqq this where the large particles start on the screen, x-axis */
+                        y: Math.random() * s, /* qqq this where the large particles start on the screen, y-axis */
+                        color: u[a % u.length]
+                    })
+                }
                 o.addLayer("tiny").addToStack(t.find({
                     tags: {
                         $in: ["tiny"]
