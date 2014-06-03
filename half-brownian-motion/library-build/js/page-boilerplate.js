@@ -1,4 +1,5 @@
 var LARGE_SIZE_DOT = ( this.largeSize = window.Modernizr.touch ? 50 : 35 );
+var gUpwardOnly = false;
 
 /*!
  * jQuery JavaScript Library v1.10.2
@@ -9986,16 +9987,17 @@ function (e, t) {
                            ball is going down, then it is not a collision
                          */
                         var acceptThisCollision = true;
-                        if ( ((r.radius === LARGE_SIZE_DOT) || (t.radius === LARGE_SIZE_DOT))
-                          && (r.radius != t.radius) ) {
-                            // one of these is big and one is small
-                            var small = (r.radius === LARGE_SIZE_DOT) ? t : r ;
-                            if ( small.state.vel._[1] > 0 ) {
-                                // ignore collision of small particles going down
-                                acceptThisCollision = false;
+                        if ( gUpwardOnly ) {
+                            if ( ((r.radius === LARGE_SIZE_DOT) || (t.radius === LARGE_SIZE_DOT))
+                              && (r.radius != t.radius) ) {
+                                // one of these is big and one is small
+                                var small = (r.radius === LARGE_SIZE_DOT) ? t : r ;
+                                if ( small.state.vel._[1] > 0 ) {
+                                    // ignore collision of small particles going down
+                                    acceptThisCollision = false;
+                                }
                             }
                         }
-
 
                         if ( acceptThisCollision ) {
                             collision = {   /* qqq, if this is set, then it's a collision */
@@ -12410,6 +12412,10 @@ function (e, t) {
                         var n = e(this),
                             r = !n.hasClass("on");
                         n.toggleClass("on", r), t.emit("settings:paths", r)
+                    }), n.on("touch", "#ctrl-upward-only", function () {
+                        var n = e(this),
+                            r = !n.hasClass("on");
+                        n.toggleClass("on", r), gUpwardOnly = r
                     }), n.on("touch", "#ctrl-download", function () {
                         var e = t.getImage();
                         this.href = e, this.download = "minutelabs-brownian-motion.png"

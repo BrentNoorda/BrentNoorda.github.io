@@ -42,7 +42,7 @@ var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga
       <nav id="nav-widget" role="navigation" class="">
 
   <div class="top">
-    <h1 class="title">Upward-Only Brownian Motion</h1>
+    <h1 class="title">Brownian Motion (with upward-only option)</h1>
 
     <ul>
       <li><a id="nav-toggle" href="#details" class="btn-details" data-offcanvas="toggle">show comments</a></li>
@@ -54,7 +54,7 @@ var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga
 
 <div id="details" data-offcanvas="offcanvas">
   <header>
-    <h1 class="title">Upward-Only Brownian Motion</h1>
+    <h1 class="title">Brownian Motion (with upward-only option)</h1>
     <h2 class="title-by"><a href="http://minutelabs.io"><span>plagiarized from</span> MinuteLabs<span>.io</span></a></h2>
     <h2 class="title-by"><a href="http://brent-noorda.blogspot.com/2014/06/half-brownian-theory-of-flight.html"><span>used by</span> This Blog Post<span></span></a></h2>
   </header>
@@ -62,7 +62,7 @@ var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga
   <div class="desc">
 
     <p>An interactive physics simulation of Brownian Motion
-    <span style="color:#993333"> if Brownian Motion only applied in the upward direction!</span></p>
+    <span style="color:#993333"> (with option to ignore collisions from air particles pushing down).</span></p>
 <p>Brownian Motion is the random motion of particles that are suspended in
 a gas or a liquid. Drag the first slider to see what's going on behind
 the scenes and play around with the physical parameters. You can also
@@ -101,8 +101,9 @@ download a snapshot if your particles draw you something inspiring.</p>
             <div id="ctrl-mass-ratio"></div>
         </div>
     </div>
-    <div class="btns">
-        <button id="ctrl-draw-paths" class="pop toggle on">Trace Paths</button>
+    <div class="btns" style="font-size:58%;">
+        <button id="ctrl-draw-paths" class="pop toggle on">Trace</button>
+        <button id="ctrl-upward-only" class="pop toggle">Ignore Falling Air</button>
         <a href="#" id="ctrl-download" class="btn">Get Image</a>
     </div>
     <label id="ctrl-move">move</label>
