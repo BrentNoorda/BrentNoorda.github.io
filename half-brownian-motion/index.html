@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<!--[if lte IE 8]>     <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" itemscope itemtype="http://schema.org/Article" lang="en"> <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Brownian Motion | MinuteLabs.io</title>
+  <meta name="description" content="Play with the majestic motion of Brownian particles">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+
+  <!-- Google+ snippet. -->
+  <meta itemprop="name" content="Brownian Motion | MinuteLabs.io">
+  <meta itemprop="description" content="Play with the majestic motion of Brownian particles">
+  <meta itemprop="image" content="thumb.gif">
+
+  <!-- css -->
+  <link rel="stylesheet" href="library/styles/lab.css" />
+  <link rel="stylesheet" href="library-build/styles/site.css?v=0.0.1" />
+
+  <!-- js includes -->
+  <script src="library-build/js/vendor/modernizr.js"></script>
+  <script>
+    var Lab = { title: 'Brownian Motion', id: '' };
+    var require = { urlArgs: 'v=0.0.1' };
+  </script>
+  <script src="library-build/js/vendor/raf.js"></script>
+  <script src="library/js/vendor/require.js" data-main="library-build/js/page-boilerplate"></script>
+    <script type="text/javascript">
+var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-1754630-10']);
+_gaq.push(['_trackPageview']);
+(function() {
+var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+})();
+</script></head>
+<body>
+
+  <div id="wrap-outer">
+    <div data-offcanvas="wrap">
+      <nav id="nav-widget" role="navigation" class="">
+
+  <div class="top">
+    <h1 class="title">Brownian Motion (with upward-only option)</h1>
+
+    <ul>
+      <li><a id="nav-toggle" href="#details" class="btn-details" data-offcanvas="toggle">show comments</a></li>
+      <li><a href="http://brent-noorda.blogspot.com/2014/06/half-brownian-theory-of-flight.html" class="btn-index" style="margin-left:1.5em;">back to blog post</a></li>
+    </ul>
+  </div>
+
+</nav>
+
+<div id="details" data-offcanvas="offcanvas">
+  <header>
+    <h1 class="title">Brownian Motion (with upward-only option)</h1>
+    <h2 class="title-by"><a href="http://minutelabs.io"><span>plagiarized from</span> MinuteLabs<span>.io</span></a></h2>
+    <h2 class="title-by"><a href="http://brent-noorda.blogspot.com/2014/06/half-brownian-theory-of-flight.html"><span>used by</span> This Blog Post<span></span></a></h2>
+  </header>
+
+  <div class="desc">
+
+    <p>An interactive physics simulation of Brownian Motion
+    <span style="color:#993333"> (with option to ignore collisions from air particles pushing down).</span></p>
+<p>Brownian Motion is the random motion of particles that are suspended in
+a gas or a liquid. Drag the first slider to see what's going on behind
+the scenes and play around with the physical parameters. You can also
+download a snapshot if your particles draw you something inspiring.</p>
+
+<p>This demo was plagiarized from a demo showing full Brownian Motion at
+<a href="http://labs.minutelabs.io/Brownian-Motion/">http://labs.minutelabs.io/Brownian-Motion/</a></p>
+
+<p  style="color:#993333;font-size:125%;">To understand this demo, read the blog post: <a href="http://brent-noorda.blogspot.com/2014/06/half-brownian-theory-of-flight.html">Half-Brownian Theory of Flight</a>.
+
+  </div>
+
+</div>
+
+      <div id="viewport" role="main">
+
+        <div id="sim">
+    <canvas id="physics"></canvas>
+</div>
+
+<div id="controls">
+    <label>Drag to see what's actually going on</label>
+    <div id="ctrl-opacity"></div>
+
+    <div class="labels">
+        <label>Energy:</label>
+        <div class="ctrl">
+            <div id="ctrl-energy"></div>
+        </div>
+        <label>Size Ratio:</label>
+        <div class="ctrl">
+            <div id="ctrl-ratio"></div>
+        </div>
+        <label>Mass Ratio:</label>
+        <div class="ctrl">
+            <div id="ctrl-mass-ratio"></div>
+        </div>
+    </div>
+    <div class="btns" style="font-size:80%;">
+        <button id="ctrl-draw-paths" class="pop toggle on">Trace</button>
+        <button id="ctrl-upward-only" class="pop toggle">Ignore<br/>Falling Air</button>
+        <a href="#" id="ctrl-download" class="btn">Download</a>
+    </div>
+    <label id="ctrl-move">move</label>
+</div>
+
+      </div>
+    </div>
+  </div>
+
+  <!--[if lte IE 8]>
+  <div id="bad-browser">
+    <p>We are truly sorry. But your web browser is very outdated. MinuteLabs will just <strong>not work</strong> with your browser.</p>
+    <p>Please visit <a href="http://browsehappy.com">browsehappy</a> to learn how to fix this.</p>
+  </div>
+  <![endif]-->
+
+  <script src="assets/labs-nav.js"></script>
+
+
+  <script type="text/javascript">
+      (function(){
+        var el = document.getElementById('nav-toggle');
+        function cb(){
+          el.removeEventListener('click', cb);
+          el.removeEventListener('touchstart', cb);
+        }
+        if ( el ){
+          el.addEventListener('click', cb);
+          el.addEventListener('touchstart', cb);
+        }
+      })();
+  </script>
+
+
+</body>
+</html>
