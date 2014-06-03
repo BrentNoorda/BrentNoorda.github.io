@@ -1759,6 +1759,9 @@ a.btn.toggle {
 button.toggle.on, .no-touch button.toggle:active,
 a.btn.toggle.on, .no-touch
 a.btn.toggle:active {
+  color: #d2edfc;
+  background: #125497;
+
   z-index: 0;
   -webkit-transform: translate3d(0, 0, 0);
   -moz-transform: translate3d(0, 0, 0);
@@ -1906,8 +1909,8 @@ a.btn.ok[disabled]:hover {
 /* line 123, /Users/wellcaffeinated/Documents/github/minutelabs/minute-labs-io.github.io/library-dev/styles/labs/_buttons.scss */
 button.pop,
 a.btn.pop {
-  color: #d2edfc;
-  background: #125497;
+  color: #434343;/*#d2edfc;*/
+  background: white;/*#125497;*/
   border: 1px solid #0d3b69;
 }
 /* line 9, /Users/wellcaffeinated/Documents/github/minutelabs/minute-labs-io.github.io/library-dev/styles/labs/_buttons.scss */
