@@ -109,9 +109,9 @@ html, body, #wrap-outer {
   bottom: 0;
   right: 0;
   background: #434343 url('../images/icon-move.png?1396992993') no-repeat center center;
-  background-size: 50%;
+  background-size: 30%; /*50%;*/
   color: rgba(0, 0, 0, 0);
-  padding: 1em 0.5em;
+  padding: 4px; /*1em 0.5em;*/
   cursor: move;
   -webkit-border-radius: 3px 0 0 0;
   -moz-border-radius: 3px 0 0 0;
