@@ -12378,7 +12378,7 @@ function (e, t) {
                     t.posTracker && t.posTracker.applyTo(t.largeParticles)
                 }), t.on({
                     "settings:tiny-opacity": function (e, n) {
-                        t.renderer.layer("tiny").el.style.opacity = "" + (Math.exp(n) - 1) / (Math.E - 1)
+                        t.renderer.layer("tiny").el.style.opacity = "" + 0.5/*(Math.exp(n) - 1) / (Math.E - 1)*/
                     },
                     "settings:paths": function (e, n) {
                         var r = t.renderer.layer("paths");
