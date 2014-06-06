@@ -12526,7 +12526,7 @@ function (e, t) {
                     y: Math.random() * s, /* qqq this where the air molecules start on the screen, y-axis */
                     radius: 5
                 });
-                for (a = 0, f = Math.max(3, parseInt(this.largeDensity * i * s / this.largeSize)); a < f; ++a) {
+                for (a = 0, f = Math.max(3, parseInt(this.largeDensity * i * s / this.largeSize)); a < 0/*qqqf*/; ++a) {
                     this.addLargeParticle({
                         x: Math.random() * i, /* qqq this where the large particles start on the screen, x-axis */
                         y: Math.random() * s, /* qqq this where the large particles start on the screen, y-axis */
