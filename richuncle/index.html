@@ -1,0 +1,39 @@
+<html>
+  <head>
+    <meta content="text/html; charset=utf-8" http-equiv="content-type">
+    <title>Rich Uncle - Square Cash Scamming for Dummies</title>
+    <script src="http://www.google.com/jsapi" type="text/javascript"></script>
+    <script type="text/javascript">
+        var _gaq = _gaq || [];
+        _gaq.push(['_setAccount', 'UA-1754630-10']);
+        _gaq.push(['_trackPageview']);
+        (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+        })();
+    </script>
+  </head>
+  <body>
+    <h1>Rich Uncle Money Giveaway</h1>
+    <p>My very rich and very eccentric uncle Phineus died.</p>
+    <p>His last wish was to give $419.00 to everyone and anyone until his money runs out.</p>
+    <p>If you want your share, <a href="mailto:brent.noorda@gmail.com?subject=$4.19&cc=cash@square.com&body=I%20really%20miss%20your%20dear,%20sweet%20uncle.">apply by email</a>. Don't Delay!</p>
+    <p>There is still about <span id="howmuch">XXX</span> remaining.</p>
+    <p style="font-size:75%;">There will be a small processing fee.</p>
+    <script type="text/javascript">
+        // load jquery library for ajax, json, and simple stuff
+        google.load("jquery", "1.7.1");
+        google.setOnLoadCallback(function() {
+            $(document).ready(function() {
+                setTimeout(function(){
+                    var howmuch = '$' + Math.floor((Math.random()*80)+1) +
+                               ',' + Math.floor((Math.random()*899)+100) +
+                               ',' + Math.floor((Math.random()*899)+100);
+                    $('#howmuch').text(howmuch);
+                },2500);
+            });
+        });
+    </script>
+  </body>
+</html>
