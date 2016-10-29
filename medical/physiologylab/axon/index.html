@@ -8,6 +8,7 @@
       .dosbox-container { width: 640px; height: 350px; }
       .dosbox-container > .dosbox-overlay { background: url(axon.png); }
       .dosbox-start { font-size: 35px !important; }
+      .splain { xfont-style:italic; xfont-size:78%; width:640px; }
     </style>
 <script type="text/javascript">
 var _gaq = _gaq || [];
@@ -24,13 +25,18 @@ var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga
     <div id="dosbox"></div>
     <br/>
     <button onclick="dosbox.requestFullScreen();">Make fullscreen</button>
-    <p style="font-style:italic;font-size:78%;width:640px;">
+    <p class="splain">
        AXON, this membrane action potential simulation of the Hodgin-Huxley model for excitable tissue, was written for DOS by
        Dr. Robert I. Macey, Nathan Sato, David Hanzel, and Michael Liu. It runs on the <a href="http://js-dos.com/">js-dos</a> emulator
-       from <a href="https://twitter.com/caiiiycuk">Guryanov Aleksander</a>. A keyboard is needed for
-       this emulator, and so a purely touch-screen device probably won't do. For questions about this page,
-       contact <a href="../../../index.html">Brent Noorda</a>. The short URL for this page is
-       <a href="http://catchy.link/AxonActionPotential">catchy.link/AxonActionPotential</a>.
+       from <a href="https://twitter.com/caiiiycuk">Guryanov Aleksander</a>.
+    </p>
+     <p class="splain">
+       A keyboard is needed for this emulator, and so a purely touch-screen device probably won't do.
+       Note: The minus key ('-') may not work on all browsers. Try Firefox.
+    </p>
+     <p class="splain">
+       The short URL for this page is <a href="http://catchy.link/AxonActionPotential">catchy.link/AxonActionPotential</a>.
+       For questions contact <a href="../../../index.html">Brent Noorda</a>.
     </p>
 
     <script type="text/javascript" src="https://js-dos.com/cdn/js-dos-api.js"></script>
