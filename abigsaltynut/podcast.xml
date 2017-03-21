@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0" xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd" xmlns:media="http://search.yahoo.com/mrss/">
+  <channel>
+
+    <title>A Big Salty Nut</title>
+    <description>Lexxures</description>
+    <ttl>15</ttl>
+    <itunes:author>A BSN</itunes:author>
+    <link>http://www.brent-noorda.com/abigsaltynut/podcast.xml</link>
+    <itunes:image href="http://www.brent-noorda.com/abigsaltynut/absnpodcast2.jpg" />
+    <language>en-us</language>
+    <copyright></copyright>
+
+    <pubDate>Wed, 15 Mar 2017 15:00:01 PDT</pubDate>
+
+    <item>
+      <title>170315c mh Case Study - Amanda 46 Lost Job</title>
+      <description>stuff</description>
+      <itunes:author>Mr. Recorder</itunes:author>
+      <itunes:summary></itunes:summary>
+      <pubDate>Wed, 15 Mar 2017 15:00:01 PDT</pubDate>
+      <enclosure url="https://www.dropbox.com/s/9avu4i5f2sz5yns/170315c%20mh%20Case%20Study%20-%20Amanda%2046%20Lost%20Job.mp3?dl=1" length="4385348" type="audio/mpeg" />
+      <guid>https://www.dropbox.com/s/9avu4i5f2sz5yns/170315c%20mh%20Case%20Study%20-%20Amanda%2046%20Lost%20Job.mp3</guid>
+      <itunes:duration>8:02</itunes:duration>
+    </item>
+
+    <item>
+      <title>170315b mh Personality Disorders</title>
+      <description>stuff</description>
+      <itunes:author>Mr. Recorder</itunes:author>
+      <itunes:summary></itunes:summary>
+      <pubDate>Wed, 15 Mar 2017 14:00:00 PDT</pubDate>
+      <enclosure url="https://www.dropbox.com/s/purbs2rcw8b1jc9/170315b%20mh%20Personality%20Disorders.mp3?dl=1" length="10774698" type="audio/mpeg" />
+      <guid>https://www.dropbox.com/s/purbs2rcw8b1jc9/170315b%20mh%20Personality%20Disorders.mp3</guid>
+      <itunes:duration>19:34</itunes:duration>
+    </item>
+
+    <item>
+      <title>170315a mh Depression and Bipolar Medications</title>
+      <description>stuff</description>
+      <itunes:author>Mr. Recorder</itunes:author>
+      <itunes:summary></itunes:summary>
+      <pubDate>Wed, 15 Mar 2017 13:00:00 PDT</pubDate>
+      <enclosure url="https://www.dropbox.com/s/hp92is3k6crdkvi/170315a%20mh%20Depression%20and%20Bipolar%20Medications.mp3?dl=1" length="19276819" type="audio/mpeg" />
+      <guid>https://www.dropbox.com/s/hp92is3k6crdkvi/170315a%20mh%20Depression%20and%20Bipolar%20Medications.mp3</guid>
+      <itunes:duration>34:56</itunes:duration>
+    </item>
+
+  </channel>
+</rss>
