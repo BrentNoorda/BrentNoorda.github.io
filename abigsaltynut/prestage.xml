@@ -10,7 +10,51 @@
     <language>en-us</language>
     <copyright></copyright>
 
-    <pubDate>Fri, 17 Mar 2017 21:00:00 PDT</pubDate>
+    <pubDate>Sat, 18 Mar 2017 12:00:00 PDT</pubDate>
+
+    <item>
+      <title>170318c pharm GI</title>
+      <description>stuff</description>
+      <itunes:author>Mr. Recorder</itunes:author>
+      <itunes:summary></itunes:summary>
+      <pubDate>Sat, 18 Mar 2017 12:00:00 PDT</pubDate>
+      <enclosure url="https://www.dropbox.com/s/x40vrueb6i5ms5l/170318c%20pharm%20GI.mp3?dl=1" length="33283911" type="audio/mpeg" />
+      <guid>https://www.dropbox.com/s/9ao9hvnetxrqbcx/170318a%20pharm%20endocrine%201of2.mp3</guid>
+      <itunes:duration>1:01:31</itunes:duration>
+    </item>
+
+    <item>
+      <title>170318c pharm antibiotics</title>
+      <description>stuff</description>
+      <itunes:author>Mr. Recorder</itunes:author>
+      <itunes:summary></itunes:summary>
+      <pubDate>Sat, 18 Mar 2017 11:00:00 PDT</pubDate>
+      <enclosure url="https://www.dropbox.com/s/zytyt5olh41dr19/170318c%20pharm%20antibiotics.mp3?dl=1" length="19009415" type="audio/mpeg" />
+      <guid>https://www.dropbox.com/s/zytyt5olh41dr19/170318c%20pharm%20antibiotics.mp3</guid>
+      <itunes:duration>35:08</itunes:duration>
+    </item>
+
+    <item>
+      <title>170318b pharm endocrine 2of2</title>
+      <description>stuff</description>
+      <itunes:author>Mr. Recorder</itunes:author>
+      <itunes:summary></itunes:summary>
+      <pubDate>Sat, 18 Mar 2017 10:00:00 PDT</pubDate>
+      <enclosure url="https://www.dropbox.com/s/j4he3o9yy2hcgr5/170318b%20pharm%20endocrine%202of2.mp3?dl=1" length="7246952" type="audio/mpeg" />
+      <guid>https://www.dropbox.com/s/j4he3o9yy2hcgr5/170318b%20pharm%20endocrine%202of2.mp3</guid>
+      <itunes:duration>13:16</itunes:duration>
+    </item>
+
+    <item>
+      <title>170318a pharm endocrine 1of2</title>
+      <description>stuff</description>
+      <itunes:author>Mr. Recorder</itunes:author>
+      <itunes:summary></itunes:summary>
+      <pubDate>Sat, 18 Mar 2017 9:00:00 PDT</pubDate>
+      <enclosure url="https://www.dropbox.com/s/9ao9hvnetxrqbcx/170318a%20pharm%20endocrine%201of2.mp3?dl=1" length="23124567" type="audio/mpeg" />
+      <guid>https://www.dropbox.com/s/9ao9hvnetxrqbcx/170318a%20pharm%20endocrine%201of2.mp3</guid>
+      <itunes:duration>42:16</itunes:duration>
+    </item>
 
     <item>
       <title>170317d pharm asthma</title>
