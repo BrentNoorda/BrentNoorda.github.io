@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <rss version="2.0" xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd" xmlns:media="http://search.yahoo.com/mrss/">
   <channel>
-
     <title>A Big Salty Nut</title>
     <description>Lexxures</description>
     <ttl>15</ttl>
@@ -11,7 +10,18 @@
     <language>en-us</language>
     <copyright></copyright>
 
-    <pubDate>Wed, 5 Apr 2017 15:30:00 PDT</pubDate>
+    <pubDate>Wed, 19 Apr 2017 15:30:00 PDT</pubDate>
+
+    <item>
+      <title>170419 A HESI Hour with Pedro</title>
+      <description>stuff</description>
+      <itunes:author>Mr. Recorder</itunes:author>
+      <itunes:summary></itunes:summary>
+      <pubDate>Wed, 19 Apr 2017 15:30:00 PDT</pubDate>
+      <enclosure url="https://www.dropbox.com/s/j1mtdofzijokzxy/170419%20A%20HESI%20Hour%20with%20Pedro.mp3?dl=1" length="43728544" type="audio/mpeg" />
+      <guid>https://www.dropbox.com/s/j1mtdofzijokzxy/170419%20A%20HESI%20Hour%20with%20Pedro.mp3</guid>
+      <itunes:duration>1:17:11</itunes:duration>
+    </item>
 
     <item>
       <title>170405c mh children and adolescents</title>
