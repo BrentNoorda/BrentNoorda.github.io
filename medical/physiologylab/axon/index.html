@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>membrane action potential</title>
+    <style type="text/css">
+      .dosbox-container { width: 640px; height: 350px; }
+      .dosbox-container > .dosbox-overlay { background: url(axon.png); }
+      .dosbox-start { font-size: 35px !important; }
+      .splain { xfont-style:italic; xfont-size:78%; width:640px; }
+    </style>
+<script type="text/javascript">
+var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-1754630-10']);
+_gaq.push(['_trackPageview']);
+(function() {
+var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+})();
+</script>
+  </head>
+  <body>
+    <div id="dosbox"></div>
+    <br/>
+    <button onclick="dosbox.requestFullScreen();">Make fullscreen</button>
+    <h2 class="splain">
+       Simulation of the Hodgkin-Huxley model for excitable tissue.
+    </h2>
+    <p class="splain">
+       <i>Axon</i>, this membrane action potential simulation of the Hodgkin-Huxley model for excitable tissue, was written for DOS by
+       Dr. Robert I. Macey, Nathan Sato, David Hanzel, and Michael Liu. It runs on the <a href="http://js-dos.com/">js-dos</a> emulator
+       from <a href="https://twitter.com/caiiiycuk">Guryanov Aleksander</a>.
+    </p>
+     <p class="splain">
+       A keyboard is needed for this emulator, and so a purely touch-screen device probably won't do.
+       Note: The minus key ('-') may not work on all browsers. Try Firefox.
+    </p>
+     <p class="splain">
+       The short URL for this page is <a href="http://catchy.link/AxonActionPotential">catchy.link/AxonActionPotential</a>.
+       For questions contact <a href="../../../index.html">Brent Noorda</a>.
+    </p>
+
+    <script type="text/javascript" src="https://js-dos.com/cdn/js-dos-api.js"></script>
+    <script type="text/javascript">
+      var dosbox = new Dosbox({
+        id: "dosbox",
+        onload: function (dosbox) {
+          dosbox.run("http://www.brent-noorda.com/medical/physiologylab/axon/axon.zip", "./NEWAXON.EXE");
+        },
+        onrun: function (dosbox, app) {
+          console.log("App '" + app + "' is runned");
+        }
+      });
+    </script>
+  </body>
+</html>

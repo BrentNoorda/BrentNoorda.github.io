@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta content="text/html; charset=utf-8" http-equiv="content-type">
+    <meta name="viewport" content="initial-scale=1,width=device-width,maximum-scale=1"/>
+    <title>Mosby OneStep SMU Linkifier</title>
+    <script src="https://www.google.com/jsapi" type="text/javascript"></script>
+  </head>
+  <body>
+    <h1>Turn Mosby Links into One-Step SMU-login-automatic links</h1>
+    <h2>What is this?</h2>
+    <p>
+        Mosby has great resources for SMU students, but it can be difficult to tell students
+        how to locate a resource, and time-consuming for them to find that resource. You cannot (tradionaly)
+        send a direct link to a resource, because the recipient must login first. With this tool, once
+        you find a Mosby resources you can enter that URL to that resource under "Mosby URL" below,
+        and "Translated for SMU Login" will be a URL you can send them to automatically handle the
+        login and loading of that resource.
+    </p>
+    <p style="margin-left:2em">
+        Traditional Method of telling someone how to view a Mosby resource<br/>
+        1) login to Mosby, if you can remember how<br/>2) Search on "sputum" (wait...)<br/>
+        3) select "Sepecimen Collection: Sputum"<br/>4) From Demos select the video
+    </p>
+    <p style="margin-left:2em">
+        New Method (after you've translated the URL with the form below):<br/>
+        1) Click on <a href="https://samuelmerritt.idm.oclc.org/login?url=http://mns.elsevierperformancemanager.com/NursingSkills/AnimationPlayer/Player.aspx?path=GN_43_9/P004_20140730&animationID=P004_20140730&mediaType=6&VirtualName=samuelmerrittuniv-caoakland" target="_blank">this link</a>
+    </p>
+    <hr><br/>
+    Mosby URL:<br/><input id="smu-here" type="text" size="100">
+    <br/>
+    <br/>
+    <br/>
+    Translated for SMU Login: <button id="copybutt">Copy To Clipboard</button><br/><input id="translated" type="text" size="100" readonly value="blah">
+    <script type="text/javascript">
+        // load jquery library for ajax, json, and simple stuff
+        google.load("jquery", "1.7.1");
+        google.setOnLoadCallback(function() {
+            $(document).ready(function() {
+
+                $("#smu-here").bind("propertychange change click keyup input paste",function(event) {
+
+                    var xlat = $("#smu-here").val();
+                    xlat = xlat.replace("/mns.elsevierperformancemanager.com.samuelmerritt.idm.oclc.org/","/mns.elsevierperformancemanager.com/");
+                    xlat = "https://samuelmerritt.idm.oclc.org/login?url=" + xlat + "&VirtualName=samuelmerrittuniv-caoakland";
+                    $("#translated").val(xlat);
+                });
+
+
+                $("#smu-here").focus();
+                $("#copybutt").click(function(){
+                    var target = $("#translated").get(0);
+                    target.focus();
+                    target.setSelectionRange(0, target.value.length);
+                    document.execCommand("copy");
+                });
+            });
+        });
+    </script>
+  </body>
+</html>
