@@ -1,4 +1,4 @@
-Sitemap: http://www.brent-noorda.com/sitemap.xml
+Sitemap: http://brent-noorda.com/sitemap.xml
 
 User-agent: *
 Disallow:
