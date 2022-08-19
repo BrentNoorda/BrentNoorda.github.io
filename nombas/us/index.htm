@@ -54,6 +54,51 @@ li {
 doesn't exist any more. All the good stuff was sold to Openwave, then
 sold to someone else, then sold to someone else, then I lost track.</p>
 <p>Sorry about that.</p>
+
+<table style="width:85%;margin-right:auto;margin-left:auto;"><tr><td style="background-color:#F0FFFF;border:1px solid purple;font-size:80%;padding:6px;">
+<p>Update, Aug 19, 2022:</p><p>
+
+I probably created this page 11 or more years ago (although I see one update in 2014).
+By then I’d already been out of the hardcore JavaScript world for many years (what
+is ECMAScript up to now, version 89?, I don’t even know).
+</p><p>I’m updating this now because <a href="https://www.nasa.gov/mission_pages/webb/main/index.html">JWST (James Webb Space Telescope)</a> launched almost
+a year ago, and lately more lay-ish people have taken noticed that the Nombas engine is
+controlling a lot of what goes on in the satellite and between the earth and the
+satellite. It was nearly two decades between our first getting involved, until JWST
+finally launched, with delay after delay (for political and technical and financial
+reasons). I wondered sometimes if it was ever going to fly.
+</p><p>I find much of the coverage (like <a href="https://www.theverge.com/2022/8/18/23206110/james-webb-space-telescope-javascript-jwst-instrument-control">this article in The Verge yesterday</a>) thrilling.
+I’m extremely proud to have been involved. But it’s also common for people to sense concern that
+NASA’s $10 billion telescope is running on ancient software, with a language not known
+for its reliability, and created by a fly-by-night company that no longer exists.
+</p><p>To very briefly address those concerns:
+</p><ul><li>The initial version of the ScriptEase software began in the early 1990’s
+(1991 or 1992, I think). By the time NASA used it it had gone through a dozen years
+and 5 major releases (their 5.00e version being the 5th minor release of version 5).
+</li><li>Although JavaScript is not known for it’s robustness, over the 12 years
+we’d been working on it we debugged the crap out of that engine, and we provided compile
+time options to allow developers to avoid many of the error-prone flaws built into the
+official ECMAScript specification and to detect such errors early.
+</li><li>Until the end of 2018, I continued to consult with NASA over every mission,
+code, and test change.
+</li></ul><p>It is my opinion that NASA settled on the Nombas engine, after extensive
+research of their own into all the options available at the time, not because of the JavaScript language
+itself (although the familiarity of the language was a bonus), but because of the solid
+and robust nature of the ScriptEase engine and the tools that went with it.
+</p><p>At Nombas, went to extremes to make software as unbreakable as possible. This started with
+good code and good coders, and was stressed to software limits by what we called
+“the server farm”, which continually ran every conceivable iteration of code input
+and outputs (and countless inconceivable iterations brought about by randomness).
+Our automation tests assured that everything that could go wrong was forced to go
+wrong, and that the engine recovered in the proper way to the controlling script
+or processor, with no crashes, no loss of memory (we actually ensured that every
+single memory allocation would recover from failure based on total size, count,
+or just randomly), and no side effects.
+</p><p>You don’t want to be using the latest and flashiest software, just because
+it is the latest and flashiest, only to find yourself launching astronauts to your satellite,
+a million miles out into space, just to press ctrl-alt-del.
+</p><td></tr><table>
+
 <ul>
 <li><a href="#alternative">Modern alternatives for
 Nombas products</a></li>
