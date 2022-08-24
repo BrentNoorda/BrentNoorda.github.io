@@ -56,9 +56,8 @@ sold to someone else, then sold to someone else, then I lost track.</p>
 <p>Sorry about that.</p>
 
 <table style="width:85%;margin-right:auto;margin-left:auto;"><tr><td style="background-color:#F0FFFF;border:1px solid purple;font-size:80%;padding:6px;">
-<p>Update, Aug 19, 2022:</p><p>
-
-I probably created this page 11 or more years ago (although I see one update in 2014).
+<p>Update, Aug 19, 2022:
+</p><p>I probably created this page 11 or more years ago (although I see one update in 2014).
 By then I’d already been out of the hardcore JavaScript world for many years (what
 is ECMAScript up to now, version 89?, I don’t even know).
 </p><p>I’m updating this now because <a href="https://www.nasa.gov/mission_pages/webb/main/index.html">JWST (James Webb Space Telescope)</a> launched almost
@@ -96,6 +95,18 @@ or just randomly), and no side effects.
 </p><p>You don’t want to be using the latest and flashiest software, just because
 it is the latest and flashiest, only to find yourself launching astronauts to your satellite,
 a million miles out into space, just to press ctrl-alt-del.
+</p><td></tr><table>
+
+<table style="width:85%;margin-right:auto;margin-left:auto;margin-top:1em;"><tr><td style="background-color:#F0FFFF;border:1px solid purple;font-size:80%;padding:6px;">
+<p>Minor Update, Aug 24, 2022 (a minor little thing):
+</p><p>I’ve read a few places recently that the ScriptEase engine that was selected for
+JWST 20 years ago was written in C++. No, it was written in C. The early 90’s version
+had been in C++, but we found C++ to be a problem for embedded systems, which were
+becoming important to us. This was partly because C++ was less common at the time,
+so more difficult to integrate. But the greater problem was the difficult in bullet-proofing C++ systems, due to the ease of unintended consequences, but mostly because of the exception-in-constructor problem: What to do if there’s an error (for example, out of memory) while creating a constructor? I found it very confusing, and managed differently (if at all) by the many different C++ compilers at the time. As I wrote earlier, we insisted that anything that could go wrong would to go wrong in testing, and that we would recover appropriately from that. Accomplishing this robustness goal in multiple version of C++ was too complicated.
+</p><p>By the way, that original version of the engine was written in C++ interpreted the
+language we called “Cmm” (for “C minus minus”). It’s a little funny to think that
+Cmm was written in C++.
 </p><td></tr><table>
 
 <ul>
